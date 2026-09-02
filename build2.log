@@ -1,0 +1,162 @@
+﻿
+> toolkit-pro@1.0.0 build
+> next build
+
+Γû▓ Next.js 16.3.3 (Turbopack)
+Γ£ô Running next.config.js took 202ms
+- Experiments (use with caution):
+  ┬╖ optimizePackageImports
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 29.6s
+  Running TypeScript ...
+  Finished TypeScript in 64s ...
+  Collecting page data using 3 workers ...
+  Generating static pages using 3 workers (0/141) ...
+  Generating static pages using 3 workers (35/141) 
+  Generating static pages using 3 workers (70/141) 
+  Generating static pages using 3 workers (105/141) 
+Γ£ô Generating static pages using 3 workers (141/141) in 12.9s
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /about
+Γö£ Γùï /age-calculator
+Γö£ Γùï /ai-detector
+Γö£ Γùï /ascii-converter
+Γö£ Γùï /ats-resume-checker
+Γö£ Γùï /barcode-generator
+Γö£ Γùï /base-converter
+Γö£ Γùï /base64-tool
+Γö£ Γùï /bmi-calculator
+Γö£ Γùï /calorie-calculator
+Γö£ Γùï /case-converter
+Γö£   /category/[id]
+Γöé Γö£ ΓùÅ /category/text-documents
+Γöé Γö£ ΓùÅ /category/business
+Γöé Γö£ ΓùÅ /category/developer
+Γöé Γöö ΓùÅ [+9 more paths]
+Γö£ Γùï /cmyk-converter
+Γö£ Γùï /code-minifier
+Γö£ Γùï /coin-flip
+Γö£ Γùï /color-contrast
+Γö£ Γùï /color-converter
+Γö£ Γùï /color-palette
+Γö£ Γùï /color-shades-generator
+Γö£ Γùï /commission-calculator
+Γö£ Γùï /compound-interest-calculator
+Γö£ Γùï /countdown-timer
+Γö£ Γùï /cover-letter-builder
+Γö£ Γùï /credit-card-validator
+Γö£ Γùï /cron-parser
+Γö£ Γùï /css-beautifier
+Γö£ Γùï /csv-viewer
+Γö£ Γùï /date-calculator
+Γö£ Γùï /dice-roller
+Γö£ Γùï /discount-calculator
+Γö£ Γùï /email-extractor
+Γö£ Γùï /exif-viewer
+Γö£ Γùï /fake-data-generator
+Γö£ Γùï /favicon-generator
+Γö£ Γùï /file-size-converter
+Γö£ Γùï /gpa-calculator
+Γö£ Γùï /gradient-generator
+Γö£ Γùï /grammar-checker
+Γö£ Γùï /gst-calculator
+Γö£ Γùï /hash-generator
+Γö£ Γùï /html-beautifier
+Γö£ Γùï /html-entities
+Γö£ Γùï /ideal-weight-calculator
+Γö£ Γùï /image-border
+Γö£ Γùï /image-color-extractor
+Γö£ Γùï /image-compressor
+Γö£ Γùï /image-format-converter
+Γö£ Γùï /image-resizer
+Γö£ Γùï /image-to-base64
+Γö£ Γùï /image-to-pdf
+Γö£ Γùï /income-tax-calculator
+Γö£ Γùï /inflation-calculator
+Γö£ Γùï /invoice-generator
+Γö£ Γùï /json-csv
+Γö£ Γùï /json-formatter
+Γö£ Γùï /json-to-excel
+Γö£ Γùï /json-to-yaml
+Γö£ Γùï /json-tree-viewer
+Γö£ Γùï /jwt-decoder
+Γö£ Γùï /keyword-density
+Γö£ Γùï /loan-calculator
+Γö£ Γùï /lorem-ipsum
+Γö£ Γùï /macro-calculator
+Γö£ Γùï /markdown-editor
+Γö£ Γùï /mime-type-lookup
+Γö£ Γùï /morse-translator
+Γö£ Γùï /mortgage-calculator
+Γö£ Γùï /number-to-words
+Γö£ ╞Æ /og/[slug]
+Γö£ Γùï /open-graph-preview
+Γö£ Γùï /password-generator
+Γö£ Γùï /password-strength
+Γö£ Γùï /percentage-calculator
+Γö£ Γùï /percentage-change
+Γö£ Γùï /percentage-difference
+Γö£ Γùï /plagiarism-checker
+Γö£ Γùï /pomodoro-timer
+Γö£ Γùï /pregnancy-calculator
+Γö£ Γùï /privacy
+Γö£ Γùï /profit-margin-calculator
+Γö£ Γùï /purchase-order-generator
+Γö£ Γùï /qr-code-generator
+Γö£ Γùï /qr-scanner
+Γö£ Γùï /quotation-generator
+Γö£ Γùï /random-hex-color
+Γö£ Γùï /random-number
+Γö£ Γùï /random-passphrase
+Γö£ Γùï /random-string
+Γö£ Γùï /readability-checker
+Γö£ Γùï /regex-tester
+Γö£ Γùï /resume-builder
+Γö£ Γùï /robots-txt-generator
+Γö£ Γùï /robots.txt
+Γö£ Γùï /roman-numeral
+Γö£ Γùï /salary-calculator
+Γö£ Γùï /screen-resolution
+Γö£ Γùï /serp-preview
+Γö£ Γùï /signature-maker
+Γö£ Γùï /sip-calculator
+Γö£ Γùï /sitemap-generator
+Γö£ Γùï /sitemap.xml
+Γö£ Γùï /slug-generator
+Γö£ Γùï /ssl-checker
+Γö£ Γùï /stopwatch
+Γö£ Γùï /svg-optimizer
+Γö£ Γùï /terms
+Γö£ Γùï /text-cleaner
+Γö£ Γùï /text-diff
+Γö£ Γùï /text-find-replace
+Γö£ Γùï /text-list
+Γö£ Γùï /text-reverser
+Γö£ Γùï /text-summarizer
+Γö£ Γùï /text-to-speech
+Γö£ Γùï /timestamp-converter
+Γö£ Γùï /timezone-converter
+Γö£ Γùï /tip-calculator
+Γö£ Γùï /unit-converter
+Γö£ Γùï /url-encoder
+Γö£ Γùï /url-parser
+Γö£ Γùï /uuid-generator
+Γö£ Γùï /water-intake-calculator
+Γö£ Γùï /word-counter
+Γö£ Γùï /work-days-calculator
+Γö£ Γùï /world-clock
+Γö£ Γùï /xml-formatter
+Γö£ Γùï /yaml-to-json
+Γö£ Γùï /youtube-thumbnail-downloader
+Γöö Γùï /zip-creator
+
+
+Γùï  (Static)   prerendered as static content
+ΓùÅ  (SSG)      prerendered as static HTML (uses generateStaticParams)
+╞Æ  (Dynamic)  server-rendered on demand
+

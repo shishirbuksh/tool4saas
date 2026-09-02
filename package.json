@@ -1,0 +1,39 @@
+{
+  "name": "toolkit-pro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Productivity toolkit — free online tools for invoices, QR codes, resumes and text utilities. Monetized with display ads.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/validate-tools.mjs && node scripts/generate-llms.mjs && next build",
+    "validate": "node scripts/validate-tools.mjs && node scripts/generate-llms.mjs",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^9.4.0",
+    "@mui/material": "^9.4.0",
+    "@mui/material-nextjs": "^9.4.0",
+    "fflate": "^0.8.3",
+    "jsbarcode": "^3.12.3",
+    "jspdf": "^4.2.1",
+    "jsqr": "^1.4.0",
+    "next": "16.3.3",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.11",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "16.3.3",
+    "typescript": "^5.6.3",
+    "vitest": "^3.2.4"
+  }
+}

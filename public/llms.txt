@@ -1,0 +1,160 @@
+# ToolKit Pro
+
+> Free, privacy-friendly online productivity and developer tools that run entirely in your browser. No account required and your data never leaves your device.
+
+## Overview
+- [ToolKit Pro](https://your-domain.com/): Home page with all free tools grouped by category.
+- [About](https://your-domain.com/about): What the site is and how it protects your privacy.
+- [Privacy Policy](https://your-domain.com/privacy): How user data is handled (it stays in your browser).
+- [Categories](https://your-domain.com/category/text-documents): Browse tools by category.
+
+## Text & Documents
+- [Word Counter](https://your-domain.com/word-counter): Count words, characters & reading time
+- [Case Converter](https://your-domain.com/case-converter): UPPER, lower, Title, camel & more
+- [Text Diff Checker](https://your-domain.com/text-diff): Compare two texts side by side
+- [List Tools](https://your-domain.com/text-list): Sort, dedupe, shuffle & reverse
+- [Find & Replace](https://your-domain.com/text-find-replace): Find and replace text in bulk
+- [Text Reverser](https://your-domain.com/text-reverser): Reverse text, words or lines
+- [Keyword Density Analyzer](https://your-domain.com/keyword-density): Word frequency & density
+- [Text to Speech](https://your-domain.com/text-to-speech): Listen to your text aloud
+- [Email Extractor](https://your-domain.com/email-extractor): Pull emails from any text
+- [Markdown Editor](https://your-domain.com/markdown-editor): Write & preview markdown
+- [Text Cleaner](https://your-domain.com/text-cleaner): Trim & clean text
+- [Readability Checker](https://your-domain.com/readability-checker): Flesch & grade level
+- [Text Summarizer](https://your-domain.com/text-summarizer): Extractive summary
+- [Grammar Checker](https://your-domain.com/grammar-checker): Find grammar issues
+- [AI Detector](https://your-domain.com/ai-detector): Detect AI-written text
+- [Plagiarism Checker](https://your-domain.com/plagiarism-checker): Check uniqueness %
+
+## Business & Writing
+- [Invoice Generator](https://your-domain.com/invoice-generator): Create & download professional invoices
+- [Resume Builder](https://your-domain.com/resume-builder): Build a clean resume and export to PDF
+- [Commission Calculator](https://your-domain.com/commission-calculator): Calculate sales commission
+- [ATS Resume Checker](https://your-domain.com/ats-resume-checker): Check resume vs job
+- [Signature Maker](https://your-domain.com/signature-maker): Draw & type signature
+- [Quotation Generator](https://your-domain.com/quotation-generator): Create quotations
+- [Purchase Order Generator](https://your-domain.com/purchase-order-generator): Create purchase orders
+- [Cover Letter Builder](https://your-domain.com/cover-letter-builder): Build cover letters
+
+## Developer Tools
+- [JSON Formatter](https://your-domain.com/json-formatter): Format, validate & minify JSON
+- [Base64 Encode / Decode](https://your-domain.com/base64-tool): Encode and decode Base64 text
+- [URL Encoder / Decoder](https://your-domain.com/url-encoder): Encode & decode URL components
+- [Hash Generator](https://your-domain.com/hash-generator): SHA-1 / 256 / 512 of any text
+- [Base Converter](https://your-domain.com/base-converter): Binary, hex, decimal & more
+- [HTML Entity Encoder](https://your-domain.com/html-entities): Encode & decode HTML entities
+- [Regex Tester](https://your-domain.com/regex-tester): Test JavaScript regular expressions
+- [JWT Decoder](https://your-domain.com/jwt-decoder): Decode JSON Web Tokens safely
+- [MIME Type Lookup](https://your-domain.com/mime-type-lookup): File extension ↔ MIME
+- [JSON to YAML](https://your-domain.com/json-to-yaml): Convert JSON into YAML
+- [HTML Beautifier](https://your-domain.com/html-beautifier): Pretty-print HTML
+- [Credit Card Validator](https://your-domain.com/credit-card-validator): Luhn check & brand
+- [Password Strength Checker](https://your-domain.com/password-strength): Rate your password
+- [Code Minifier](https://your-domain.com/code-minifier): Minify JS, CSS & HTML
+- [Screen Resolution](https://your-domain.com/screen-resolution): Detect screen metrics
+- [XML Formatter](https://your-domain.com/xml-formatter): Format & validate XML
+- [Cron Parser](https://your-domain.com/cron-parser): Explain cron expressions
+- [CSS Beautifier](https://your-domain.com/css-beautifier): Format CSS nicely
+- [YAML to JSON](https://your-domain.com/yaml-to-json): Convert YAML to JSON
+- [JSON Tree Viewer](https://your-domain.com/json-tree-viewer): Explore JSON as tree
+- [SSL Checker](https://your-domain.com/ssl-checker): Check SSL certificate
+
+## Converters
+- [Unit Converter](https://your-domain.com/unit-converter): Convert length, weight, temp & more
+- [JSON ↔ CSV Converter](https://your-domain.com/json-csv): Convert between JSON and CSV
+- [URL Parser](https://your-domain.com/url-parser): Break down any URL
+- [Number to Words](https://your-domain.com/number-to-words): Spell out numbers in English
+- [Roman Numeral Converter](https://your-domain.com/roman-numeral): Roman ↔ Arabic numbers
+- [Image to Base64](https://your-domain.com/image-to-base64): Encode & decode image data URLs
+- [CSV Viewer](https://your-domain.com/csv-viewer): View, sort & filter CSV
+- [Morse Code Translator](https://your-domain.com/morse-translator): Text ↔ Morse code
+- [ASCII / Hex / Binary Converter](https://your-domain.com/ascii-converter): Text ↔ codes
+- [File Size Converter](https://your-domain.com/file-size-converter): Bytes, KB, MB, GB
+- [JSON to Excel](https://your-domain.com/json-to-excel): JSON → XLS download
+- [ZIP Creator](https://your-domain.com/zip-creator): Create ZIP files
+
+## Generators
+- [Password Generator](https://your-domain.com/password-generator): Strong random passwords in one click
+- [Lorem Ipsum Generator](https://your-domain.com/lorem-ipsum): Placeholder text in one click
+- [Slug Generator](https://your-domain.com/slug-generator): Turn titles into URL slugs
+- [Random Number Generator](https://your-domain.com/random-number): Secure random numbers & lists
+- [UUID Generator](https://your-domain.com/uuid-generator): Generate v4 UUIDs in bulk
+- [Random String Generator](https://your-domain.com/random-string): Secure random strings & keys
+- [Dice Roller](https://your-domain.com/dice-roller): Roll virtual dice
+- [Coin Flip](https://your-domain.com/coin-flip): Flip a fair coin
+- [Random Passphrase](https://your-domain.com/random-passphrase): Generate secure passphrase
+- [Random Hex Color](https://your-domain.com/random-hex-color): Generate random hex colors
+- [Barcode Generator](https://your-domain.com/barcode-generator): CODE128, EAN13, UPC
+- [Fake Data Generator](https://your-domain.com/fake-data-generator): Generate test data
+
+## Images & Design
+- [QR Code Generator](https://your-domain.com/qr-code-generator): Generate QR codes for links, text & more
+- [Image Compressor](https://your-domain.com/image-compressor): Shrink images without uploading
+- [Color Converter](https://your-domain.com/color-converter): HEX, RGB & HSL conversions
+- [Color Contrast Checker](https://your-domain.com/color-contrast): WCAG contrast for any two colors
+- [Gradient Generator](https://your-domain.com/gradient-generator): Design CSS gradients visually
+- [Favicon Generator](https://your-domain.com/favicon-generator): Make a favicon from text or emoji
+- [Color Palette Generator](https://your-domain.com/color-palette): Harmonies from any color
+- [Image Resizer](https://your-domain.com/image-resizer): Resize images in browser
+- [Image Border](https://your-domain.com/image-border): Add borders to images
+- [Image Format Converter](https://your-domain.com/image-format-converter): WebP, PNG, JPG, AVIF
+- [SVG Optimizer](https://your-domain.com/svg-optimizer): Shrink SVG files
+- [EXIF Viewer](https://your-domain.com/exif-viewer): Read image metadata
+- [Color Shades Generator](https://your-domain.com/color-shades-generator): Shades & tints
+- [YouTube Thumbnail Downloader](https://your-domain.com/youtube-thumbnail-downloader): Grab YT thumbnails
+- [Image Color Extractor](https://your-domain.com/image-color-extractor): Extract 5 colors
+- [QR Scanner](https://your-domain.com/qr-scanner): Scan QR from image
+- [CMYK Converter](https://your-domain.com/cmyk-converter): HEX, RGB ↔ CMYK
+
+## PDF Tools
+- [Image to PDF](https://your-domain.com/image-to-pdf): Images → PDF
+- [PDF Merge](https://your-domain.com/pdf-merge): Merge multiple PDFs
+- [PDF Compressor](https://your-domain.com/pdf-compress): Reduce PDF file size
+
+## Calculators
+- [Percentage Calculator](https://your-domain.com/percentage-calculator): Percent of, what % & change
+- [BMI Calculator](https://your-domain.com/bmi-calculator): Body Mass Index in metric & imperial
+- [Tip Calculator](https://your-domain.com/tip-calculator): Split bills & calculate tips
+- [Loan Calculator](https://your-domain.com/loan-calculator): Monthly payment & interest
+- [Discount Calculator](https://your-domain.com/discount-calculator): Sale price & savings
+- [GST / VAT Calculator](https://your-domain.com/gst-calculator): Tax inclusive & exclusive
+- [Percentage Change](https://your-domain.com/percentage-change): Change between values
+- [Percentage Difference](https://your-domain.com/percentage-difference): Difference between values
+- [Work Days Calculator](https://your-domain.com/work-days-calculator): Calculate business days
+- [GPA Calculator](https://your-domain.com/gpa-calculator): Grade point average
+
+## Finance & Money
+- [Mortgage Calculator](https://your-domain.com/mortgage-calculator): EMI, interest & amortization
+- [Compound Interest Calculator](https://your-domain.com/compound-interest-calculator): Maturity & interest growth
+- [Salary Calculator](https://your-domain.com/salary-calculator): Take-home & per-pay
+- [Profit Margin Calculator](https://your-domain.com/profit-margin-calculator): Margin & markup
+- [Income Tax Calculator](https://your-domain.com/income-tax-calculator): Net pay after tax
+- [Inflation Calculator](https://your-domain.com/inflation-calculator): Future value & power
+- [SIP Calculator](https://your-domain.com/sip-calculator): SIP maturity & gains
+
+## Health & Fitness
+- [Calorie Calculator](https://your-domain.com/calorie-calculator): BMR, TDEE & macros
+- [Water Intake Calculator](https://your-domain.com/water-intake-calculator): Daily water needs
+- [Ideal Weight Calculator](https://your-domain.com/ideal-weight-calculator): Healthy weight range
+- [Macro Calculator](https://your-domain.com/macro-calculator): Protein, carbs & fat
+- [Pregnancy Calculator](https://your-domain.com/pregnancy-calculator): Due date & trimesters
+
+## SEO & Marketing
+- [Sitemap Generator](https://your-domain.com/sitemap-generator): XML sitemap builder
+- [Robots.txt Generator](https://your-domain.com/robots-txt-generator): Generate robots.txt
+- [Open Graph Preview](https://your-domain.com/open-graph-preview): Preview social cards
+- [SERP Preview](https://your-domain.com/serp-preview): Google snippet preview
+
+## Time & Date
+- [Age Calculator](https://your-domain.com/age-calculator): Find your exact age & next birthday
+- [Timestamp Converter](https://your-domain.com/timestamp-converter): Epoch ↔ human-readable date
+- [Date Calculator](https://your-domain.com/date-calculator): Add days or find the difference
+- [Timezone Converter](https://your-domain.com/timezone-converter): Convert times across zones
+- [Stopwatch](https://your-domain.com/stopwatch): Accurate online stopwatch
+- [Countdown Timer](https://your-domain.com/countdown-timer): Days until any date
+- [World Clock](https://your-domain.com/world-clock): Time in world cities
+- [Pomodoro Timer](https://your-domain.com/pomodoro-timer): Focus & break cycles
+
+## Site
+- [Sitemap](https://your-domain.com/sitemap.xml): Machine-readable list of all pages.
+- [Robots](https://your-domain.com/robots.txt): Crawler directives.
