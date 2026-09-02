@@ -76,6 +76,7 @@ export default function Header() {
               <BuildOutlinedIcon fontSize="small" aria-hidden="true" />
             </Box>
             <Typography
+              component="span"
               variant="h6"
               noWrap
               sx={{
@@ -200,7 +201,7 @@ export default function Header() {
             <Box sx={{ p: 1, bgcolor: 'primary.main', color: 'primary.contrastText' }}>
               <BuildOutlinedIcon fontSize="small" />
             </Box>
-            <Typography variant="h6" sx={{ fontWeight: 800, fontFamily: "var(--font-display), serif" }}>
+            <Typography component="span" sx={{ fontWeight: 800, fontFamily: "var(--font-display), serif" }}>
               Menu
             </Typography>
           </Box>

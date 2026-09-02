@@ -29,7 +29,7 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
           <Typography color="text.primary" sx={{ fontWeight: 600 }}>{tool.title}</Typography>
         </Breadcrumbs>
         
-        <Typography variant="h1" sx={{ fontSize: { xs: "2.5rem", md: "3.5rem" }, fontWeight: 800, mb: 3, letterSpacing: "-0.03em" }}>
+        <Typography variant="h1" sx={{ fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3.5rem" }, fontWeight: 800, mb: 3, letterSpacing: "-0.03em" }}>
           {tool.title}
         </Typography>
         <Typography color="text.secondary" sx={{ fontSize: { xs: "1.125rem", md: "1.25rem" }, lineHeight: 1.6, maxWidth: 640, mx: "auto" }}>

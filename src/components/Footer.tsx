@@ -49,7 +49,7 @@ export default function Footer() {
                 }}>
                   <BuildOutlinedIcon fontSize="small" />
                 </Box>
-                <Typography variant="h6" sx={{ fontWeight: 800, fontFamily: "var(--font-display), serif", letterSpacing: "-0.02em" }}>
+                <Typography variant="h6" component="span" sx={{ fontWeight: 800, fontFamily: "var(--font-display), serif", letterSpacing: "-0.02em" }}>
                   {siteConfig.name}
                 </Typography>
               </Box>
@@ -61,7 +61,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 4, md: 2, lg: 3 }}>
-            <Typography component="h3" variant="subtitle1" sx={{ fontWeight: 700, mb: 3 }}>
+            <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 3 }}>
               Categories
             </Typography>
             <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 0.5 }}>
@@ -78,7 +78,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 4, md: 3, lg: 3 }}>
-            <Typography component="h3" variant="subtitle1" sx={{ fontWeight: 700, mb: 3 }}>
+            <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 3 }}>
               Popular Tools
             </Typography>
             <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 0.5 }}>
@@ -95,7 +95,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 4, md: 3, lg: 3 }}>
-            <Typography component="h3" variant="subtitle1" sx={{ fontWeight: 700, mb: 3 }}>
+            <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 3 }}>
               Company
             </Typography>
             <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 0.5 }}>
