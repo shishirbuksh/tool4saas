@@ -38,19 +38,20 @@ export default function ImageResizerTool() {
       return;
     }
     setName(file.name);
-    const reader = new FileReader();
-    reader.onload = () => {
-      const img = new Image();
-      img.onload = () => {
-        imgRef.current = img;
-        setReady(true);
-        setRatio(img.width / img.height);
-        setW(String(img.width));
-        setH(String(img.height));
-      };
-      img.src = reader.result as string;
+    const img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(img.src);
+      imgRef.current = img;
+      setReady(true);
+      setRatio(img.width / img.height);
+      setW(String(img.width));
+      setH(String(img.height));
     };
-    reader.readAsDataURL(file);
+    img.onerror = () => {
+      URL.revokeObjectURL(img.src);
+      setError("Could not load the image.");
+    };
+    img.src = URL.createObjectURL(file);
   };
 
   const setWidth = (v: string) => {

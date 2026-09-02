@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import Alert from "@mui/material/Alert";
 import { runRegexInWorker } from "@/lib/regexWorker";
 
 export default function RegexTesterTool() {
@@ -84,7 +85,7 @@ export default function RegexTesterTool() {
             </Typography>
           ) : (
             <Stack spacing={1}>
-              {matches.map((m, i) => (
+              {matches.slice(0, 100).map((m, i) => (
                 <Box
                   key={i}
                   sx={{
@@ -103,6 +104,11 @@ export default function RegexTesterTool() {
                   {m.value || "(empty)"}
                 </Box>
               ))}
+              {matches.length > 100 && (
+                <Alert severity="warning">
+                  Showing first 100 matches out of {matches.length}
+                </Alert>
+              )}
             </Stack>
           )}
         </Box>

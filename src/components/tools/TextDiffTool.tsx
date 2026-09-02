@@ -13,32 +13,57 @@ type DiffPart = { t: "same" | "add" | "del"; v: string };
 function diffWords(a: string, b: string): DiffPart[] {
   const A = a.split(/(\s+)/);
   const B = b.split(/(\s+)/);
-  const n = A.length;
-  const m = B.length;
-  const dp: number[][] = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
-  for (let i = n - 1; i >= 0; i--) {
-    for (let j = m - 1; j >= 0; j--) {
-      dp[i][j] = A[i] === B[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
-    }
+
+  let start = 0;
+  while (start < A.length && start < B.length && A[start] === B[start]) {
+    start++;
   }
+  let endA = A.length - 1;
+  let endB = B.length - 1;
+  while (endA >= start && endB >= start && A[endA] === B[endB]) {
+    endA--;
+    endB--;
+  }
+
+  const midA = A.slice(start, endA + 1);
+  const midB = B.slice(start, endB + 1);
+
   const res: DiffPart[] = [];
-  let i = 0;
-  let j = 0;
-  while (i < n && j < m) {
-    if (A[i] === B[j]) {
-      res.push({ t: "same", v: A[i] });
-      i++;
-      j++;
-    } else if (dp[i + 1][j] >= dp[i][j + 1]) {
-      res.push({ t: "del", v: A[i] });
-      i++;
-    } else {
-      res.push({ t: "add", v: B[j] });
-      j++;
+  for (let k = 0; k < start; k++) res.push({ t: "same", v: A[k] });
+
+  const n = midA.length;
+  const m = midB.length;
+  
+  if (n * m > 1000000) {
+    for (let k = 0; k < n; k++) res.push({ t: "del", v: midA[k] });
+    for (let k = 0; k < m; k++) res.push({ t: "add", v: midB[k] });
+  } else {
+    const dp: number[][] = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
+    for (let i = n - 1; i >= 0; i--) {
+      for (let j = m - 1; j >= 0; j--) {
+        dp[i][j] = midA[i] === midB[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+      }
     }
+    let i = 0;
+    let j = 0;
+    while (i < n && j < m) {
+      if (midA[i] === midB[j]) {
+        res.push({ t: "same", v: midA[i] });
+        i++;
+        j++;
+      } else if (dp[i + 1][j] >= dp[i][j + 1]) {
+        res.push({ t: "del", v: midA[i] });
+        i++;
+      } else {
+        res.push({ t: "add", v: midB[j] });
+        j++;
+      }
+    }
+    while (i < n) res.push({ t: "del", v: midA[i++] });
+    while (j < m) res.push({ t: "add", v: midB[j++] });
   }
-  while (i < n) res.push({ t: "del", v: A[i++] });
-  while (j < m) res.push({ t: "add", v: B[j++] });
+
+  for (let k = endA + 1; k < A.length; k++) res.push({ t: "same", v: A[k] });
   return res;
 }
 

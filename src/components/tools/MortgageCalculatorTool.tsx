@@ -27,7 +27,7 @@ export default function MortgageCalculatorTool() {
       return { emi: null, total: null, interest: null };
     const n = y * 12;
     const mr = r / 100 / 12;
-    const emiVal = mr === 0 ? principal / n : (principal * mr) / (1 - Math.pow(1 + mr, -n));
+    const emiVal = mr < 1e-6 ? principal / n : (principal * mr) / (1 - Math.pow(1 + mr, -n));
     const tot = emiVal * n;
     return { emi: emiVal, total: tot, interest: tot - principal };
   }, [loanAmount, downPayment, rate, years]);

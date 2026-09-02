@@ -51,58 +51,46 @@ export default function ImageCompressorTool() {
     if (!file) return;
     setBusy(true);
     setError("");
-    const reader = new FileReader();
-    reader.onerror = () => {
-      setError("Could not read the file.");
-      setBusy(false);
-    };
-    reader.onload = () => {
-      const img = new Image();
-      img.onload = () => {
-        let { width, height } = img;
-        if (width > maxWidth) {
-          height = Math.round((height * maxWidth) / width);
-          width = maxWidth;
-        }
-        const canvas = document.createElement("canvas");
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext("2d");
-        if (!ctx) {
-          setError("Canvas not supported in this browser.");
-          setBusy(false);
-          return;
-        }
-        ctx.drawImage(img, 0, 0, width, height);
-        const mime = file.type === "image/png" ? "image/png" : "image/jpeg";
-        canvas.toBlob(
-          (blob) => {
-            if (blob) {
-              const name = file.name.replace(/\.[^.]+$/, "") + "-compressed." + (mime === "image/png" ? "png" : "jpg");
-              const url = URL.createObjectURL(blob);
-              setResult({ url, size: blob.size, name });
-            } else {
-              setError("Compression failed.");
-            }
-            setBusy(false);
-          },
-          mime,
-          quality
-        );
-      };
-      img.onerror = () => {
-        setError("Could not load the image.");
-        setBusy(false);
-      };
-      const res = reader.result;
-      if (typeof res !== "string") {
-        setError("Could not read the file.");
+    const img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(img.src);
+      let { width, height } = img;
+      if (width > maxWidth) {
+        height = Math.round((height * maxWidth) / width);
+        width = maxWidth;
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        setError("Canvas not supported in this browser.");
         setBusy(false);
         return;
       }
-      img.src = res;
+      ctx.drawImage(img, 0, 0, width, height);
+      const mime = file.type === "image/png" ? "image/png" : "image/jpeg";
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            const name = file.name.replace(/\.[^.]+$/, "") + "-compressed." + (mime === "image/png" ? "png" : "jpg");
+            const url = URL.createObjectURL(blob);
+            setResult({ url, size: blob.size, name });
+          } else {
+            setError("Compression failed.");
+          }
+          setBusy(false);
+        },
+        mime,
+        quality
+      );
     };
-    reader.readAsDataURL(file);
+    img.onerror = () => {
+      URL.revokeObjectURL(img.src);
+      setError("Could not load the image.");
+      setBusy(false);
+    };
+    img.src = URL.createObjectURL(file);
   };
 
   return (

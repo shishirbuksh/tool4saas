@@ -13,7 +13,10 @@ import Alert from "@mui/material/Alert";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 function randInt(min: number, max: number) {
-  const range = max - min + 1;
+  let range = max - min + 1;
+  if (range > 4294967295) {
+    range = 4294967295;
+  }
   const arr = new Uint32Array(1);
   const limit = 4294967296 - (4294967296 % range);
   while (true) {

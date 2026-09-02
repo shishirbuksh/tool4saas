@@ -34,7 +34,7 @@ export default function SipCalculatorTool() {
     const mr = rRaw / 100 / 12;
     const inv = m * n;
     let fut: number;
-    if (mr > 0) {
+    if (mr !== 0) {
       fut = m * ((Math.pow(1 + mr, n) - 1) / mr) * (1 + mr);
     } else {
       fut = m * n;

@@ -21,7 +21,7 @@ export default function LoanCalculatorTool() {
       return { monthly: null, total: null, interest: null };
     const n = Math.round(y * 12);
     const mr = r / 100 / 12;
-    const payment = mr === 0 ? p / n : (p * mr) / (1 - Math.pow(1 + mr, -n));
+    const payment = mr < 1e-6 ? p / n : (p * mr) / (1 - Math.pow(1 + mr, -n));
     const tot = payment * n;
     return { monthly: payment, total: tot, interest: tot - p };
   }, [principal, rate, years]);

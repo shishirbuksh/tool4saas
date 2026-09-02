@@ -29,7 +29,7 @@ export default function WordCounterTool() {
   const stats = useMemo(() => {
     const trimmed = text.trim();
     const words = trimmed ? trimmed.split(/\s+/).length : 0;
-    const chars = text.length;
+    const chars = [...text].length;
     const charsNoSpace = text.replace(/\s/g, "").length;
     const sentences = trimmed ? (trimmed.match(/[.!?]+(\s|$)/g) || []).length : 0;
     const paragraphs = trimmed ? text.replace(/\n+$/, "").split(/\n\s*\n/).filter(Boolean).length : 0;
@@ -40,7 +40,7 @@ export default function WordCounterTool() {
 
   const keyword = useMemo(() => {
     const map = new Map<string, number>();
-    const tokens = text.toLowerCase().match(/[a-z']+/g) || [];
+    const tokens = text.toLowerCase().match(/[\p{L}\p{N}]+/gu) || [];
     for (const t of tokens) map.set(t, (map.get(t) || 0) + 1);
     return [...map.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
   }, [text]);
