@@ -192,7 +192,7 @@ export const theme = createTheme({
           lineHeight: 1.6,
           fontFeatureSettings: '"liga" 1, "calt" 1, "cv11" 1',
           fontOpticalSizing: "auto",
-          backgroundColor: "#FAFAFA",
+          backgroundColor: "#FAFAFA", color: "#111111",
         },
         "::selection": {
           background: "rgba(17, 17, 17, 0.15)",
@@ -422,7 +422,7 @@ export const darkTheme = createTheme({
         ...(theme.components?.MuiCssBaseline?.styleOverrides as any),
         body: {
           ...(theme.components?.MuiCssBaseline?.styleOverrides as any)?.body,
-          backgroundColor: "#0A0A0A",
+          backgroundColor: "#0A0A0A", color: "#EDEDED",
         },
         "::selection": {
           background: "rgba(255, 255, 255, 0.15)",
