@@ -14,14 +14,14 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
     <Container maxWidth="lg" sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 8, md: 12 } }}>
       <Box sx={{ mb: { xs: 6, md: 8 }, maxWidth: 800, mx: "auto", textAlign: "center" }}>
         <Breadcrumbs sx={{ mb: 4, typography: 'body2', justifyContent: "center", display: "flex" }} aria-label="breadcrumb">
-          <Link href="/" passHref legacyBehavior>
-            <Box component="a" sx={{ color: "text.secondary", textDecoration: "none", '&:hover': { color: 'primary.main' } }}>
+          <Link href="/" style={{textDecoration: "none"}}>
+            <Box component="span" sx={{ color: "text.secondary", textDecoration: "none", '&:hover': { color: 'primary.main' } }}>
               Home
             </Box>
           </Link>
           {cat && (
-            <Link href={`/category/${cat.id}`} passHref legacyBehavior>
-              <Box component="a" sx={{ color: "text.secondary", textDecoration: "none", '&:hover': { color: 'primary.main' } }}>
+            <Link href={`/category/${cat.id}`} style={{textDecoration: "none"}}>
+              <Box component="span" sx={{ color: "text.secondary", textDecoration: "none", '&:hover': { color: 'primary.main' } }}>
                 {cat.label}
               </Box>
             </Link>
