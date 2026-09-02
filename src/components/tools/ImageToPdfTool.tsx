@@ -19,9 +19,10 @@ type Orientation = "portrait" | "landscape";
 type PdfImage = {
   id: number;
   name: string;
-  dataUrl: string;
+  objectUrl: string;
   width: number;
   height: number;
+  file: File;
 };
 
 let nextId = 1;
@@ -67,34 +68,31 @@ export default function ImageToPdfTool() {
     }
 
     const readFile = (file: File): Promise<PdfImage> =>
-      new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onerror = () => reject(new Error(`Failed to read ${file.name}`));
-        reader.onload = () => {
-          const dataUrl = String(reader.result);
-          const img = new Image();
-          img.onload = () => {
-            resolve({
-              id: nextId++,
-              name: file.name,
-              dataUrl,
-              width: img.width,
-              height: img.height,
-            });
-          };
-          img.onerror = () => {
-            // still resolve without dimensions - fallback to 800x600
-            resolve({
-              id: nextId++,
-              name: file.name,
-              dataUrl,
-              width: 800,
-              height: 600,
-            });
-          };
-          img.src = dataUrl;
+      new Promise((resolve, _reject) => {
+        const objectUrl = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => {
+          resolve({
+            id: nextId++,
+            name: file.name,
+            objectUrl,
+            width: img.width,
+            height: img.height,
+            file,
+          });
         };
-        reader.readAsDataURL(file);
+        img.onerror = () => {
+          // still resolve without dimensions - fallback to 800x600
+          resolve({
+            id: nextId++,
+            name: file.name,
+            objectUrl,
+            width: 800,
+            height: 600,
+            file,
+          });
+        };
+        img.src = objectUrl;
       });
 
     Promise.all(files.map(readFile))
@@ -165,11 +163,19 @@ export default function ImageToPdfTool() {
         doc = new FallbackCtor(orientation, "mm", pageSize);
       }
 
-      images.forEach((img, idx) => {
+      for (let idx = 0; idx < images.length; idx++) {
+        const img = images[idx];
         if (idx > 0) {
           // addPage uses current format/orientation by default
           doc.addPage();
         }
+
+        const dataUrl = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result));
+          reader.onerror = () => reject(new Error(`Failed to read ${img.name}`));
+          reader.readAsDataURL(img.file);
+        });
 
         const pageW = doc.internal.pageSize.getWidth();
         const pageH = doc.internal.pageSize.getHeight();
@@ -191,14 +197,14 @@ export default function ImageToPdfTool() {
         const x = (pageW - renderW) / 2;
         const y = (pageH - renderH) / 2;
 
-        const format = getImageFormat(img.dataUrl);
+        const format = getImageFormat(dataUrl);
         try {
-          doc.addImage(img.dataUrl, format, x, y, renderW, renderH);
+          doc.addImage(dataUrl, format, x, y, renderW, renderH);
         } catch {
           // fallback to JPEG if format detection failed
-          doc.addImage(img.dataUrl, "JPEG", x, y, renderW, renderH);
+          doc.addImage(dataUrl, "JPEG", x, y, renderW, renderH);
         }
-      });
+      }
 
       doc.save("images.pdf");
       setSuccess(`Generated PDF with ${images.length} image${images.length === 1 ? "" : "s"}. Download started.`);
@@ -297,7 +303,7 @@ export default function ImageToPdfTool() {
             >
               <Box
                 component="img"
-                src={img.dataUrl}
+                src={img.objectUrl}
                 alt={img.name}
                 sx={{
                   width: "100%",

@@ -133,7 +133,7 @@ export default function QuotationGeneratorTool() {
           </Box>
           <Box component="tbody">
             {lines.map((l, i) => (
-              <Box component="tr" key={i} sx={{ borderBottom: "1px solid #e2e8f0" }}>
+              <Box component="tr" key={i} sx={{ borderBottom: "1px solid #e2e8f0", breakInside: "avoid", pageBreakInside: "avoid" }}>
                 <Box component="td" sx={td}>{l.desc || "—"}</Box>
                 <Box component="td" sx={{ ...td, textAlign: "right" }}>{l.qty}</Box>
                 <Box component="td" sx={{ ...td, textAlign: "right" }}>{money(l.rate)}</Box>

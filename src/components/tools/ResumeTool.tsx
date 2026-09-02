@@ -90,7 +90,7 @@ export default function ResumeTool() {
         </Section>
         <Section title="Experience">
           {exps.map((x, i) => (
-            <Box key={i} sx={{ mb: 2 }}>
+            <Box key={i} sx={{ mb: 2, breakInside: "avoid", pageBreakInside: "avoid" }}>
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: 14 }}>{x.role}</Typography>
                 <Typography sx={{ fontSize: 12, color: "#64748b" }}>{x.period}</Typography>
@@ -102,7 +102,7 @@ export default function ResumeTool() {
         </Section>
         <Section title="Education">
           {edus.map((x, i) => (
-            <Box key={i} sx={{ mb: 1 }}>
+            <Box key={i} sx={{ mb: 2, breakInside: "avoid", pageBreakInside: "avoid" }}>
               <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Typography sx={{ fontWeight: 600, color: "#0f172a", fontSize: 14 }}>{x.school}</Typography>
                 <Typography sx={{ fontSize: 12, color: "#64748b" }}>{x.period}</Typography>

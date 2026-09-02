@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -26,6 +26,14 @@ export default function ImageResizerTool() {
   const [dataUrl, setDataUrl] = useState("");
   const [ready, setReady] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    return () => {
+      if (dataUrl) {
+        URL.revokeObjectURL(dataUrl);
+      }
+    };
+  }, [dataUrl]);
 
   const onFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -74,7 +82,12 @@ export default function ImageResizerTool() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     ctx.drawImage(img, 0, 0, nw, nh);
-    setDataUrl(canvas.toDataURL("image/png"));
+    canvas.toBlob((blob) => {
+      if (blob) {
+        const url = URL.createObjectURL(blob);
+        setDataUrl(url);
+      }
+    }, "image/png");
   };
 
   return (
