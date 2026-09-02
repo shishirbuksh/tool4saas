@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Inter, Fraunces } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import Box from "@mui/material/Box";
@@ -79,15 +78,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
-      <head />
-      <body>
-        <Script
-          id="theme-initializer"
-          strategy="beforeInteractive"
+      <head>
+        <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: `try{var m=localStorage.getItem('color-mode');if(m!=='light'&&m!=='dark')m=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',m);document.documentElement.style.colorScheme=m;var c=m==='dark'?'#070b16':'#FCFCF9';var q=document.querySelector('meta[name="theme-color"]');if(q)q.setAttribute('content',c);else{var t=document.createElement('meta');t.name='theme-color';t.content=c;document.head.appendChild(t);}}catch(e){}`,
           }}
         />
+      </head>
+      <body>
         <AdSenseScript />
         <a href="#main" className="skip-link">
           Skip to content
