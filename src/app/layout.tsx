@@ -79,7 +79,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
-      <head>
+      <head />
+      <body>
         <Script
           id="theme-initializer"
           strategy="beforeInteractive"
@@ -88,8 +89,6 @@ export default function RootLayout({
           }}
         />
         <AdSenseScript />
-      </head>
-      <body>
         <a href="#main" className="skip-link">
           Skip to content
         </a>
