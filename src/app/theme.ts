@@ -270,7 +270,7 @@ export const theme = createTheme({
     MuiTextField: {
       defaultProps: {
         variant: "outlined",
-        InputLabelProps: { shrink: true },
+        slotProps: { inputLabel: { shrink: true } },
       },
       styleOverrides: {
         root: {
