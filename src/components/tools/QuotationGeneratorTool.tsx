@@ -104,6 +104,8 @@ export default function QuotationGeneratorTool() {
       </ToolPaper>
 
       {/* Printable quotation */}
+      {/* Note: Colors are intentionally hardcoded (light theme) for print fidelity. 
+          This serves as a WYSIWYG preview for the paper output even when the app is in dark mode. */}
       <Paper id="quotation-print" sx={{ p: { xs: 3, sm: 5 }, mt: 4, maxWidth: 800, mx: "auto", bgcolor: "#fff", color: "#000" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 4 }}>
           <Box>

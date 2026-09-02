@@ -96,7 +96,7 @@ export default function TextDiffTool() {
                     {p.v}
                   </Box>
                 ) : (
-                  <Box component="span" key={idx} sx={{ bgcolor: "success.light", color: "#06340f" }}>
+                  <Box component="span" key={idx} sx={{ bgcolor: "success.light", color: (t) => t.palette.mode === 'dark' ? '#fff' : '#06340f' }}>
                     {p.v}
                   </Box>
                 )

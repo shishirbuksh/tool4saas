@@ -77,6 +77,8 @@ export default function ResumeTool() {
       </ToolPaper>
 
       {/* Printable resume */}
+      {/* Note: Colors are intentionally hardcoded (light theme) for print fidelity. 
+          This serves as a WYSIWYG preview for the paper output even when the app is in dark mode. */}
       <Paper id="resume-print" sx={{ p: { xs: 3, sm: 6 }, maxWidth: 800, mx: "auto", bgcolor: "#fff", color: "#000" }}>
         <Box sx={{ borderBottom: "2px solid #0f172a", pb: 2, mb: 3 }}>
           <Typography sx={{ fontSize: 28, fontWeight: 800, color: "#0f172a" }}>{name}</Typography>

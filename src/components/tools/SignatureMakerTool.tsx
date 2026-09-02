@@ -213,7 +213,7 @@ export default function SignatureMakerTool() {
           border: "1px solid",
           borderColor: "divider",
           borderRadius: 2,
-          bgcolor: "#ffffff",
+          bgcolor: "background.paper",
           overflow: "hidden",
           lineHeight: 0,
         }}
@@ -332,7 +332,7 @@ export default function SignatureMakerTool() {
               border: "1px dashed",
               borderColor: "divider",
               borderRadius: 2,
-              bgcolor: "#fff",
+              bgcolor: "background.paper",
               textAlign: "center",
               fontFamily: font,
               fontSize: 32,

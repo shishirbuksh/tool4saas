@@ -118,7 +118,7 @@ export default function QrCodeTool() {
         </Box>
 
         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2 }}>
-          <Paper variant="outlined" sx={{ p: 2, bgcolor: "#fff" }}>
+          <Paper variant="outlined" sx={{ p: 2, bgcolor: canGenerate ? "#ffffff" : "background.paper" }}>
             <Box ref={canvasRef} sx={{ lineHeight: 0 }}>
               {canGenerate ? (
                 <QRCodeCanvas value={safeValue} size={size} level={level as "L" | "M" | "Q" | "H"} bgColor="#ffffff" fgColor="#0f172a" />

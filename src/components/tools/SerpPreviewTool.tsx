@@ -323,7 +323,7 @@ export default function SerpPreviewTool() {
 
           <Typography
             sx={{
-              color: "#1a0dab",
+              color: (t) => t.palette.mode === 'dark' ? '#8ab4f8' : '#1a0dab',
               fontSize: 18,
               lineHeight: 1.3,
               fontWeight: 400,
@@ -341,7 +341,7 @@ export default function SerpPreviewTool() {
 
           <Typography
             sx={{
-              color: "#474747",
+              color: (t) => t.palette.mode === 'dark' ? '#bdc1c6' : '#474747',
               fontSize: 13.5,
               lineHeight: 1.58,
               mt: 0.5,

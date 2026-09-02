@@ -46,7 +46,7 @@ export default function ToolSearch({ sx }: { sx?: SxProps }) {
       size="small"
       sx={{ width: { xs: "100%", md: 280 }, minWidth: 0, ...sx }}
       slotProps={{ popper: { sx: { zIndex: 1400 } } }}
-      renderInput={({ InputLabelProps, InputProps, ...params }: any) => (
+      renderInput={({ InputLabelProps: _InputLabelProps, InputProps, ...params }: any) => (
         <TextField
           {...params}
           placeholder="Search tools…"

@@ -384,7 +384,7 @@ export default function QrScannerTool() {
             borderColor: "divider",
             borderRadius: 2,
             overflow: "hidden",
-            bgcolor: "black",
+            bgcolor: "common.black",
             position: "relative",
           }}
         >
@@ -394,7 +394,7 @@ export default function QrScannerTool() {
             autoPlay
             playsInline
             muted
-            sx={{ width: "100%", maxHeight: 400, display: "block", objectFit: "contain", bgcolor: "black" }}
+            sx={{ width: "100%", maxHeight: 400, display: "block", objectFit: "contain", bgcolor: "common.black" }}
           />
           {scanning && (
             <Box
@@ -403,7 +403,7 @@ export default function QrScannerTool() {
                 top: 8,
                 left: 8,
                 bgcolor: "rgba(0,0,0,0.6)",
-                color: "white",
+                color: "common.white",
                 px: 1,
                 py: 0.5,
                 borderRadius: 1,
