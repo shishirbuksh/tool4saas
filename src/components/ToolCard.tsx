@@ -133,17 +133,11 @@ function Icon({ name }: { name: string }) {
 
 export default function ToolCard({ tool }: { tool: Tool }) {
   return (
-    <Card
+      <Card
       sx={{
         height: "100%",
         contentVisibility: "auto",
         containIntrinsicSize: "0 280px",
-        transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), box-shadow 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms",
-        "&:hover": {
-          transform: "translateY(-2px) scale(1.01)",
-          borderColor: "rgba(99,102,241,0.16)",
-          boxShadow: "0 4px 12px rgba(15,23,42,0.08), 0 20px 40px rgba(15,23,42,0.12)",
-        },
       }}
     >
       <CardActionArea component={Link} href={`/${tool.slug}`} sx={{ height: "100%" }}>
@@ -168,14 +162,8 @@ export default function ToolCard({ tool }: { tool: Tool }) {
           </Box>
           <Typography
             component="h3"
-            variant="h3"
+            variant="h5"
             sx={{
-              fontFamily: "var(--font-display), Fraunces, Georgia, serif",
-              fontSize: "clamp(1.05rem, 0.95rem + 0.3vw, 1.25rem)",
-              fontWeight: 700,
-              lineHeight: 1.25,
-              letterSpacing: "-0.015em",
-              textWrap: "balance",
               mb: 1,
             }}
           >
