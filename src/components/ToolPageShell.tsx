@@ -12,23 +12,25 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
   const cat = getCategory(tool.category);
   return (
     <Container maxWidth="lg" sx={{ py: 5 }}>
-      <Breadcrumbs sx={{ mb: 2 }} aria-label="breadcrumb">
-        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
+      <Breadcrumbs sx={{ mb: 4, typography: 'body2' }} aria-label="breadcrumb">
+        <Box component={Link} href="/" sx={{ color: "text.secondary", textDecoration: "none", '&:hover': { color: 'primary.main' } }}>
           Home
-        </Link>
+        </Box>
         {cat && (
-          <Link href={`/category/${cat.id}`} style={{ color: "inherit", textDecoration: "none" }}>
+          <Box component={Link} href={`/category/${cat.id}`} sx={{ color: "text.secondary", textDecoration: "none", '&:hover': { color: 'primary.main' } }}>
             {cat.label}
-          </Link>
+          </Box>
         )}
-        <Typography color="text.primary">{tool.title}</Typography>
+        <Typography color="text.primary" sx={{ fontWeight: 600 }}>{tool.title}</Typography>
       </Breadcrumbs>
-      <Typography variant="h1" sx={{ fontSize: { xs: "2rem", md: "2.5rem" }, mb: 1 }}>
-        {tool.title}
-      </Typography>
-      <Typography color="text.secondary" sx={{ mb: 4, maxWidth: 720 }}>
-        {tool.description}
-      </Typography>
+      <Box sx={{ mb: 6, maxWidth: 800 }}>
+        <Typography variant="h1" sx={{ fontSize: { xs: "2.5rem", md: "3.5rem" }, fontWeight: 800, mb: 2, letterSpacing: "-0.03em" }}>
+          {tool.title}
+        </Typography>
+        <Typography color="text.secondary" sx={{ fontSize: { xs: "1.125rem", md: "1.25rem" }, lineHeight: 1.6 }}>
+          {tool.description}
+        </Typography>
+      </Box>
       <Box
         sx={{
           display: "grid",
