@@ -5,7 +5,14 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import React from "react";
 import Link from "next/link";
+
+const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
+  // @ts-expect-error - MUI passes href dynamically
+  <Link ref={ref} {...props} />
+));
+
 import dynamic from "next/dynamic";
 import type { SxProps } from "@mui/material";
 import type { Tool, IconName } from "@/lib/tools";
@@ -137,9 +144,10 @@ export default function ToolCard({ tool }: { tool: Tool }) {
         "&:active": { transform: "scale(0.99)", transitionDuration: "100ms" },
       }}
     >
-      <Link href={`/${tool.slug}`} passHref legacyBehavior>
-        <CardActionArea
-          aria-label={`Open ${tool.title} tool`}
+      <CardActionArea
+        component={LinkWrapper}
+        href={`/${tool.slug}`}
+        aria-label={`Open ${tool.title} tool`}
         sx={{
           height: "100%",
           borderRadius: "16px",
@@ -203,7 +211,6 @@ export default function ToolCard({ tool }: { tool: Tool }) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      </Link>
     </Card>
   );
 }
