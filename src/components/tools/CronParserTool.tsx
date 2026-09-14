@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -188,10 +188,9 @@ export default function CronParserTool() {
   const [expression, setExpression] = useState("0 0 * * *");
 
   const [now, setNow] = useState<Date | null>(null);
-  import("react").then(({ useEffect }) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => setNow(new Date()), []);
-  });
+  useEffect(() => {
+    setNow(new Date());
+  }, []);
 
   const { error, fields, description, nextRuns } = useMemo(() => {
     const result = validateCron(expression);
