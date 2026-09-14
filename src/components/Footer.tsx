@@ -1,3 +1,5 @@
+"use client";
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -55,7 +57,7 @@ export default function Footer() {
                 </Typography>
               </Box>
               <Typography variant="body1" color="text.primary" sx={{ lineHeight: 1.7, opacity: 0.85 }}>
-                {EXPECTED_TOOL_COUNT} fast, local utilities for developers and creators. No servers, no sign-ups, no tracking.
+                {EXPECTED_TOOL_COUNT} fast, local utilities for developers and creators. No sign-ups. Tool inputs run locally in your browser; ads and analytics are described in our Privacy Policy.
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
                 {EXPECTED_TOOL_COUNT} free tools across {EXPECTED_CATEGORY_COUNT} categories. ({CATEGORIES.length} categories live.)
@@ -136,6 +138,18 @@ export default function Footer() {
                     Contact Support
                   </Typography>
                 </Link>
+              </Box>
+              <Box component="li">
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new Event("t4s:open-cookie-choices"))}
+                  className="footer-link"
+                  style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+                >
+                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                    Cookie choices
+                  </Typography>
+                </button>
               </Box>
             </Box>
           </Grid>
