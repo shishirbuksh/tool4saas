@@ -73,12 +73,12 @@ for (const t of tools) {
 }
 
 // Generate markdown similar to existing llms.txt
-let out = `# ToolKit Pro (${tools.length} free tools across ${categories.length} categories)
+let out = `# Tool4SaaS (${tools.length} free tools across ${categories.length} categories)
 
 > Free, privacy-friendly online productivity and developer tools that run entirely in your browser. No account required and your data never leaves your device. ${tools.length} tools across ${categories.length} categories.
 
 ## Overview
-- [ToolKit Pro](${siteUrl}/): Home page with all ${tools.length} free tools grouped by ${categories.length} categories.
+- [Tool4SaaS](${siteUrl}/): Home page with all ${tools.length} free tools grouped by ${categories.length} categories.
 - [About](${siteUrl}/about): What the site is and how it protects your privacy.
 - [Privacy Policy](${siteUrl}/privacy): How user data is handled (it stays in your browser).
 - [Categories](${siteUrl}/category/text-documents): Browse tools by category.
