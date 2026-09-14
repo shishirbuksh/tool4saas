@@ -5,12 +5,12 @@ export const financeTools: Tool[] = [
     slug: "mortgage-calculator",
     title: "Mortgage Calculator",
     short: "EMI & amortization schedule",
-    description: "Calculate monthly EMI, total interest, and amortization for home loans. Adjust principal, rate, and tenure. 100% private and offline.",
+    description: "Calculate monthly mortgage EMI, total interest, and full amortization for home loans. Adjust principal, rate, and tenure with yearly tables, private in your browser.",
     icon: "AccountBalance",
     keywords: ["mortgage calculator", "mortgage emi calculator", "home loan emi calculator"],
     category: "finance",
     faq: [{ question: "How is EMI calculated?", answer: "EMI = P×r×(1+r)^n÷((1+r)^n−1), where P=principal, r=monthly rate, n=months." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult your lender for exact figures." }, { question: "Is my data private?", answer: "Yes, all EMI and schedule calculations run locally in your browser." }],
-    howTo: [{ name: "Enter loan", text: "Enter principal, annual rate and tenure." }, { name: "Add down payment", text: "Enter down payment to see loan amount." }, { name: "View schedule", text: "See EMI, total interest and yearly table; export to CSV." }]
+    howTo: [{ name: "Enter loan", text: "Enter principal 300000, annual rate 6%, and tenure 30 years (360 months)." }, { name: "Add down payment", text: "Add down payment 60000 to get loan amount 240000." }, { name: "View EMI", text: "See EMI near 1439, total interest, and yearly amortization table." }, { name: "Export and compare", text: "Export CSV and try 5% vs 6% to compare total interest." }]
   },
   {
     slug: "compound-interest-calculator",
@@ -21,7 +21,7 @@ export const financeTools: Tool[] = [
     keywords: ["compound interest calculator", "compound interest maturity calculator", "investment calculator"],
     category: "finance",
     faq: [{ question: "What is compounding frequency?", answer: "Yearly=1, half-yearly=2, quarterly=4, monthly=12. More frequent compounding yields slightly higher maturity." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions. Past performance does not guarantee future returns." }, { question: "Is my data private?", answer: "Yes, all compounding calculations run locally in your browser and stay private." }],
-    howTo: [{ name: "Enter principal", text: "Enter initial investment amount." }, { name: "Set rate & years", text: "Enter annual rate, years and compounding frequency." }, { name: "View maturity", text: "See maturity amount and interest breakdown." }]
+    howTo: [{ name: "Enter principal", text: "Enter principal 10000 as initial investment." }, { name: "Set rate and years", text: "Set annual rate 8%, 10 years, compounding monthly (12)." }, { name: "View maturity", text: "See maturity near 22196 and interest near 12196 with yearly growth." }, { name: "Compare scenarios", text: "Try quarterly vs monthly or 5% vs 8% to compare compounding." }]
   },
   {
     slug: "salary-calculator",
@@ -32,18 +32,18 @@ export const financeTools: Tool[] = [
     keywords: ["salary calculator", "take home pay", "net pay calculator"],
     category: "finance",
     faq: [{ question: "How is net calculated?", answer: "Taxable = gross - deductions, tax = taxable×rate%, net = gross - tax. Per-pay = net ÷ pay periods." }, { question: "Is this tax advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions. Tax laws vary; consult a professional." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional." }],
-    howTo: [{ name: "Enter gross", text: "Enter gross annual salary." }, { name: "Set tax", text: "Enter tax rate and deductions." }, { name: "View net", text: "See net annual and per-paycheck." }]
+    howTo: [{ name: "Enter gross", text: "Enter gross annual salary 80000." }, { name: "Set tax", text: "Set tax rate 20% and deductions 5000 for 401k or insurance." }, { name: "View net", text: "See net near 60000 annual and per-paycheck for monthly or biweekly." }, { name: "Compare offers", text: "Try 75000 vs 80000 or adjust deductions to see take-home change." }]
   },
   {
     slug: "profit-margin-calculator",
     title: "Profit Margin Calculator",
     short: "Calculate margin & markup",
-    description: "Determine profit, margin, and markup. Enter your cost and revenue to see your financial breakdown instantly. 100% private and offline.",
+    description: "Determine profit, margin, and markup from cost and revenue. See margin vs markup percent with formulas for pricing decisions, processed locally and kept private.",
     icon: "AccountBalance",
     keywords: ["profit margin calculator", "markup calculator", "margin vs markup"],
     category: "finance",
     faq: [{ question: "What is margin vs markup?", answer: "Margin = profit÷revenue×100, Markup = profit÷cost×100. Margin is share of revenue, markup is uplift on cost." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is my data private?", answer: "Yes, margin and markup math runs locally in your browser and is private." }],
-    howTo: [{ name: "Enter cost", text: "Enter cost amount." }, { name: "Enter revenue", text: "Enter selling price." }, { name: "View", text: "See profit, margin and markup." }]
+    howTo: [{ name: "Enter cost", text: "Enter cost 60 per unit including materials and labor." }, { name: "Enter revenue", text: "Enter selling price 100 per unit." }, { name: "View margin", text: "See profit 40, margin 40%, and markup 66.7% instantly." }, { name: "Compare pricing", text: "Try price 90 vs 100 to see margin impact before discounting." }]
   },
   {
     slug: "income-tax-calculator",
@@ -54,18 +54,18 @@ export const financeTools: Tool[] = [
     keywords: ["income tax calculator", "after tax salary calculator", "gross to net pay calculator"],
     category: "finance",
     faq: [{ question: "How is tax estimated?", answer: "Demo brackets: 10% ≤11k, 12% ≤44k, 22% ≤95k, 24% above. Taxable = gross - deduction." }, { question: "Is this tax advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions. Consult a tax professional." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional." }],
-    howTo: [{ name: "Enter gross", text: "Enter gross annual salary." }, { name: "Set deduction", text: "Choose filing status and deduction." }, { name: "View net", text: "See taxable, tax and net pay." }]
+    howTo: [{ name: "Enter gross", text: "Enter gross annual salary 90000." }, { name: "Set deduction", text: "Choose filing status single and deduction 14600 standard." }, { name: "View net", text: "See taxable near 75400, tax, effective rate, and net pay." }, { name: "Compare incomes", text: "Try 80000 vs 90000 or add 5000 extra deduction to compare." }]
   },
   {
     slug: "inflation-calculator",
     title: "Inflation Calculator",
     short: "Future purchasing power",
-    description: "Calculate future value and purchasing power adjusted for inflation. Enter your amount, rate, and years. 100% private and offline.",
+    description: "Calculate future value and purchasing power adjusted for inflation. Enter amount, annual rate, and years to compare nominal vs real value, private offline.",
     icon: "AccountBalance",
     keywords: ["inflation calculator", "future value inflation", "purchasing power"],
     category: "finance",
     faq: [{ question: "How is future value calculated?", answer: "Future = amount×(1+rate)^years. Purchasing power = amount÷(1+rate)^years." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is my data private?", answer: "Yes, inflation math runs locally in your browser and nothing is uploaded." }],
-    howTo: [{ name: "Enter amount", text: "Enter present amount." }, { name: "Set rate & years", text: "Enter inflation rate and years." }, { name: "View", text: "See future value and purchasing power." }]
+    howTo: [{ name: "Enter amount", text: "Enter present amount 10000 in today's money." }, { name: "Set rate and years", text: "Set inflation 3% and 10 years." }, { name: "View values", text: "See future cost near 13439 and purchasing power near 7441." }, { name: "Compare rates", text: "Try 2% vs 5% or 10 vs 20 years to see erosion." }]
   },
   {
     slug: "sip-calculator",
@@ -76,7 +76,7 @@ export const financeTools: Tool[] = [
     keywords: ["sip calculator", "sip maturity", "sip investment calculator"],
     category: "finance",
     faq: [{ question: "How is SIP calculated?", answer: "Future = monthly×((1+mr)^n−1)/mr×(1+mr), where mr=annual/12/100, n=years×12." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is my data private?", answer: "Yes, SIP maturity math runs locally in your browser and stays private." }],
-    howTo: [{ name: "Enter SIP", text: "Enter monthly investment." }, { name: "Set rate & years", text: "Enter annual rate and duration." }, { name: "View", text: "See maturity, invested and gains." }]
+    howTo: [{ name: "Enter SIP", text: "Enter monthly SIP 5000." }, { name: "Set rate and years", text: "Set expected return 12% annual for 10 years (120 months)." }, { name: "View growth", text: "See invested 600000, maturity near 1150000, and gains." }, { name: "Compare plans", text: "Try 5000 vs 10000 monthly or 10 vs 15 years." }]
   },
   {
     slug: "simple-interest-calculator",
@@ -87,7 +87,7 @@ export const financeTools: Tool[] = [
     keywords: ["simple interest calculator", "simple interest formula", "loan interest calculator"],
     category: "finance",
     faq: [{ question: "Simple vs compound?", answer: "Simple = P×R×T/100 on principal only; compound earns on interest too." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter principal", text: "Enter principal amount." }, { name: "Set rate & time", text: "Enter rate and years." }, { name: "View", text: "See interest, total and monthly." }]
+    howTo: [{ name: "Enter principal", text: "Enter principal 10000." }, { name: "Set rate and time", text: "Set rate 5% for 3 years." }, { name: "View cost", text: "See interest 1500, total 11500, and monthly near 319." }, { name: "Compare rates", text: "Try 5% vs 8% or 3 vs 5 years to compare cost." }]
   },
   {
     slug: "retirement-calculator",
@@ -98,18 +98,18 @@ export const financeTools: Tool[] = [
     keywords: ["retirement calculator", "401k calculator", "how much to retire"],
     category: "finance",
     faq: [{ question: "What return to assume?", answer: "Try 5-7% nominal less 2-3% inflation; shows nominal corpus and shortfall vs goal." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter current", text: "Enter age, savings and monthly contribution." }, { name: "Set rate", text: "Enter expected return and goal." }, { name: "View", text: "See projected corpus and shortfall." }]
+    howTo: [{ name: "Enter current", text: "Enter age 30, savings 20000, monthly contribution 500." }, { name: "Set return", text: "Set return 7%, retire at 60 (30 years), goal 1000000." }, { name: "View corpus", text: "See projected corpus, real value, and shortfall vs goal." }, { name: "Close gap", text: "Try 500 vs 800 monthly or 6% vs 7% to close the gap." }]
   },
   {
     slug: "auto-loan-calculator",
     title: "Auto Loan Calculator",
     short: "EMI & total cost",
-    description: "Estimate your car loan EMI, total interest, and payoff schedule. Compare down payments, rates, and loan terms. 100% private and offline.",
+    description: "Estimate car loan EMI, total interest, and payoff schedule. Compare down payment, trade-in, rates, and terms to find affordable payments, offline private.",
     icon: "AccountBalance",
     keywords: ["auto loan calculator", "car loan emi calculator", "car payment calculator"],
     category: "finance",
     faq: [{ question: "How does down payment change EMI?", answer: "Higher down lowers principal and EMI; trade-in further reduces amount financed." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter price", text: "Enter vehicle price, down and trade-in." }, { name: "Set loan", text: "Enter rate and years." }, { name: "View", text: "See EMI, total interest and schedule." }]
+    howTo: [{ name: "Enter price", text: "Enter price 25000, down 5000, trade-in 2000 (loan 18000)." }, { name: "Set loan", text: "Set rate 6% for 5 years (60 months)." }, { name: "View EMI", text: "See EMI near 348, total interest, and schedule." }, { name: "Compare terms", text: "Try 4 vs 5 years or 0 vs 5000 down to compare." }]
   },
   {
     slug: "rent-vs-buy-calculator",
@@ -120,18 +120,18 @@ export const financeTools: Tool[] = [
     keywords: ["rent vs buy calculator", "rent or buy", "buy vs rent home"],
     category: "finance",
     faq: [{ question: "How is break-even calculated?", answer: "Compares total rent with hikes vs down plus EMI minus appreciation over years." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter rent", text: "Enter monthly rent and hike." }, { name: "Enter buy", text: "Enter price, down, rate and growth." }, { name: "Compare", text: "See break-even and verdict." }]
+    howTo: [{ name: "Enter rent", text: "Enter rent 1500 monthly with 3% yearly hike for 10 years." }, { name: "Enter buy", text: "Enter price 300000, down 60000, rate 6%, 30 years, growth 4%." }, { name: "Compare costs", text: "See total rent vs buy cost and break-even year." }, { name: "Test scenarios", text: "Try rent 1500 vs 1800 or growth 3% vs 5% to test verdict." }]
   },
   {
     slug: "freelance-rate-calculator",
     title: "Freelance Rate Calculator",
     short: "Hourly & project rates",
-    description: "Determine your freelance hourly, daily, and project rates. Enter your target salary, billable hours, expenses, and margin to set profitable pricing. 100% private and offline.",
+    description: "Determine freelance hourly, daily, and project rates from target salary, billable hours, expenses, and margin to set profitable prices, private offline.",
     icon: "AttachMoney",
     keywords: ["freelance rate calculator", "hourly rate calculator", "freelance pricing"],
     category: "finance",
     faq: [{ question: "How is hourly calculated?", answer: "Hourly = (salary+expenses)×(1+margin%)/billable hours; daily = hourly×8." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter salary", text: "Enter target salary and expenses." }, { name: "Set hours", text: "Enter billable hours and margin." }, { name: "View", text: "See hourly, daily and project rates." }]
+    howTo: [{ name: "Enter salary", text: "Enter target salary 80000 plus expenses 10000." }, { name: "Set hours", text: "Set billable 1000 hours yearly and margin 20%." }, { name: "View rates", text: "See hourly near 108, daily near 864, and project rates." }, { name: "Adjust margin", text: "Try 800 vs 1000 hours or 10% vs 20% margin." }]
   },
   {
     slug: "home-affordability-calculator",
@@ -142,7 +142,7 @@ export const financeTools: Tool[] = [
     keywords: ["home affordability calculator", "how much house can i afford", "affordability calculator"],
     category: "finance",
     faq: [{ question: "What is the 28/36 rule?", answer: "Housing costs under 28% of gross monthly income and total debts under 36%; estimate only." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter income", text: "Enter annual income, debts and down payment." }, { name: "Set rate", text: "Enter mortgage rate and term." }, { name: "View", text: "See affordable payment and price." }]
+    howTo: [{ name: "Enter income", text: "Enter income 100000, debts 500 monthly, down 40000." }, { name: "Set rate", text: "Set rate 6% for 30 years using 28/36 DTI rule." }, { name: "View budget", text: "See affordable payment near 2333 and price near 430000." }, { name: "Test limits", text: "Try 90000 vs 100000 income or 0 vs 500 debts." }]
   },
   {
     slug: "refinance-calculator",
@@ -153,7 +153,7 @@ export const financeTools: Tool[] = [
     keywords: ["refinance calculator", "mortgage refinance calculator", "refi break even"],
     category: "finance",
     faq: [{ question: "What is break-even?", answer: "Closing costs divided by monthly savings; months until refinancing pays off." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter loans", text: "Enter balance, old and new rates, years left." }, { name: "Add costs", text: "Enter closing costs." }, { name: "Compare", text: "See savings and break-even." }]
+    howTo: [{ name: "Enter loans", text: "Enter balance 200000, old 7%, new 5.5%, 25 years left." }, { name: "Add costs", text: "Enter closing costs 4000." }, { name: "Compare savings", text: "See monthly savings near 180, total saved, break-even near 22 months." }, { name: "Decide refi", text: "Try new 5% vs 5.5% or 3000 vs 4000 costs." }]
   },
   {
     slug: "cagr-calculator",
@@ -164,6 +164,105 @@ export const financeTools: Tool[] = [
     keywords: ["cagr calculator", "compound annual growth rate", "investment growth rate"],
     category: "finance",
     faq: [{ question: "How is CAGR calculated?", answer: "CAGR = (end÷start)^(1÷years)−1; shows rate plus growth multiple and total gain." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult a qualified professional before making finance decisions." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter values", text: "Enter start value, end value and years." }, { name: "View rate", text: "See CAGR %, multiple and gain." }, { name: "Compare", text: "Try scenarios side by side." }]
+    howTo: [{ name: "Enter values", text: "Enter start 10000, end 20000, 5 years." }, { name: "View rate", text: "See CAGR near 14.9%, multiple 2x, gain 10000." }, { name: "Compare cases", text: "Try end 18000 vs 20000 or 3 vs 5 years side by side." }, { name: "Copy results", text: "Copy rate and multiple for reports or pitch decks." }]
+  },
+  {
+    slug: "emi-calculator",
+    title: "EMI Calculator",
+    short: "Loan EMI + interest cost",
+    description: "Calculate home, car and personal loan EMI instantly. Enter principal, interest rate and tenure to see monthly payment, total interest and cost offline.",
+    icon: "AccountBalance",
+    keywords: ["emi calculator", "loan emi calculator", "home loan emi calculator india"],
+    category: "finance",
+    faq: [{ question: "How is EMI calculated?", answer: "EMI = P×r×(1+r)^n÷((1+r)^n−1), where P=principal, r=monthly rate, n=months. Zero rate falls back to P÷n." }, { question: "Is this financial advice?", answer: "No, for informational purposes only. Consult your lender; processing fees and variable rates are excluded." }, { question: "Is my data private?", answer: "Yes, EMI and amortization math runs locally in your browser via a shared finance library." }],
+    howTo: [{ name: "Enter principal", text: "Type loan amount and down payment if any." }, { name: "Set rate & tenure", text: "Enter annual rate percent and years." }, { name: "View EMI", text: "See EMI, total interest and yearly schedule; export CSV." }]
+  },
+  {
+    slug: "home-loan-eligibility-india",
+    title: "Home Loan Eligibility India",
+    short: "Max loan by salary",
+    description: "Check home loan eligibility by salary with FOIR, EMI and income multiplier norms. Estimate max loan under Indian bank rules, fully offline.",
+    icon: "AccountBalance",
+    keywords: ["home loan eligibility calculator india", "housing loan eligibility salary", "home loan max amount foir"],
+    category: "finance",
+    faq: [{ question: "What is FOIR?", answer: "Fixed Obligations to Income Ratio; banks cap total EMIs near 50% of net monthly income for salaried applicants." }, { question: "Is this financial advice?", answer: "No, indicative estimate only. Lender decides on CIBIL, age, property value and LTV norms." }, { question: "Is it private?", answer: "Yes, FOIR and multiplier math runs locally in your browser." }],
+    howTo: [{ name: "Enter income", text: "Type net monthly income and existing EMIs." }, { name: "Set loan terms", text: "Enter rate, tenure and FOIR profile." }, { name: "View eligibility", text: "See max loan by FOIR and multiplier with EMI." }]
+  },
+  {
+    slug: "mortgage-overpayment-calculator",
+    title: "Mortgage Overpayment Calculator",
+    short: "Extra pay savings",
+    description: "See interest saved and years cut by overpaying your mortgage. Add monthly extra or lump sum to get new payoff date and schedule offline.",
+    icon: "AccountBalance",
+    keywords: ["mortgage overpayment calculator", "extra principal payment savings", "pay off mortgage early"],
+    category: "finance",
+    faq: [{ question: "Monthly extra vs lump sum?", answer: "Both cut principal; monthly compounds faster while lump sums help on windfalls. Combine both here." }, { question: "Is this financial advice?", answer: "No, estimate on fixed rate excluding taxes and penalties. Check lender overpayment terms." }, { question: "Is it private?", answer: "Yes, amortization simulation runs locally in your browser." }],
+    howTo: [{ name: "Enter loan", text: "Type balance, rate and original term." }, { name: "Add extra", text: "Enter monthly extra and optional lump sum." }, { name: "Compare", text: "See interest saved, months cut and new payoff date." }]
+  },
+  {
+    slug: "us-paycheck-calculator",
+    title: "US Paycheck Calculator 2026",
+    short: "Take-home per pay",
+    description: "Estimate 2026 take-home pay after federal tax, FICA and state withholding. Salary or hourly, weekly to monthly, with 401k inputs, private offline.",
+    icon: "AttachMoney",
+    keywords: ["us paycheck calculator", "take home pay calculator 2026", "salary to hourly after tax"],
+    category: "finance",
+    faq: [{ question: "What 2026 tables are used?", answer: "Federal brackets with standard deduction plus FICA SS base $184,500 and Medicare; state is simplified estimate." }, { question: "Is this tax advice?", answer: "No, planning estimate only. Excludes local tax, credits and W-4 adjustments; verify with payroll." }, { question: "Is it private?", answer: "Yes, paycheck math runs locally; salary inputs never leave your browser." }],
+    howTo: [{ name: "Enter pay", text: "Type salary or hourly rate with hours." }, { name: "Set filing", text: "Pick filing status, frequency and state rate." }, { name: "View net", text: "See net per paycheck with tax breakdown." }]
+  },
+  {
+    slug: "in-hand-salary-india",
+    title: "In-Hand Salary Calculator India FY 2026-27",
+    short: "CTC to monthly in-hand",
+    description: "Convert CTC to monthly in-hand pay for FY 2026-27 new regime. EPF 12%, ESI under Rs 21k, professional tax and TDS with 87A rebate offline.",
+    icon: "AttachMoney",
+    keywords: ["in hand salary calculator india", "ctc to in hand salary", "take home salary india new regime"],
+    category: "finance",
+    faq: [{ question: "New vs old regime?", answer: "FY 2026-27 new regime default only with Rs 75k standard deduction; no HRA or 80C. Old regime needs separate computation." }, { question: "Why zero tax to Rs 12.75L?", answer: "Taxable income to Rs 12L gets 87A rebate up to Rs 60k; plus Rs 75k standard deduction means salaried zero-tax to Rs 12.75L." }, { question: "Is it private?", answer: "Yes, CTC and tax math runs locally in your browser." }],
+    howTo: [{ name: "Enter CTC", text: "Type annual CTC and Basic plus DA." }, { name: "Set deductions", text: "Confirm PT per month and PF ceiling." }, { name: "View in-hand", text: "See monthly in-hand with tax split." }]
+  },
+  {
+    slug: "fd-calculator",
+    title: "FD Calculator India",
+    short: "FD maturity quarterly",
+    description: "Calculate fixed-deposit maturity with RBI-standard quarterly compounding. Enter principal, rate and tenure for maturity, interest and yield offline.",
+    icon: "AccountBalance",
+    keywords: ["fd calculator india", "fixed deposit calculator quarterly", "fd maturity interest calculator"],
+    category: "finance",
+    faq: [{ question: "What compounding is used?", answer: "Quarterly rests: A = P times (1+r/400)^(4t). Effective yield exceeds nominal rate due to reinvestment." }, { question: "Is TDS included?", answer: "No, banks deduct TDS above Rs 40k yearly interest; this shows pre-TDS maturity for illustration." }, { question: "Is it private?", answer: "Yes, FD math runs locally in your browser." }],
+    howTo: [{ name: "Enter principal", text: "Type deposit amount in rupees." }, { name: "Set rate", text: "Enter nominal annual rate and years." }, { name: "View maturity", text: "See maturity, interest and effective yield." }]
+  },
+  {
+    slug: "ppf-calculator",
+    title: "PPF Calculator India 7.1%",
+    short: "PPF 15-year maturity",
+    description: "Project PPF maturity at 7.1 percent compounded annually over 15 years. Editable rate, Rs 500 to 1.5L yearly deposits with schedule offline.",
+    icon: "AccountBalance",
+    keywords: ["ppf calculator india", "ppf maturity calculator 7.1", "public provident fund interest"],
+    category: "finance",
+    faq: [{ question: "What rate is used?", answer: "7.1 percent for Q2 FY2026-27, editable since rates reset quarterly by the Finance Ministry." }, { question: "What are the limits?", answer: "Rs 500 minimum and Rs 1.5L yearly maximum with 15-year lock-in and 5-year extension blocks." }, { question: "Is it private?", answer: "Yes, PPF projection runs locally in your browser." }],
+    howTo: [{ name: "Enter deposit", text: "Type yearly deposit between Rs 500 and 1.5L." }, { name: "Confirm rate", text: "Check 7.1 percent and 15 years." }, { name: "View schedule", text: "See maturity with year-wise balance." }]
+  },
+  {
+    slug: "debt-payoff-calculator",
+    title: "Debt Payoff Calculator",
+    short: "Snowball vs avalanche",
+    description: "Compare debt snowball vs avalanche payoff. Enter balances, APRs, minimums and extra payment to see months, interest saved and debt-free date.",
+    icon: "AccountBalance",
+    keywords: ["debt payoff calculator", "debt snowball vs avalanche", "credit card payoff extra payment"],
+    category: "finance",
+    faq: [{ question: "Which saves more?", answer: "Avalanche with highest APR first minimizes total interest; snowball clears smallest balance first for momentum." }, { question: "How does the cascade work?", answer: "Fixed monthly pool of all minimums plus extra; freed minimums roll to the next priority debt automatically." }, { question: "Is it private?", answer: "Yes, payoff simulation runs locally in your browser." }],
+    howTo: [{ name: "Add debts", text: "Enter up to 8 debts with balance, APR and minimum." }, { name: "Set extra", text: "Type extra amount paid monthly above minimums." }, { name: "Compare", text: "View months, interest and payoff order for both methods." }]
+  },
+  {
+    slug: "capital-gains-tax-india",
+    title: "Capital Gains Tax Calculator India",
+    short: "LTCG STCG plus cess",
+    description: "Estimate India capital gains tax for FY 2025-26. Enter equity, property or gold sale, holding and costs to get LTCG or STCG plus 4 percent cess.",
+    icon: "AccountBalance",
+    keywords: ["capital gains tax calculator india", "ltcg stcg calculator india", "equity property gold tax"],
+    category: "finance",
+    faq: [{ question: "What rates are used?", answer: "FY 2025-26: listed equity LTCG 12.5 percent above Rs 1.25L exemption over 12 months, STCG 20 percent; property and gold LTCG 12.5 percent." }, { question: "Is indexation included?", answer: "No, post July 2024 purchases use flat 12.5 percent without indexation in this simplified estimate." }, { question: "Is it private?", answer: "Yes, gains and tax math runs locally in your browser." }],
+    howTo: [{ name: "Pick asset", text: "Choose equity, property or gold with buy and sale prices." }, { name: "Set holding", text: "Enter holding months and slab rate for short-term assets." }, { name: "View tax", text: "See gain, base tax, 4 percent cess and net proceeds." }]
   },
 ];

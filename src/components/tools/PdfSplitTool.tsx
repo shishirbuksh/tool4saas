@@ -124,17 +124,15 @@ export default function PdfSplitTool() {
     try {
       let pdfLib: unknown;
       try {
-        // dynamic import("pdf-lib") lazy-loaded on split
-        // @ts-expect-error - pdf-lib is optional, lazy loaded via dynamic import("pdf-lib")
-        pdfLib = await import("pdf-lib" as unknown as number);
+        pdfLib = await import("pdf-lib");
       } catch {
-        setError('PDF split requires "pdf-lib". Run "npm install pdf-lib" to enable client-side splitting.');
+        setError('Could not load PDF engine. Check your connection and retry.');
         return;
       }
 
       const PDFDocument = (pdfLib as { PDFDocument?: PDFDocumentStatic })?.PDFDocument;
       if (!PDFDocument || typeof PDFDocument.load !== "function" || typeof PDFDocument.create !== "function") {
-        setError('PDF split requires "pdf-lib". Run "npm install pdf-lib" to enable client-side splitting.');
+        setError('Could not load PDF engine. Check your connection and retry.');
         return;
       }
 
@@ -166,11 +164,7 @@ export default function PdfSplitTool() {
       setDone(`Extracted ${indices.length} page(s) (${ranges.trim()}). Download started.`);
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
-      if (msg.includes("Cannot find module") || msg.includes("pdf-lib")) {
-        setError('PDF split requires "pdf-lib". Run "npm install pdf-lib" to enable client-side splitting.');
-      } else {
-        setError(msg);
-      }
+      setError(msg);
     } finally {
       setBusy(false);
     }
@@ -225,8 +219,7 @@ export default function PdfSplitTool() {
       {error && <Alert severity="error">{error}</Alert>}
       {done && <Alert severity="success">{done}</Alert>}
       <Alert severity="info">
-        Client-side split requires <code>pdf-lib</code>. Install with <code>npm install pdf-lib</code> and this tool will extract the selected pages in order
-        via <code>dynamic import(&quot;pdf-lib&quot;)</code> without uploading.
+        Files are processed locally in your browser via <code>pdf-lib</code> without uploading.
       </Alert>
     </ToolPaper>
   );

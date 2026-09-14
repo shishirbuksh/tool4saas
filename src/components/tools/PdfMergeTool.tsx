@@ -7,11 +7,27 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
-import { MAX_IMAGE_SIZE } from "@/lib/validate";
+import { MAX_PDF_SIZE, MAX_PDF_FILES, MAX_PDF_PAGES, validatePdfBatch, validatePdfMagicBytes } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 
-const MAX_FILE_SIZE = MAX_IMAGE_SIZE;
-const MAX_FILES = 20;
+const MAX_FILE_SIZE = MAX_PDF_SIZE;
+const MAX_FILES = MAX_PDF_FILES;
+
+type LoadedPdfDoc = {
+  getPageCount: () => number;
+  getPages: () => unknown[];
+};
+
+type CreatedPdfDoc = {
+  copyPages: (src: LoadedPdfDoc, indices: number[]) => Promise<unknown[]>;
+  addPage: (page: unknown) => void;
+  save: () => Promise<Uint8Array>;
+};
+
+type PDFDocumentStatic = {
+  load: (data: Uint8Array, opts?: { ignoreEncryption?: boolean }) => Promise<LoadedPdfDoc>;
+  create: () => CreatedPdfDoc;
+};
 
 export default function PdfMergeTool() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -26,20 +42,10 @@ export default function PdfMergeTool() {
     setError("");
     setDone("");
     const arr = Array.from(list);
-    const bad = arr.find((f) => f.type !== "application/pdf" && !f.name.toLowerCase().endsWith(".pdf"));
-    if (bad) {
-      setError(`"${bad.name}" is not a PDF.`);
-      if (inputRef.current) inputRef.current.value = "";
-      return;
-    }
-    const tooLarge = arr.find((f) => f.size > MAX_FILE_SIZE);
-    if (tooLarge) {
-      setError(`"${tooLarge.name}" exceeds 10 MB.`);
-      if (inputRef.current) inputRef.current.value = "";
-      return;
-    }
-    if (arr.length + files.length > MAX_FILES) {
-      setError(`Too many files (max ${MAX_FILES}).`);
+    const combined = [...files, ...arr];
+    const batch = validatePdfBatch(combined, { maxFiles: MAX_FILES, maxSize: MAX_FILE_SIZE });
+    if (!batch.valid) {
+      setError(batch.error || "Invalid files.");
       if (inputRef.current) inputRef.current.value = "";
       return;
     }
@@ -63,11 +69,57 @@ export default function PdfMergeTool() {
     setError("");
     setDone("");
     try {
-      // dynamic import jspdf or pdf-lib if available; fallback to inform user
-      // pdf-lib would be ideal but not installed; use simple concatenation via jspdf? merging binary requires pdf-lib.
-      // For now we inform that feature requires pdf-lib.
-      // As a lightweight fallback, we create a placeholder that instructs install.
-      setError('PDF merge requires "pdf-lib". Run "npm install pdf-lib" to enable client-side merging.');
+      for (const f of files) {
+        const magic = await validatePdfMagicBytes(f);
+        if (!magic.valid) {
+          setError(magic.error || "Invalid PDF.");
+          return;
+        }
+      }
+      let pdfLib: unknown;
+      try {
+        pdfLib = await import("pdf-lib");
+      } catch {
+        setError('Could not load PDF engine. Check your connection and retry.');
+        return;
+      }
+      const PDFDocument = (pdfLib as { PDFDocument?: PDFDocumentStatic })?.PDFDocument;
+      if (!PDFDocument || typeof PDFDocument.load !== "function" || typeof PDFDocument.create !== "function") {
+        setError('Could not load PDF engine. Check your connection and retry.');
+        return;
+      }
+      const out = PDFDocument.create();
+      let totalPages = 0;
+      for (const f of files) {
+        const bytes = new Uint8Array(await f.arrayBuffer());
+        let src: LoadedPdfDoc;
+        try {
+          src = await PDFDocument.load(bytes, { ignoreEncryption: true });
+        } catch {
+          setError(`"${f.name}" could not be parsed (encrypted or corrupt?).`);
+          return;
+        }
+        const count = src.getPageCount();
+        if (totalPages + count > MAX_PDF_PAGES) {
+          setError(`Too many pages (max ${MAX_PDF_PAGES} total).`);
+          return;
+        }
+        const indices = Array.from({ length: count }, (_, i) => i);
+        const copied = await out.copyPages(src, indices);
+        for (const page of copied) out.addPage(page);
+        totalPages += count;
+      }
+      const outBytes = await out.save();
+      const blob = new Blob([outBytes as BlobPart], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "merged.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 5000);
+      setDone(`Merged ${files.length} file(s), ${totalPages} page(s). Download started.`);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -119,7 +171,7 @@ export default function PdfMergeTool() {
       {error && <Alert severity="error">{error}</Alert>}
       {done && <Alert severity="success">{done}</Alert>}
       <Alert severity="info">
-        Client-side merge requires <code>pdf-lib</code>. Install with <code>npm install pdf-lib</code> and this tool will concatenate pages in order without uploading.
+        Files are merged locally in your browser via <code>pdf-lib</code> without uploading. Max {MAX_FILES} files, {MAX_PDF_PAGES} pages total.
       </Alert>
     </ToolPaper>
   );

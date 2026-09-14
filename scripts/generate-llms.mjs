@@ -5,10 +5,12 @@ import path from "path";
 try {
   const env = fs.readFileSync(".env", "utf8");
   env.split("\n").forEach(line => {
-    const m = line.match(/^([^=]+)=(.*)$/);
-    if (m && !process.env[m[1]]) process.env[m[1]] = m[2].trim();
+    const cleaned = line.replace(/\r$/, "").trim();
+    if (!cleaned || cleaned.startsWith("#")) return;
+    const m = cleaned.match(/^([^=]+)=(.*)$/);
+    if (m && !process.env[m[1].trim()]) process.env[m[1].trim()] = m[2].trim();
   });
-} catch (e) {}
+} catch {}
 
 
 const toolsPath = path.resolve("src/lib/tools.ts");

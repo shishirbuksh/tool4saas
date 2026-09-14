@@ -17,7 +17,7 @@ export const siteConfig = {
     const candidate = raw?.trim() || "";
     if (!candidate) {
       if (process.env.NODE_ENV === "production") {
-        console.warn("NEXT_PUBLIC_SITE_URL is not set, using fallback https://your-domain.com — set it for correct canonicals");
+        throw new Error("NEXT_PUBLIC_SITE_URL is not set — set it for correct canonicals (fail-closed to avoid localhost canonicals in prod)");
       }
       // Fallback poison avoidance: never expose placeholder domain in SEO; use localhost as safe dev fallback
       return "http://localhost:3000";

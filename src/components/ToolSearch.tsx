@@ -44,7 +44,7 @@ export default function ToolSearch({ sx }: { sx?: SxProps }) {
       filterOptions={(x) => x}
       noOptionsText="No tools found"
       size="small"
-      sx={{ width: { xs: "100%", md: 280 }, minWidth: 0, ...sx }}
+      sx={{ width: { xs: "100%", md: 280 }, minWidth: 0, "& .MuiInputBase-root": { minHeight: 44 }, ...sx }}
       slotProps={{ popper: { sx: { zIndex: 1400 } } }}
       renderInput={({ InputLabelProps: _InputLabelProps, InputProps, ...params }: any) => (
         <TextField
@@ -55,7 +55,7 @@ export default function ToolSearch({ sx }: { sx?: SxProps }) {
               ...(params.slotProps?.input ?? InputProps),
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon fontSize="small" />
+                  <SearchIcon fontSize="small" aria-hidden="true" />
                 </InputAdornment>
               ),
             },

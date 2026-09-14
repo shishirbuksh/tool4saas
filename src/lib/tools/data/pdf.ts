@@ -5,34 +5,34 @@ export const pdfTools: Tool[] = [
     slug: "image-to-pdf",
     title: "Image to PDF",
     short: "Images → PDF",
-    description: "Turn JPG or PNG images into a single PDF document. Choose your page size and orientation, then generate it instantly in your browser.",
+    description: "Turn JPG or PNG images into a single PDF document in your browser. Choose A4 or Letter size and portrait or landscape orientation, then generate instantly.",
     icon: "Image",
     keywords: ["image to pdf", "jpg to pdf", "png to pdf"],
     category: "pdf",
-    faq: [{ question: "What formats are supported?", answer: "JPG and PNG. Images are scaled to fit page." }, { question: "Is it private?", answer: "Yes, pages scale and assemble with jsPDF locally; your images stay on your device." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Add images", text: "Select multiple images." }, { name: "Choose page", text: "Pick A4 or Letter and orientation." }, { name: "Create", text: "Click Generate PDF and download." }]
+    faq: [{ question: "What formats are supported?", answer: "JPG and PNG. Images are scaled to fit page." }, { question: "Is it private?", answer: "Yes, pages scale and assemble with jsPDF locally; your images stay on your device." }, { question: "How many images and what size can I convert?", answer: "Combine up to 50 JPG or PNG images of 10 MB each. Pages default to A4 portrait at 150 DPI with auto-fit margins." }],
+    howTo: [{ name: "Add images", text: "Select multiple JPG/PNG files, e.g. scan-01.jpg and scan-02.png, up to 50 pages." }, { name: "Choose page setup", text: "Pick size A4 or Letter and orientation portrait for docs or landscape for slides." }, { name: "Order pages", text: "Drag thumbnails into reading order so page 1 appears first in the PDF." }, { name: "Generate PDF", text: "Click Generate PDF and download, e.g. scans-merged.pdf, assembled locally." }]
   },
   {
     slug: "pdf-merge",
     title: "PDF Merge",
     short: "Merge multiple PDFs",
-    description: "Merge and reorder PDF pages instantly in your browser. Select your files and download the combined document without uploading.",
+    description: "Merge multiple PDF files and reorder pages instantly in your browser. Select files, drag to sort and download the combined document without uploading.",
     icon: "PictureAsPdf",
     keywords: ["pdf merge", "combine pdf", "merge pdf online"],
     category: "pdf",
-    faq: [{ question: "Is my PDF uploaded?", answer: "No. Merging happens locally in your browser; files never leave your device." }, { question: "Can I reorder files?", answer: "Yes. Drag to reorder files before merging; pages are concatenated in the selected order." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Select PDFs", text: "Choose two or more PDF files from your device." }, { name: "Reorder", text: "Drag to set the desired order." }, { name: "Merge & download", text: "Click Merge and download the combined PDF." }]
+    faq: [{ question: "Is my PDF uploaded?", answer: "No. Merging happens locally in your browser; files never leave your device." }, { question: "Can I reorder files?", answer: "Yes. Drag to reorder files before merging; pages are concatenated in the selected order." }, { question: "How many PDFs and pages can I merge?", answer: "Merge up to 20 PDFs with 200 pages total and 10 MB per file. Encrypted files must be unlocked first before concatenation." }],
+    howTo: [{ name: "Select PDFs", text: "Choose two or more PDFs, e.g. chapter1.pdf and chapter2.pdf from your device." }, { name: "Reorder files", text: "Drag rows so the first-read document sits on top, e.g. cover.pdf first." }, { name: "Check page counts", text: "Verify listed page numbers add up, e.g. 12 + 8 = 20 pages expected." }, { name: "Merge and download", text: "Click Merge PDFs and save, e.g. book-combined.pdf, entirely offline." }]
   },
   {
     slug: "pdf-compress",
     title: "PDF Compressor",
     short: "Reduce PDF file size",
-    description: "Shrink PDF file sizes directly in your browser. Choose your compression level and download a lighter file instantly.",
+    description: "Shrink large PDF file sizes directly in your browser without uploading. Choose compression level, keep readable quality and download a lighter file instantly.",
     icon: "PictureAsPdf",
     keywords: ["pdf compressor", "compress pdf", "reduce pdf size"],
     category: "pdf",
-    faq: [{ question: "Is my PDF uploaded?", answer: "No. Compression runs locally in your browser." }, { question: "Will quality be reduced?", answer: "You control the compression level; lighter compression keeps visual quality while reducing file size." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Choose PDF", text: "Select a PDF file from your device." }, { name: "Set compression", text: "Choose compression level." }, { name: "Download", text: "Click Compress and download the smaller PDF." }]
+    faq: [{ question: "Is my PDF uploaded?", answer: "No. Compression runs locally in your browser." }, { question: "Will quality be reduced?", answer: "You control the compression level; lighter compression keeps visual quality while reducing file size." }, { question: "How much smaller will my PDF get?", answer: "Expect 20-70% savings as images downsample to 150 DPI. Text stays vector-sharp; scanned pages compress less than photo-heavy exports." }],
+    howTo: [{ name: "Choose PDF", text: "Select a file, e.g. report-18MB.pdf that is too large to email." }, { name: "Set compression", text: "Pick level like Medium for email or Strong for 10 MB upload portals." }, { name: "Preview savings", text: "Check estimated output size and zoom a photo page to confirm text stays legible." }, { name: "Compress and download", text: "Click Compress and save, e.g. report-6MB.pdf, ready to attach." }]
   },
   {
     slug: "pdf-split",
@@ -42,40 +42,51 @@ export const pdfTools: Tool[] = [
     icon: "PictureAsPdf",
     keywords: ["split pdf", "extract pages from pdf", "separate pdf pages"],
     category: "pdf",
-    faq: [{ question: "Does splitting upload my file?", answer: "No, extraction runs locally via pdf-lib; files never leave your device." }, { question: "Can I extract ranges?", answer: "Yes, type ranges like 1-3,5 or every N pages; the list validates locally before splitting." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Choose PDF", text: "Select a PDF file." }, { name: "Enter ranges", text: "Type pages like 1-3,5." }, { name: "Split & download", text: "Click Split and download new PDF." }]
+    faq: [{ question: "Does splitting upload my file?", answer: "No, extraction runs locally via pdf-lib; files never leave your device." }, { question: "Can I extract ranges?", answer: "Yes, type ranges like 1-3,5 or every N pages; the list validates locally before splitting." }, { question: "What is the maximum PDF size and page count?", answer: "Files up to 10 MB and 200 pages split reliably. Ranges like 1-3,5,8-10 validate live before extraction." }],
+    howTo: [{ name: "Choose PDF", text: "Select a file, e.g. manual-120pages.pdf up to 10 MB." }, { name: "Enter page ranges", text: "Type ranges like 1-3,5 to pull the cover plus page 5, or 10-20 for a chapter." }, { name: "Validate selection", text: "Check the live page-count badge confirms e.g. 4 pages selected with no typos." }, { name: "Split and download", text: "Click Split and save, e.g. manual-pages-1-3-5.pdf, processed locally." }]
   },
   {
     slug: "pdf-to-jpg",
     title: "PDF to JPG",
     short: "Pages to images",
-    description: "Convert PDF pages into high-quality JPG or PNG images. Adjust scale and quality, then download a ZIP file.",
+    description: "Convert PDF pages into high-quality JPG or PNG images in your browser. Adjust render scale and JPEG quality, then download all pages as a ZIP file.",
     icon: "PictureAsPdf",
     keywords: ["pdf to jpg", "pdf to image", "convert pdf pages to png"],
     category: "pdf",
-    faq: [{ question: "What scale to pick?", answer: "1x for web, 2x for print; higher scale means larger images." }, { question: "Is my PDF uploaded?", answer: "No, pages render with pdf.js locally at your scale; your file never leaves the browser." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Choose PDF", text: "Select a PDF file up to 10MB." }, { name: "Set scale", text: "Pick scale and JPEG quality." }, { name: "Convert", text: "Render pages and download JPGs." }]
+    faq: [{ question: "What scale to pick?", answer: "1x for web, 2x for print; higher scale means larger images." }, { question: "Is my PDF uploaded?", answer: "No, pages render with pdf.js locally at your scale; your file never leaves the browser." }, { question: "What DPI do the exported JPGs match?", answer: "1x renders near 96 DPI for web, 2x near 192 DPI for print. Files up to 10 MB and 200 pages export as a ZIP of JPGs." }],
+    howTo: [{ name: "Choose PDF", text: "Select a file up to 10 MB, e.g. brochure-6pages.pdf." }, { name: "Set scale and quality", text: "Pick 1x for web or 2x for print, plus JPEG quality e.g. 85%." }, { name: "Render pages", text: "Click Convert and wait for thumbnails like page-01.jpg through page-06.jpg to render." }, { name: "Download ZIP", text: "Click Download ZIP, e.g. brochure-images.zip, containing all rendered pages." }]
   },
   {
     slug: "pdf-rotate",
     title: "Rotate PDF Pages",
     short: "Rotate all pages",
-    description: "Rotate PDF pages by 90, 180, or 270 degrees. Fix page orientation and save the updated file directly from your browser.",
+    description: "Rotate PDF pages by 90, 180 or 270 degrees in your browser. Fix sideways scans and page orientation, then save and download the updated file.",
     icon: "PictureAsPdf",
     keywords: ["rotate pdf", "rotate pdf pages", "pdf rotate online"],
     category: "pdf",
-    faq: [{ question: "Does it rotate all pages?", answer: "Yes, applies selected angle to every page via pdf-lib locally." }, { question: "Is my PDF uploaded?", answer: "No, 90/180/270-degree rotation applies with pdf-lib locally; your file stays on your device." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Choose PDF", text: "Select a PDF up to 10MB." }, { name: "Pick angle", text: "Choose 90, 180 or 270 degrees." }, { name: "Rotate", text: "Click Rotate and download." }]
+    faq: [{ question: "Does it rotate all pages?", answer: "Yes, applies selected angle to every page via pdf-lib locally." }, { question: "Is my PDF uploaded?", answer: "No, 90/180/270-degree rotation applies with pdf-lib locally; your file stays on your device." }, { question: "Can I rotate only specific pages?", answer: "Currently the angle applies to all pages in files up to 10 MB and 200 pages. For mixed scans, split out pages like 5-8, rotate them, then merge back." }],
+    howTo: [{ name: "Choose PDF", text: "Select a file up to 10 MB, e.g. scan-sideways.pdf from a flatbed scanner." }, { name: "Pick angle", text: "Choose 90, 180 or 270 degrees; try 90 clockwise first for portrait scans." }, { name: "Preview orientation", text: "Check the first-page thumbnail flips upright with headers reading correctly." }, { name: "Rotate and download", text: "Click Rotate and save, e.g. scan-upright.pdf, entirely in your browser." }]
   },
   {
     slug: "pdf-watermark",
     title: "PDF Watermark",
     short: "Add text watermark",
-    description: "Stamp your PDFs with custom text watermarks. Adjust text, opacity, and placement, then download your watermarked file.",
+    description: "Stamp PDF pages with a custom diagonal text watermark in your browser. Adjust text, opacity and placement, then download your watermarked file.",
     icon: "PictureAsPdf",
     keywords: ["pdf watermark", "add watermark pdf", "watermark pdf online"],
     category: "pdf",
-    faq: [{ question: "Where is watermark placed?", answer: "Center diagonal or corners with opacity control via pdf-lib drawText." }, { question: "Is my PDF uploaded?", answer: "No, diagonal or corner text draws with pdf-lib locally; your PDF never leaves the browser." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Choose PDF", text: "Select a PDF up to 10MB." }, { name: "Enter text", text: "Type watermark and set opacity." }, { name: "Apply", text: "Click Watermark and download." }]
+    faq: [{ question: "Where is watermark placed?", answer: "Center diagonal or corners with opacity control via pdf-lib drawText." }, { question: "Is my PDF uploaded?", answer: "No, diagonal or corner text draws with pdf-lib locally; your PDF never leaves the browser." }, { question: "Will the watermark block reading?", answer: "No if you use 20-30% opacity grey like DRAFT across the diagonal. Text stays selectable underneath on files up to 10 MB and 200 pages." }],
+    howTo: [{ name: "Choose PDF", text: "Select a file up to 10 MB, e.g. contract-draft.pdf." }, { name: "Enter watermark text", text: "Type text like DRAFT or Confidential plus size e.g. 48pt diagonal." }, { name: "Set opacity and placement", text: "Set 25% opacity, center-diagonal, so body text remains readable underneath." }, { name: "Apply and download", text: "Click Watermark and save, e.g. contract-draft-watermarked.pdf." }]
+  },
+  {
+    slug: "pdf-to-text",
+    title: "PDF to Text",
+    short: "Extract text pages",
+    description: "Extract text from any PDF into plain text instantly. Select page ranges, copy to clipboard or download a .txt file — everything runs locally in your browser.",
+    icon: "Description",
+    keywords: ["pdf to text", "extract text from pdf", "pdf to txt converter"],
+    category: "pdf",
+    faq: [{ question: "Is my PDF uploaded?", answer: "No, text extracts with pdf.js locally; files never leave your device." }, { question: "What about scanned PDFs?", answer: "Image-only pages have no text layer and return empty; OCR is out of scope and flagged per page." }, { question: "What is the page limit and what about scanned PDFs?", answer: "Handles up to 200 pages and 10 MB per file. Digital pages extract fully; image-only scans return empty and need OCR software instead." }],
+    howTo: [{ name: "Choose PDF", text: "Select a digital PDF up to 10 MB and 200 pages, e.g. ebook-chapter.pdf." }, { name: "Set page range", text: "Optionally type pages like 1-3,5 to extract only the introduction." }, { name: "Extract text", text: "Click Extract and review the plain-text preview for line breaks and headings." }, { name: "Copy or download", text: "Click Copy or Download .txt, e.g. chapter.txt, then paste into Word or Notes." }]
   },
 ];

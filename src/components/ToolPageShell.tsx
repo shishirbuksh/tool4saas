@@ -47,7 +47,7 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
         }}
       >
         <Box sx={{ width: "100%", minWidth: 0, overflowX: "auto" }}>{children}</Box>
-        <Box sx={{ position: { md: "sticky" }, top: { md: 88 } }}>
+        <Box sx={{ minHeight: { lg: 280 } }}>
           <AdSlot
             format="rectangle"
             slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_RECTANGLE || ""}

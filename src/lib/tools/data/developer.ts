@@ -10,8 +10,8 @@ export const developerTools: Tool[] = [
     icon: "DataObject",
     keywords: ["json formatter", "json validator", "format json online"],
     category: "developer",
-    faq: [{"question":"Is my JSON sent anywhere?","answer":"No. Formatting and validation happen locally in your browser."},{"question":"Can it handle large JSON files?","answer":"It processes typical payloads instantly; extremely large inputs may be limited by your device's memory."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Paste JSON","text":"Paste your JSON into the input area."},{"name":"Process","text":"Click format or minify to process it."},{"name":"Copy or fix","text":"Copy the cleaned output or fix any highlighted errors."}],
+    faq: [{"question":"Is my JSON sent anywhere?","answer":"No. Formatting and validation happen locally in your browser."},{"question":"Can it handle large JSON files?","answer":"It processes typical payloads instantly; extremely large inputs may be limited by your device's memory."},{"question":"What is the size limit for JSON input?","answer":"Typical payloads up to 500KB format instantly; files up to a few MB still work but may slow older phones."}],
+    howTo: [{"name":"Paste JSON","text":"Paste minified JSON like {\"name\":\"Ada\",\"tags\":[1,2]} into the input area."},{"name":"Choose action","text":"Click Format for readable output, Minify for compact, or Validate to check errors only."},{"name":"Fix errors","text":"If invalid, read the line-column pointer such as Expected comma at line 1, column 18 and correct it."},{"name":"Copy output","text":"Copy the cleaned JSON or download it for your API test."}],
   },
   {
     slug: "base64-tool",
@@ -22,8 +22,8 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["base64 encoder", "base64 decoder", "encode base64 online"],
     category: "developer",
-    faq: [{"question":"Does Base64 encrypt my data?","answer":"No. Base64 is encoding, not encryption. Do not use it to protect secrets."},{"question":"Is Unicode text supported?","answer":"Yes. It handles Unicode and UTF-8 text correctly."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Paste input","text":"Paste the text or Base64 string."},{"name":"Choose mode","text":"Choose encode or decode."},{"name":"Copy output","text":"Copy the output."}],
+    faq: [{"question":"Does Base64 encrypt my data?","answer":"No. Base64 is encoding, not encryption. Do not use it to protect secrets."},{"question":"Is Unicode text supported?","answer":"Yes. It handles Unicode and UTF-8 text correctly."},{"question":"Does it support URL-safe Base64?","answer":"Yes. Enable URL-safe mode to use -_ instead of +/ per RFC 4648, with line-break control for email MIME."}],
+    howTo: [{"name":"Paste input","text":"Paste plain text like Hello or a Base64 string like aGVsbG8=."},{"name":"Choose mode","text":"Select Encode for text-to-Base64 or Decode for Base64-to-text, plus URL-safe if needed."},{"name":"Handle Unicode","text":"Unicode is encoded as UTF-8 automatically, so emoji and accents round-trip correctly."},{"name":"Copy output","text":"Copy the result, e.g. Hello becomes aGVsbG8=, and fix any decode error shown."}],
   },
   {
     slug: "url-encoder",
@@ -34,8 +34,8 @@ export const developerTools: Tool[] = [
     icon: "Link",
     keywords: ["url encoder", "url decoder", "encode url online"],
     category: "developer",
-    faq: [{"question":"When should I URL-encode text?","answer":"When putting text into URLs or query strings so special characters do not break the link."},{"question":"Is my data uploaded?","answer":"No. Encoding and decoding happen in your browser."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Paste input","text":"Paste the text or URL you want to encode or decode."},{"name":"Choose mode","text":"Choose encode or decode."},{"name":"Copy result","text":"Copy the result."}],
+    faq: [{"question":"When should I URL-encode text?","answer":"When putting text into URLs or query strings so special characters do not break the link."},{"question":"Is my data uploaded?","answer":"No. Encoding and decoding happen in your browser."},{"question":"How are spaces and plus signs handled?","answer":"Choose %20 for query components or + for form-encoding; the decoder restores both to spaces per RFC 3986."}],
+    howTo: [{"name":"Paste input","text":"Paste text or a URL like https://site.com/?q=a&b=c? to encode or decode."},{"name":"Choose mode","text":"Pick Encode for raw text or Decode for percent-encoded strings."},{"name":"Set space style","text":"Use %20 for paths and components, + only for HTML form bodies."},{"name":"Copy result","text":"Copy the result, e.g. a&b becomes a%26b, and reuse it in your link."}],
   },
   {
     slug: "hash-generator",
@@ -46,8 +46,8 @@ export const developerTools: Tool[] = [
     icon: "Fingerprint",
     keywords: ["hash generator", "sha256 generator", "text to hash"],
     category: "developer",
-    faq: [{"question":"What hashing algorithms are available?","answer":"SHA-1, SHA-256, SHA-384 and SHA-512 are supported via the Web Crypto API."},{"question":"Is hashing the same as encryption?","answer":"No. A hash is one-way and cannot be reversed to recover the original text."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Enter text","text":"Type or paste the text to hash."},{"name":"Select algorithm","text":"Select the algorithm (SHA-1, SHA-256, SHA-384, or SHA-512)."},{"name":"Copy hash","text":"Copy the generated hash."}],
+    faq: [{"question":"What hashing algorithms are available?","answer":"SHA-1, SHA-256, SHA-384 and SHA-512 are supported via the Web Crypto API."},{"question":"Is hashing the same as encryption?","answer":"No. A hash is one-way and cannot be reversed to recover the original text."},{"question":"Can I compare hashes to verify integrity?","answer":"Yes. Paste the expected hash next to your text; matching SHA-256 values confirm identical content instantly."}],
+    howTo: [{"name":"Enter text","text":"Type or paste text like hello to hash."},{"name":"Select algorithm","text":"Select SHA-1, SHA-256, SHA-384, or SHA-512 for your use case."},{"name":"Compare","text":"Paste an expected hash to highlight match or mismatch automatically."},{"name":"Copy hash","text":"Copy the hex digest, e.g. hello gives 2cf24dba5fb0a30e for SHA-256."}],
   },
   {
     slug: "base-converter",
@@ -58,8 +58,8 @@ export const developerTools: Tool[] = [
     icon: "Transform",
     keywords: ["base converter", "binary to hex", "hex to decimal"],
     category: "developer",
-    faq: [{"question":"Which number bases are supported?","answer":"Binary, octal, decimal and hexadecimal, plus any base from 2 to 36."},{"question":"Is it useful for learning?","answer":"Yes. It is handy for developers and students working with different number systems."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Enter number","text":"Enter the number and its current base."},{"name":"Choose target base","text":"Choose the target base (2 to 36)."},{"name":"Copy value","text":"Read and copy the converted value."}],
+    faq: [{"question":"Which number bases are supported?","answer":"Binary, octal, decimal and hexadecimal, plus any base from 2 to 36."},{"question":"Is it useful for learning?","answer":"Yes. It is handy for developers and students working with different number systems."},{"question":"Does it handle negative numbers?","answer":"Yes. Enable signed mode for negatives; e.g. -42 decimal converts correctly across bases 2 to 36 with grouping."}],
+    howTo: [{"name":"Enter number","text":"Enter a number like 255 and set its current base to 10."},{"name":"Choose target base","text":"Choose the target base from 2 to 36, e.g. 16 for hex."},{"name":"Toggle signed","text":"Enable signed mode if your value can be negative."},{"name":"Copy value","text":"Read and copy the result, e.g. 255 decimal becomes FF in hex."}],
   },
   {
     slug: "html-entities",
@@ -70,20 +70,20 @@ export const developerTools: Tool[] = [
     icon: "Html",
     keywords: ["html entity encoder", "html decode", "escape html"],
     category: "developer",
-    faq: [{"question":"Why encode HTML entities?","answer":"To safely display characters like <, > and & in web pages without breaking markup."},{"question":"Can I decode entities too?","answer":"Yes. Encode and decode HTML entities in your browser."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Paste input","text":"Paste the text or HTML."},{"name":"Choose mode","text":"Choose encode or decode."},{"name":"Copy output","text":"Copy the output."}],
+    faq: [{"question":"Why encode HTML entities?","answer":"To safely display characters like <, > and & in web pages without breaking markup."},{"question":"Can I decode entities too?","answer":"Yes. Encode and decode HTML entities in your browser."},{"question":"Which entity formats are supported?","answer":"Named like &amp;, decimal like &#38;, and hex like &#x26;, with safe XSS-neutral encoding for quotes."}],
+    howTo: [{"name":"Paste input","text":"Paste raw HTML like <div>Hi & bye</div> or entities to reverse."},{"name":"Choose mode","text":"Select Encode for HTML-to-entities or Decode for entities-to-text."},{"name":"Check output","text":"Verify < becomes &lt; and & becomes &amp; without breaking tags."},{"name":"Copy output","text":"Copy the encoded string for use in templates or CMS fields."}],
   },
   {
     slug: "regex-tester",
     title: "Regex Tester",
     short: "Test JavaScript regular expressions",
     description:
-      "Test and debug JavaScript regular expressions. Match patterns, toggle flags, and see results offline.",
+      "Test and debug JavaScript regular expressions live with flag toggles, match highlighting, capture-group details, and instant error hints fully offline.",
     icon: "Code",
     keywords: ["regex tester", "regular expression tester", "regex debugger online"],
     category: "developer",
-    faq: [{"question":"Which regex syntax is supported?","answer":"Standard JavaScript regular expressions, with g, i, m and s flags."},{"question":"Does it upload my text?","answer":"No. Matching happens entirely in your browser."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Enter pattern","text":"Type your regular expression and choose flags."},{"name":"Paste test text","text":"Paste the text to test against."},{"name":"Review matches","text":"Read the list of matches and their positions."}],
+    faq: [{"question":"Which regex syntax is supported?","answer":"Standard JavaScript regular expressions, with g, i, m and s flags."},{"question":"Does it upload my text?","answer":"No. Matching happens entirely in your browser."},{"question":"Is there an input size limit?","answer":"Texts up to about 500KB run smoothly; patterns like (a+)+$ may freeze the tab, so keep quantifiers specific."}],
+    howTo: [{"name":"Enter pattern","text":"Type a pattern like \\d+ and toggle flags g, i, m, or s."},{"name":"Paste test text","text":"Paste sample text such as Order 42 ships on 2024-05-01."},{"name":"Review matches","text":"Read highlighted matches with group captures and index positions."},{"name":"Fix and copy","text":"Adjust escapes or flags on errors, then copy the working pattern."}],
   },
   {
     slug: "jwt-decoder",
@@ -94,8 +94,8 @@ export const developerTools: Tool[] = [
     icon: "VpnKey",
     keywords: ["jwt decoder", "decode jwt online", "jwt parser"],
     category: "developer",
-    faq: [{"question":"Does this verify the JWT signature?","answer":"No. It only decodes the payload for inspection; signature verification requires the secret."},{"question":"Is my token uploaded?","answer":"No. Decoding happens entirely in your browser."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Paste token","text":"Paste the full JWT (three dot-separated parts)."},{"name":"Read decoded parts","text":"Inspect the header and payload JSON."},{"name":"Copy","text":"Copy the decoded header or payload."}],
+    faq: [{"question":"Does this verify the JWT signature?","answer":"No. It only decodes the payload for inspection; signature verification requires the secret."},{"question":"Is my token uploaded?","answer":"No. Decoding happens entirely in your browser."},{"question":"Can it flag expired tokens?","answer":"Yes. It reads the exp claim and shows local expiry time, e.g. expired 2h ago, though checks need your secret."}],
+    howTo: [{"name":"Paste token","text":"Paste the full JWT with three dot-separated parts like xxx.yyy.zzz."},{"name":"Read decoded parts","text":"Inspect header alg and payload claims such as sub and exp JSON."},{"name":"Check expiry","text":"Verify exp and iat timestamps against current time for session bugs."},{"name":"Copy","text":"Copy the decoded header or payload for docs or debugging."}],
   },
   {
     slug: "mime-type-lookup",
@@ -106,8 +106,8 @@ export const developerTools: Tool[] = [
     icon: "AttachFile",
     keywords: ["mime type lookup", "file extension to mime", "mime types list"],
     category: "developer",
-    faq: [{"question":"What can I search with?","answer":"Either a file extension like .json or a MIME type like image/png."},{"question":"Is it a full list?","answer":"It covers the most common web and office formats."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Enter value","text":"Type an extension or MIME type."},{"name":"Read result","text":"See the matching pair."},{"name":"Copy","text":"Copy the extension or MIME."}],
+    faq: [{"question":"What can I search with?","answer":"Either a file extension like .json or a MIME type like image/png."},{"question":"Is it a full list?","answer":"It covers the most common web and office formats."},{"question":"What if my extension is missing?","answer":"Rare types fall back with an IANA hint; common web, image, font, and office mappings are all included."}],
+    howTo: [{"name":"Enter value","text":"Type an extension like .png or a type like image/png."},{"name":"Read result","text":"See the matching pair plus typical usage for headers."},{"name":"Check header use","text":"Use it for Content-Type, e.g. AddType image/webp .webp on Apache."},{"name":"Copy","text":"Copy the extension or MIME for your config."}],
   },
   {
     slug: "json-to-yaml",
@@ -118,8 +118,8 @@ export const developerTools: Tool[] = [
     icon: "DataObject",
     keywords: ["json to yaml", "json to yaml converter online", "json yaml"],
     category: "developer",
-    faq: [{"question":"Does it preserve nesting?","answer":"Yes. Objects, arrays and nested structures are converted faithfully."},{"question":"Is my data uploaded?","answer":"No. Conversion happens entirely in your browser."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Paste JSON","text":"Paste or type your JSON."},{"name":"Convert","text":"Click convert to get YAML."},{"name":"Copy","text":"Copy the YAML output."}],
+    faq: [{"question":"Does it preserve nesting?","answer":"Yes. Objects, arrays and nested structures are converted faithfully."},{"question":"Is my data uploaded?","answer":"No. Conversion happens entirely in your browser."},{"question":"Are YAML anchors or comments preserved?","answer":"Nesting and arrays convert faithfully; anchors and comments flatten because JSON has no equivalent syntax."}],
+    howTo: [{"name":"Paste JSON","text":"Paste JSON like {\"port\":8080,\"hosts\":[\"a\",\"b\"]}."},{"name":"Convert","text":"Click Convert to get indented YAML output instantly."},{"name":"Check indent","text":"Verify two-space nesting and quoted strings for pipelines."},{"name":"Copy","text":"Copy the YAML, e.g. port: 8080, into your config file."}],
   },
   {
     slug: "html-beautifier",
@@ -130,8 +130,8 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["html beautifier", "format html", "indent html"],
     category: "developer",
-    faq: [{"question":"Does it change my markup?","answer":"No. It only adds whitespace for readability; the tags stay the same."},{"question":"Are void elements handled?","answer":"Yes. Tags like img and br are not indented as if they had children."},{"question":"Is my data private?","answer":"Yes, all processing happens locally in your browser and nothing is uploaded."}],
-    howTo: [{"name":"Paste HTML","text":"Paste your HTML."},{"name":"Beautify","text":"Click beautify to indent it."},{"name":"Copy","text":"Copy the formatted HTML."}],
+    faq: [{"question":"Does it change my markup?","answer":"No. It only adds whitespace for readability; the tags stay the same."},{"question":"Are void elements handled?","answer":"Yes. Tags like img and br are not indented as if they had children."},{"question":"Will it break inline elements?","answer":"No. Block tags break lines while inline tags like span and a stay together to preserve spacing."}],
+    howTo: [{"name":"Paste HTML","text":"Paste messy HTML like <div><p>hi</p></div>."},{"name":"Beautify","text":"Click Beautify to apply tag-aware indentation."},{"name":"Check nesting","text":"Verify div, ul, and table levels indent correctly."},{"name":"Copy","text":"Copy the readable HTML into your template."}],
   },
   {
     slug: "credit-card-validator",
@@ -143,7 +143,7 @@ export const developerTools: Tool[] = [
     keywords: ["credit card validator", "luhn check", "card number validator"],
     category: "developer",
     faq: [{"question":"What does it check?","answer":"It runs the Luhn checksum and guesses the brand from the prefix."},{"question":"Is it safe to use?","answer":"Yes, it runs locally and stores nothing. Do not enter real card data on random sites."},{"question":"Can it validate formatted numbers?","answer":"Yes, it strips spaces and dashes before running the Luhn check, so you can paste numbers with formatting."}],
-    howTo: [{"name":"Enter number","text":"Type or paste the card number."},{"name":"Read result","text":"See brand, length and validity."},{"name":"Check formatting","text":"Review spaces and dashes handling."}],
+    howTo: [{"name":"Enter number","text":"Type or paste a test number like 4111 1111 1111 1111."},{"name":"Read result","text":"See brand, length, and Luhn validity instantly."},{"name":"Check formatting","text":"Spaces and dashes are stripped before validation."},{"name":"Test safely","text":"Use gateway test cards only; never paste real customer PANs."}],
   },
   {
     slug: "password-strength",
@@ -155,7 +155,7 @@ export const developerTools: Tool[] = [
     keywords: ["password strength", "password checker", "strong password test"],
     category: "developer",
     faq: [{"question":"Is my password sent anywhere?","answer":"No. Everything is evaluated in your browser."},{"question":"What makes a password strong?","answer":"Length plus a mix of lowercase, uppercase, numbers and symbols."},{"question":"Can I use it offline?","answer":"Yes, the strength check runs entirely offline in your browser and never contacts a server."}],
-    howTo: [{"name":"Type a password","text":"Enter it to see the score."},{"name":"Review checklist","text":"See which rules pass."},{"name":"Improve","text":"Add length and mix character types to increase the score."}],
+    howTo: [{"name":"Type a password","text":"Enter a candidate like Tr7!mango-Bridge to score it."},{"name":"Review checklist","text":"See length, variety, pattern, and common-word checks pass or fail."},{"name":"Improve","text":"Add length and mix types to raise the score above 80."},{"name":"Pick final","text":"Choose 14+ characters and store it in a password manager."}],
   },
   {
     slug: "code-minifier",
@@ -165,19 +165,19 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["code minifier", "javascript minify", "css minifier online"],
     category: "developer",
-    faq: [{ question: "What languages does it support?", answer: "JavaScript, CSS and HTML. The minifier removes // and /* */ comments, trims lines and collapses whitespace." }, { question: "Is my code uploaded?", answer: "No. Minification runs entirely in your browser. Nothing leaves this device." }, { question: "Is my data private?", answer: "Yes, all processing happens locally in your browser and nothing is uploaded." }],
-    howTo: [{ name: "Paste code", text: "Paste your JavaScript, CSS or HTML into the input." }, { name: "Minify", text: "Click Minify to strip comments and extra whitespace." }, { name: "Copy", text: "Copy the minified output and use it in production." }],
+    faq: [{ question: "What languages does it support?", answer: "JavaScript, CSS and HTML. The minifier removes // and /* */ comments, trims lines and collapses whitespace." }, { question: "Is my code uploaded?", answer: "No. Minification runs entirely in your browser. Nothing leaves this device." }, { question: "How much smaller will my code get?", answer: "Typical savings are 20-50%; the tool shows before/after bytes, e.g. 12.4KB to 8.1KB, keeping strings intact." }],
+    howTo: [{ name: "Paste code", text: "Paste JavaScript, CSS or HTML like /* fix */ .a { color: red; }." }, { name: "Minify", text: "Click Minify to strip comments and extra whitespace." }, { name: "Check savings", text: "Read the byte savings badge to confirm the reduction." }, { name: "Copy", text: "Copy the minified output for production use." }],
   },
   {
     slug: "screen-resolution",
     title: "Screen Resolution",
     short: "Detect screen metrics",
-    description: "Detect screen width, height, pixel ratio, and viewport size. Fast offline tool for responsive design.",
+    description: "Detect screen width, height, pixel ratio, viewport size, and orientation live with copyable values to debug responsive layouts accurately offline.",
     icon: "PhotoSizeSelectLarge",
     keywords: ["screen resolution", "detect screen size", "viewport dimensions"],
     category: "developer",
-    faq: [{ question: "What metrics are shown?", answer: "screen.width×height, window.innerWidth×innerHeight and devicePixelRatio." }, { question: "Is data sent anywhere?", answer: "No. Detection uses window.screen locally." }, { question: "Is my data private?", answer: "Yes, all processing happens locally in your browser and nothing is uploaded." }],
-    howTo: [{ name: "Open tool", text: "Open the tool on the device you want to test." }, { name: "Read metrics", text: "Values update live on resize." }, { name: "Copy", text: "Copy dimensions for your bug report or CSS." }]
+    faq: [{ question: "What metrics are shown?", answer: "screen.width×height, window.innerWidth×innerHeight and devicePixelRatio." }, { question: "Is data sent anywhere?", answer: "No. Detection uses window.screen locally." }, { question: "Why does viewport differ from screen?", answer: "Viewport excludes browser chrome; e.g. 1920x1080 screen may show 1903x937 viewport at 100% zoom." }],
+    howTo: [{ name: "Open tool", text: "Open the tool on the device you want to test, e.g. your phone." }, { name: "Read metrics", text: "Note screen size, viewport, DPR, and orientation values." }, { name: "Resize test", text: "Resize the window or rotate to see live updates." }, { name: "Copy", text: "Copy dimensions like 390x844 @3x for your CSS or bug report." }]
   },
   {
     slug: "xml-formatter",
@@ -187,19 +187,19 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["xml formatter", "xml beautifier", "xml validator online"],
     category: "developer",
-    faq: [{ question: "Does it validate?", answer: "Yes, uses DOMParser and shows parsererror if XML is invalid, with error message." }, { question: "Can it minify?", answer: "Yes, minify mode collapses whitespace between tags." }, { question: "Is my data private?", answer: "Yes, all processing happens locally in your browser and nothing is uploaded." }],
-    howTo: [{ name: "Paste XML", text: "Paste your XML content." }, { name: "Format", text: "Click Format for pretty print or Minify for compact." }, { name: "Copy", text: "Copy the result." }]
+    faq: [{ question: "Does it validate?", answer: "Yes, uses DOMParser and shows parsererror if XML is invalid, with error message." }, { question: "Can it minify?", answer: "Yes, minify mode collapses whitespace between tags." }, { question: "Does it handle namespaces and sitemaps?", answer: "Yes. Prefixes like sitemap:loc are preserved; invalid feeds show parsererror with line details." }],
+    howTo: [{ name: "Paste XML", text: "Paste XML like <note><to>Ada</to></note>." }, { name: "Format", text: "Click Format for pretty print or Minify for compact." }, { name: "Fix errors", text: "Read the error pointer for unclosed tags and correct them." }, { name: "Copy", text: "Copy the result for your feed or config." }]
   },
   {
     slug: "cron-parser",
     title: "Cron Parser",
     short: "Explain cron expressions",
-    description: "Parse and translate cron expressions into plain English. Validate fields and see next run times offline.",
+    description: "Parse cron expressions into plain English with field validation, step and range support, plus next five run times to schedule jobs confidently offline.",
     icon: "Schedule",
     keywords: ["cron parser", "crontab generator", "cron expression explained"],
     category: "developer",
-    faq: [{ question: "What format is supported?", answer: "Standard 5-field cron: minute hour day month weekday. Supports *, */step, a-b, a,b and combinations." }, { question: "Does it handle day-or-weekday OR logic?", answer: "Yes, follows cron spec where DOM and DOW are OR when both are restricted." }, { question: "Is my data private?", answer: "Yes, all processing happens locally in your browser and nothing is uploaded." }],
-    howTo: [{ name: "Enter cron", text: "Type like 0 0 * * 1 for Mondays at midnight." }, { name: "Read explanation", text: "See plain English description." }, { name: "Check next runs", text: "View next 5 scheduled run times." }]
+    faq: [{ question: "What format is supported?", answer: "Standard 5-field cron: minute hour day month weekday. Supports *, */step, a-b, a,b and combinations." }, { question: "Does it handle day-or-weekday OR logic?", answer: "Yes, follows cron spec where DOM and DOW are OR when both are restricted." }, { question: "Does it support seconds or @daily?", answer: "5-field only; @daily or seconds are flagged — use 0 0 * * * for daily midnight instead." }],
+    howTo: [{ name: "Enter cron", text: "Type an expression like 0 0 * * 1 for Mondays at midnight." }, { name: "Read explanation", text: "See plain English such as At 00:00 on Monday." }, { name: "Check next runs", text: "View the next 5 scheduled run times for verification." }, { name: "Copy", text: "Copy the expression into your crontab or scheduler." }]
   },
   {
     slug: "css-beautifier",
@@ -209,8 +209,8 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["css beautifier", "format css", "css formatter online"],
     category: "developer",
-    faq: [{ question: "Does it validate?", answer: "No, it formats based on braces and semicolons; invalid CSS will still be indented." }, { question: "Can it minify?", answer: "Yes, minify mode collapses whitespace between tags and strips comments while keeping strings intact." }, { question: "Is my data private?", answer: "Yes, all processing happens locally in your browser and nothing is uploaded." }],
-    howTo: [{ name: "Paste CSS", text: "Paste your CSS." }, { name: "Beautify", text: "Click Format for pretty print." }, { name: "Copy", text: "Copy formatted CSS." }]
+    faq: [{ question: "Does it validate?", answer: "No, it formats based on braces and semicolons; invalid CSS will still be indented." }, { question: "Can it minify?", answer: "Yes, minify mode collapses whitespace between tags and strips comments while keeping strings intact." }, { question: "Does it preserve media queries?", answer: "Yes. @media blocks indent by braces; invalid CSS still indents but should be fixed manually." }],
+    howTo: [{ name: "Paste CSS", text: "Paste minified CSS like .a{color:red;margin:0}." }, { name: "Beautify", text: "Click Format for expanded pretty print." }, { name: "Review rules", text: "Check sorted properties and brace clarity per selector." }, { name: "Copy", text: "Copy formatted CSS into your stylesheet." }]
   },
   {
     slug: "yaml-to-json",
@@ -220,8 +220,8 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["yaml to json", "yaml to json converter online", "yaml parse to json"],
     category: "developer",
-    faq: [{ question: "What YAML subset is supported?", answer: "Key: value, lists with -, nested via 2-space indent, strings, numbers, booleans and null. Odd indent is flagged." }, { question: "Is it private?", answer: "Yes, parsing runs locally in the browser and flags uneven indentation with exact line numbers." }, { question: "Is my data private?", answer: "Yes, all processing happens locally in your browser and nothing is uploaded." }],
-    howTo: [{ name: "Paste YAML", text: "Paste YAML content." }, { name: "Convert", text: "See JSON output automatically." }, { name: "Copy", text: "Copy JSON." }]
+    faq: [{ question: "What YAML subset is supported?", answer: "Key: value, lists with -, nested via 2-space indent, strings, numbers, booleans and null. Odd indent is flagged." }, { question: "Is it private?", answer: "Yes, parsing runs locally in the browser and flags uneven indentation with exact line numbers." }, { question: "What indentation does it require?", answer: "Two-space nesting per YAML spec; tabs or odd indents trigger exact errors like uneven indent at line 4." }],
+    howTo: [{ name: "Paste YAML", text: "Paste YAML like port: 8080\nhosts:\n  - a." }, { name: "Convert", text: "See JSON output update automatically." }, { name: "Fix errors", text: "Correct flagged lines for tabs or colons." }, { name: "Copy", text: "Copy JSON like {\"port\": 8080} for your API." }]
   },
   {
     slug: "json-tree-viewer",
@@ -231,18 +231,18 @@ export const developerTools: Tool[] = [
     icon: "DataObject",
     keywords: ["json tree viewer", "json viewer", "view json online"],
     category: "developer",
-    faq: [{ question: "How large can JSON be?", answer: "Up to 500KB is handled smoothly. Larger files may be truncated for performance." }, { question: "Is my JSON uploaded?", answer: "No, parsing and rendering are purely local." }, { question: "Is my data private?", answer: "Yes, all processing happens locally in your browser and nothing is uploaded." }],
-    howTo: [{ name: "Paste JSON", text: "Paste valid JSON." }, { name: "Browse tree", text: "Expand or collapse nodes to explore." }, { name: "Copy", text: "Copy path or value." }]
+    faq: [{ question: "How large can JSON be?", answer: "Up to 500KB is handled smoothly. Larger files may be truncated for performance." }, { question: "Is my JSON uploaded?", answer: "No, parsing and rendering are purely local." }, { question: "How do I copy a value path?", answer: "Click any node to copy JSONPath like $.users[0].name or its raw value for code or jq filters." }],
+    howTo: [{ name: "Paste JSON", text: "Paste valid JSON like {\"users\":[{\"name\":\"Ada\"}]}." }, { name: "Browse tree", text: "Expand or collapse nodes to explore nesting." }, { name: "Search", text: "Type a key to highlight matches and counts." }, { name: "Copy", text: "Copy the JSONPath or node value for your code." }]
   },
   {
     slug: "ssl-checker",
     title: "SSL Checker",
     short: "Check SSL certificate",
-    description: "Check SSL certificates by domain for issuer, expiry date, chain validity, and days remaining with security warnings to prevent outages and errors offline.",
+    description: "Check SSL certificates by domain for issuer, expiry date, chain validity, and days remaining with security warnings. Online only via SSL Labs proxy; cached up to 24h.",
     icon: "VerifiedUser",
     keywords: ["ssl checker", "check ssl certificate", "ssl test online"],
     category: "developer",
-    faq: [{ question: "What does it check?", answer: "Grade, issuer, subject, notBefore/notAfter, SANs and days until expiry." }, { question: "Is it private?", answer: "Yes, but uses SSL Labs via allorigins proxy; no cert data stored." }, { question: "Is my data private?", answer: "Yes, all processing happens locally in your browser and nothing is uploaded." }],
+    faq: [{ question: "What does it check?", answer: "Grade, issuer, subject, notBefore/notAfter, SANs and days until expiry." }, { question: "Is it private?", answer: "Online only: queries SSL Labs via allorigins.win proxy. Host and IP are shared, results cached up to 24h. Verify critical hosts via browser padlock or openssl." }, { question: "Is my data stored?", answer: "No cert data is stored by us; proxy and SSL Labs may log requests per their policies." }],
     howTo: [{ name: "Enter host", text: "Enter domain like example.com." }, { name: "Check", text: "Click Check SSL." }, { name: "View", text: "See grade, issuer and expiry." }]
   },
   {
@@ -253,8 +253,8 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["sql formatter", "sql beautifier", "format sql online"],
     category: "developer",
-    faq: [{ question: "Which dialects supported?", answer: "Generic ANSI with keyword uppercasing; preserves strings and comments." }, { question: "Is my query uploaded?", answer: "No, keyword uppercasing and whitespace formatting run locally; your query never leaves the browser." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Paste SQL", text: "Paste your query." }, { name: "Format", text: "Click Format or Minify." }, { name: "Copy", text: "Copy formatted SQL." }]
+    faq: [{ question: "Which dialects supported?", answer: "Generic ANSI with keyword uppercasing; preserves strings and comments." }, { question: "Is my query uploaded?", answer: "No, keyword uppercasing and whitespace formatting run locally; your query never leaves the browser." }, { question: "Does minify mode stay valid?", answer: "Yes. Minify collapses to one line, e.g. SELECT  a  FROM t becomes SELECT a FROM t, preserving strings." }],
+    howTo: [{ name: "Paste SQL", text: "Paste messy SQL like select a from t where x=1." }, { name: "Format", text: "Click Format for indented joins or Minify for compact." }, { name: "Check keywords", text: "Verify SELECT, JOIN, and WHERE uppercasing." }, { name: "Copy", text: "Copy formatted SQL into your report or editor." }]
   },
   {
     slug: "subnet-calculator",
@@ -264,8 +264,8 @@ export const developerTools: Tool[] = [
     icon: "Http",
     keywords: ["subnet calculator", "ipv4 subnet", "cidr calculator"],
     category: "developer",
-    faq: [{ question: "What does it calculate?", answer: "Mask, network, broadcast, first/last host and host count via bitwise math." }, { question: "Is it private?", answer: "Yes, bitwise and octal math run locally in the browser; your inputs never leave the device." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter IP", text: "Type IP like 192.168.1.0." }, { name: "Set CIDR", text: "Choose prefix 0-32." }, { name: "View", text: "See network table." }]
+    faq: [{ question: "What does it calculate?", answer: "Mask, network, broadcast, first/last host and host count via bitwise math." }, { question: "Is it private?", answer: "Yes, bitwise and octal math run locally in the browser; your inputs never leave the device." }, { question: "Does it support IPv6?", answer: "IPv4 only with 0-32 CIDR; e.g. 192.168.1.0/24 gives 254 hosts — use your VPC planner for IPv6." }],
+    howTo: [{ name: "Enter IP", text: "Type an IPv4 address like 192.168.1.0." }, { name: "Set CIDR", text: "Choose a prefix 0-32 with the slider, e.g. 24." }, { name: "View table", text: "Read network, broadcast, range, and wildcard mask." }, { name: "Copy plan", text: "Copy the subnet details for your LAN or VPC docs." }]
   },
   {
     slug: "chmod-calculator",
@@ -275,8 +275,8 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["chmod calculator", "chmod permissions", "octal calculator"],
     category: "developer",
-    faq: [{ question: "How is octal calculated?", answer: "r=4, w=2, x=1 per triad; e.g., rwxr-xr-x = 755." }, { question: "Is it private?", answer: "Yes, bitwise and octal math run locally in the browser; your inputs never leave the device." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Tick boxes", text: "Check rwx for owner, group and other." }, { name: "View", text: "See octal and symbolic instantly." }, { name: "Copy", text: "Copy chmod command." }]
+    faq: [{ question: "How is octal calculated?", answer: "r=4, w=2, x=1 per triad; e.g., rwxr-xr-x = 755." }, { question: "Is it private?", answer: "Yes, bitwise and octal math run locally in the browser; your inputs never leave the device." }, { question: "What do 755 and 644 mean?", answer: "755 is rwxr-xr-x for executables; 644 is rw-r--r-- for files. Tick boxes to preview both." }],
+    howTo: [{ name: "Tick boxes", text: "Check rwx boxes for owner, group, and other." }, { name: "View codes", text: "See octal like 755 and symbolic like rwxr-xr-x instantly." }, { name: "Test preset", text: "Try 644 for files or 755 for scripts." }, { name: "Copy", text: "Copy the chmod 755 filename command." }]
   },
   {
     slug: "code-to-image",
@@ -286,8 +286,8 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["code to image", "carbon code image", "code screenshot"],
     category: "developer",
-    faq: [{ question: "What languages are supported?", answer: "Any text with language label; highlighting is theme-based styling." }, { question: "Is my code uploaded?", answer: "No, the styled card renders with canvas locally; your snippet stays on your device." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Paste code", text: "Paste your snippet." }, { name: "Pick theme", text: "Choose dark or light and language." }, { name: "Download", text: "Export PNG image." }]
+    faq: [{ question: "What languages are supported?", answer: "Any text with language label; highlighting is theme-based styling." }, { question: "Is my code uploaded?", answer: "No, the styled card renders with canvas locally; your snippet stays on your device." }, { question: "What PNG size is exported?", answer: "2x retina PNG with padding control; e.g. 40 lines at 16px yields about a 1200x800 card." }],
+    howTo: [{ name: "Paste code", text: "Paste a snippet like const x = 1;" }, { name: "Pick theme", text: "Choose dark or light theme and language label." }, { name: "Style card", text: "Toggle line numbers, font size, and padding." }, { name: "Download", text: "Export the PNG for your blog or slides." }]
   },
   {
     slug: "hmac-generator",
@@ -332,5 +332,16 @@ export const developerTools: Tool[] = [
     category: "developer",
     faq: [{ question: "Is it safe for real accounts?", answer: "Use test secrets only; never enter production secrets on shared devices." }, { question: "Is it private?", answer: "Yes, HMAC-SHA1 TOTP runs locally via WebCrypto." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
     howTo: [{ name: "Enter secret", text: "Paste Base32 secret." }, { name: "Watch code", text: "See live 6-digit code and countdown." }, { name: "Copy", text: "Copy code or provisioning URI." }]
+  },
+  {
+    slug: "ai-token-counter",
+    title: "AI Token Counter",
+    short: "Tokens + API cost",
+    description: "Count AI tokens and estimate API cost for GPT, Claude and Gemini instantly. Paste text to see characters, words, tokens and price per model offline.",
+    icon: "DataObject",
+    keywords: ["ai token counter", "chatgpt token counter", "gpt token calculator cost"],
+    category: "developer",
+    faq: [{ question: "How accurate is the count?", answer: "Heuristic ~4 chars per token with code boost; treat as estimate, not exact tiktoken. Verify billing in provider dashboards." }, { question: "Which models are priced?", answer: "Editable price table for GPT, Claude Sonnet and Gemini input rates per 1M tokens; update when pricing changes." }, { question: "Is it private?", answer: "Yes, counting and cost math runs locally; pasted text never leaves your browser." }],
+    howTo: [{ name: "Paste text", text: "Paste prompt or document text." }, { name: "Check tokens", text: "See chars, words and estimated tokens." }, { name: "Estimate cost", text: "Pick a model to see cost per 1M pricing." }]
   },
 ];

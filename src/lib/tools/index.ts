@@ -69,8 +69,8 @@ export const groups = Object.freeze(
 ) as { category: Category; tools: Tool[] }[];
 export const toolsByCategoryCached = () => groups;
 
-// Validation: tools.length must match expected (158) – preserves God File count and sitemap
-export const EXPECTED_TOOL_COUNT = 169;
+// Validation: tools.length must match expected – preserves count and sitemap
+export const EXPECTED_TOOL_COUNT = 185;
 export const EXPECTED_CATEGORY_COUNT = 12;
 if (tools.length !== EXPECTED_TOOL_COUNT) {
   throw new Error(`[tools] length mismatch: expected ${EXPECTED_TOOL_COUNT}, got ${tools.length} (check src/lib/tools/data/*.ts)`);

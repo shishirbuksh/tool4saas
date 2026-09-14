@@ -1,9 +1,9 @@
-# ToolKit Pro (169 free tools across 12 categories)
+# Tool4SaaS (185 free tools across 12 categories)
 
-> Free, privacy-friendly online productivity and developer tools that run entirely in your browser. No account required and your data never leaves your device. 169 tools across 12 categories.
+> Free, privacy-friendly online productivity and developer tools that run entirely in your browser. No account required and your data never leaves your device. 185 tools across 12 categories.
 
 ## Overview
-- [ToolKit Pro](https://tool4saas.com/): Home page with all 169 free tools grouped by 12 categories.
+- [Tool4SaaS](https://tool4saas.com/): Home page with all 185 free tools grouped by 12 categories.
 - [About](https://tool4saas.com/about): What the site is and how it protects your privacy.
 - [Privacy Policy](https://tool4saas.com/privacy): How user data is handled (it stays in your browser).
 - [Categories](https://tool4saas.com/category/text-documents): Browse tools by category.
@@ -39,6 +39,10 @@
 - [Purchase Order Generator](https://tool4saas.com/purchase-order-generator): Create purchase orders
 - [Cover Letter Builder](https://tool4saas.com/cover-letter-builder): Build cover letters
 - [Receipt Generator](https://tool4saas.com/receipt-generator): Free PDF receipts
+- [Offer Letter Generator](https://tool4saas.com/offer-letter-generator): Offer letter + CTC PDF
+- [Payslip Generator](https://tool4saas.com/payslip-generator): Salary slip + net pay
+- [Rent Receipt Generator](https://tool4saas.com/rent-receipt-generator): HRA rent receipts PDF
+- [Freelance GST Invoice Generator](https://tool4saas.com/freelance-gst-invoice-generator): GST invoice + tax PDF
 
 ## Developer Tools
 - [JSON Formatter](https://tool4saas.com/json-formatter): Format, validate & minify JSON
@@ -70,6 +74,7 @@
 - [AES Encryptor](https://tool4saas.com/aes-encryptor): Encrypt with password
 - [JS Beautifier](https://tool4saas.com/js-beautifier): Format JS nicely
 - [OTP Generator (TOTP 2FA)](https://tool4saas.com/otp-generator): 30-sec 2FA codes
+- [AI Token Counter](https://tool4saas.com/ai-token-counter): Tokens + API cost
 
 ## Converters
 - [Unit Converter](https://tool4saas.com/unit-converter): Convert length, weight, temp & more
@@ -134,6 +139,7 @@
 - [PDF to JPG](https://tool4saas.com/pdf-to-jpg): Pages to images
 - [Rotate PDF Pages](https://tool4saas.com/pdf-rotate): Rotate all pages
 - [PDF Watermark](https://tool4saas.com/pdf-watermark): Add text watermark
+- [PDF to Text](https://tool4saas.com/pdf-to-text): Extract text pages
 
 ## Calculators
 - [Percentage Calculator](https://tool4saas.com/percentage-calculator): Percent of, what % & change
@@ -151,6 +157,7 @@
 - [Fraction Calculator](https://tool4saas.com/fraction-calculator): Add, subtract fractions
 - [Final Grade Calculator](https://tool4saas.com/grade-calculator): What final do I need?
 - [Concrete Calculator](https://tool4saas.com/concrete-calculator): Yards + bags needed
+- [US Sales Tax Calculator](https://tool4saas.com/us-sales-tax-calculator): State tax + total
 
 ## Finance & Money
 - [Mortgage Calculator](https://tool4saas.com/mortgage-calculator): EMI & amortization schedule
@@ -168,6 +175,15 @@
 - [Home Affordability Calculator](https://tool4saas.com/home-affordability-calculator): How much house?
 - [Refinance Calculator](https://tool4saas.com/refinance-calculator): Break-even refi
 - [CAGR Calculator](https://tool4saas.com/cagr-calculator): Growth rate + multiple
+- [EMI Calculator](https://tool4saas.com/emi-calculator): Loan EMI + interest cost
+- [Home Loan Eligibility India](https://tool4saas.com/home-loan-eligibility-india): Max loan by salary
+- [Mortgage Overpayment Calculator](https://tool4saas.com/mortgage-overpayment-calculator): Extra pay savings
+- [US Paycheck Calculator 2026](https://tool4saas.com/us-paycheck-calculator): Take-home per pay
+- [In-Hand Salary Calculator India FY 2026-27](https://tool4saas.com/in-hand-salary-india): CTC to monthly in-hand
+- [FD Calculator India](https://tool4saas.com/fd-calculator): FD maturity quarterly
+- [PPF Calculator India 7.1%](https://tool4saas.com/ppf-calculator): PPF 15-year maturity
+- [Debt Payoff Calculator](https://tool4saas.com/debt-payoff-calculator): Snowball vs avalanche
+- [Capital Gains Tax Calculator India](https://tool4saas.com/capital-gains-tax-india): LTCG STCG plus cess
 
 ## Health & Fitness
 - [Calorie Calculator](https://tool4saas.com/calorie-calculator): BMR, TDEE & macros

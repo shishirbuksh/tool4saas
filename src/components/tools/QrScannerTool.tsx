@@ -32,24 +32,22 @@ export default function QrScannerTool() {
   useEffect(() => {
     return () => {
       if (previewUrlRef.current && previewUrlRef.current.startsWith("blob:")) {
-        URL.revokeObjectURL(previewUrlRef.current);
+        try { URL.revokeObjectURL(previewUrlRef.current); } catch {}
         previewUrlRef.current = null;
       }
-      if (previewUrl.startsWith("blob:")) {
-        try { URL.revokeObjectURL(previewUrl); } catch {}
-      }
       if (objectUrlRef.current) {
-        URL.revokeObjectURL(objectUrlRef.current);
+        try { URL.revokeObjectURL(objectUrlRef.current); } catch {}
         objectUrlRef.current = null;
       }
       if (streamRef.current) {
         streamRef.current.getTracks().forEach((t) => t.stop());
+        streamRef.current = null;
       }
       if (scanRafRef.current !== null) {
         cancelAnimationFrame(scanRafRef.current);
+        scanRafRef.current = null;
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const copyDecoded = async () => {
@@ -69,12 +67,10 @@ export default function QrScannerTool() {
 
   const decodeViaJsQR = async (imageData: ImageData): Promise<string | null> => {
     try {
-      // lazy jsQR - dynamic import with fallback
       const mod = await import("jsqr");
-      // jsqr exports a function as default; handle both CJS and ESM shapes
       const jsQR = (mod as unknown as { default: unknown }).default ?? mod;
       if (typeof jsQR !== "function") {
-        throw new Error("jsQR export is not a function");
+        throw new Error("Could not load QR engine. Check your connection and retry.");
       }
       const code = (jsQR as (data: Uint8ClampedArray, w: number, h: number) => { data: string } | null)(
         imageData.data,
@@ -84,31 +80,8 @@ export default function QrScannerTool() {
       return code?.data ?? null;
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
-      // detect missing module
-      if (
-        msg.includes("Cannot find module") ||
-        msg.includes("Failed to fetch") ||
-        msg.includes("Could not resolve") ||
-        msg.includes("Cannot resolve")
-      ) {
-        throw new Error("jsQR not installed, install via npm install jsqr");
-      }
-      // if jsQR truly not installed, the dynamic import throws; show fallback
-      if (msg.includes("jsQR not installed")) throw e;
-      // generic import failure -> treat as not installed
-      // Only show fallback when import failed due to missing package
-      // We detect by checking if jsQR is not found - dynamic import error message varies by bundler
-      // Fallback to user-friendly message
-      if (
-        msg.toLowerCase().includes("jsqr") ||
-        msg.includes("not installed")
-      ) {
-        throw new Error("jsQR not installed, install via npm install jsqr");
-      }
-      // Re-throw as not installed fallback for any import error (bundler reports ChunkLoadError etc.)
-      // If the error originated from import resolution, give fallback
-      // Heuristic: if we never got a function, assume missing dep
-      throw new Error("jsQR not installed, install via npm install jsqr");
+      if (msg.includes("Could not load QR engine")) throw e;
+      throw new Error("Could not load QR engine. Check your connection and retry.");
     }
   };
 
@@ -131,11 +104,7 @@ export default function QrScannerTool() {
       }
     } catch (err) {
       const m = err instanceof Error ? err.message : String(err);
-      if (m.includes("jsQR not installed")) {
-        setError("jsQR not installed, install via npm install jsqr");
-      } else {
-        setError(m);
-      }
+      setError(m);
       setDecoded("");
     }
   };
@@ -156,16 +125,13 @@ export default function QrScannerTool() {
       return;
     }
 
-    // revoke previous preview URL on rapid file change (use ref pattern)
-    if (previewUrlRef.current && previewUrlRef.current.startsWith("blob:")) {
-      URL.revokeObjectURL(previewUrlRef.current);
+    // revoke previous blob URLs on rapid file change (ref-only to avoid stale state)
+    if (previewUrlRef.current?.startsWith("blob:")) {
+      try { URL.revokeObjectURL(previewUrlRef.current); } catch {}
       previewUrlRef.current = null;
     }
-    if (previewUrl.startsWith("blob:")) {
-      try { URL.revokeObjectURL(previewUrl); } catch {}
-    }
     if (objectUrlRef.current) {
-      URL.revokeObjectURL(objectUrlRef.current);
+      try { URL.revokeObjectURL(objectUrlRef.current); } catch {}
       objectUrlRef.current = null;
     }
 

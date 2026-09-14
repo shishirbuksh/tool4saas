@@ -12,50 +12,19 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
+import { parseCsv as parseCsvSafe, MAX_CSV_SIZE } from "./CsvViewerTool";
+
 const escapeCsv = (v: unknown) => {
   const s = v === null || v === undefined ? "" : String(v);
   return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
-};
-
-const parseCsv = (csv: string): Record<string, string>[] => {
-  const rows: string[][] = [];
-  let row: string[] = [];
-  let field = "";
-  let inQuotes = false;
-  for (let i = 0; i < csv.length; i++) {
-    const c = csv[i];
-    if (inQuotes) {
-      if (c === '"') {
-        if (csv[i + 1] === '"') {
-          field += '"';
-          i++;
-        } else inQuotes = false;
-      } else field += c;
-    } else if (c === '"') inQuotes = true;
-    else if (c === ",") {
-      row.push(field);
-      field = "";
-    } else if (c === "\n" || c === "\r") {
-      if (c === "\r" && csv[i + 1] === "\n") i++;
-      row.push(field);
-      rows.push(row);
-      row = [];
-      field = "";
-    } else field += c;
-  }
-  if (field.length || row.length) {
-    row.push(field);
-    rows.push(row);
-  }
-  if (!rows.length) return [];
-  const headers = rows[0];
-  return rows.slice(1).map((r) => Object.fromEntries(headers.map((h, i) => [h, r[i] ?? ""])));
 };
 
 export default function JsonCsvTool() {
   const [mode, setMode] = useState<"json" | "csv">("json");
   const [input, setInput] = useState("");
   const copy = (v: string) => v && void import("@/lib/clipboard").then(m=>m.copyToClipboard(v));
+
+  const isOverCap = input.length > MAX_CSV_SIZE;
 
   const { output, error } = useMemo(() => {
     if (!input.trim()) return { output: "", error: "" };
@@ -68,7 +37,7 @@ export default function JsonCsvTool() {
         for (const o of data) lines.push(keys.map((k) => escapeCsv((o as Record<string, unknown>)[k])).join(","));
         return { output: lines.join("\n"), error: "" };
       }
-      const rows = parseCsv(input);
+      const { rows } = parseCsvSafe(input);
       return { output: JSON.stringify(rows, null, 2), error: "" };
     } catch (e) {
       return { output: "", error: (e as Error).message };
@@ -122,6 +91,11 @@ export default function JsonCsvTool() {
             sx={{ "& textarea": { fontSize: 13, fontFamily: "monospace" } }}
           />
         </Box>
+        {isOverCap && mode === "csv" && (
+          <Alert severity="warning" sx={{ mt: 1 }}>
+            Input truncated to {Math.round(MAX_CSV_SIZE / 1024)}KB for performance. Only the first {Math.round(MAX_CSV_SIZE / 1024)}KB were converted.
+          </Alert>
+        )}
         {output && !error && (
           <Alert severity="success" sx={{ mt: 1 }}>
             Converted successfully. Everything runs in your browser.

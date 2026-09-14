@@ -24,32 +24,31 @@ export default function RelatedTools({ slug }: { slug: string }) {
       </Typography>
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
         {related.map((t) => (
-          <Link
-            key={t.slug}
-            component={NextLink}
-            href={`/${t.slug}`}
-            underline="none"
-            sx={{
-              display: "inline-flex",
-              alignItems: "center",
-              px: 1.75,
-              py: 0.75,
-              borderRadius: "999px",
-              border: "1px solid",
-              borderColor: "divider",
-              color: "text.primary",
-              fontSize: "0.875rem",
-              bgcolor: "action.hover",
-              transition: "border-color 150ms ease, color 150ms ease, background-color 150ms ease",
-              "&:hover": {
-                borderColor: "primary.main",
-                color: "primary.main",
-                bgcolor: "action.selected",
-              },
-            }}
-          >
-            {t.title}
-          </Link>
+          <NextLink key={t.slug} href={`/${t.slug}`} passHref legacyBehavior>
+            <Link
+              underline="none"
+              sx={{
+                display: "inline-flex",
+                alignItems: "center",
+                px: 1.75,
+                py: 0.75,
+                borderRadius: "999px",
+                border: "1px solid",
+                borderColor: "divider",
+                color: "text.primary",
+                fontSize: "0.875rem",
+                bgcolor: "action.hover",
+                transition: "border-color 150ms ease, color 150ms ease, background-color 150ms ease",
+                "&:hover": {
+                  borderColor: "primary.main",
+                  color: "primary.main",
+                  bgcolor: "action.selected",
+                },
+              }}
+            >
+              {t.title}
+            </Link>
+          </NextLink>
         ))}
       </Box>
     </Box>

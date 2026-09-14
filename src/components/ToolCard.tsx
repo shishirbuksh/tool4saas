@@ -137,10 +137,9 @@ export default function ToolCard({ tool }: { tool: Tool }) {
         "&:active": { transform: "scale(0.99)", transitionDuration: "100ms" },
       }}
     >
-      <CardActionArea
-        component={Link}
-        href={`/${tool.slug}`}
-        aria-label={`Open ${tool.title} tool`}
+      <Link href={`/${tool.slug}`} passHref legacyBehavior>
+        <CardActionArea
+          aria-label={`Open ${tool.title} tool`}
         sx={{
           height: "100%",
           borderRadius: "16px",
@@ -204,6 +203,7 @@ export default function ToolCard({ tool }: { tool: Tool }) {
           </Typography>
         </CardContent>
       </CardActionArea>
+      </Link>
     </Card>
   );
 }

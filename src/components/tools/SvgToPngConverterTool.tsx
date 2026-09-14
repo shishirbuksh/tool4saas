@@ -11,6 +11,7 @@ import Slider from "@mui/material/Slider";
 import Alert from "@mui/material/Alert";
 import { validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
+import { sanitizeSvg } from "./SvgOptimizerTool";
 
 const SVG_MAX_BYTES = 500 * 1024; // 500KB guard
 
@@ -100,13 +101,10 @@ export default function SvgToPngConverterTool() {
       setError(`SVG too large (max ${Math.round(MAX_IMAGE_SIZE / 1024 / 1024)} MB).`);
       return;
     }
-    // sanitize: block <script> via check (fail-closed)
-    if (input.toLowerCase().includes("<script") || /<script[\s>]/i.test(input)) {
-      setError("Blocked: <script> tags are not allowed in SVG input.");
-      return;
-    }
-    if (!input.toLowerCase().includes("<svg")) {
-      setError("Input does not look like SVG (missing <svg> tag).");
+    // sanitize: full SVG sanitization (scripts, event handlers, javascript: URLs)
+    const clean = sanitizeSvg(input);
+    if (!clean || !clean.toLowerCase().includes("<svg")) {
+      setError("Input was blocked or does not look like SVG (missing <svg> tag).");
       return;
     }
     if (!Number.isFinite(size) || size < 16 || size > MAX_DIMENSION) {
@@ -125,7 +123,7 @@ export default function SvgToPngConverterTool() {
     revokeResultUrl();
     revokeSourceUrl();
 
-    const svgBlob = new Blob([input], { type: "image/svg+xml;charset=utf-8" });
+    const svgBlob = new Blob([clean], { type: "image/svg+xml;charset=utf-8" });
     if (svgBlob.size > MAX_IMAGE_SIZE) {
       setError(`SVG blob too large (max ${Math.round(MAX_IMAGE_SIZE / 1024 / 1024)} MB).`);
       setBusy(false);

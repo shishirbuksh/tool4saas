@@ -15,6 +15,7 @@ export const metadata = homeMetadata();
 export default function HomePage() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', overflowX: 'clip' }}>
+      <HomeToolsItemList />
       {/* Premium Hero Section */}
       <Box 
         component="section" 

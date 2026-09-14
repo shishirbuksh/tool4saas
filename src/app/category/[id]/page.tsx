@@ -25,7 +25,7 @@ export async function generateMetadata({
   const base = siteConfig.url.replace(/\/$/, "");
   const canonical = `${base}/category/${id}`;
   return {
-    title: `${category.label} — ${siteConfig.name}`,
+    title: category.label,
     description: category.description,
     alternates: { canonical },
     // Full object: Metadata merges shallowly — a partial openGraph here

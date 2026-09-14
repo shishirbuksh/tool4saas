@@ -81,7 +81,9 @@ export default function CurrencyConverterTool() {
     let cancelled = false;
     async function load() {
       try {
-        const res = await fetch("https://open.er-api.com/v6/latest/USD");
+        const res = await fetch("https://open.er-api.com/v6/latest/USD", {
+          signal: AbortSignal.timeout(8000),
+        });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = (await res.json()) as ErApiResponse;
         if (data.result !== "success" || !data.rates) throw new Error("Bad API response");
@@ -94,10 +96,13 @@ export default function CurrencyConverterTool() {
           }
           return next;
         });
-        setUpdatedAt(data.time_last_update_utc ?? "");
+        setUpdatedAt(data.time_last_update_utc ?? new Date().toUTCString());
         setStatus("live");
       } catch {
-        if (!cancelled) setStatus("offline");
+        if (!cancelled) {
+          setUpdatedAt("");
+          setStatus("offline");
+        }
       }
     }
     void load();
@@ -191,10 +196,10 @@ export default function CurrencyConverterTool() {
 
       <Typography variant="caption" color="text.secondary">
         {status === "loading"
-          ? "Fetching live rates…"
+          ? "Fetching live rates from open.er-api.com…"
           : status === "live"
-            ? `Live rates (USD base)${updatedAt ? ` • updated ${updatedAt}` : ""}`
-            : "Offline — using fallback rates."}
+            ? `Live rates via open.er-api.com (USD base)${updatedAt ? ` • updated ${updatedAt}` : ""}`
+            : "Offline — using fallback rates (may be stale). Your IP is only sent to open.er-api.com when live rates load."}
       </Typography>
     </ToolPaper>
   );

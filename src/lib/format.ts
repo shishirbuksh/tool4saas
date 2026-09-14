@@ -1,6 +1,7 @@
 export const money = (n: number, currency = "USD"): string => {
   if (!isFinite(n)) return String(n);
-  return new Intl.NumberFormat("en-US", { style: "currency", currency }).format(n);
+  const locale = currency === "INR" ? "en-IN" : "en-US";
+  return new Intl.NumberFormat(locale, { style: "currency", currency }).format(n);
 };
 
 export const fmtBytes = (b: number): string => {

@@ -99,7 +99,7 @@ export default function YoutubeThumbnailTool() {
       document.body.appendChild(a);
       a.click();
       a.remove();
-      URL.revokeObjectURL(blobUrl);
+      window.setTimeout(() => URL.revokeObjectURL(blobUrl), 5000);
     } catch {
       // Fallback: open in new tab if fetch fails (CORS/network)
       setDownloadError("Direct download failed — opening image in new tab. You can right-click and save.");
@@ -116,7 +116,7 @@ export default function YoutubeThumbnailTool() {
           YouTube Thumbnail Downloader
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Paste any YouTube URL to get all thumbnail qualities. Preview, copy URL or download.
+          Paste any YouTube URL to get all thumbnail qualities. Preview, copy URL or download. Previews and downloads contact img.youtube.com (your IP + video ID are shared with Google).
         </Typography>
       </Box>
 

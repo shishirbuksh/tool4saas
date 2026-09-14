@@ -274,7 +274,7 @@ output,
   font-feature-settings: "tnum" 1;
 }
 
-/* Print: show only the document being exported (invoice / resume) */
+/* Print: show only the document being exported (invoice / resume / docs) */
 @media print {
   body * {
     visibility: hidden !important;
@@ -288,14 +288,32 @@ output,
   #po-print,
   #po-print *,
   #receipt-print,
-  #receipt-print * {
+  #receipt-print *,
+  #offer-letter-print,
+  #offer-letter-print *,
+  #payslip-print,
+  #payslip-print *,
+  #rent-receipt-print,
+  #rent-receipt-print *,
+  #gst-invoice-print,
+  #gst-invoice-print *,
+  #nda-print,
+  #nda-print *,
+  #resignation-letter-print,
+  #resignation-letter-print * {
     visibility: visible !important;
   }
   #invoice-print,
   #resume-print,
   #quotation-print,
   #po-print,
-  #receipt-print {
+  #receipt-print,
+  #offer-letter-print,
+  #payslip-print,
+  #rent-receipt-print,
+  #gst-invoice-print,
+  #nda-print,
+  #resignation-letter-print {
     position: absolute !important;
     left: 0 !important;
     top: 0 !important;

@@ -15,7 +15,7 @@ export default function TermsPage() {
     <Container maxWidth="md" sx={{ py: 6 }}>
       <Typography variant="h1" sx={{ fontSize: "2.25rem", mb: 2 }}>Terms of Service</Typography>
       <Box sx={{ color: "text.secondary", lineHeight: 1.8 }}>
-        <Typography sx={{ display: "block", mb: 1 }}><strong>Last updated:</strong> 2026-08-31</Typography>
+        <Typography sx={{ display: "block", mb: 1 }}><strong>Last updated:</strong> <time dateTime="2026-09-09">September 9, 2026</time></Typography>
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Acceptance</Typography>
         <Typography sx={{ display: "block", mb: 1 }}>By using Tool4SaaS you agree to these terms. All tools run locally in your browser; we provide them as-is without warranty.</Typography>
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Disclaimers</Typography>
@@ -25,7 +25,7 @@ export default function TermsPage() {
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Intellectual property</Typography>
         <Typography sx={{ display: "block", mb: 1 }}>Site design and code are © Tool4SaaS. You may use generated output (invoices, QR codes, resumes) for any lawful purpose.</Typography>
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Contact</Typography>
-        <Typography sx={{ display: "block", mb: 1 }}>Questions? Contact us via the email published on the site.</Typography>
+        <Typography sx={{ display: "block", mb: 1 }}>Questions? Contact us at hello@tool4saas.com (or set NEXT_PUBLIC_CONTACT_EMAIL). Do not use signature, invoice, or certificate outputs to forge another person&apos;s signature or misrepresent authorship. Respect YouTube Terms and owner copyright when using thumbnail previews. Test secrets only — never enter real card PANs, passwords, or private keys into shared devices.</Typography>
       </Box>
     </Container>
   );

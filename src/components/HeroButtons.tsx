@@ -7,24 +7,16 @@ import Link from "next/link";
 export default function HeroButtons({ firstSlug }: { firstSlug: string }) {
   return (
     <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 1 }}>
-      <Button
-        component={Link}
-        href={`/${firstSlug}`}
-        variant="contained"
-        color="primary"
-        size="large"
-      >
-        Get started free
-      </Button>
-      <Button
-        component={Link}
-        href="#tools"
-        variant="outlined"
-        color="primary"
-        size="large"
-      >
-        Browse all tools
-      </Button>
+      <Link href={`/${firstSlug}`} passHref legacyBehavior>
+        <Button variant="contained" color="primary" size="large">
+          Get started free
+        </Button>
+      </Link>
+      <Link href="#tools" passHref legacyBehavior>
+        <Button variant="outlined" color="primary" size="large">
+          Browse all tools
+        </Button>
+      </Link>
     </Stack>
   );
 }

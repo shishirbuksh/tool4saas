@@ -12,11 +12,18 @@ type AdSlotProps = {
 };
 
 const FORMAT_STYLES: Record<string, React.CSSProperties> = {
-  rectangle: { minHeight: 280, width: "100%", maxWidth: 336 },
+  rectangle: { minHeight: 280, width: "100%", maxWidth: 300 },
   leaderboard: { minHeight: 100, width: "100%", maxWidth: 728 },
   inline: { minHeight: 280, width: "100%" },
   auto: { minHeight: 250, width: "100%" },
 };
+
+function resolveAdFormat(format: "auto" | "rectangle" | "leaderboard" | "inline"): string {
+  if (format === "auto") return "auto";
+  if (format === "leaderboard") return "horizontal";
+  if (format === "inline") return "fluid";
+  return "rectangle";
+}
 
 export default function AdSlot({
   slot,
@@ -33,6 +40,17 @@ export default function AdSlot({
 
   useEffect(() => {
     if (!siteConfig.adsenseClient || !slot || slot.startsWith("000")) return;
+    try {
+      const raw = localStorage.getItem("t4s-consent-v1");
+      if (raw) {
+        const v = JSON.parse(raw) as { ad_storage?: string };
+        if (v.ad_storage !== "granted") return;
+      } else {
+        return;
+      }
+    } catch {
+      return;
+    }
     if (pushed.current) return;
     try {
       if (typeof window !== "undefined" && "adsbygoogle" in window) {
@@ -45,6 +63,7 @@ export default function AdSlot({
   }, [slot]);
 
   if (!siteConfig.adsenseClient || !slot || slot.startsWith("000")) {
+    if (process.env.NODE_ENV === "production") return null;
     return (
       <Box
         className={className}
@@ -100,7 +119,7 @@ export default function AdSlot({
         style={{ display: "block", ...FORMAT_STYLES[format] }}
         data-ad-client={siteConfig.adsenseClient}
         data-ad-slot={slot}
-        data-ad-format={format === "auto" ? "auto" : "rectangle"}
+        data-ad-format={resolveAdFormat(format)}
         data-full-width-responsive="true"
       />
     </Box>
