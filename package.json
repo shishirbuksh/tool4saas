@@ -5,8 +5,8 @@
   "description": "Productivity toolkit — free online tools for invoices, QR codes, resumes and text utilities. Monetized with display ads.",
   "scripts": {
     "dev": "next dev",
-    "build": "node --env-file=.env scripts/validate-tools.mjs && node --env-file=.env scripts/generate-llms.mjs && next build",
-    "validate": "node --env-file=.env scripts/validate-tools.mjs && node --env-file=.env scripts/generate-llms.mjs",
+    "build": "node scripts/validate-tools.mjs && node scripts/generate-llms.mjs && next build",
+    "validate": "node scripts/validate-tools.mjs && node scripts/generate-llms.mjs",
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run"

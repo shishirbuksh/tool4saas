@@ -2,6 +2,15 @@
 import fs from "fs";
 import path from "path";
 
+try {
+  const env = fs.readFileSync(".env", "utf8");
+  env.split("\n").forEach(line => {
+    const m = line.match(/^([^=]+)=(.*)$/);
+    if (m && !process.env[m[1]]) process.env[m[1]] = m[2].trim();
+  });
+} catch (e) {}
+
+
 const toolsPath = path.resolve("src/lib/tools.ts");
 const outPath = path.resolve("public/llms.txt");
 const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
