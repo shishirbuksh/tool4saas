@@ -1,7 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import React from "react";
 import Link from "next/link";
+
+const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
+  <Link ref={ref} {...props} />
+));
 import { usePathname } from "next/navigation";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -63,7 +68,7 @@ export default function Header() {
         <Toolbar disableGutters sx={{ minHeight: { xs: 64, md: 80 }, justifyContent: "space-between" }}>
           {/* Logo */}
           <Box
-            component={Link}
+            component={LinkWrapper}
             href="/"
             aria-label={`${siteConfig.name} home`}
             sx={{
@@ -104,7 +109,7 @@ export default function Header() {
           <Box component="nav" sx={{ display: { xs: "none", md: "flex" } }}>
             <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
               <Button
-                component={Link}
+                component={LinkWrapper}
                 href="/"
                 disableElevation
                 color={pathname === "/" ? "primary" : "inherit"}
@@ -165,7 +170,7 @@ export default function Header() {
               {grouped.map((g) => (
                 <MenuItem
                   key={g.category.id}
-                  component={Link}
+                  component={LinkWrapper}
                   href={`/category/${g.category.id}`}
                   onClick={() => setCatAnchor(null)}
                   selected={pathname === `/category/${g.category.id}`}
@@ -246,7 +251,7 @@ export default function Header() {
           <List sx={{ px: 0 }}>
             <ListItem disablePadding sx={{ mb: 1 }}>
               <ListItemButton 
-                component={Link} 
+                component={LinkWrapper} 
                 href="/" 
                 onClick={() => setOpen(false)} 
                 selected={pathname === "/"}
@@ -262,7 +267,7 @@ export default function Header() {
             {grouped.map((g) => (
               <ListItem disablePadding key={g.category.id} sx={{ mb: 0.5 }}>
                 <ListItemButton 
-                  component={Link} 
+                  component={LinkWrapper} 
                   href={`/category/${g.category.id}`} 
                   onClick={() => setOpen(false)}
                   selected={pathname === `/category/${g.category.id}`}

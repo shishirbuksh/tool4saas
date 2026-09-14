@@ -4,7 +4,12 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import React from "react";
 import Link from "next/link";
+
+const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
+  <Link ref={ref} {...props} />
+));
 
 export default function NotFound() {
   return (
@@ -15,7 +20,7 @@ export default function NotFound() {
         The page you&apos;re looking for doesn&apos;t exist or has moved.
       </Typography>
       <Box>
-        <Button component={Link} href="/" variant="contained" size="large">
+        <Button component={LinkWrapper} href="/" variant="contained" size="large">
           Back to home
         </Button>
       </Box>
