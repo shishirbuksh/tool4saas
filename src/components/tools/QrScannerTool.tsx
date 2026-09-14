@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
-import { validateImageFile } from "@/lib/validate";
+import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
+import { copyToClipboard } from "@/lib/clipboard";
 
 export default function QrScannerTool() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -15,6 +16,8 @@ export default function QrScannerTool() {
   const streamRef = useRef<MediaStream | null>(null);
   const scanRafRef = useRef<number | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const previewUrlRef = useRef<string | null>(null);
+  const objectUrlRef = useRef<string | null>(null);
 
   const [decoded, setDecoded] = useState<string>("");
   const [error, setError] = useState<string>("");
@@ -26,17 +29,39 @@ export default function QrScannerTool() {
   const [copied, setCopied] = useState(false);
   const [scanning, setScanning] = useState(false);
 
+  useEffect(() => {
+    return () => {
+      if (previewUrlRef.current && previewUrlRef.current.startsWith("blob:")) {
+        URL.revokeObjectURL(previewUrlRef.current);
+        previewUrlRef.current = null;
+      }
+      if (previewUrl.startsWith("blob:")) {
+        try { URL.revokeObjectURL(previewUrl); } catch {}
+      }
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
+      }
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach((t) => t.stop());
+      }
+      if (scanRafRef.current !== null) {
+        cancelAnimationFrame(scanRafRef.current);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const copyDecoded = async () => {
     if (!decoded) return;
     try {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(decoded);
+      const ok = await copyToClipboard(decoded);
+      if (ok) {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1500);
       } else {
-        const mod = await import("@/lib/clipboard");
-        await mod.copyToClipboard(decoded);
+        setError("Copy failed. Please copy manually.");
       }
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
     } catch {
       setError("Copy failed. Please copy manually.");
     }
@@ -124,11 +149,24 @@ export default function QrScannerTool() {
     setCopied(false);
     setCameraError("");
 
-    const v = validateImageFile(file);
+    const v = validateImageFile(file, { maxSize: MAX_IMAGE_SIZE });
     if (!v.valid) {
       setError(v.error || "Please choose an image file.");
       e.target.value = "";
       return;
+    }
+
+    // revoke previous preview URL on rapid file change (use ref pattern)
+    if (previewUrlRef.current && previewUrlRef.current.startsWith("blob:")) {
+      URL.revokeObjectURL(previewUrlRef.current);
+      previewUrlRef.current = null;
+    }
+    if (previewUrl.startsWith("blob:")) {
+      try { URL.revokeObjectURL(previewUrl); } catch {}
+    }
+    if (objectUrlRef.current) {
+      URL.revokeObjectURL(objectUrlRef.current);
+      objectUrlRef.current = null;
     }
 
     setFileName(file.name);
@@ -139,10 +177,34 @@ export default function QrScannerTool() {
     };
     reader.onload = () => {
       const result = reader.result as string;
+      previewUrlRef.current = result;
       setPreviewUrl(result);
 
       const img = new Image();
       img.onload = () => {
+        // OOM guard before canvas allocation: check original image dims
+        if (img.naturalWidth > MAX_DIMENSION || img.naturalHeight > MAX_DIMENSION || img.width > MAX_DIMENSION || img.height > MAX_DIMENSION) {
+          const w0 = img.naturalWidth || img.width;
+          const h0 = img.naturalHeight || img.height;
+          setError(`Image too large — max ${MAX_DIMENSION}px per side (got ${w0}×${h0}).`);
+          return;
+        }
+        const origW = img.naturalWidth || img.width;
+        const origH = img.naturalHeight || img.height;
+        if (img.width * img.height > MAX_PIXELS) {
+          setError(`Image too large — max ${MAX_PIXELS / (1024 * 1024)}MP (got ${Math.round((img.width * img.height) / (1024 * 1024))}MP).`);
+          return;
+        }
+        if (origW * origH > MAX_PIXELS) {
+          setError(`Image too large — max ${MAX_PIXELS / (1024 * 1024)}MP (got ${Math.round((origW * origH) / (1024 * 1024))}MP).`);
+          return;
+        }
+        const dimCheckOrig = validateImageDimensions(origW, origH);
+        if (!dimCheckOrig.valid) {
+          setError(dimCheckOrig.error || "Image too large.");
+          return;
+        }
+
         const canvas = canvasRef.current ?? document.createElement("canvas");
         // attach to ref if not mounted yet (hidden canvas always mounted)
         const target = canvasRef.current ?? canvas;
@@ -154,6 +216,20 @@ export default function QrScannerTool() {
           const ratio = Math.min(maxSide / w, maxSide / h);
           w = Math.round(w * ratio);
           h = Math.round(h * ratio);
+        }
+        // OOM guard before canvas allocation for scaled size
+        if (w > MAX_DIMENSION || h > MAX_DIMENSION) {
+          setError(`Target size too large — max ${MAX_DIMENSION}px per side.`);
+          return;
+        }
+        if (w * h > MAX_PIXELS) {
+          setError(`Target size too large — max ${MAX_PIXELS / (1024 * 1024)}MP.`);
+          return;
+        }
+        const dimCheck = validateImageDimensions(w, h);
+        if (!dimCheck.valid) {
+          setError(dimCheck.error || "Target size too large.");
+          return;
         }
         target.width = w;
         target.height = h;
@@ -199,6 +275,17 @@ export default function QrScannerTool() {
     }
     const w = video.videoWidth || 640;
     const h = video.videoHeight || 480;
+    // OOM guard before canvas allocation for video frame
+    if (w > MAX_DIMENSION || h > MAX_DIMENSION) {
+      setCameraError(`Video frame too large — max ${MAX_DIMENSION}px per side (got ${w}×${h}).`);
+      scanRafRef.current = requestAnimationFrame(() => void scanVideoFrame());
+      return;
+    }
+    if (w * h > MAX_PIXELS) {
+      setCameraError(`Video frame too large — max ${MAX_PIXELS / (1024 * 1024)}MP.`);
+      scanRafRef.current = requestAnimationFrame(() => void scanVideoFrame());
+      return;
+    }
     canvas.width = w;
     canvas.height = h;
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
@@ -284,6 +371,20 @@ export default function QrScannerTool() {
     }
     const w = video.videoWidth || 640;
     const h = video.videoHeight || 480;
+    // OOM guard before canvas allocation
+    if (w > MAX_DIMENSION || h > MAX_DIMENSION) {
+      setCameraError(`Target size too large — max ${MAX_DIMENSION}px per side.`);
+      return;
+    }
+    if (w * h > MAX_PIXELS) {
+      setCameraError(`Target size too large — max ${MAX_PIXELS / (1024 * 1024)}MP.`);
+      return;
+    }
+    const dimCheck = validateImageDimensions(w, h);
+    if (!dimCheck.valid) {
+      setCameraError(dimCheck.error || "Target size too large.");
+      return;
+    }
     canvas.width = w;
     canvas.height = h;
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
@@ -296,6 +397,17 @@ export default function QrScannerTool() {
   };
 
   const clearAll = () => {
+    if (previewUrlRef.current && previewUrlRef.current.startsWith("blob:")) {
+      URL.revokeObjectURL(previewUrlRef.current);
+      previewUrlRef.current = null;
+    }
+    if (previewUrl.startsWith("blob:")) {
+      try { URL.revokeObjectURL(previewUrl); } catch {}
+    }
+    if (objectUrlRef.current) {
+      URL.revokeObjectURL(objectUrlRef.current);
+      objectUrlRef.current = null;
+    }
     setDecoded("");
     setError("");
     setInfo("");

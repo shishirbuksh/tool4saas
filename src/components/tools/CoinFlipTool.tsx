@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Paper from "@mui/material/Paper";
+import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -20,20 +20,16 @@ export default function CoinFlipTool() {
   };
 
   return (
-    <Paper sx={{ p: { xs: 2, md: 4 } }} variant="outlined">
+    <ToolPaper>
       <Stack spacing={2} sx={{ alignItems: "center" }}>
         <Typography variant="h2" sx={{ fontFamily: "sans-serif", fontWeight: 800 }}>
-          {result}
+          {result ?? "—"}
         </Typography>
         <Button variant="contained" onClick={flip}>
           Flip
         </Button>
         {result && (
-          <Button
-            variant="outlined"
-            onClick={() => setResult(null)}
-            sx={{ mt: 1 }}
-          >
+          <Button variant="outlined" onClick={() => setResult(null)} sx={{ mt: 1 }}>
             New flip
           </Button>
         )}
@@ -45,6 +41,6 @@ export default function CoinFlipTool() {
           </Box>
         )}
       </Stack>
-    </Paper>
+    </ToolPaper>
   );
 }

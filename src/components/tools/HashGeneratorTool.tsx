@@ -15,6 +15,8 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 const ALGOS = ["SHA-1", "SHA-256", "SHA-384", "SHA-512"] as const;
 
+const MAX_HASH_INPUT = 1_000_000; // 1M chars cap (parity with Base64/JWT/HtmlEntities)
+
 async function digest(algo: string, text: string) {
   const data = new TextEncoder().encode(text);
   const buf = await crypto.subtle.digest(algo, data);
@@ -31,6 +33,7 @@ export default function HashGeneratorTool() {
 
   const generate = async () => {
     if (!input) return;
+    if (input.length > MAX_HASH_INPUT) { setOutput(`Input too large — max ${MAX_HASH_INPUT.toLocaleString()} chars.`); return; }
     if (!window.isSecureContext) { setOutput("Hash requires HTTPS (secure context)."); return; }
     setBusy(true);
     try {
@@ -50,9 +53,11 @@ export default function HashGeneratorTool() {
           minRows={5}
           fullWidth
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => setInput(e.target.value.slice(0, MAX_HASH_INPUT + 1))}
           placeholder="Type or paste text…"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
+          helperText={`${input.length.toLocaleString()} / ${MAX_HASH_INPUT.toLocaleString()} chars`}
+          error={input.length > MAX_HASH_INPUT}
         />
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
           <FormControl sx={{ minWidth: 160 }}>

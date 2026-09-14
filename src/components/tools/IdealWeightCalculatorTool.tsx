@@ -65,7 +65,7 @@ export default function IdealWeightCalculatorTool() {
     if (!isFinite(h) || h <= 0) {
       return null;
     }
-    const inches = heightUnit === "cm" ? h / 2.54 : h;
+    const inches = heightUnit === "cm" ? h / (METERS_PER_INCH * 100) : h;
     const meters = inches * METERS_PER_INCH;
     if (!isFinite(inches) || inches <= 0) return null;
 

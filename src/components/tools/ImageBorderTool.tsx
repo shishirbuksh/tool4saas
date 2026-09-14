@@ -7,7 +7,8 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import { validateImageFile } from "@/lib/validate";
+import Alert from "@mui/material/Alert";
+import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 
 export default function ImageBorderTool() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -20,12 +21,18 @@ export default function ImageBorderTool() {
   const [dataUrl, setDataUrl] = useState("");
   const [ready, setReady] = useState(false);
   const [ratio, setRatio] = useState(1);
+  const [error, setError] = useState("");
 
   const onFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    const v = validateImageFile(file);
-    if (!v.valid) return;
+    const v = validateImageFile(file, { maxSize: MAX_IMAGE_SIZE });
+    if (!v.valid) {
+      setError(v.error || "Invalid image.");
+      e.target.value = "";
+      return;
+    }
+    setError("");
     setName(file.name);
     const reader = new FileReader();
     reader.onerror = () => setReady(false);
@@ -35,6 +42,20 @@ export default function ImageBorderTool() {
       const img = new Image();
       img.onerror = () => setReady(false);
       img.onload = () => {
+        // 8192 / 16MP OOM guard on original dimensions before canvas work
+        if (img.width > MAX_DIMENSION || img.height > MAX_DIMENSION) {
+          setError(`Image too large — max ${MAX_DIMENSION}px per side (got ${img.width}×${img.height}).`);
+          return;
+        }
+        if (img.width * img.height > MAX_PIXELS) {
+          setError(`Image too large — max ${MAX_PIXELS / (1024 * 1024)}MP.`);
+          return;
+        }
+        const origCheck = validateImageDimensions(img.width, img.height);
+        if (!origCheck.valid) {
+          setError(origCheck.error || "Image too large.");
+          return;
+        }
         imgRef.current = img;
         setReady(true);
         setRatio(img.width / img.height);
@@ -63,8 +84,25 @@ export default function ImageBorderTool() {
     const nw = Math.max(1, parseInt(width, 10) || img.width);
     const nh = Math.max(1, parseInt(height, 10) || img.height);
     const bw = Math.max(0, parseInt(borderWidth, 10) || 0);
-    if (nw > 8192 || nh > 8192) return;
-    if (bw * 2 >= nw || bw * 2 >= nh) return;
+    // OOM guard before canvas allocation: 8192px per side + 16MP cap
+    if (nw > MAX_DIMENSION || nh > MAX_DIMENSION) {
+      setError(`Target size too large — max ${MAX_DIMENSION}px per side.`);
+      return;
+    }
+    if (nw * nh > MAX_PIXELS) {
+      setError(`Target size too large — max ${MAX_PIXELS / (1024 * 1024)}MP.`);
+      return;
+    }
+    const dimCheck = validateImageDimensions(nw, nh);
+    if (!dimCheck.valid) {
+      setError(dimCheck.error || "Target size too large.");
+      return;
+    }
+    if (bw * 2 >= nw || bw * 2 >= nh) {
+      setError("Border too thick for image dimensions.");
+      return;
+    }
+    setError("");
     canvas.width = nw;
     canvas.height = nh;
     const ctx = canvas.getContext("2d");
@@ -81,6 +119,7 @@ export default function ImageBorderTool() {
           Choose image
           <input type="file" accept="image/*" hidden onChange={onFile} />
         </Button>
+        {error && <Alert severity="error">{error}</Alert>}
         {name && (
           <Typography variant="body2" color="text.secondary">
             {name}

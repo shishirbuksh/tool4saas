@@ -65,9 +65,12 @@ export default function ColorShadesTool() {
             type="color"
             value={normalizedHex}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHex(e.target.value)}
+            aria-label="Base color picker"
             sx={{
               width: 48,
-              height: 40,
+              height: 44,
+              minWidth: 44,
+              minHeight: 44,
               border: "1px solid",
               borderColor: "divider",
               borderRadius: 2,
@@ -102,7 +105,7 @@ export default function ColorShadesTool() {
               { value: 20, label: "20" },
             ]}
             valueLabelDisplay="auto"
-            onChange={(_, v) => setSteps(v as number)}
+            onChange={(_, v) => setSteps(Array.isArray(v) ? v[0] : v)}
             aria-label="Steps"
           />
         </Box>

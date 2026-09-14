@@ -10,6 +10,8 @@ import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
+const MAX_JWT_SIZE = 1_000_000;
+
 const b64urlDecode = (s: string) => {
   const pad = s.length % 4 === 0 ? "" : "=".repeat(4 - (s.length % 4));
   const b64 = s.replace(/-/g, "+").replace(/_/g, "/") + pad;
@@ -24,6 +26,7 @@ export default function JwtDecoderTool() {
 
   const { header, payload, error } = useMemo(() => {
     if (!token.trim()) return { header: "", payload: "", error: "" };
+    if (token.length > MAX_JWT_SIZE) return { header: "", payload: "", error: `JWT too large — max ${MAX_JWT_SIZE.toLocaleString()} chars.` };
     const parts = token.trim().split(".");
     if (parts.length < 2) return { header: "", payload: "", error: "A JWT has three parts separated by dots." };
     try {
@@ -43,12 +46,13 @@ export default function JwtDecoderTool() {
           minRows={3}
           fullWidth
           value={token}
-          onChange={(e) => setToken(e.target.value)}
+          onChange={(e) => setToken(e.target.value.slice(0, MAX_JWT_SIZE + 1))}
           placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.…"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
           error={!!error}
-          helperText={error || "Decoding is done locally; nothing is sent anywhere."}
+          helperText={error || `Decoding is local; ${token.length.toLocaleString()} / ${MAX_JWT_SIZE.toLocaleString()} chars — nothing sent anywhere.`}
         />
+        {token.length > MAX_JWT_SIZE && <Alert severity="warning">JWT exceeds 1M chars — truncated.</Alert>}
         <Box>
           <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>

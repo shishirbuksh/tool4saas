@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "ToolKit Pro",
-  title: "ToolKit Pro — Free Online Productivity Tools",
+  name: "Tool4SaaS",
+  title: "Tool4SaaS - Free Online Productivity Tools",
   description:
     "Free online productivity tools: invoice generator, QR code generator, resume builder and word counter. No sign-up required, works in your browser.",
   keywords: [
@@ -19,7 +19,8 @@ export const siteConfig = {
       if (process.env.NODE_ENV === "production") {
         console.warn("NEXT_PUBLIC_SITE_URL is not set, using fallback https://your-domain.com — set it for correct canonicals");
       }
-      return process.env.NODE_ENV === "production" ? fallback : "http://localhost:3000";
+      // Fallback poison avoidance: never expose placeholder domain in SEO; use localhost as safe dev fallback
+      return "http://localhost:3000";
     }
     try {
       const u = new URL(candidate);
@@ -27,7 +28,8 @@ export const siteConfig = {
       return u.origin + (u.pathname !== "/" ? u.pathname.replace(/\/$/, "") : "");
     } catch {
       console.warn(`NEXT_PUBLIC_SITE_URL is invalid "${candidate}", using fallback ${fallback}`);
-      return fallback;
+      // Avoid leaking poison fallback into canonical/sitemap; use safe localhost
+      return "http://localhost:3000";
     }
   })(),
   locale: "en_US",
@@ -40,11 +42,26 @@ export const siteConfig = {
     }
     return raw;
   })(),
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@toolkitpro.example",
-  author: "ToolKit Pro",
-  sameAs: process.env.NEXT_PUBLIC_SAME_AS
-    ? process.env.NEXT_PUBLIC_SAME_AS.split(",").map((s) => s.trim()).filter(Boolean)
-    : [],
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@tool4saas.com",
+  author: "Tool4SaaS",
+  sameAs: (() => {
+    const raw = process.env.NEXT_PUBLIC_SAME_AS;
+    if (!raw) return [];
+    const urls: string[] = [];
+    for (const s of raw.split(",")) {
+      const trimmed = s.trim();
+      if (!trimmed) continue;
+      try {
+        const u = new URL(trimmed);
+        if (/^https?:$/.test(u.protocol) && u.hostname && !urls.includes(trimmed)) {
+          urls.push(trimmed);
+        }
+      } catch {
+        // ignore invalid urls
+      }
+    }
+    return urls;
+  })(),
 };
 
 export type SiteConfig = typeof siteConfig;

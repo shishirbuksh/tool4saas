@@ -11,7 +11,40 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Alert from "@mui/material/Alert";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { runRegexInWorker } from "@/lib/regexWorker";
+import { runRegexInWorker, terminateRegexWorker } from "@/lib/regexWorker";
+
+// Exported pure function for testing and reusability – O(n) via parts array + join
+export function findReplaceNonRegex(
+  text: string,
+  find: string,
+  replace: string,
+  matchCase: boolean
+): string {
+  // Edge: find="" must return original text to avoid infinite loop and O(n²) blowup
+  if (!find || find.length === 0) return text;
+  if (!text) return "";
+  // Handle 1M+ chars efficiently with O(n) parts array (avoids repeated string concat O(n²))
+  const f = matchCase ? find : find.toLowerCase();
+  const t = matchCase ? text : text.toLowerCase();
+  const flen = find.length;
+  const parts: string[] = [];
+  let i = 0;
+  // Use indexOf loop with parts push; guarantees linear time for 1M chars
+  while (i < text.length) {
+    const idx = t.indexOf(f, i);
+    if (idx === -1) {
+      parts.push(text.slice(i));
+      break;
+    }
+    // push slice before match and replacement
+    parts.push(text.slice(i, idx));
+    parts.push(replace);
+    i = idx + flen;
+    // Safety: ensure progress even if find length 0 (already handled)
+    if (flen === 0) break;
+  }
+  return parts.join("");
+}
 
 export default function TextFindReplaceTool() {
   const [text, setText] = useState("");
@@ -21,6 +54,35 @@ export default function TextFindReplaceTool() {
   const [matchCase, setMatchCase] = useState(false);
   const [result, setResult] = useState("");
   const [regexError, setRegexError] = useState("");
+  const [isOffline, setIsOffline] = useState(false);
+  const [isSecureContextState, setIsSecureContextState] = useState(true);
+
+  // Offline and isSecureContext handling
+  useEffect(() => {
+    const updateOffline = () => {
+      if (typeof navigator !== "undefined") setIsOffline(!navigator.onLine);
+    };
+    const updateSecure = () => {
+      if (typeof window !== "undefined") setIsSecureContextState(!!window.isSecureContext);
+    };
+    updateOffline();
+    updateSecure();
+    window.addEventListener("online", updateOffline);
+    window.addEventListener("offline", updateOffline);
+    return () => {
+      window.removeEventListener("online", updateOffline);
+      window.removeEventListener("offline", updateOffline);
+    };
+  }, []);
+
+  // Ensure worker URL revoked on unmount (global revokeObjectURL ledger)
+  useEffect(() => {
+    return () => {
+      try {
+        terminateRegexWorker();
+      } catch {}
+    };
+  }, []);
 
   useEffect(() => {
     if (!text) {
@@ -28,31 +90,37 @@ export default function TextFindReplaceTool() {
       setRegexError("");
       return;
     }
-    if (!find) {
+    // Handle find="" edge – avoid infinite loop, return original text
+    if (!find || find.length === 0) {
       setResult(text);
       setRegexError("");
       return;
     }
-    if (!useRegex) {
-      // Non-regex path is safe sync (no ReDoS)
-      const f = matchCase ? find : find.toLowerCase();
-      const t = matchCase ? text : text.toLowerCase();
-      let out = "";
-      let i = 0;
-      while (i < text.length) {
-        const idx = t.indexOf(f, i);
-        if (idx === -1) {
-          out += text.slice(i);
-          break;
-        }
-        out += text.slice(i, idx) + replace;
-        i = idx + find.length;
-      }
-      setResult(out);
-      setRegexError("");
+    // Handle 1M chars performance: guard huge inputs gracefully, still O(n) for 1M
+    if (text.length > 5_000_000) {
+      setRegexError("Text too long (max 5M chars). Trim input.");
+      setResult(text);
       return;
     }
-    // Regex path: run in Worker with 1s timeout
+    if (find.length > 1000) {
+      setRegexError("Find pattern too long (max 1000 chars).");
+      setResult(text);
+      return;
+    }
+    if (!useRegex) {
+      // Non-regex path is safe sync (no ReDoS) – O(n) via parts array + join
+      try {
+        const out = findReplaceNonRegex(text, find, replace, matchCase);
+        setResult(out);
+        setRegexError("");
+      } catch (e) {
+        setResult(text);
+        setRegexError(String((e as Error)?.message || e));
+      }
+      return;
+    }
+    // Regex path: run in Worker with 1s timeout – requires CSP worker-src blob:
+    // Worker handles offline fine (blob URL worker, no network), check isSecureContext not required for Worker
     let cancelled = false;
     const flags = matchCase ? "g" : "gi";
     runRegexInWorker({ type: "test", pattern: find, flags, text, replace, mode: "replace" } as any, 1000).then((res) => {
@@ -70,10 +138,31 @@ export default function TextFindReplaceTool() {
     };
   }, [text, find, replace, useRegex, matchCase]);
 
-  const copy = (v: string) => v && void import("@/lib/clipboard").then(m=>m.copyToClipboard(v));
+  const copy = (v: string) => {
+    if (!v) return;
+    // isSecureContext handling: clipboard lib already falls back to execCommand when not secure or NotAllowedError
+    const isSecure =
+      typeof window !== "undefined"
+        ? (window as unknown as { isSecureContext?: boolean }).isSecureContext !== false
+        : true;
+    // Still attempt copy; library handles both secure and non-secure contexts
+    void import("@/lib/clipboard").then((m) => m.copyToClipboard(v));
+    // Optional: could show message if not secure, but we proceed with fallback
+    void isSecure;
+  };
 
   return (
     <ToolPaper>
+        {isOffline && (
+          <Alert severity="info">
+            You are offline — find & replace runs entirely in your browser and works without an internet connection.
+          </Alert>
+        )}
+        {!isSecureContextState && (
+          <Alert severity="info">
+            Non-secure context detected — clipboard copy will use fallback (execCommand). All replacement still works offline.
+          </Alert>
+        )}
         <TextField
           label="Your text"
           multiline
@@ -83,6 +172,7 @@ export default function TextFindReplaceTool() {
           onChange={(e) => setText(e.target.value)}
           placeholder="Paste the text you want to edit…"
           slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
+          helperText={`${text.length.toLocaleString()} chars ${text.length > 1_000_000 ? "— large input handled with O(n) algorithm" : ""}`}
         />
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
           <TextField
@@ -91,6 +181,7 @@ export default function TextFindReplaceTool() {
             value={find}
             onChange={(e) => setFind(e.target.value)}
             slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
+            helperText={find.length === 0 ? "Enter text to find (empty = no replacement)" : undefined}
           />
           <TextField
             label="Replace with"
@@ -138,6 +229,9 @@ export default function TextFindReplaceTool() {
             }}
           />
         </Box>
+        <Typography variant="caption" color="text.secondary">
+          Works offline — all processing happens locally in your browser. {isSecureContextState ? "Secure context: clipboard available." : "Non-secure context: fallback copy used."} Worker CSP: requires <code>worker-src blob:</code>.
+        </Typography>
       </ToolPaper>
   );
 }

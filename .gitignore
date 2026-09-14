@@ -6,5 +6,8 @@
 /.env*.local
 next-env.d.ts
 npm-debug.log*
+*.log
+.next-build-test/
+coverage/
 .DS_Store
 *.tsbuildinfo

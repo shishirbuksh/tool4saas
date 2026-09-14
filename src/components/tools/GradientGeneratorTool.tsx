@@ -30,14 +30,15 @@ export default function GradientGeneratorTool() {
       ? `linear-gradient(${angle}deg, ${toRgb(c1)}, ${toRgb(c2)})`
       : `radial-gradient(circle, ${toRgb(c1)}, ${toRgb(c2)})`;
 
-  const picker = (c: string, set: (v: string) => void) => (
+  const picker = (c: string, set: (v: string) => void, label: string) => (
     <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
       <Box
         component="input"
         type="color"
         value={toRgb(c)}
         onChange={(e) => set(e.target.value)}
-        sx={{ width: 48, height: 40, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
+        aria-label={label}
+        sx={{ width: 48, height: 44, minWidth: 44, minHeight: 44, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
       />
       <TextField
         value={c}
@@ -51,8 +52,8 @@ export default function GradientGeneratorTool() {
 
   return (
     <ToolPaper>
-        {picker(c1, setC1)}
-        {picker(c2, setC2)}
+        {picker(c1, setC1, "First gradient color")}
+        {picker(c2, setC2, "Second gradient color")}
         <ToggleButtonGroup size="small" value={type} exclusive onChange={(_, v) => v && setType(v)}>
           <ToggleButton value="linear">Linear</ToggleButton>
           <ToggleButton value="radial">Radial</ToggleButton>
@@ -62,7 +63,7 @@ export default function GradientGeneratorTool() {
             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
               Angle: {angle}°
             </Typography>
-            <Slider value={angle} min={0} max={360} step={1} onChange={(_, v) => setAngle(v as number)} />
+            <Slider value={angle} min={0} max={360} step={1} onChange={(_, v) => setAngle(Array.isArray(v) ? v[0] : v)} />
           </Box>
         )}
         <Box

@@ -8,9 +8,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
+import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 const rand = (max: number) => {
-  const range = 0x100000000;
+  const range = UINT32_MAX_PLUS_ONE;
   const limit = Math.floor(range / max) * max;
   const buf = new Uint32Array(1);
   let r: number;

@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "nextjs-seo": {
+      "source": "laguagu/claude-code-nextjs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/nextjs-seo/SKILL.md",
+      "computedHash": "35d1efd948e83c262bd9db31bac4e30038e9691daf3816b008c0f99f0ed49870"
+    },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",

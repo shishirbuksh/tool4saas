@@ -55,10 +55,11 @@ export default function XmlFormatterTool() {
       }
       const parser = new DOMParser();
       const doc = parser.parseFromString(input, "application/xml");
-      const parserError = doc.getElementsByTagName("parsererror");
-      if (parserError.length > 0) {
-        const msg = parserError[0].textContent || "Invalid XML";
-        throw new Error(msg);
+      // Fail-closed on parse error: return empty (never render partial/broken XML).
+      // Check both namespaced and non-namespaced parsererror for cross-browser coverage.
+      if (doc.querySelector("parsererror") || doc.getElementsByTagName("parsererror").length > 0) {
+        setOutput("");
+        throw new Error("Invalid XML");
       }
       const serialized = new XMLSerializer().serializeToString(doc);
       if (minify) {

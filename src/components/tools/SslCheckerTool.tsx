@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
+import { MS_PER_DAY } from "@/lib/format";
 
 type SslResult = {
   host: string;
@@ -60,7 +61,7 @@ function formatDate(ts: number | null): string {
 function daysUntil(ts: number | null): number | null {
   if (!ts) return null;
   const diff = ts - Date.now();
-  return Math.ceil(diff / (1000 * 60 * 60 * 24));
+  return Math.ceil(diff / MS_PER_DAY);
 }
 
 function getGradeColor(grade: string | null) {

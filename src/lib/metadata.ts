@@ -9,13 +9,16 @@ export function toolMetadata(slug: string): Metadata {
   const ogImage = `/og/${slug}`;
 
   if (!tool) {
-    return { title: siteConfig.title, description: siteConfig.description };
+    return {
+      title: siteConfig.title,
+      description: siteConfig.description,
+      alternates: { canonical: url },
+    };
   }
 
   return {
     title: tool.title,
     description: tool.description,
-    keywords: [...tool.keywords, "online tool", "free tool", "web app"],
     applicationName: siteConfig.name,
     authors: [{ name: siteConfig.author }],
     alternates: { canonical: url },
@@ -62,11 +65,21 @@ export function homeMetadata(): Metadata {
         "max-snippet": -1,
       },
     },
+    // Full object: Metadata merges shallowly, so a partial openGraph here
+    // would drop the parent title/description/url/siteName (see layout).
     openGraph: {
+      type: "website",
+      locale: siteConfig.locale,
+      url: base,
+      siteName: siteConfig.name,
+      title: siteConfig.title,
+      description: siteConfig.description,
       images: [{ url: "/og/home", width: 1200, height: 630, alt: siteConfig.name }],
     },
     twitter: {
       card: "summary_large_image",
+      title: siteConfig.title,
+      description: siteConfig.description,
       images: ["/og/home"],
     },
   };

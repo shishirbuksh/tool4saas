@@ -7,7 +7,10 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Alert from "@mui/material/Alert";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+
+const MAX_INPUT_SIZE = 1_000_000; // 1M chars cap
 
 function utf8ToB64(str: string) {
   return btoa(
@@ -27,6 +30,10 @@ export default function Base64Tool() {
   const [output, setOutput] = useState("");
 
   const encode = () => {
+    if (input.length > MAX_INPUT_SIZE) {
+      setOutput(`Input too large — max ${MAX_INPUT_SIZE.toLocaleString()} chars (got ${input.length.toLocaleString()}).`);
+      return;
+    }
     try {
       setOutput(utf8ToB64(input));
     } catch {
@@ -34,8 +41,13 @@ export default function Base64Tool() {
     }
   };
   const decode = () => {
+    const trimmed = input.trim();
+    if (trimmed.length > MAX_INPUT_SIZE) {
+      setOutput(`Input too large — max ${MAX_INPUT_SIZE.toLocaleString()} chars (got ${trimmed.length.toLocaleString()}).`);
+      return;
+    }
     try {
-      setOutput(b64ToUtf8(input.trim()));
+      setOutput(b64ToUtf8(trimmed));
     } catch {
       setOutput("Not valid Base64 — check your input.");
     }
@@ -49,11 +61,14 @@ export default function Base64Tool() {
           minRows={6}
           fullWidth
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => setInput(e.target.value.slice(0, MAX_INPUT_SIZE + 1))}
           placeholder="Type or paste text…"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ fontFamily: "monospace" }}
+          sx={{ fontFamily: "monospace", "& .MuiInputBase-root": { minHeight: 44 } }}
+          helperText={`${input.length.toLocaleString()} / ${MAX_INPUT_SIZE.toLocaleString()} chars`}
+          error={input.length > MAX_INPUT_SIZE}
         />
+        {input.length > MAX_INPUT_SIZE && <Alert severity="warning">Input exceeds 1M chars — will be truncated.</Alert>}
         <Stack direction="row" spacing={1}  useFlexGap sx={{ flexWrap: "wrap" }}>
           <Button variant="contained" onClick={encode} disabled={!input}>Encode →</Button>
           <Button variant="contained" color="secondary" onClick={decode} disabled={!input}>← Decode</Button>
@@ -67,8 +82,8 @@ export default function Base64Tool() {
               multiline
               minRows={6}
               fullWidth
-              slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false } }}
-              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+              slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false, autoComplete: "off" } }}
+              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 }, "& .MuiInputBase-root": { minHeight: 44 } }}
             />
           </Box>
         )}

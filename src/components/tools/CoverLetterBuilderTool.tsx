@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
@@ -76,7 +76,10 @@ function capitalize(s: string) {
 export default function CoverLetterBuilderTool() {
   const [applicantName, setApplicantName] = useState("Alex Johnson");
   const [contact, setContact] = useState("alex.johnson@email.com · (555) 123-4567 · 123 Main St, City, ST 12345");
-  const [date, setDate] = useState(() => new Date().toISOString().slice(0, 10));
+  const [date, setDate] = useState("");
+  useEffect(() => {
+    setDate(new Date().toISOString().slice(0, 10));
+  }, []);
   const [hiringManager, setHiringManager] = useState("Hiring Manager");
   const [company, setCompany] = useState("Acme Corporation");
   const [position, setPosition] = useState("Product Designer");

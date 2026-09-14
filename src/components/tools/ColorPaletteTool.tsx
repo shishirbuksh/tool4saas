@@ -83,7 +83,8 @@ export default function ColorPaletteTool() {
             type="color"
             value={toRgb(base)}
             onChange={(e) => setBase(e.target.value)}
-            sx={{ width: 48, height: 40, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
+            aria-label="Base color picker"
+            sx={{ width: 48, height: 44, minWidth: 44, minHeight: 44, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
           />
           <TextField
             value={base}

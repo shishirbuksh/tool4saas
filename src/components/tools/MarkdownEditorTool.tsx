@@ -9,7 +9,10 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import Alert from "@mui/material/Alert";
 import { copyToClipboard } from "@/lib/clipboard";
+
+const MAX_MARKDOWN_SIZE = 500 * 1024; // 500KB guard
 
 const DEFAULT_MARKDOWN = `# Hello World
 
@@ -138,8 +141,20 @@ export default function MarkdownEditorTool() {
   const [markdown, setMarkdown] = useState(DEFAULT_MARKDOWN);
   const [tab, setTab] = useState(0);
   const [copied, setCopied] = useState(false);
+  const [sizeError, setSizeError] = useState("");
 
   const html = useMemo(() => markdownToHtml(markdown), [markdown]);
+
+  const handleMarkdownChange = (value: string) => {
+    if (value.length > MAX_MARKDOWN_SIZE) {
+      setSizeError(`Input too large — max ${MAX_MARKDOWN_SIZE / 1024}KB (got ${Math.round(value.length / 1024)}KB).`);
+      // Truncate to max
+      setMarkdown(value.slice(0, MAX_MARKDOWN_SIZE));
+      return;
+    }
+    setSizeError("");
+    setMarkdown(value);
+  };
 
   const handleCopyHtml = async () => {
     const ok = await copyToClipboard(html);
@@ -167,17 +182,22 @@ export default function MarkdownEditorTool() {
         </Tabs>
 
         {tab === 0 ? (
-          <TextField
-            label="Markdown"
-            multiline
-            minRows={16}
-            fullWidth
-            value={markdown}
-            onChange={(e) => setMarkdown(e.target.value)}
-            placeholder="Type your markdown here..."
-            slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-            sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13, lineHeight: 1.6 } }}
-          />
+          <>
+            <TextField
+              label="Markdown"
+              multiline
+              minRows={16}
+              fullWidth
+              value={markdown}
+              onChange={(e) => handleMarkdownChange(e.target.value)}
+              placeholder="Type your markdown here..."
+              slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
+              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13, lineHeight: 1.6 } }}
+              helperText={`${markdown.length} / ${MAX_MARKDOWN_SIZE} chars`}
+              error={!!sizeError}
+            />
+            {sizeError && <Alert severity="error">{sizeError}</Alert>}
+          </>
         ) : (
           <Box
             role="tabpanel"

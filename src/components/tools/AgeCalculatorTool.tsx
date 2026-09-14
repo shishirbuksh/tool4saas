@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -20,12 +20,16 @@ function Stat({ label, value }: { label: string; value: string | number }) {
 
 export default function AgeCalculatorTool() {
   const [dob, setDob] = useState("1995-06-15");
+  const [now, setNow] = useState<Date | null>(null);
+
+  useEffect(() => {
+    setNow(new Date());
+  }, []);
 
   const res = useMemo(() => {
-    if (!dob) return null;
+    if (!dob || !now) return null;
     const birth = new Date(dob + "T00:00:00");
     if (isNaN(birth.getTime())) return null;
-    const now = new Date();
     let years = now.getFullYear() - birth.getFullYear();
     let months = now.getMonth() - birth.getMonth();
     let days = now.getDate() - birth.getDate();
@@ -47,7 +51,7 @@ export default function AgeCalculatorTool() {
     const daysUntil = Math.ceil((next.getTime() - now.getTime()) / MS_PER_DAY);
 
     return { years, months, days, totalDays, weekday, daysUntil, next };
-  }, [dob]);
+  }, [dob, now]);
 
   return (
     <ToolPaper spacing={3}>

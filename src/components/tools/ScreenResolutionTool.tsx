@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Stack, Box, Typography, Alert, Card, CardContent } from '@mui/material';
+import { Stack, Typography, Alert, Card, CardContent } from '@mui/material';
+import ToolPaper from "@/components/ToolPaper";
 
 // Calculate Greatest Common Divisor
 const getGCD = (a: number, b: number): number => {
@@ -53,12 +54,16 @@ export default function ScreenResolutionTool() {
     }, []);
 
     if (!metrics) {
-        return <Alert severity="info">Calculating screen metrics...</Alert>;
+        return (
+          <ToolPaper>
+            <Alert severity="info">Calculating screen metrics...</Alert>
+          </ToolPaper>
+        );
     }
 
     return (
-        <Box sx={{ p: 3 }}>
-            <Typography variant="h4" gutterBottom>
+        <ToolPaper>
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
                 Screen Resolution Dashboard
             </Typography>
             <Stack direction="row" spacing={3} useFlexGap sx={{ flexWrap: "wrap" }}>
@@ -113,6 +118,6 @@ export default function ScreenResolutionTool() {
                     </CardContent>
                 </Card>
             </Stack>
-        </Box>
+        </ToolPaper>
     );
 }

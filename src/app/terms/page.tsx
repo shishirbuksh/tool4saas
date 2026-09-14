@@ -6,7 +6,7 @@ import { staticPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = staticPageMetadata({
   title: "Terms of Service",
-  description: "Terms of Service for ToolKit Pro — use of free browser-based tools, disclaimers for calculators and content.",
+  description: "Terms of Service for Tool4SaaS — use of free browser-based tools, disclaimers for calculators and content.",
   path: "/terms",
 });
 
@@ -17,13 +17,13 @@ export default function TermsPage() {
       <Box sx={{ color: "text.secondary", lineHeight: 1.8 }}>
         <Typography sx={{ display: "block", mb: 1 }}><strong>Last updated:</strong> 2026-08-31</Typography>
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Acceptance</Typography>
-        <Typography sx={{ display: "block", mb: 1 }}>By using ToolKit Pro you agree to these terms. All tools run locally in your browser; we provide them as-is without warranty.</Typography>
+        <Typography sx={{ display: "block", mb: 1 }}>By using Tool4SaaS you agree to these terms. All tools run locally in your browser; we provide them as-is without warranty.</Typography>
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Disclaimers</Typography>
-        <Typography sx={{ display: "block", mb: 1 }}>Calculators (BMI, loan, GST, tip, percentage, commission, discount, mortgage, SIP, compound interest, inflation, salary, profit margin, income tax, calorie, water intake, macro, pregnancy, ideal weight) are for informational purposes only and are not financial, tax, medical or legal advice. Verify results with a qualified professional. We are not liable for decisions made based on tool output.</Typography>
+        <Typography sx={{ display: "block", mb: 1 }}>Calculators (BMI, loan, GST, tip, percentage, commission, discount, mortgage, SIP, compound interest, simple interest, retirement, auto loan, rent vs buy, freelance rate, inflation, salary, profit margin, income tax, calorie, water intake, macro, pregnancy, ovulation, sleep, body fat, ideal weight) are for informational purposes only and are not financial, tax, medical or legal advice. Verify results with a qualified professional. We are not liable for decisions made based on tool output.</Typography>
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Acceptable use</Typography>
         <Typography sx={{ display: "block", mb: 1 }}>Do not misuse, attempt to disrupt, or reverse-engineer the site. Input content is your responsibility and must not violate law or third-party rights.</Typography>
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Intellectual property</Typography>
-        <Typography sx={{ display: "block", mb: 1 }}>Site design and code are © ToolKit Pro. You may use generated output (invoices, QR codes, resumes) for any lawful purpose.</Typography>
+        <Typography sx={{ display: "block", mb: 1 }}>Site design and code are © Tool4SaaS. You may use generated output (invoices, QR codes, resumes) for any lawful purpose.</Typography>
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Contact</Typography>
         <Typography sx={{ display: "block", mb: 1 }}>Questions? Contact us via the email published on the site.</Typography>
       </Box>

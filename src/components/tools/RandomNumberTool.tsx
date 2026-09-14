@@ -11,14 +11,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import Alert from "@mui/material/Alert";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 function randInt(min: number, max: number) {
   let range = max - min + 1;
-  if (range > 4294967295) {
-    range = 4294967295;
+  if (range > UINT32_MAX_PLUS_ONE - 1) {
+    range = UINT32_MAX_PLUS_ONE - 1;
   }
   const arr = new Uint32Array(1);
-  const limit = 4294967296 - (4294967296 % range);
+  const limit = UINT32_MAX_PLUS_ONE - (UINT32_MAX_PLUS_ONE % range);
   while (true) {
     window.crypto.getRandomValues(arr);
     if (arr[0] < limit) {

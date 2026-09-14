@@ -73,8 +73,10 @@ function sanitizeSvg(svg: string): string {
     try {
       const parser = new DOMParser();
       const doc = parser.parseFromString(s, "image/svg+xml");
-      if (doc.querySelector("parsererror")) {
-        return s;
+      // Fail-closed on parse error: return "" (never render partial/broken SVG).
+      // Check both namespaced and non-namespaced parsererror for cross-browser coverage.
+      if (doc.querySelector("parsererror") || doc.getElementsByTagName("parsererror").length > 0) {
+        return "";
       }
       const dangerousTags = ["script", "iframe", "object", "embed", "foreignObject", "link", "meta", "style"];
       dangerousTags.forEach((tag) => {
@@ -108,10 +110,10 @@ function sanitizeSvg(svg: string): string {
         });
       });
       const svgEl = doc.documentElement;
-      if (!svgEl || svgEl.nodeName.toLowerCase() === "parsererror") return s;
+      if (!svgEl || svgEl.nodeName.toLowerCase() === "parsererror") return "";
       return new XMLSerializer().serializeToString(svgEl);
     } catch {
-      return s;
+      return "";
     }
   }
   return s;

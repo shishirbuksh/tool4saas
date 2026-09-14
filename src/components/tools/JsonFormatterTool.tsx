@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -15,9 +15,14 @@ export default function JsonFormatterTool() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const format = (indent: number | null) => {
-    if (input.length > 500_000) { setError("Input too large (max 500 KB)"); return; }
+    if (input.length > 500_000) {
+      setError("Input too large (max 500 KB)");
+      inputRef.current?.focus();
+      return;
+    }
     setError("");
     try {
       const parsed = JSON.parse(input);
@@ -25,6 +30,8 @@ export default function JsonFormatterTool() {
     } catch (e) {
       setError((e as Error).message);
       setOutput("");
+      // Focus first error for a11y
+      requestAnimationFrame(() => inputRef.current?.focus());
     }
   };
 
@@ -39,9 +46,12 @@ export default function JsonFormatterTool() {
           fullWidth
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder='{ "hello": "world" }'
+          placeholder='{ "hello": "world" }…'
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ fontFamily: "monospace" }}
+          sx={{ fontFamily: "monospace", "& .MuiInputBase-root": { minHeight: 44 } }}
+          inputRef={inputRef}
+          error={!!error}
+          helperText={error ? `Invalid JSON: ${error}` : "Paste valid JSON to format or minify."}
         />
         <Stack direction="row" spacing={1}  useFlexGap sx={{ flexWrap: "wrap" }}>
           <Button variant="contained" startIcon={<AutoFixHighIcon />} onClick={() => format(2)} disabled={!input}>Format (2 spaces)</Button>
@@ -57,8 +67,8 @@ export default function JsonFormatterTool() {
               multiline
               minRows={8}
               fullWidth
-              slotProps={{ input: { readOnly: true, "aria-label": "Result", spellCheck: false } }}
-              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+              slotProps={{ input: { readOnly: true, "aria-label": "Result", spellCheck: false, autoComplete: "off" } }}
+              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 }, "& .MuiInputBase-root": { minHeight: 44 } }}
             />
           </Box>
         )}

@@ -45,8 +45,18 @@ export default function SignatureMakerTool() {
     // Handle high DPI for crisp lines
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
     const rect = canvas.getBoundingClientRect();
-    const w = Math.round(rect.width * dpr) || 700;
-    const h = Math.round(rect.height * dpr) || 300;
+    let w = Math.round(rect.width * dpr) || 700;
+    let h = Math.round(rect.height * dpr) || 300;
+    // OOM guard before canvas allocation: clamp to 8192px per side (fixed 700x300 UI, DPR-safe)
+    const MAX_DIMENSION = 8192;
+    w = Math.min(Math.max(1, w), MAX_DIMENSION);
+    h = Math.min(Math.max(1, h), MAX_DIMENSION);
+    if (w * h > 16 * 1024 * 1024) {
+      // Scale down proportionally to stay within 16MP
+      const ratio = Math.sqrt((16 * 1024 * 1024) / (w * h));
+      w = Math.max(1, Math.floor(w * ratio));
+      h = Math.max(1, Math.floor(h * ratio));
+    }
     if (canvas.width !== w || canvas.height !== h) {
       canvas.width = w;
       canvas.height = h;
@@ -251,7 +261,9 @@ export default function SignatureMakerTool() {
             onChange={(e) => setPenColor(e.target.value)}
             sx={{
               width: 48,
-              height: 40,
+              height: 44,
+              minWidth: 44,
+              minHeight: 44,
               border: "1px solid",
               borderColor: "divider",
               borderRadius: 2,
@@ -259,7 +271,7 @@ export default function SignatureMakerTool() {
               cursor: "pointer",
               bgcolor: "transparent",
             }}
-            aria-label="Pen color"
+            aria-label="Pen color picker"
           />
           <TextField
             label="Pen color"
@@ -281,7 +293,7 @@ export default function SignatureMakerTool() {
             min={1}
             max={10}
             step={1}
-            onChange={(_, v) => setPenWidth(v as number)}
+            onChange={(_, v) => setPenWidth(Array.isArray(v) ? v[0] : v)}
             valueLabelDisplay="auto"
             aria-label="Pen width"
           />

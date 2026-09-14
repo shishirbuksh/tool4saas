@@ -12,6 +12,7 @@ import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
+import { KG_PER_LB, METERS_PER_INCH, fmtNumber } from "@/lib/format";
 
 type Cat = {
   label: string;
@@ -21,11 +22,11 @@ type Cat = {
 const CATEGORIES: Record<string, Cat> = {
   length: {
     label: "Length",
-    units: { mm: 0.001, cm: 0.01, m: 1, km: 1000, in: 0.0254, ft: 0.3048, yd: 0.9144, mi: 1609.344 },
+    units: { mm: 0.001, cm: 0.01, m: 1, km: 1000, in: METERS_PER_INCH, ft: 0.3048, yd: 0.9144, mi: 1609.344 },
   },
   weight: {
     label: "Weight",
-    units: { mg: 1e-6, g: 0.001, kg: 1, oz: 0.0283495, lb: 0.453592, t: 1000 },
+    units: { mg: 1e-6, g: 0.001, kg: 1, oz: 0.0283495, lb: KG_PER_LB, t: 1000 },
   },
   time: {
     label: "Time",
@@ -65,14 +66,14 @@ export default function UnitConverterTool() {
     if (cat === "temperature") return "";
     const base = n * units[from];
     const out = base / units[to];
-    return out.toLocaleString(undefined, { maximumFractionDigits: 6 });
+    return fmtNumber(out, { maximumFractionDigits: 6 });
   }, [value, from, to, cat, units]);
 
   const tempResult = useMemo(() => {
     if (cat !== "temperature") return "";
     const n = parseFloat(value);
     if (isNaN(n)) return "";
-    return fromC(toC(n, from), to).toLocaleString(undefined, { maximumFractionDigits: 4 });
+    return fmtNumber(fromC(toC(n, from), to), { maximumFractionDigits: 4 });
   }, [value, from, to, cat]);
 
   const swap = () => {

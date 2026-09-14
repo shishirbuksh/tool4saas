@@ -10,11 +10,14 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Alert from "@mui/material/Alert";
-import { money } from "@/lib/format";
+import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
+
+const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
 
 export default function SipCalculatorTool() {
   const [monthly, setMonthly] = useState("");
+  const [currency, setCurrency] = useState<(typeof CURRENCIES)[number]>("USD");
   const [rate, setRate] = useState("");
   const [years, setYears] = useState("");
   const [frequency, setFrequency] = useState<string>("monthly");
@@ -34,7 +37,7 @@ export default function SipCalculatorTool() {
     const mr = rRaw / 100 / 12;
     const inv = m * n;
     let fut: number;
-    if (mr !== 0) {
+    if (Math.abs(mr) >= EPSILON_RATE) {
       fut = m * ((Math.pow(1 + mr, n) - 1) / mr) * (1 + mr);
     } else {
       fut = m * n;
@@ -58,6 +61,16 @@ export default function SipCalculatorTool() {
 
   return (
     <ToolPaper>
+        <FormControl fullWidth size="small">
+          <InputLabel>Currency</InputLabel>
+          <Select label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as typeof currency)}>
+            {CURRENCIES.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Monthly investment", monthly, setMonthly)}
         {field("Annual rate (%)", rate, setRate, "%")}
@@ -86,17 +99,17 @@ export default function SipCalculatorTool() {
           Future value
         </Typography>
         <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
-          {future !== null ? money(future) : "—"}
+          {future !== null ? money(future, currency) : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography color="text.secondary">Invested amount</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{invested !== null ? money(invested) : "—"}</Typography>
+          <Typography sx={{ fontWeight: 700 }}>{invested !== null ? money(invested, currency) : "—"}</Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography color="text.secondary">Estimated gain</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{gain !== null ? money(gain) : "—"}</Typography>
+          <Typography sx={{ fontWeight: 700 }}>{gain !== null ? money(gain, currency) : "—"}</Typography>
         </Box>
       </Stack>
       <Alert severity="info">

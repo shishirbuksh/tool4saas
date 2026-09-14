@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-
 import { Inter, Fraunces } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import Box from "@mui/material/Box";
@@ -21,13 +20,14 @@ const inter = Inter({
   preload: true,
 });
 
-// Display: Fraunces (9-144 opsz, SOFT/WONK) — premium serif for hero / h1-h4
-// Falls back to Instrument Serif geometry; Fraunces SOFT 0 gives sharp, editorial contrast
+// Display: Fraunces — 2 weights only (700/800) for hero/h1/h2 critical path.
+// h2-h6 request 600 in theme but resolve to nearest loaded (700) — no extra fetch.
+// Do NOT add 600/900 without preload audit: each weight = extra woff2 + FOUT risk.
 const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display",
-  weight: ["600", "700", "800", "900"],
+  weight: ["700", "800"],
   fallback: ["Georgia", "Times New Roman", "serif"],
   adjustFontFallback: true,
   preload: true,
@@ -40,7 +40,6 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: siteConfig.keywords,
   alternates: { canonical: siteConfig.url.replace(/\/$/, "") },
   authors: [{ name: siteConfig.author }],
   creator: siteConfig.author,
@@ -67,9 +66,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FCFCF9",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FCFCF9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0A0A" },
+  ],
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -80,16 +83,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `try{var m=localStorage.getItem('color-mode');if(m!=='light'&&m!=='dark')m=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',m);document.documentElement.style.colorScheme=m;var c=m==='dark'?'#070b16':'#FCFCF9';var q=document.querySelector('meta[name="theme-color"]');if(q)q.setAttribute('content',c);else{var t=document.createElement('meta');t.name='theme-color';t.content=c;document.head.appendChild(t);}}catch(e){}` }} suppressHydrationWarning />
+        <script
+          dangerouslySetInnerHTML={{ __html: `try{var m=localStorage.getItem('color-mode');if(m!=='light'&&m!=='dark')m=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',m);document.documentElement.style.colorScheme=m;var c=m==='dark'?'#0A0A0A':'#FCFCF9';var q=document.querySelector('meta[name="theme-color"]');if(q)q.setAttribute('content',c);else{var t=document.createElement('meta');t.name='theme-color';t.content=c;document.head.appendChild(t);}}catch(e){}` }}
+          suppressHydrationWarning
+        />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <AdSenseScript />
         <a href="#main" className="skip-link">
           Skip to content
         </a>
         <AppRouterCacheProvider>
           <ThemeProviderClient>
-            <Box sx={{ position: "relative", zIndex: 1 }}>
+            <Box sx={{ position: "relative", zIndex: 1, overflowX: "clip" }}>
               <Header />
               <main id="main">{children}</main>
               <Footer />

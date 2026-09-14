@@ -13,6 +13,8 @@ import InputLabel from "@mui/material/InputLabel";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
+const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
+
 const FREQUENCIES = [
   { label: "Yearly", value: 1 },
   { label: "Half-yearly", value: 2 },
@@ -22,6 +24,7 @@ const FREQUENCIES = [
 
 export default function CompoundInterestTool() {
   const [principal, setPrincipal] = useState("");
+  const [currency, setCurrency] = useState<(typeof CURRENCIES)[number]>("USD");
   const [rate, setRate] = useState("");
   const [years, setYears] = useState("");
   const [freq, setFreq] = useState<number>(1);
@@ -53,6 +56,16 @@ export default function CompoundInterestTool() {
 
   return (
     <ToolPaper>
+        <FormControl fullWidth size="small">
+          <InputLabel>Currency</InputLabel>
+          <Select label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as typeof currency)}>
+            {CURRENCIES.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Principal", principal, setPrincipal)}
         {field("Annual rate (%)", rate, setRate, "%")}
@@ -85,7 +98,7 @@ export default function CompoundInterestTool() {
           Maturity amount
         </Typography>
         <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
-          {amount !== null ? money(amount) : "—"}
+          {amount !== null ? money(amount, currency) : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
@@ -94,13 +107,13 @@ export default function CompoundInterestTool() {
           <Typography sx={{ fontWeight: 700 }}>
             {(() => {
               const p = parseFloat(principal);
-              return isFinite(p) && p > 0 ? money(p) : "—";
+              return isFinite(p) && p > 0 ? money(p, currency) : "—";
             })()}
           </Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography color="text.secondary">Interest earned</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{interest !== null ? money(interest) : "—"}</Typography>
+          <Typography sx={{ fontWeight: 700 }}>{interest !== null ? money(interest, currency) : "—"}</Typography>
         </Box>
       </Stack>
       <Alert severity="info">

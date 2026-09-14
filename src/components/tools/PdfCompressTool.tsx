@@ -7,8 +7,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
 import Slider from "@mui/material/Slider";
+import { MAX_IMAGE_SIZE } from "@/lib/validate";
+import { fmtBytes } from "@/lib/format";
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const MAX_FILE_SIZE = MAX_IMAGE_SIZE;
 
 export default function PdfCompressTool() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -56,13 +58,13 @@ export default function PdfCompressTool() {
         Choose PDF
         <input ref={inputRef} type="file" accept="application/pdf,.pdf" hidden onChange={onFile} />
       </Button>
-      {file && <Alert severity="info">Selected: {file.name} ({(file.size / 1024).toFixed(1)} KB)</Alert>}
+      {file && <Alert severity="info">Selected: {file.name} ({fmtBytes(file.size)})</Alert>}
       {error && <Alert severity="error">{error}</Alert>}
       <Box>
         <Typography variant="body2" color="text.secondary" gutterBottom>
           Compression: {Math.round((1 - quality) * 100)}% (lower quality = smaller file)
         </Typography>
-        <Slider value={quality} min={0.1} max={1} step={0.05} onChange={(_, v) => setQuality(v as number)} disabled={!file || busy} />
+        <Slider value={quality} min={0.1} max={1} step={0.05} onChange={(_, v) => setQuality(Array.isArray(v) ? v[0] : v)} disabled={!file || busy} />
       </Box>
       <Box>
         <Button variant="contained" onClick={compress} disabled={!file || busy}>

@@ -45,14 +45,15 @@ export default function ColorContrastTool() {
   const r = ratio(fg, bg);
   const pass = (min: number) => (r !== null ? r >= min : false);
 
-  const preview = (c: string, set: (v: string) => void) => (
+  const preview = (c: string, set: (v: string) => void, label: string) => (
       <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
       <Box
         component="input"
         type="color"
         value={toRgb(c) ? c : "#000000"}
         onChange={(e) => set(e.target.value)}
-        sx={{ width: 48, height: 40, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
+        aria-label={label}
+        sx={{ width: 48, height: 44, minWidth: 44, minHeight: 44, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
       />
       <TextField
         value={c}
@@ -66,8 +67,8 @@ export default function ColorContrastTool() {
 
   return (
     <ToolPaper>
-        {preview(fg, setFg)}
-        {preview(bg, setBg)}
+        {preview(fg, setFg, "Foreground color picker")}
+        {preview(bg, setBg, "Background color picker")}
         <Box
           sx={{
             p: 4,

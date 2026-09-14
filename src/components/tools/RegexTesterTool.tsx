@@ -27,11 +27,11 @@ export default function RegexTesterTool() {
     }
     const f = `${flags.g ? "g" : ""}${flags.i ? "i" : ""}${flags.m ? "m" : ""}${flags.s ? "s" : ""}`;
     // Run in Worker with 1s timeout to mitigate ReDoS; heuristic fallback inside worker
-    runRegexInWorker({ type: "test", pattern, flags: f, text, mode: "match" } as any, 1000).then((res) => {
+    runRegexInWorker({ type: "test", pattern, flags: f, text, mode: "match" }, 1000).then((res) => {
       if (cancelled) return;
       if (res.ok) {
         setError("");
-        setMatches((res as any).matches ?? []);
+        setMatches(res.matches ?? []);
       } else {
         setError(res.error);
         setMatches([]);
@@ -51,8 +51,9 @@ export default function RegexTesterTool() {
           fullWidth
           value={pattern}
           onChange={(e) => setPattern(e.target.value)}
-          placeholder="e.g. (\\w+)@(\\w+)"
+          placeholder="e.g. (\w+)@(\w+)…"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
+          sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
           error={!!error}
           helperText={error || "Enter a JavaScript-style regex pattern."}
         />
@@ -74,6 +75,7 @@ export default function RegexTesterTool() {
           onChange={(e) => setText(e.target.value)}
           placeholder="Paste the text to test against…"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
+          sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
         />
         <Box>
           <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>

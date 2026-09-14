@@ -11,7 +11,21 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import DownloadIcon from "@mui/icons-material/Download";
-import { QRCodeCanvas } from "qrcode.react";
+import dynamic from "next/dynamic";
+
+// Heavy dep split: qrcode.react loads in its own client-only chunk (ssr:false),
+// never in the homepage chunk. No static import (not even type-only) remains.
+type QRCanvasProps = {
+  value: string;
+  size?: number;
+  level?: "L" | "M" | "Q" | "H";
+  bgColor?: string;
+  fgColor?: string;
+};
+const QRCodeCanvas = dynamic(
+  () => import("qrcode.react").then((mod) => mod.QRCodeCanvas),
+  { ssr: false, loading: () => null }
+) as React.ComponentType<QRCanvasProps>;
 
 const TYPES = [
   { value: "url", label: "Website / URL" },
@@ -22,12 +36,12 @@ const TYPES = [
 ];
 
 function escapeWifi(s: string) {
-  return s.replace(/([\\;:,"])/g, "\\$1");
+  return s.replace(/([\\;:,\"'])/g, "\\$1");
 }
 function buildValue(type: string, raw: string, ssid?: string, password?: string) {
   switch (type) {
     case "email":
-      return `mailto:${encodeURIComponent(raw)}`;
+      return `mailto:${encodeURIComponent(raw.trim())}`;
     case "phone":
       return `tel:${raw.replace(/[^+0-9]/g, "")}`;
     case "wifi":
@@ -70,6 +84,12 @@ export default function QrCodeTool() {
               value={type}
               onChange={(e) => setType(e.target.value)}
               fullWidth
+              sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+              slotProps={{
+                select: {
+                  MenuProps: { slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } },
+                },
+              }}
             >
               {TYPES.map((t) => (
                 <MenuItem key={t.value} value={t.value}>{t.label}</MenuItem>
@@ -85,13 +105,22 @@ export default function QrCodeTool() {
                 fullWidth
                 multiline={type === "text"}
                 minRows={type === "text" ? 2 : 1}
-                placeholder={type === "url" ? "https://" : ""}
-                slotProps={{ input: { inputMode: type === "phone" ? "tel" : type === "url" ? "url" : "text", spellCheck: false, autoComplete: "off" } }}
+                placeholder={
+                  type === "url"
+                    ? "https://example.com…"
+                    : type === "email"
+                      ? "name@example.com…"
+                      : type === "phone"
+                        ? "+1 555 000 0000…"
+                        : "Enter text…"
+                }
+                slotProps={{ input: { inputMode: type === "email" ? "email" : type === "phone" ? "tel" : type === "url" ? "url" : "text", spellCheck: false, autoComplete: "off" } }}
+                sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
               />
             ) : (
               <>
-                <TextField label="Network name (SSID)" value={ssid} onChange={(e) => setSsid(e.target.value)} fullWidth slotProps={{ input: { spellCheck: false, autoComplete: "off" } }} />
-                <TextField label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} fullWidth />
+                <TextField label="Network name (SSID)" value={ssid} onChange={(e) => setSsid(e.target.value)} fullWidth placeholder="My WiFi network…" slotProps={{ input: { inputMode: "text", spellCheck: false, autoComplete: "off" } }} sx={{ "& .MuiInputBase-root": { minHeight: 44 } }} />
+                <TextField label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} fullWidth placeholder="WiFi password…" slotProps={{ input: { spellCheck: false, autoComplete: "off" } }} sx={{ "& .MuiInputBase-root": { minHeight: 44 } }} />
               </>
             )}
 
@@ -99,7 +128,7 @@ export default function QrCodeTool() {
               <Typography variant="body2" color="text.secondary" gutterBottom>
                 Size: {size}px
               </Typography>
-              <Slider value={size} min={128} max={512} step={32} onChange={(_, v) => setSize(v as number)} />
+              <Slider value={size} min={128} max={512} step={32} onChange={(_, v) => setSize(Array.isArray(v) ? v[0] : v)} aria-label="QR code size" />
             </Box>
 
             <TextField
@@ -109,6 +138,12 @@ export default function QrCodeTool() {
               onChange={(e) => setLevel(e.target.value)}
               fullWidth
               helperText="Higher = more scannable when damaged, but denser"
+              sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+              slotProps={{
+                select: {
+                  MenuProps: { slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } },
+                },
+              }}
             >
               {[["L", "Low"], ["M", "Medium"], ["Q", "Quartile"], ["H", "High"]].map(([v, l]) => (
                 <MenuItem key={v} value={v}>{l}</MenuItem>

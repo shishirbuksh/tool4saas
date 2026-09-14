@@ -11,13 +11,14 @@ import Divider from "@mui/material/Divider";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export default function TimestampConverterTool() {
-  const [now, setNow] = useState(() => Date.now());
+  const [now, setNow] = useState<number | null>(null);
   const [epochInput, setEpochInput] = useState("");
   const [dateInput, setDateInput] = useState("");
   const [toDate, setToDate] = useState<{ local: string; utc: string } | null>(null);
   const [toEpoch, setToEpoch] = useState<{ sec: string; ms: string } | null>(null);
 
   useEffect(() => {
+    setNow(Date.now());
     const t = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(t);
   }, []);
@@ -44,9 +45,9 @@ export default function TimestampConverterTool() {
         <Box sx={{ p: 2, bgcolor: "primary.main", color: "primary.contrastText", borderRadius: 2 }}>
           <Typography variant="caption">Current Unix time</Typography>
           <Typography  variant="h5"  sx={{ fontWeight: 800,  fontFamily: "monospace" }}>
-            {Math.floor(now / 1000)} <Box component="span" sx={{ fontSize: 14, opacity: 0.85 }}>sec</Box>
+            {now !== null ? Math.floor(now / 1000) : "..."} <Box component="span" sx={{ fontSize: 14, opacity: 0.85 }}>sec</Box>
           </Typography>
-          <Typography variant="body2" sx={{ fontFamily: "monospace", opacity: 0.9 }}>{now} ms</Typography>
+          <Typography variant="body2" sx={{ fontFamily: "monospace", opacity: 0.9 }}>{now !== null ? now : "..."} ms</Typography>
         </Box>
 
         <Divider>Epoch → Date</Divider>

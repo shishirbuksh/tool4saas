@@ -10,6 +10,7 @@ import Stack from "@mui/material/Stack";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 const SETS = {
   lower: "abcdefghijklmnopqrstuvwxyz",
@@ -30,14 +31,14 @@ export default function RandomStringTool() {
       .filter((k) => opts[k])
       .map((k) => SETS[k])
       .join("");
-    const n = Math.max(1, parseInt(length, 10) || 16);
-    const c = Math.max(1, parseInt(count, 10) || 1);
+    const n = Math.min(10000, Math.max(1, parseInt(length, 10) || 16));
+    const c = Math.min(10000, Math.max(1, parseInt(count, 10) || 1));
     if (!pool) {
       setResults([]);
       return;
     }
     const out: string[] = [];
-    const limit = 4294967296 - (4294967296 % pool.length);
+    const limit = UINT32_MAX_PLUS_ONE - (UINT32_MAX_PLUS_ONE % pool.length);
     for (let i = 0; i < c; i++) {
       let s = "";
       while (s.length < n) {

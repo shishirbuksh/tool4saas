@@ -12,10 +12,8 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Alert from "@mui/material/Alert";
 import Slider from "@mui/material/Slider";
-import { validateImageFile } from "@/lib/validate";
-
-const fmt = (b: number) =>
-  b < 1024 ? `${b} B` : b < 1024 * 1024 ? `${(b / 1024).toFixed(1)} KB` : `${(b / 1024 / 1024).toFixed(2)} MB`;
+import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
+import { fmtBytes } from "@/lib/format";
 
 type TargetFormat = "image/jpeg" | "image/png" | "image/webp";
 
@@ -33,21 +31,36 @@ export default function ImageFormatConverterTool() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const resultUrlRef = useRef<string | null>(null);
+  const objectUrlRef = useRef<string | null>(null);
 
   const onFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (f) {
       if (!f.type.startsWith("image/")) {
         setError("Please choose an image file.");
+        e.target.value = "";
         return;
       }
-      const v = validateImageFile(f);
+      const v = validateImageFile(f, { maxSize: MAX_IMAGE_SIZE });
       if (!v.valid) {
         setError(v.error || "Invalid image.");
+        e.target.value = "";
         return;
       }
       setError("");
-      if (result?.url) URL.revokeObjectURL(result.url);
+      // revoke previous result URL on rapid file change (use ref pattern)
+      if (resultUrlRef.current) {
+        URL.revokeObjectURL(resultUrlRef.current);
+        resultUrlRef.current = null;
+      }
+      if (result?.url) {
+        try { URL.revokeObjectURL(result.url); } catch {}
+      }
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
+      }
       setFile(f);
       setResult(null);
     }
@@ -56,9 +69,20 @@ export default function ImageFormatConverterTool() {
 
   useEffect(() => {
     return () => {
-      if (result?.url) URL.revokeObjectURL(result.url);
+      if (resultUrlRef.current) {
+        URL.revokeObjectURL(resultUrlRef.current);
+        resultUrlRef.current = null;
+      }
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
+      }
+      if (result?.url) {
+        try { URL.revokeObjectURL(result.url); } catch {}
+      }
     };
-  }, [result?.url]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const convert = () => {
     if (!file) return;
@@ -73,7 +97,25 @@ export default function ImageFormatConverterTool() {
     reader.onload = () => {
       const img = new Image();
       img.onload = () => {
+        // OOM guard before canvas allocation
+        if (img.width > MAX_DIMENSION || img.height > MAX_DIMENSION) {
+          setError(`Image too large — max ${MAX_DIMENSION}px per side (got ${img.width}×${img.height}).`);
+          setBusy(false);
+          return;
+        }
+        if (img.width * img.height > MAX_PIXELS) {
+          setError(`Image too large — max ${MAX_PIXELS / (1024 * 1024)}MP (got ${Math.round((img.width * img.height) / (1024 * 1024))}MP).`);
+          setBusy(false);
+          return;
+        }
+        const dimCheck = validateImageDimensions(img.width, img.height);
+        if (!dimCheck.valid) {
+          setError(dimCheck.error || "Image too large.");
+          setBusy(false);
+          return;
+        }
         const canvas = document.createElement("canvas");
+        // guard already done, now safe to allocate
         canvas.width = img.width;
         canvas.height = img.height;
         const ctx = canvas.getContext("2d");
@@ -89,16 +131,23 @@ export default function ImageFormatConverterTool() {
 
         canvas.toBlob(
           (blob) => {
-            if (blob) {
-              if (result?.url) URL.revokeObjectURL(result.url);
-              const url = URL.createObjectURL(blob);
-              const baseName = file.name.replace(/\.[^.]+$/, "") || "image";
-              const ext = extMap[mime];
-              const name = `${baseName}.${ext}`;
-              setResult({ url, size: blob.size, name });
-            } else {
-              setError("Conversion failed. Your browser may not support the selected format.");
+            if (!blob) {
+              setError("Conversion failed (toBlob returned null). Your browser may not support the selected format.");
+              setBusy(false);
+              return;
             }
+            if (resultUrlRef.current) {
+              URL.revokeObjectURL(resultUrlRef.current);
+            }
+            if (result?.url) {
+              try { URL.revokeObjectURL(result.url); } catch {}
+            }
+            const url = URL.createObjectURL(blob);
+            resultUrlRef.current = url;
+            const baseName = file.name.replace(/\.[^.]+$/, "") || "image";
+            const ext = extMap[mime];
+            const name = `${baseName}.${ext}`;
+            setResult({ url, size: blob.size, name });
             setBusy(false);
           },
           mime,
@@ -144,7 +193,7 @@ export default function ImageFormatConverterTool() {
         </FormControl>
       </Stack>
 
-      {file && <Alert severity="info">Selected: {file.name} ({fmt(file.size)})</Alert>}
+      {file && <Alert severity="info">Selected: {file.name} ({fmtBytes(file.size)})</Alert>}
       {error && <Alert severity="error">{error}</Alert>}
 
       <Box>
@@ -156,7 +205,7 @@ export default function ImageFormatConverterTool() {
           min={0.1}
           max={1}
           step={0.05}
-          onChange={(_, v) => setQuality(v as number)}
+          onChange={(_, v) => setQuality(Array.isArray(v) ? v[0] : v)}
           disabled={!file || !showQuality || busy}
           valueLabelDisplay="auto"
           valueLabelFormat={(v) => `${Math.round(v * 100)}%`}
@@ -175,7 +224,7 @@ export default function ImageFormatConverterTool() {
             Result
           </Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom>
-            {file ? fmt(file.size) : ""} → {fmt(result.size)} · {result.name}
+            {file ? fmtBytes(file.size) : ""} → {fmtBytes(result.size)} · {result.name}
           </Typography>
           <Box
             component="img"

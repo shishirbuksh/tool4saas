@@ -6,13 +6,13 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import { MS_PER_HOUR, MS_PER_MINUTE, MS_PER_SECOND } from "@/lib/format";
 
 const fmt = (ms: number) => {
-  const total = Math.floor(ms / 10);
-  const cs = total % 100;
-  const s = Math.floor(total / 100) % 60;
-  const m = Math.floor(total / 6000) % 60;
-  const h = Math.floor(total / 360000);
+  const cs = Math.floor((ms % MS_PER_SECOND) / 10);
+  const s = Math.floor(ms / MS_PER_SECOND) % 60;
+  const m = Math.floor(ms / MS_PER_MINUTE) % 60;
+  const h = Math.floor(ms / MS_PER_HOUR);
   const pad = (n: number, l = 2) => String(n).padStart(l, "0");
   return `${pad(h)}:${pad(m)}:${pad(s)}.${pad(cs)}`;
 };

@@ -5,11 +5,18 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
+const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
+
 export default function CommissionCalculatorTool() {
   const [sales, setSales] = useState("");
+  const [currency, setCurrency] = useState<(typeof CURRENCIES)[number]>("USD");
   const [percent, setPercent] = useState("");
 
   const { commission, total } = useMemo(() => {
@@ -33,6 +40,16 @@ export default function CommissionCalculatorTool() {
 
   return (
     <ToolPaper>
+        <FormControl fullWidth size="small">
+          <InputLabel>Currency</InputLabel>
+          <Select label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as typeof currency)}>
+            {CURRENCIES.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
           {field("Sales amount", sales, setSales)}
           {field("Commission (%)", percent, setPercent, "%")}
@@ -50,13 +67,13 @@ export default function CommissionCalculatorTool() {
             Commission
           </Typography>
           <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
-            {commission !== null ? money(commission) : "—"}
+            {commission !== null ? money(commission, currency) : "—"}
           </Typography>
         </Box>
         <Stack spacing={1.5}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <Typography color="text.secondary">Total</Typography>
-            <Typography sx={{ fontWeight: 700 }}>{total !== null ? money(total) : "—"}</Typography>
+            <Typography sx={{ fontWeight: 700 }}>{total !== null ? money(total, currency) : "—"}</Typography>
           </Box>
         </Stack>
     </ToolPaper>

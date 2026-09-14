@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -50,8 +50,12 @@ function zoneOffsetMs(tz: string, date: Date): number {
 
 export default function TimezoneConverterTool() {
   const [value, setValue] = useState("");
-  const [from, setFrom] = useState(localZone());
+  const [from, setFrom] = useState("UTC");
   const [to, setTo] = useState("UTC");
+
+  useEffect(() => {
+    setFrom(localZone());
+  }, []);
 
   const instant = (() => {
     if (!value) return null;

@@ -28,19 +28,21 @@ export default function ThemeProviderClient({
 }: {
   children: React.ReactNode;
 }) {
-  const [mode, setMode] = useState<Mode>("light");
+  // FOUC-safe: initialize from <html data-theme> set by the inline script in
+  // layout.tsx (which already resolved localStorage → matchMedia). This keeps
+  // the first client render in sync with the pre-hydration DOM instead of
+  // flashing "light" then switching in an effect.
+  const [mode, setMode] = useState<Mode>(() => {
+    if (typeof document !== "undefined") {
+      const t = document.documentElement.getAttribute("data-theme");
+      if (t === "light" || t === "dark") return t;
+    }
+    return "light";
+  });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    try {
-      const stored = localStorage.getItem("color-mode");
-      if (stored === "light" || stored === "dark") {
-        setMode(stored);
-      } else if (window.matchMedia?.("(prefers-color-scheme: dark)")?.matches) {
-        setMode("dark");
-      }
-    } catch {}
   }, []);
 
   useEffect(() => {
@@ -49,7 +51,7 @@ export default function ThemeProviderClient({
     document.documentElement.style.colorScheme = mode;
     document.documentElement.setAttribute("data-theme", mode);
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", mode === "dark" ? "#070b16" : "#FCFCF9");
+    if (meta) meta.setAttribute("content", mode === "dark" ? "#0A0A0A" : "#FCFCF9");
   }, [mode, mounted]);
 
   const value = useMemo<ThemeModeContextValue>(

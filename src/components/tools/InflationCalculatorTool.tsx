@@ -6,11 +6,18 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
+const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
+
 export default function InflationCalculatorTool() {
   const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState<(typeof CURRENCIES)[number]>("USD");
   const [rate, setRate] = useState("");
   const [years, setYears] = useState("");
 
@@ -35,6 +42,16 @@ export default function InflationCalculatorTool() {
 
   return (
     <ToolPaper>
+        <FormControl fullWidth size="small">
+          <InputLabel>Currency</InputLabel>
+          <Select label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as typeof currency)}>
+            {CURRENCIES.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <TextField
           label="Amount"
@@ -77,7 +94,7 @@ export default function InflationCalculatorTool() {
             Future amount
           </Typography>
           <Typography variant="h5" sx={{ fontWeight: 800, color: "primary.main" }}>
-            {futureAmount !== null ? money(futureAmount) : "—"}
+            {futureAmount !== null ? money(futureAmount, currency) : "—"}
           </Typography>
           <Typography variant="caption" color="text.secondary">
             amount × (1 + rate/100) ^ years
@@ -97,7 +114,7 @@ export default function InflationCalculatorTool() {
             Purchasing power
           </Typography>
           <Typography variant="h5" sx={{ fontWeight: 800, color: "primary.main" }}>
-            {purchasingPower !== null ? money(purchasingPower) : "—"}
+            {purchasingPower !== null ? money(purchasingPower, currency) : "—"}
           </Typography>
           <Typography variant="caption" color="text.secondary">
             amount ÷ (1 + rate/100) ^ years

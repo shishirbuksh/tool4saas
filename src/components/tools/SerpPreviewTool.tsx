@@ -10,6 +10,7 @@ import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import LinearProgress from "@mui/material/LinearProgress";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { useTheme } from "@mui/material/styles";
 
 // Approximate pixel width estimation for Google SERP.
 // Google uses Arial (~14px for title, ~14px/13px for description).
@@ -52,6 +53,7 @@ function descPixelApproxViaChars(chars: number) {
 }
 
 export default function SerpPreviewTool() {
+  const theme = useTheme();
   const [title, setTitle] = useState("Example Domain — Free Tools for Everyone");
   const [description, setDescription] = useState(
     "Discover free online tools for developers, SEO experts and creators. Fast, private and easy to use — no sign-up required."
@@ -323,7 +325,7 @@ export default function SerpPreviewTool() {
 
           <Typography
             sx={{
-              color: (t) => t.palette.mode === 'dark' ? '#8ab4f8' : '#1a0dab',
+              color: theme.palette.mode === 'dark' ? '#8ab4f8' : '#1a0dab',
               fontSize: 18,
               lineHeight: 1.3,
               fontWeight: 400,
@@ -341,7 +343,7 @@ export default function SerpPreviewTool() {
 
           <Typography
             sx={{
-              color: (t) => t.palette.mode === 'dark' ? '#bdc1c6' : '#474747',
+              color: theme.palette.mode === 'dark' ? '#bdc1c6' : '#474747',
               fontSize: 13.5,
               lineHeight: 1.58,
               mt: 0.5,

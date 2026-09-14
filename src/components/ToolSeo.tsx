@@ -29,6 +29,9 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
         ...(tool.keywords?.length >= 3 ? { featureList: tool.keywords } : {}),
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         inLanguage: "en",
+        author: { "@type": "Organization", name: siteConfig.author, url: base },
+        datePublished: "2026-09-09",
+        dateModified: "2026-09-09",
       },
       {
         "@type": "BreadcrumbList",

@@ -7,8 +7,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
+import { MAX_IMAGE_SIZE } from "@/lib/validate";
+import { fmtBytes } from "@/lib/format";
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const MAX_FILE_SIZE = MAX_IMAGE_SIZE;
 const MAX_FILES = 20;
 
 export default function PdfMergeTool() {
@@ -100,7 +102,7 @@ export default function PdfMergeTool() {
           {files.map((f, i) => (
             <Box key={`${f.name}-${i}`} sx={{ display: "flex", justifyContent: "space-between", p: 1.5, border: "1px solid", borderColor: "divider", borderRadius: 2 }}>
               <Typography variant="body2" sx={{ fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis" }}>
-                {i + 1}. {f.name} ({(f.size / 1024).toFixed(1)} KB)
+                {i + 1}. {f.name} ({fmtBytes(f.size)})
               </Typography>
               <Button size="small" color="error" onClick={() => remove(i)}>
                 Remove

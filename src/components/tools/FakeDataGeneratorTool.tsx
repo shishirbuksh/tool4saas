@@ -22,6 +22,7 @@ import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import DownloadIcon from "@mui/icons-material/Download";
+import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 // deterministic fake arrays
 const FIRST_NAMES = [
@@ -68,7 +69,7 @@ type DataType = "person" | "address" | "company" | "lorem";
 function getRandomInt(max: number): number {
   if (max <= 0) return 0;
   if (typeof crypto !== "undefined" && typeof crypto.getRandomValues === "function") {
-    const limit = 4294967296 - (4294967296 % max);
+    const limit = UINT32_MAX_PLUS_ONE - (UINT32_MAX_PLUS_ONE % max);
     const buf = new Uint32Array(1);
     let r: number;
     do {

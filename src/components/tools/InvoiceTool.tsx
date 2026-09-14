@@ -11,10 +11,16 @@ import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import PrintIcon from "@mui/icons-material/Print";
 import { money } from "@/lib/format";
+
+const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
 
 type Line = { desc: string; qty: number; rate: number };
 
@@ -22,6 +28,7 @@ const emptyLine = (): Line => ({ desc: "", qty: 1, rate: 0 });
 
 export default function InvoiceTool() {
   const [from, setFrom] = useState("Your Company\n123 Main St\nyou@example.com");
+  const [currency, setCurrency] = useState<(typeof CURRENCIES)[number]>("USD");
   const [to, setTo] = useState("Client Name\nClient Address\nclient@example.com");
   const [number, setNumber] = useState("INV-001");
   const [date, setDate] = useState(() => new Date().toISOString().slice(0, 10));
@@ -51,6 +58,16 @@ export default function InvoiceTool() {
       </Stack>
 
       <ToolPaper sx={{ mb: 3 }}>
+        <FormControl fullWidth size="small">
+          <InputLabel>Currency</InputLabel>
+          <Select label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as typeof currency)}>
+            {CURRENCIES.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 6 }} >
             <TextField label="From" multiline minRows={3} fullWidth value={from} onChange={(e) => setFrom(e.target.value)} slotProps={{ input: { spellCheck: false, autoComplete: "off" } }} />
@@ -134,18 +151,18 @@ export default function InvoiceTool() {
               <Box component="tr" key={i} sx={{ borderBottom: "1px solid #e2e8f0", breakInside: "avoid", pageBreakInside: "avoid" }}>
                 <Box component="td" sx={td}>{l.desc || "—"}</Box>
                 <Box component="td" sx={{ ...td, textAlign: "right" }}>{l.qty}</Box>
-                <Box component="td" sx={{ ...td, textAlign: "right" }}>{money(l.rate)}</Box>
-                <Box component="td" sx={{ ...td, textAlign: "right" }}>{money((l.qty || 0) * (l.rate || 0))}</Box>
+                <Box component="td" sx={{ ...td, textAlign: "right" }}>{money(l.rate, currency)}</Box>
+                <Box component="td" sx={{ ...td, textAlign: "right" }}>{money((l.qty || 0) * (l.rate || 0), currency)}</Box>
               </Box>
             ))}
           </Box>
         </Box>
         <Box sx={{ width: 260, ml: "auto", mt: 3, color: "#334155" }}>
-          <Row label="Subtotal" value={money(totals.subtotal)} />
-          <Row label={`Tax (${tax}%)`} value={money(totals.taxAmt)} />
+          <Row label="Subtotal" value={money(totals.subtotal, currency)} />
+          <Row label={`Tax (${tax}%)`} value={money(totals.taxAmt, currency)} />
           <Divider sx={{ my: 1 }} />
           <Box sx={{ display: "flex", justifyContent: "space-between", fontWeight: 800, fontSize: 16 }}>
-            <span>Total</span><span>{money(totals.total)}</span>
+            <span>Total</span><span>{money(totals.total, currency)}</span>
           </Box>
         </Box>
         {notes && (

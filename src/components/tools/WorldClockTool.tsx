@@ -11,6 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
+import { MS_PER_MINUTE } from "@/lib/format";
 
 type City = {
   label: string;
@@ -58,7 +59,7 @@ function zoneOffsetMs(tz: string, date: Date): number {
 
 function formatOffset(tz: string, date: Date): string {
   const offsetMs = zoneOffsetMs(tz, date);
-  const totalMinutes = Math.round(offsetMs / 60000);
+  const totalMinutes = Math.round(offsetMs / MS_PER_MINUTE);
   const sign = totalMinutes >= 0 ? "+" : "-";
   const abs = Math.abs(totalMinutes);
   const hh = String(Math.floor(abs / 60)).padStart(2, "0");
@@ -97,7 +98,7 @@ function formatDate(tz: string, date: Date): string {
 }
 
 export default function WorldClockTool() {
-  const [now, setNow] = useState(() => new Date());
+  const [now, setNow] = useState<Date | null>(null);
   const [cities, setCities] = useState<City[]>(DEFAULT_CITIES);
   const [customZone, setCustomZone] = useState("");
   const [presetSelect, setPresetSelect] = useState("");
@@ -105,6 +106,7 @@ export default function WorldClockTool() {
   const [hour12, setHour12] = useState(false);
 
   useEffect(() => {
+    setNow(new Date());
     const id = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(id);
   }, []);
@@ -231,9 +233,9 @@ export default function WorldClockTool() {
         }}
       >
         {cities.map((city) => {
-          const time = formatTime(city.zone, now, hour12);
-          const date = formatDate(city.zone, now);
-          const offset = formatOffset(city.zone, now);
+          const time = now ? formatTime(city.zone, now, hour12) : "—";
+          const date = now ? formatDate(city.zone, now) : "—";
+          const offset = now ? formatOffset(city.zone, now) : "—";
           return (
             <Box
               key={city.zone}

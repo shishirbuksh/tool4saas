@@ -47,7 +47,8 @@ export default function FaviconGeneratorTool() {
         type="color"
         value={toRgb(value)}
         onChange={(e) => set(e.target.value)}
-        sx={{ width: 48, height: 40, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
+        aria-label={`${label} color picker`}
+        sx={{ width: 48, height: 44, minWidth: 44, minHeight: 44, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
       />
       <TextField
         value={value}

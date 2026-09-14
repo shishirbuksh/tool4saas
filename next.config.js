@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-const isDev = process.env.NODE_ENV === 'development';
-
 const nextConfig = {
+  distDir: process.env.NEXT_BUILD_DIR || ".next",
   reactStrictMode: true,
   poweredByHeader: false,
   compiler: {
@@ -18,6 +17,11 @@ const nextConfig = {
     ],
   },
   async headers() {
+    const isDev = process.env.NODE_ENV !== "production";
+    const scriptSrc = `script-src 'self' 'unsafe-inline' ${
+      isDev ? "'unsafe-eval'" : ""
+    } https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com`;
+
     return [
       {
         source: "/:path*",
@@ -31,7 +35,7 @@ const nextConfig = {
           { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
           {
             key: "Content-Security-Policy",
-            value: `default-src 'self'; script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ""} https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://pagead2.googlesyndication.com https://api.allorigins.win https://img.youtube.com; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'`,
+            value: `default-src 'self'; ${scriptSrc}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://pagead2.googlesyndication.com https://api.allorigins.win https://img.youtube.com; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'`,
           },
         ],
       },

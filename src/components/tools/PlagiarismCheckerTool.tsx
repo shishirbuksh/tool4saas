@@ -368,7 +368,7 @@ export default function PlagiarismCheckerTool() {
             </Typography>
           ) : (
             <Stack spacing={1.2}>
-              {result.duplicatePhrases.map((d, idx) => (
+              {result.duplicatePhrases.slice(0, 50).map((d, idx) => (
                 <Box
                   key={`${d.phrase}-${idx}`}
                   sx={{
@@ -420,6 +420,11 @@ export default function PlagiarismCheckerTool() {
                   </Typography>
                 </Box>
               ))}
+              {result.duplicatePhrases.length > 50 && (
+                <Typography variant="caption" color="text.secondary" sx={{ mt: 1 }}>
+                  ...and {result.duplicatePhrases.length - 50} more
+                </Typography>
+              )}
             </Stack>
           )}
         </Box>
@@ -439,7 +444,7 @@ export default function PlagiarismCheckerTool() {
             </Typography>
           ) : (
             <Stack spacing={1.2}>
-              {result.matchedPhrases.map((m, idx) => (
+              {result.matchedPhrases.slice(0, 50).map((m, idx) => (
                 <Box
                   key={`${m.phrase}-${idx}`}
                   sx={{
@@ -491,6 +496,11 @@ export default function PlagiarismCheckerTool() {
                   </Typography>
                 </Box>
               ))}
+              {result.matchedPhrases.length > 50 && (
+                <Typography variant="caption" color="text.secondary" sx={{ mt: 1 }}>
+                  ...and {result.matchedPhrases.length - 50} more
+                </Typography>
+              )}
             </Stack>
           )}
         </Box>

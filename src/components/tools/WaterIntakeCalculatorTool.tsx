@@ -13,9 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import ToolPaper from "@/components/ToolPaper";
-import { fmt0, fmt2, fmtNumber } from "@/lib/format";
-
-const KG_PER_LB = 0.453592;
+import { fmt0, fmt2, fmtNumber, KG_PER_LB } from "@/lib/format";
 
 type ActivityLevel = "sedentary" | "moderate" | "active";
 type Climate = "normal" | "hot";

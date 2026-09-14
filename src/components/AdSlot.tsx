@@ -49,12 +49,21 @@ export default function AdSlot({
       <Box
         className={className}
         sx={{
-          border: "1px solid rgba(17,17,19,0.06)",
-          borderRadius: 3,
-          bgcolor: "rgba(255,255,255,0.6)",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
+          border: "1px solid",
+          borderColor: "divider",
+          borderRadius: "12px",
+          bgcolor: "color-mix(in srgb, var(--mui-palette-background-paper) 68%, transparent)",
+          backdropFilter: "blur(20px) saturate(180%)",
+          WebkitBackdropFilter: "blur(20px) saturate(180%)",
+          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.03), 0 8px 24px rgba(0,0,0,0.04)",
+          'html[data-theme="dark"] &': {
+            boxShadow:
+              "inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.4)",
+          },
           p: 2,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           textAlign: "center",
           color: "text.secondary",
           fontSize: 13,
@@ -70,7 +79,14 @@ export default function AdSlot({
   return (
     <Box
       className={className}
-      sx={{ mx: "auto", my: 2, textAlign: "center", ...FORMAT_STYLES[format] }}
+      sx={{
+        mx: "auto",
+        my: 2,
+        textAlign: "center",
+        borderRadius: "12px",
+        overflow: "hidden",
+        ...FORMAT_STYLES[format],
+      }}
     >
       <Box
         component="span"

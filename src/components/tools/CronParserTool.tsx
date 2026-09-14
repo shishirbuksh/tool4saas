@@ -187,9 +187,15 @@ function validateCron(expression: string): { valid: boolean; error?: string; fie
 export default function CronParserTool() {
   const [expression, setExpression] = useState("0 0 * * *");
 
+  const [now, setNow] = useState<Date | null>(null);
+  import("react").then(({ useEffect }) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => setNow(new Date()), []);
+  });
+
   const { error, fields, description, nextRuns } = useMemo(() => {
     const result = validateCron(expression);
-    if (!result.valid || !result.fields) {
+    if (!result.valid || !result.fields || !now) {
       return { error: result.error || "Invalid cron expression.", fields: null as string[] | null, description: "", nextRuns: [] as Date[] };
     }
     const fields = result.fields;
@@ -197,10 +203,10 @@ export default function CronParserTool() {
 
     // next 5 run times approximated by iterating minutes (simple loop up to 100k minutes)
     const runs: Date[] = [];
-    const now = new Date();
-    now.setSeconds(0, 0);
+    const localNow = new Date(now.getTime());
+    localNow.setSeconds(0, 0);
     // start from next minute
-    const cursor = new Date(now.getTime() + 60_000);
+    const cursor = new Date(localNow.getTime() + 60_000);
     for (let i = 0; i < 100_000 && runs.length < 5; i++) {
       const d = new Date(cursor.getTime() + i * 60_000);
       if (isCronMatch(d, fields)) {
@@ -208,7 +214,7 @@ export default function CronParserTool() {
       }
     }
     return { error: "", fields, description, nextRuns: runs };
-  }, [expression]);
+  }, [expression, now]);
 
   const hasError = !!error;
 

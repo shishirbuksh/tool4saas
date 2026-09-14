@@ -15,11 +15,11 @@ export default function BmiCalculatorTool() {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
 
-  const { bmi, category, color } = useMemo(() => {
+  const { bmi, category, color } = useMemo<{ bmi: number | null; category: string; color: string }>(() => {
     const w = parseFloat(weight);
     const h = parseFloat(height);
     if (!isFinite(w) || !isFinite(h) || w <= 0 || h <= 0)
-      return { bmi: null as number | null, category: "", color: "text.primary" };
+      return { bmi: null, category: "", color: "text.primary" };
     let kg = w;
     let m = h / 100;
     if (unit === "imperial") {
@@ -57,7 +57,12 @@ export default function BmiCalculatorTool() {
             fullWidth
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
-            slotProps={{ input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" } }}
+            placeholder={unit === "metric" ? "e.g. 70…" : "e.g. 154…"}
+            slotProps={{
+              input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
+              htmlInput: { min: 0, step: "any" },
+            }}
+            sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
           />
           <TextField
             label={unit === "metric" ? "Height (cm)" : "Height (in)"}
@@ -65,7 +70,12 @@ export default function BmiCalculatorTool() {
             fullWidth
             value={height}
             onChange={(e) => setHeight(e.target.value)}
-            slotProps={{ input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" } }}
+            placeholder={unit === "metric" ? "e.g. 175…" : "e.g. 69…"}
+            slotProps={{
+              input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
+              htmlInput: { min: 0, step: "any" },
+            }}
+            sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
           />
         </Stack>
         <Box

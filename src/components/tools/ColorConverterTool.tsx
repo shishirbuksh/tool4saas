@@ -53,17 +53,19 @@ export default function ColorConverterTool() {
             type="color"
             value={rgb ? rgbToHex(rgb) : "#000000"}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHex(e.target.value)}
-            sx={{ width: 72, height: 56, border: "none", borderRadius: 2, bgcolor: "transparent", cursor: "pointer", p: 0 }}
+            aria-label="Pick a color"
+            sx={{ width: 72, height: 56, minHeight: 44, minWidth: 44, border: "none", borderRadius: 2, bgcolor: "transparent", cursor: "pointer", p: 0 }}
           />
           <TextField
             label="HEX"
             value={hex}
             onChange={(e) => setHex(e.target.value)}
             fullWidth
-            slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
+            placeholder="#2563EB…"
+            slotProps={{ input: { inputMode: "text", spellCheck: false, autoComplete: "off" } }}
             error={!rgb}
             helperText={rgb ? "" : "Enter a valid #RRGGBB hex color"}
-            sx={{ "& input": { fontFamily: "monospace", textTransform: "uppercase" } }}
+            sx={{ "& input": { fontFamily: "monospace", textTransform: "uppercase" }, "& .MuiInputBase-root": { minHeight: 44 } }}
           />
         </Stack>
 
@@ -84,7 +86,7 @@ function Row({ label, value, onCopy }: { label: string; value: string; onCopy: (
   return (
     <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
       <Typography  variant="subtitle2"  sx={{ fontWeight: 700,  width: 56 }}>{label}</Typography>
-      <TextField value={value} slotProps={{ input: { readOnly: true, "aria-label": label, spellCheck: false } }} fullWidth sx={{ "& input": { fontFamily: "monospace" } }} />
+      <TextField value={value} slotProps={{ input: { readOnly: true, "aria-label": label, spellCheck: false, autoComplete: "off" } }} fullWidth sx={{ "& input": { fontFamily: "monospace" }, "& .MuiInputBase-root": { minHeight: 44 } }} />
       <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={onCopy}>Copy</Button>
     </Box>
   );

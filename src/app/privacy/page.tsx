@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -7,7 +7,7 @@ import { staticPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = staticPageMetadata({
   title: "Privacy Policy",
   description:
-    "How ToolKit Pro handles your data: everything runs locally in your browser and nothing is uploaded unless you download or print.",
+    "How Tool4SaaS handles your data: everything runs locally in your browser and nothing is uploaded unless you download or print.",
   path: "/privacy",
 });
 
@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       <Typography variant="h1" sx={{ fontSize: "2.25rem", mb: 2 }}>Privacy Policy</Typography>
       <Box sx={{ color: "text.secondary", lineHeight: 1.8 }}>
         <Typography  sx={{ display: "block", mb: 1 }}>
-          <strong>Last updated:</strong> {new Date().getFullYear()}
+          <strong>Last updated:</strong> <time dateTime="2026-09-09">September 9, 2026</time>
         </Typography>
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>What we collect</Typography>
         <Typography  sx={{ display: "block", mb: 1 }}>

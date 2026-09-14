@@ -206,7 +206,9 @@ export default function CmykConverterTool() {
           aria-label="Color picker"
           sx={{
             width: 56,
-            height: 40,
+            height: 44,
+            minWidth: 44,
+            minHeight: 44,
             border: "1px solid",
             borderColor: "divider",
             borderRadius: 2,
@@ -231,7 +233,7 @@ export default function CmykConverterTool() {
           startIcon={<ContentCopyIcon />}
           onClick={() => copy(hexString)}
           disabled={!isValid}
-          sx={{ whiteSpace: "nowrap", height: 40 }}
+          sx={{ whiteSpace: "nowrap", minHeight: 44, height: 44 }}
         >
           Copy HEX
         </Button>

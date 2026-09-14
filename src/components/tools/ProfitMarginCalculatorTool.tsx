@@ -6,11 +6,18 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
+const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
+
 export default function ProfitMarginCalculatorTool() {
   const [cost, setCost] = useState("");
+  const [currency, setCurrency] = useState<(typeof CURRENCIES)[number]>("USD");
   const [revenue, setRevenue] = useState("");
 
   const { profit, margin, markup } = useMemo(() => {
@@ -40,6 +47,16 @@ export default function ProfitMarginCalculatorTool() {
 
   return (
     <ToolPaper>
+        <FormControl fullWidth size="small">
+          <InputLabel>Currency</InputLabel>
+          <Select label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as typeof currency)}>
+            {CURRENCIES.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Cost", cost, setCost)}
         {field("Revenue (price)", revenue, setRevenue)}
@@ -57,7 +74,7 @@ export default function ProfitMarginCalculatorTool() {
           Profit
         </Typography>
         <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
-          {profit !== null ? money(profit) : "—"}
+          {profit !== null ? money(profit, currency) : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>

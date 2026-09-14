@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -11,7 +11,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
-import { validateImageFiles } from "@/lib/validate";
+import { validateImageFiles, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 
 type PageSize = "a4" | "letter";
 type Orientation = "portrait" | "landscape";
@@ -27,7 +27,6 @@ type PdfImage = {
 
 let nextId = 1;
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB per file
 const MAX_FILES = 20;
 const MAX_TOTAL_SIZE = 30 * 1024 * 1024; // 30MB total
 
@@ -46,6 +45,23 @@ export default function ImageToPdfTool() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
+  const imagesRef = useRef<PdfImage[]>([]);
+
+  // keep ref in sync for unmount revoke
+  useEffect(() => {
+    imagesRef.current = images;
+  }, [images]);
+
+  // revoke all object URLs on unmount (global ledger: matching revoke on unmount)
+  useEffect(() => {
+    return () => {
+      imagesRef.current.forEach((img) => {
+        try {
+          URL.revokeObjectURL(img.objectUrl);
+        } catch {}
+      });
+    };
+  }, []);
 
   const onFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
     const list = e.target.files;
@@ -54,7 +70,7 @@ export default function ImageToPdfTool() {
     setSuccess("");
 
     const files = Array.from(list);
-    const v = validateImageFiles(files, { maxTotalSize: MAX_TOTAL_SIZE, maxSize: MAX_FILE_SIZE });
+    const v = validateImageFiles(files, { maxTotalSize: MAX_TOTAL_SIZE, maxSize: MAX_IMAGE_SIZE });
     if (!v.valid) {
       setError(v.error || "Invalid image files.");
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -68,10 +84,27 @@ export default function ImageToPdfTool() {
     }
 
     const readFile = (file: File): Promise<PdfImage> =>
-      new Promise((resolve, _reject) => {
+      new Promise((resolve, reject) => {
         const objectUrl = URL.createObjectURL(file);
         const img = new Image();
         img.onload = () => {
+          // 8192 / 16MP OOM guard: reject oversized images before PDF build
+          if (img.width > MAX_DIMENSION || img.height > MAX_DIMENSION) {
+            try { URL.revokeObjectURL(objectUrl); } catch {}
+            reject(new Error(`Image too large — max ${MAX_DIMENSION}px per side (got ${img.width}×${img.height}).`));
+            return;
+          }
+          if (img.width * img.height > MAX_PIXELS) {
+            try { URL.revokeObjectURL(objectUrl); } catch {}
+            reject(new Error(`Image too large — max ${MAX_PIXELS / (1024 * 1024)}MP.`));
+            return;
+          }
+          const dimCheck = validateImageDimensions(img.width, img.height);
+          if (!dimCheck.valid) {
+            try { URL.revokeObjectURL(objectUrl); } catch {}
+            reject(new Error(dimCheck.error || "Image too large."));
+            return;
+          }
           resolve({
             id: nextId++,
             name: file.name,
@@ -109,11 +142,32 @@ export default function ImageToPdfTool() {
   };
 
   const removeImage = (id: number) => {
-    setImages((prev) => prev.filter((img) => img.id !== id));
+    setImages((prev) => {
+      const removed = prev.find((img) => img.id === id);
+      if (removed) {
+        try {
+          URL.revokeObjectURL(removed.objectUrl);
+        } catch {}
+      }
+      return prev.filter((img) => img.id !== id);
+    });
   };
 
   const clearAll = () => {
+    // revoke on file change / clear (global ledger: matching revoke on file change)
+    images.forEach((img) => {
+      try {
+        URL.revokeObjectURL(img.objectUrl);
+      } catch {}
+    });
+    imagesRef.current.forEach((img) => {
+      // ensure ref also cleared
+      try {
+        if (!images.find((i) => i.id === img.id)) URL.revokeObjectURL(img.objectUrl);
+      } catch {}
+    });
     setImages([]);
+    imagesRef.current = [];
     setError("");
     setSuccess("");
     if (fileInputRef.current) fileInputRef.current.value = "";

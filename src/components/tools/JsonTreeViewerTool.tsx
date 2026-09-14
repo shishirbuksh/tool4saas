@@ -235,9 +235,23 @@ export default function JsonTreeViewerTool() {
                 {type === "array" ? "empty array" : "empty object"}
               </Typography>
             ) : Array.isArray(value) ? (
-              (value as unknown[]).map((item, idx) => renderNode(`[${idx}]`, item, `${path}[${idx}]`, depth + 1))
+              <>
+                {(value as unknown[]).slice(0, 200).map((item, idx) => renderNode(`[${idx}]`, item, `${path}[${idx}]`, depth + 1))}
+                {(value as unknown[]).length > 200 && (
+                  <Typography variant="caption" sx={{ ml: 3.5, color: "text.secondary", fontStyle: "italic" }}>
+                    ... {(value as unknown[]).length - 200} more items hidden
+                  </Typography>
+                )}
+              </>
             ) : (
-              Object.entries(value as Record<string, unknown>).map(([k, v]) => renderNode(k, v, `${path}.${k}`, depth + 1))
+              <>
+                {Object.entries(value as Record<string, unknown>).slice(0, 200).map(([k, v]) => renderNode(k, v, `${path}.${k}`, depth + 1))}
+                {Object.keys(value as Record<string, unknown>).length > 200 && (
+                  <Typography variant="caption" sx={{ ml: 3.5, color: "text.secondary", fontStyle: "italic" }}>
+                    ... {Object.keys(value as Record<string, unknown>).length - 200} more keys hidden
+                  </Typography>
+                )}
+              </>
             )}
           </Box>
         )}
@@ -349,8 +363,19 @@ export default function JsonTreeViewerTool() {
                 {expanded.has("root") && (
                   <Box>
                     {Array.isArray(data)
-                      ? (data as unknown[]).map((item, idx) => renderNode(`[${idx}]`, item, `root[${idx}]`, 1))
-                      : Object.entries(data as Record<string, unknown>).map(([k, v]) => renderNode(k, v, `root.${k}`, 1))}
+                      ? (data as unknown[]).slice(0, 200).map((item, idx) => renderNode(`[${idx}]`, item, `root[${idx}]`, 1))
+                      : Object.entries(data as Record<string, unknown>).slice(0, 200).map(([k, v]) => renderNode(k, v, `root.${k}`, 1))}
+                    {Array.isArray(data) && (data as unknown[]).length > 200 && (
+                      <Typography variant="caption" sx={{ ml: 3.5, color: "text.secondary", fontStyle: "italic" }}>
+                        ... {(data as unknown[]).length - 200} more items hidden
+                      </Typography>
+                    )}
+                    {!Array.isArray(data) && Object.keys(data as Record<string, unknown>).length > 200 && (
+                      <Typography variant="caption" sx={{ ml: 3.5, color: "text.secondary", fontStyle: "italic" }}>
+                        ... {Object.keys(data as Record<string, unknown>).length - 200} more keys hidden
+                      </Typography>
+                    )}
+
                     {Array.isArray(data) && (data as unknown[]).length === 0 && (
                       <Typography variant="caption" sx={{ ml: 3.5, color: "text.disabled", fontStyle: "italic" }}>
                         empty array

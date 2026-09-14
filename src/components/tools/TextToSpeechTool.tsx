@@ -36,7 +36,10 @@ export default function TextToSpeechTool() {
     };
   }, [voice]);
 
-  const supported = typeof window !== "undefined" && "speechSynthesis" in window;
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const supported = mounted && typeof window !== "undefined" && "speechSynthesis" in window;
 
   const speak = () => {
     if (!supported || !text) return;
@@ -51,6 +54,8 @@ export default function TextToSpeechTool() {
   };
 
   const stop = () => window.speechSynthesis.cancel();
+
+  if (!mounted) return null;
 
   if (!supported) {
     return (
@@ -94,13 +99,13 @@ export default function TextToSpeechTool() {
           <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
             Rate: {rate.toFixed(1)}x
           </Typography>
-          <Slider value={rate} min={0.5} max={2} step={0.1} onChange={(_, v) => setRate(v as number)} />
+          <Slider value={rate} min={0.5} max={2} step={0.1} onChange={(_, v) => setRate(Array.isArray(v) ? v[0] : v)} />
         </Box>
         <Box sx={{ maxWidth: 320 }}>
           <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
             Pitch: {pitch.toFixed(1)}
           </Typography>
-          <Slider value={pitch} min={0} max={2} step={0.1} onChange={(_, v) => setPitch(v as number)} />
+          <Slider value={pitch} min={0} max={2} step={0.1} onChange={(_, v) => setPitch(Array.isArray(v) ? v[0] : v)} />
         </Box>
         <Stack direction="row" spacing={1}>
           <Button variant="contained" onClick={speak} disabled={!text}>

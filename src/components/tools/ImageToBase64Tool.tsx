@@ -11,10 +11,9 @@ import Alert from "@mui/material/Alert";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { validateImageFile } from "@/lib/validate";
+import { validateImageFile, MAX_IMAGE_SIZE } from "@/lib/validate";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const MAX_DATA_URL_SIZE = 15_000_000; // ~15M chars cap for pasted data URLs (≈11MB binary, base64 overhead)
 
 export default function ImageToBase64Tool() {
   const [mode, setMode] = useState<"encode" | "decode">("encode");
@@ -27,7 +26,7 @@ export default function ImageToBase64Tool() {
     const file = e.target.files?.[0];
     if (!file) return;
     setError("");
-    const v = validateImageFile(file);
+    const v = validateImageFile(file, { maxSize: MAX_IMAGE_SIZE });
     if (!v.valid) {
       setError(v.error || "Invalid image.");
       e.target.value = "";
@@ -41,7 +40,11 @@ export default function ImageToBase64Tool() {
   };
 
   const previewSrc = mode === "encode" ? dataUrl : input.trim();
-  const isValidImg = previewSrc.startsWith("data:image/");
+  // Strict allowlist: only data:image/<allowed>;base64, — blocks javascript:, data:text/html, vbscript:, etc.
+  const isValidImg =
+    /^data:image\/(png|jpeg|jpg|gif|webp|svg\+xml|bmp|avif|ico);base64,/i.test(previewSrc) &&
+    !/javascript:|data:text\/html|vbscript:/i.test(previewSrc.slice(0, 256));
+  const decodeTooLarge = mode === "decode" && input.trim().length > MAX_DATA_URL_SIZE;
 
   return (
     <ToolPaper>
@@ -85,17 +88,22 @@ export default function ImageToBase64Tool() {
             minRows={4}
             fullWidth
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value.slice(0, MAX_DATA_URL_SIZE + 1))}
             placeholder="data:image/png;base64,iVBORw0KGgo…"
             slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
+            helperText={`${input.length.toLocaleString()} / ${MAX_DATA_URL_SIZE.toLocaleString()} chars`}
+            error={decodeTooLarge}
           />
         )}
+        {decodeTooLarge && <Alert severity="error">Input too large — max {MAX_DATA_URL_SIZE.toLocaleString()} chars.</Alert>}
 
         <Box>
           <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
             Preview
           </Typography>
-          {previewSrc ? (
+          {decodeTooLarge ? (
+            <Alert severity="error">That data URL exceeds the {MAX_DATA_URL_SIZE.toLocaleString()} char cap.</Alert>
+          ) : previewSrc ? (
             isValidImg ? (
               <Box
                 component="img"

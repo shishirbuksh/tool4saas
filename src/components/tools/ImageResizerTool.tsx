@@ -10,14 +10,13 @@ import Stack from "@mui/material/Stack";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Alert from "@mui/material/Alert";
-import { validateImageFile } from "@/lib/validate";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 
 export default function ImageResizerTool() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
+  const objectUrlRef = useRef<string | null>(null);
+  const resultUrlRef = useRef<string | null>(null);
   const [name, setName] = useState("");
   const [w, setW] = useState("");
   const [h, setH] = useState("");
@@ -29,26 +28,59 @@ export default function ImageResizerTool() {
 
   useEffect(() => {
     return () => {
-      if (dataUrl) {
-        URL.revokeObjectURL(dataUrl);
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
+      }
+      if (resultUrlRef.current) {
+        URL.revokeObjectURL(resultUrlRef.current);
+        resultUrlRef.current = null;
       }
     };
-  }, [dataUrl]);
+  }, []);
 
   const onFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     setError("");
-    const v = validateImageFile(file);
+    const v = validateImageFile(file, { maxSize: MAX_IMAGE_SIZE });
     if (!v.valid) {
       setError(v.error || "Invalid image.");
       e.target.value = "";
       return;
     }
+    // revoke previous object URLs on rapid file change (use ref pattern)
+    if (objectUrlRef.current) {
+      URL.revokeObjectURL(objectUrlRef.current);
+      objectUrlRef.current = null;
+    }
+    if (resultUrlRef.current) {
+      URL.revokeObjectURL(resultUrlRef.current);
+      resultUrlRef.current = null;
+      setDataUrl("");
+    }
+    setReady(false);
     setName(file.name);
     const img = new Image();
     img.onload = () => {
-      URL.revokeObjectURL(img.src);
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
+      }
+      // OOM guard before canvas allocation: check img dimensions
+      if (img.width > MAX_DIMENSION || img.height > MAX_DIMENSION) {
+        setError(`Image too large — max ${MAX_DIMENSION}px per side (got ${img.width}×${img.height}).`);
+        return;
+      }
+      if (img.width * img.height > MAX_PIXELS) {
+        setError(`Image too large — max ${MAX_PIXELS / (1024 * 1024)}MP (got ${Math.round((img.width * img.height) / (1024 * 1024))}MP).`);
+        return;
+      }
+      const dimCheck = validateImageDimensions(img.width, img.height);
+      if (!dimCheck.valid) {
+        setError(dimCheck.error || "Image too large.");
+        return;
+      }
       imgRef.current = img;
       setReady(true);
       setRatio(img.width / img.height);
@@ -56,10 +88,15 @@ export default function ImageResizerTool() {
       setH(String(img.height));
     };
     img.onerror = () => {
-      URL.revokeObjectURL(img.src);
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
+      }
       setError("Could not load the image.");
     };
-    img.src = URL.createObjectURL(file);
+    const url = URL.createObjectURL(file);
+    objectUrlRef.current = url;
+    img.src = url;
   };
 
   const setWidth = (v: string) => {
@@ -77,16 +114,40 @@ export default function ImageResizerTool() {
     if (!img || !canvas) return;
     const nw = Math.max(1, parseInt(w, 10) || img.width);
     const nh = Math.max(1, parseInt(h, 10) || img.height);
+    // OOM guard before canvas allocation
+    if (nw > MAX_DIMENSION || nh > MAX_DIMENSION) {
+      setError(`Target size too large — max ${MAX_DIMENSION}px per side.`);
+      return;
+    }
+    if (nw * nh > MAX_PIXELS) {
+      setError(`Target size too large — max ${MAX_PIXELS / (1024 * 1024)}MP.`);
+      return;
+    }
+    const targetCheck = validateImageDimensions(nw, nh);
+    if (!targetCheck.valid) {
+      setError(targetCheck.error || "Target size too large.");
+      return;
+    }
+    setError("");
     canvas.width = nw;
     canvas.height = nh;
     const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    if (!ctx) {
+      setError("Canvas not supported in this browser.");
+      return;
+    }
     ctx.drawImage(img, 0, 0, nw, nh);
     canvas.toBlob((blob) => {
-      if (blob) {
-        const url = URL.createObjectURL(blob);
-        setDataUrl(url);
+      if (!blob) {
+        setError("Failed to generate image (toBlob returned null).");
+        return;
       }
+      if (resultUrlRef.current) {
+        URL.revokeObjectURL(resultUrlRef.current);
+      }
+      const url = URL.createObjectURL(blob);
+      resultUrlRef.current = url;
+      setDataUrl(url);
     }, "image/png");
   };
 

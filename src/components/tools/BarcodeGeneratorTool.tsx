@@ -28,8 +28,8 @@ export default function BarcodeGeneratorTool() {
   const [JsBarcodeFn, setJsBarcodeFn] = useState<null | ((...args: unknown[]) => void)>(null);
   useEffect(() => {
     let mounted = true;
-    // @ts-expect-error - jsbarcode types optional, lazy loaded on client (next/dynamic ssr:false pattern via useEffect)
-    import("jsbarcode" as unknown as number).then((mod) => {
+    // jsbarcode lazy loaded on client (next/dynamic ssr:false pattern via useEffect)
+    import("jsbarcode").then((mod) => {
       if (mounted) {
         setJsBarcodeFn(() => (mod as { default: (...args: unknown[]) => void }).default);
         setReady(true);
@@ -49,8 +49,7 @@ export default function BarcodeGeneratorTool() {
     }
     try {
       // lazy import jsbarcode - dynamic import("jsbarcode") on generate
-      // @ts-expect-error - jsbarcode types optional
-      const mod = JsBarcodeFn ? { default: JsBarcodeFn } : await import("jsbarcode" as unknown as number);
+      const mod = JsBarcodeFn ? { default: JsBarcodeFn } : await import("jsbarcode");
       const JsBarcode = (mod as { default: CallableFunction }).default as unknown as (
         el: SVGElement | HTMLCanvasElement,
         value: string,

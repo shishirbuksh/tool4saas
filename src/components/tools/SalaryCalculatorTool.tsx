@@ -13,6 +13,8 @@ import Alert from "@mui/material/Alert";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
+const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
+
 type Frequency = 12 | 26;
 
 const FREQUENCIES = [
@@ -22,6 +24,7 @@ const FREQUENCIES = [
 
 export default function SalaryCalculatorTool() {
   const [gross, setGross] = useState("");
+  const [currency, setCurrency] = useState<(typeof CURRENCIES)[number]>("USD");
   const [taxRate, setTaxRate] = useState("");
   const [deductions, setDeductions] = useState("");
   const [frequency, setFrequency] = useState<Frequency>(12);
@@ -70,6 +73,16 @@ export default function SalaryCalculatorTool() {
 
   return (
     <ToolPaper>
+        <FormControl fullWidth size="small">
+          <InputLabel>Currency</InputLabel>
+          <Select label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as typeof currency)}>
+            {CURRENCIES.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Gross annual salary", gross, setGross)}
         {field("Tax rate (%)", taxRate, setTaxRate, "%")}
@@ -105,7 +118,7 @@ export default function SalaryCalculatorTool() {
           Net annual (take-home)
         </Typography>
         <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
-          {net !== null ? money(net) : "—"}
+          {net !== null ? money(net, currency) : "—"}
         </Typography>
         <Typography variant="caption" color="text.secondary">
           Gross − Tax (taxable = gross − deductions)
@@ -115,11 +128,11 @@ export default function SalaryCalculatorTool() {
       <Stack spacing={1.5}>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography color="text.secondary">Taxable income</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{taxable !== null ? money(taxable) : "—"}</Typography>
+          <Typography sx={{ fontWeight: 700 }}>{taxable !== null ? money(taxable, currency) : "—"}</Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography color="text.secondary">Estimated tax</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{tax !== null ? money(tax) : "—"}</Typography>
+          <Typography sx={{ fontWeight: 700 }}>{tax !== null ? money(tax, currency) : "—"}</Typography>
         </Box>
         <Box
           sx={{
@@ -132,7 +145,7 @@ export default function SalaryCalculatorTool() {
           }}
         >
           <Typography color="text.secondary">Per pay ({freqLabel})</Typography>
-          <Typography sx={{ fontWeight: 800 }}>{perPay !== null ? money(perPay) : "—"}</Typography>
+          <Typography sx={{ fontWeight: 800 }}>{perPay !== null ? money(perPay, currency) : "—"}</Typography>
         </Box>
       </Stack>
 

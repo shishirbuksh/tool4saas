@@ -7,10 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
-import { validateImageFile } from "@/lib/validate";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 
 type Swatch = {
   hex: string;
@@ -27,25 +24,28 @@ function rgbToHex(r: number, g: number, b: number): string {
 
 export default function ImageColorExtractorTool() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const previewUrlRef = useRef<string | null>(null);
+  const objectUrlRef = useRef<string | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [fileName, setFileName] = useState<string>("");
   const [colors, setColors] = useState<Swatch[]>([]);
   const [error, setError] = useState<string>("");
   const [copied, setCopied] = useState<string>("");
 
-  // revoke object URLs when they change or on unmount
+  // revoke object URLs on unmount and on rapid file change (use ref pattern)
   useEffect(() => {
     return () => {
-      if (previewUrl && previewUrl.startsWith("blob:")) {
-        URL.revokeObjectURL(previewUrl);
+      if (previewUrlRef.current && previewUrlRef.current.startsWith("blob:")) {
+        URL.revokeObjectURL(previewUrlRef.current);
+        previewUrlRef.current = null;
       }
-    };
-  }, [previewUrl]);
-
-  // also revoke on unmount for any blob url (safety)
-  useEffect(() => {
-    return () => {
-      if (previewUrl.startsWith("blob:")) URL.revokeObjectURL(previewUrl);
+      if (previewUrl && previewUrl.startsWith("blob:")) {
+        try { URL.revokeObjectURL(previewUrl); } catch {}
+      }
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -59,6 +59,29 @@ export default function ImageColorExtractorTool() {
   };
 
   const extractFromImage = (img: HTMLImageElement) => {
+    // OOM guard before canvas allocation: check original image dimensions
+    if (img.naturalWidth > MAX_DIMENSION || img.naturalHeight > MAX_DIMENSION || img.width > MAX_DIMENSION || img.height > MAX_DIMENSION) {
+      const w = img.naturalWidth || img.width;
+      const h = img.naturalHeight || img.height;
+      setError(`Image too large — max ${MAX_DIMENSION}px per side (got ${w}×${h}).`);
+      return;
+    }
+    const origW = img.naturalWidth || img.width;
+    const origH = img.naturalHeight || img.height;
+    if (img.width * img.height > MAX_PIXELS) {
+      setError(`Image too large — max ${MAX_PIXELS / (1024 * 1024)}MP (got ${Math.round((img.width * img.height) / (1024 * 1024))}MP).`);
+      return;
+    }
+    if (origW * origH > MAX_PIXELS) {
+      setError(`Image too large — max ${MAX_PIXELS / (1024 * 1024)}MP (got ${Math.round((origW * origH) / (1024 * 1024))}MP).`);
+      return;
+    }
+    const dimCheckOrig = validateImageDimensions(origW, origH);
+    if (!dimCheckOrig.valid) {
+      setError(dimCheckOrig.error || "Image too large.");
+      return;
+    }
+
     const canvas = canvasRef.current ?? document.createElement("canvas");
     // scale down for performance - max 200px on longest side
     const maxSize = 200;
@@ -72,6 +95,21 @@ export default function ImageColorExtractorTool() {
     // ensure at least 1
     w = Math.max(1, w);
     h = Math.max(1, h);
+
+    // OOM guard before canvas allocation: check scaled dimensions
+    if (w > MAX_DIMENSION || h > MAX_DIMENSION) {
+      setError(`Target size too large — max ${MAX_DIMENSION}px per side.`);
+      return;
+    }
+    if (w * h > MAX_PIXELS) {
+      setError(`Target size too large — max ${MAX_PIXELS / (1024 * 1024)}MP.`);
+      return;
+    }
+    const dimCheck = validateImageDimensions(w, h);
+    if (!dimCheck.valid) {
+      setError(dimCheck.error || "Target size too large.");
+      return;
+    }
 
     canvas.width = w;
     canvas.height = h;
@@ -141,7 +179,7 @@ export default function ImageColorExtractorTool() {
     setCopied("");
     setColors([]);
 
-    const v = validateImageFile(file);
+    const v = validateImageFile(file, { maxSize: MAX_IMAGE_SIZE });
     if (!v.valid) {
       setError(v.error || "Invalid image.");
       e.target.value = "";
@@ -150,9 +188,17 @@ export default function ImageColorExtractorTool() {
 
     setFileName(file.name);
 
-    // revoke previous blob url if any
+    // revoke previous preview URL on rapid file change (use ref pattern)
+    if (previewUrlRef.current && previewUrlRef.current.startsWith("blob:")) {
+      URL.revokeObjectURL(previewUrlRef.current);
+      previewUrlRef.current = null;
+    }
     if (previewUrl.startsWith("blob:")) {
-      URL.revokeObjectURL(previewUrl);
+      try { URL.revokeObjectURL(previewUrl); } catch {}
+    }
+    if (objectUrlRef.current) {
+      URL.revokeObjectURL(objectUrlRef.current);
+      objectUrlRef.current = null;
     }
 
     // Use FileReader to read as DataURL, then load into Image and draw to canvas
@@ -162,6 +208,8 @@ export default function ImageColorExtractorTool() {
     };
     reader.onload = () => {
       const result = reader.result as string;
+      // track previewUrl via ref for revoke on rapid change
+      previewUrlRef.current = result;
       setPreviewUrl(result);
 
       const img = new Image();
@@ -178,7 +226,17 @@ export default function ImageColorExtractorTool() {
   };
 
   const clear = () => {
-    if (previewUrl.startsWith("blob:")) URL.revokeObjectURL(previewUrl);
+    if (previewUrlRef.current && previewUrlRef.current.startsWith("blob:")) {
+      URL.revokeObjectURL(previewUrlRef.current);
+      previewUrlRef.current = null;
+    }
+    if (previewUrl.startsWith("blob:")) {
+      try { URL.revokeObjectURL(previewUrl); } catch {}
+    }
+    if (objectUrlRef.current) {
+      URL.revokeObjectURL(objectUrlRef.current);
+      objectUrlRef.current = null;
+    }
     setPreviewUrl("");
     setFileName("");
     setColors([]);

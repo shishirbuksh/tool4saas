@@ -4,9 +4,43 @@ import path from "path";
 
 const toolsPath = path.resolve("src/lib/tools.ts");
 const outPath = path.resolve("public/llms.txt");
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://your-domain.com";
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+let siteUrl;
+if (!rawSiteUrl) {
+  console.warn("NEXT_PUBLIC_SITE_URL is not set, using fallback https://your-domain.com — set it for correct canonicals");
+  siteUrl = "http://localhost:3000";
+} else {
+  try {
+    const u = new URL(rawSiteUrl);
+    if (!/^https?:$/.test(u.protocol)) throw new Error("invalid protocol");
+    siteUrl = u.origin + (u.pathname !== "/" ? u.pathname.replace(/\/$/, "") : "");
+  } catch {
+    console.warn(`NEXT_PUBLIC_SITE_URL is invalid "${rawSiteUrl}", using fallback https://your-domain.com`);
+    siteUrl = "http://localhost:3000";
+  }
+}
+siteUrl = siteUrl.replace(/\/$/, "");
+// Safe fallback mirrors siteConfig.url: never emit your-domain.com poison into llms.txt
 
-const content = fs.readFileSync(toolsPath, "utf8");
+let content = fs.readFileSync(toolsPath, "utf8");
+// Handle split barrel: aggregate from split files if barrel is re-export
+if (!content.includes("ICON_NAMES") || content.includes('export * from "./tools/index"')) {
+  const parts = [];
+  const tryRead = (p) => {
+    try { if (fs.existsSync(p)) parts.push(fs.readFileSync(p, "utf8")); } catch {}
+  };
+  tryRead(path.resolve("src/lib/tools/icons.ts"));
+  tryRead(path.resolve("src/lib/tools/types.ts"));
+  tryRead(path.resolve("src/lib/tools/categories.ts"));
+  tryRead(path.resolve("src/lib/tools/index.ts"));
+  const dataDir = path.resolve("src/lib/tools/data");
+  if (fs.existsSync(dataDir)) {
+    for (const f of fs.readdirSync(dataDir)) {
+      if (f.endsWith(".ts")) tryRead(path.join(dataDir, f));
+    }
+  }
+  content = parts.join("\n") + "\n" + content;
+}
 
 // Parse CATEGORIES
 const catMatches = [...content.matchAll(/id:\s*"([^"]+)"\s*,[\s\S]*?label:\s*"([^"]+)"\s*,[\s\S]*?description:\s*"([^"]+)"/g)];
@@ -30,12 +64,12 @@ for (const t of tools) {
 }
 
 // Generate markdown similar to existing llms.txt
-let out = `# ToolKit Pro
+let out = `# ToolKit Pro (${tools.length} free tools across ${categories.length} categories)
 
-> Free, privacy-friendly online productivity and developer tools that run entirely in your browser. No account required and your data never leaves your device.
+> Free, privacy-friendly online productivity and developer tools that run entirely in your browser. No account required and your data never leaves your device. ${tools.length} tools across ${categories.length} categories.
 
 ## Overview
-- [ToolKit Pro](${siteUrl}/): Home page with all free tools grouped by category.
+- [ToolKit Pro](${siteUrl}/): Home page with all ${tools.length} free tools grouped by ${categories.length} categories.
 - [About](${siteUrl}/about): What the site is and how it protects your privacy.
 - [Privacy Policy](${siteUrl}/privacy): How user data is handled (it stays in your browser).
 - [Categories](${siteUrl}/category/text-documents): Browse tools by category.

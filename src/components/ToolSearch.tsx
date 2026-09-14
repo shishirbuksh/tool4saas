@@ -50,7 +50,6 @@ export default function ToolSearch({ sx }: { sx?: SxProps }) {
         <TextField
           {...params}
           placeholder="Search tools…"
-          aria-label="Search tools"
           slotProps={{
             input: {
               ...(params.slotProps?.input ?? InputProps),
@@ -60,7 +59,12 @@ export default function ToolSearch({ sx }: { sx?: SxProps }) {
                 </InputAdornment>
               ),
             },
-            htmlInput: { ...(params.slotProps?.htmlInput ?? params.inputProps), spellCheck: false, autoComplete: "off" },
+            htmlInput: { 
+              ...(params.slotProps?.htmlInput ?? params.inputProps), 
+              "aria-label": "Search tools", 
+              spellCheck: false, 
+              autoComplete: "off" 
+            },
           }}
         />
       )}

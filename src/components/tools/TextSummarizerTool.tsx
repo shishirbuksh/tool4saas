@@ -116,7 +116,7 @@ export default function TextSummarizerTool() {
             { value: 50, label: "50%" },
           ]}
           valueLabelDisplay="auto"
-          onChange={(_, v) => setRatio(v as number)}
+          onChange={(_, v) => setRatio(Array.isArray(v) ? v[0] : v)}
           aria-label="Summary ratio"
         />
         <Typography variant="caption" color="text.secondary">

@@ -5,11 +5,18 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
+const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
+
 export default function DiscountCalculatorTool() {
   const [price, setPrice] = useState("");
+  const [currency, setCurrency] = useState<(typeof CURRENCIES)[number]>("USD");
   const [percent, setPercent] = useState("");
   const [tax, setTax] = useState("");
 
@@ -38,6 +45,16 @@ export default function DiscountCalculatorTool() {
 
   return (
     <ToolPaper>
+        <FormControl fullWidth size="small">
+          <InputLabel>Currency</InputLabel>
+          <Select label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as typeof currency)}>
+            {CURRENCIES.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
           {field("Original price", price, setPrice)}
           {field("Discount (%)", percent, setPercent, "%")}
@@ -56,18 +73,18 @@ export default function DiscountCalculatorTool() {
             Final price
           </Typography>
           <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
-            {final !== null ? money(final) : "—"}
+            {final !== null ? money(final, currency) : "—"}
           </Typography>
         </Box>
         <Stack spacing={1.5}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <Typography color="text.secondary">You save</Typography>
-            <Typography sx={{ fontWeight: 700 }}>{saved !== null ? money(saved) : "—"}</Typography>
+            <Typography sx={{ fontWeight: 700 }}>{saved !== null ? money(saved, currency) : "—"}</Typography>
           </Box>
           {withTax !== null && (
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
               <Typography color="text.secondary">With tax</Typography>
-              <Typography sx={{ fontWeight: 700 }}>{money(withTax)}</Typography>
+              <Typography sx={{ fontWeight: 700 }}>{money(withTax, currency)}</Typography>
             </Box>
           )}
         </Stack>

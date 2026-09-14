@@ -28,7 +28,23 @@ export async function generateMetadata({
     title: `${category.label} — ${siteConfig.name}`,
     description: category.description,
     alternates: { canonical },
-    openGraph: { title: `${category.label} — ${siteConfig.name}`, description: category.description, url: canonical },
+    // Full object: Metadata merges shallowly — a partial openGraph here
+    // would drop the parent type/locale/siteName/images.
+    openGraph: {
+      type: "website",
+      locale: siteConfig.locale,
+      url: canonical,
+      siteName: siteConfig.name,
+      title: `${category.label} — ${siteConfig.name}`,
+      description: category.description,
+      images: [{ url: "/og/home", width: 1200, height: 630, alt: `${category.label} — ${siteConfig.name}` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${category.label} — ${siteConfig.name}`,
+      description: category.description,
+      images: ["/og/home"],
+    },
   };
 }
 
@@ -67,7 +83,6 @@ export default async function CategoryPage({
           itemListElement: group.tools.map((t, i) => ({
             "@type": "ListItem",
             position: i + 1,
-            url: `${base}/${t.slug}`,
             item: `${base}/${t.slug}`,
             name: t.title,
           })),
@@ -77,7 +92,7 @@ export default async function CategoryPage({
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: 5 }}>
+    <Container maxWidth="xl" sx={{ py: { xs: 8, md: 12 }, px: { xs: 2, md: 4 }, overflowX: "clip" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
@@ -96,7 +111,7 @@ export default async function CategoryPage({
       </Typography>
       <Grid container spacing={3}>
         {group.tools.map((tool) => (
-          <Grid size={{ xs: 12, sm: 6, md: 3 }} key={tool.slug}>
+          <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={tool.slug}>
             <ToolCard tool={tool} />
           </Grid>
         ))}
@@ -107,7 +122,7 @@ export default async function CategoryPage({
         </Typography>
         <Grid container spacing={3}>
           {allGroups.map((g) => (
-            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={g.category.id}>
+            <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={g.category.id}>
               <Link
                 href={`/category/${g.category.id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
@@ -117,11 +132,20 @@ export default async function CategoryPage({
                     display: "block",
                     p: 3,
                     bgcolor: "background.paper",
-                    borderRadius: 3,
+                    borderRadius: "16px",
                     border: "1px solid",
                     borderColor: "divider",
                     height: "100%",
-                    "&:hover": { borderColor: "primary.main" },
+                    boxShadow: "0 0 0 1px rgba(0,0,0,0.06), 0 1px 2px rgba(34,29,29,0.05)",
+                    contentVisibility: "auto",
+                    containIntrinsicSize: "0 180px",
+                    transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), box-shadow 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms cubic-bezier(0.16,1,0.3,1)",
+                    "&:hover": {
+                      transform: "translateY(-2px) scale(1.01)",
+                      borderColor: "rgba(0,0,0,0.12)",
+                      boxShadow: "0 0 0 1px rgba(0,0,0,0.06), 0 12px 32px rgba(34,29,29,0.08), 0 4px 12px rgba(34,29,29,0.05)",
+                    },
+                    "&:active": { transform: "scale(0.99)", transitionDuration: "100ms" },
                   }}
                 >
                   <Typography variant="h3" sx={{ fontSize: 18, mb: 0.5 }}>

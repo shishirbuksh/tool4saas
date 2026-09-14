@@ -7,8 +7,7 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
-
-const DAY = 86400000;
+import { MS_PER_DAY } from "@/lib/format";
 
 function addDays(date: Date, days: number) {
   const d = new Date(date);
@@ -60,7 +59,7 @@ export default function PregnancyCalculatorTool() {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const lmpMidnight = new Date(lmpDate.getFullYear(), lmpDate.getMonth(), lmpDate.getDate());
-    const diffDays = Math.floor((today.getTime() - lmpMidnight.getTime()) / DAY);
+    const diffDays = Math.floor((today.getTime() - lmpMidnight.getTime()) / MS_PER_DAY);
     const weeks = Math.floor(diffDays / 7);
     const days = diffDays % 7;
     const totalDays = diffDays;
@@ -70,7 +69,7 @@ export default function PregnancyCalculatorTool() {
     const gestationalWeeks = isFuture ? 0 : weeks;
     const gestationalDays = isFuture ? 0 : days;
 
-    const daysUntilDue = Math.ceil((dueDate.getTime() - today.getTime()) / DAY);
+    const daysUntilDue = Math.ceil((dueDate.getTime() - today.getTime()) / MS_PER_DAY);
     const weeksUntilDue = Math.floor(daysUntilDue / 7);
 
     return {

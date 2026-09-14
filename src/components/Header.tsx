@@ -40,14 +40,22 @@ export default function Header() {
     <AppBar
       position="sticky"
       elevation={0}
+      color="inherit"
       sx={{
         background: "transparent",
-        backgroundColor: "color-mix(in srgb, var(--mui-palette-background-default) 80%, transparent)",
-        backdropFilter: "blur(24px) saturate(200%)",
-        WebkitBackdropFilter: "blur(24px) saturate(200%)",
+        backgroundColor: "color-mix(in srgb, var(--mui-palette-background-default) 68%, transparent)",
+        backdropFilter: "blur(20px) saturate(180%)",
+        WebkitBackdropFilter: "blur(20px) saturate(180%)",
         borderBottom: "1px solid",
         borderColor: "divider",
-        transition: "background-color 0.2s ease-in-out",
+        boxShadow:
+          "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.03), 0 8px 24px rgba(0,0,0,0.04)",
+        // Dark glass match — mirrors .glass[data-theme="dark"] inset + soft shadows
+        'html[data-theme="dark"] &': {
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.4)",
+        },
+        transition: "background-color 200ms cubic-bezier(0.16,1,0.3,1)",
         zIndex: (theme) => theme.zIndex.drawer + 1,
       }}
     >
@@ -70,8 +78,10 @@ export default function Header() {
             <Box sx={{ 
               display: 'flex', 
               p: 1, 
+              borderRadius: '12px',
               bgcolor: 'primary.main',
               color: 'primary.contrastText',
+              boxShadow: '0 1px 2px rgba(34,29,29,0.08)',
             }}>
               <BuildOutlinedIcon fontSize="small" aria-hidden="true" />
             </Box>
@@ -102,6 +112,7 @@ export default function Header() {
                 sx={{ 
                   fontWeight: pathname === "/" ? 600 : 500,
                   px: 2,
+                  minHeight: 44,
                 }}
               >
                 Home
@@ -113,12 +124,13 @@ export default function Header() {
               aria-expanded={catAnchor?.id === "categories"}
               aria-controls="categories-menu"
               onClick={(e) => setCatAnchor({ el: e.currentTarget, id: "categories" })}
-              endIcon={<ArrowDropDownIcon />}
+              endIcon={<ArrowDropDownIcon aria-hidden="true" />}
               disableElevation
               color={pathname.startsWith("/category") ? "primary" : "inherit"}
               sx={{ 
                 fontWeight: pathname.startsWith("/category") ? 600 : 500,
                 px: 2,
+                minHeight: 44,
               }}
             >
               Categories
@@ -132,7 +144,21 @@ export default function Header() {
               elevation={4}
               slotProps={{
                 paper: {
-                  sx: { mt: 1, minWidth: 200, border: '1px solid', borderColor: 'divider' }
+                  sx: {
+                    mt: 1,
+                    minWidth: 200,
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    borderRadius: '12px',
+                    backgroundColor: "color-mix(in srgb, var(--mui-palette-background-paper) 68%, transparent)",
+                    backdropFilter: "blur(20px) saturate(180%)",
+                    WebkitBackdropFilter: "blur(20px) saturate(180%)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.03), 0 8px 24px rgba(0,0,0,0.04)",
+                    'html[data-theme="dark"] &': {
+                      boxShadow:
+                        "inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.4)",
+                    },
+                  }
                 }
               }}
             >
@@ -144,7 +170,7 @@ export default function Header() {
                   onClick={() => setCatAnchor(null)}
                   selected={pathname === `/category/${g.category.id}`}
                   aria-current={pathname === `/category/${g.category.id}` ? "page" : undefined}
-                  sx={{ py: 1.5, px: 2.5 }}
+                  sx={{ py: 1.5, px: 2.5, minHeight: 44 }}
                 >
                   <Typography variant="body2" sx={{ fontWeight: 500 }}>
                     {g.category.label}
@@ -159,12 +185,14 @@ export default function Header() {
                 onClick={toggle} 
                 aria-label={mode === "light" ? "Switch to dark mode" : "Switch to light mode"} 
                 sx={{ 
+                  width: 44,
+                  height: 44,
                   color: mode === "light" ? "text.secondary" : "warning.main",
                   bgcolor: mode === "light" ? "transparent" : "rgba(255,183,77,0.1)",
                   "&:hover": { bgcolor: "action.hover" }
                 }}
               >
-                {mode === "light" ? <Brightness4Icon fontSize="small" /> : <Brightness7Icon fontSize="small" />}
+                {mode === "light" ? <Brightness4Icon fontSize="small" aria-hidden="true" /> : <Brightness7Icon fontSize="small" aria-hidden="true" />}
               </IconButton>
             </Box>
           </Stack>
@@ -175,15 +203,19 @@ export default function Header() {
             <IconButton 
               onClick={toggle} 
               aria-label={mode === "light" ? "Switch to dark mode" : "Switch to light mode"}
+              sx={{ width: 48, height: 48 }}
             >
-              {mode === "light" ? <Brightness4Icon fontSize="small" /> : <Brightness7Icon fontSize="small" />}
+              {mode === "light" ? <Brightness4Icon fontSize="small" aria-hidden="true" /> : <Brightness7Icon fontSize="small" aria-hidden="true" />}
             </IconButton>
             <IconButton 
               color="inherit" 
               aria-label="Open navigation menu" 
+              aria-expanded={open}
+              aria-controls="mobile-navigation-drawer"
               onClick={() => setOpen(true)}
+              sx={{ width: 48, height: 48 }}
             >
-              <MenuIcon />
+              <MenuIcon aria-hidden="true" />
             </IconButton>
           </Stack>
         </Toolbar>
@@ -194,19 +226,19 @@ export default function Header() {
         anchor="right" 
         open={open} 
         onClose={() => setOpen(false)}
-        sx={{ '& .MuiDrawer-paper': { width: { xs: '100%', sm: 360 }, p: 3 } }}
+        sx={{ '& .MuiDrawer-paper': { width: { xs: '100%', sm: 360 }, maxWidth: '100vw', boxSizing: 'border-box', p: 3, pt: 'max(24px, env(safe-area-inset-top))', pb: 'calc(24px + env(safe-area-inset-bottom))', pl: 'calc(24px + env(safe-area-inset-left))', pr: 'calc(24px + env(safe-area-inset-right))', overscrollBehavior: 'contain' } }}
       >
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 4 }}>
+        <Box id="mobile-navigation-drawer" sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 4 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-            <Box sx={{ p: 1, bgcolor: 'primary.main', color: 'primary.contrastText' }}>
-              <BuildOutlinedIcon fontSize="small" />
+            <Box sx={{ display: 'flex', p: 1, borderRadius: '12px', bgcolor: 'primary.main', color: 'primary.contrastText', boxShadow: '0 1px 2px rgba(34,29,29,0.08)' }}>
+              <BuildOutlinedIcon fontSize="small" aria-hidden="true" />
             </Box>
             <Typography component="span" sx={{ fontWeight: 800, fontFamily: "var(--font-display), serif" }}>
               Menu
             </Typography>
           </Box>
-          <IconButton onClick={() => setOpen(false)}>
-            <CloseIcon />
+          <IconButton onClick={() => setOpen(false)} aria-label="Close navigation menu" sx={{ width: 48, height: 48 }}>
+            <CloseIcon aria-hidden="true" />
           </IconButton>
         </Box>
         <ToolSearch sx={{ width: "100%", mb: 4 }} />
@@ -219,6 +251,7 @@ export default function Header() {
                 onClick={() => setOpen(false)} 
                 selected={pathname === "/"}
                 aria-current={pathname === "/" ? "page" : undefined}
+                sx={{ minHeight: 44 }}
               >
                 <ListItemText primary={<Typography sx={{ fontWeight: pathname === "/" ? 600 : 500 }}>Home</Typography>} />
               </ListItemButton>
@@ -234,6 +267,7 @@ export default function Header() {
                   onClick={() => setOpen(false)}
                   selected={pathname === `/category/${g.category.id}`}
                   aria-current={pathname === `/category/${g.category.id}` ? "page" : undefined}
+                  sx={{ minHeight: 44 }}
                 >
                   <ListItemText primary={<Typography sx={{ fontWeight: pathname === `/category/${g.category.id}` ? 600 : 500 }}>{g.category.label}</Typography>} />
                 </ListItemButton>

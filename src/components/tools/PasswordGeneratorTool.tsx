@@ -14,6 +14,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 const SETS = {
   lower: "abcdefghijklmnopqrstuvwxyz",
@@ -24,7 +25,7 @@ const SETS = {
 
 function secureRandom(max: number) {
   if (max <= 0 || max > 0xffffffff) throw new Error("Invalid max");
-  const range = 0x100000000;
+  const range = UINT32_MAX_PLUS_ONE;
   const limit = Math.floor(range / max) * max;
   const arr = new Uint32Array(1);
   let r: number;
@@ -83,6 +84,7 @@ export default function PasswordGeneratorTool() {
           slotProps={{ input: { 
             readOnly: true,
             spellCheck: false,
+            autoComplete: "off",
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton onClick={() => pw && void import("@/lib/clipboard").then(m=>m.copyToClipboard(pw))} aria-label="Copy generated password" disabled={!pw}><ContentCopyIcon /></IconButton>
@@ -91,12 +93,12 @@ export default function PasswordGeneratorTool() {
             ),
            } }}
           fullWidth
-          sx={{ "& input": { fontFamily: "monospace", fontSize: 18 } }}
+          sx={{ "& input": { fontFamily: "monospace", fontSize: 18 }, "& .MuiInputBase-root": { minHeight: 44 } }}
         />
 
         <Box>
           <Typography variant="body2" color="text.secondary" gutterBottom>Length: {length}</Typography>
-          <Slider value={length} min={4} max={64} onChange={(_, v) => setLength(v as number)} />
+          <Slider value={length} min={4} max={64} step={1} onChange={(_, v) => setLength(Array.isArray(v) ? v[0] : v)} aria-label="Password length" />
         </Box>
 
         <Grid container spacing={1}>

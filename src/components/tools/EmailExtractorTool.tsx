@@ -52,7 +52,7 @@ export default function EmailExtractorTool() {
             </Typography>
           ) : (
             <Stack spacing={1}>
-              {emails.map((e) => (
+              {emails.slice(0, 100).map((e) => (
                 <Box
                   key={e}
                   sx={{
@@ -73,6 +73,11 @@ export default function EmailExtractorTool() {
                   </Button>
                 </Box>
               ))}
+              {emails.length > 100 && (
+                <Typography variant="body2" color="text.secondary" sx={{ textAlign: "center", mt: 1 }}>
+                  Showing first 100 results. {emails.length - 100} more not shown.
+                </Typography>
+              )}
             </Stack>
           )}
         </Box>

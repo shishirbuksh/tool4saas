@@ -28,52 +28,52 @@ export default function RandomHexColorTool() {
   }, [numColors]);
 
   return (
-    <Box sx={{ p: 3, maxWidth: 800, mx: 'auto' }}>
-      <Typography variant="h4" gutterBottom>
+    <ToolPaper>
+      <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
         Secure Random Hex Color Generator
       </Typography>
-      
-      <Stack direction="row" spacing={2} sx={{ mb: 4, alignItems: 'center' }}>
+
+      <Stack direction="row" spacing={2} sx={{ mb: 2, alignItems: "center", flexWrap: "wrap" }}>
         <TextField
           type="number"
           label="Number of Colors"
           variant="outlined"
           value={numColors}
-          onChange={(e) => setNumColors(parseInt(e.target.value) || 1)}
+          onChange={(e) => setNumColors(Math.max(1, Math.min(50, parseInt(e.target.value) || 1)))}
+          slotProps={{ input: { inputMode: "numeric" } }}
         />
-        <Button 
-          variant="contained" 
-          color="primary" 
-          onClick={handleGenerate}
-          size="large"
-        >
+        <Button variant="contained" color="primary" onClick={handleGenerate} size="large">
           Generate Palette
         </Button>
       </Stack>
 
-      {colors.length > 0 && (
-        <ToolPaper>
-          <Stack direction="row" spacing={2} sx={{ flexWrap: 'wrap', gap: 2 }}>
+      {colors.length > 0 ? (
+        <Box sx={{ p: 1, border: "1px solid", borderColor: "divider", borderRadius: 2, bgcolor: "background.paper" }}>
+          <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap", gap: 2 }}>
             {colors.map((color, idx) => (
-              <Box key={idx} sx={{ textAlign: 'center' }}>
-                <Box 
-                  sx={{ 
-                    width: 100, 
-                    height: 100, 
+              <Box key={idx} sx={{ textAlign: "center" }}>
+                <Box
+                  sx={{
+                    width: 100,
+                    height: 100,
                     backgroundColor: color,
                     borderRadius: 1,
-                    border: '1px solid #ccc',
-                    mb: 1
-                  }} 
+                    border: "1px solid #ccc",
+                    mb: 1,
+                  }}
                 />
-                <Typography variant="body2" sx={{ fontFamily: 'monospace' }}>
+                <Typography variant="body2" sx={{ fontFamily: "monospace" }}>
                   {color}
                 </Typography>
               </Box>
             ))}
           </Stack>
-        </ToolPaper>
+        </Box>
+      ) : (
+        <Typography variant="body2" color="text.secondary">
+          Choose a number and generate a palette — colors appear with copy-ready hex.
+        </Typography>
       )}
-    </Box>
+    </ToolPaper>
   );
 }

@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { MS_PER_DAY } from "@/lib/format";
 
 const fmt = (d: Date) =>
   new Intl.DateTimeFormat(undefined, {
@@ -39,7 +40,7 @@ export default function DateCalculatorTool() {
     const da = new Date(a);
     const db = new Date(b);
     if (isNaN(da.getTime()) || isNaN(db.getTime())) return null;
-    return Math.round((db.getTime() - da.getTime()) / 86400000);
+    return Math.round((db.getTime() - da.getTime()) / MS_PER_DAY);
   })();
 
   return (

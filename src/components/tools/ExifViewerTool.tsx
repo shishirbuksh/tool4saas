@@ -12,10 +12,7 @@ import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
-import { validateImageFile } from "@/lib/validate";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+import { validateImageFile, MAX_IMAGE_SIZE } from "@/lib/validate";
 
 type ExifTags = Record<string, string>;
 
@@ -355,7 +352,7 @@ export default function ExifViewerTool() {
     setInfo("");
     setExif(null);
 
-    const v = validateImageFile(file);
+    const v = validateImageFile(file, { maxSize: MAX_IMAGE_SIZE });
     if (!v.valid) {
       setError(v.error || "Invalid image.");
       return;

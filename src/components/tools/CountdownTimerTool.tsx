@@ -7,6 +7,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import { MS_PER_DAY, MS_PER_HOUR, MS_PER_MINUTE, MS_PER_SECOND } from "@/lib/format";
+import { copyToClipboard } from "@/lib/clipboard";
 
 type Remaining = {
   total: number;
@@ -19,10 +21,10 @@ type Remaining = {
 function getRemaining(targetMs: number, nowMs: number): Remaining {
   const total = targetMs - nowMs;
   const abs = Math.max(0, total);
-  const days = Math.floor(abs / 86400000);
-  const hours = Math.floor((abs % 86400000) / 3600000);
-  const minutes = Math.floor((abs % 3600000) / 60000);
-  const seconds = Math.floor((abs % 60000) / 1000);
+  const days = Math.floor(abs / MS_PER_DAY);
+  const hours = Math.floor((abs % MS_PER_DAY) / MS_PER_HOUR);
+  const minutes = Math.floor((abs % MS_PER_HOUR) / MS_PER_MINUTE);
+  const seconds = Math.floor((abs % MS_PER_MINUTE) / MS_PER_SECOND);
   return { total, days, hours, minutes, seconds };
 }
 
@@ -63,7 +65,7 @@ export default function CountdownTimerTool() {
       }
     } else {
       // default example: 24h from now
-      const d = new Date(Date.now() + 24 * 3600000);
+      const d = new Date(Date.now() + MS_PER_DAY);
       setInputValue(toDatetimeLocalValue(d));
     }
   }, []);
@@ -87,7 +89,7 @@ export default function CountdownTimerTool() {
       if (targetMs - current <= 0) {
         setRunning(false);
       }
-    }, 1000);
+    }, MS_PER_SECOND);
     return () => clearInterval(id);
   }, [running, targetMs]);
 
@@ -126,7 +128,6 @@ export default function CountdownTimerTool() {
 
   const handleCopy = async () => {
     if (!shareUrl) return;
-    const { copyToClipboard } = await import("@/lib/clipboard");
     const ok = await copyToClipboard(shareUrl);
     if (ok) {
       setCopied(true);

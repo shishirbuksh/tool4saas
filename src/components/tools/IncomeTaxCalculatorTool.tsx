@@ -13,6 +13,8 @@ import Alert from "@mui/material/Alert";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
+const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
+
 type FilingStatus = "single" | "married";
 
 const BRACKETS = [
@@ -36,6 +38,7 @@ function calculateTax(taxable: number): number {
 
 export default function IncomeTaxCalculatorTool() {
   const [gross, setGross] = useState("");
+  const [currency, setCurrency] = useState<(typeof CURRENCIES)[number]>("USD");
   const [filingStatus, setFilingStatus] = useState<FilingStatus>("single");
   const [deduction, setDeduction] = useState("");
 
@@ -78,6 +81,16 @@ export default function IncomeTaxCalculatorTool() {
 
   return (
     <ToolPaper>
+        <FormControl fullWidth size="small">
+          <InputLabel>Currency</InputLabel>
+          <Select label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as typeof currency)}>
+            {CURRENCIES.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Gross annual income", gross, setGross)}
         <FormControl fullWidth>
@@ -116,7 +129,7 @@ export default function IncomeTaxCalculatorTool() {
           Estimated net annual (after tax)
         </Typography>
         <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
-          {net !== null ? money(net) : "—"}
+          {net !== null ? money(net, currency) : "—"}
         </Typography>
         <Typography variant="caption" color="text.secondary">
           Net = Gross − Estimated tax (progressive on taxable income)
@@ -126,11 +139,11 @@ export default function IncomeTaxCalculatorTool() {
       <Stack spacing={1.5}>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography color="text.secondary">Taxable income</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{taxable !== null ? money(taxable) : "—"}</Typography>
+          <Typography sx={{ fontWeight: 700 }}>{taxable !== null ? money(taxable, currency) : "—"}</Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography color="text.secondary">Estimated tax</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{tax !== null ? money(tax) : "—"}</Typography>
+          <Typography sx={{ fontWeight: 700 }}>{tax !== null ? money(tax, currency) : "—"}</Typography>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography color="text.secondary">Effective tax rate</Typography>
@@ -150,7 +163,7 @@ export default function IncomeTaxCalculatorTool() {
         >
           <Typography color="text.secondary">Gross annual</Typography>
           <Typography sx={{ fontWeight: 800 }}>
-            {gross !== "" && isFinite(parseFloat(gross)) ? money(parseFloat(gross)) : "—"}
+            {gross !== "" && isFinite(parseFloat(gross)) ? money(parseFloat(gross), currency) : "—"}
           </Typography>
         </Box>
       </Stack>
