@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 export default function AutoLoanCalculatorTool() {
   const [price, setPrice] = useState("");
@@ -56,6 +57,7 @@ export default function AutoLoanCalculatorTool() {
 
   return (
     <ToolPaper>
+      <YMYLDisclaimer type="finance" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Vehicle price", price, setPrice)}
         {field("Down payment", down, setDown)}

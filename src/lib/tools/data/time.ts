@@ -9,7 +9,7 @@ export const timeTools: Tool[] = [
     icon: "Cake",
     keywords: ["age calculator", "calculate my age", "birthday calculator"],
     category: "time",
-    faq: [{"question":"How precise is the age calculation?","answer":"It calculates exact years, months and days between two dates."},{"question":"Does it show my birth day of the week?","answer":"Yes. It shows the weekday you were born and your next birthday."},{"question":"Does it handle leap years and timezones?","answer":"Yes, it uses calendar dates with leap-year math. For example, born Feb 29 2000 counts correctly, treated in your local timezone."}],
+    faq: [{"question":"How precise is the age calculation?","answer":"It calculates exact years, months and days between two dates with leap-year accuracy. Example: born 1990-06-15 to 2026-09-16 is 36 years, 3 months and 1 day, totaling 13,242 days; birth weekday and next-birthday countdown show too."},{"question":"Does it show my birth day of the week?","answer":"Yes. It shows birth weekday, e.g. Friday for 1990-06-15, plus next birthday date, countdown days and turning age. Example: 285 days to age 37; total months, weeks and hours lived also display for fun milestones daily."},{"question":"Does it handle leap years and timezones?","answer":"Yes, it uses calendar dates with leap-year math. For example, born Feb 29 2000 counts correctly, treated in your local timezone, e.g. 26 years and 6 leap days by 2026."}],
     howTo: [{"name":"Enter birth date","text":"Pick 1990-06-15 from the calendar."},{"name":"Add compare date","text":"Leave today or pick a second date."},{"name":"View exact age","text":"See years, months, days plus Friday weekday."},{"name":"Check next birthday","text":"See 285-day countdown and copy result."}],
   },
   {

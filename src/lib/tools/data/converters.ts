@@ -10,8 +10,8 @@ export const convertersTools: Tool[] = [
     icon: "Straighten",
     keywords: ["unit converter", "convert units online", "length weight converter"],
     category: "converters",
-    faq: [{"question":"Which units can I convert?","answer":"Length, weight, temperature, time and data units, among others."},{"question":"Is the unit converter accurate?","answer":"Yes. Conversions use standard factors and temperature uses exact formulas."},{"question":"Is it free and private?","answer":"Yes, it is free, works offline in your browser, and your data never leaves your device."}],
-    howTo: [{"name":"Select quantity","text":"Select the quantity (length, weight, temperature, and more)."},{"name":"Enter value","text":"Enter the value and choose the from and to units."},{"name":"Read result","text":"Read the converted result instantly."}],
+    faq: [{"question":"Which units can I convert?","answer":"Length, weight, temperature, time and data units, e.g. km to miles and kg to lb with exact factors."},{"question":"Is the unit converter accurate?","answer":"Yes. Conversions use standard factors and exact temperature formulas; e.g. 1 km = 0.621371 mi and 0°C = 32°F."},{"question":"Does conversion upload my numbers?","answer":"No. Unit math runs fully offline in your browser; e.g. 100 km to miles stays on-device, free with no upload."}],
+    howTo: [{"name":"Select quantity","text":"Select the quantity (length, weight, temperature, and more)."},{"name":"Enter value","text":"Enter the value and choose the from and to units."},{"name":"Read result","text":"Read the converted result instantly."},{"name":"Try an example","text":"Try 1 km = 0.621 mi or 1 kg = 2.205 lb to verify the conversion."}],
   },
   {
     slug: "json-csv",
@@ -22,8 +22,8 @@ export const convertersTools: Tool[] = [
     icon: "TableChart",
     keywords: ["json to csv", "csv to json", "convert json csv online"],
     category: "converters",
-    faq: [{"question":"What JSON shape works for JSON to CSV?","answer":"An array of flat objects; keys become CSV columns."},{"question":"Is my data uploaded?","answer":"No. Conversion runs locally in your browser."},{"question":"Is it free and private?","answer":"Yes, it is free, works offline in your browser, and your data never leaves your device."}],
-    howTo: [{"name":"Pick a direction","text":"Choose JSON to CSV or CSV to JSON."},{"name":"Paste data","text":"Paste your JSON array or CSV text."},{"name":"Copy result","text":"Copy the converted output."}],
+    faq: [{"question":"What JSON shape works for JSON to CSV?","answer":"An array of flat objects; keys become CSV columns, e.g. name and age headers."},{"question":"Is my data uploaded?","answer":"No. JSON-CSV conversion runs locally in your browser; rows never leave the device."},{"question":"Can I convert large tables offline free?","answer":"Yes. Conversion runs fully offline; e.g. 1,000 rows convert on-device instantly, free with no upload."}],
+    howTo: [{"name":"Pick a direction","text":"Choose JSON to CSV or CSV to JSON."},{"name":"Paste data","text":"Paste your JSON array or CSV text."},{"name":"Copy result","text":"Copy the converted output."},{"name":"Try an example","text":"Try [{\"name\":\"Ada\",\"age\":36}] to get a name,age header plus one CSV row."}],
   },
   {
     slug: "url-parser",
@@ -34,8 +34,8 @@ export const convertersTools: Tool[] = [
     icon: "Http",
     keywords: ["url parser", "parse url", "query string parser"],
     category: "converters",
-    faq: [{"question":"What does the parser extract?","answer":"Protocol, host, port, origin, path, query string and individual query parameters."},{"question":"Is my URL sent anywhere?","answer":"No. Parsing happens locally in your browser."},{"question":"Is it free and private?","answer":"Yes, it is free, works offline in your browser, and your data never leaves your device."}],
-    howTo: [{"name":"Paste URL","text":"Paste a full URL including the protocol."},{"name":"Review parts","text":"See each component broken out."},{"name":"Inspect params","text":"Review the query parameters individually."}],
+    faq: [{"question":"What does the parser extract?","answer":"Protocol, host, port, origin, path, query string and individual query parameters, e.g. https://site.com:8080/a?x=1 splits into host, port 8080 and param x."},{"question":"Is my URL sent anywhere?","answer":"No. Parsing uses the browser URL API locally; your link with query tokens never leaves the device."},{"question":"Can I parse private links with tokens safely?","answer":"Yes. Token links parse fully offline in your browser; e.g. a reset URL with ?token=abc123 stays on-device, free with no upload."}],
+    howTo: [{"name":"Paste URL","text":"Paste a full URL including the protocol."},{"name":"Review parts","text":"See each component broken out."},{"name":"Inspect params","text":"Review the query parameters individually."},{"name":"Try an example","text":"Try https://example.com:8080/path?q=hello%20world#top to see port 8080, path /path and decoded q."}],
   },
   {
     slug: "number-to-words",
@@ -46,8 +46,8 @@ export const convertersTools: Tool[] = [
     icon: "Spellcheck",
     keywords: ["number to words", "number spell out", "integer to words"],
     category: "converters",
-    faq: [{"question":"What range is supported?","answer":"Whole numbers up to a few trillion are supported, including zero and negatives."},{"question":"Is it free?","answer":"Yes, fully free and runs in your browser."},{"question":"Is it free and private?","answer":"Yes, it is free, works offline in your browser, and your data never leaves your device."}],
-    howTo: [{"name":"Enter a number","text":"Type an integer."},{"name":"Read words","text":"See the number spelled out in English."},{"name":"Copy","text":"Copy the words to use elsewhere."}],
+    faq: [{"question":"What range is supported?","answer":"Whole numbers up to trillions including zero and negatives, e.g. 1,234 spells correctly."},{"question":"Does it run free offline?","answer":"Yes, fully free and offline in your browser; typed numbers never leave the device."},{"question":"Does number conversion upload data?","answer":"No. English-words conversion runs locally; e.g. 1234 to words stays on-device, free offline."}],
+    howTo: [{"name":"Enter a number","text":"Type an integer."},{"name":"Read words","text":"See the number spelled out in English."},{"name":"Copy","text":"Copy the words to use elsewhere."},{"name":"Try an example","text":"Try 1234 to get one thousand two hundred thirty-four for a check amount."}],
   },
   {
     slug: "roman-numeral",
@@ -58,8 +58,8 @@ export const convertersTools: Tool[] = [
     icon: "Numbers",
     keywords: ["roman numeral converter", "roman to number", "arabic to roman"],
     category: "converters",
-    faq: [{"question":"What range is supported?","answer":"Integers from 1 to 3999, the standard Roman numeral range."},{"question":"Can it convert both ways?","answer":"Yes. Switch between number-to-Roman and Roman-to-number."},{"question":"Is it free and private?","answer":"Yes, it is free, works offline in your browser, and your data never leaves your device."}],
-    howTo: [{"name":"Choose direction","text":"Pick number to Roman or Roman to number."},{"name":"Enter value","text":"Type a number or a Roman numeral."},{"name":"Copy result","text":"Copy the converted value."}],
+    faq: [{"question":"What range is supported?","answer":"Integers 1 to 3999, the standard Roman range, e.g. 2026 = MMXXVI with subtractive notation."},{"question":"Can it convert both ways?","answer":"Yes. Switch number-to-Roman and Roman-to-number; e.g. XIV gives 14 instantly."},{"question":"Does Roman conversion need internet?","answer":"No. Bidirectional conversion runs offline locally; e.g. 44 to XLIV stays on-device, free."}],
+    howTo: [{"name":"Choose direction","text":"Pick number to Roman or Roman to number."},{"name":"Enter value","text":"Type a number or a Roman numeral."},{"name":"Copy result","text":"Copy the converted value."},{"name":"Try an example","text":"Try 2026 = MMXXVI or XIV = 14 to check subtractive notation."}],
   },
   {
     slug: "image-to-base64",
@@ -70,8 +70,8 @@ export const convertersTools: Tool[] = [
     icon: "Image",
     keywords: ["image to base64", "base64 image encoder", "data url converter"],
     category: "converters",
-    faq: [{"question":"Are my images uploaded?","answer":"No. The file is read and encoded locally in your browser."},{"question":"Can I decode a Base64 image?","answer":"Yes. Paste a data URL to preview the image."},{"question":"Is it free and private?","answer":"Yes, it is free, works offline in your browser, and your data never leaves your device."}],
-    howTo: [{"name":"Choose image","text":"Select an image file to encode."},{"name":"Or paste data URL","text":"Switch to decode mode and paste a Base64 data URL."},{"name":"Copy or preview","text":"Copy the data URL or preview the image."}],
+    faq: [{"question":"Are my images uploaded?","answer":"No. Files are read via FileReader and Base64-encoded locally; e.g. a 2 MB PNG never leaves your device."},{"question":"Can I decode a Base64 image?","answer":"Yes. Paste a data URL like data:image/png;base64,iVBOR to preview the image instantly offline."},{"question":"Does encoding work offline for free?","answer":"Yes. Encoding runs fully offline in your browser; e.g. a 100 KB photo becomes a ~133 KB data URL on-device with no upload."}],
+    howTo: [{"name":"Choose image","text":"Select an image file to encode."},{"name":"Or paste data URL","text":"Switch to decode mode and paste a Base64 data URL."},{"name":"Copy or preview","text":"Copy the data URL or preview the image."},{"name":"Try an example","text":"Try a 100 KB PNG to get a ~133 KB URL starting data:image/png;base64, ready for CSS."}],
   },
   {
     slug: "csv-viewer",
@@ -81,8 +81,8 @@ export const convertersTools: Tool[] = [
     icon: "TableChart",
     keywords: ["csv viewer", "csv to table", "view csv online"],
     category: "converters",
-    faq: [{ question: "Does it handle quotes?", answer: "Yes, RFC 4180 quoted fields with double quotes and commas are parsed correctly." }, { question: "Can I sort?", answer: "Yes, click headers to sort asc/desc and filter to narrow rows." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Paste CSV", text: "Paste CSV text or upload file content." }, { name: "View table", text: "See data as sortable table." }, { name: "Filter & copy", text: "Filter rows and copy as JSON." }]
+    faq: [{ question: "Does it handle quotes?", answer: "Yes, RFC 4180 quoted fields with double quotes and commas parse correctly, e.g. \"a, b\",c splits into 2 columns." }, { question: "Can I sort?", answer: "Yes, click headers to sort asc/desc with type-aware ordering and filter to narrow rows locally." }, { question: "Does viewing upload my spreadsheet?", answer: "No. CSV parsing, sorting and JSON export run locally in your browser; e.g. a 5,000-row file stays on-device, free offline." }],
+    howTo: [{ name: "Paste CSV", text: "Paste CSV text or upload file content." }, { name: "View table", text: "See data as sortable table." }, { name: "Filter & copy", text: "Filter rows and copy as JSON." }, { name: "Try an example", text: "Try name,age rows Ada,36 and Bob,29 then sort by age to verify numeric sorting." }]
   },
   {
     slug: "morse-translator",
@@ -92,8 +92,8 @@ export const convertersTools: Tool[] = [
     icon: "Code",
     keywords: ["morse code translator", "text to morse", "morse decoder"],
     category: "converters",
-    faq: [{ question: "What characters are supported?", answer: "A-Z and 0-9. Unknown characters are skipped. Morse uses dot-dash with space between letters and / between words." }, { question: "Is it private?", answer: "Yes, translation is a lookup table running locally." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Choose mode", text: "Pick Encode (text→Morse) or Decode (Morse→text)." }, { name: "Enter input", text: "Type text or paste Morse with spaces and /." }, { name: "Copy", text: "Copy the translated output." }]
+    faq: [{ question: "What characters are supported?", answer: "A-Z and 0-9. Unknown characters are skipped. Morse uses dot-dash with space between letters and / between words." }, { question: "Does translation stay on my device?", answer: "Yes, Morse lookup-table translation runs locally in your browser; typed words never leave the device." }, { question: "Does it work offline for free?", answer: "Yes. Encode and decode run fully offline; e.g. SOS converts to ... --- ... on-device with no upload, free." }],
+    howTo: [{ name: "Choose mode", text: "Pick Encode (text→Morse) or Decode (Morse→text)." }, { name: "Enter input", text: "Type text or paste Morse with spaces and /." }, { name: "Copy", text: "Copy the translated output." }, { name: "Try an example", text: "Try SOS to get ... --- ... or HELLO to verify dot-dash spacing." }]
   },
   {
     slug: "ascii-converter",
@@ -103,8 +103,8 @@ export const convertersTools: Tool[] = [
     icon: "Code",
     keywords: ["ascii converter", "text to hex", "binary converter text"],
     category: "converters",
-    faq: [{ question: "What bases are supported?", answer: "Decimal ASCII, hex (2-digit), binary (8-bit) and octal. Decode supports all four via radio selection." }, { question: "Is it private?", answer: "Yes, charCodeAt and parseInt run locally." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Encode", text: "Type text to see ASCII, hex, binary and octal." }, { name: "Decode", text: "Switch to Decode and paste codes to get text." }, { name: "Copy", text: "Copy any encoding." }]
+    faq: [{ question: "What bases are supported?", answer: "Decimal ASCII, hex (2-digit), binary (8-bit) and octal. Decode supports all four via radio selection." }, { question: "Does encoding upload my text?", answer: "No, charCodeAt and parseInt conversion runs locally; e.g. Hi to 72 105 stays on-device." }, { question: "Can I convert code points offline free?", answer: "Yes. ASCII, hex, binary and octal tables compute offline in-browser with no upload, free." }],
+    howTo: [{ name: "Encode", text: "Type text to see ASCII, hex, binary and octal." }, { name: "Decode", text: "Switch to Decode and paste codes to get text." }, { name: "Copy", text: "Copy any encoding." }, { name: "Try an example", text: "Try A to see 65 decimal, 41 hex, 01000001 binary and 101 octal instantly." }]
   },
   {
     slug: "file-size-converter",
@@ -114,8 +114,8 @@ export const convertersTools: Tool[] = [
     icon: "Straighten",
     keywords: ["file size converter", "bytes to mb", "kb to gb converter"],
     category: "converters",
-    faq: [{ question: "Binary vs decimal?", answer: "Binary uses 1024 (KiB), decimal uses 1000 (KB). Toggle to see both." }, { question: "Is it private?", answer: "Yes, byte math with 1024/1000 bases runs locally; your numbers never leave the browser." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter value", text: "Enter number and select from unit." }, { name: "Choose target", text: "Select to unit and base." }, { name: "View", text: "See converted result." }]
+    faq: [{ question: "Binary vs decimal?", answer: "Binary uses 1024 (KiB), decimal uses 1000 (KB). Toggle to see both, e.g. 1024 MB vs 1000 MB." }, { question: "Does file-size math leave my device?", answer: "No, byte math with 1024/1000 bases runs locally; e.g. 5 GB entry never uploads." }, { question: "Can I convert storage sizes offline free?", answer: "Yes. All conversions run offline free in-browser with precise formatting for planning." }],
+    howTo: [{ name: "Enter value", text: "Enter number and select from unit." }, { name: "Choose target", text: "Select to unit and base." }, { name: "View", text: "See converted result." }, { name: "Try an example", text: "Try 1024 MB = 1 GiB binary vs 1000 MB = 1 GB decimal to see the base difference." }]
   },
   {
     slug: "json-to-excel",
@@ -125,8 +125,8 @@ export const convertersTools: Tool[] = [
     icon: "TableChart",
     keywords: ["json to excel", "json to xls", "convert json to excel"],
     category: "converters",
-    faq: [{ question: "What JSON is accepted?", answer: "Array of objects or single object (wrapped). Keys become headers." }, { question: "Is it private?", answer: "Yes, JSON parsing and XLS table building run locally; your data never leaves the browser." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Paste JSON", text: "Paste JSON array." }, { name: "Preview", text: "See table preview." }, { name: "Download", text: "Download .xls." }]
+    faq: [{ question: "What JSON is accepted?", answer: "Array of objects or single object (wrapped). Keys become headers, e.g. name and age columns." }, { question: "Does my spreadsheet data stay private?", answer: "Yes, JSON parsing and XLS table building run locally; your rows never leave the browser." }, { question: "Can I convert large JSON offline free?", answer: "Yes. Conversion runs fully offline in-browser; e.g. 1,000 rows preview instantly with no upload, free." }],
+    howTo: [{ name: "Paste JSON", text: "Paste JSON array." }, { name: "Preview", text: "See table preview." }, { name: "Download", text: "Download .xls." }, { name: "Try an example", text: "Try a 2-item array with name and age to preview 2 columns and download 2-row XLS." }]
   },
   {
     slug: "zip-creator",
@@ -136,8 +136,8 @@ export const convertersTools: Tool[] = [
     icon: "AttachFile",
     keywords: ["zip creator", "create zip online", "make zip file"],
     category: "converters",
-    faq: [{ question: "What files can I add?", answer: "Text files with filename and content. Add, remove and set ZIP name." }, { question: "Is it private?", answer: "Yes, the ZIP archive builds locally with fflate from your named files; nothing is uploaded." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Add files", text: "Enter filename and content for each file." }, { name: "Set ZIP name", text: "Choose ZIP filename." }, { name: "Create", text: "Click Create ZIP and download." }]
+    faq: [{ question: "What files can I add?", answer: "Text files with filename and content. Add, remove and set ZIP name, e.g. notes.txt plus data.csv." }, { question: "Are my files uploaded to make the ZIP?", answer: "No, fflate compression builds the archive locally from your named files; nothing is uploaded." }, { question: "Can I create ZIPs offline for free?", answer: "Yes. ZIP creation runs fully offline in your browser; e.g. two 10 KB files bundle on-device, free." }],
+    howTo: [{ name: "Add files", text: "Enter filename and content for each file." }, { name: "Set ZIP name", text: "Choose ZIP filename." }, { name: "Create", text: "Click Create ZIP and download." }, { name: "Try an example", text: "Try notes.txt with Hello World plus data.csv with a,b rows to download archive.zip." }]
   },
   {
     slug: "currency-converter",
@@ -147,7 +147,7 @@ export const convertersTools: Tool[] = [
     icon: "AttachMoney",
     keywords: ["currency converter", "usd to eur", "exchange rate calculator"],
     category: "converters",
-    faq: [{ question: "Are rates live or offline?", answer: "Live via open.er-api.com with static fallback when offline; shows source and timestamp." }, { question: "Is it private?", answer: "Yes, conversion runs locally; only rate fetch hits API." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter amount", text: "Type amount to convert." }, { name: "Pick pair", text: "Choose from and to currencies." }, { name: "View", text: "See converted result instantly." }]
+    faq: [{ question: "Are rates live or offline?", answer: "Live via open.er-api.com with static fallback when offline; shows source and timestamp." }, { question: "Does conversion share my amount?", answer: "No, conversion runs locally; only the rate fetch hits the API, your amount stays private." }, { question: "Can I check rates offline free?", answer: "Yes, free with offline fallback; e.g. 100 USD to EUR uses cached rate when offline, no upload." }],
+    howTo: [{ name: "Enter amount", text: "Type amount to convert." }, { name: "Pick pair", text: "Choose from and to currencies." }, { name: "View", text: "See converted result instantly." }, { name: "Try an example", text: "Try 100 USD to EUR or 1000 INR to USD, then swap the pair to compare." }]
   },
 ];

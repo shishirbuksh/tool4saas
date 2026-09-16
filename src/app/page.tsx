@@ -53,7 +53,7 @@ export default function HomePage() {
                   "0 0 0 1px rgba(0,0,0,0.06), 0 1px 2px rgba(34,29,29,0.05)",
               }}
             >
-              100% LOCAL. ZERO SIGN-UPS.
+              MOST TOOLS 100% LOCAL · ZERO SIGN-UPS.
             </Typography>
             <Typography
               variant="h1"
@@ -80,7 +80,7 @@ export default function HomePage() {
                 maxWidth: 560,
               }}
             >
-              Format JSON, compress images, and generate QR codes instantly. {EXPECTED_TOOL_COUNT} utilities that run locally on your device—without sending a single byte to a server.
+              Format JSON, compress images, and generate QR codes instantly. {EXPECTED_TOOL_COUNT} utilities — most run 100% locally in your browser — 4 network tools (currency converter, YouTube thumbnails, SSL checker, voice input) need internet. See <a href="/privacy">/privacy</a>.
             </Typography>
             <Typography
               variant="body2"
@@ -116,7 +116,7 @@ export default function HomePage() {
                   {EXPECTED_TOOL_COUNT}+ tools
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Bento preview — first tool below is featured larger. Everything runs locally.
+                  Bento preview — first tool below is featured larger. Most tools run locally — 4 network tools need internet. See /privacy.
                 </Typography>
               </Box>
             </Grid>
@@ -130,7 +130,7 @@ export default function HomePage() {
           <Grid container spacing={4}>
             {[
               { t: "Get it done.", d: "Draft invoices, decode JWTs, or preview Open Graph cards. One searchable library for all your dev and design needs." },
-              { t: "Zero server uploads.", d: "Shrink JPGs and diff files directly in the browser. Your data never leaves your device and clears when you close the tab." },
+              { t: "Local-first processing.", d: "Most tools shrink JPGs and diff files directly in the browser with nothing uploaded. 4 network tools need internet — see /privacy." },
               { t: "Instant exports.", d: "Copy HEX values in one click, or download PNG, SVG, and CSV files optimized for your workflow." },
             ].map((f) => (
               <Grid size={{ xs: 12, md: 4 }} key={f.t}>
@@ -184,7 +184,7 @@ export default function HomePage() {
             All Tools
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.125rem' }}>
-            Search or browse through {EXPECTED_TOOL_COUNT} local utilities. No paywalls, no limits.
+            Search or browse through {EXPECTED_TOOL_COUNT} free utilities. Most run locally. No paywalls, no limits.
           </Typography>
         </Box>
         

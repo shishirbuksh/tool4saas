@@ -123,6 +123,34 @@ export default function Header() {
               >
                 Home
               </Button>
+              <Button
+                component={LinkWrapper}
+                href="/about"
+                disableElevation
+                color={pathname === "/about" ? "primary" : "inherit"}
+                aria-current={pathname === "/about" ? "page" : undefined}
+                sx={{
+                  fontWeight: pathname === "/about" ? 600 : 500,
+                  px: 2,
+                  minHeight: 44,
+                }}
+              >
+                About
+              </Button>
+              <Button
+                component={LinkWrapper}
+                href="/contact"
+                disableElevation
+                color={pathname === "/contact" ? "primary" : "inherit"}
+                aria-current={pathname === "/contact" ? "page" : undefined}
+                sx={{
+                  fontWeight: pathname === "/contact" ? 600 : 500,
+                  px: 2,
+                  minHeight: 44,
+                }}
+              >
+                Contact
+              </Button>
             
             <Button
               id="categories-button"
@@ -227,11 +255,13 @@ export default function Header() {
         </Toolbar>
       </Container>
 
-      {/* Mobile Drawer */}
-      <Drawer 
-        anchor="right" 
-        open={open} 
+      {/* Mobile Drawer — MUI Drawer traps focus by default (Modal focus-trap + Escape to close); no custom trap needed. */}
+      <Drawer
+        anchor="right"
+        open={open}
         onClose={() => setOpen(false)}
+        aria-label="Mobile navigation"
+        ModalProps={{ "aria-label": "Mobile navigation" }}
         sx={{ '& .MuiDrawer-paper': { width: { xs: '100%', sm: 360 }, maxWidth: '100vw', boxSizing: 'border-box', p: 3, pt: 'max(24px, env(safe-area-inset-top))', pb: 'calc(24px + env(safe-area-inset-bottom))', pl: 'calc(24px + env(safe-area-inset-left))', pr: 'calc(24px + env(safe-area-inset-right))', overscrollBehavior: 'contain' } }}
       >
         <Box id="mobile-navigation-drawer" sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 4 }}>
@@ -243,12 +273,12 @@ export default function Header() {
               Menu
             </Typography>
           </Box>
-          <IconButton onClick={() => setOpen(false)} aria-label="Close navigation menu" sx={{ width: 48, height: 48 }}>
+          <IconButton onClick={() => setOpen(false)} aria-label="Close menu" sx={{ width: 48, height: 48 }}>
             <CloseIcon aria-hidden="true" />
           </IconButton>
         </Box>
         <ToolSearch sx={{ width: "100%", mb: 4 }} />
-        <Box component="nav">
+        <Box component="nav" aria-label="Mobile">
           <List sx={{ px: 0 }}>
             <ListItem disablePadding sx={{ mb: 1 }}>
               <ListItemButton 
@@ -260,6 +290,30 @@ export default function Header() {
                 sx={{ minHeight: 44 }}
               >
                 <ListItemText primary={<Typography sx={{ fontWeight: pathname === "/" ? 600 : 500 }}>Home</Typography>} />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding sx={{ mb: 1 }}>
+              <ListItemButton
+                component={LinkWrapper}
+                href="/about"
+                onClick={() => setOpen(false)}
+                selected={pathname === "/about"}
+                aria-current={pathname === "/about" ? "page" : undefined}
+                sx={{ minHeight: 44 }}
+              >
+                <ListItemText primary={<Typography sx={{ fontWeight: pathname === "/about" ? 600 : 500 }}>About</Typography>} />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding sx={{ mb: 1 }}>
+              <ListItemButton
+                component={LinkWrapper}
+                href="/contact"
+                onClick={() => setOpen(false)}
+                selected={pathname === "/contact"}
+                aria-current={pathname === "/contact" ? "page" : undefined}
+                sx={{ minHeight: 44 }}
+              >
+                <ListItemText primary={<Typography sx={{ fontWeight: pathname === "/contact" ? 600 : 500 }}>Contact</Typography>} />
               </ListItemButton>
             </ListItem>
             <Typography variant="overline" color="text.secondary" sx={{ display: 'block', mt: 3, mb: 1, px: 2, fontWeight: 700 }}>
@@ -280,6 +334,33 @@ export default function Header() {
               </ListItem>
             ))}
           </List>
+        </Box>
+        <Box
+          component="nav"
+          aria-label="Legal"
+          sx={{ mt: 3, pt: 2, borderTop: "1px solid", borderColor: "divider" }}
+        >
+          <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", rowGap: 0.5 }}>
+            {[
+              { label: "About", href: "/about" },
+              { label: "Privacy", href: "/privacy" },
+              { label: "Terms", href: "/terms" },
+              { label: "Contact", href: "/contact" },
+            ].map((l) => (
+              <Button
+                key={l.href}
+                component={LinkWrapper}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                aria-current={pathname === l.href ? "page" : undefined}
+                color={pathname === l.href ? "primary" : "inherit"}
+                size="small"
+                sx={{ minHeight: 44, px: 1.5, fontSize: "0.8125rem", fontWeight: 500 }}
+              >
+                {l.label}
+              </Button>
+            ))}
+          </Stack>
         </Box>
       </Drawer>
     </AppBar>

@@ -126,6 +126,10 @@ export default function ToolCard({ tool }: { tool: Tool }) {
     <Card
       sx={{
         height: "100%",
+        // Perf: offscreen cards skip rendering; intrinsic size reserves layout (no CLS).
+        // NOTE: no loading="lazy"/fetchpriority here — Card has no <img>; icon chunks
+        // load via dynamic() and card navigation uses Next <Link> prefetch.
+        // No rel="prefetch" — Next.js <Link> prefetches in-viewport routes by default.
         contentVisibility: "auto",
         containIntrinsicSize: "0 280px",
         transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), box-shadow 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms cubic-bezier(0.16,1,0.3,1)",

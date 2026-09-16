@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 export default function RentVsBuyCalculatorTool() {
   const [monthlyRent, setMonthlyRent] = useState("");
@@ -75,6 +76,7 @@ export default function RentVsBuyCalculatorTool() {
 
   return (
     <ToolPaper>
+      <YMYLDisclaimer type="finance" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Monthly rent", monthlyRent, setMonthlyRent)}
         {field("Home price", homePrice, setHomePrice)}

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
@@ -84,6 +85,7 @@ export default function PeriodCalculatorTool() {
 
   return (
     <ToolPaper spacing={3}>
+      <YMYLDisclaimer type="health" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <TextField
           label="Last menstrual period (LMP)"

@@ -9,7 +9,8 @@
     "validate": "node scripts/validate-tools.mjs && node scripts/generate-llms.mjs",
     "start": "next start",
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "adsense:check": "node scripts/check-adsense-readiness.mjs"
   },
   "dependencies": {
     "@emotion/cache": "^11.13.1",

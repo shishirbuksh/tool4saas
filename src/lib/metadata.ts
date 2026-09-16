@@ -16,8 +16,19 @@ export function toolMetadata(slug: string): Metadata {
     };
   }
 
+  // SEO title depth: `${title} - ${short}` sliced to 55 chars + ` | Tool4SaaS`
+  // keeps 50-60 ideal, max ~67 (under 70 truncation limit). Description stays
+  // verbatim, canonical absolute, OG image /og/slug, robots max-snippet -1.
+  let core = `${tool.title} - ${tool.short}`;
+  if (core.length > 55) {
+    core = core.slice(0, 55).trimEnd();
+    const lastSpace = core.lastIndexOf(" ");
+    if (lastSpace > 35) core = core.slice(0, lastSpace);
+  }
+  const fullTitle = `${core} | Tool4SaaS`;
+
   return {
-    title: tool.title,
+    title: fullTitle,
     description: tool.description,
     applicationName: siteConfig.name,
     authors: [{ name: siteConfig.author }],
@@ -38,13 +49,13 @@ export function toolMetadata(slug: string): Metadata {
       locale: siteConfig.locale,
       url,
       siteName: siteConfig.name,
-      title: tool.title,
+      title: fullTitle,
       description: tool.description,
       images: [{ url: ogImage, width: 1200, height: 630, alt: `${tool.title} — ${siteConfig.name}` }],
     },
     twitter: {
       card: "summary_large_image",
-      title: tool.title,
+      title: fullTitle,
       description: tool.description,
       images: [ogImage],
     },

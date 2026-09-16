@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const pages: MetadataRoute.Sitemap = ["/about", "/privacy", "/terms"].map((p) => ({
+  const pages: MetadataRoute.Sitemap = ["/about", "/privacy", "/terms", "/contact", "/author", "/methodology"].map((p) => ({
     url: `${base}${p}`,
     lastModified,
     changeFrequency: "yearly",
@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Priority tiers: hero money pages rank highest, long-tail utilities lower.
-  // Keeps crawl budget focused instead of flat 0.8 for all 158 tools.
+  // Keeps crawl budget focused instead of flat 0.8 for all 185 tools.
   const HERO_SLUGS = new Set([
     "invoice-generator",
     "mortgage-calculator",
@@ -52,7 +52,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return 0.75;
   };
 
-  const toolRoutes: MetadataRoute.Sitemap = tools.map((t) => ({
+  // pdf-compress is noindex placeholder until real compression lands — exclude from sitemap.
+  // FUTURE NOINDEX LIST: add thin/duplicate/no-value tool slugs here to exclude
+  // from sitemap (and set robots noindex on the page itself). Do not change priorities.
+  const NOINDEX_SLUGS = new Set(["pdf-compress"]);
+  const toolRoutes: MetadataRoute.Sitemap = tools
+    .filter((t) => !NOINDEX_SLUGS.has(t.slug))
+    .map((t) => ({
     url: `${base}/${t.slug}`,
     lastModified,
     changeFrequency: "monthly",

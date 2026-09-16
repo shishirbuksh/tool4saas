@@ -57,7 +57,12 @@ export default function Footer() {
                 </Typography>
               </Box>
               <Typography variant="body1" color="text.primary" sx={{ lineHeight: 1.7, opacity: 0.85 }}>
-                {EXPECTED_TOOL_COUNT} fast, local utilities for developers and creators. No sign-ups. Tool inputs run locally in your browser; ads and analytics are described in our Privacy Policy.
+                {EXPECTED_TOOL_COUNT} fast, local utilities for developers and creators. No sign-ups. Most tools run
+                locally in your browser; 4 network tools need internet (see{" "}
+                <Link href="/privacy" className="footer-link" style={{ textDecoration: "underline" }}>
+                  /privacy
+                </Link>
+                ). Ads/analytics in Privacy.
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
                 {EXPECTED_TOOL_COUNT} free tools across {EXPECTED_CATEGORY_COUNT} categories. ({CATEGORIES.length} categories live.)
@@ -119,6 +124,20 @@ export default function Footer() {
                 </Link>
               </Box>
               <Box component="li">
+                <Link href="/author" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                    Author
+                  </Typography>
+                </Link>
+              </Box>
+              <Box component="li">
+                <Link href="/methodology" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                    Methodology
+                  </Typography>
+                </Link>
+              </Box>
+              <Box component="li">
                 <Link href="/privacy" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
                   <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
                     Privacy Policy
@@ -129,6 +148,13 @@ export default function Footer() {
                 <Link href="/terms" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
                   <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
                     Terms of Service
+                  </Typography>
+                </Link>
+              </Box>
+              <Box component="li">
+                <Link href="/contact" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                    Contact Us
                   </Typography>
                 </Link>
               </Box>

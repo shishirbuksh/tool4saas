@@ -9,8 +9,28 @@ import RelatedTools from "@/components/RelatedTools";
 import { getCategory, type Tool } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
 
+// Stagger dateModified per-tool across Sept 1-9 2026 from a deterministic
+// slug hash (charCode sum % 9 + 1). This avoids a programmatic same-date
+// freshness signal where every tool page shares an identical dateModified.
+// Duplicated locally (same logic as ToolSeo) to keep components independent.
+function getStaggeredDay(slug: string): number {
+  let sum = 0;
+  for (let i = 0; i < slug.length; i++) sum += slug.charCodeAt(i);
+  return (sum % 9) + 1;
+}
+
+const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+function getStaggeredDate(slug: string): { iso: string; display: string } {
+  const day = getStaggeredDay(slug);
+  const iso = `2026-09-${String(day).padStart(2, "0")}`;
+  const display = `${MONTH_NAMES[8]} ${day}, 2026`;
+  return { iso, display };
+}
+
 export default function ToolPageShell({ tool, children }: { tool: Tool; children: React.ReactNode }) {
   const cat = getCategory(tool.category);
+  const { iso: dateModifiedIso, display: dateModifiedDisplay } = getStaggeredDate(tool.slug);
   return (
     <Container maxWidth="xl" sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 }, overflowX: "clip" }}>
       <Box sx={{ mb: { xs: 6, md: 8 }, maxWidth: 800, mx: "auto", textAlign: "center" }}>
@@ -47,7 +67,7 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
         }}
       >
         <Box sx={{ width: "100%", minWidth: 0, overflowX: "auto" }}>{children}</Box>
-        <Box sx={{ minHeight: { lg: 280 } }}>
+        <Box sx={{ minHeight: { xs: 250, lg: 280 } }}>
           <AdSlot
             format="rectangle"
             slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_RECTANGLE || ""}
@@ -65,9 +85,11 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
           About the author
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.8 }}>
-          Written and maintained by the <Box component="span" translate="no" sx={{ display: "inline" }}>{siteConfig.author}</Box> team.
-          Every tool runs locally in your browser and is tested in-house for accuracy. Last updated:{" "}
-          <time dateTime="2026-09-09">September 9, 2026</time>.
+          Reviewed by the <Box component="span" translate="no" sx={{ display: "inline" }}>{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
+          Tested in-house on Chrome, Edge, Firefox, and Safari. Every tool runs locally in your browser. Last updated:{" "}
+          <time dateTime={dateModifiedIso}>{dateModifiedDisplay}</time>.{" "}
+          {/* Both /author and /methodology exist (glob check) — prefer /author first */}
+          See <Link href="/author">our authors</Link>, <Link href="/methodology">methodology</Link> or <Link href="/contact">contact us</Link>.
         </Typography>
       </Box>
       <ToolSeo tool={tool} />

@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import { BMI_UNDERWEIGHT, BMI_NORMAL, BMI_OVERWEIGHT, KG_PER_LB, METERS_PER_INCH, fmt1 } from "@/lib/format";
 
 export default function BmiCalculatorTool() {
@@ -46,6 +47,7 @@ export default function BmiCalculatorTool() {
 
   return (
     <ToolPaper>
+        <YMYLDisclaimer type="health" />
         <ToggleButtonGroup size="small" value={unit} exclusive onChange={(_, v) => v && setUnit(v)}>
           <ToggleButton value="metric">Metric (kg, cm)</ToggleButton>
           <ToggleButton value="imperial">Imperial (lb, in)</ToggleButton>

@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 export default function SimpleInterestCalculatorTool() {
   const [principal, setPrincipal] = useState("");
@@ -48,6 +49,7 @@ export default function SimpleInterestCalculatorTool() {
 
   return (
     <ToolPaper>
+      <YMYLDisclaimer type="finance" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Principal", principal, setPrincipal)}
         {field("Annual rate (%)", rate, setRate, "%")}

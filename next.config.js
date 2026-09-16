@@ -20,7 +20,7 @@ const nextConfig = {
     const isDev = process.env.NODE_ENV !== "production";
     const scriptSrc = `script-src 'self' 'unsafe-inline' ${
       isDev ? "'unsafe-eval'" : ""
-    } https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://adservice.google.com https://www.google.com https://www.googletagmanager.com https://www.google-analytics.com`;
+    } https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://adservice.google.com https://www.google.com https://www.googletagmanager.com https://www.google-analytics.com https://fundingchoicesmessages.google.com https://fundingchoicesmessages.googleapis.com`;
 
     return [
       {
@@ -35,7 +35,7 @@ const nextConfig = {
           { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
           {
             key: "Content-Security-Policy",
-            value: `default-src 'self'; ${scriptSrc}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://adservice.google.com https://www.googletagmanager.com https://www.google-analytics.com https://open.er-api.com https://api.allorigins.win https://img.youtube.com; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://google.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'`,
+            value: `default-src 'self'; ${scriptSrc}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://adservice.google.com https://www.googletagmanager.com https://www.google-analytics.com https://open.er-api.com https://api.allorigins.win https://img.youtube.com https://fundingchoicesmessages.google.com https://fundingchoicesmessages.googleapis.com; frame-src https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://google.com https://fundingchoicesmessages.google.com https://fundingchoicesmessages.googleapis.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'`,
           },
         ],
       },

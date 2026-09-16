@@ -39,8 +39,10 @@ export default function RelatedTools({ slug }: { slug: string }) {
             sx={{
               display: "inline-flex",
               alignItems: "center",
-              px: 1.75,
+              justifyContent: "center",
+              px: 2,
               py: 0.75,
+              minHeight: 44,
               borderRadius: "999px",
               border: "1px solid",
               borderColor: "divider",

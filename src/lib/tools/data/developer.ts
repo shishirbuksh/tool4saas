@@ -10,8 +10,9 @@ export const developerTools: Tool[] = [
     icon: "DataObject",
     keywords: ["json formatter", "json validator", "format json online"],
     category: "developer",
-    faq: [{"question":"Is my JSON sent anywhere?","answer":"No. Formatting and validation happen locally in your browser."},{"question":"Can it handle large JSON files?","answer":"It processes typical payloads instantly; extremely large inputs may be limited by your device's memory."},{"question":"What is the size limit for JSON input?","answer":"Typical payloads up to 500KB format instantly; files up to a few MB still work but may slow older phones."}],
+    faq: [{"question":"Is my JSON sent anywhere?","answer":"No. Formatting, validation and minification run locally in your browser with no upload; e.g. a 500 KB API response with nested users array stays on-device, works offline free, and closing the tab clears data. Nothing is sent."},{"question":"Can it handle large JSON files?","answer":"Yes for typical payloads. Files up to 500 KB format instantly; up to a few MB still work but may slow older phones. Example: a 1.2 MB response with 10,000 lines highlights errors by line-column; split 10 MB dumps for smoother editing."},{"question":"What is the size limit for JSON input?","answer":"Typical payloads up to 500KB format instantly with syntax highlighting and collapsible nesting; files up to a few MB still validate locally. Example: 2 MB with 20,000 lines shows precise line-column errors; split 10 MB dumps for smoother editing on phones."}],
     howTo: [{"name":"Paste JSON","text":"Paste minified JSON like {\"name\":\"Ada\",\"tags\":[1,2]} into the input area."},{"name":"Choose action","text":"Click Format for readable output, Minify for compact, or Validate to check errors only."},{"name":"Fix errors","text":"If invalid, read the line-column pointer such as Expected comma at line 1, column 18 and correct it."},{"name":"Copy output","text":"Copy the cleaned JSON or download it for your API test."}],
+    guide: [{ heading: "What the JSON formatter does", body: "The JSON formatter is a developer tool that pretty-prints minified JSON, validates syntax, minifies for transport, and highlights nesting with collapsible levels and precise error locations. For example, paste a small object with name Ada and tags array or a 500KB API response with nested users arrays to inspect structure instantly. It helps debug REST payloads, config files, and JSONL snippets without an IDE. All parsing runs locally in your browser, so tokens, keys, and personal data never upload and work offline." }, { heading: "How formatting and validation work", body: "The parser uses JSON.parse to build a syntax tree, then re-serializes with two-space indentation for readable output or zero spaces for minified output that cuts bytes by roughly 20%. A 500KB response formats instantly, while files up to a few megabytes still validate locally but may slow older phones. Errors show line and column pointers such as Expected comma at line 1, column 18, so you can jump to missing quotes, trailing commas, or single-quoted strings that violate strict JSON." }, { heading: "Worked example and limitations", body: "Paste a minified object with name Ada and tags 1 and 2 and click Format to get four indented lines with collapsible tags array, then Minify to restore one compact line for transport. A 1.2MB response with 10,000 lines validates locally and flags a missing comma by exact line-column. Limitations: strict JSON only, so comments, trailing commas, NaN, single quotes, and JSON5 fail; split 10MB dumps for smooth editing. Very deep nesting or duplicate keys may display but need manual cleanup before deployment." }]
   },
   {
     slug: "base64-tool",
@@ -242,8 +243,8 @@ export const developerTools: Tool[] = [
     icon: "VerifiedUser",
     keywords: ["ssl checker", "check ssl certificate", "ssl test online"],
     category: "developer",
-    faq: [{ question: "What does it check?", answer: "Grade, issuer, subject, notBefore/notAfter, SANs and days until expiry." }, { question: "Is it private?", answer: "Online only: queries SSL Labs via allorigins.win proxy. Host and IP are shared, results cached up to 24h. Verify critical hosts via browser padlock or openssl." }, { question: "Is my data stored?", answer: "No cert data is stored by us; proxy and SSL Labs may log requests per their policies." }],
-    howTo: [{ name: "Enter host", text: "Enter domain like example.com." }, { name: "Check", text: "Click Check SSL." }, { name: "View", text: "See grade, issuer and expiry." }]
+    faq: [{ question: "What does it check?", answer: "Grade, issuer, subject, notBefore/notAfter, SANs and days until expiry, e.g. 30 days left warns renewal." }, { question: "Is it private?", answer: "Online only: queries SSL Labs via allorigins.win proxy. Host and IP are shared, results cached up to 24h. Verify critical hosts via browser padlock or openssl." }, { question: "Is my data stored?", answer: "No cert data is stored by us; proxy and SSL Labs may log requests per their policies." }],
+    howTo: [{ name: "Enter host", text: "Enter domain like example.com." }, { name: "Check", text: "Click Check SSL." }, { name: "View", text: "See grade, issuer and expiry." }, { name: "Act on expiry", text: "If under 21 days e.g. 12 days left, renew cert then re-check." }]
   },
   {
     slug: "sql-formatter",
@@ -297,8 +298,8 @@ export const developerTools: Tool[] = [
     icon: "VpnKey",
     keywords: ["hmac generator", "hmac sha256", "hmac online"],
     category: "developer",
-    faq: [{ question: "What is HMAC?", answer: "Keyed-hash message authentication via WebCrypto importKey and sign." }, { question: "Is it private?", answer: "Yes, computation uses crypto.subtle locally." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter message", text: "Type message and secret key." }, { name: "Choose algo", text: "Pick SHA-256, 384 or 512." }, { name: "Generate", text: "Copy hex HMAC output." }]
+    faq: [{ question: "What is HMAC?", answer: "Keyed-hash message authentication via WebCrypto importKey and sign, e.g. HMAC-SHA256 for webhooks." }, { question: "Does my secret stay on-device?", answer: "Yes, HMAC computation uses crypto.subtle locally; message and key never leave the browser." }, { question: "Is it free and offline?", answer: "Yes, it is free and works offline in your browser; e.g. hello with key secret gives hex instantly with no upload." }],
+    howTo: [{ name: "Enter message", text: "Type message e.g. hello and secret key e.g. my-secret." }, { name: "Choose algo", text: "Pick SHA-256, 384 or 512." }, { name: "Generate", text: "Copy hex HMAC output." }, { name: "Verify example", text: "Re-enter same inputs to confirm identical hex for webhook checks." }]
   },
   {
     slug: "aes-encryptor",
@@ -308,8 +309,8 @@ export const developerTools: Tool[] = [
     icon: "Key",
     keywords: ["aes encryptor", "aes encryption online", "encrypt text password"],
     category: "developer",
-    faq: [{ question: "How are keys derived?", answer: "PBKDF2-SHA256 100k iterations with random salt; AES-GCM with random IV." }, { question: "Is it private?", answer: "Yes, PBKDF2 key derivation and AES-GCM encryption run locally via WebCrypto; no key is uploaded." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter text", text: "Type plaintext or ciphertext." }, { name: "Set password", text: "Enter password for key." }, { name: "Encrypt", text: "Copy Base64 output with salt and IV." }]
+    faq: [{ question: "How are keys derived?", answer: "PBKDF2-SHA256 100k iterations with random salt; AES-GCM with random IV, e.g. 16-byte salt per message." }, { question: "Does my password leave the browser?", answer: "No, PBKDF2 derivation and AES-GCM encryption run locally via WebCrypto; password and plaintext never upload." }, { question: "Is it free and offline?", answer: "Yes, free and offline in-browser; e.g. encrypt Hello with pass123 to get Base64 with salt and IV, no server." }],
+    howTo: [{ name: "Enter text", text: "Type plaintext e.g. Hello World or paste ciphertext." }, { name: "Set password", text: "Enter password e.g. Correct-Horse-9 for key." }, { name: "Encrypt", text: "Copy Base64 output with salt and IV." }, { name: "Decrypt check", text: "Paste output back with same password to verify Hello World returns." }]
   },
   {
     slug: "js-beautifier",
@@ -319,8 +320,8 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["js beautifier", "format javascript", "js formatter online"],
     category: "developer",
-    faq: [{ question: "Does it validate?", answer: "No, formats based on braces and semicolons with string preservation." }, { question: "Can it minify?", answer: "Yes, minify mode strips comments and whitespace." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Paste JS", text: "Paste your JavaScript." }, { name: "Beautify", text: "Click Format for pretty print." }, { name: "Copy", text: "Copy formatted code." }]
+    faq: [{ question: "Does it validate?", answer: "No, formats based on braces and semicolons with string preservation, e.g. minified a=1 stays intact." }, { question: "Can it minify?", answer: "Yes, minify mode strips comments and whitespace, e.g. 12.4 KB to 8.1 KB while keeping strings." }, { question: "Does my code stay private?", answer: "Yes, JS formatting runs fully offline in your browser; e.g. a 500 KB bundle never uploads, free." }],
+    howTo: [{ name: "Paste JS", text: "Paste your JavaScript e.g. const x=1;function f(){return x;}" }, { name: "Beautify", text: "Click Format for pretty print." }, { name: "Copy", text: "Copy formatted code." }, { name: "Test minify", text: "Toggle Minify to compare e.g. 200 chars to 120 chars savings." }]
   },
   {
     slug: "otp-generator",
@@ -330,8 +331,8 @@ export const developerTools: Tool[] = [
     icon: "VpnKey",
     keywords: ["otp generator totp", "totp generator", "2fa code generator"],
     category: "developer",
-    faq: [{ question: "Is it safe for real accounts?", answer: "Use test secrets only; never enter production secrets on shared devices." }, { question: "Is it private?", answer: "Yes, HMAC-SHA1 TOTP runs locally via WebCrypto." }, { question: "Is it free and private?", answer: "Yes, it is free, works offline in your browser, and your data never leaves your device." }],
-    howTo: [{ name: "Enter secret", text: "Paste Base32 secret." }, { name: "Watch code", text: "See live 6-digit code and countdown." }, { name: "Copy", text: "Copy code or provisioning URI." }]
+    faq: [{ question: "Is it safe for real accounts?", answer: "Use test secrets only; never enter production secrets on shared devices, e.g. use a demo JBSW secret." }, { question: "Does the secret stay local?", answer: "Yes, HMAC-SHA1 TOTP with 30-second counter runs locally via WebCrypto; secret never leaves the browser." }, { question: "Is it free and offline?", answer: "Yes, free offline in-browser; e.g. demo secret shows 6-digit code with 15s countdown, no upload." }],
+    howTo: [{ name: "Enter secret", text: "Paste Base32 secret e.g. JBSWY3DPEHPK3PXP demo only." }, { name: "Watch code", text: "See live 6-digit code and countdown." }, { name: "Copy", text: "Copy code or provisioning URI." }, { name: "Test timing", text: "Wait 30s to see code rotate e.g. 123456 to 789012." }]
   },
   {
     slug: "ai-token-counter",
@@ -341,7 +342,7 @@ export const developerTools: Tool[] = [
     icon: "DataObject",
     keywords: ["ai token counter", "chatgpt token counter", "gpt token calculator cost"],
     category: "developer",
-    faq: [{ question: "How accurate is the count?", answer: "Heuristic ~4 chars per token with code boost; treat as estimate, not exact tiktoken. Verify billing in provider dashboards." }, { question: "Which models are priced?", answer: "Editable price table for GPT, Claude Sonnet and Gemini input rates per 1M tokens; update when pricing changes." }, { question: "Is it private?", answer: "Yes, counting and cost math runs locally; pasted text never leaves your browser." }],
-    howTo: [{ name: "Paste text", text: "Paste prompt or document text." }, { name: "Check tokens", text: "See chars, words and estimated tokens." }, { name: "Estimate cost", text: "Pick a model to see cost per 1M pricing." }]
+    faq: [{ question: "How accurate is the count?", answer: "Heuristic ~4 chars per token with code boost; treat as estimate, not exact tiktoken. E.g. 400 chars ≈100 tokens. Verify billing in provider dashboards." }, { question: "Which models are priced?", answer: "Editable price table for GPT, Claude Sonnet and Gemini input rates per 1M tokens; e.g. $5 per 1M at 10k tokens ≈$0.05. Update when pricing changes." }, { question: "Does my prompt stay private?", answer: "Yes, token counting and cost math run locally; e.g. a 2,000-word draft never leaves your browser, offline free." }],
+    howTo: [{ name: "Paste text", text: "Paste prompt or document text e.g. 500-word article." }, { name: "Check tokens", text: "See chars, words and estimated tokens." }, { name: "Estimate cost", text: "Pick a model to see cost per 1M pricing." }, { name: "Compare models", text: "Try GPT vs Claude e.g. 2000 tokens to compare $0.01 vs $0.006 cost." }]
   },
 ];

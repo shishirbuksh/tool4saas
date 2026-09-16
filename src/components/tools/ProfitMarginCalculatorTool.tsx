@@ -12,6 +12,7 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
 
@@ -47,6 +48,7 @@ export default function ProfitMarginCalculatorTool() {
 
   return (
     <ToolPaper>
+        <YMYLDisclaimer type="finance" />
         <FormControl fullWidth size="small">
           <InputLabel>Currency</InputLabel>
           <Select label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as typeof currency)}>

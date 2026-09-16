@@ -20,7 +20,21 @@ export default function SiteJsonLd() {
         name: siteConfig.author,
         url: base,
         logo: { "@type": "ImageObject", url: `${base}/og/home`, width: 1200, height: 630 },
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          email: siteConfig.email,
+          url: `${base}/contact`,
+        },
         ...(siteConfig.sameAs.length ? { sameAs: siteConfig.sameAs } : {}),
+      },
+      {
+        "@type": "ContactPage",
+        "@id": `${base}/contact#webpage`,
+        url: `${base}/contact`,
+        name: "Contact Us",
+        isPartOf: { "@id": `${base}#website` },
+        about: { "@id": `${base}#organization` },
       },
     ],
   };

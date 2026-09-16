@@ -13,6 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import { fmt0, fmt2, fmtNumber, KG_PER_LB } from "@/lib/format";
 
 type ActivityLevel = "sedentary" | "moderate" | "active";
@@ -48,6 +49,7 @@ export default function WaterIntakeCalculatorTool() {
 
   return (
     <ToolPaper>
+      <YMYLDisclaimer type="health" />
       <ToggleButtonGroup size="small" value={unit} exclusive onChange={(_, v) => v && setUnit(v)} aria-label="weight unit">
         <ToggleButton value="kg">kg</ToggleButton>
         <ToggleButton value="lb">lb</ToggleButton>

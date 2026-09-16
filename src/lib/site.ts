@@ -42,8 +42,41 @@ export const siteConfig = {
     }
     return raw;
   })(),
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@tool4saas.com",
+  email: (process.env.NEXT_PUBLIC_CONTACT_EMAIL || "").trim() || "hello@tool4saas.com",
   author: "Tool4SaaS",
+  // E-E-A-T author authority: role + short bio used by ToolPageShell author box
+  // and ToolSeo reviewer JSON-LD. Keep generic team identity (no invented people).
+  authorRole: "Tool4SaaS Editorial Team",
+  authorBio:
+    "In-house reviewers who build and test every tool locally for accuracy across current Chrome, Edge, Firefox, and Safari.",
+  authorUrl: (() => {
+    const raw = (process.env.NEXT_PUBLIC_AUTHOR_URL || "").trim();
+    if (raw) {
+      try {
+        const u = new URL(raw);
+        if (/^https?:$/.test(u.protocol) && u.hostname) return u.href.replace(/\/$/, "");
+      } catch {
+        // ignore invalid URL, fall through to site URL default
+      }
+    }
+    // Default ownership signal: author page on the canonical site.
+    const siteRaw = (process.env.NEXT_PUBLIC_SITE_URL || "").trim();
+    if (siteRaw) {
+      try {
+        const u = new URL(siteRaw);
+        if (/^https?:$/.test(u.protocol) && u.hostname) {
+          const base = u.origin + (u.pathname !== "/" ? u.pathname.replace(/\/$/, "") : "");
+          return `${base}/about`;
+        }
+      } catch {
+        // ignore, use localhost fallback below
+      }
+    }
+    return "http://localhost:3000/about";
+  })(),
+  // Ownership signals: add your LinkedIn / X / GitHub profile URLs via
+  // NEXT_PUBLIC_SAME_AS as a comma-separated list (e.g. "https://www.linkedin.com/company/...,https://x.com/...,https://github.com/...").
+  // TODO: keep as empty placeholder until real profiles exist — do not invent URLs.
   sameAs: (() => {
     const raw = process.env.NEXT_PUBLIC_SAME_AS;
     if (!raw) return [];

@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 function emiFor(principal: number, annualRatePct: number, months: number): number | null {
   if (!isFinite(principal) || !isFinite(annualRatePct) || !isFinite(months)) return null;
@@ -89,6 +90,7 @@ export default function RefinanceCalculatorTool() {
 
   return (
     <ToolPaper>
+      <YMYLDisclaimer type="finance" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Remaining balance", balance, setBalance)}
         {field("Current rate (%)", oldRate, setOldRate)}

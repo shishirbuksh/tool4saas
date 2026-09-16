@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { staticPageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = staticPageMetadata({
   title: "Terms of Service",
@@ -25,7 +26,7 @@ export default function TermsPage() {
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Intellectual property</Typography>
         <Typography sx={{ display: "block", mb: 1 }}>Site design and code are © Tool4SaaS. You may use generated output (invoices, QR codes, resumes) for any lawful purpose.</Typography>
         <Typography variant="h3" sx={{ fontSize: 18, color: "text.primary", mt: 2 }}>Contact</Typography>
-        <Typography sx={{ display: "block", mb: 1 }}>Questions? Contact us at hello@tool4saas.com (or set NEXT_PUBLIC_CONTACT_EMAIL). Do not use signature, invoice, or certificate outputs to forge another person&apos;s signature or misrepresent authorship. Respect YouTube Terms and owner copyright when using thumbnail previews. Test secrets only — never enter real card PANs, passwords, or private keys into shared devices.</Typography>
+        <Typography sx={{ display: "block", mb: 1 }}>Questions? Contact us at {siteConfig.email}. Do not use signature, invoice, or certificate outputs to forge another person&apos;s signature or misrepresent authorship. Respect YouTube Terms and owner copyright when using thumbnail previews. Test secrets only — never enter real card PANs, passwords, or private keys into shared devices.</Typography>
       </Box>
     </Container>
   );

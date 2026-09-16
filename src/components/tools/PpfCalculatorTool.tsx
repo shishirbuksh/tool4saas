@@ -15,6 +15,7 @@ import Paper from "@mui/material/Paper";
 import { money } from "@/lib/format";
 import { ppfMaturity } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import NumericField from "@/components/NumericField";
 
 type ScheduleRow = { year: number; deposit: number; interest: number; balance: number; invested: number };
@@ -58,6 +59,7 @@ export default function PpfCalculatorTool() {
 
   return (
     <ToolPaper>
+      <YMYLDisclaimer type="finance" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <NumericField
           label="Yearly deposit (₹)"

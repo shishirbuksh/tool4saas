@@ -18,6 +18,7 @@ import TableContainer from "@mui/material/TableContainer";
 import { money } from "@/lib/format";
 import { inHandIndia, INDIA_NEW_REGIME_FY26_27 } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import NumericField from "@/components/NumericField";
 
 export default function InHandSalaryTool() {
@@ -45,6 +46,7 @@ export default function InHandSalaryTool() {
 
   return (
     <ToolPaper>
+      <YMYLDisclaimer type="finance" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <NumericField label="CTC (annual, ₹)" value={ctcAnnual} onChange={setCtcAnnual} />
         <NumericField label="Basic + DA (annual, ₹)" value={basicDaAnnual} onChange={setBasicDaAnnual} />

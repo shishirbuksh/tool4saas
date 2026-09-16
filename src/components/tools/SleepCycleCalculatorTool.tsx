@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -85,6 +86,7 @@ export default function SleepCycleCalculatorTool() {
 
   return (
     <ToolPaper spacing={3}>
+      <YMYLDisclaimer type="health" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "flex-end" }}>
         <Box sx={{ display: "flex", gap: 1 }}>
           <Button

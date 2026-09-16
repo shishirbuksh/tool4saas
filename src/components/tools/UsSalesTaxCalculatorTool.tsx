@@ -13,6 +13,7 @@ import InputLabel from "@mui/material/InputLabel";
 import { money } from "@/lib/format";
 import { salesTaxTotal } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 const STATE_PRESETS = [
   { value: "CA", label: "California (CA) – 7.25%", rate: 7.25 },
@@ -48,6 +49,7 @@ export default function UsSalesTaxCalculatorTool() {
 
   return (
     <ToolPaper>
+      <YMYLDisclaimer type="finance" />
       <TextField
         label="Subtotal amount"
         type="number"

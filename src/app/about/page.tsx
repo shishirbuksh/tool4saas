@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Link from "next/link";
 import { staticPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
@@ -21,13 +22,19 @@ export default function AboutPage() {
       </Typography>
       <Box component="div" sx={{ color: "text.secondary", lineHeight: 1.8 }}>
         <Typography  sx={{ display: "block", mb: 1 }}>
-          <span translate="no">{siteConfig.name}</span> is a collection of free, privacy-friendly productivity tools that run entirely in your browser. We built it because great tools shouldn&apos;t require an account, a subscription, or handing over your data.
+          <span translate="no">{siteConfig.name}</span> is a collection of free, privacy-friendly productivity tools that run mostly in your browser. Most tools run 100% locally; 4 network tools (currency converter, YouTube thumbnails, SSL checker, voice input) need internet — see <Link href="/privacy">/privacy</Link>. We built it because great tools shouldn&apos;t require an account, a subscription, or handing over your data.
         </Typography>
         <Typography  sx={{ display: "block", mb: 1 }}>
-          Every tool — from the invoice generator to the word counter — processes your input locally on your device. Nothing you type is uploaded to our servers unless you explicitly download or print the result.
+          Most tools — from the invoice generator to the word counter — process your input locally on your device. Nothing you type is uploaded to our servers unless you explicitly download or print the result, except for the 4 network tools disclosed in our Privacy Policy.
         </Typography>
         <Typography  sx={{ display: "block", mb: 1 }}>
           We keep the service free by displaying advertisements. This helps us cover hosting and continue improving the toolkit. Thank you for using it.
+        </Typography>
+        <Typography sx={{ display: "block", mb: 1 }}>
+          Location &amp; contact: <span translate="no">{siteConfig.name}</span> is an online-only service operated remotely. Questions or feedback? See <Link href="/contact">/contact</Link> — we aim to respond within 2 business days at {siteConfig.email}.
+        </Typography>
+        <Typography sx={{ display: "block", mb: 1 }}>
+          How we test: we build and test every tool in-house, checking outputs against known samples and reviewing guides for accuracy. We verify in current Chrome, Edge, Firefox, and Safari on desktop and mobile viewports, and re-check pages as tools improve.
         </Typography>
       </Box>
       <Box

@@ -9,6 +9,7 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Alert from "@mui/material/Alert";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import { fmt1 } from "@/lib/format";
 
 type Sex = "male" | "female";
@@ -68,6 +69,7 @@ export default function BodyFatCalculatorTool() {
 
   return (
     <ToolPaper>
+      <YMYLDisclaimer type="health" />
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <ToggleButtonGroup
           size="small"

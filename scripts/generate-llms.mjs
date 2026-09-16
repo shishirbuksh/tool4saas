@@ -75,16 +75,19 @@ for (const t of tools) {
 }
 
 // Generate markdown similar to existing llms.txt
+// NOTE: /contact + /author (src/app/author exists) included in Overview.
 let out = `# Tool4SaaS (${tools.length} free tools across ${categories.length} categories)
 
-> Free, privacy-friendly online productivity and developer tools that run entirely in your browser. No account required and your data never leaves your device. ${tools.length} tools across ${categories.length} categories.
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. ${tools.length} tools across ${categories.length} categories.
 
 ## Overview
 - [Tool4SaaS](${siteUrl}/): Home page with all ${tools.length} free tools grouped by ${categories.length} categories.
 - [About](${siteUrl}/about): What the site is and how it protects your privacy.
 - [Privacy Policy](${siteUrl}/privacy): How user data is handled (it stays in your browser).
+- [Contact](${siteUrl}/contact): Contact the Tool4SaaS team.
+- [Author](${siteUrl}/author): About the author behind Tool4SaaS.
+- [Methodology](${siteUrl}/methodology): How we build and test tools.
 - [Categories](${siteUrl}/category/text-documents): Browse tools by category.
-
 `;
 
 for (const cat of categories) {
