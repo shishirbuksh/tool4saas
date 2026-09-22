@@ -8,7 +8,7 @@ export const businessTools: Tool[] = [
     description:
       "Build clean PDF invoices with your logo, line items, taxes and totals. Free invoice generator that works offline in your browser with no sign-up needed.",
     icon: "ReceiptLong",
-    keywords: ["invoice generator", "free invoice maker", "download invoice pdf"],
+    keywords: ["invoice generator", "free invoice maker", "download invoice pdf", "free invoice generator", "create invoice online free no signup", "gst invoice format india pdf", "invoice maker with logo tax", "bill generator no signup", "sales receipt creator offline", "make invoice in browser free"],
     category: "business",
     faq: [{"question":"Is the invoice generator free to use?","answer":"Yes, completely free with no sign-up. Everything runs in your browser; e.g. a 10-line $550 invoice with logo stays on-device, works offline, and Print to PDF is unlimited. No account, watermark or upload is required."},{"question":"Can I download or print the invoice as PDF?","answer":"Yes. Use browser Print with Ctrl or Cmd+P and choose Save as PDF; the layout is print-formatted. Example: INV-2026-001 dated Sept 14, 2026 saves as invoice-acme-001.pdf with logo, $500 subtotal, $50 tax and $550 total crisp on A4."},{"question":"How many line items can an invoice hold?","answer":"Add up to 50 line items with qty, rate and tax, e.g. 3 design tasks at $250 each, with auto subtotal, tax and grand total."}],
     howTo: [{"name":"Enter sender details","text":"Add business name, logo and invoice no., e.g. INV-2026-001 dated Sept 14, 2026."},{"name":"Add line items","text":"Add rows like Logo design, qty 2, $250 each and set tax e.g. 10%."},{"name":"Review totals","text":"Check subtotal e.g. $500, tax $50 and total $550 in live preview."},{"name":"Download or print","text":"Use Print to Save as PDF, e.g. invoice-acme-001.pdf, fully offline."}],
@@ -21,7 +21,7 @@ export const businessTools: Tool[] = [
     description:
       "Create ATS-friendly resumes with experience, education and skills sections. Preview instantly and export to PDF offline. Free resume builder, no upload.",
     icon: "Description",
-    keywords: ["resume builder", "free cv maker", "online resume creator"],
+    keywords: ["resume builder", "free cv maker", "online resume creator", "free resume builder no signup", "create ats friendly resume online free", "one page resume format pdf download", "cv maker pdf free download", "resume creator in browser offline", "fresher resume format india pdf", "curriculum vitae maker online free"],
     category: "business",
     faq: [{"question":"Is my resume saved on a server?","answer":"No. Everything stays in your browser. You can print or save the resume to PDF locally."},{"question":"Will the resume pass ATS (applicant tracking systems)?","answer":"The layout uses standard headings and clean text, which is ATS-friendly. Avoid images in the body for best results."},{"question":"What sections and export formats are supported?","answer":"Includes summary, experience, education and skills, e.g. 3 roles with bullets, exported via Print to clean single-page PDF."}],
     howTo: [{"name":"Add your profile","text":"Fill name, headline and summary, e.g. Aarav Mehta, Frontend Dev, 4 yrs React."},{"name":"Add experience","text":"Add 2-3 roles like UI Engineer at Zeta, 2022-2025, +30% conversion."},{"name":"Add education and skills","text":"Add degree plus 8-10 skills like TypeScript, Next.js, Figma."},{"name":"Export to PDF","text":"Preview single-page layout and Print to PDF, e.g. aarav-resume.pdf, offline."}],
@@ -33,7 +33,7 @@ export const businessTools: Tool[] = [
     short: "Calculate sales commission",
     description: "Calculate sales commission and total payouts from deal value and rate instantly. Enter amounts to see splits update live. Free offline commission calculator.",
     icon: "AttachMoney",
-    keywords: ["commission calculator", "sales commission", "calculate commission online"],
+    keywords: ["commission calculator", "sales commission", "calculate commission online", "free commission calculator online", "calculate sales commission by percentage formula", "tiered commission slab calculation online free", "sales payout calculator no signup", "agent brokerage calculator in browser", "commission split calculator offline", "real estate commission calculator 2026"],
     category: "business",
     faq: [{"question":"How is commission calculated?","answer":"Multiply sales by rate divided by 100 to get pay. Total equals sales plus commission. For example, $9,600 at 7% gives $672 and $10,272 total. Enter amounts in this tool to see splits update live. No signup is needed. See /terms."},{"question":"Are calculations local?","answer":"Yes. Deal value and rate math runs locally in your browser. For example, a $14,200 deal never uploads, works offline free, and clears when you close the tab. No account or server is used. Your sales facts stay private on your device. See /terms."},{"question":"Can I handle tiered or split commissions?","answer":"This tool does flat-rate math plus manual slab runs. For example, $13,000 at 5% gives $650; run higher slabs apart and add totals. For teams, split the $1,140 payout by share, like 60/40. This is math help only. Confirm plans with sales ops. See /terms."}],
     howTo: [{"name":"Enter sales amount","text":"Type sales like $10,000 for the deal."},{"name":"Enter commission rate","text":"Type rate like 7.5%; e.g. 10% on $2,000 equals $200."},{"name":"View results","text":"See commission e.g. $750 and total $10,750 update instantly."},{"name":"Compare scenarios","text":"Try 5% vs 10%, e.g. $500 vs $1,000 on $10,000, to negotiate splits."}],
@@ -45,7 +45,7 @@ export const businessTools: Tool[] = [
     short: "Check resume vs job",
     description: "Compare your resume against job descriptions for keyword coverage and match percentage. Find missing terms instantly. Free offline ATS resume checker tool.",
     icon: "VerifiedUser",
-    keywords: ["ats resume checker", "resume keyword checker", "ats checker online"],
+    keywords: ["ats resume checker", "resume keyword checker", "ats checker online", "free ats resume checker online", "check resume match for job description", "resume keyword match score free no signup", "applicant tracking system checker in browser", "job match scanner offline", "improve resume for job posting free"],
     category: "business",
     faq: [{"question":"How is score calculated?","answer":"Extracts keywords from job (minus stopwords) and checks coverage in resume via word-boundary regex."},{"question":"Is my resume uploaded?","answer":"No, keyword extraction and coverage scoring run locally in the browser; your résumé stays on your device."},{"question":"How long can my resume and job texts be?","answer":"Paste up to about 15,000 characters each, e.g. a 2-page resume versus 300-word posting, scored locally with no upload."}],
     howTo: [{"name":"Paste resume text","text":"Paste resume, e.g. 400-word summary with React, Node, AWS skills."},{"name":"Paste job description","text":"Paste posting, e.g. 300-word JD asking for Next.js, TypeScript, CI/CD."},{"name":"Check match score","text":"View coverage like 72% plus missing list e.g. Docker, Jest."},{"name":"Fix keywords","text":"Add missing terms naturally, e.g. add led CI/CD rollout, then re-check to 90%+."}]
@@ -56,7 +56,7 @@ export const businessTools: Tool[] = [
     short: "Draw & type signature",
     description: "Draw or type your signature with adjustable stroke, ink color and fonts, then download a transparent PNG for contracts. Free offline signature maker tool.",
     icon: "Image",
-    keywords: ["signature maker", "draw signature", "create signature online"],
+    keywords: ["signature maker", "draw signature", "create signature online", "free online signature maker", "draw signature with mouse touch free", "typed script signature font download png", "e signature creator no signup", "sign pdf document in browser", "transparent signature png download free"],
     category: "business",
     faq: [{"question":"Can I draw with touch?","answer":"Yes, supports mouse and touch with pen width and color."},{"question":"Is it private?","answer":"Yes, canvas drawing stays in your browser."},{"question":"What download size and format do I get?","answer":"Exports transparent PNG around 1200x400 px, e.g. black 3px stroke on clear background, ready for PDFs and contracts."}],
     howTo: [{"name":"Draw or type","text":"Draw with mouse or touch, or type e.g. Jane Doe in script font."},{"name":"Style the ink","text":"Set width e.g. 3px, color e.g. #0F172A navy, and font e.g. cursive."},{"name":"Preview transparent","text":"Check on white and dark, e.g. 1200x400 px PNG with clear background."},{"name":"Download PNG","text":"Save like jane-signature.png for PDFs, contracts and forms."}]

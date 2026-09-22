@@ -8,7 +8,7 @@ export const convertersTools: Tool[] = [
     description:
       "Convert length, weight, temperature, and more. Fast, accurate unit conversions right in your browser.",
     icon: "Straighten",
-    keywords: ["unit converter", "convert units online", "length weight converter"],
+    keywords: ["unit converter", "convert units online", "length weight converter", "km to miles converter", "kg to lb converter", "miles to km offline", "c to f converter instantly", "unit converter no signup", "length weight temp converter offline", "convert units instantly"],
     category: "converters",
     faq: [{"question":"Which units can I convert?","answer":"Length, weight, temperature, time and data units, e.g. km to miles and kg to lb with exact factors."},{"question":"Is the unit converter accurate?","answer":"Yes. Conversions use standard factors and exact temperature formulas; e.g. 1 km = 0.621371 mi and 0°C = 32°F."},{"question":"Does conversion upload my numbers?","answer":"No. Unit math runs fully offline in your browser; e.g. 100 km to miles stays on-device, free with no upload."}],
     howTo: [{"name":"Select quantity","text":"Select the quantity (length, weight, temperature, and more)."},{"name":"Enter value","text":"Enter the value and choose the from and to units."},{"name":"Read result","text":"Read the converted result instantly."},{"name":"Try an example","text":"Try 1 km = 0.621 mi or 1 kg = 2.205 lb to verify the conversion."}],

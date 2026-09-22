@@ -107,6 +107,21 @@ for (const cat of categories) {
   out += `\n`;
 }
 
+// Parse Blog
+let blogsOut = `## Guides & Blog\n- [All Guides](${siteUrl}/blog): View all long-form tool guides and tutorials.\n`;
+try {
+  const registryPath = path.resolve("src/lib/blog-registry.ts");
+  if (fs.existsSync(registryPath)) {
+    const regContent = fs.readFileSync(registryPath, "utf8");
+    const pillarMatches = [...regContent.matchAll(/pillar:\s*"([^"]+)"[\s\S]*?title:\s*"([^"]+)"/g)];
+    for (const m of pillarMatches) {
+      blogsOut += `- [${m[2]}](${siteUrl}/blog/${m[1]})\n`;
+    }
+  }
+} catch (e) {}
+
+out += blogsOut + "\n";
+
 out += `## Site
 - [Sitemap](${siteUrl}/sitemap.xml): Machine-readable list of all pages.
 - [Robots](${siteUrl}/robots.txt): Crawler directives.

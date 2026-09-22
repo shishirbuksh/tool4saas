@@ -8,7 +8,7 @@ export const calculatorsTools: Tool[] = [
     description:
       "Find X% of Y, what percent one number is of another and part-of totals with clear steps. All math runs privately in your browser offline.",
     icon: "Percent",
-    keywords: ["percentage calculator", "percent of a number", "what percent calculator"],
+    keywords: ["percentage calculator", "percent of a number", "what percent calculator", "20 percent of 150 calculator", "percent of calculator with steps", "what percent is 30 of 150", "percent off reference", "part of total percent explained", "percentage formula with example", "percent to number guide"],
     category: "calculators",
     faq: [{"question":"What can I calculate?","answer":"A percentage of a number, what percent one number is of another, and percentage increase or decrease."},{"question":"Is it free?","answer":"Yes, fully free and it runs in your browser."},{"question":"Can you show an example?","answer":"Yes. 20% of 150 is 30, 30 is 20% of 150, and going from 150 to 180 is a 20% increase; pick the matching mode first."}],
     howTo: [{"name":"Pick type","text":"Pick percent-of, what-percent or change mode first."},{"name":"Enter numbers","text":"Try 20 percent of 150 as an example."},{"name":"Read result","text":"See 30 with formula steps shown."},{"name":"Try reverse","text":"Swap to 30 is what percent of 150 to see 20 percent."}],

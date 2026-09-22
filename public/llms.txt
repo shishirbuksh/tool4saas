@@ -218,6 +218,12 @@
 - [World Clock](https://tool4saas.com/world-clock): Time in world cities
 - [Pomodoro Timer](https://tool4saas.com/pomodoro-timer): Focus & break cycles
 
+## Guides & Blog
+- [All Guides](https://tool4saas.com/blog): View all long-form tool guides and tutorials.
+- [Free Invoice Generator Guide: Create Professional Invoices Fast](https://tool4saas.com/blog/invoice-generator-guide)
+- [Free QR Code Generator Guide: Create Scannable QR Codes Fast](https://tool4saas.com/blog/qr-code-generator-guide)
+- [Free Resume Builder Guide: Build a Job-Winning Resume Fast](https://tool4saas.com/blog/resume-builder-guide)
+
 ## Site
 - [Sitemap](https://tool4saas.com/sitemap.xml): Machine-readable list of all pages.
 - [Robots](https://tool4saas.com/robots.txt): Crawler directives.
