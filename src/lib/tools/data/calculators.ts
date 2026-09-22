@@ -73,7 +73,7 @@ export const calculatorsTools: Tool[] = [
     icon: "ReceiptLong",
     keywords: ["gst calculator", "vat calculator", "tax calculator"],
     category: "calculators",
-    faq: [{"question":"What modes are supported?","answer":"Add tax (exclusive) or work backwards from a tax-inclusive total."},{"question":"Which currency?","answer":"It formats as your browser's default currency."},{"question":"What is an example with 18% GST?","answer":"Exclusive: 1000 net plus 18% is 1180 total; inclusive: 1180 total contains 180 tax and 1000 base, using tax equals total times rate divided by 100 plus rate."}],
+    faq: [{"question":"What modes are supported?","answer":"Add tax (exclusive) or work backwards from a tax-inclusive total."},{"question":"Which currency?","answer":"It formats as your browser's default currency."},{"question":"What is an example with 18% GST?","answer":"Exclusive: 1000 net plus 18% is 1180 total; inclusive: 1180 total contains 180 tax and 1000 base, using tax equals total times rate divided by 100 plus rate."},{"question":"Is this tax advice?","answer":"No, for informational purposes only. GST and VAT rates change by country and category, so verify current rate before invoicing and consult a tax professional."}],
     howTo: [{"name":"Enter amount & rate","text":"Type 1000 net and 18 percent GST example."},{"name":"Pick mode","text":"Choose exclusive add-tax or inclusive extract-tax."},{"name":"Read result","text":"See 1180 total, 1000 net and 180 tax in exclusive mode."},{"name":"Swap","text":"Enter 1180 inclusive to reverse to 1000 base."}],
   },
   {

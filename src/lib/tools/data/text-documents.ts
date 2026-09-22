@@ -127,12 +127,13 @@ export const textDocumentsTools: Tool[] = [
     slug: "readability-checker",
     title: "Readability Checker",
     short: "Flesch & grade level",
-    description: "Check Flesch Reading Ease 0-100 and Flesch-Kincaid grade level with FKGL 0.39xASL plus 11.8xASW minus 15.59. Shorten sentences to write clearer copy fast.",
+    description: "Check reading ease 0-100 and grade level in one click. See long sentences and hard words, then fix them fast.",
     icon: "BarChart",
     keywords: ["readability checker", "flesch kincaid", "grade level checker"],
     category: "text-documents",
-    faq: [{"question":"What is Flesch Reading Ease?","answer":"Score 0-100: higher means easier. 60-70 is plain English, 90-100 is very easy."},{"question":"How is grade level calculated?","answer":"FKGL = 0.39×ASL + 11.8×ASW −15.59, where ASL=avg sentence length, ASW=avg syllables per word."},{"question":"What score should I target?","answer":"Aim for Reading Ease 60-70 and grade 8-9 for the web. If FKGL shows 12, split 25-word sentences and swap utilize for use."}],
-    howTo: [{"name":"Paste text","text":"Add a 600-word article."},{"name":"View scores","text":"See Reading Ease 0-100, grade level and averages."},{"name":"Find long sentences","text":"Flag a 32-word sentence scoring grade 12."},{"name":"Simplify copy","text":"Split sentences and change utilize to use for grade 8-9."}]
+    faq: [{"question":"What is Flesch Reading Ease?","answer":"Score 0-100: higher means easier. 60-70 is plain text, 90-100 is very easy."},{"question":"How is grade level calculated?","answer":"FKGL = 0.39 x ASL + 11.8 x ASW - 15.59. ASL means words per sentence. ASW means syllables per word."},{"question":"What score should I target?","answer":"Aim for Ease 60-70 and grade 7 or less. If grade shows 12, cut a 28-word sentence in two. Swap long words for short words."}],
+    howTo: [{"name":"Paste text","text":"Add a 600-word article."},{"name":"View scores","text":"See Ease 0-100, grade level and word counts."},{"name":"Find long sentences","text":"Flag a 28-word sentence scoring grade 12."},{"name":"Simplify copy","text":"Split long sentences and use short words to reach grade 7."}],
+    guide: [{ heading: "What the readability checker does", body: "Paste text and see how easy it is to read. Get Flesch Ease 0-100 and a grade level. High Ease means easy. Low grade means easy too. Aim for Ease 60-70 and grade 7. Students, writers, and teams use it to make posts clear. All checks run in your browser." }, { heading: "How the grade math works", body: "Grade uses FKGL = 0.39 x ASL + 11.8 x ASW - 15.59. ASL is words per sentence. ASW is syllables per word. Short words and short sentences lower the grade. Take 14 words per sentence and 1.5 syllables per word. Math is 0.39 x 14 = 5.46, plus 11.8 x 1.5 = 17.7, minus 15.59 = 7.6. So the text reads at grade 7.6." }, { heading: "Worked example, limits and next step", body: "Paste a 450-word draft with 30 sentences. That is 15 words per sentence. With 1.5 syllables per word, grade is 8.0. Split each 28-word sentence in two. Swap long words for short words. Re-check to reach grade 7. Counts are rough for lists and code. For counts try our word counter at /word-counter, or typo fixes at /grammar-checker." }]
   },
   {
     slug: "text-summarizer",

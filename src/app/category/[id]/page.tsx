@@ -132,7 +132,7 @@ const CATEGORY_INTROS: Record<
     faqLabel: "Meta Tag Generator FAQ",
   },
   time: {
-    body: "Master dates, zones, and focus with 8 free time and date utilities. The age calculator turns 1990-06-15 into 36 years plus weekday and a live birthday countdown. The timezone converter moves 3:00 PM New York into 5:00 AM next-day Tokyo with DST handled, while the Pomodoro timer structures 25-minute sprints with 5-minute breaks. Countdown links share live targets with friends and teams. For example, four rounds total 100 focus minutes before a long rest. Each tool page answers common questions in its FAQ, free and offline.",
+    body: "Master dates, zones, and focus with 8 free time and date utilities. The age calculator turns 1990-06-15 into 36 years plus weekday and a live birthday countdown. The timezone converter moves 3:00 PM New York into 4:00 AM next-day Tokyo with DST handled, while the Pomodoro timer structures 25-minute sprints with 5-minute breaks. Countdown links share live targets with friends and teams. For example, four rounds total 100 focus minutes before a long rest. Each tool page answers common questions in its FAQ, free and offline.",
     picks: [
       { slug: "age-calculator", label: "Age Calculator" },
       { slug: "timezone-converter", label: "Timezone Converter" },
