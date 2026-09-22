@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import dynamic from "next/dynamic";
 import { Inter, Fraunces } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import Box from "@mui/material/Box";
@@ -8,9 +9,10 @@ import { siteConfig } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AdSenseScript from "@/components/AdSenseScript";
-import CookieConsent from "@/components/CookieConsent";
 import ThemeProviderClient from "@/components/ThemeProviderClient";
 import SiteJsonLd from "@/components/SiteJsonLd";
+
+import CookieConsentLazy from "@/components/CookieConsentLazy";
 
 // Body: Inter variable — optimized for UI, tight tracking -0.015em, optical sizing
 const inter = Inter({
@@ -22,14 +24,13 @@ const inter = Inter({
   preload: true,
 });
 
-// Display: Fraunces — 2 weights only (700/800) for hero/h1/h2 critical path.
-// h2-h6 request 600 in theme but resolve to nearest loaded (700) — no extra fetch.
-// Do NOT add 600/900 without preload audit: each weight = extra woff2 + FOUT risk.
+// Display: Fraunces — 700 only for hero/h1/h2 critical path.
+// 800 dropped: unused (all headings resolve to 700), saves 1 woff2 preload + RTT on LCP.
 const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display",
-  weight: ["700", "800"],
+  weight: ["700"],
   fallback: ["Georgia", "Times New Roman", "serif"],
   adjustFontFallback: true,
   preload: true,
@@ -133,9 +134,9 @@ export default function RootLayout({
         </Script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-JD0HNN61MF"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -144,7 +145,7 @@ export default function RootLayout({
           `}
         </Script>
         <AdSenseScript />
-        <CookieConsent />
+        <CookieConsentLazy />
         <a href="#main" className="skip-link">
           Skip to content
         </a>

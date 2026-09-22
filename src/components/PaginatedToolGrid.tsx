@@ -26,8 +26,8 @@ type Group = {
   tools: Tool[];
 };
 
-const INITIAL_VISIBLE = 24;
-const STEP = 24;
+const INITIAL_VISIBLE = 12;
+const STEP = 12;
 
 export default function PaginatedToolGrid({ groups }: { groups: Group[] }) {
   const [visible, setVisible] = React.useState(INITIAL_VISIBLE);

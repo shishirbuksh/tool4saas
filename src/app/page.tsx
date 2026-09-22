@@ -125,7 +125,7 @@ export default function HomePage() {
       >
         <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1, px: { xs: 2, md: 4 } }}>
           <Grid container spacing={6} sx={{ alignItems: "center" }}>
-            <Grid size={{ xs: 12, md: 7 }}>
+            <Grid size={{ xs: 12, lg: 7 }}>
           <Stack
             spacing={4}
             sx={{
@@ -193,7 +193,7 @@ export default function HomePage() {
             </Box>
           </Stack>
             </Grid>
-            <Grid size={{ xs: 12, md: 5 }} sx={{ display: { xs: "none", md: "flex" }, justifyContent: "flex-end" }}>
+            <Grid size={{ xs: 12, lg: 5 }} sx={{ display: { xs: "none", lg: "flex" }, justifyContent: "flex-end" }}>
               <Box
                 aria-hidden="true"
                 className="glass"
@@ -232,7 +232,7 @@ export default function HomePage() {
       </Box>
 
       {/* On this page — jump links, server anchors only */}
-      <Box component="nav" aria-label="On this page" sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: 1.5, contentVisibility: "auto", containIntrinsicSize: "auto 80px" }}>
+      <Box component="nav" aria-label="On this page" sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: 1.5, contentVisibility: "auto", containIntrinsicSize: "auto 120px" }}>
         <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 } }}>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'center' }}>
             {[
@@ -256,7 +256,7 @@ export default function HomePage() {
       </Box>
 
       {/* Popular Tools — 8 pills, SSR links */}
-      <Box component="section" id="popular" aria-label="Popular tools" sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 4, md: 6 }, scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 400px" }}>
+      <Box component="section" id="popular" aria-label="Popular tools" sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 4, md: 6 }, scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 200px" }}>
         <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 }, textAlign: 'center' }}>
           <Typography variant="h2" sx={{ fontWeight: 700, letterSpacing: "-0.025em", fontSize: 'clamp(1.4rem, 3vw, 2rem)', mb: 1 }}>
             Popular free online tools, no sign-up needed
@@ -296,28 +296,20 @@ export default function HomePage() {
         </Container>
       </Box>
 
-      {/* Categories teaser — nav, no H3s (dedup: H3s live only in grid) */}
-      <Box component="nav" id="categories" aria-label="Tool categories" sx={{ bgcolor: 'background.default', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 4, md: 6 }, scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 400px" }}>
+      {/* Categories teaser — pill scroll, no H3s, no descs (dedup) */}
+      <Box component="nav" id="categories" aria-label="Tool categories" sx={{ bgcolor: 'background.default', borderBottom: '1px solid', borderColor: 'divider', py: 3, scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 120px" }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
-          <Typography variant="h2" sx={{ fontWeight: 700, letterSpacing: "-0.025em", fontSize: 'clamp(1.4rem, 3vw, 2rem)', textAlign: 'center', mb: 1 }}>
+          <Typography variant="h2" sx={{ fontWeight: 700, letterSpacing: "-0.025em", fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', textAlign: 'center', mb: 2 }}>
             Browse 12 free tool categories (no sign-up)
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center', mb: 3 }}>
-            Pick a group to see every utility inside. Counts exclude placeholders.
-          </Typography>
-          <Box component="ul" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 1.5, listStyle: 'none', m: 0, p: 0 }}>
+          <Box component="ul" sx={{ display: 'flex', gap: 1, overflowX: 'auto', listStyle: 'none', m: 0, p: 0, pb: 1, justifyContent: { md: 'center' }, scrollSnapType: 'x mandatory' }}>
             {hubGroups.map((g) => {
               const visible = g.tools.filter((t) => t.slug !== "pdf-compress").length;
               return (
-                <Box component="li" key={g.category.id} sx={{ p: 2, borderRadius: "12px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}>
-                  <Typography variant="body1" sx={{ fontWeight: 700 }}>
-                    <Link href={`/category/${g.category.id}`} aria-label={`View all ${visible} ${g.category.label} tools`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                      {g.category.label} — {visible} tools
-                    </Link>
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5, lineHeight: 1.6 }}>
-                    {g.category.description.length > 100 ? `${g.category.description.slice(0, 100).trimEnd()}…` : g.category.description}
-                  </Typography>
+                <Box component="li" key={g.category.id} sx={{ flex: '0 0 auto', scrollSnapAlign: 'start' }}>
+                  <Link href={`/category/${g.category.id}`} aria-label={`View all ${visible} ${g.category.label} tools`} style={{ display: 'inline-flex', alignItems: 'center', minHeight: 44, padding: '0 16px', borderRadius: 999, border: '1px solid var(--mui-palette-divider, #e0e0e0)', fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none', color: 'inherit', background: 'var(--mui-palette-background-paper, #fff)', whiteSpace: 'nowrap' }}>
+                    {g.category.label} — {visible}
+                  </Link>
                 </Box>
               );
             })}
@@ -392,18 +384,20 @@ export default function HomePage() {
         <PaginatedToolGrid groups={toolsByCategoryCached()} />
       </Container>
 
-      {/* Mid-page Ad — after value, below fold, lazy */}
+      {/* Mid-page Ad — after value, below fold, lazy, fixed reserve kills CLS */}
       <Container maxWidth="xl" sx={{ pb: 6, px: { xs: 2, md: 4 } }}>
-        <AdSlot
-          format="leaderboard"
-          slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_LEADERBOARD || ""}
-          label="Advertisement"
-        />
+        <Box sx={{ minHeight: { xs: 100, md: 250 }, contentVisibility: "auto", containIntrinsicSize: "auto 250px" }}>
+          <AdSlot
+            format="leaderboard"
+            slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_LEADERBOARD || ""}
+            label="Advertisement"
+          />
+        </Box>
       </Container>
 
       {/* What is Tool4SaaS — simple English + persona H3s */}
       <Container maxWidth="lg" sx={{ pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 } }}>
-        <Box component="section" id="what-is" aria-label="What is Tool4SaaS" sx={{ maxWidth: 800, mx: "auto", scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 600px" }}>
+        <Box component="section" id="what-is" aria-label="What is Tool4SaaS" sx={{ maxWidth: 800, mx: "auto", scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 1200px" }}>
           <Typography variant="h2" sx={{ mb: 1, fontWeight: 700, letterSpacing: "-0.025em", fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}>
             What is Tool4SaaS? Free tools in your browser
           </Typography>
@@ -494,7 +488,7 @@ export default function HomePage() {
 
       {/* Popular workflows + testing summary */}
       <Container maxWidth="lg" sx={{ pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 } }}>
-        <Box component="section" id="workflows" aria-label="Popular workflows" sx={{ maxWidth: 800, mx: "auto", scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 600px" }}>
+        <Box component="section" id="workflows" aria-label="Popular workflows" sx={{ maxWidth: 800, mx: "auto", scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 800px" }}>
           <Typography variant="h2" sx={{ mb: 3, fontWeight: 700, letterSpacing: "-0.025em", fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}>
             Popular workflows for work, finance and study
           </Typography>
@@ -534,12 +528,12 @@ export default function HomePage() {
           <Typography variant="body1" color="text.secondary" sx={{ mb: 4, textAlign: 'center' }}>
             Quick answers in plain English. Still stuck? <Link href="/contact">Contact us</Link>.
           </Typography>
-          {FAQS.map((f) => (
-            <Box key={f.q} sx={{ mb: 2, p: 3, borderRadius: "16px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}>
-              <Typography variant="h3" sx={{ fontSize: '1.125rem', fontWeight: 700, mb: 1 }}>
+          {FAQS.map((f, i) => (
+            <Box key={f.q} component="details" open={i === 0} sx={{ mb: 2, p: 3, borderRadius: "16px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper", contentVisibility: "auto", containIntrinsicSize: "auto 72px" }}>
+              <Typography component="summary" variant="h3" sx={{ fontSize: '1.125rem', fontWeight: 700, cursor: 'pointer', '&:focus-visible': { outline: '3px solid', outlineOffset: '2px' } }}>
                 {f.q}
               </Typography>
-              <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
+              <Typography color="text.secondary" sx={{ lineHeight: 1.7, mt: 1 }}>
                 {f.a}
               </Typography>
             </Box>
