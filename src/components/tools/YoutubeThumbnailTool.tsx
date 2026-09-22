@@ -176,6 +176,9 @@ export default function YoutubeThumbnailTool() {
                       src={thumb.url}
                       alt={`${thumb.label} thumbnail`}
                       loading="lazy"
+                      decoding="async"
+                      width={320}
+                      height={180}
                       sx={{
                         width: "100%",
                         height: "100%",

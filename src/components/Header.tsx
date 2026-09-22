@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import React from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
   // @ts-expect-error - MUI passes href dynamically
@@ -18,11 +19,9 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import Drawer from "@mui/material/Drawer";
+import MenuItem from "@mui/material/MenuItem";
 import Stack from "@mui/material/Stack";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -33,7 +32,19 @@ import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import { toolsByCategoryCached } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
 import { useThemeMode } from "@/components/ThemeProviderClient";
-import ToolSearch from "@/components/ToolSearch";
+
+const DrawerDynamic = dynamic(() => import("@mui/material/Drawer"), {
+  ssr: false,
+  loading: () => null,
+}) as any;
+const MenuDynamic = dynamic(() => import("@mui/material/Menu"), {
+  ssr: false,
+  loading: () => null,
+}) as any;
+const ToolSearchDynamic = dynamic(() => import("@/components/ToolSearch"), {
+  ssr: false,
+  loading: () => null,
+}) as any;
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -151,6 +162,20 @@ export default function Header() {
               >
                 Contact
               </Button>
+              <Button
+                component={LinkWrapper}
+                href="/blog"
+                disableElevation
+                color={pathname.startsWith("/blog") ? "primary" : "inherit"}
+                aria-current={pathname.startsWith("/blog") ? "page" : undefined}
+                sx={{
+                  fontWeight: pathname.startsWith("/blog") ? 600 : 500,
+                  px: 2,
+                  minHeight: 44,
+                }}
+              >
+                Blog
+              </Button>
             
             <Button
               id="categories-button"
@@ -169,7 +194,7 @@ export default function Header() {
             >
               Categories
             </Button>
-            <Menu
+            <MenuDynamic
               id="categories-menu"
               aria-labelledby="categories-button"
               anchorEl={catAnchor?.el ?? null}
@@ -211,10 +236,10 @@ export default function Header() {
                   </Typography>
                 </MenuItem>
               ))}
-            </Menu>
+            </MenuDynamic>
 
             <Box sx={{ pl: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
-              <ToolSearch sx={{ width: 280 }} />
+              <ToolSearchDynamic sx={{ width: 280 }} />
               <IconButton 
                 onClick={toggle} 
                 aria-label={mode === "light" ? "Switch to dark mode" : "Switch to light mode"} 
@@ -256,7 +281,7 @@ export default function Header() {
       </Container>
 
       {/* Mobile Drawer — MUI Drawer traps focus by default (Modal focus-trap + Escape to close); no custom trap needed. */}
-      <Drawer
+      <DrawerDynamic
         anchor="right"
         open={open}
         onClose={() => setOpen(false)}
@@ -277,7 +302,7 @@ export default function Header() {
             <CloseIcon aria-hidden="true" />
           </IconButton>
         </Box>
-        <ToolSearch sx={{ width: "100%", mb: 4 }} />
+        <ToolSearchDynamic sx={{ width: "100%", mb: 4 }} />
         <Box component="nav" aria-label="Mobile">
           <List sx={{ px: 0 }}>
             <ListItem disablePadding sx={{ mb: 1 }}>
@@ -362,7 +387,7 @@ export default function Header() {
             ))}
           </Stack>
         </Box>
-      </Drawer>
+      </DrawerDynamic>
     </AppBar>
   );
 }

@@ -40,7 +40,7 @@ const PRESET_ZONES: City[] = [
 ];
 
 function zoneOffsetMs(tz: string, date: Date): number {
-  const dtf = new Intl.DateTimeFormat("en-US", {
+  const dtf = new Intl.DateTimeFormat(undefined, {
     timeZone: tz,
     hour12: false,
     year: "numeric",
@@ -78,7 +78,7 @@ function isValidTimeZone(tz: string): boolean {
 }
 
 function formatTime(tz: string, date: Date, hour12: boolean): string {
-  return new Intl.DateTimeFormat("en-US", {
+  return new Intl.DateTimeFormat(undefined, {
     timeZone: tz,
     hour: "2-digit",
     minute: "2-digit",
@@ -88,7 +88,7 @@ function formatTime(tz: string, date: Date, hour12: boolean): string {
 }
 
 function formatDate(tz: string, date: Date): string {
-  return new Intl.DateTimeFormat("en-US", {
+  return new Intl.DateTimeFormat(undefined, {
     timeZone: tz,
     weekday: "short",
     year: "numeric",
@@ -107,8 +107,30 @@ export default function WorldClockTool() {
 
   useEffect(() => {
     setNow(new Date());
-    const id = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(id);
+    let id: ReturnType<typeof setInterval> | null = null;
+    const start = () => {
+      if (id == null) id = setInterval(() => setNow(new Date()), 1000);
+    };
+    const stop = () => {
+      if (id != null) {
+        clearInterval(id);
+        id = null;
+      }
+    };
+    const onVisibility = () => {
+      if (document.hidden) {
+        stop();
+      } else {
+        setNow(new Date());
+        start();
+      }
+    };
+    start();
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, []);
 
   const handleAddCustom = () => {

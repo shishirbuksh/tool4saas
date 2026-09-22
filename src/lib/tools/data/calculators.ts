@@ -4,14 +4,15 @@ export const calculatorsTools: Tool[] = [
   {
     slug: "percentage-calculator",
     title: "Percentage Calculator",
-    short: "Percent of, what % & change",
+    short: "X% of Y & what percent",
     description:
-      "Calculate percentages, percentage change and part-of totals from any numbers with clear step results shown. All math runs privately in your browser offline.",
+      "Find X% of Y, what percent one number is of another and part-of totals with clear steps. All math runs privately in your browser offline.",
     icon: "Percent",
-    keywords: ["percentage calculator", "percent of a number", "percentage change"],
+    keywords: ["percentage calculator", "percent of a number", "what percent calculator"],
     category: "calculators",
     faq: [{"question":"What can I calculate?","answer":"A percentage of a number, what percent one number is of another, and percentage increase or decrease."},{"question":"Is it free?","answer":"Yes, fully free and it runs in your browser."},{"question":"Can you show an example?","answer":"Yes. 20% of 150 is 30, 30 is 20% of 150, and going from 150 to 180 is a 20% increase; pick the matching mode first."}],
     howTo: [{"name":"Pick type","text":"Pick percent-of, what-percent or change mode first."},{"name":"Enter numbers","text":"Try 20 percent of 150 as an example."},{"name":"Read result","text":"See 30 with formula steps shown."},{"name":"Try reverse","text":"Swap to 30 is what percent of 150 to see 20 percent."}],
+    guide: [{ heading: "What the X% of Y pillar covers", body: "The percentage calculator is the generic X% of Y pillar for everyday percent math: find a percent of a number, find what percent one number is of another, and find part-of totals with clear formula steps. Use cases include shopping with 25 percent off a 120 dollar jacket saving 30 dollars, tips with 18 percent on an 84.50 bill adding 15.21, and goals with 30 out of 150 equaling 20 percent. Everything runs locally in your browser offline, so inputs stay private." }, { heading: "How percent-of and what-percent work", body: "Percent-of multiplies rate times base: 20 percent of 150 equals 0.20 times 150 equals 30. What-percent divides part by whole: 30 divided by 150 times 100 equals 20 percent. Part-of totals reverse the same division to check progress toward a goal. Enter numbers with decimals, switch modes before typing, and read the formula line to verify which base you used. Rounding shows two decimals without changing the underlying math." }, { heading: "Worked examples and limitations", body: "Try 20 percent of 150 to see 30 with steps, then flip to 30 is what percent of 150 to see 20 percent, then test 120 dollars minus 25 percent to see a 90 dollar sale price. For old-to-new growth like 150 to 180 use the dedicated percentage-change tool, and for symmetric peer comparison like 60 versus 80 use the percentage-difference tool. This pillar rounds display values, rejects empty inputs, and does not store history; enter chained discounts sequentially." }],
   },
   {
     slug: "bmi-calculator",
@@ -24,6 +25,7 @@ export const calculatorsTools: Tool[] = [
     category: "calculators",
     faq: [{"question":"What units are supported?","answer":"Both metric and imperial are supported with automatic conversion. Example: 70 kg and 175 cm gives BMI 22.9, same as 154 lb and 68.9 in; formula is kg divided by m squared or 703 times lb divided by in squared. Switch units anytime."},{"question":"What does the category mean?","answer":"It maps BMI to WHO ranges: under 18.5 underweight, 18.5-24.9 normal, 25-29.9 overweight and 30-plus obese. Example: 22.9 is normal while 29.4 at 90 kg and 175 cm is overweight; athletes and pregnancy need waist and medical context."},{"question":"What BMI is healthy and what are limits?","answer":"Healthy is 18.5-24.9, but BMI ignores muscle, pregnancy and age; athletes may read high while still lean, so use waist and medical advice alongside."},{"question":"How accurate is BMI for health?","answer":"BMI is a screening proxy, not a diagnosis; it overstates fat in muscular builds and understates in older adults. Example: 70 kg at 175 cm is 22.9 normal, yet waist over 102 cm still raises risk. Confirm with a clinician and see /terms."}],
     howTo: [{"name":"Pick units","text":"Choose metric kg-cm or imperial lb-in units."},{"name":"Enter weight & height","text":"Enter 70kg and 175cm as an example."},{"name":"Read BMI","text":"See BMI 22.9 flagged as normal range."},{"name":"Compare","text":"Try 90kg at same height to see 29.4 overweight."}],
+    guide: [{ heading: "What Body Mass Index is", body: "Body Mass Index is a weight-to-height screening number that maps adults to underweight, normal, overweight, or obese ranges. A 70 kg adult at 175 cm scores 22.9 normal, while a 90 kg adult at the same height scores 29.4 overweight. Our BMI calculator accepts metric kg-cm or imperial lb-in with automatic conversion, instant category lookup, and comparison mode, running fully offline so personal measurements never leave your device." }, { heading: "How BMI is calculated", body: "The metric formula is BMI equals weight in kilograms divided by height in meters squared, while imperial uses 703 times pounds divided by inches squared. For example, 70 kg at 175 cm gives 70 divided by 3.06 equals 22.9 normal, and 154 lb at 68.9 in gives the same 22.9. Trying 90 kg at 175 cm yields 29.4 overweight. Switch units anytime, verify decimals, and compare 70 versus 90 kg at one height to see category change instantly." }, { heading: "Worked example and limitations", body: "Compare 70 kg for 22.9 normal against 90 kg for 29.4 overweight at 175 cm to plan next steps. BMI ignores muscle, pregnancy, age, and fat distribution, so athletes may read high while lean and older adults may read low. For daily needs use the calorie-calculator tool with activity level, and for targets use the ideal-weight-calculator tool near 18.5 to 24.9. Confirm health risks with a clinician. See /terms." }]
   },
   {
     slug: "tip-calculator",
@@ -42,12 +44,13 @@ export const calculatorsTools: Tool[] = [
     title: "Loan Calculator",
     short: "Monthly payment & interest",
     description:
-      "Estimate monthly loan payments, total interest and payoff timeline from principal, rate and term. Amortization math runs offline on your device.",
+      "Estimate monthly loan payments, total interest and payoff timeline from principal, rate and term. For home loans see mortgage, emi or auto loan tools. Runs offline.",
     icon: "AccountBalance",
-    keywords: ["loan calculator", "emi calculator", "monthly payment"],
+    keywords: ["loan calculator", "loan payment calculator", "monthly loan payment"],
     category: "calculators",
     faq: [{"question":"What does it calculate?","answer":"Monthly payment, total paid and total interest for a fixed-rate loan."},{"question":"Does it handle zero interest?","answer":"Yes. A 0% rate divides the principal across the term."},{"question":"How does term affect total interest?","answer":"Example: $20000 at 6% over 5 years pays about $386 monthly and $3168 interest, while a 3-year term raises payments but cuts interest sharply."}],
     howTo: [{"name":"Enter loan details","text":"Add $20000, 6 percent annual and 5-year term."},{"name":"Read results","text":"See about $386 monthly, $23168 total and $3168 interest."},{"name":"Adjust inputs","text":"Shorten to 3 years to see higher payment but less interest."},{"name":"Compare","text":"Lower rate to 4 percent to see savings instantly."}],
+    guide: [{ heading: "What this generic loan hub covers", body: "This loan calculator is the generic hub for fixed-rate loan planning: enter principal, annual rate and term to estimate monthly payment, total paid and total interest with payoff timeline. Use it for quick comparisons across personal loans, then move to dedicated tools for detail: mortgage for home loans with amortization tables, emi for Indian EMI schedules, and auto loan tools for vehicle financing with fees. All math runs offline in your browser, so amounts stay private." }, { heading: "How loan payments are estimated", body: "Payments use standard amortization where each fixed instalment covers monthly interest on the remaining balance plus principal reduction. A 20000 dollar loan at 6 percent over 5 years pays about 386 monthly and 3168 interest, while a 3-year term raises the payment but cuts lifetime interest sharply. Zero interest divides principal evenly across months. Adjust rate, term or principal to see tradeoffs instantly before contacting a lender." }, { heading: "Worked example and limitations", body: "Enter 20000 principal, 6 percent annual and 5 years to see about 386 monthly, 23168 total and 3168 interest, then shorten to 3 years or lower the rate to 4 percent to compare savings. This hub excludes taxes, insurance, processing fees, floating-rate resets and prepayment penalties covered in specialized mortgage, emi or auto tools. It is an educational estimate only, not financial advice. Confirm exact schedules with your lender. See terms." }],
   },
   {
     slug: "discount-calculator",
@@ -76,23 +79,23 @@ export const calculatorsTools: Tool[] = [
   {
     slug: "percentage-change",
     title: "Percentage Change",
-    short: "Change between values",
-    description: "Calculate percentage change between old and new values with increase or decrease labels and precise decimals. Processing stays local on your device.",
+    short: "Old-to-new % change & growth",
+    description: "Calculate old-to-new percentage change and growth with increase or decrease labels and precise decimals. Processing stays local on your device.",
     icon: "Percent",
     keywords: ["percentage change calculator", "percent change", "calculate percent increase"],
     category: "calculators",
-    faq: [{ question: "How is percentage change calculated?", answer: "((new − old) ÷ old) × 100. Returns null when old is 0 and new is non-zero (undefined change)." }, { question: "Difference vs change?", answer: "Change is directional (old→new). Difference uses absolute average and is symmetric." }, { question: "What happens when old value is zero?", answer: "Change from 0 is undefined unless both are 0; example old 50 to new 75 is a 50% increase, while 75 to 50 is a 33.33% decrease." }],
+    faq: [{ question: "How is percentage change calculated?", answer: "((new − old) ÷ old) × 100. Returns null when old is 0 and new is non-zero (undefined change)." }, { question: "How is change different from difference?", answer: "Change tracks old-to-new growth directionally: 50 to 75 is plus 50 percent but 75 to 50 is minus 33.33 percent. Difference is symmetric absolute average, so 60 versus 80 is 28.57 percent either way. Use change for growth over time." }, { question: "What happens when old value is zero?", answer: "Change from 0 is undefined unless both are 0; example old 50 to new 75 is a 50% increase, while 75 to 50 is a 33.33% decrease." }],
     howTo: [{ name: "Enter old", text: "Enter 50 as the old original value." }, { name: "Enter new", text: "Enter 75 as the new value." }, { name: "Read change", text: "See 50 percent increase with precise decimals." }, { name: "Reverse", text: "Swap to 75 to 50 to see 33.33 percent decrease." }],
   },
   {
     slug: "percentage-difference",
     title: "Percentage Difference",
-    short: "Difference between values",
-    description: "Calculate symmetric percentage difference between two values using absolute average for fair comparison. No inputs leave your browser session.",
+    short: "Absolute |A-B|/avg difference",
+    description: "Calculate absolute percentage difference |A-B|/avg between two values for symmetric comparison. No inputs leave your browser session.",
     icon: "Percent",
     keywords: ["percentage difference calculator", "percent difference", "compare two values percent"],
     category: "calculators",
-    faq: [{ question: "What formula do you use?", answer: "Diff = |x − y| ÷ ((|x|+|y|)/2) × 100. Uses absolute average so result is symmetric." }, { question: "When is it 0?", answer: "When both values are 0, or when they are equal." }, { question: "When should I use difference instead of change?", answer: "Use difference to compare two peers with no old or new; example 60 versus 80 differs by 28.57%, the same either direction." }],
+    faq: [{ question: "What formula do you use?", answer: "Diff = |x − y| ÷ ((|x|+|y|)/2) × 100. Uses absolute average so result is symmetric." }, { question: "When is it 0?", answer: "When both values are 0, or when they are equal." }, { question: "When should I use absolute difference instead of change?", answer: "Use absolute difference for two peers with no old or new: 60 versus 80 differs by 28.57 percent the same either direction, while old-to-new change would give plus 33.33 or minus 25 percent depending on direction." }],
     howTo: [{ name: "Enter A", text: "Enter 60 as the first value." }, { name: "Enter B", text: "Enter 80 as the second value." }, { name: "View diff", text: "See 28.57 percent symmetric difference." }, { name: "Swap", text: "Reverse to 80 and 60 to confirm same result." }],
   },
   {

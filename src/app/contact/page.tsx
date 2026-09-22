@@ -6,12 +6,12 @@ import Button from "@mui/material/Button";
 import Link from "next/link";
 import { staticPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
-import ContactForm from "@/components/ContactForm";
+import ContactForm, { CopyEmailButton } from "@/components/ContactForm";
 
 export const metadata: Metadata = staticPageMetadata({
-  title: "Contact Us",
+  title: "Contact Tool4SaaS — Help, Feedback & Bugs",
   description:
-    "Contact Tool4SaaS team for support, feedback, or bug reports. We reply within 2 business days.",
+    "Contact the Tool4SaaS team for support, feedback, or bug reports — we read every message and reply within 2 business days (Mon-Fri, UTC).",
   path: "/contact",
 });
 
@@ -27,7 +27,7 @@ export default function ContactPage() {
           Questions, feedback, or bug reports? Contact the <span translate="no">{siteConfig.name}</span> team at {siteConfig.email}. We read every message.
         </Typography>
         <Typography sx={{ display: "block", mb: 1 }}>
-          We aim to respond within 2 business days. For faster help, include the tool name and page URL, what you expected to happen, what actually happened, and your browser and device.
+          We aim to respond within 2 business days (Mon-Fri, UTC). For faster help, include the tool name and page URL, what you expected to happen, what actually happened, and your browser and device.
         </Typography>
         <Typography sx={{ display: "block", mb: 1 }}>
           All tools work without an account — there is no login to troubleshoot. Please never send passwords, payment card numbers, private keys, or other sensitive secrets; test data only.
@@ -37,6 +37,7 @@ export default function ContactPage() {
         <Button variant="contained" href={`mailto:${siteConfig.email}`}>
           Email {siteConfig.email}
         </Button>
+        <CopyEmailButton />
       </Box>
       <ContactForm />
       <Box

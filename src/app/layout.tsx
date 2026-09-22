@@ -42,7 +42,13 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  alternates: { canonical: siteConfig.url.replace(/\/$/, "") },
+  alternates: {
+    canonical: siteConfig.url.replace(/\/$/, ""),
+    languages: {
+      en: siteConfig.url.replace(/\/$/, ""),
+      "x-default": siteConfig.url.replace(/\/$/, ""),
+    },
+  },
   authors: [{ name: siteConfig.author }],
   creator: siteConfig.author,
   openGraph: {
@@ -60,11 +66,30 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: ["/og/home"],
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico",
+  },
+  appleWebApp: {
+    capable: true,
+    title: siteConfig.name,
+    statusBarStyle: "default",
+  },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  // DEEP-5: Search Console verification — only emitted when env is set, else omitted.
+  verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
+    : undefined,
 };
 
 export const viewport: Viewport = {
@@ -85,6 +110,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
       <head>
+        {/* DEEP-5: Google Funding Choices (TCF v2.2) snippet placeholder.
+            Paste the Funding Choices script(s) from
+            Ad Manager > Privacy & messaging here, BEFORE consent-default.
+            Keep order: Funding Choices -> consent-default -> GA -> AdSense.
+            Left commented until AdSense approval; CookieConsent forwards
+            t4s-consent to window.__tcfapi only when FC is present (stub guard). */}
+        {/* <Script src="https://fundingchoicesmessages.google.com/i/xxxx.js?ers=1" strategy="beforeInteractive" /> */}
         <Script
           id="theme-script"
           strategy="beforeInteractive"

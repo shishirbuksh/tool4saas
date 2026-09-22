@@ -68,6 +68,23 @@ a {
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.4);
 }
 
+/* Mobile perf: drop backdrop blur (expensive compositing) — solid fallback. Desktop blur kept above. */
+@media (max-width: 768px) {
+  .glass,
+  [data-theme="dark"] .glass,
+  header.glass,
+  header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .glass {
+    background: rgba(255,255,255,0.95);
+  }
+  [data-theme="dark"] .glass {
+    background: rgba(17,17,17,0.95);
+  }
+}
+
 .cinematic-hero {
   position: relative;
   overflow: hidden;
@@ -282,6 +299,25 @@ output,
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
 }
+
+/* ---------- Blog article body (SSR HTML, SEO semantic) ---------- */
+.blog-body { color: var(--mui-palette-text-primary, #1a1a1a); line-height: 1.8; font-size: 1.02rem; }
+.blog-body h2 { font-size: 1.6rem; font-weight: 800; margin: 2.5rem 0 1rem; scroll-margin-top: 110px; letter-spacing: -0.02em; line-height: 1.25; }
+.blog-body h3 { font-size: 1.2rem; font-weight: 700; margin: 1.75rem 0 0.75rem; scroll-margin-top: 110px; }
+.blog-body p { margin: 0 0 1.1rem; max-width: 68ch; }
+.blog-body ul, .blog-body ol { margin: 0 0 1.25rem; padding-left: 1.5rem; }
+.blog-body li { margin-bottom: 0.5rem; line-height: 1.7; }
+.blog-body li::marker { font-weight: 700; }
+.blog-body strong { font-weight: 700; }
+.blog-body a { color: #0b57d0; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.blog-body table { width: 100%; border-collapse: collapse; margin: 1.25rem 0 1.75rem; font-size: 0.92rem; display: block; overflow-x: auto; }
+.blog-body thead th { text-align: left; background: rgba(0,0,0,0.04); }
+.blog-body th, .blog-body td { border: 1px solid rgba(0,0,0,0.12); padding: 10px 12px; vertical-align: top; white-space: normal; }
+.blog-body blockquote.tip { border-left: 4px solid #111; background: rgba(0,0,0,0.03); padding: 14px 18px; border-radius: 0 12px 12px 0; margin: 1.5rem 0; }
+.blog-body .cta-box { border: 1px solid rgba(0,0,0,0.12); border-radius: 14px; padding: 20px; margin: 1.75rem 0; background: rgba(0,0,0,0.02); }
+[data-theme="dark"] .blog-body a { color: #8ab4f8; }
+[data-theme="dark"] .blog-body thead th { background: rgba(255,255,255,0.06); }
+[data-theme="dark"] .blog-body th, [data-theme="dark"] .blog-body td { border-color: rgba(255,255,255,0.14); }
 
 /* Print: show only the document being exported (invoice / resume / docs) */
 @media print {

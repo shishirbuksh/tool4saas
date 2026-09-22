@@ -12,6 +12,7 @@ type Props = {
   format?: "auto" | "rectangle" | "leaderboard" | "inline";
   className?: string;
   label?: string;
+  nonPersonalized?: boolean;
 };
 
 export default function AdSlotLazy(props: Props) {

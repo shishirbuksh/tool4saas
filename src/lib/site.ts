@@ -1,8 +1,20 @@
+// Fail-closed poison-domain blocklist: never let placeholder/example domains
+// leak into canonicals/sitemap/JSON-LD. Any match falls back to localhost.
+const POISON_HOST_TOKENS = ["your-domain", "placeholder", "example."];
+function isPoisonHostname(hostname: string): boolean {
+  const h = hostname.toLowerCase();
+  if (h.includes("your-domain") || h.includes("placeholder")) return true;
+  if (h === "example.com" || h.endsWith(".example.com")) return true;
+  if (h === "example.org" || h.endsWith(".example.org")) return true;
+  if (h === "example.net" || h.endsWith(".example.net")) return true;
+  return POISON_HOST_TOKENS.some((t) => h.includes(t));
+}
+
 export const siteConfig = {
   name: "Tool4SaaS",
-  title: "Tool4SaaS - Free Online Productivity Tools",
+  title: "Free Online Tools - Invoice, QR, Resume Builder | Tool4SaaS",
   description:
-    "Free online productivity tools: invoice generator, QR code generator, resume builder and word counter. No sign-up required, works in your browser.",
+    "Free online tools: invoice generator, QR code generator, resume builder and word counter. No sign-up needed, works in your browser instantly, try now.",
   keywords: [
     "free online tools",
     "invoice generator",
@@ -25,6 +37,10 @@ export const siteConfig = {
     try {
       const u = new URL(candidate);
       if (!/^https?:$/.test(u.protocol)) throw new Error("invalid protocol");
+      if (isPoisonHostname(u.hostname)) {
+        console.warn(`NEXT_PUBLIC_SITE_URL is placeholder/poison "${candidate}", using fallback http://localhost:3000`);
+        return "http://localhost:3000";
+      }
       return u.origin + (u.pathname !== "/" ? u.pathname.replace(/\/$/, "") : "");
     } catch {
       console.warn(`NEXT_PUBLIC_SITE_URL is invalid "${candidate}", using fallback ${fallback}`);
@@ -54,7 +70,11 @@ export const siteConfig = {
     if (raw) {
       try {
         const u = new URL(raw);
-        if (/^https?:$/.test(u.protocol) && u.hostname) return u.href.replace(/\/$/, "");
+        if (/^https?:$/.test(u.protocol) && u.hostname && !isPoisonHostname(u.hostname))
+          return u.href.replace(/\/$/, "");
+        if (u.hostname && isPoisonHostname(u.hostname)) {
+          console.warn(`NEXT_PUBLIC_AUTHOR_URL is placeholder/poison "${raw}", falling back to site author page`);
+        }
       } catch {
         // ignore invalid URL, fall through to site URL default
       }
@@ -64,15 +84,18 @@ export const siteConfig = {
     if (siteRaw) {
       try {
         const u = new URL(siteRaw);
-        if (/^https?:$/.test(u.protocol) && u.hostname) {
+        if (/^https?:$/.test(u.protocol) && u.hostname && !isPoisonHostname(u.hostname)) {
           const base = u.origin + (u.pathname !== "/" ? u.pathname.replace(/\/$/, "") : "");
-          return `${base}/about`;
+          return `${base}/author`;
+        }
+        if (u.hostname && isPoisonHostname(u.hostname)) {
+          console.warn(`NEXT_PUBLIC_SITE_URL is placeholder/poison "${siteRaw}", using fallback author page`);
         }
       } catch {
         // ignore, use localhost fallback below
       }
     }
-    return "http://localhost:3000/about";
+    return "http://localhost:3000/author";
   })(),
   // Ownership signals: add your LinkedIn / X / GitHub profile URLs via
   // NEXT_PUBLIC_SAME_AS as a comma-separated list (e.g. "https://www.linkedin.com/company/...,https://x.com/...,https://github.com/...").

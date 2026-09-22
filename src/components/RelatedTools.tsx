@@ -1,26 +1,17 @@
-"use client";
-
-import React from "react";
-import NextLink from "next/link";
-
-const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
-  // @ts-expect-error - MUI passes href dynamically
-  <NextLink ref={ref} {...props} />
-));
-
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
-import { tools, getTool, getCategory } from "@/lib/tools";
+import { NOINDEX_SLUGS, tools, getTool, getCategory } from "@/lib/tools";
 
 export default function RelatedTools({ slug }: { slug: string }) {
   const current = getTool(slug);
   if (!current) return null;
   const cat = getCategory(current.category);
+  // Exclude NOINDEX_SLUGS so noindexed placeholders are never linked.
   const sameCat = tools
-    .filter((t) => t.category === current.category && t.slug !== slug);
+    .filter((t) => t.category === current.category && t.slug !== slug && !NOINDEX_SLUGS.has(t.slug));
   const crossCat = tools
-    .filter((t) => t.category !== current.category && t.slug !== slug);
+    .filter((t) => t.category !== current.category && t.slug !== slug && !NOINDEX_SLUGS.has(t.slug));
   const related = [...sameCat, ...crossCat].slice(0, 6);
   if (related.length === 0) return null;
 
@@ -33,7 +24,6 @@ export default function RelatedTools({ slug }: { slug: string }) {
         {related.map((t) => (
           <Link
             key={t.slug}
-            component={LinkWrapper}
             href={`/${t.slug}`}
             underline="none"
             sx={{
@@ -61,6 +51,18 @@ export default function RelatedTools({ slug }: { slug: string }) {
           </Link>
         ))}
       </Box>
+      {cat && (
+        <Box sx={{ mt: 2 }}>
+          <Link
+            href={`/category/${cat.id}`}
+            underline="hover"
+            sx={{ fontSize: "0.875rem", fontWeight: 600, color: "primary.main" }}
+            aria-label={`View all ${cat.label} tools`}
+          >
+            View all {cat.label} tools →
+          </Link>
+        </Box>
+      )}
     </Box>
   );
 }

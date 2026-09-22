@@ -19,6 +19,10 @@ const popularSlugs = [
   "unit-converter",
   "color-converter",
   "age-calculator",
+  "emi-calculator",
+  "sip-calculator",
+  "mortgage-calculator",
+  "compound-interest-calculator",
 ];
 
 const popular = popularSlugs
@@ -27,6 +31,43 @@ const popular = popularSlugs
 
 export default function Footer() {
   const year = new Date().getFullYear();
+
+  const handleDoNotSell = () => {
+    // CCPA/CPRA opt-out: force denied (covers GPC/DNT intent), then open choices.
+    try {
+      const c = { ad_storage: "denied", analytics_storage: "denied", ts: Date.now() };
+      try {
+        localStorage.setItem("t4s-consent-v1", JSON.stringify(c));
+      } catch {
+        /* ignore storage failures */
+      }
+      try {
+        const w = window as unknown as {
+          gtag?: (...a: unknown[]) => void;
+          [key: string]: unknown;
+        };
+        if (typeof w.gtag === "function") {
+          w.gtag("consent", "update", {
+            ad_storage: "denied",
+            analytics_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+          });
+        }
+        w["ga-disable-G-JD0HNN61MF"] = true;
+      } catch {
+        /* ignore gtag failures */
+      }
+      try {
+        window.dispatchEvent(new CustomEvent("t4s:consent-updated", { detail: c }));
+      } catch {
+        /* ignore */
+      }
+    } catch {
+      /* ignore */
+    }
+    window.dispatchEvent(new Event("t4s:open-cookie-choices"));
+  };
   return (
     <Box
       component="footer"
@@ -159,6 +200,34 @@ export default function Footer() {
                 </Link>
               </Box>
               <Box component="li">
+                <Link href="/blog" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                    Blog — Tool Guides
+                  </Typography>
+                </Link>
+              </Box>
+              <Box component="li">
+                <Link href="/blog/invoice-generator-guide" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                    Invoice Generator Guide
+                  </Typography>
+                </Link>
+              </Box>
+              <Box component="li">
+                <Link href="/blog/qr-code-generator-guide" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                    QR Code Generator Guide
+                  </Typography>
+                </Link>
+              </Box>
+              <Box component="li">
+                <Link href="/blog/resume-builder-guide" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                    Resume Builder Guide
+                  </Typography>
+                </Link>
+              </Box>
+              <Box component="li">
                 <Link href={`mailto:${siteConfig.email}`} className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
                   <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
                     Contact Support
@@ -174,6 +243,18 @@ export default function Footer() {
                 >
                   <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
                     Cookie choices
+                  </Typography>
+                </button>
+              </Box>
+              <Box component="li">
+                <button
+                  type="button"
+                  onClick={handleDoNotSell}
+                  className="footer-link"
+                  style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}
+                >
+                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                    Do Not Sell or Share
                   </Typography>
                 </button>
               </Box>

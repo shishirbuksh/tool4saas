@@ -120,6 +120,29 @@ function apply(c: Consent) {
   } catch {
     /* ignore */
   }
+  // DEEP-5 Funding Choices bridge (stub only — do NOT implement full TCF here).
+  // Google Funding Choices (TCF v2.2) snippet lives in src/app/layout.tsx
+  // (paste it in <head>, before the consent-default Script; see placeholder
+  // comment there). Funding Choices remains the source of truth for EEA/UK;
+  // this local mirror (t4s-consent-v1) only forwards a signal when FC is present.
+  try {
+    const w = window as unknown as {
+      __tcfapi?: (command: string, version: number, callback: (...args: unknown[]) => void, ...rest: unknown[]) => void;
+    };
+    if (typeof w.__tcfapi === "function") {
+      // Forward local choice to any TCF listener; no-op when FC absent.
+      // Use a safe read-only command (ping) as a heartbeat on consent update —
+      // full TC-data/vendor handling is owned by the Funding Choices snippet.
+      try {
+        w.__tcfapi("ping", 2, () => {});
+      } catch {
+        /* ignore per-call failures */
+      }
+    }
+    // else skip: no Funding Choices / TCF stub loaded yet.
+  } catch {
+    /* ignore */
+  }
 }
 
 function persist(c: Consent) {

@@ -24,19 +24,53 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import DownloadIcon from "@mui/icons-material/Download";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
-// deterministic fake arrays
-const FIRST_NAMES = [
+// deterministic fake arrays (US default)
+type Locale = "US" | "UK" | "IN";
+
+const US_FIRST_NAMES = [
   "James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda",
   "William", "Elizabeth", "David", "Barbara", "Richard", "Susan", "Joseph", "Jessica",
   "Thomas", "Sarah", "Charles", "Karen", "Christopher", "Nancy", "Daniel", "Lisa",
   "Matthew", "Betty", "Anthony", "Margaret", "Mark", "Sandra",
 ];
 
-const LAST_NAMES = [
+const FIRST_NAMES = US_FIRST_NAMES;
+
+const UK_FIRST_NAMES = [
+  "Oliver", "Amelia", "George", "Isla", "Harry", "Poppy", "Jack", "Ava",
+  "Jacob", "Lily", "Charlie", "Sophie", "Alfie", "Grace", "Freddie", "Evie",
+  "Archie", "Ruby", "Henry", "Daisy", "Leo", "Mia", "Oscar", "Ella",
+  "Arthur", "Isabelle", "Finley", "Chloe", "Teddy", "Freya",
+];
+
+const IN_FIRST_NAMES = [
+  "Aarav", "Priya", "Rohan", "Neha", "Vikram", "Ananya", "Arjun", "Divya",
+  "Kabir", "Meera", "Ishaan", "Kavya", "Aditya", "Sneha", "Rahul", "Pooja",
+  "Karan", "Ritu", "Sahil", "Tanvi", "Manav", "Ira", "Dev", "Zoya",
+  "Yash", "Naina", "Farhan", "Lakshmi", "Nikhil", "Shreya",
+];
+
+const US_LAST_NAMES = [
   "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis",
   "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas",
   "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White",
   "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson",
+];
+
+const LAST_NAMES = US_LAST_NAMES;
+
+const UK_LAST_NAMES = [
+  "Smith", "Jones", "Taylor", "Davies", "Brown", "Wilson", "Evans", "Thomas",
+  "Roberts", "Walker", "Wright", "Thompson", "White", "Hughes", "Edwards", "Green",
+  "Hall", "Wood", "Harris", "Martin", "Clarke", "Patel", "Lewis", "Baker",
+  "Adams", "Campbell", "Bell", "Cook", "Parker", "Miller",
+];
+
+const IN_LAST_NAMES = [
+  "Sharma", "Patel", "Singh", "Gupta", "Mehta", "Reddy", "Iyer", "Khan",
+  "Joshi", "Nair", "Agarwal", "Das", "Kulkarni", "Chopra", "Verma", "Malhotra",
+  "Rao", "Pillai", "Bose", "Yadav", "Mishra", "Kapoor", "Jain", "Chauhan",
+  "Pawar", "Desai", "Ghosh", "Menon", "Kaur", "Sinha",
 ];
 
 const STREETS = [
@@ -45,10 +79,24 @@ const STREETS = [
   "Hill St", "Bridge St", "Church St", "Union St", "Market St", "Chestnut St",
 ];
 
-const CITIES = [
+const US_CITIES = [
   "New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio",
   "San Diego", "Dallas", "San Jose", "Austin", "Jacksonville", "Fort Worth", "Columbus",
   "San Francisco", "Charlotte", "Indianapolis", "Seattle", "Denver", "Boston",
+];
+
+const CITIES = US_CITIES;
+
+const UK_CITIES = [
+  "London", "Birmingham", "Manchester", "Leeds", "Glasgow", "Liverpool", "Bristol",
+  "Sheffield", "Edinburgh", "Cardiff", "Newcastle", "Nottingham", "Leicester", "Coventry",
+  "Hull", "Plymouth", "Southampton", "Portsmouth", "York", "Oxford",
+];
+
+const IN_CITIES = [
+  "Mumbai", "Delhi", "Bengaluru", "Hyderabad", "Chennai", "Kolkata", "Pune",
+  "Ahmedabad", "Jaipur", "Surat", "Lucknow", "Kanpur", "Nagpur", "Indore",
+  "Bhopal", "Ludhiana", "Patna", "Vadodara", "Kochi", "Coimbatore",
 ];
 
 const COUNTRIES = ["USA", "Canada", "UK", "Australia", "Germany", "France", "Japan"];
@@ -85,15 +133,78 @@ function pick<T>(arr: T[]): T {
   return arr[getRandomInt(arr.length)];
 }
 
-function randomPhone(): string {
+function firstNamesFor(locale: Locale): string[] {
+  if (locale === "UK") return UK_FIRST_NAMES;
+  if (locale === "IN") return IN_FIRST_NAMES;
+  return US_FIRST_NAMES;
+}
+
+function lastNamesFor(locale: Locale): string[] {
+  if (locale === "UK") return UK_LAST_NAMES;
+  if (locale === "IN") return IN_LAST_NAMES;
+  return US_LAST_NAMES;
+}
+
+function citiesFor(locale: Locale): string[] {
+  if (locale === "UK") return UK_CITIES;
+  if (locale === "IN") return IN_CITIES;
+  return US_CITIES;
+}
+
+function countryFor(locale: Locale): string {
+  if (locale === "UK") return "UK";
+  if (locale === "IN") return "India";
+  return "USA";
+}
+
+function postalHeaderFor(locale: Locale): string {
+  if (locale === "UK") return "postcode";
+  if (locale === "IN") return "pin";
+  return "zip";
+}
+
+function randomPhone(locale: Locale = "US"): string {
+  if (locale === "IN") {
+    // +91 with 10-digit mobile starting 6-9, e.g. +91 98765 43210
+    const first = String(6 + getRandomInt(4));
+    let rest = "";
+    for (let i = 0; i < 9; i++) rest += String(getRandomInt(10));
+    const all = first + rest;
+    return `+91 ${all.slice(0, 5)} ${all.slice(5)}`;
+  }
+  if (locale === "UK") {
+    // +44 mobile, e.g. +44 7700 900123
+    const a = 1000 + getRandomInt(9000);
+    const b = 100000 + getRandomInt(900000);
+    return `+44 7${String(a).slice(1)} ${b}`;
+  }
   const a = 200 + getRandomInt(600);
   const b = 100 + getRandomInt(900);
   const c = 1000 + getRandomInt(9000);
   return `+1 (${a}) ${b}-${c}`;
 }
 
-function randomZip(): string {
+function randomPostal(locale: Locale = "US"): string {
+  if (locale === "IN") {
+    // 6-digit PIN, e.g. 400001
+    return String(100000 + getRandomInt(900000));
+  }
+  if (locale === "UK") {
+    // Simplified UK postcode, e.g. SW1A 1AA
+    const areas = ["SW", "EC", "W", "E", "N", "NW", "SE", "M", "B", "L", "G", "EH"];
+    const letters = "ABDEFGLNPRSTUWXYZ";
+    const area = pick(areas);
+    const d1 = String(1 + getRandomInt(9));
+    const d2 = String(getRandomInt(10));
+    const l1 = letters[getRandomInt(letters.length)];
+    const l2 = letters[getRandomInt(letters.length)];
+    return `${area}${d1} ${d2}${l1}${l2}`;
+  }
   return String(10000 + getRandomInt(90000));
+}
+
+function randomZip(): string {
+  return randomPostal("US");
 }
 
 function randomEmail(name: string, domain?: string): string {
@@ -119,33 +230,38 @@ function loremParagraph(_sentences = 3): string {
 
 type Row = Record<string, string>;
 
-function generateRows(type: DataType, count: number): { headers: string[]; rows: Row[] } {
+function generateRows(type: DataType, count: number, locale: Locale = "US"): { headers: string[]; rows: Row[] } {
   const rows: Row[] = [];
+  const firstNames = firstNamesFor(locale);
+  const lastNames = lastNamesFor(locale);
+  const cities = citiesFor(locale);
+  const country = countryFor(locale);
+  const postalHeader = postalHeaderFor(locale);
   if (type === "person") {
     const headers = ["id", "name", "email", "phone", "age"];
     for (let i = 0; i < count; i++) {
-      const first = pick(FIRST_NAMES);
-      const last = pick(LAST_NAMES);
+      const first = pick(firstNames);
+      const last = pick(lastNames);
       const name = `${first} ${last}`;
       rows.push({
         id: String(i + 1),
         name,
         email: randomEmail(name),
-        phone: randomPhone(),
+        phone: randomPhone(locale),
         age: String(18 + getRandomInt(63)),
       });
     }
     return { headers, rows };
   }
   if (type === "address") {
-    const headers = ["id", "street", "city", "zip", "country"];
+    const headers = ["id", "street", "city", postalHeader, "country"];
     for (let i = 0; i < count; i++) {
       rows.push({
         id: String(i + 1),
         street: `${1 + getRandomInt(9999)} ${pick(STREETS)}`,
-        city: pick(CITIES),
-        zip: randomZip(),
-        country: pick(COUNTRIES),
+        city: pick(cities),
+        [postalHeader]: randomPostal(locale),
+        country,
       });
     }
     return { headers, rows };
@@ -161,7 +277,7 @@ function generateRows(type: DataType, count: number): { headers: string[]; rows:
         company: withSuffix,
         domain,
         email: `info@${domain}`,
-        phone: randomPhone(),
+        phone: randomPhone(locale),
       });
     }
     return { headers, rows };
@@ -192,6 +308,7 @@ function toCSV(headers: string[], rows: Row[], includeHeader: boolean): string {
 
 export default function FakeDataGeneratorTool() {
   const [dataType, setDataType] = useState<DataType>("person");
+  const [locale, setLocale] = useState<Locale>("US");
   const [count, setCount] = useState<string>("5");
   const [includeHeaders, setIncludeHeaders] = useState<boolean>(true);
   const [headers, setHeaders] = useState<string[]>([]);
@@ -200,7 +317,7 @@ export default function FakeDataGeneratorTool() {
 
   const handleGenerate = () => {
     const n = Math.max(1, Math.min(500, parseInt(count, 10) || 5));
-    const { headers: h, rows: r } = generateRows(dataType, n);
+    const { headers: h, rows: r } = generateRows(dataType, n, locale);
     setHeaders(h);
     setRows(r);
     setCopied("");
@@ -222,7 +339,7 @@ export default function FakeDataGeneratorTool() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `fake-${dataType}-${rows.length}.csv`;
+    a.download = `fake-${dataType}-${locale.toLowerCase()}-${rows.length}.csv`;
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -263,6 +380,20 @@ export default function FakeDataGeneratorTool() {
           slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
           helperText="1 – 500"
         />
+
+        <FormControl fullWidth>
+          <InputLabel id="fake-data-locale-label">Locale</InputLabel>
+          <Select
+            labelId="fake-data-locale-label"
+            label="Locale"
+            value={locale}
+            onChange={(e) => setLocale(e.target.value as Locale)}
+          >
+            <MenuItem value="US">US — +1, ZIP, New York</MenuItem>
+            <MenuItem value="UK">UK — +44, Postcode, London</MenuItem>
+            <MenuItem value="IN">IN — +91, PIN, Mumbai</MenuItem>
+          </Select>
+        </FormControl>
       </Stack>
 
       <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", alignItems: "center" }}>

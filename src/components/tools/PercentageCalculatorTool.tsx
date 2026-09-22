@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -70,6 +71,7 @@ export default function PercentageCalculatorTool() {
           />
         </Stack>
         <Button variant="contained" onClick={calc}>Calculate</Button>
+        <YMYLDisclaimer type="finance" />
         {result && (
           <Box sx={{ p: 2, bgcolor: "primary.main", color: "primary.contrastText", borderRadius: 2, whiteSpace: "pre-line" }}>
             <Typography  variant="h5"  sx={{ fontWeight: 800 }}>{result}</Typography>

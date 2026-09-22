@@ -16,6 +16,10 @@ function getStaggeredDay(slug: string): number {
   return (sum % 9) + 1;
 }
 
+// Honest staggered dates: datePublished is the earliest staggered day
+// (2026-09-01) and dateModified is this tool's deterministic staggered day
+// (Sept 1-9), so modified >= published always holds without clamping and the
+// JSON-LD date matches the visible <time> date in ToolPageShell.
 function getDateModifiedIso(slug: string): string {
   const day = getStaggeredDay(slug);
   return `2026-09-${String(day).padStart(2, "0")}`;
@@ -27,7 +31,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
   const url = `${base}/${tool.slug}`;
   const catUrl = cat ? `${base}/category/${cat.id}` : undefined;
 
-  const datePublished = "2026-09-09";
+  const datePublished = "2026-09-01";
   const dateModified = getDateModifiedIso(tool.slug);
 
   // Validate JSON-LD inputs: drop malformed/empty entries so FAQPage always
@@ -63,6 +67,22 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
   const guide: unknown = (tool as unknown as { guide?: unknown }).guide;
   const guideSections: unknown[] = Array.isArray(guide) ? guide : [];
 
+  // Conditional aggregateRating scaffolding: emit ONLY when the tool carries
+  // real rating data. No tool currently has rating data, so this stays omitted
+  // (no fake stars).
+  const maybeRating = (tool as unknown as { rating?: unknown }).rating as
+    | { ratingValue?: unknown; reviewCount?: unknown; bestRating?: unknown }
+    | undefined;
+  const ratingValue =
+    maybeRating && typeof maybeRating === "object" ? maybeRating.ratingValue : undefined;
+  const reviewCount =
+    maybeRating && typeof maybeRating === "object" ? maybeRating.reviewCount : undefined;
+  const hasValidRating =
+    (typeof ratingValue === "string" || typeof ratingValue === "number") &&
+    (typeof reviewCount === "string" || typeof reviewCount === "number") &&
+    Number(ratingValue) > 0 &&
+    Number(reviewCount) > 0;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -80,10 +100,31 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
         // Validated: free tool must be price 0 USD.
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         inLanguage: "en",
-        author: { "@type": "Organization", name: siteConfig.author, url: base },
-        reviewer: { "@type": "Person", name: siteConfig.authorRole, url: `${base}/author` },
+        author: { "@type": "Organization", name: siteConfig.author, url: `${base}/author` },
+        reviewer: { "@type": "Organization", name: siteConfig.author, url: `${base}/author` },
         datePublished,
         dateModified,
+        ...(hasValidRating
+          ? {
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: String(ratingValue),
+                reviewCount: String(reviewCount),
+              },
+            }
+          : {}),
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: tool.title,
+        description: tool.description,
+        inLanguage: "en",
+        speakableSpecification: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "h2"],
+        },
       },
       {
         "@type": "BreadcrumbList",

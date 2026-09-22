@@ -265,8 +265,9 @@ export default function PomodoroTimerTool() {
           {isFinished ? "All done" : mode === "work" ? "Work" : "Break"} {isFinished ? "" : `· Cycle ${currentCycle} / ${cycles}`}
         </Typography>
 
+        {/* Timer display: h2 (page h1 is the tool title in ToolPageShell) */}
         <Typography
-          variant="h1"
+          variant="h2"
           sx={{
             fontFamily: "monospace",
             fontWeight: 800,

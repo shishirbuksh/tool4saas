@@ -22,6 +22,7 @@ import { money } from "@/lib/format";
 import { simulatePayoff, type PayoffDebt } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
 import NumericField from "@/components/NumericField";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 const CURRENCIES = ["USD", "INR"] as const;
 const MAX_DEBTS = 8;
@@ -211,6 +212,7 @@ export default function DebtPayoffTool() {
         Add debt ({debts.length}/{MAX_DEBTS})
       </Button>
       <NumericField label="Extra per month" value={extraMonthly} onChange={setExtraMonthly} />
+      <YMYLDisclaimer type="finance" />
       {parsed === null || !isFinite(extra) || extra < 0 ? (
         <Alert severity="warning">Enter a valid balance, APR, and minimum payment for every debt.</Alert>
       ) : (

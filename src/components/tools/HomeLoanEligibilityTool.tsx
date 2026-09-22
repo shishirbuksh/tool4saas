@@ -13,6 +13,7 @@ import { money } from "@/lib/format";
 import { homeLoanEligibility } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
 import NumericField from "@/components/NumericField";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 const FOIR_OPTIONS = [0.4, 0.45, 0.5] as const;
 const MULTIPLIER_OPTIONS = [48, 55, 60] as const;
@@ -85,6 +86,7 @@ export default function HomeLoanEligibilityTool() {
           </Select>
         </FormControl>
       </Stack>
+      <YMYLDisclaimer type="finance" />
       <Box
         sx={{
           p: 2,

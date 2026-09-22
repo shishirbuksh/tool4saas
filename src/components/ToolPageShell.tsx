@@ -6,7 +6,8 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import AdSlot from "@/components/AdSlotLazy";
 import ToolSeo from "@/components/ToolSeo";
 import RelatedTools from "@/components/RelatedTools";
-import { getCategory, type Tool } from "@/lib/tools";
+import RelatedGuides from "@/components/blog/RelatedGuides";
+import { getCategory, NOINDEX_SLUGS, tools, type Tool } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
 
 // Stagger dateModified per-tool across Sept 1-9 2026 from a deterministic
@@ -30,6 +31,10 @@ function getStaggeredDate(slug: string): { iso: string; display: string } {
 
 export default function ToolPageShell({ tool, children }: { tool: Tool; children: React.ReactNode }) {
   const cat = getCategory(tool.category);
+  // dateModified uses the same staggered Sept 1-9 slug hash as ToolSeo's
+  // dateModified (published 2026-09-01), so the visible <time> date always
+  // equals the JSON-LD dateModified. Never clamp to a single date.
+  const seeAlso = tools.filter((t) => t.category === tool.category && t.slug !== tool.slug && !NOINDEX_SLUGS.has(t.slug)).slice(0, 2);
   const { iso: dateModifiedIso, display: dateModifiedDisplay } = getStaggeredDate(tool.slug);
   return (
     <Container maxWidth="xl" sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 }, overflowX: "clip" }}>
@@ -56,6 +61,24 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
         <Typography color="text.secondary" sx={{ fontSize: { xs: "1.125rem", md: "1.25rem" }, lineHeight: 1.6, maxWidth: 640, mx: "auto", textWrap: "pretty" }}>
           {tool.description}
         </Typography>
+        {cat && (
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 2, lineHeight: 1.7 }}>
+            Part of our <Link href={`/category/${cat.id}`}>{cat.label}</Link> collection —{" "}
+            <Link href={`/category/${cat.id}`}>Explore more {cat.label} tools</Link>
+            {seeAlso.length > 0 && (
+              <>
+                {" "}· See also:{" "}
+                {seeAlso.map((t, i) => (
+                  <span key={t.slug}>
+                    {i > 0 && ", "}
+                    <Link href={`/${t.slug}`}>{t.title}</Link>
+                  </span>
+                ))}
+              </>
+            )}
+            .
+          </Typography>
+        )}
       </Box>
       <Box
         sx={{
@@ -76,6 +99,7 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
         </Box>
       </Box>
       <RelatedTools slug={tool.slug} />
+      <RelatedGuides slug={tool.slug} />
       <Box
         component="section"
         aria-label="About the author"

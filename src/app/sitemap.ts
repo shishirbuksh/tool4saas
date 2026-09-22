@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
-import { tools, CATEGORIES } from "@/lib/tools";
+import { tools, CATEGORIES, NOINDEX_SLUGS } from "@/lib/tools";
+import { BLOG_PILLARS, getClustersForPillar } from "@/lib/blog-registry";
 
 export const revalidate = 86400;
 
@@ -52,10 +53,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return 0.75;
   };
 
-  // pdf-compress is noindex placeholder until real compression lands — exclude from sitemap.
-  // FUTURE NOINDEX LIST: add thin/duplicate/no-value tool slugs here to exclude
-  // from sitemap (and set robots noindex on the page itself). Do not change priorities.
-  const NOINDEX_SLUGS = new Set(["pdf-compress"]);
+  // Single source: NOINDEX_SLUGS from @/lib/tools (e.g. pdf-compress placeholder
+  // until real compression lands) — excluded from sitemap.
+  // FUTURE NOINDEX LIST: add thin/duplicate/no-value tool slugs to NOINDEX_SLUGS
+  // in src/lib/tools/index.ts (mirrored in scripts/generate-llms.mjs which can't
+  // import TS, and filtered in src/app/category/[id]/page.tsx). Do not change priorities.
   const toolRoutes: MetadataRoute.Sitemap = tools
     .filter((t) => !NOINDEX_SLUGS.has(t.slug))
     .map((t) => ({
@@ -67,5 +69,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     images: [`${base}/og/${t.slug}`],
   }));
 
-  return [...home, ...pages, ...categoryRoutes, ...toolRoutes];
+  const blogIndex: MetadataRoute.Sitemap = [
+    { url: `${base}/blog`, lastModified, changeFrequency: "weekly", priority: 0.7 },
+  ];
+  const blogPillars: MetadataRoute.Sitemap = BLOG_PILLARS.map((p) => ({
+    url: `${base}/blog/${p.pillar}`,
+    lastModified: new Date(`${p.updated}T00:00:00.000Z`),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  }));
+  const blogClusters: MetadataRoute.Sitemap = BLOG_PILLARS.flatMap((p) =>
+    getClustersForPillar(p.pillar).map((c) => ({
+      url: `${base}/blog/${c.pillar}/${c.slug}`,
+      lastModified: new Date(`${c.updated}T00:00:00.000Z`),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }))
+  );
+
+  return [...home, ...pages, ...categoryRoutes, ...toolRoutes, ...blogIndex, ...blogPillars, ...blogClusters];
 }

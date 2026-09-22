@@ -6,7 +6,7 @@ export function toolMetadata(slug: string): Metadata {
   const tool = getTool(slug);
   const base = siteConfig.url.replace(/\/$/, "");
   const url = `${base}/${slug}`;
-  const ogImage = `/og/${slug}`;
+  const ogImage = `${base}/og/${slug}`;
 
   if (!tool) {
     return {
@@ -32,7 +32,10 @@ export function toolMetadata(slug: string): Metadata {
     description: tool.description,
     applicationName: siteConfig.name,
     authors: [{ name: siteConfig.author }],
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: { en: url, "x-default": url },
+    },
     robots: {
       index: true,
       follow: true,
@@ -64,8 +67,12 @@ export function toolMetadata(slug: string): Metadata {
 
 export function homeMetadata(): Metadata {
   const base = siteConfig.url.replace(/\/$/, "");
+  const ogImage = `${base}/og/home`;
   return {
-    alternates: { canonical: base },
+    alternates: {
+      canonical: base,
+      languages: { en: base, "x-default": base },
+    },
     robots: {
       index: true,
       follow: true,
@@ -74,6 +81,7 @@ export function homeMetadata(): Metadata {
         follow: true,
         "max-image-preview": "large",
         "max-snippet": -1,
+        "max-video-preview": -1,
       },
     },
     // Full object: Metadata merges shallowly, so a partial openGraph here
@@ -85,13 +93,13 @@ export function homeMetadata(): Metadata {
       siteName: siteConfig.name,
       title: siteConfig.title,
       description: siteConfig.description,
-      images: [{ url: "/og/home", width: 1200, height: 630, alt: siteConfig.name }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: siteConfig.name }],
     },
     twitter: {
       card: "summary_large_image",
       title: siteConfig.title,
       description: siteConfig.description,
-      images: ["/og/home"],
+      images: [ogImage],
     },
   };
 }
@@ -103,23 +111,38 @@ export function staticPageMetadata(opts: {
 }): Metadata {
   const base = siteConfig.url.replace(/\/$/, "");
   const url = `${base}${opts.path}`;
+  const ogImage = `${base}/og/home`;
   return {
     title: opts.title,
     description: opts.description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: { en: url, "x-default": url },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
     openGraph: {
       type: "website",
       url,
       siteName: siteConfig.name,
       title: opts.title,
       description: opts.description,
-      images: [{ url: "/og/home", width: 1200, height: 630, alt: siteConfig.name }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: siteConfig.name }],
     },
     twitter: {
       card: "summary_large_image",
       title: opts.title,
       description: opts.description,
-      images: ["/og/home"],
+      images: [ogImage],
     },
   };
 }

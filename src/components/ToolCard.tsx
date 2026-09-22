@@ -13,16 +13,69 @@ const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
   <Link ref={ref} {...props} />
 ));
 
-import dynamic from "next/dynamic";
+import AbcIcon from "@mui/icons-material/Abc";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import AttachFileIcon from "@mui/icons-material/AttachFile";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
+import CakeIcon from "@mui/icons-material/Cake";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import CasinoIcon from "@mui/icons-material/Casino";
+import CodeIcon from "@mui/icons-material/Code";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
+import ContrastIcon from "@mui/icons-material/Contrast";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
+import DataObjectIcon from "@mui/icons-material/DataObject";
+import DateRangeIcon from "@mui/icons-material/DateRange";
+import DescriptionIcon from "@mui/icons-material/Description";
+import DifferenceIcon from "@mui/icons-material/Difference";
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import FindReplaceIcon from "@mui/icons-material/FindReplace";
+import FingerprintIcon from "@mui/icons-material/Fingerprint";
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
+import GradientIcon from "@mui/icons-material/Gradient";
+import HtmlIcon from "@mui/icons-material/Html";
+import HttpIcon from "@mui/icons-material/Http";
+import ImageIcon from "@mui/icons-material/Image";
+import KeyIcon from "@mui/icons-material/Key";
+import LinkIcon from "@mui/icons-material/Link";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import MarkunreadIcon from "@mui/icons-material/Markunread";
+import NotesIcon from "@mui/icons-material/Notes";
+import NumbersIcon from "@mui/icons-material/Numbers";
+import PaletteIcon from "@mui/icons-material/Palette";
+import PercentIcon from "@mui/icons-material/Percent";
+import PhotoSizeSelectLargeIcon from "@mui/icons-material/PhotoSizeSelectLarge";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import PublicIcon from "@mui/icons-material/Public";
+import QrCode2Icon from "@mui/icons-material/QrCode2";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import ReplayIcon from "@mui/icons-material/Replay";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import ScheduleIcon from "@mui/icons-material/Schedule";
+import SearchIcon from "@mui/icons-material/Search";
+import SellIcon from "@mui/icons-material/Sell";
+import ShuffleIcon from "@mui/icons-material/Shuffle";
+import SpellcheckIcon from "@mui/icons-material/Spellcheck";
+import StraightenIcon from "@mui/icons-material/Straighten";
+import SubjectIcon from "@mui/icons-material/Subject";
+import TableChartIcon from "@mui/icons-material/TableChart";
+import TagIcon from "@mui/icons-material/Tag";
+import TextSnippetIcon from "@mui/icons-material/TextSnippet";
+import TimerIcon from "@mui/icons-material/Timer";
+import TollIcon from "@mui/icons-material/Toll";
+import TransformIcon from "@mui/icons-material/Transform";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import type { SxProps } from "@mui/material";
 import type { Tool, IconName } from "@/lib/tools";
 
-// Reserve 34px while a dynamic icon chunk loads → no CLS on card grids.
-// NOTE: 57x dynamic() = up to N parallel chunk requests per grid page (waterfall).
-// Kept dynamic to keep initial bundle lean (next.config optimizePackageImports
-// already tree-shakes @mui/icons-material for static imports). Long-term alternative:
-// single SVG sprite / static barrel import so icons ride one request instead of N.
-// Each entry below reuses iconDynamicOpts so every icon shows the same skeleton.
+// Static imports (tree-shaken via next.config optimizePackageImports for
+// @mui/icons-material): icons ride shared chunks — no 57x dynamic() waterfall.
+// IconFallback reserves 34px for unknown-icon / future lazy paths → no CLS on card grids.
 function IconFallback() {
   return (
     <Box
@@ -39,67 +92,69 @@ function IconFallback() {
 
 
 const ICONS: Record<IconName, React.ComponentType<{ sx?: SxProps }>> = {
-  BuildOutlined: dynamic(() => import("@mui/icons-material/BuildOutlined"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  ReceiptLong: dynamic(() => import("@mui/icons-material/ReceiptLong"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  QrCode2: dynamic(() => import("@mui/icons-material/QrCode2"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Description: dynamic(() => import("@mui/icons-material/Description"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  TextSnippet: dynamic(() => import("@mui/icons-material/TextSnippet"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Key: dynamic(() => import("@mui/icons-material/Key"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  DataObject: dynamic(() => import("@mui/icons-material/DataObject"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Subject: dynamic(() => import("@mui/icons-material/Subject"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Image: dynamic(() => import("@mui/icons-material/Image"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Notes: dynamic(() => import("@mui/icons-material/Notes"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Straighten: dynamic(() => import("@mui/icons-material/Straighten"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Cake: dynamic(() => import("@mui/icons-material/Cake"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  ColorLens: dynamic(() => import("@mui/icons-material/ColorLens"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Code: dynamic(() => import("@mui/icons-material/Code"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Link: dynamic(() => import("@mui/icons-material/Link"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Difference: dynamic(() => import("@mui/icons-material/Difference"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Fingerprint: dynamic(() => import("@mui/icons-material/Fingerprint"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  LocalOffer: dynamic(() => import("@mui/icons-material/LocalOffer"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Shuffle: dynamic(() => import("@mui/icons-material/Shuffle"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  FormatListNumbered: dynamic(() => import("@mui/icons-material/FormatListNumbered"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Transform: dynamic(() => import("@mui/icons-material/Transform"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Tag: dynamic(() => import("@mui/icons-material/Tag"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Percent: dynamic(() => import("@mui/icons-material/Percent"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Schedule: dynamic(() => import("@mui/icons-material/Schedule"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Html: dynamic(() => import("@mui/icons-material/Html"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  FindReplace: dynamic(() => import("@mui/icons-material/FindReplace"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  VpnKey: dynamic(() => import("@mui/icons-material/VpnKey"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  TableChart: dynamic(() => import("@mui/icons-material/TableChart"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  DateRange: dynamic(() => import("@mui/icons-material/DateRange"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  FitnessCenter: dynamic(() => import("@mui/icons-material/FitnessCenter"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Restaurant: dynamic(() => import("@mui/icons-material/Restaurant"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Contrast: dynamic(() => import("@mui/icons-material/Contrast"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Replay: dynamic(() => import("@mui/icons-material/Replay"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  BarChart: dynamic(() => import("@mui/icons-material/BarChart"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  VolumeUp: dynamic(() => import("@mui/icons-material/VolumeUp"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Http: dynamic(() => import("@mui/icons-material/Http"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Spellcheck: dynamic(() => import("@mui/icons-material/Spellcheck"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Numbers: dynamic(() => import("@mui/icons-material/Numbers"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Gradient: dynamic(() => import("@mui/icons-material/Gradient"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Markunread: dynamic(() => import("@mui/icons-material/Markunread"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Abc: dynamic(() => import("@mui/icons-material/Abc"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  AttachFile: dynamic(() => import("@mui/icons-material/AttachFile"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  EmojiEmotions: dynamic(() => import("@mui/icons-material/EmojiEmotions"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Palette: dynamic(() => import("@mui/icons-material/Palette"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  AccountBalance: dynamic(() => import("@mui/icons-material/AccountBalance"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Public: dynamic(() => import("@mui/icons-material/Public"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Sell: dynamic(() => import("@mui/icons-material/Sell"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  CreditCard: dynamic(() => import("@mui/icons-material/CreditCard"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  VerifiedUser: dynamic(() => import("@mui/icons-material/VerifiedUser"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  PhotoSizeSelectLarge: dynamic(() => import("@mui/icons-material/PhotoSizeSelectLarge"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Timer: dynamic(() => import("@mui/icons-material/Timer"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Casino: dynamic(() => import("@mui/icons-material/Casino"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Toll: dynamic(() => import("@mui/icons-material/Toll"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  AttachMoney: dynamic(() => import("@mui/icons-material/AttachMoney"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  CalendarToday: dynamic(() => import("@mui/icons-material/CalendarToday"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  Search: dynamic(() => import("@mui/icons-material/Search"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
-  PictureAsPdf: dynamic(() => import("@mui/icons-material/PictureAsPdf"), { loading: () => <IconFallback /> }) as React.ComponentType<{ sx?: SxProps }>,
+  BuildOutlined: BuildOutlinedIcon,
+  ReceiptLong: ReceiptLongIcon,
+  QrCode2: QrCode2Icon,
+  Description: DescriptionIcon,
+  TextSnippet: TextSnippetIcon,
+  Key: KeyIcon,
+  DataObject: DataObjectIcon,
+  Subject: SubjectIcon,
+  Image: ImageIcon,
+  Notes: NotesIcon,
+  Straighten: StraightenIcon,
+  Cake: CakeIcon,
+  ColorLens: ColorLensIcon,
+  Code: CodeIcon,
+  Link: LinkIcon,
+  Difference: DifferenceIcon,
+  Fingerprint: FingerprintIcon,
+  LocalOffer: LocalOfferIcon,
+  Shuffle: ShuffleIcon,
+  FormatListNumbered: FormatListNumberedIcon,
+  Transform: TransformIcon,
+  Tag: TagIcon,
+  Percent: PercentIcon,
+  Schedule: ScheduleIcon,
+  Html: HtmlIcon,
+  FindReplace: FindReplaceIcon,
+  VpnKey: VpnKeyIcon,
+  TableChart: TableChartIcon,
+  DateRange: DateRangeIcon,
+  FitnessCenter: FitnessCenterIcon,
+  Restaurant: RestaurantIcon,
+  Contrast: ContrastIcon,
+  Replay: ReplayIcon,
+  BarChart: BarChartIcon,
+  VolumeUp: VolumeUpIcon,
+  Http: HttpIcon,
+  Spellcheck: SpellcheckIcon,
+  Numbers: NumbersIcon,
+  Gradient: GradientIcon,
+  Markunread: MarkunreadIcon,
+  Abc: AbcIcon,
+  AttachFile: AttachFileIcon,
+  EmojiEmotions: EmojiEmotionsIcon,
+  Palette: PaletteIcon,
+  AccountBalance: AccountBalanceIcon,
+  Public: PublicIcon,
+  Sell: SellIcon,
+  CreditCard: CreditCardIcon,
+  VerifiedUser: VerifiedUserIcon,
+  PhotoSizeSelectLarge: PhotoSizeSelectLargeIcon,
+  Timer: TimerIcon,
+  Casino: CasinoIcon,
+  Toll: TollIcon,
+  AttachMoney: AttachMoneyIcon,
+  CalendarToday: CalendarTodayIcon,
+  Search: SearchIcon,
+  PictureAsPdf: PictureAsPdfIcon,
 };
 
 function Icon({ name }: { name: IconName }) {
   const Cmp = ICONS[name] ?? ICONS.BuildOutlined;
+  // IconFallback retained as 34px CLS guard (unknown-icon / future lazy paths).
+  if (!Cmp) return <IconFallback />;
   return <Cmp sx={{ fontSize: 34 }} />;
 }
 
@@ -127,8 +182,8 @@ export default function ToolCard({ tool }: { tool: Tool }) {
       sx={{
         height: "100%",
         // Perf: offscreen cards skip rendering; intrinsic size reserves layout (no CLS).
-        // NOTE: no loading="lazy"/fetchpriority here — Card has no <img>; icon chunks
-        // load via dynamic() and card navigation uses Next <Link> prefetch.
+        // NOTE: no loading="lazy"/fetchpriority here — Card has no <img>; icons are
+        // static imports (shared chunks) and card navigation uses Next <Link> prefetch.
         // No rel="prefetch" — Next.js <Link> prefetches in-viewport routes by default.
         contentVisibility: "auto",
         containIntrinsicSize: "0 280px",

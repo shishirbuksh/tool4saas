@@ -35,7 +35,10 @@ const catSet = new Set(catIds);
 
 const toolBlocks = content.split(/{\s*slug:\s*"/).slice(1);
 let errors = [];
+const warnings = [];
 const slugs = new Set();
+// Verbatim duplicate FAQ-answer detection: normalized answer -> { sample, slugs }
+const answerIndex = new Map();
 toolBlocks.forEach((block) => {
   const slug = (block.match(/^([^"]+)"/) || [])[1];
   if (!slug) {
@@ -57,7 +60,39 @@ toolBlocks.forEach((block) => {
       errors.push(`${slug}: description length ${desc.length} outside 100-180 (ideal 150-160)`);
     }
   }
+  // Duplicate-answer-hash: index verbatim FAQ answers (normalized) per tool.
+  // Flagged (warn) below when the same answer spans >5 tools.
+  // Note: data files mix unquoted keys (answer: "...") and compact JSON-style
+  // quoted keys ("answer":"...") — accept both via "?key"?.
+  const answers = [...block.matchAll(/"?answer"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
+  for (const a of answers) {
+    const norm = a.trim().toLowerCase().replace(/\s+/g, " ");
+    if (norm.length < 20) continue; // skip trivially short answers to reduce noise
+    if (!answerIndex.has(norm)) answerIndex.set(norm, { sample: a, slugs: new Set() });
+    answerIndex.get(norm).slugs.add(slug);
+  }
+  // Thin-content check (warn only): unique text <300 words or no guide.
+  const hasGuide = /"?guide"?\s*:\s*\[/.test(block);
+  const short = (block.match(/"?short"?\s*:\s*"([^"]+)"/) || [])[1] || "";
+  const questions = [...block.matchAll(/"?question"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
+  const howTos = [...block.matchAll(/"?text"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
+  const headings = [...block.matchAll(/"?heading"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
+  const guideBodies = [...block.matchAll(/"?body"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
+  const combined = [desc || "", short, ...questions, ...answers, ...howTos, ...headings, ...guideBodies].join(" ");
+  const words = combined.split(/\s+/).filter(Boolean);
+  const uniqueWords = new Set(words.map((w) => w.toLowerCase().replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, "")).filter(Boolean));
+  if (!hasGuide || uniqueWords.size < 300) {
+    warnings.push(`${slug}: thin content — unique words ${uniqueWords.size} (<300)${hasGuide ? "" : " and no guide"} (add 3-section guide / expand unique copy)`);
+  }
 });
+
+// Warn (do not fail) on verbatim duplicate FAQ answers shared across >5 tools.
+for (const { sample, slugs: dupeSlugs } of answerIndex.values()) {
+  if (dupeSlugs.size > 5) {
+    const preview = sample.length > 90 ? sample.slice(0, 90) + "…" : sample;
+    warnings.push(`duplicate FAQ answer verbatim across ${dupeSlugs.size} tools (>5): "${preview}" in ${[...dupeSlugs].slice(0, 10).join(", ")}${dupeSlugs.size > 10 ? ", …" : ""}`);
+  }
+}
 
 // Check O(1) usage: ensure no tools.find remaining in src (except allowed) - cross-platform
 try {
@@ -98,6 +133,11 @@ if (errors.length) {
   }
 } else {
   console.log(`validate-tools: OK – ${slugs.size} tools, ${catIds.length} categories, ${icons.length} icons`);
+}
+
+// Soft warnings (thin content / duplicate FAQ answers): never fail the build.
+if (warnings.length) {
+  console.warn(`\nvalidate-tools: ${warnings.length} warning(s):\n- ${warnings.join("\n- ")}\n`);
 }
 
 // Also ensure toolsByCategoryCached is imported in key consumers

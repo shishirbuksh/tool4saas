@@ -68,20 +68,27 @@ const tools = toolBlocks.map(block => {
 });
 
 const byCat = new Map();
+// Single source: src/lib/tools/index.ts NOINDEX_SLUGS. Mirror here (mjs can't
+// import TS) so pdf-compress stays out of llms.txt like the sitemap.
+const NOINDEX_SLUGS = new Set(["pdf-compress"]);
 for (const cat of categories) byCat.set(cat.id, []);
 for (const t of tools) {
+  if (!t.slug || NOINDEX_SLUGS.has(t.slug)) continue;
   if (!byCat.has(t.category)) byCat.set(t.category, []);
   byCat.get(t.category).push(t);
 }
+const visibleTools = tools.filter((t) => t.slug && !NOINDEX_SLUGS.has(t.slug));
 
 // Generate markdown similar to existing llms.txt
 // NOTE: /contact + /author (src/app/author exists) included in Overview.
-let out = `# Tool4SaaS (${tools.length} free tools across ${categories.length} categories)
+// NOTE: counts use visibleTools (NOINDEX_SLUGS excluded) to stay consistent
+// with the sitemap exclusion.
+let out = `# Tool4SaaS (${visibleTools.length} free tools across ${categories.length} categories)
 
-> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. ${tools.length} tools across ${categories.length} categories.
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. ${visibleTools.length} tools across ${categories.length} categories.
 
 ## Overview
-- [Tool4SaaS](${siteUrl}/): Home page with all ${tools.length} free tools grouped by ${categories.length} categories.
+- [Tool4SaaS](${siteUrl}/): Home page with all ${visibleTools.length} free tools grouped by ${categories.length} categories.
 - [About](${siteUrl}/about): What the site is and how it protects your privacy.
 - [Privacy Policy](${siteUrl}/privacy): How user data is handled (it stays in your browser).
 - [Contact](${siteUrl}/contact): Contact the Tool4SaaS team.
@@ -107,4 +114,4 @@ out += `## Site
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, out, "utf8");
-console.log(`generate-llms: wrote ${tools.length} tools across ${categories.length} categories to ${outPath}`);
+console.log(`generate-llms: wrote ${visibleTools.length} tools across ${categories.length} categories to ${outPath}`);

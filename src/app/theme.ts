@@ -111,7 +111,7 @@ export const theme = createTheme({
     },
     h2: {
       fontFamily: displayFont,
-      fontWeight: 600,
+      fontWeight: 700,
       fontSize: "clamp(2rem, 4vw, 3rem)",
       lineHeight: 1.1,
       letterSpacing: "-0.025em",
@@ -119,7 +119,7 @@ export const theme = createTheme({
     },
     h3: {
       fontFamily: displayFont,
-      fontWeight: 600,
+      fontWeight: 700,
       fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
       lineHeight: 1.15,
       letterSpacing: "-0.02em",
@@ -127,7 +127,7 @@ export const theme = createTheme({
     },
     h4: {
       fontFamily: displayFont,
-      fontWeight: 600,
+      fontWeight: 700,
       fontSize: "clamp(1.25rem, 2vw, 1.5rem)",
       lineHeight: 1.2,
       letterSpacing: "-0.015em",
@@ -135,14 +135,14 @@ export const theme = createTheme({
     },
     h5: {
       fontFamily: displayFont,
-      fontWeight: 600,
+      fontWeight: 700,
       fontSize: "1.25rem",
       lineHeight: 1.3,
       letterSpacing: "-0.01em",
     },
     h6: {
       fontFamily: displayFont,
-      fontWeight: 600,
+      fontWeight: 700,
       fontSize: "1rem",
       lineHeight: 1.4,
       letterSpacing: "-0.01em",

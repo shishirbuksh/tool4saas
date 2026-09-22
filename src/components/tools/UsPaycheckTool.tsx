@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import NumericField from "@/components/NumericField";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
@@ -218,6 +219,8 @@ export default function UsPaycheckTool() {
           </Grid>
         )}
       </Grid>
+
+      <YMYLDisclaimer type="finance" />
 
       <Box
         sx={{

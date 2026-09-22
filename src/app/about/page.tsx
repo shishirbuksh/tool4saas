@@ -7,7 +7,7 @@ import { staticPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = staticPageMetadata({
-  title: "About",
+  title: "About Tool4SaaS — Free Privacy-First Tools",
   description:
     "Tool4SaaS is a free, privacy-friendly collection of browser-based productivity tools. Learn how and why we built it.",
   path: "/about",
@@ -36,6 +36,65 @@ export default function AboutPage() {
         <Typography sx={{ display: "block", mb: 1 }}>
           How we test: we build and test every tool in-house, checking outputs against known samples and reviewing guides for accuracy. We verify in current Chrome, Edge, Firefox, and Safari on desktop and mobile viewports, and re-check pages as tools improve.
         </Typography>
+      </Box>
+      <Box component="section" aria-label="Timeline" sx={{ mt: 4 }}>
+        <Typography variant="h2" sx={{ fontSize: "1.5rem", mb: 1, color: "text.primary" }}>Launched in 2026: why local-first</Typography>
+        <Typography sx={{ display: "block", mb: 1, color: "text.secondary", lineHeight: 1.8 }}>
+          <span translate="no">{siteConfig.name}</span> launched in 2026 as a one-person side project that grew into a maintained library of 185 free utilities. The founding constraint has never changed: tools must work the moment the page opens, with no account wall and no upload step. Most utilities therefore run entirely in the browser, a harder way to build that keeps invoices, resumes, and code on the visitor device. Advertising covers hosting so the library stays free.
+        </Typography>
+      </Box>
+      <Box component="section" aria-label="Testing rig" sx={{ mt: 4 }}>
+        <Typography variant="h2" sx={{ fontSize: "1.5rem", mb: 1, color: "text.primary" }}>Testing rig</Typography>
+        <Typography sx={{ display: "block", mb: 1, color: "text.secondary", lineHeight: 1.8 }}>
+          Every tool is built and verified in-house on current stable Chrome, Edge, Firefox, and Safari, across desktop viewports from 1280 pixels up and mobile widths of 360 to 390 pixels. Sample checks anchor each release: loan math must hit $536.82 on the reference case, BMI must read 22.9, and converters must round-trip fixtures like Ada age 36 without loss. Finance and health pages carry FAQ answers averaging well above our editorial floor, labeled as estimates with professional-consultation pointers. Logic changes trigger a full re-check before re-publishing — see <Link href="/methodology">/methodology</Link> for the complete process.
+        </Typography>
+      </Box>
+      <Box component="section" aria-label="Changelog" sx={{ mt: 4 }}>
+        <Typography variant="h2" sx={{ fontSize: "1.5rem", mb: 1, color: "text.primary" }}>Changelog</Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          Recent site updates, newest first:
+        </Typography>
+        <Box
+          component="table"
+          sx={{ width: "100%", borderCollapse: "collapse", fontSize: "0.875rem", color: "text.secondary" }}
+        >
+          <Box component="thead">
+            <Box component="tr">
+              <Box component="th" scope="col" sx={{ textAlign: "left", p: 1, borderBottom: "1px solid", borderColor: "divider" }}>
+                Date
+              </Box>
+              <Box component="th" scope="col" sx={{ textAlign: "left", p: 1, borderBottom: "1px solid", borderColor: "divider" }}>
+                Change
+              </Box>
+            </Box>
+          </Box>
+          <Box component="tbody">
+            <Box component="tr">
+              <Box component="td" sx={{ p: 1, borderBottom: "1px solid", borderColor: "divider", whiteSpace: "nowrap" }}>
+                September 2026
+              </Box>
+              <Box component="td" sx={{ p: 1, borderBottom: "1px solid", borderColor: "divider" }}>
+                Added in-depth guides to 10 utilities (randomness, time, converters, developer checks) and expanded all category introductions.
+              </Box>
+            </Box>
+            <Box component="tr">
+              <Box component="td" sx={{ p: 1, borderBottom: "1px solid", borderColor: "divider", whiteSpace: "nowrap" }}>
+                September 2026
+              </Box>
+              <Box component="td" sx={{ p: 1, borderBottom: "1px solid", borderColor: "divider" }}>
+                Published the testing methodology and the editorial review process behind every tool.
+              </Box>
+            </Box>
+            <Box component="tr">
+              <Box component="td" sx={{ p: 1, borderBottom: "1px solid", borderColor: "divider", whiteSpace: "nowrap" }}>
+                September 2026
+              </Box>
+              <Box component="td" sx={{ p: 1, borderBottom: "1px solid", borderColor: "divider" }}>
+                Expanded the home page with testing, privacy, and workflow documentation for new visitors.
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
       <Box
         component="section"

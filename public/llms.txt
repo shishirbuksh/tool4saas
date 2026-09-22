@@ -1,9 +1,9 @@
-# Tool4SaaS (185 free tools across 12 categories)
+# Tool4SaaS (184 free tools across 12 categories)
 
-> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 185 tools across 12 categories.
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 184 tools across 12 categories.
 
 ## Overview
-- [Tool4SaaS](https://tool4saas.com/): Home page with all 185 free tools grouped by 12 categories.
+- [Tool4SaaS](https://tool4saas.com/): Home page with all 184 free tools grouped by 12 categories.
 - [About](https://tool4saas.com/about): What the site is and how it protects your privacy.
 - [Privacy Policy](https://tool4saas.com/privacy): How user data is handled (it stays in your browser).
 - [Contact](https://tool4saas.com/contact): Contact the Tool4SaaS team.
@@ -136,7 +136,6 @@
 ## PDF Tools
 - [Image to PDF](https://tool4saas.com/image-to-pdf): Images → PDF
 - [PDF Merge](https://tool4saas.com/pdf-merge): Merge multiple PDFs
-- [PDF Compressor](https://tool4saas.com/pdf-compress): Reduce PDF file size
 - [PDF Splitter](https://tool4saas.com/pdf-split): Extract pages
 - [PDF to JPG](https://tool4saas.com/pdf-to-jpg): Pages to images
 - [Rotate PDF Pages](https://tool4saas.com/pdf-rotate): Rotate all pages
@@ -144,14 +143,14 @@
 - [PDF to Text](https://tool4saas.com/pdf-to-text): Extract text pages
 
 ## Calculators
-- [Percentage Calculator](https://tool4saas.com/percentage-calculator): Percent of, what % & change
+- [Percentage Calculator](https://tool4saas.com/percentage-calculator): X% of Y & what percent
 - [BMI Calculator](https://tool4saas.com/bmi-calculator): Body Mass Index in metric & imperial
 - [Tip Calculator](https://tool4saas.com/tip-calculator): Split bills & calculate tips
 - [Loan Calculator](https://tool4saas.com/loan-calculator): Monthly payment & interest
 - [Discount Calculator](https://tool4saas.com/discount-calculator): Sale price & savings
 - [GST / VAT Calculator](https://tool4saas.com/gst-calculator): Tax inclusive & exclusive
-- [Percentage Change](https://tool4saas.com/percentage-change): Change between values
-- [Percentage Difference](https://tool4saas.com/percentage-difference): Difference between values
+- [Percentage Change](https://tool4saas.com/percentage-change): Old-to-new % change & growth
+- [Percentage Difference](https://tool4saas.com/percentage-difference): Absolute |A-B|/avg difference
 - [Work Days Calculator](https://tool4saas.com/work-days-calculator): Calculate business days
 - [GPA Calculator](https://tool4saas.com/gpa-calculator): Grade point average
 - [Scientific Calculator](https://tool4saas.com/scientific-calculator): Trig, logs, powers

@@ -44,12 +44,19 @@ describe("SEO metadata", () => {
     if (base.startsWith("https://")) expect(canonical.startsWith("https://")).toBe(true);
   });
 
-  it("tool OG image is /og/slug", () => {
+  it("tool OG image is absolute base/og/slug", () => {
     const meta = toolMetadata("word-counter");
     const og = meta.openGraph as { images?: { url: string }[] };
     const twitter = meta.twitter as { images?: string[] };
-    expect(og?.images?.[0]?.url).toBe("/og/word-counter");
-    expect(twitter?.images).toContain("/og/word-counter");
+    const ogUrl = og?.images?.[0]?.url as string;
+    // Canonical best practice: absolute URL (was relative /og/slug, now base/og/slug).
+    expect(ogUrl).toBe(`${base}/og/word-counter`);
+    expect(ogUrl).toMatch(/^https?:\/\//);
+    expect(ogUrl.endsWith("/og/word-counter")).toBe(true);
+    const twImg = twitter?.images?.[0] as string;
+    expect(twImg).toBe(`${base}/og/word-counter`);
+    expect(twImg).toMatch(/^https?:\/\//);
+    expect(twImg.endsWith("/og/word-counter")).toBe(true);
   });
 
   it("homeMetadata canonical is the site base", () => {
@@ -74,11 +81,15 @@ describe("SEO metadata", () => {
 
   it("pdf-compress is excluded from sitemap (NOINDEX_SLUGS)", async () => {
     // pdf-compress page metadata lives in a .tsx route file (JSX) — not imported
-    // here. Instead assert the sitemap source declares the noindex list and the
-    // generated sitemap actually excludes the slug.
+    // here. Instead assert the sitemap imports the single-source noindex list
+    // (@/lib/tools NOINDEX_SLUGS, no local duplicate) and the generated sitemap
+    // actually excludes the slug.
     const src = fs.readFileSync(path.join(root, "src", "app", "sitemap.ts"), "utf8");
     expect(src).toContain("NOINDEX_SLUGS");
-    expect(src).toContain("pdf-compress");
+    expect(src).toMatch(/import\s+.*NOINDEX_SLUGS.*from\s+["']@\/lib\/tools["']/);
+    expect(src).not.toMatch(/const\s+NOINDEX_SLUGS\s*=\s*new Set/);
+    const toolsSrc = fs.readFileSync(path.join(root, "src", "lib", "tools", "index.ts"), "utf8");
+    expect(toolsSrc).toContain("pdf-compress");
     const { default: sitemap } = await import("../app/sitemap");
     const urls = (sitemap() as { url: string }[]).map((e) => e.url);
     expect(urls.some((u) => u.endsWith("/pdf-compress"))).toBe(false);
