@@ -22,16 +22,30 @@ const rand = (max: number) => {
   return (r % max) + 1;
 };
 
+type RollRecord = { label: string; values: number[]; total: number };
+
+const PRESETS = [
+  { label: "d6", count: "1", sides: "6" },
+  { label: "d20", count: "1", sides: "20" },
+  { label: "2d6", count: "2", sides: "6" },
+  { label: "3d6", count: "3", sides: "6" },
+] as const;
+
 export default function DiceRollerTool() {
   const [count, setCount] = useState("2");
   const [sides, setSides] = useState("6");
   const [results, setResults] = useState<number[]>([]);
+  const [history, setHistory] = useState<RollRecord[]>([]);
   const copy = (v: string) => v && void import("@/lib/clipboard").then(m=>m.copyToClipboard(v));
 
-  const roll = () => {
-    const c = Math.max(1, Math.min(20, parseInt(count, 10) || 1));
-    const s = Math.max(2, Math.min(100, parseInt(sides, 10) || 6));
-    setResults(Array.from({ length: c }, () => rand(s)));
+  const roll = (presetCount?: string, presetSides?: string) => {
+    const c = Math.max(1, Math.min(20, parseInt(presetCount ?? count, 10) || 1));
+    const s = Math.max(2, Math.min(100, parseInt(presetSides ?? sides, 10) || 6));
+    const values = Array.from({ length: c }, () => rand(s));
+    setResults(values);
+    setHistory((h) =>
+      [{ label: `${c}d${s}`, values, total: values.reduce((a, b) => a + b, 0) }, ...h].slice(0, 20)
+    );
   };
 
   const total = results.reduce((a, b) => a + b, 0);
@@ -54,7 +68,23 @@ export default function DiceRollerTool() {
             slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
           />
         </Stack>
-        <Button variant="contained" onClick={roll}>
+        <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
+          {PRESETS.map((p) => (
+            <Button
+              key={p.label}
+              size="small"
+              variant="outlined"
+              onClick={() => {
+                setCount(p.count);
+                setSides(p.sides);
+                roll(p.count, p.sides);
+              }}
+            >
+              {p.label}
+            </Button>
+          ))}
+        </Stack>
+        <Button variant="contained" onClick={() => roll()}>
           Roll dice
         </Button>
         {results.length > 0 && (
@@ -72,6 +102,33 @@ export default function DiceRollerTool() {
               Copy results
             </Button>
           </Stack>
+        )}
+        {history.length > 1 && (
+          <Box sx={{ width: "100%", maxHeight: 160, overflow: "auto" }}>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
+              Roll history
+            </Typography>
+            {history.slice(1).map((h, i) => (
+              <Box
+                key={i}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  px: 1,
+                  py: 0.5,
+                  borderBottom: "1px solid",
+                  borderColor: "divider",
+                }}
+              >
+                <Typography variant="body2" color="text.secondary">
+                  {h.label}: {h.values.join(", ")}
+                </Typography>
+                <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                  {h.total}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
         )}
       </ToolPaper>
   );

@@ -6,6 +6,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import DownloadIcon from "@mui/icons-material/Download";
 import { MS_PER_HOUR, MS_PER_MINUTE, MS_PER_SECOND } from "@/lib/format";
 
 const fmt = (ms: number) => {
@@ -24,6 +27,7 @@ export default function StopwatchTool() {
   const startRef = useRef(0);
   const accRef = useRef(0);
   const rafRef = useRef<number | null>(null);
+  const copy = (v: string) => v && void import("@/lib/clipboard").then(m=>m.copyToClipboard(v));
 
   useEffect(() => {
     if (!running) return;
@@ -44,6 +48,21 @@ export default function StopwatchTool() {
     setElapsed(0);
     accRef.current = 0;
     setLaps([]);
+  };
+
+  const splitsText = laps.map((l, i) => `Lap ${i + 1}: ${fmt(l)}`).join("\n");
+
+  const exportSplits = () => {
+    if (laps.length === 0) return;
+    const blob = new Blob([`Total: ${fmt(elapsed)}\n${splitsText}\n`], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "stopwatch-splits.txt";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -95,6 +114,21 @@ export default function StopwatchTool() {
             ))}
           </Box>
         )}
+        {laps.length > 0 && (
+          <Stack direction="row" spacing={1}>
+            <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(splitsText)}>
+              Copy splits
+            </Button>
+            <Button size="small" startIcon={<DownloadIcon />} onClick={exportSplits}>
+              Export splits
+            </Button>
+          </Stack>
+        )}
+        <Typography variant="body2" color="text.secondary" sx={{ textAlign: "center" }}>
+          Need focus cycles or event countdowns? Try the{" "}
+          <Link href="/pomodoro-timer">Pomodoro timer</Link> or{" "}
+          <Link href="/countdown-timer">Countdown timer</Link>.
+        </Typography>
       </Stack>
     </ToolPaper>
   );

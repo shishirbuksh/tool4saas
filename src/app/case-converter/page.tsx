@@ -1,7 +1,8 @@
-﻿import ToolPageShell from "@/components/ToolPageShell";
+import ToolPageShell from "@/components/ToolPageShell";
 import CaseConverterTool from "@/components/tools/CaseConverterTool";
 import { getTool } from "@/lib/tools";
 import { toolMetadata } from "@/lib/metadata";
+import { notFound } from "next/navigation";
 
 const slug = "case-converter";
 const tool = getTool(slug)!;

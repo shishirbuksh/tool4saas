@@ -37,11 +37,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Priority tiers: hero money pages rank highest, long-tail utilities lower.
   // Keeps crawl budget focused instead of flat 0.8 for all 185 tools.
+  // Hero set covers site-wide money pages (invoice, mortgage, pdf-merge,
+  // image-compressor, qr, resume) plus finance heroes (emi, sip, compound,
+  // fd, ppf) and word-counter. Tiers only — lastModified stays stable.
   const HERO_SLUGS = new Set([
     "invoice-generator",
     "mortgage-calculator",
+    "emi-calculator",
+    "sip-calculator",
+    "compound-interest-calculator",
+    "fd-calculator",
+    "ppf-calculator",
     "pdf-merge",
     "image-compressor",
+    "word-counter",
     "qr-code-generator",
     "resume-builder",
   ]);
