@@ -32,6 +32,8 @@ const html = `
 <p>Run it in order, fix failures before sending — never after a rejection you could have prevented. Format reference: <a href="/blog/resume-builder-guide/resume-format-guide">format guide</a>.</p>
 <h2 id="real-autopsy">Real autopsy: 0 callbacks in 25 applications</h2>
 <p>A 2024 graduate sent me his resume after 25 silent applications. Diagnosis in 3 minutes: scanned-image PDF (parsers read zero words — the entire application was invisible), objective paragraph from a template site, skills as adjectives, and a dead email address. Four fixes, one evening: rebuilt as real text in the builder, metric summary, project bullets with GitHub links, fresh email. Next 15 applications: 3 interviews. Nothing about his candidacy changed — only the document's machine-readability and proof density. If your hit rate is near zero after 20+ applications, assume a structural defect first (image PDF, graphics layout, no tailoring) and a content defect second. Check structure with the copy-paste-into-Notepad test from <a href="/blog/resume-builder-guide/ats-resume-guide">the ATS loop</a> before rewriting a single bullet.</p>
+<h2 id="ats-killers">Silent ATS killers (invisible rejections)</h2>
+<p>The worst mistakes never reach a human. <strong>Scanned/image PDFs:</strong> parsers extract zero words — the application is literally blank on the recruiter's screen. Test: copy-paste your PDF into Notepad; gibberish order or empty output means rebuild. <strong>Contact info in headers/footers:</strong> most parsers skip those zones, so your phone number never enters the system — keep contacts in the body flow. <strong>Tables for layout:</strong> cells misfile content (skills land under “Education”), scrambling keyword matches. <strong>Uncommon section titles:</strong> “My Journey” instead of “Experience” breaks field segmentation. Run all four checks in the <a href="/ats-resume-checker">ATS checker</a> before any application — five minutes that decides whether the other six fixes even get seen, per <a href="/blog/resume-builder-guide/ats-resume-guide">the ATS loop</a>.</p>
 <div class="cta-box"><strong>Fix yours tonight:</strong> run the checklist, rebuild in the <a href="/resume-builder">free resume builder</a>, verify in the <a href="/ats-resume-checker">ATS checker</a>. System: <a href="/blog/resume-builder-guide">pillar guide</a>.</div>
 `;
 
@@ -58,6 +60,7 @@ export const resumeMistakes: BlogPost = {
     { id: "seven", text: "7 mistakes with fixes", level: 2 },
     { id: "checklist", text: "60-second pre-send checklist", level: 2 },
     { id: "real-autopsy", text: "Autopsy: 0 in 25", level: 2 },
+    { id: "ats-killers", text: "Silent ATS killers", level: 2 },
   ],
   html,
   faqs: [

@@ -49,6 +49,8 @@ const html = `
 </ul>
 <h3>Pre-print ritual (₹30 saves ₹2,500)</h3>
 <p>Print one copy at 100% scale. Scan from the real distance, in daylight and indoor light, with two phones. Check the quiet margin survived the printer's scaling (disable “fit to page” — it shrinks everything 5%). Only then order bulk. Scan-back any mystery code with the <a href="/qr-scanner">QR scanner</a> to confirm contents before a big run.</p>
+<h2 id="test-protocol">The 5-phone test protocol (steal this)</h2>
+<p>One flagship scan proves nothing. My pre-bulk ritual, in order: (1) flagship iPhone at arm's length, office light — baseline; (2) sub-Rs 10,000 Android, same distance — the forgiveness floor, since budget fixed-focus cameras fail first; (3) noon sunlight — glare and washout check; (4) dim restaurant-equivalent light — low-light check; (5) maximum real distance, walking backward until it fails, then adding 20% size margin. Log results per print batch (date, size, pass/fail per phone) — when a reprint batch fails in the field, the log tells you whether the file, the printer scaling (“fit to page” shrinks ~5%), or the placement changed. Total cost: 10 minutes and one test print. It has caught two scaling-shrink failures and one glossy-laminate disaster in my runs — each would have cost 50× the test.</p>
 <div class="cta-box"><strong>Size it right now:</strong> generate both sizes in the <a href="/qr-code-generator">free QR code generator</a> and test-walk your distance. Overview: <a href="/blog/qr-code-generator-guide">pillar guide</a> · Fixes: <a href="/blog/qr-code-generator-guide/qr-code-not-scanning-fix">not-scanning guide</a>.</div>
 `;
 
@@ -76,6 +78,7 @@ export const qrSizePrint: BlogPost = {
     { id: "size-table", text: "Size table: every placement", level: 2 },
     { id: "density-exceptions", text: "Density exceptions", level: 2 },
     { id: "resolution-paper", text: "Resolution, paper and finish", level: 2 },
+    { id: "test-protocol", text: "5-phone test protocol", level: 2 },
   ],
   html,
   faqs: [

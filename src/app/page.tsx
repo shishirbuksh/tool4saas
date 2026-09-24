@@ -269,27 +269,29 @@ export default function HomePage() {
               const t = getTool(p.slug);
               const label = t?.title ?? p.slug;
               return (
-                <Link
+                <Box
+                  component={Link}
                   key={p.slug}
                   href={`/${p.slug}`}
                   aria-label={`${label} — ${p.benefit}`}
                   data-track="popular-pill"
                   data-slug={p.slug}
-                  style={{
+                  sx={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     minHeight: 44,
                     padding: '0 20px',
                     borderRadius: 999,
-                    border: '1px solid var(--mui-palette-divider, #e0e0e0)',
+                    border: '1px solid',
+                    borderColor: 'divider',
                     fontWeight: 600,
                     fontSize: '0.95rem',
                     textDecoration: 'none',
-                    color: 'inherit',
+                    color: 'text.primary',
                   }}
                 >
                   {label}
-                </Link>
+                </Box>
               );
             })}
           </Box>
@@ -307,9 +309,9 @@ export default function HomePage() {
               const visible = g.tools.filter((t) => t.slug !== "pdf-compress").length;
               return (
                 <Box component="li" key={g.category.id} sx={{ flex: '0 0 auto', scrollSnapAlign: 'start' }}>
-                  <Link href={`/category/${g.category.id}`} aria-label={`View all ${visible} ${g.category.label} tools`} style={{ display: 'inline-flex', alignItems: 'center', minHeight: 44, padding: '0 16px', borderRadius: 999, border: '1px solid var(--mui-palette-divider, #e0e0e0)', fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none', color: 'inherit', background: 'var(--mui-palette-background-paper, #fff)', whiteSpace: 'nowrap' }}>
+                  <Box component={Link} href={`/category/${g.category.id}`} aria-label={`View all ${visible} ${g.category.label} tools`} sx={{ display: 'inline-flex', alignItems: 'center', minHeight: 44, padding: '0 16px', borderRadius: 999, border: '1px solid', borderColor: 'divider', fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none', color: 'text.primary', bgcolor: 'background.paper', whiteSpace: 'nowrap' }}>
                     {g.category.label} — {visible}
-                  </Link>
+                  </Box>
                 </Box>
               );
             })}

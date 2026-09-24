@@ -31,6 +31,8 @@ const html = `
 <h2 id="price">From payment to price: the conversion chain</h2>
 <p>Payment ceiling → subtract tax/insurance/PMI/HOA → P&I budget → invert the EMI formula at your rate and tenure → loan amount → divide by (1 − down-payment %) → home price. The <a href="/home-affordability-calculator">affordability calculator</a> runs this chain instantly; the <a href="/mortgage-calculator">mortgage calculator</a> then stress-tests the price at 5%, 6% and 7%. Buying together? Use combined gross income but combined debts too — one partner's student loans count fully. Self-employed? Lenders average 2 years of documented income; keep returns clean starting 2 years before house-hunting. India buyers: run the same chain in lakh with FOIR caps via the <a href="/emi-calculator">EMI calculator</a> and <a href="/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india">India eligibility guide</a>.</p>
 <p>Rates and examples as of Sept 2026, illustrative only — not a lender offer. Excludes taxes, insurance, PMI, HOA, fees and ARM resets.</p>
+<h2 id="buffer-rule">The buffer rule: why approval ≠ affordable</h2>
+<p>Lenders approve to the edge; life happens past it. After computing the 28/36 ceiling, subtract real life: daycare ($1,000–2,000), one car replacement cycle, 3% annual tax creep, and a job-loss reserve of 6 months PITI kept liquid. My rule: the signed payment should survive one income dropping 30% for 6 months without touching retirement. On the $7,500-income example, that means targeting ~$1,700 not $1,900 — the $200 gap buys sleep and staying power. Buyers who max approvals discover this math during the first emergency; buyers who buffer discover it never. Affordability is not the maximum loan — it is the maximum payment that leaves life intact.</p>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 `;
 
@@ -57,6 +59,7 @@ export const mortgageAfford: BlogPost = {
     { id: "inputs", text: "4 inputs lenders weigh", level: 2 },
     { id: "co-borrow", text: "Co-borrowers + single incomes", level: 2 },
     { id: "price", text: "Payment-to-price chain", level: 2 },
+    { id: "buffer-rule", text: "Buffer: approval ≠ affordable", level: 2 },
   ],
   html,
   faqs: [

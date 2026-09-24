@@ -37,6 +37,8 @@ const html = `
 <li><strong>US/UK:</strong> ACH/bank or Stripe links; morning sends in client timezone; VAT-registered UK clients get VAT-split PDFs.</li>
 <li><strong>Never:</strong> threaten on first nudge, add surprise fees, or CC the CEO on day 3. Escalate warmth-first.</li>
 </ul>
+<h2 id="retainer-terms">Retainer and milestone terms (recurring money)</h2>
+<p>One-off invoice terms fail retainers — recurring money needs recurring rules. Print these on every retainer invoice: billing day (1st of month), due in 7 days, pause clause (“work pauses 14+ days overdue and resumes on payment”), and rate-lock period (“Rs 30,000/month locked 6 months, revises April”). Milestone projects need a payment schedule table inside the quote itself: 30% advance, 40% on beta, 30% on launch — each milestone invoiced separately referencing QUO-2026-014 and prior receipts. The pause clause is the entire game: I have paused twice in 6 years and both clients paid within 24 hours, because paused work costs them more than the invoice. Without it, retainers drift into 60-day arrears while you keep delivering — the most expensive sentence you will ever omit.</p>
 <div class="cta-box"><strong>Put it on paper now:</strong> add Net 15 + calendar date + UPI/bank in the <a href="/invoice-generator">free invoice generator</a>, then send with the subject formula. System overview: <a href="/blog/invoice-generator-guide">pillar guide</a>.</div>
 `;
 
@@ -57,6 +59,7 @@ export const invoicePaymentTerms: BlogPost = {
     { id: "terms-that-work", text: "Payment terms that work", level: 2 },
     { id: "email-templates", text: "3 copy-paste email scripts", level: 2 },
     { id: "late-fee-wording", text: "Late-fee wording (firm, polite)", level: 2 },
+    { id: "retainer-terms", text: "Retainer + milestone terms", level: 2 },
   ],
   html,
   faqs: [

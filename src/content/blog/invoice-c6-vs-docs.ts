@@ -54,6 +54,8 @@ const html = `
 <li><strong>Sending an invoice instead of a receipt after payment.</strong> Accounts sees a duplicate demand and freezes. Send RCP-0231. Wording for the handover lives in <a href="/blog/invoice-generator-guide/payment-terms-and-followups">payment terms and reminders</a>.</li>
 <li><strong>Skipping the PO reference.</strong> Enterprise AP filters by PO. No PO on invoice = auto-hold. Ask “who handles vendor payments and what PO do I quote?” on day one. Template picks in <a href="/blog/invoice-generator-guide/invoice-template-formats">invoice template guide</a>; build steps in <a href="/blog/invoice-generator-guide/how-to-create-invoice-online">how to create an invoice online</a>.</li>
 </ol>
+<h2 id="who-issues">Who issues what: the responsibility map</h2>
+<p>Mix-ups happen because nobody taught the paperwork chain. Memorize this: the <strong>seller quotes</strong> (quotation, QUO-2026-014) → the <strong>buyer orders</strong> (purchase order, PO-1042) → the <strong>seller bills</strong> (invoice, INV-2026-001) → the <strong>seller confirms</strong> (receipt, RCP-0231). Buyer-initiated documents (PO, payment) versus seller-initiated (quote, invoice, receipt) — if you are the seller, you should never be waiting to “receive” an invoice; you send it. Freelancers: clients who say “send me the bill” mean invoice; clients who say “give me a quote first” mean quotation — same word “bill” in casual speech causes half the confusion in Indian small business. When a client sends YOU a document numbered like an invoice asking for payment, that is their purchase order wearing the wrong label — clarify before supplying.</p>
 <div class="cta-box"><strong>Make the right doc now:</strong> quote with the <a href="/quotation-generator">quotation generator</a>, bill with the <a href="/invoice-generator">free invoice generator</a>, prove with the <a href="/receipt-generator">receipt generator</a>. Full system: <a href="/blog/invoice-generator-guide">pillar guide</a>.</div>
 `;
 
@@ -74,6 +76,7 @@ export const invoiceVsDocs: BlogPost = {
     { id: "four-docs", text: "4 documents side by side", level: 2 },
     { id: "flow", text: "Correct order: quote-to-cash", level: 2 },
     { id: "edge-cases", text: "Proforma, credit notes, recurring", level: 2 },
+    { id: "who-issues", text: "Who issues what", level: 2 },
     { id: "mistakes", text: "3 mix-ups that delay payment", level: 2 },
   ],
   html,

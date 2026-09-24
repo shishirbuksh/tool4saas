@@ -36,6 +36,8 @@ const html = `
 <h2 id="calculator-method">Run your own comparison (15-minute method)</h2>
 <p>Collect four numbers: target home price, local annual rent for equivalent space, your down payment, and a mortgage quote (or illustrative 6%). Step 1: compute PITI via the <a href="/mortgage-calculator">mortgage calculator</a> plus local tax/insurance. Step 2: add 1% maintenance and amortize 2–6% closing over your horizon (divide by stay years). Step 3: subtract principal repaid by horizon end (read it off the <a href="/blog/mortgage-calculator-guide/mortgage-amortization-schedule">amortization schedule</a>). Step 4: compare against rent × years plus down-payment growth at ~7%. Whichever total is lower wins — then adjust for the non-math factors in the previous section. Most couples finish this in 15 minutes and argue about the inputs, not the method — which means the method works. Size the buying side first with the <a href="/home-affordability-calculator">affordability calculator</a>.</p>
 <p>Rates and examples as of Sept 2026, illustrative only — not a lender offer. Excludes taxes, insurance, PMI, HOA, fees and ARM resets.</p>
+<h2 id="couple-disagreement">When partners disagree (settle it with numbers)</h2>
+<p>Rent-vs-buy splits couples more often than any spreadsheet admits — one values roots, the other freedom, and both argue math that is really emotion. The settlement protocol: each writes their horizon (years you will actually stay), then run the 15-minute method twice — once per horizon. Different horizons, different winners, both computed honestly. Then price the disagreement: if buying wins only past year 8 but one partner may relocate at year 4, the “winner” is conditional and renting wins on expected value. Non-math tiebreakers get explicit weights: school stability, commute sanity, renovation joy, landlord fatigue. Couples who quantify first and emote second decide in one evening; couples who emote first re-litigate for a year. The method does not pick sides — it prices each side's assumptions until one becomes undeniable.</p>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 `;
 
@@ -62,6 +64,7 @@ export const mortgageRentBuy: BlogPost = {
     { id: "rule", text: "5% rule + break-even", level: 2 },
     { id: "when-each", text: "When each wins", level: 2 },
     { id: "calculator-method", text: "15-minute comparison method", level: 2 },
+    { id: "couple-disagreement", text: "When partners disagree", level: 2 },
   ],
   html,
   faqs: [

@@ -42,6 +42,8 @@ const html = `
 </ul>
 <h2 id="red-flags">Red flags: when to walk away</h2>
 <p>Some letters warn you off the job itself. Verbal-only offers with “letter next week” while pressing you to resign — never resign on promises. CTC with no breakup table — the variable share is hiding. Bonds exceeding 2 years for junior roles, or training-cost clauses above Rs 2L without itemization — price your exit before entry. Probation beyond 6 months, termination-at-will buried in appointment terms, non-competes barring your entire industry for a year — each negotiable, each a signal about culture. And the classic: joining date pressure (“sign in 24 hours”) paired with vague variable math. Urgency plus opacity equals a bad deal; good employers answer in writing and wait a week. Walking away from one bad offer beats a year of bond-trapped regret — I have watched both outcomes, and patience won every time. Document questions? Run final CXO paperwork past counsel; this guide is orientation, not legal advice.</p>
+<h2 id="campus-offers">Campus offers: PPOs, Day-1 slots and fine print freshers miss</h2>
+<p>Campus placements add traps working professionals never meet. <strong>PPOs (pre-placement offers)</strong> from internships often carry lower fixed pay than Day-1 offers for the same role — compare fixed-to-fixed before accepting out of gratitude. <strong>Day-slot pressure:</strong> “sign in 48 hours or lose the slot” is placement-cell mechanics, not employer generosity; ask for the written letter with CTC table before blocking competing processes. Freshers routinely miss: training-period stipend vs confirmed salary (6 months at Rs 25k then Rs 45k changes year-one math), service agreements of 1–2 years with Rs 1–2L payouts (price your exit before entry), and location-flexibility clauses that move you cities later. Rule: no competing offer is worse than a bad signed bond — 48 hours of polite stalling (“awaiting the written CTC table”) beats a year of regret. Pair with <a href="/blog/resume-builder-guide/fresher-resume-guide">fresher resume tactics</a> for the application side.</p>
 <div class="cta-box"><strong>Generate or verify now:</strong> employers use the <a href="/offer-letter-generator">offer letter generator</a>; candidates compare fixed-to-fixed and get revisions in writing. System: <a href="/blog/resume-builder-guide">pillar guide</a>.</div>
 `;
 
@@ -68,6 +70,7 @@ export const resumeOfferLetter: BlogPost = {
     { id: "anatomy", text: "Every clause explained", level: 2 },
     { id: "ctc-math", text: "CTC math, not headlines", level: 2 },
     { id: "negotiate", text: "Negotiation lines that work", level: 2 },
+    { id: "campus-offers", text: "Campus offers: PPOs + fine print", level: 2 },
     { id: "red-flags", text: "Red flags: walk away", level: 2 },
   ],
   html,

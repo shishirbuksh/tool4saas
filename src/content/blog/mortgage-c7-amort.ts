@@ -35,6 +35,8 @@ const html = `
 <li><strong>Break-even vs refinance:</strong> compare remaining interest on your schedule against a new loan's total cost plus closing — method in <a href="/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage">refinance guide</a>.</li>
 </ol>
 <p>Rates and examples as of Sept 2026, illustrative only — not a lender offer. Excludes taxes, insurance, PMI, HOA, fees and ARM resets.</p>
+<h2 id="arm-warning">ARM schedules: why teaser tables lie</h2>
+<p>Every schedule above assumes fixed rates. Adjustable-rate mortgages print deceptively calm 5–7 year tables, then reset — and every row after reset is fiction until the index moves. A 5/1 ARM at 5.5% teaser amortizes beautifully for 60 months; at reset to 7.5% (within typical caps), the payment jumps ~20% and the remaining schedule rewrites entirely. Planning a decade off teaser rows is how payment shock happens: budget the reset scenario (rate + caps maximum) from day one, keep refinance eligibility intact (credit, equity, income documented), and set calendar alerts 12 months before reset to act early. If the worst-case reset payment breaks the 28% rule, the ARM was unaffordable at purchase — no matter how pretty years 1–5 looked.</p>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 `;
 
@@ -61,6 +63,7 @@ export const mortgageAmort: BlogPost = {
     { id: "read", text: "Read it like a strategist", level: 2 },
     { id: "extra-visualized", text: "Extra payments visualized", level: 2 },
     { id: "milestones", text: "Three hidden milestones", level: 2 },
+    { id: "arm-warning", text: "ARM: teaser tables lie", level: 2 },
   ],
   html,
   faqs: [

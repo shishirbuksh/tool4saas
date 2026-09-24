@@ -11,6 +11,7 @@ import { siteConfig } from "@/lib/site";
 import { getTool } from "@/lib/tools";
 import { getPillarMeta, getRelatedPosts } from "@/lib/blog-registry";
 import type { BlogPost } from "@/lib/blog";
+import EmbeddedTool from "@/components/blog/EmbeddedTool";
 
 function canonicalFor(post: BlogPost): string {
   const base = siteConfig.url.replace(/\/$/, "");
@@ -187,6 +188,9 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
           </Link>
         </Box>
       )}
+
+      {/* P0-2: working tool embedded in pillar guides (client-only, SSR stays lean) */}
+      {post.kind === "pillar" && <EmbeddedTool pillar={post.pillar} />}
 
       <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "240px 1fr" }, gap: 4, alignItems: "start" }}>
         {/* TOC */}

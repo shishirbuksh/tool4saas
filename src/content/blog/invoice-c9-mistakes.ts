@@ -42,6 +42,8 @@ const html = `
 <li><strong>After payment:</strong> same-day <a href="/receipt-generator">receipt (RCP-0231)</a>. The habit that brings repeat work.</li>
 <li><strong>New to this?</strong> Start with <a href="/blog/invoice-generator-guide/how-to-create-invoice-online">how to create an invoice online</a>, then the <a href="/blog/invoice-generator-guide">pillar checklist</a>.</li>
 </ul>
+<h2 id="sector-patterns">Sector patterns: who makes which mistake</h2>
+<p>After reviewing hundreds of invoices across sectors, the defects cluster predictably. <strong>Freelancers:</strong> vague lines + no advance + Net-30-by-default — the full starter pack of unpaid work. <strong>Agencies:</strong> scope-creep billing (work delivered, never invoiced) and milestone invoices without quote references, which enterprise AP holds for weeks. <strong>Traders/retailers:</strong> GST slab errors and missing HSN codes — high-volume, thin-margin businesses where one slab mistake multiplies across 200 bills. <strong>Consultants:</strong> timesheet-less hourly billing (“40 hours, trust me”) that procurement rejects on sight. Know your sector's signature defect and build one guardrail: freelancers template their lines, agencies gate work on advance receipts, traders validate one slab table quarterly with their CA, consultants attach one-page timesheets above $1,000. Generic checklists catch generic errors; sector guardrails catch yours.</p>
 <div class="cta-box"><strong>Run the checklist now:</strong> open the <a href="/invoice-generator">free invoice generator</a>, fix one old invoice, and send the next one clean. Full system: <a href="/blog/invoice-generator-guide">free invoice generator guide</a>.</div>
 `;
 
@@ -60,7 +62,8 @@ export const invoiceMistakes: BlogPost = {
   readingMinutes: readingMinutesFor(html),
   toc: [
     { id: "the-12", text: "12 mistakes with fixes", level: 2 },
-    { id: "real-fix", text: "Real fix: bounced ₹23,600 bill", level: 2 },
+    { id: "real-fix", text: "Real fix: bounced Rs 23,600 bill", level: 2 },
+    { id: "sector-patterns", text: "Sector mistake patterns", level: 2 },
     { id: "professional-checklist", text: "60-second pre-send checklist", level: 2 },
   ],
   html,

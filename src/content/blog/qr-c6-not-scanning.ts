@@ -25,6 +25,18 @@ const html = `
 <li><strong>Low light:</strong> dim restaurants defeat cameras before codes. Add light on the sign, not a bigger code.</li>
 </ul>
 
+<h2 id="symptom-table">Symptom → cause lookup table</h2>
+<table>
+<thead><tr><th>What you see</th><th>Likely cause</th><th>Fix (minutes)</th></tr></thead>
+<tbody>
+<tr><td><strong>Nothing happens on scan</strong></td><td>Too small / too dense</td><td>Enlarge to 3 cm+ or shorten content, reprint one copy</td></tr>
+<tr><td><strong>Works indoors, fails outside</strong></td><td>Glare or low contrast</td><td>Matte black-on-white reprint with quiet margin</td></tr>
+<tr><td><strong>Scans but wrong action</strong></td><td>Malformed content (WiFi/vCard)</td><td>Rebuild with the right generator, verify via scanner</td></tr>
+<tr><td><strong>Worked last month, fails now</strong></td><td>Fading, damage, or replaced dynamic link</td><td>Reprint fresh; check destination URL still live</td></tr>
+<tr><td><strong>Works on iPhone, not Android</strong></td><td>Dense code + weak camera</td><td>Increase size 50%, simplify content</td></tr>
+</tbody>
+</table>
+
 <h2 id="prevention">Prevention checklist: never diagnose again</h2>
 <p>Every fix above is cheaper as prevention. Tape this list next to whoever prints your codes — it is the entire guide compressed to six lines. Short URLs only; black on white with quiet margin; size per the <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">distance rule</a>; matte flat surfaces; PNG masters archived; one-copy test with two phones at real distance and light. I have not had a single bulk-print failure since adopting this ritual in 2024 — before that, two in one year. The ₹30 test print remains the highest-ROI thirty rupees in small-business marketing.</p>
 
@@ -60,6 +72,7 @@ export const qrNotScanning: BlogPost = {
   toc: [
     { id: "five-causes", text: "5 causes in likelihood order", level: 2 },
     { id: "phone-specific", text: "iPhone vs Android checks", level: 2 },
+    { id: "symptom-table", text: "Symptom → cause table", level: 2 },
     { id: "prevention", text: "Prevention checklist", level: 2 },
     { id: "reprint-protocol", text: "Reprint protocol", level: 2 },
   ],

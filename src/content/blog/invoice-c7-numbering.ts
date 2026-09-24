@@ -48,6 +48,8 @@ const html = `
 <li><strong>Two series collided:</strong> freeze one, rename forward (INV-GST-011 onward), log the change date.</li>
 <li><strong>Wrong tax on numbered bill:</strong> credit-note the line, re-issue corrected split. Cross-check with the <a href="/gst-calculator">GST calculator</a>.</li>
 </ol>
+<h2 id="fy-reset">Financial-year resets (India April–March)</h2>
+<p>Most Indian businesses restart numbering each financial year: INV-2026-001 runs April 2026–March 2027, then INV-2027-001 begins. Why it matters: GST filings, audits and TDS certificates all slice by financial year — continuous cross-year numbering forces awkward filtering every March. Implementation: prefix with FY (INV/FY26-27/001) or year (INV-2026-001) so sorts stay chronological; freeze the old series on March 31 with a logged closing number; open the new series April 1 even if old invoices are still being paid (payment date and invoice date differ legitimately). US/UK readers: calendar-year or continuous numbering both pass — pick one and document it in your books. Changing schemes mid-stream? Log the change date and keep both series searchable; auditors forgive documented transitions, never silent ones.</p>
 <div class="cta-box"><strong>Number it right now:</strong> open the <a href="/invoice-generator">free invoice generator</a> with INV-2026-001 and sequential discipline. Pillar: <a href="/blog/invoice-generator-guide">free invoice generator guide</a> · Build steps: <a href="/blog/invoice-generator-guide/how-to-create-invoice-online">how to create an invoice online</a>.</div>
 `;
 
@@ -68,6 +70,7 @@ export const invoiceNumbering: BlogPost = {
     { id: "format-rules", text: "Numbering formats that pass audits", level: 2 },
     { id: "gstin-hsn-tax", text: "GSTIN, HSN and tax field placement", level: 2 },
     { id: "us-uk", text: "US and UK equivalents", level: 2 },
+    { id: "fy-reset", text: "Financial-year resets", level: 2 },
     { id: "fixes", text: "Fixes for 4 numbering messes", level: 2 },
   ],
   html,

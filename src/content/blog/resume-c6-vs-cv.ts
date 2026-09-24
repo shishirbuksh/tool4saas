@@ -32,6 +32,8 @@ const html = `
 <p>No photo on resumes or CVs across India, US and UK — with one narrow exception: acting, modeling, and front-desk hospitality roles where appearance is a stated criterion. Everyone else: photo-free, parser-clean, bias-safe.</p>
 <h2 id="portal-labels">Portal labels decoded (Naukri, LinkedIn, Indeed)</h2>
 <p>Indian portals say “upload CV” while expecting a resume — the button label is legacy, the parser wants the short tailored document. LinkedIn Easy Apply pulls your profile, so profile-resume consistency decides: same titles, same dates, same metrics. Mismatches (Senior on LinkedIn, SDE-2 on resume) read as inflation. Indeed and Naukri parse your uploaded PDF into fields — check the autofilled preview; garbled fields mean your layout failed parsing, fix per <a href="/blog/resume-builder-guide/ats-resume-guide">ATS guide</a> and re-upload. Government portals (UPSC, SSC, PSU) are the true biodata lane: follow their proforma exactly, attach exactly what is asked, nothing creative — compliance is the test there, not design.</p>
+<h2 id="hybrid-cases">Hybrid cases: LinkedIn, portfolios and one-pagers</h2>
+<p>Three modern formats confuse the trio further. <strong>LinkedIn profile:</strong> not a document at all — a searchable database recruiters query; mirror resume titles/dates exactly or mismatches read as inflation. <strong>Portfolio/behance:</strong> proof companion, never a substitute — attach the resume first, link the portfolio inside it. <strong>One-page executive summary:</strong> senior networking handout, not an application — fine for conferences, rejected by portals that parse standard sections. Rule: portals get the resume (parseable), humans get resume + links, academia gets the CV, government proformas get exactly the proforma. When a posting says “CV” but the portal is Naukri/LinkedIn, send the resume — the button label is legacy, the parser wants the short tailored document per <a href="#portal-labels">portal labels above</a>.</p>
 <div class="cta-box"><strong>Build the right one now:</strong> resume in the <a href="/resume-builder">free resume builder</a>. System: <a href="/blog/resume-builder-guide">pillar guide</a> · Formats: <a href="/blog/resume-builder-guide/resume-format-guide">format guide</a>.</div>
 `;
 
@@ -58,6 +60,7 @@ export const resumeVsCv: BlogPost = {
     { id: "three-docs", text: "Three documents side by side", level: 2 },
     { id: "which-when", text: "Which to send when", level: 2 },
     { id: "portal-labels", text: "Portal labels decoded", level: 2 },
+    { id: "hybrid-cases", text: "LinkedIn, portfolios, one-pagers", level: 2 },
   ],
   html,
   faqs: [

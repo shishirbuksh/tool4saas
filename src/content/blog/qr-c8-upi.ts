@@ -35,6 +35,15 @@ const html = `
 
 <h2 id="reconciliation">Reconciliation: match QR collections to sales at day end</h2>
 <p>QR money lands straight in your bank — which means the counter register and the bank statement must agree every evening, or leakage hides in the gap. The routine that works for single-counter shops: note each bill total on a paper pad or billing app as usual, then compare the day's UPI credits (bank SMS/app statement) against QR-mode sales before closing. Mismatches come from three places: a customer who scanned but never entered their PIN (no credit — call it an unpaid bill, not a sale), a wrong-amount open-code payment (under/over — settle the difference next visit or refund on the spot), and mixed cash/UPI confusion (mark the mode per bill, every bill). Vendors who reconcile daily catch a ₹450 “paid” claim with no matching credit within hours; vendors who reconcile monthly write off hundreds. Five minutes at close, house-money protected.</p>
+<h2 id="fraud-cases">QR swap fraud: how it works and how shops stop it</h2>
+<p>The attack is simple: a scammer prints their own UPI QR on a sticker and pastes it over the shop's code during rush hours. Customers pay the criminal; the shop loses the sale and discovers it at day-end reconciliation. I have read three such cases from Indian market shopkeepers in 2025–26 — losses of Rs 3,000–12,000 before anyone noticed.</p>
+<ul>
+<li><strong>Laminate behind the counter glass</strong> instead of paper on the wall — stickers do not adhere to glass counters cleanly and staff see tampering instantly.</li>
+<li><strong>Brand the code:</strong> print shop name + “Pay to Sharma General Store only” around the QR. Generic codes invite swaps; labeled ones expose them.</li>
+<li><strong>Morning verification ritual (30 seconds):</strong> first staffer scans the displayed code and confirms the payee name on screen. Log it on the cash sheet — accountability makes it happen daily.</li>
+<li><strong>Soundbox > screen:</strong> Rs 1,000–1,500 UPI speakers announce “Rs 450 received” aloud. Fake-payment screenshots cannot fake audio the whole counter hears.</li>
+<li><strong>Two-code rotation for big days:</strong> festivals and sale days draw crowds (and scammers). Swap to the backup code each morning; compare both statements at close.</li>
+</ul>
 <div class="cta-box"><strong>Set it up today:</strong> build the payee code in the <a href="/qr-code-generator">free QR code generator</a>, laminate it, verify the name display. Business playbook: <a href="/blog/qr-code-generator-guide/qr-code-for-business">QR for business</a> · Overview: <a href="/blog/qr-code-generator-guide">pillar guide</a>.</div>
 `;
 
@@ -62,6 +71,7 @@ export const qrUpi: BlogPost = {
     { id: "setup", text: "Fixed vs open amount setup", level: 2 },
     { id: "counter-setup", text: "Counter setup: fraud + errors", level: 2 },
     { id: "reconciliation", text: "Reconciliation at day end", level: 2 },
+    { id: "fraud-cases", text: "QR swap fraud defense", level: 2 },
   ],
   html,
   faqs: [

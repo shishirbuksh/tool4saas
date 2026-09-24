@@ -51,6 +51,8 @@ const html = `
 <li><strong>Too small / glossy glare</strong> — enlarge to 8 cm, matte finish, flat surface. Full diagnosis in <a href="/blog/qr-code-generator-guide/qr-code-not-scanning-fix">QR not scanning fixes</a>.</li>
 <li><strong>Ancient phone</strong> — pre-2018 cameras may need a scanner app; verify what the code contains with our <a href="/qr-scanner">QR scanner</a> first.</li>
 </ol>
+<h2 id="multi-network">Multi-network setups: home + office + events</h2>
+<p>One code per network, labeled by purpose — the system scales cleanly. <strong>Home:</strong> main SSID unprinted, plus a guest-SSID fridge card for visitors (rotate when tenants change). <strong>Office:</strong> staff network (password via IT onboarding, never QR-posted) plus a lobby guest code framed at reception with the day's password version noted. <strong>Events:</strong> per-day codes work best — “ conf-wifi-day1” printed on badges, day 2 rotated, which also expires hallway access automatically when the event ends. <strong>PGs/hostels:</strong> per-floor SSIDs keep support sane (“which floor?” answers itself). Common failure: one shared code photographed and forwarded beyond its audience — scope each code's network to what its audience should reach, per the <a href="#guest-network-security">security section above</a>, and version filenames (lobby-guest-sep2026.png) so old prints get binned on rotation.</p>
 <div class="cta-box"><strong>Make it now:</strong> open the <a href="/wifi-qr-generator">WiFi QR generator</a> — SSID, password, print, done in 2 minutes. Overview: <a href="/blog/qr-code-generator-guide">QR pillar guide</a> · Sizing math: <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">print guide</a>.</div>
 `;
 
@@ -78,6 +80,7 @@ export const qrWifi: BlogPost = {
     { id: "step-by-step", text: "Make yours in 4 steps", level: 2 },
     { id: "placement-sizes", text: "Placement + sizes", level: 2 },
     { id: "guest-network-security", text: "Guest network security", level: 2 },
+    { id: "multi-network", text: "Multi-network setups", level: 2 },
     { id: "troubleshooting", text: "When it will not join", level: 2 },
   ],
   html,
