@@ -206,7 +206,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
         </Box>
 
         {/* Body */}
-        <Box>
+        <Box color="text.primary">
           <article className="blog-body" dangerouslySetInnerHTML={{ __html: post.html }} />
           {secondaryTools.length > 0 && (
             <Box sx={{ mt: 4, p: 3, borderRadius: "12px", bgcolor: "action.hover", border: "1px solid", borderColor: "divider" }}>

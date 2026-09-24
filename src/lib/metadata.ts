@@ -28,7 +28,11 @@ export function toolMetadata(slug: string): Metadata {
   const fullTitle = `${core} | Tool4SaaS`;
 
   return {
-    title: fullTitle,
+    // absolute: bypasses layout title.template (%s | Tool4SaaS) which would
+    // otherwise render a double suffix "... | Tool4SaaS | Tool4SaaS" (~80ch,
+    // truncated in SERPs). Category pages use plain-string titles and are the
+    // only correct consumers of the template.
+    title: { absolute: fullTitle },
     description: tool.description,
     applicationName: siteConfig.name,
     authors: [{ name: siteConfig.author }],
@@ -112,8 +116,14 @@ export function staticPageMetadata(opts: {
   const base = siteConfig.url.replace(/\/$/, "");
   const url = `${base}${opts.path}`;
   const ogImage = `${base}/og/home`;
+  // absolute: static titles already carry brand once (e.g. "Our Authors -
+  // Tool4SaaS Editorial Team"); plain strings would get a second suffix from
+  // the layout template. Titles without brand get it appended once here.
+  const absoluteTitle = opts.title.includes(siteConfig.name)
+    ? opts.title
+    : `${opts.title} | ${siteConfig.name}`;
   return {
-    title: opts.title,
+    title: { absolute: absoluteTitle },
     description: opts.description,
     alternates: {
       canonical: url,

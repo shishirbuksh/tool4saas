@@ -6,24 +6,10 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { getCategory, type Tool } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
+import { getDateModifiedIso, SITE_PUBLISHED_ISO } from "@/lib/dates";
 
-// Stagger dateModified per-tool across Sept 1-9 2026 from a deterministic
-// slug hash (charCode sum % 9 + 1). This avoids a programmatic same-date
-// freshness signal where every tool page shares an identical dateModified.
-function getStaggeredDay(slug: string): number {
-  let sum = 0;
-  for (let i = 0; i < slug.length; i++) sum += slug.charCodeAt(i);
-  return (sum % 9) + 1;
-}
-
-// Honest staggered dates: datePublished is the earliest staggered day
-// (2026-09-01) and dateModified is this tool's deterministic staggered day
-// (Sept 1-9), so modified >= published always holds without clamping and the
-// JSON-LD date matches the visible <time> date in ToolPageShell.
-function getDateModifiedIso(slug: string): string {
-  const day = getStaggeredDay(slug);
-  return `2026-09-${String(day).padStart(2, "0")}`;
-}
+// Staggered dateModified per-tool (Sept 1-9) — see src/lib/dates.ts
+// (shared with ToolPageShell visible <time> and sitemap lastmod).
 
 export default function ToolSeo({ tool }: { tool: Tool }) {
   const cat = getCategory(tool.category);
@@ -31,7 +17,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
   const url = `${base}/${tool.slug}`;
   const catUrl = cat ? `${base}/category/${cat.id}` : undefined;
 
-  const datePublished = "2026-09-01";
+  const datePublished = SITE_PUBLISHED_ISO;
   const dateModified = getDateModifiedIso(tool.slug);
 
   // Validate JSON-LD inputs: drop malformed/empty entries so FAQPage always

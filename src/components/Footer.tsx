@@ -228,6 +228,13 @@ export default function Footer() {
                 </Link>
               </Box>
               <Box component="li">
+                <Link href="/blog/mortgage-calculator-guide" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                    Mortgage Calculator Guide
+                  </Typography>
+                </Link>
+              </Box>
+              <Box component="li">
                 <Link href={`mailto:${siteConfig.email}`} className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
                   <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
                     Contact Support

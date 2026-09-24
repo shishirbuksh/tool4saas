@@ -11,7 +11,8 @@ const base = siteConfig.url.replace(/\/$/, "");
 describe("SEO metadata", () => {
   it('toolMetadata("word-counter") title is 30-70 chars and contains Tool4SaaS', () => {
     const meta = toolMetadata("word-counter");
-    const title = meta.title as string;
+    // Absolute title object bypasses layout template (no double suffix).
+    const title = (meta.title as { absolute: string }).absolute as string;
     expect(typeof title).toBe("string");
     expect(title).toContain("Tool4SaaS");
     expect(title.length).toBeGreaterThanOrEqual(30);
@@ -20,7 +21,7 @@ describe("SEO metadata", () => {
 
   it("every tool title is 30-70 chars and contains Tool4SaaS", () => {
     for (const t of tools) {
-      const title = toolMetadata(t.slug).title as string;
+      const title = (toolMetadata(t.slug).title as { absolute: string }).absolute as string;
       expect(title, `${t.slug} brand`).toContain("Tool4SaaS");
       expect(title.length, `${t.slug} len=${title.length}`).toBeGreaterThanOrEqual(30);
       expect(title.length, `${t.slug} len=${title.length}`).toBeLessThanOrEqual(70);

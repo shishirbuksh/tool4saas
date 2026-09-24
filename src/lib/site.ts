@@ -14,7 +14,7 @@ export const siteConfig = {
   name: "Tool4SaaS",
   title: "Free Online Tools - Invoice, QR, Resume Builder | Tool4SaaS",
   description:
-    "Free online tools: invoice generator, QR code generator, resume builder and word counter. No sign-up needed, works in your browser instantly, try now.",
+    "185 free online tools: invoice generator, QR code generator, resume builder and word counter. No sign-up, works in your browser — try now.",
   keywords: [
     "free online tools",
     "invoice generator",

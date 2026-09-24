@@ -9,16 +9,10 @@ import RelatedTools from "@/components/RelatedTools";
 import RelatedGuides from "@/components/blog/RelatedGuides";
 import { getCategory, NOINDEX_SLUGS, tools, type Tool } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
+import { getStaggeredDay } from "@/lib/dates";
 
-// Stagger dateModified per-tool across Sept 1-9 2026 from a deterministic
-// slug hash (charCode sum % 9 + 1). This avoids a programmatic same-date
-// freshness signal where every tool page shares an identical dateModified.
-// Duplicated locally (same logic as ToolSeo) to keep components independent.
-function getStaggeredDay(slug: string): number {
-  let sum = 0;
-  for (let i = 0; i < slug.length; i++) sum += slug.charCodeAt(i);
-  return (sum % 9) + 1;
-}
+// Staggered dateModified per-tool (Sept 1-9) — see src/lib/dates.ts
+// (shared with ToolSeo JSON-LD and sitemap lastmod).
 
 const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 

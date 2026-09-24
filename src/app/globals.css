@@ -302,7 +302,7 @@ output,
 }
 
 /* ---------- Blog article body (SSR HTML, SEO semantic) ---------- */
-.blog-body { color: var(--mui-palette-text-primary, #1a1a1a); line-height: 1.8; font-size: 1.02rem; }
+.blog-body { color: inherit; line-height: 1.8; font-size: 1.02rem; }
 .blog-body h2 { font-size: 1.6rem; font-weight: 800; margin: 2.5rem 0 1rem; scroll-margin-top: 110px; letter-spacing: -0.02em; line-height: 1.25; }
 .blog-body h3 { font-size: 1.2rem; font-weight: 700; margin: 1.75rem 0 0.75rem; scroll-margin-top: 110px; }
 .blog-body p { margin: 0 0 1.1rem; max-width: 68ch; }

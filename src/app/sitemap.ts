@@ -2,13 +2,16 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { tools, CATEGORIES, NOINDEX_SLUGS } from "@/lib/tools";
 import { BLOG_PILLARS, getClustersForPillar } from "@/lib/blog-registry";
+import { getDateModifiedIso } from "@/lib/dates";
 
 export const revalidate = 86400;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url.replace(/\/$/, "");
-  // Stable build-time date: avoids lastmod churn (every URL "changed daily")
-  // which wastes crawl budget. Bump only when content actually changes.
+  // Stable build-time date for static pages: avoids lastmod churn (every URL
+  // "changed daily") which wastes crawl budget. Bump only when content
+  // actually changes. Tool routes use per-tool staggered dates below so
+  // sitemap lastmod matches the visible <time> + JSON-LD dateModified.
   const lastModified = new Date("2026-09-09T00:00:00.000Z");
 
   const home: MetadataRoute.Sitemap = [
@@ -71,7 +74,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((t) => !NOINDEX_SLUGS.has(t.slug))
     .map((t) => ({
     url: `${base}/${t.slug}`,
-    lastModified,
+    // Staggered per-tool date (Sept 1-9) — matches ToolSeo JSON-LD
+    // dateModified + ToolPageShell visible <time> (see src/lib/dates.ts).
+    lastModified: new Date(`${getDateModifiedIso(t.slug)}T00:00:00.000Z`),
     changeFrequency: "monthly",
     priority: priorityForTool(t.slug, t.category),
     // OG images double as sitemap <image:image> entries (Google image sitemap).

@@ -223,6 +223,7 @@
 - [Free Invoice Generator Guide: Create Professional Invoices Fast](https://tool4saas.com/blog/invoice-generator-guide)
 - [Free QR Code Generator Guide: Create Scannable QR Codes Fast](https://tool4saas.com/blog/qr-code-generator-guide)
 - [Free Resume Builder Guide: Build a Job-Winning Resume Fast](https://tool4saas.com/blog/resume-builder-guide)
+- [Mortgage Calculator Guide: Payments, PMI & Amortization](https://tool4saas.com/blog/mortgage-calculator-guide)
 
 ## Site
 - [Sitemap](https://tool4saas.com/sitemap.xml): Machine-readable list of all pages.

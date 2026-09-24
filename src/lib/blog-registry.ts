@@ -29,6 +29,16 @@ import { resumeVsCv } from "@/content/blog/resume-c6-vs-cv";
 import { resumeCoverLetter } from "@/content/blog/resume-c7-cover-letter";
 import { resumeMistakes } from "@/content/blog/resume-c8-mistakes";
 import { resumeOfferLetter } from "@/content/blog/resume-c9-offer-letter";
+import { mortgagePillar } from "@/content/blog/mortgage-pillar";
+import { mortgageHowTo } from "@/content/blog/mortgage-c1-how-to";
+import { mortgageAfford } from "@/content/blog/mortgage-c2-afford";
+import { mortgageTerm } from "@/content/blog/mortgage-c3-term";
+import { mortgageRefi } from "@/content/blog/mortgage-c4-refi";
+import { mortgageOverpay } from "@/content/blog/mortgage-c5-overpay";
+import { mortgageIndia } from "@/content/blog/mortgage-c6-india";
+import { mortgageAmort } from "@/content/blog/mortgage-c7-amort";
+import { mortgageDown } from "@/content/blog/mortgage-c8-down";
+import { mortgageRentBuy } from "@/content/blog/mortgage-c9-rentbuy";
 
 export const BLOG_PILLARS: BlogPillarMeta[] = [
   {
@@ -79,6 +89,22 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     ],
     updated: "2026-09-23",
   },
+  {
+    pillar: "mortgage-calculator-guide",
+    title: "Mortgage Calculator Guide: Payments, PMI & Amortization",
+    shortLabel: "Mortgage Guide",
+    description:
+      "The complete mortgage calculator guide — PITI, formula with $240k example, amortization, 15-vs-30, refinance, India EMI + rent-vs-buy. Free calculator.",
+    toolSlug: "mortgage-calculator",
+    keywords: [
+      "mortgage calculator guide",
+      "home loan calculator guide",
+      "house payment estimator",
+      "piti vs principal and interest",
+      "home loan emi calculator india",
+    ],
+    updated: "2026-09-24",
+  },
 ];
 
 const ALL_POSTS: BlogPost[] = [
@@ -112,6 +138,16 @@ const ALL_POSTS: BlogPost[] = [
   resumeCoverLetter,
   resumeMistakes,
   resumeOfferLetter,
+  mortgagePillar,
+  mortgageHowTo,
+  mortgageAfford,
+  mortgageTerm,
+  mortgageRefi,
+  mortgageOverpay,
+  mortgageIndia,
+  mortgageAmort,
+  mortgageDown,
+  mortgageRentBuy,
 ];
 
 export function getPillarMeta(pillar: string): BlogPillarMeta | undefined {

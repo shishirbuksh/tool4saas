@@ -8,28 +8,23 @@ import Typography from "@mui/material/Typography";
 //
 // Every href below is verified against src/lib/blog-registry.ts
 // (pillar + cluster slugs in src/content/blog/*). No dead links.
-// Finance heroes without a dedicated pillar yet (mortgage-calculator,
-// emi-calculator, sip-calculator, compound-interest-calculator,
-// fd-calculator, ppf-calculator) are intentionally unmapped until a
-// finance pillar ships — mapping them to invoice/QR/resume posts would
-// be irrelevant. Mapped heroes (word-counter, image-compressor,
-// pdf-merge) link only to topically adjacent existing guides.
+// Tools without a relevant silo yet (sip-calculator,
+// compound-interest-calculator, fd-calculator, ppf-calculator,
+// image-compressor, pdf-merge, ...) stay unmapped — mapping them to
+// unrelated posts would be irrelevant.
+// unmapped until dedicated image/pdf pillars ship. Mapped hero
+// (word-counter) links only to topically adjacent existing guides.
 const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   // ---- Mapped heroes (existing guides only) ----
+  // word-counter maps to resume writing-quality guides (cover letters, ATS
+  // wording) — the closest existing cluster for a writing tool. Image/PDF
+  // heroes (image-compressor, pdf-merge) are intentionally unmapped until
+  // dedicated image/pdf pillars ship — linking them to unrelated posts
+  // would be topically misleading.
   "word-counter": [
     { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
-    { href: "/blog/resume-builder-guide/how-to-make-resume", title: "How to make a resume in 15 minutes + tailor it" },
-    { href: "/blog/resume-builder-guide/resume-format-guide", title: "Resume format: sections, order & norms" },
-  ],
-  "image-compressor": [
-    { href: "/blog/qr-code-generator-guide", title: "Free QR Code Generator Guide (pillar)" },
-    { href: "/blog/qr-code-generator-guide/qr-code-size-print-guide", title: "QR code size guide for print & distance" },
-    { href: "/blog/qr-code-generator-guide/how-to-create-qr-code", title: "How to create a QR code free in 60 seconds" },
-  ],
-  "pdf-merge": [
-    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
-    { href: "/blog/invoice-generator-guide/invoice-template-formats", title: "Free invoice templates: Word, Excel & PDF formats" },
-    { href: "/blog/invoice-generator-guide/how-to-create-invoice-online", title: "How to create an invoice online in 5 steps" },
+    { href: "/blog/resume-builder-guide/cover-letter-guide", title: "Cover letter: 4-paragraph format that wins" },
+    { href: "/blog/resume-builder-guide/ats-resume-guide", title: "ATS-friendly resume: beat tracking software" },
   ],
   // ---- Finance tools with topical guides ----
   "freelance-rate-calculator": [
@@ -178,6 +173,45 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
     { href: "/blog/resume-builder-guide/offer-letter-guide", title: "Offer letter: CTC math, clauses & negotiation" },
     { href: "/blog/resume-builder-guide/experienced-resume-guide", title: "Resume for experienced professionals" },
+  ],
+  "mortgage-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment", title: "How to calculate mortgage payment: formula + examples" },
+    { href: "/blog/mortgage-calculator-guide/15-vs-30-year-mortgage", title: "15 vs 30 year mortgage: interest & payoff compared" },
+    { href: "/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment", title: "Extra mortgage payments: interest saved" },
+  ],
+  "home-affordability-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/how-much-house-can-i-afford", title: "How much house can I afford? 28/36 rule" },
+    { href: "/blog/mortgage-calculator-guide/rent-vs-buy-house", title: "Rent vs buy: 5% rule + break-even math" },
+  ],
+  "refinance-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage", title: "Should I refinance? Break-even rule + checklist" },
+    { href: "/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment", title: "Extra mortgage payments: interest saved" },
+  ],
+  "mortgage-overpayment-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment", title: "Extra mortgage payments: interest saved" },
+    { href: "/blog/mortgage-calculator-guide/mortgage-amortization-schedule", title: "Amortization schedule: how payments split" },
+  ],
+  "emi-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india", title: "Home loan EMI & eligibility India" },
+  ],
+  "home-loan-eligibility-india": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india", title: "Home loan EMI & eligibility India" },
+  ],
+  "loan-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment", title: "How to calculate mortgage payment: formula + examples" },
+    { href: "/blog/mortgage-calculator-guide/15-vs-30-year-mortgage", title: "15 vs 30 year mortgage: interest & payoff compared" },
+  ],
+  "rent-vs-buy-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/rent-vs-buy-house", title: "Rent vs buy: 5% rule + break-even math" },
+    { href: "/blog/mortgage-calculator-guide/how-much-house-can-i-afford", title: "How much house can I afford? 28/36 rule" },
   ],
 };
 
