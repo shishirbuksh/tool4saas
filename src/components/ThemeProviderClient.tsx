@@ -32,16 +32,17 @@ export default function ThemeProviderClient({
   // layout.tsx (which already resolved localStorage → matchMedia). This keeps
   // the first client render in sync with the pre-hydration DOM instead of
   // flashing "light" then switching in an effect.
-  const [mode, setMode] = useState<Mode>(() => {
-    if (typeof document !== "undefined") {
-      const t = document.documentElement.getAttribute("data-theme");
-      if (t === "light" || t === "dark") return t;
-    }
-    return "light";
-  });
+  const [mode, setMode] = useState<Mode>("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // Read from the pre-hydration DOM to sync up with the inline script in layout.tsx.
+    // We defer this to useEffect so the very first client render matches the SSR "light"
+    // state, avoiding React hydration mismatch errors on MUI class hashes.
+    const t = document.documentElement.getAttribute("data-theme");
+    if (t === "light" || t === "dark") {
+      setMode(t);
+    }
     setMounted(true);
   }, []);
 
