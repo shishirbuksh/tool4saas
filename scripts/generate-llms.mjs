@@ -83,12 +83,12 @@ const visibleTools = tools.filter((t) => t.slug && !NOINDEX_SLUGS.has(t.slug));
 // NOTE: /contact + /author (src/app/author exists) included in Overview.
 // NOTE: counts use visibleTools (NOINDEX_SLUGS excluded) to stay consistent
 // with the sitemap exclusion.
-let out = `# Tool4SaaS (${visibleTools.length} free tools across ${categories.length} categories)
+let out = `# Tool4SaaS (${tools.length} free tools across ${categories.length} categories)
 
-> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. ${visibleTools.length} tools across ${categories.length} categories.
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. ${tools.length} tools across ${categories.length} categories.
 
 ## Overview
-- [Tool4SaaS](${siteUrl}/): Home page with all ${visibleTools.length} free tools grouped by ${categories.length} categories.
+- [Tool4SaaS](${siteUrl}/): Home page with all ${tools.length} free tools grouped by ${categories.length} categories.
 - [About](${siteUrl}/about): What the site is and how it protects your privacy.
 - [Privacy Policy](${siteUrl}/privacy): How user data is handled (it stays in your browser).
 - [Contact](${siteUrl}/contact): Contact the Tool4SaaS team.

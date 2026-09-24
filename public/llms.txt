@@ -1,9 +1,9 @@
-# Tool4SaaS (184 free tools across 12 categories)
+# Tool4SaaS (185 free tools across 12 categories)
 
-> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 184 tools across 12 categories.
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 185 tools across 12 categories.
 
 ## Overview
-- [Tool4SaaS](https://tool4saas.com/): Home page with all 184 free tools grouped by 12 categories.
+- [Tool4SaaS](https://tool4saas.com/): Home page with all 185 free tools grouped by 12 categories.
 - [About](https://tool4saas.com/about): What the site is and how it protects your privacy.
 - [Privacy Policy](https://tool4saas.com/privacy): How user data is handled (it stays in your browser).
 - [Contact](https://tool4saas.com/contact): Contact the Tool4SaaS team.
