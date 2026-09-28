@@ -168,7 +168,7 @@ export async function generateMetadata({
   return {
     title: category.label,
     description: category.description,
-    alternates: { canonical },
+    alternates: { canonical, languages: { en: canonical, "x-default": canonical } },
     robots: {
       index: true,
       follow: true,
@@ -189,13 +189,13 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       title: `${category.label} — ${siteConfig.name}`,
       description: category.description,
-      images: [{ url: "/og/home", width: 1200, height: 630, alt: `${category.label} — ${siteConfig.name}` }],
+      images: [{ url: `${base}/og/home`, width: 1200, height: 630, alt: `${category.label} — ${siteConfig.name}` }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${category.label} — ${siteConfig.name}`,
       description: category.description,
-      images: ["/og/home"],
+      images: [`${base}/og/home`],
     },
   };
 }

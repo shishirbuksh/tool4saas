@@ -34,10 +34,10 @@ export function blogMetadataFor(post: BlogPost) {
   }
   const fullTitle = `${core} | Tool4SaaS`;
   return {
-    title: fullTitle,
+    title: { absolute: fullTitle },
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical },
+    alternates: { canonical, languages: { en: canonical, "x-default": canonical } },
     robots: {
       index: true,
       follow: true,

@@ -497,6 +497,8 @@
   - What can I encode with this general QR generator?
   - Can I download the QR code as an image?
   - What QR size should I download for print vs screen?
+  - Which payload types work best — URL, UPI, or vCard?
+  - How large should my printed QR be for scanning distance?
 - Steps: Enter content → Choose size → Preview and check → Download PNG
 
 ### Image Compressor
@@ -506,7 +508,9 @@
   - Are my images uploaded to a server?
   - Will I lose image quality?
   - What file size and dimension limits apply?
-- Steps: Select an image → Adjust quality → Compare results → Download
+  - Should I choose JPG or PNG for compression?
+  - What DPI and dimensions survive compression?
+- Steps: Select an image → Adjust quality slider → Compare results at zoom → Download compressed file
 
 ### Color Converter
 - URL: https://tool4saas.com/color-converter
@@ -704,7 +708,7 @@
 - What: Images → PDF
 - FAQ:
   - What formats are supported?
-  - Is my images uploaded when I use this Image to PDF?
+  - Are my images uploaded when I use this Image to PDF?
   - How many images and what size can I convert?
 - Steps: Add images → Choose page setup → Order pages → Generate PDF
 
@@ -715,6 +719,8 @@
   - Is combining PDFs private and what are the limits?
   - Can I reorder files?
   - How many PDFs and pages can I merge?
+  - What happens to forms, annotations, and bookmarks during merging?
+  - Why does an encrypted PDF refuse to merge?
 - Steps: Select PDFs → Reorder files → Check page counts → Merge and download
 
 ### PDF Splitter
@@ -888,6 +894,7 @@
   - Is this mortgage calculator financial advice?
   - Does my mortgage data stay private in this tool?
   - How accurate is the amortization schedule?
+  - Should I choose a 15-year or 30-year mortgage?
 - Steps: Enter loan → Add down payment → View EMI → Export and compare
 
 ### Compound Interest Calculator
@@ -897,6 +904,8 @@
   - How does compounding frequency change my maturity?
   - Is this compound interest calculator investment advice?
   - Does my investment data stay on this device?
+  - How much extra do monthly rests earn over yearly rests?
+  - Should I choose a lump sum or start a SIP?
 - Steps: Enter principal → Set rate and years → View maturity → Compare scenarios
 
 ### Salary Calculator
@@ -944,6 +953,7 @@
   - Is this SIP calculator financial advice?
   - Does my SIP input stay on this device?
   - How accurate is the SIP projection?
+  - Should I choose a yearly step-up SIP?
 - Steps: Enter SIP → Set rate and years → View growth → Compare plans
 
 ### Simple Interest Calculator
@@ -1026,6 +1036,7 @@
   - Is this EMI calculator financial advice?
   - Does my loan data stay on this device?
   - How accurate is this EMI estimate?
+  - Which Indian lender rates should I compare?
 - Steps: Enter principal → Set rate & tenure → View EMI → Compare scenarios
 
 ### Home Loan Eligibility India
@@ -1072,7 +1083,8 @@
   - Is TDS included in the FD maturity?
   - Do senior-citizen rates or early withdrawal change maturity?
   - Is my FD data private?
-- Steps: Enter principal → Set rate → View maturity → Compare tenures
+  - How should I ladder FDs for liquidity and yield?
+- Steps: Enter principal → Set rate and tenure → View maturity → Compare tenures and rates
 
 ### PPF Calculator India 7.1%
 - URL: https://tool4saas.com/ppf-calculator
@@ -1082,7 +1094,8 @@
   - What are the PPF deposit limits and lock-in rules?
   - When should I deposit to earn the most PPF interest?
   - Is my PPF data private?
-- Steps: Enter deposit → Confirm rate → View schedule → Compare deposits
+  - How do extension blocks and EEE taxation work?
+- Steps: Enter deposit → Confirm rate and tenure → View schedule → Compare deposits
 
 ### Debt Payoff Calculator
 - URL: https://tool4saas.com/debt-payoff-calculator

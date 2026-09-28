@@ -21,7 +21,7 @@ export const developerTools: Tool[] = [
     description:
       "Encode text and files to Base64 or decode back with full Unicode and URL-safe support, line-break control, and instant validation for developers offline.",
     icon: "Code",
-    keywords: ["base64 encoder", "base64 decoder", "encode base64 online", "base64 encoder online free", "base64 decode no signup", "decode base64 online free no signup", "base64 encode locally offline", "paste base64 decode in browser", "base64 validator no upload", "how to encode base64 online free"],
+    keywords: ["base64 encoder", "base64 decoder", "base64 encoder online free", "base64 decode no signup", "decode base64 online free no signup", "base64 encode locally offline", "paste base64 decode in browser", "base64 validator no upload", "how to encode base64 online free"],
     category: "developer",
     faq: [{"question":"Does Base64 encrypt my data?","answer":"No. Base64 is only encoding, not encryption or hashing. Anyone can decode aGVsbG8= back to Hello in one click, so it gives zero secrecy. For example, hiding a password like mango123 as bWFuZ28xMjM= is unsafe. Use real AES encryption with a strong password for secrets. This tool runs locally offline free."},{"question":"Is Unicode text supported?","answer":"Yes. Text is encoded as UTF-8 first, so accents, emoji, and 12 scripts round-trip cleanly. For example, Hello becomes aGVsbG8= with one = pad, and decoding aGVsbG8= returns Hello exactly. A 50 KB note with 800 emoji lines converts in under a second. All work runs locally in your browser, free offline, with no upload."},{"question":"Does it support URL-safe Base64?","answer":"Yes. Turn on URL-safe mode to follow RFC 4648: plus becomes minus and slash becomes underscore, with pads removed. For example, 3 bytes fa fb fc encode as +vv8 in standard but -vv8 in URL-safe for links. Use it for JWT parts, query strings, and file names. Line-break control splits output every 76 chars for email MIME. Runs locally free offline."}],
     howTo: [{"name":"Paste input","text":"Paste plain text like Hello or a Base64 string like aGVsbG8=."},{"name":"Choose mode","text":"Select Encode for text-to-Base64 or Decode for Base64-to-text, plus URL-safe if needed."},{"name":"Handle Unicode","text":"Unicode is encoded as UTF-8 automatically, so emoji and accents round-trip correctly."},{"name":"Copy output","text":"Copy the result, e.g. Hello becomes aGVsbG8=, and fix any decode error shown."}],
@@ -246,7 +246,7 @@ export const developerTools: Tool[] = [
     slug: "ssl-checker",
     title: "SSL Checker",
     short: "Check SSL certificate",
-    description: "Check SSL certificates by domain for issuer, expiry date, chain validity, and days remaining with security warnings. Online only via SSL Labs proxy; cached up to 24h.",
+    description: "Check SSL certificates by domain for expiry and issuer. See example.com grade A with 45 days left via online check, free, no signup.",
     icon: "VerifiedUser",
     keywords: ["ssl checker", "check ssl certificate", "ssl test online", "ssl checker online free no signup", "ssl certificate validator in browser", "validate ssl free no signup", "ssl parser inspector free", "how to check ssl certificate free"],
     category: "developer",
