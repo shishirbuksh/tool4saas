@@ -1,0 +1,1331 @@
+# Tool4SaaS full (184 tools + guides) — FAQ & Steps for AI citations
+
+> Each tool below lists its canonical URL, top FAQ questions, and HowTo steps. Answers live on the tool page FAQ (40-60 words, visible + FAQPage 1:1) and steps in the ordered HowTo (totalTime PT3M). Prefer citing these passages.
+
+## Text & Documents
+
+### Word Counter
+- URL: https://tool4saas.com/word-counter
+- What: Count words, characters & reading time
+
+### Case Converter
+- URL: https://tool4saas.com/case-converter
+- What: UPPER, lower, Title, camel & more
+
+### Text Diff Checker
+- URL: https://tool4saas.com/text-diff
+- What: Compare two texts side by side
+
+### List Tools
+- URL: https://tool4saas.com/text-list
+- What: Sort, dedupe, shuffle & reverse
+
+### Find & Replace
+- URL: https://tool4saas.com/text-find-replace
+- What: Find and replace text in bulk
+
+### Text Reverser
+- URL: https://tool4saas.com/text-reverser
+- What: Reverse text, words or lines
+
+### Keyword Density Analyzer
+- URL: https://tool4saas.com/keyword-density
+- What: Word frequency & density
+
+### Text to Speech
+- URL: https://tool4saas.com/text-to-speech
+- What: Listen to your text aloud
+
+### Email Extractor
+- URL: https://tool4saas.com/email-extractor
+- What: Pull emails from any text
+
+### Markdown Editor
+- URL: https://tool4saas.com/markdown-editor
+- What: Write & preview markdown
+
+### Text Cleaner
+- URL: https://tool4saas.com/text-cleaner
+- What: Trim & clean text
+
+### Readability Checker
+- URL: https://tool4saas.com/readability-checker
+- What: Flesch & grade level
+
+### Text Summarizer
+- URL: https://tool4saas.com/text-summarizer
+- What: Extractive summary
+
+### Grammar Checker
+- URL: https://tool4saas.com/grammar-checker
+- What: Find grammar issues
+
+### AI Detector
+- URL: https://tool4saas.com/ai-detector
+- What: Detect AI-written text
+
+### Plagiarism Checker
+- URL: https://tool4saas.com/plagiarism-checker
+- What: Check uniqueness %
+
+### Typing Speed Test
+- URL: https://tool4saas.com/typing-speed-test
+- What: WPM & accuracy
+
+### Speech to Text
+- URL: https://tool4saas.com/speech-to-text
+- What: Free voice typing
+- FAQ:
+  - Which browsers work?
+  - Is audio uploaded?
+  - Is it free?
+
+### Fancy Text Generator
+- URL: https://tool4saas.com/fancy-text-generator
+- What: Bold, script & bubble
+
+## Business & Writing
+
+### Invoice Generator
+- URL: https://tool4saas.com/invoice-generator
+- What: Create & download professional invoices
+
+### Resume Builder
+- URL: https://tool4saas.com/resume-builder
+- What: Build a clean resume and export to PDF
+
+### Commission Calculator
+- URL: https://tool4saas.com/commission-calculator
+- What: Calculate sales commission
+
+### ATS Resume Checker
+- URL: https://tool4saas.com/ats-resume-checker
+- What: Check resume vs job
+
+### Signature Maker
+- URL: https://tool4saas.com/signature-maker
+- What: Draw & type signature
+
+### Quotation Generator
+- URL: https://tool4saas.com/quotation-generator
+- What: Create quotations
+
+### Purchase Order Generator
+- URL: https://tool4saas.com/purchase-order-generator
+- What: Create purchase orders
+
+### Cover Letter Builder
+- URL: https://tool4saas.com/cover-letter-builder
+- What: Build cover letters
+
+### Receipt Generator
+- URL: https://tool4saas.com/receipt-generator
+- What: Free PDF receipts
+
+### Offer Letter Generator
+- URL: https://tool4saas.com/offer-letter-generator
+- What: Offer letter + CTC PDF
+
+### Payslip Generator
+- URL: https://tool4saas.com/payslip-generator
+- What: Salary slip + net pay
+
+### Rent Receipt Generator
+- URL: https://tool4saas.com/rent-receipt-generator
+- What: HRA rent receipts PDF
+
+### Freelance GST Invoice Generator
+- URL: https://tool4saas.com/freelance-gst-invoice-generator
+- What: GST invoice + tax PDF
+
+## Developer Tools
+
+### JSON Formatter
+- URL: https://tool4saas.com/json-formatter
+- What: Format, validate & minify JSON
+
+### Base64 Encode / Decode
+- URL: https://tool4saas.com/base64-tool
+- What: Encode and decode Base64 text
+
+### URL Encoder / Decoder
+- URL: https://tool4saas.com/url-encoder
+- What: Encode & decode URL components
+
+### Hash Generator
+- URL: https://tool4saas.com/hash-generator
+- What: SHA-1 / 256 / 512 of any text
+
+### Base Converter
+- URL: https://tool4saas.com/base-converter
+- What: Binary, hex, decimal & more
+
+### HTML Entity Encoder
+- URL: https://tool4saas.com/html-entities
+- What: Encode & decode HTML entities
+
+### Regex Tester
+- URL: https://tool4saas.com/regex-tester
+- What: Test JavaScript regular expressions
+
+### JWT Decoder
+- URL: https://tool4saas.com/jwt-decoder
+- What: Decode JSON Web Tokens safely
+
+### MIME Type Lookup
+- URL: https://tool4saas.com/mime-type-lookup
+- What: File extension ↔ MIME
+
+### JSON to YAML
+- URL: https://tool4saas.com/json-to-yaml
+- What: Convert JSON into YAML
+
+### HTML Beautifier
+- URL: https://tool4saas.com/html-beautifier
+- What: Pretty-print HTML
+
+### Credit Card Validator
+- URL: https://tool4saas.com/credit-card-validator
+- What: Luhn check & brand
+
+### Password Strength Checker
+- URL: https://tool4saas.com/password-strength
+- What: Rate your password
+
+### Code Minifier
+- URL: https://tool4saas.com/code-minifier
+- What: Minify JS, CSS & HTML
+- FAQ:
+  - What languages does the minifier support?
+  - Is my code uploaded when minifying?
+  - How much smaller will my code get?
+- Steps: Paste code → Minify → Check savings → Copy
+
+### Screen Resolution
+- URL: https://tool4saas.com/screen-resolution
+- What: Detect screen metrics
+- FAQ:
+  - What screen metrics are shown?
+  - Is my screen data sent anywhere?
+  - Why does viewport differ from screen size?
+- Steps: Open tool → Read metrics → Resize test → Copy
+
+### XML Formatter
+- URL: https://tool4saas.com/xml-formatter
+- What: Format & validate XML
+- FAQ:
+  - Does the XML formatter validate?
+  - Can it minify XML for transport?
+  - Does it handle namespaces and sitemaps?
+- Steps: Paste XML → Format → Fix errors → Copy
+
+### Cron Parser
+- URL: https://tool4saas.com/cron-parser
+- What: Explain cron expressions
+- FAQ:
+  - What cron format is supported?
+  - How is day-or-weekday OR logic handled?
+  - Does it support seconds or at-daily shortcuts?
+- Steps: Enter cron → Read explanation → Check next runs → Copy
+
+### CSS Beautifier
+- URL: https://tool4saas.com/css-beautifier
+- What: Format CSS nicely
+- FAQ:
+  - Does the CSS beautifier validate code?
+  - Can it minify CSS for production?
+  - Does it preserve media queries?
+- Steps: Paste CSS → Beautify → Review rules → Copy
+
+### YAML to JSON
+- URL: https://tool4saas.com/yaml-to-json
+- What: Convert YAML to JSON
+- FAQ:
+  - What YAML subset is supported?
+  - Is YAML parsing private?
+  - What indentation does it require?
+- Steps: Paste YAML → Convert → Fix errors → Copy
+
+### JSON Tree Viewer
+- URL: https://tool4saas.com/json-tree-viewer
+- What: Explore JSON as tree
+- FAQ:
+  - How large a JSON can I explore?
+  - Is my JSON uploaded when viewing?
+  - How do I copy a value path?
+- Steps: Paste JSON → Browse tree → Search → Copy
+
+### SSL Checker
+- URL: https://tool4saas.com/ssl-checker
+- What: Check SSL certificate
+- FAQ:
+  - What does the SSL checker inspect?
+  - Is SSL checking private?
+  - Is my checked data stored?
+- Steps: Enter host → Check → View → Act on expiry
+
+### SQL Formatter
+- URL: https://tool4saas.com/sql-formatter
+- What: Format SQL queries
+- FAQ:
+  - Which SQL dialects are supported?
+  - Is my SQL query uploaded?
+  - Does minify mode stay valid SQL?
+- Steps: Paste SQL → Format → Check keywords → Copy
+
+### Subnet Calculator
+- URL: https://tool4saas.com/subnet-calculator
+- What: IPv4 network calc
+- FAQ:
+  - What does the subnet calculator show?
+  - Is subnet math private?
+  - Does it support IPv6?
+- Steps: Enter IP → Set CIDR → View table → Copy plan
+
+### Chmod Calculator
+- URL: https://tool4saas.com/chmod-calculator
+- What: Octal + symbolic
+- FAQ:
+  - How is chmod octal calculated?
+  - Is chmod calculation private?
+  - What do 755 and 644 mean?
+- Steps: Tick boxes → View codes → Test preset → Copy
+
+### Code to Image
+- URL: https://tool4saas.com/code-to-image
+- What: Pretty code PNG
+- FAQ:
+  - What languages can I turn to images?
+  - Is my code uploaded for images?
+  - What PNG size is exported?
+- Steps: Paste code → Pick theme → Style card → Download
+
+### HMAC Generator
+- URL: https://tool4saas.com/hmac-generator
+- What: HMAC SHA auth codes
+- FAQ:
+  - What is HMAC authentication?
+  - Does my HMAC secret stay on-device?
+  - Is HMAC generation free and offline?
+- Steps: Enter message → Choose algo → Generate → Verify example
+
+### AES Encryptor
+- URL: https://tool4saas.com/aes-encryptor
+- What: Encrypt with password
+- FAQ:
+  - How are AES keys derived?
+  - Does my password leave the browser?
+  - Is AES encryption free and offline?
+- Steps: Enter text → Set password → Encrypt → Decrypt check
+
+### JS Beautifier
+- URL: https://tool4saas.com/js-beautifier
+- What: Format JS nicely
+- FAQ:
+  - Does JS beautifying validate code?
+  - Can it minify JavaScript?
+  - Does my JS stay private?
+- Steps: Paste JS → Beautify → Copy → Test minify
+
+### OTP Generator (TOTP 2FA)
+- URL: https://tool4saas.com/otp-generator
+- What: 30-sec 2FA codes
+- FAQ:
+  - Is this OTP safe for real accounts?
+  - Does my OTP secret stay local?
+  - Is OTP generation free and offline?
+- Steps: Enter secret → Watch code → Copy → Test timing
+
+### AI Token Counter
+- URL: https://tool4saas.com/ai-token-counter
+- What: Tokens + API cost
+- FAQ:
+  - How accurate is the token count?
+  - Which AI models are priced?
+  - Does my prompt stay private?
+- Steps: Paste text → Check tokens → Estimate cost → Compare models
+
+## Converters
+
+### Unit Converter
+- URL: https://tool4saas.com/unit-converter
+- What: Convert length, weight, temp & more
+
+### JSON ↔ CSV Converter
+- URL: https://tool4saas.com/json-csv
+- What: Convert between JSON and CSV
+
+### URL Parser
+- URL: https://tool4saas.com/url-parser
+- What: Break down any URL
+
+### Number to Words
+- URL: https://tool4saas.com/number-to-words
+- What: Spell out numbers in English
+
+### Roman Numeral Converter
+- URL: https://tool4saas.com/roman-numeral
+- What: Roman ↔ Arabic numbers
+
+### Image to Base64
+- URL: https://tool4saas.com/image-to-base64
+- What: Encode & decode image data URLs
+
+### CSV Viewer
+- URL: https://tool4saas.com/csv-viewer
+- What: View, sort & filter CSV
+- FAQ:
+  - Does it handle quoted commas?
+  - Can I sort and filter rows?
+  - Does viewing upload my spreadsheet?
+- Steps: Paste CSV → View table → Filter & copy → Try an example
+
+### Morse Code Translator
+- URL: https://tool4saas.com/morse-translator
+- What: Text ↔ Morse code
+- FAQ:
+  - What characters are supported?
+  - Does translation stay on my device?
+  - Does it work offline for free?
+- Steps: Choose mode → Enter input → Copy → Try an example
+
+### ASCII / Hex / Binary Converter
+- URL: https://tool4saas.com/ascii-converter
+- What: Text ↔ codes
+- FAQ:
+  - What bases are supported?
+  - Does encoding upload my text?
+  - Can I convert code points offline free?
+- Steps: Encode → Decode → Copy → Try an example
+
+### File Size Converter
+- URL: https://tool4saas.com/file-size-converter
+- What: Bytes, KB, MB, GB
+- FAQ:
+  - Binary vs decimal bases?
+  - Does file-size math leave my device?
+  - Can I convert storage sizes offline free?
+- Steps: Enter value → Choose target → View → Try an example
+
+### JSON to Excel
+- URL: https://tool4saas.com/json-to-excel
+- What: JSON → XLS download
+- FAQ:
+  - What JSON is accepted?
+  - Does my spreadsheet data stay private?
+  - Can I convert large JSON offline free?
+- Steps: Paste JSON → Preview → Download → Try an example
+
+### ZIP Creator
+- URL: https://tool4saas.com/zip-creator
+- What: Create ZIP files
+- FAQ:
+  - What files can I add?
+  - Are my files uploaded to make the ZIP?
+  - Can I create ZIPs offline for free?
+- Steps: Add files → Set ZIP name → Create → Try an example
+
+### Currency Converter
+- URL: https://tool4saas.com/currency-converter
+- What: Live rates + offline
+- FAQ:
+  - Are rates live or cached offline?
+  - Does conversion share my amount?
+  - Can I check rates offline free?
+- Steps: Enter amount → Pick pair → View → Try an example
+
+## Generators
+
+### Password Generator
+- URL: https://tool4saas.com/password-generator
+- What: Strong random passwords
+
+### Lorem Ipsum Generator
+- URL: https://tool4saas.com/lorem-ipsum
+- What: Placeholder text
+
+### Slug Generator
+- URL: https://tool4saas.com/slug-generator
+- What: Turn titles into URL slugs
+
+### Random Number Generator
+- URL: https://tool4saas.com/random-number
+- What: Secure random numbers & lists
+
+### UUID Generator
+- URL: https://tool4saas.com/uuid-generator
+- What: Generate v4 UUIDs in bulk
+
+### Random String Generator
+- URL: https://tool4saas.com/random-string
+- What: Secure random strings & keys
+
+### Dice Roller
+- URL: https://tool4saas.com/dice-roller
+- What: Roll virtual dice
+
+### Coin Flip
+- URL: https://tool4saas.com/coin-flip
+- What: Flip a fair coin
+
+### Random Passphrase
+- URL: https://tool4saas.com/random-passphrase
+- What: Generate secure passphrase
+
+### Random Hex Color
+- URL: https://tool4saas.com/random-hex-color
+- What: Generate random hex colors
+
+### Barcode Generator
+- URL: https://tool4saas.com/barcode-generator
+- What: CODE128, EAN13, UPC
+
+### Fake Data Generator
+- URL: https://tool4saas.com/fake-data-generator
+- What: Generate test data
+
+### Business Name Generator
+- URL: https://tool4saas.com/business-name-generator
+- What: Ideas & filters
+
+## Images & Design
+
+### QR Code Generator
+- URL: https://tool4saas.com/qr-code-generator
+- What: Generate QR codes for links, text & more
+- FAQ:
+  - What can I encode with this general QR generator?
+  - Can I download the QR code as an image?
+  - What QR size should I download for print vs screen?
+- Steps: Enter content → Choose size → Preview and check → Download PNG
+
+### Image Compressor
+- URL: https://tool4saas.com/image-compressor
+- What: Shrink images without uploading
+- FAQ:
+  - Are my images uploaded to a server?
+  - Will I lose image quality?
+  - What file size and dimension limits apply?
+- Steps: Select an image → Adjust quality → Compare results → Download
+
+### Color Converter
+- URL: https://tool4saas.com/color-converter
+- What: HEX, RGB & HSL conversions
+- FAQ:
+  - Which color formats are supported?
+  - Can I copy any format?
+  - Does it accept 3-digit HEX and alpha values?
+- Steps: Enter a color → Switch formats → Fine-tune visually → Copy the code
+
+### Color Contrast Checker
+- URL: https://tool4saas.com/color-contrast
+- What: WCAG contrast for any two colors
+- FAQ:
+  - What standard does this use?
+  - Does it check large text too?
+  - What ratio do I need to pass WCAG AA?
+- Steps: Pick foreground → Pick background → Read the ratio → Fix failures
+
+### Gradient Generator
+- URL: https://tool4saas.com/gradient-generator
+- What: Design CSS gradients visually
+- FAQ:
+  - Which gradient types are supported?
+  - Can I copy the CSS?
+  - Can I add transparency or more than two stops?
+- Steps: Pick first color → Pick second color → Set type and angle → Copy CSS
+
+### Favicon Generator
+- URL: https://tool4saas.com/favicon-generator
+- What: Make a favicon from text or emoji
+- FAQ:
+  - What can I put in the favicon?
+  - Is it downloaded as PNG?
+  - What PNG size does the favicon export at?
+- Steps: Enter symbol → Pick colors → Preview at small size → Download PNG
+
+### Color Palette Generator
+- URL: https://tool4saas.com/color-palette
+- What: Harmonies from any color
+- FAQ:
+  - What harmonies does the Color Palette Generator create?
+  - How do I copy palette colors to my design?
+  - When should I use Palette Generator instead of Shades Generator?
+- Steps: Pick base color → Review harmonies → Check shades → Copy HEX codes
+
+### Image Resizer
+- URL: https://tool4saas.com/image-resizer
+- What: Resize images in browser
+- FAQ:
+  - Is the image uploaded?
+  - Can I lock the aspect ratio?
+  - What is the maximum image size I can resize?
+- Steps: Choose image → Set dimensions → Preview quality → Resize and download
+
+### Image Border
+- URL: https://tool4saas.com/image-border
+- What: Add borders to images
+- FAQ:
+  - What formats are supported?
+  - Does it upload my image?
+  - Will the border change my image dimensions?
+- Steps: Choose image → Set border size → Pick border color → Add border and download
+
+### Image Format Converter
+- URL: https://tool4saas.com/image-format-converter
+- What: WebP, PNG, JPG, AVIF
+- FAQ:
+  - Which formats can I convert between?
+  - What quality should I use?
+  - Is my image uploaded?
+- Steps: Choose image → Pick target format → Tune quality → Convert and download
+
+### SVG Optimizer
+- URL: https://tool4saas.com/svg-optimizer
+- What: Shrink SVG files
+- FAQ:
+  - What does it strip?
+  - Is preview safe?
+  - Is there a size limit for pasted SVG?
+- Steps: Paste SVG → Run Optimize → Check savings → Copy result
+
+### EXIF Viewer
+- URL: https://tool4saas.com/exif-viewer
+- What: Read image metadata
+- FAQ:
+  - What EXIF is shown?
+  - Is my photo uploaded?
+  - Why do some images show no EXIF data?
+- Steps: Choose photo → View EXIF table → Check GPS → Analyze another
+
+### Color Shades Generator
+- URL: https://tool4saas.com/color-shades-generator
+- What: Shades & tints
+- FAQ:
+  - What are shades vs tints?
+  - How many shade steps can I build?
+  - When should I use Shades Generator instead of Palette Generator?
+- Steps: Pick base color → Set steps → Preview scale → Copy HEX
+
+### YouTube Thumbnail Downloader
+- URL: https://tool4saas.com/youtube-thumbnail-downloader
+- What: Grab YT thumbnails
+- FAQ:
+  - What qualities are available?
+  - Can I download any YouTube thumbnail?
+  - Can I reuse thumbnails on my blog or ads?
+- Steps: Copy video URL → Paste into tool → Preview qualities → Copy or download
+
+### Image Color Extractor
+- URL: https://tool4saas.com/image-color-extractor
+- What: Extract 5 colors
+- FAQ:
+  - How are colors chosen?
+  - Is my image uploaded?
+  - What image formats and sizes work best?
+- Steps: Choose image → Extract palette → Review swatches → Copy HEX codes
+
+### QR Scanner
+- URL: https://tool4saas.com/qr-scanner
+- What: Scan QR from image
+- FAQ:
+  - Does camera work offline?
+  - Is image uploaded?
+  - Which image formats scan most reliably?
+- Steps: Provide QR image → Auto-decode → Verify content → Copy or open
+
+### CMYK Converter
+- URL: https://tool4saas.com/cmyk-converter
+- What: HEX, RGB ↔ CMYK
+- FAQ:
+  - How is CMYK calculated?
+  - Is my color values uploaded when I use this CMYK Converter?
+  - How accurate is RGB to CMYK for print?
+- Steps: Enter color → View conversions → Check print preview → Copy values
+
+### WiFi QR Generator
+- URL: https://tool4saas.com/wifi-qr-generator
+- What: QR for guest WiFi
+- FAQ:
+  - How is WiFi QR different from a normal QR code?
+  - Does it support WPA, WEP and hidden networks?
+  - What SSID and password limits and privacy apply?
+- Steps: Enter network name → Set security → Preview QR → Download for guests
+
+### Image Cropper
+- URL: https://tool4saas.com/image-cropper
+- What: Crop to pixels/ratio
+- FAQ:
+  - Can I lock 1:1 or 16:9?
+  - Is my image uploaded?
+  - What export formats and size limits apply?
+- Steps: Choose image → Set crop area → Adjust framing → Export crop
+
+### CSS Box Shadow Generator
+- URL: https://tool4saas.com/css-box-shadow-generator
+- What: Shadow CSS live
+- FAQ:
+  - What can I adjust?
+  - Is my shadow settings uploaded when I use this Box Shadow Generator?
+  - Can I layer multiple box-shadows?
+- Steps: Set offsets → Tune blur and spread → Pick color and inset → Copy CSS
+
+### CSS Border Radius Generator
+- URL: https://tool4saas.com/css-border-radius-generator
+- What: Radius CSS live
+- FAQ:
+  - Can I set elliptical?
+  - Is my corner values uploaded when I use this Border Radius Generator?
+  - What units and range can I use?
+- Steps: Adjust corners → Try presets → Toggle elliptical → Copy CSS
+
+### CSS Clip Path Generator
+- URL: https://tool4saas.com/css-clip-path-generator
+- What: Clip shapes live
+- FAQ:
+  - What shapes are supported?
+  - Is my shape settings uploaded when I use this Clip Path Generator?
+  - Will clip-path work in all browsers?
+- Steps: Pick shape → Adjust size → Preview on box → Copy CSS
+
+### SVG to PNG Converter
+- URL: https://tool4saas.com/svg-to-png-converter
+- What: Crisp PNG export
+- FAQ:
+  - What size can I export?
+  - Is my SVG uploaded?
+  - What DPI can I get for print?
+- Steps: Paste SVG markup → Set export size → Preview rendering → Download PNG
+
+## PDF Tools
+
+### Image to PDF
+- URL: https://tool4saas.com/image-to-pdf
+- What: Images → PDF
+- FAQ:
+  - What formats are supported?
+  - Is my images uploaded when I use this Image to PDF?
+  - How many images and what size can I convert?
+- Steps: Add images → Choose page setup → Order pages → Generate PDF
+
+### PDF Merge
+- URL: https://tool4saas.com/pdf-merge
+- What: Merge multiple PDFs
+- FAQ:
+  - Is combining PDFs private and what are the limits?
+  - Can I reorder files?
+  - How many PDFs and pages can I merge?
+- Steps: Select PDFs → Reorder files → Check page counts → Merge and download
+
+### PDF Splitter
+- URL: https://tool4saas.com/pdf-split
+- What: Extract pages
+- FAQ:
+  - Is extracting pages private and what limits apply?
+  - Can I extract ranges?
+  - What is the maximum PDF size and page count?
+- Steps: Choose PDF → Enter page ranges → Validate selection → Split and download
+
+### PDF to JPG
+- URL: https://tool4saas.com/pdf-to-jpg
+- What: Pages to images
+- FAQ:
+  - What scale to pick?
+  - Does page-to-image conversion upload my PDF?
+  - What DPI do the exported JPGs match?
+- Steps: Choose PDF → Set scale and quality → Render pages → Download ZIP
+
+### Rotate PDF Pages
+- URL: https://tool4saas.com/pdf-rotate
+- What: Rotate all pages
+- FAQ:
+  - Does it rotate all pages?
+  - Is fixing orientation private and what limits apply?
+  - Can I rotate only specific pages?
+- Steps: Choose PDF → Pick angle → Preview orientation → Rotate and download
+
+### PDF Watermark
+- URL: https://tool4saas.com/pdf-watermark
+- What: Add text watermark
+- FAQ:
+  - Where is watermark placed?
+  - Does text-overlay watermarking upload my PDF?
+  - Will the watermark block reading?
+- Steps: Choose PDF → Enter watermark text → Set opacity and placement → Apply and download
+
+### PDF to Text
+- URL: https://tool4saas.com/pdf-to-text
+- What: Extract text pages
+- FAQ:
+  - Is extracting selectable text private?
+  - What about scanned PDFs?
+  - What is the page limit and what about scanned PDFs?
+- Steps: Choose PDF → Set page range → Extract text → Copy or download
+
+## Calculators
+
+### Percentage Calculator
+- URL: https://tool4saas.com/percentage-calculator
+- What: X% of Y & what percent
+
+### BMI Calculator
+- URL: https://tool4saas.com/bmi-calculator
+- What: Body Mass Index in metric & imperial
+
+### Tip Calculator
+- URL: https://tool4saas.com/tip-calculator
+- What: Split bills & calculate tips
+
+### Loan Calculator
+- URL: https://tool4saas.com/loan-calculator
+- What: Monthly payment & interest
+
+### Discount Calculator
+- URL: https://tool4saas.com/discount-calculator
+- What: Sale price & savings
+
+### GST / VAT Calculator
+- URL: https://tool4saas.com/gst-calculator
+- What: Tax inclusive & exclusive
+
+### Percentage Change
+- URL: https://tool4saas.com/percentage-change
+- What: Old-to-new % change & growth
+- FAQ:
+  - How is percentage change calculated?
+  - How is change different from difference?
+  - What happens when old value is zero?
+- Steps: Enter old → Enter new → Read change → Reverse
+
+### Percentage Difference
+- URL: https://tool4saas.com/percentage-difference
+- What: Absolute |A-B|/avg difference
+- FAQ:
+  - What formula does the difference tool use?
+  - When is the difference zero?
+  - When should I use absolute difference instead of change?
+- Steps: Enter A → Enter B → View diff → Swap
+
+### Work Days Calculator
+- URL: https://tool4saas.com/work-days-calculator
+- What: Calculate business days
+- FAQ:
+  - Does it count public holidays?
+  - Is the day count inclusive?
+  - Are holidays or weekends counted?
+- Steps: Pick dates → Calculate → Use result → Extend
+
+### GPA Calculator
+- URL: https://tool4saas.com/gpa-calculator
+- What: Grade point average
+- FAQ:
+  - How is GPA calculated?
+  - Is my grade data private?
+  - How do plus-minus grades affect GPA?
+- Steps: Add courses → Add more → View GPA → Adjust
+
+### Scientific Calculator
+- URL: https://tool4saas.com/scientific-calculator
+- What: Trig, logs, powers
+- FAQ:
+  - Does it support keyboard input?
+  - Is my math private?
+  - How do DEG and RAD change trig results?
+- Steps: Enter expression → Choose DEG/RAD → Equals → History
+
+### Time Duration Calculator
+- URL: https://tool4saas.com/time-duration-calculator
+- What: HH:MM duration
+- FAQ:
+  - Does it handle overnight spans?
+  - Is my time data private?
+  - What is an overnight example?
+- Steps: Enter start → Enter end → View → Multi-day
+
+### Fraction Calculator
+- URL: https://tool4saas.com/fraction-calculator
+- What: Add, subtract fractions
+- FAQ:
+  - How are fractions simplified?
+  - Is my fraction data private?
+  - What happens with zero or large denominators?
+- Steps: Enter fractions → Choose operation → View → Simplify
+
+### Final Grade Calculator
+- URL: https://tool4saas.com/grade-calculator
+- What: What final do I need?
+- FAQ:
+  - How is the required grade computed?
+  - Is my grade data private?
+  - What if my final weight is 40% and I need a B?
+- Steps: Add assessments → Add homework → Set target → View
+
+### Concrete Calculator
+- URL: https://tool4saas.com/concrete-calculator
+- What: Yards + bags needed
+- FAQ:
+  - How many bags per cubic yard?
+  - Is my dimension data private?
+  - How much waste should I order?
+- Steps: Pick shape → Enter size → View → Add waste
+
+### US Sales Tax Calculator
+- URL: https://tool4saas.com/us-sales-tax-calculator
+- What: State tax + total
+- FAQ:
+  - Which state rates are included?
+  - Is this tax advice?
+  - Why does checkout total differ from estimate?
+- Steps: Enter subtotal → Pick rate → View total → Compare
+
+## Finance & Money
+
+### Mortgage Calculator
+- URL: https://tool4saas.com/mortgage-calculator
+- What: EMI & amortization schedule
+- FAQ:
+  - How is my monthly mortgage payment calculated?
+  - Is this mortgage calculator financial advice?
+  - Does my mortgage data stay private in this tool?
+  - How accurate is the amortization schedule?
+- Steps: Enter loan → Add down payment → View EMI → Export and compare
+
+### Compound Interest Calculator
+- URL: https://tool4saas.com/compound-interest-calculator
+- What: Maturity & interest growth
+- FAQ:
+  - How does compounding frequency change my maturity?
+  - Is this compound interest calculator investment advice?
+  - Does my investment data stay on this device?
+- Steps: Enter principal → Set rate and years → View maturity → Compare scenarios
+
+### Salary Calculator
+- URL: https://tool4saas.com/salary-calculator
+- What: Take-home pay estimates
+- FAQ:
+  - How is take-home pay calculated?
+  - What is the difference between gross pay and net pay?
+  - Which country-specific paycheck tool should I use?
+- Steps: Enter gross → Set tax → View net → Compare offers
+
+### Profit Margin Calculator
+- URL: https://tool4saas.com/profit-margin-calculator
+- What: Calculate margin & markup
+- FAQ:
+  - What is the difference between margin and markup?
+  - Is this profit margin calculator pricing advice?
+  - Do my cost figures stay private in this tool?
+- Steps: Enter cost → Enter revenue → View margin → Compare pricing
+
+### Income Tax Calculator
+- URL: https://tool4saas.com/income-tax-calculator
+- What: Net pay after taxes
+- FAQ:
+  - How is my income tax estimated?
+  - Is this income tax calculator tax advice?
+  - Does my salary entry stay on this device?
+  - How accurate is this estimate for 2026 filing?
+- Steps: Enter gross → Set deduction → View net → Compare incomes
+
+### Inflation Calculator
+- URL: https://tool4saas.com/inflation-calculator
+- What: Future purchasing power
+- FAQ:
+  - How do you calculate future value with inflation?
+  - Is this inflation calculator economic advice?
+  - Does my inflation data stay private in this tool?
+- Steps: Enter amount → Set rate and years → View values → Compare rates
+
+### SIP Calculator
+- URL: https://tool4saas.com/sip-calculator
+- What: SIP maturity & gains
+- FAQ:
+  - How are SIP returns calculated?
+  - Is this SIP calculator financial advice?
+  - Does my SIP input stay on this device?
+  - How accurate is the SIP projection?
+- Steps: Enter SIP → Set rate and years → View growth → Compare plans
+
+### Simple Interest Calculator
+- URL: https://tool4saas.com/simple-interest-calculator
+- What: Interest & total cost
+- FAQ:
+  - What is the difference between simple and compound interest?
+  - Is this simple interest calculator financial advice?
+  - Is this simple interest tool free and private?
+- Steps: Enter principal → Set rate and time → View cost → Compare rates
+
+### Retirement Calculator
+- URL: https://tool4saas.com/retirement-calculator
+- What: Plan your savings goal
+- FAQ:
+  - What return should I assume for retirement planning?
+  - How is my retirement corpus calculated?
+  - How do I close my retirement savings shortfall?
+- Steps: Enter current → Set return → View corpus → Close gap
+
+### Auto Loan Calculator
+- URL: https://tool4saas.com/auto-loan-calculator
+- What: EMI & total cost
+- FAQ:
+  - How does a down payment change my car EMI?
+  - Is this auto loan calculator financial advice?
+  - Is this auto loan calculator free and private?
+- Steps: Enter price → Set loan → View EMI → Compare terms
+
+### Rent vs Buy Calculator
+- URL: https://tool4saas.com/rent-vs-buy-calculator
+- What: Rent or buy?
+- FAQ:
+  - How is the rent-versus-buy break-even calculated?
+  - Is this rent-versus-buy calculator financial advice?
+  - Is this rent-versus-buy tool free and private?
+- Steps: Enter rent → Enter buy → Compare costs → Test scenarios
+
+### Freelance Rate Calculator
+- URL: https://tool4saas.com/freelance-rate-calculator
+- What: Hourly & project rates
+- FAQ:
+  - How is my freelance hourly rate calculated?
+  - Is this freelance rate calculator financial advice?
+  - Is this freelance rate tool free and private?
+- Steps: Enter salary → Set hours → View rates → Adjust margin
+
+### Home Affordability Calculator
+- URL: https://tool4saas.com/home-affordability-calculator
+- What: How much house?
+- FAQ:
+  - What is the 28/36 rule for home affordability?
+  - Is this home affordability calculator financial advice?
+  - Is this affordability calculator free and private?
+- Steps: Enter income → Set rate → View budget → Test limits
+
+### Refinance Calculator
+- URL: https://tool4saas.com/refinance-calculator
+- What: Break-even refi
+- FAQ:
+  - What is the refinance break-even point?
+  - Is this refinance calculator financial advice?
+  - Is this refinance calculator free and private?
+- Steps: Enter loans → Add costs → Compare savings → Decide refi
+
+### CAGR Calculator
+- URL: https://tool4saas.com/cagr-calculator
+- What: Growth rate + multiple
+- FAQ:
+  - How is CAGR calculated?
+  - Is this CAGR calculator financial advice?
+  - Is this CAGR calculator free and private?
+- Steps: Enter values → View rate → Compare cases → Copy results
+
+### EMI Calculator
+- URL: https://tool4saas.com/emi-calculator
+- What: Loan EMI + interest cost
+- FAQ:
+  - How is my loan EMI calculated?
+  - Is this EMI calculator financial advice?
+  - Does my loan data stay on this device?
+  - How accurate is this EMI estimate?
+- Steps: Enter principal → Set rate & tenure → View EMI → Compare scenarios
+
+### Home Loan Eligibility India
+- URL: https://tool4saas.com/home-loan-eligibility-india
+- What: Max loan by salary
+- FAQ:
+  - What is FOIR in home loan eligibility?
+  - Is this home loan eligibility calculator financial advice?
+  - Does my salary data stay on this device?
+- Steps: Enter income → Set loan terms → View eligibility → Compare offers
+
+### Mortgage Overpayment Calculator
+- URL: https://tool4saas.com/mortgage-overpayment-calculator
+- What: Extra pay savings
+- FAQ:
+  - Should I overpay monthly or with a lump sum?
+  - Is this overpayment calculator financial advice?
+  - Does my loan balance stay on this device?
+- Steps: Enter loan → Add extra → Compare → Test payoff
+
+### US Paycheck Calculator 2026
+- URL: https://tool4saas.com/us-paycheck-calculator
+- What: Take-home per pay
+- FAQ:
+  - Which 2026 tax tables does this paycheck calculator use?
+  - Is this paycheck calculator tax advice?
+  - Does my paycheck data stay private in this tool?
+- Steps: Enter pay → Set filing → View net → Compare pay
+
+### In-Hand Salary Calculator India FY 2026-27
+- URL: https://tool4saas.com/in-hand-salary-india
+- What: CTC to monthly in-hand
+- FAQ:
+  - Should I choose the new or old tax regime?
+  - Why is tax zero up to Rs 12.75 lakh salary?
+  - Does my CTC data stay on this device?
+- Steps: Enter CTC → Set deductions → View in-hand → Compare CTC
+
+### FD Calculator India
+- URL: https://tool4saas.com/fd-calculator
+- What: FD maturity quarterly
+- FAQ:
+  - Which compounding method does this FD calculator use?
+  - Is TDS included in the FD maturity?
+  - Do senior-citizen rates or early withdrawal change maturity?
+  - Is my FD data private?
+- Steps: Enter principal → Set rate → View maturity → Compare tenures
+
+### PPF Calculator India 7.1%
+- URL: https://tool4saas.com/ppf-calculator
+- What: PPF 15-year maturity
+- FAQ:
+  - What PPF interest rate does this calculator use?
+  - What are the PPF deposit limits and lock-in rules?
+  - When should I deposit to earn the most PPF interest?
+  - Is my PPF data private?
+- Steps: Enter deposit → Confirm rate → View schedule → Compare deposits
+
+### Debt Payoff Calculator
+- URL: https://tool4saas.com/debt-payoff-calculator
+- What: Snowball vs avalanche
+- FAQ:
+  - Which saves more: debt snowball or avalanche?
+  - How does the debt payoff cascade work?
+  - Is this debt payoff calculator financial advice?
+  - Is my debt data private?
+- Steps: Add debts → Set extra → Compare → Test extra
+
+### Capital Gains Tax Calculator India
+- URL: https://tool4saas.com/capital-gains-tax-india
+- What: LTCG STCG plus cess
+- FAQ:
+  - What capital gains tax rates are used for FY 2025-26?
+  - Is indexation included in this calculation?
+  - Is this capital gains tool financial advice?
+  - Does my sale data stay on this device?
+- Steps: Pick asset → Set holding → View tax → Compare holding
+
+## Health & Fitness
+
+### Calorie Calculator
+- URL: https://tool4saas.com/calorie-calculator
+- What: BMR, TDEE & macros
+- FAQ:
+  - How is BMR calculated?
+  - Is this medical advice for dieting?
+  - What example shows maintenance versus deficit?
+  - How accurate are calorie targets?
+- Steps: Enter body stats → Pick activity → Review BMR TDEE → Choose target
+
+### Water Intake Calculator
+- URL: https://tool4saas.com/water-intake-calculator
+- What: Daily water needs
+- FAQ:
+  - How is my daily water target calculated?
+  - Is this hydration guidance medical advice?
+  - What does a 70 kg example day look like?
+- Steps: Enter weight → Set lifestyle → View liters glasses → Adjust day
+
+### Ideal Weight Calculator
+- URL: https://tool4saas.com/ideal-weight-calculator
+- What: Healthy weight range
+- FAQ:
+  - Which formulas does the ideal weight tool use?
+  - Is my ideal weight a medical prescription?
+  - How should I use the healthy range?
+- Steps: Enter height → Choose sex → Compare formulas → Use range
+
+### Macro Calculator
+- URL: https://tool4saas.com/macro-calculator
+- What: Protein, carbs & fat
+- FAQ:
+  - How are protein, carbs, and fat grams calculated?
+  - Is macro splitting medical advice?
+  - What ratio works for a 2000 kcal example?
+- Steps: Enter calories → Set ratios → View grams → Tweak plan
+
+### Pregnancy Calculator
+- URL: https://tool4saas.com/pregnancy-calculator
+- What: Due date & trimesters
+- FAQ:
+  - How is my due date estimated from LMP?
+  - Is this pregnancy estimate medical advice?
+  - What are the limits of the Naegele estimate?
+- Steps: Enter LMP → Set cycle → View dates → Track trimesters
+
+### Ovulation Calculator
+- URL: https://tool4saas.com/ovulation-calculator
+- What: Fertile window
+- FAQ:
+  - How is my ovulation day predicted?
+  - Is this fertility estimate medical advice?
+  - Can I use this fertile window for birth control?
+- Steps: Enter LMP → Set cycle → View window → Plan
+
+### Sleep Calculator
+- URL: https://tool4saas.com/sleep-cycle-calculator
+- What: Best bedtime & wake
+- FAQ:
+  - Why does the tool use 90-minute sleep cycles?
+  - Is this sleep timing medical advice?
+  - How much fall-asleep buffer should I add?
+- Steps: Choose mode → Enter time → Add buffer → Pick cycle
+
+### Body Fat Calculator
+- URL: https://tool4saas.com/body-fat-calculator
+- What: US Navy method
+- FAQ:
+  - What measurements do I need for body fat?
+  - Is this body fat estimate medical advice?
+  - How accurate is the Navy tape method?
+- Steps: Enter sex height → Add measures → View percent → Track class
+
+### Period Calculator
+- URL: https://tool4saas.com/period-calculator
+- What: Next period + fertile
+- FAQ:
+  - How is my next period predicted?
+  - Is this period prediction medical advice?
+  - What if my cycles are irregular?
+- Steps: Enter LMP → Set cycle → View calendar → Check fertile
+
+### One-Rep Max Calculator
+- URL: https://tool4saas.com/one-rep-max-calculator
+- What: Epley + Brzycki
+- FAQ:
+  - Which formulas estimate my one-rep max?
+  - Is this strength estimate medical advice?
+  - What rep range gives the most reliable max?
+- Steps: Enter lift → View max → Use zones → Stay safe
+
+## SEO & Marketing
+
+### Sitemap Generator
+- URL: https://tool4saas.com/sitemap-generator
+- What: XML sitemap builder
+
+### Robots.txt Generator
+- URL: https://tool4saas.com/robots-txt-generator
+- What: Generate robots.txt
+
+### Open Graph Preview
+- URL: https://tool4saas.com/open-graph-preview
+- What: Preview social cards
+
+### SERP Preview
+- URL: https://tool4saas.com/serp-preview
+- What: Google snippet preview
+
+### UTM Builder
+- URL: https://tool4saas.com/utm-builder
+- What: GA4 campaign links
+
+### Meta Tag Generator
+- URL: https://tool4saas.com/meta-tag-generator
+- What: SEO + OG tags
+
+### FAQ Schema Generator
+- URL: https://tool4saas.com/faq-schema-generator
+- What: JSON-LD FAQs
+
+### SEO Analyzer
+- URL: https://tool4saas.com/seo-analyzer
+- What: RankMath-style SEO score
+
+## Time & Date
+
+### Age Calculator
+- URL: https://tool4saas.com/age-calculator
+- What: Find your exact age & next birthday
+
+### Timestamp Converter
+- URL: https://tool4saas.com/timestamp-converter
+- What: Epoch ↔ human-readable date
+
+### Date Calculator
+- URL: https://tool4saas.com/date-calculator
+- What: Add days or find the difference
+
+### Timezone Converter
+- URL: https://tool4saas.com/timezone-converter
+- What: Convert times across zones
+
+### Stopwatch Timer
+- URL: https://tool4saas.com/stopwatch
+- What: Accurate online stopwatch
+
+### Countdown Timer
+- URL: https://tool4saas.com/countdown-timer
+- What: Days until any date
+
+### World Clock
+- URL: https://tool4saas.com/world-clock
+- What: Time in world cities
+
+### Pomodoro Timer
+- URL: https://tool4saas.com/pomodoro-timer
+- What: Focus & break cycles
+
+## Guides
+## Guides & Blog
+- [All Guides](https://tool4saas.com/blog): View all long-form tool guides and tutorials.
+- [How to Create an Invoice Online Free in 5 Steps (PDF, No Signup)](https://tool4saas.com/blog/invoice-generator-guide/how-to-create-invoice-online)
+- [GST Invoice Format India: Mandatory Fields, HSN & Sample (2026)](https://tool4saas.com/blog/invoice-generator-guide/gst-invoice-format-india)
+- [Freelancer Invoice Guide: What to Include & Get Paid on Time](https://tool4saas.com/blog/invoice-generator-guide/freelancer-invoice-guide)
+- [Small Business Invoicing Without Paid Software: Complete Setup](https://tool4saas.com/blog/invoice-generator-guide/small-business-invoicing)
+- [Free Invoice Template Guide: Word, Excel, PDF & Printable (2026)](https://tool4saas.com/blog/invoice-generator-guide/invoice-template-formats)
+- [Invoice vs Quotation vs Receipt vs Purchase Order: Key Differences](https://tool4saas.com/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt)
+- [Invoice Numbering: GST-Compliant Formats, HSN & Tax Fields (2026)](https://tool4saas.com/blog/invoice-generator-guide/invoice-numbering)
+- [Invoice Payment Terms + Follow-Up Scripts That Get You Paid Faster](https://tool4saas.com/blog/invoice-generator-guide/payment-terms-and-followups)
+- [12 Invoice Mistakes That Delay Payment (and How to Fix Them)](https://tool4saas.com/blog/invoice-generator-guide/invoicing-mistakes-to-avoid)
+- [Free Invoice Generator Guide: Create Professional Invoices in Minutes](https://tool4saas.com/blog/invoice-generator-guide): Pillar guide.
+- [How to Calculate Mortgage Payment: Formula + Examples (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment)
+- [How Much House Can I Afford? 28/36 Rule Explained (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/how-much-house-can-i-afford)
+- [15 vs 30 Year Mortgage: Interest, Payoff & When 15 Wins (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/15-vs-30-year-mortgage)
+- [Should I Refinance? Break-Even Rule + Checklist (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage)
+- [Extra Mortgage Payments: Interest Saved & 10% Rules (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment)
+- [Home Loan EMI & Eligibility India: CIBIL, FOIR, Prepayment (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india)
+- [Mortgage Amortization Schedule: How Payments Split (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/mortgage-amortization-schedule)
+- [Down Payment & PMI: 20% Rule, Costs & Strategy (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/down-payment-pmi-cost)
+- [Rent vs Buy a House: 5% Rule + Break-Even Math (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/rent-vs-buy-house)
+- [Mortgage Calculator Guide: Payments, PMI & Amortization](https://tool4saas.com/blog/mortgage-calculator-guide): Pillar guide.
+- [How to Create a Strong Password: The 16-Character Rule (2026)](https://tool4saas.com/blog/password-generator-guide/how-to-create-strong-password)
+- [What Makes a Password Strong? Length, Entropy & Blacklists (2026)](https://tool4saas.com/blog/password-generator-guide/what-makes-password-strong)
+- [Password Strength Tester: Check Without Uploading (2026)](https://tool4saas.com/blog/password-generator-guide/password-strength-tester)
+- [Passphrase vs Password: When 5 Words Beat 12 Characters (2026)](https://tool4saas.com/blog/password-generator-guide/passphrase-vs-password)
+- [How to Remember Passwords Without Reusing Them (2026)](https://tool4saas.com/blog/password-generator-guide/how-to-remember-passwords)
+- [Random Password Ideas: Patterns to Generate (Never Copy) 2026](https://tool4saas.com/blog/password-generator-guide/random-password-ideas)
+- [What to Do After a Data Breach: 7-Step Checklist (2026)](https://tool4saas.com/blog/password-generator-guide/what-to-do-after-data-breach)
+- [2FA vs Passkeys: Strength Ladder + Setup Order (2026)](https://tool4saas.com/blog/password-generator-guide/2fa-vs-passkeys)
+- [Strong Wi-Fi & Router Passwords: Practical Setup (2026)](https://tool4saas.com/blog/password-generator-guide/wifi-router-password)
+- [How to Generate a Strong Password (Free Offline Tool)](https://tool4saas.com/blog/password-generator-guide): Pillar guide.
+- [How to Create a QR Code Free in 60 Seconds (PNG, No Signup)](https://tool4saas.com/blog/qr-code-generator-guide/how-to-create-qr-code)
+- [WiFi QR Code: Share Guest WiFi With One Scan (2026)](https://tool4saas.com/blog/qr-code-generator-guide/wifi-qr-code-guide)
+- [QR Codes for Small Business: 6 Placements That Pay (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-for-business)
+- [QR Code vs Barcode: Differences & When to Use Each (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-vs-barcode)
+- [QR Code Size Guide: Minimum Sizes for Print & Distance (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-size-print-guide)
+- [QR Code Not Scanning? 5 Causes & Fixes That Work (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-not-scanning-fix)
+- [vCard QR Code: Digital Business Card That Saves in 5 Seconds](https://tool4saas.com/blog/qr-code-generator-guide/vcard-contact-qr-code)
+- [UPI QR Code for Payments: Setup, Counter Tips & Safety (India)](https://tool4saas.com/blog/qr-code-generator-guide/upi-payment-qr-code-india)
+- [Static vs Dynamic QR Codes: Which to Choose (Honest Guide)](https://tool4saas.com/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes)
+- [Free QR Code Generator Guide: Create Scannable QR Codes Fast](https://tool4saas.com/blog/qr-code-generator-guide): Pillar guide.
+- [How to Make a Resume in 15 Minutes + Tailor It Per Job (2026)](https://tool4saas.com/blog/resume-builder-guide/how-to-make-resume)
+- [Resume Format Guide: Sections, Order & India/US/UK Norms (2026)](https://tool4saas.com/blog/resume-builder-guide/resume-format-guide)
+- [ATS-Friendly Resume: Beat Applicant Tracking Software (2026)](https://tool4saas.com/blog/resume-builder-guide/ats-resume-guide)
+- [Fresher Resume Guide: Get Interviews With Zero Experience (2026)](https://tool4saas.com/blog/resume-builder-guide/fresher-resume-guide)
+- [Resume for Experienced Professionals: Positioning That Wins (2026)](https://tool4saas.com/blog/resume-builder-guide/experienced-resume-guide)
+- [Resume vs CV vs Biodata: Differences & When to Use Each (2026)](https://tool4saas.com/blog/resume-builder-guide/resume-vs-cv)
+- [Cover Letter Guide: 4-Paragraph Format That Wins Shortlists (2026)](https://tool4saas.com/blog/resume-builder-guide/cover-letter-guide)
+- [7 Resume Mistakes That Kill Interviews (With Before/After Fixes)](https://tool4saas.com/blog/resume-builder-guide/resume-mistakes)
+- [Offer Letter Guide: CTC Math, Clauses & Negotiation (India, 2026)](https://tool4saas.com/blog/resume-builder-guide/offer-letter-guide)
+- [Free Resume Builder Guide: Build a Job-Winning Resume Fast](https://tool4saas.com/blog/resume-builder-guide): Pillar guide.
+- [How to Count Words Online Free (No Signup)](https://tool4saas.com/blog/word-counter-guide/how-to-count-words-online)
+- [How Long Should a Blog Post Be? Intent, Coverage and Limits](https://tool4saas.com/blog/word-counter-guide/ideal-blog-post-length-seo)
+- [Flesch Reading Ease Score Explained: Formula and Bands](https://tool4saas.com/blog/word-counter-guide/flesch-reading-ease-score-explained)
+- [Keyword Density Explained: How to Check and Fix Stuffing](https://tool4saas.com/blog/word-counter-guide/keyword-density-seo-check)
+- [How to Summarize Text Fast: Extractive Method](https://tool4saas.com/blog/word-counter-guide/how-to-summarize-text-fast)
+- [Lorem Ipsum: When to Use Placeholder Text](https://tool4saas.com/blog/word-counter-guide/lorem-ipsum-generator-use)
+- [Reading and Typing Speed: WPM Math and Practice Tips](https://tool4saas.com/blog/word-counter-guide/typing-speed-test-practice-tips)
+- [Grammar Check Before You Publish: Self-Editing Checklist](https://tool4saas.com/blog/word-counter-guide/grammar-check-before-publish)
+- [Proofread by Listening: Text-to-Speech Workflow](https://tool4saas.com/blog/word-counter-guide/text-to-speech-proofreading-use)
+- [Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup](https://tool4saas.com/blog/word-counter-guide): Pillar guide.
+

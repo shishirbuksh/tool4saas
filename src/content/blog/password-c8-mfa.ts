@@ -1,0 +1,69 @@
+import type { BlogPost } from "@/lib/blog";
+import { readingMinutesFor } from "@/lib/blog";
+
+const html = `
+<p>A strong password plus SMS code feels armored — until a SIM-swap hands both factors to a stranger in one phone call. Authentication has a ladder, and most people stand two rungs below where they think. This is <strong>2FA vs passkeys</strong>: the strength ranking from SMS to hardware keys, what to enable today, and whether passkeys finally retire passwords.</p>
+<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Time-based codes pair with the <a href="/otp-generator">OTP generator</a>; stable device identifiers pair with the <a href="/uuid-generator">UUID tool</a> where apps need them.</p>
+
+<h2 id="ladder">The strength ladder (weakest to strongest)</h2>
+<table>
+<thead><tr><th>Factor</th><th>Security</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td><strong>SMS codes</strong></td><td>Weakest real 2FA</td><td>SIM-swap, SS7 interception, phishing — NIST restricted</td></tr>
+<tr><td><strong>App OTP (TOTP)</strong></td><td>Good</td><td>No network interception, but still phishable fake-login pages</td></tr>
+<tr><td><strong>Push approval</strong></td><td>Good+</td><td>Convenient; MFA-fatigue attacks spam approvals — always verify context</td></tr>
+<tr><td><strong>Passkeys (synced)</strong></td><td>Excellent</td><td>Phishing-resistant crypto; syncs across your devices</td></tr>
+<tr><td><strong>Hardware keys</strong></td><td>Strongest</td><td>Device-bound, phishing-proof; keep a backup key offline</td></tr>
+</tbody>
+</table>
+<p>Rule: any step up the ladder beats perfecting the current rung. SMS today beats “hardware key someday” — upgrade progressively, starting with email and bank per <a href="/blog/password-generator-guide/how-to-create-strong-password">creation steps</a>.</p>
+
+<h2 id="passkeys">Passkeys: do they replace passwords?</h2>
+<p>Passkeys (FIDO2/WebAuthn) replace typed secrets with device-held cryptographic keys — nothing to phish, nothing to reuse, nothing to forget. Synced passkeys (Apple/Google ecosystems) cover convenience; hardware keys cover maximum assurance. Status in 2026: major platforms support them, long-tail sites do not — so the answer is <strong>both for years</strong>: passkeys where offered, strong unique passwords + app-2FA everywhere else. Migration order: enable passkeys on email, bank and cloud first (account-takeover impact ranked), keep the manager + MFA stack intact behind them. Never disable existing 2FA when adding a passkey until the passkey proves reliable across your devices — redundancy during transition, consolidation after.</p>
+
+<h2 id="setup-order">Setup order that sticks (one evening)</h2>
+<ol>
+<li><strong>Email:</strong> app OTP or passkey + printed recovery codes in a safe. Inbox compromise cascades everywhere.</li>
+<li><strong>Bank + UPI-linked accounts:</strong> strongest available option; India users note SMS fallback risks and prefer app/passkey paths.</li>
+<li><strong>Password manager itself:</strong> hardware-grade MFA — vault breach with weak second factor loses everything at once.</li>
+<li><strong>Socials + cloud:</strong> session-hijack targets; enable and log out unknown devices while there.</li>
+<li><strong>Store recovery codes offline:</strong> paper in a safe beats encrypted cloud note whose password you might also lose. Test one recovery flow before trusting the system.</li>
+</ol>
+<h2 id="backup-codes">Backup codes: the MFA everyone forgets</h2>
+<p>Enabling 2FA without storing recovery codes trades one lockout risk for another — lost phone plus no codes equals account loss, with support recovery taking days or failing entirely. Protocol: at each MFA enrollment, print or hand-copy the 8–10 recovery codes onto paper stored with your sealed master backup (never screenshots in cloud photos, never the same device). Test one code immediately to confirm the set works, then mark it used. Annual audit: codes still locatable, still valid after authenticator migrations (new phone transfers invalidate some sets — regenerate after every device move). India note: bank “grid card” and e-verification fallbacks need the same paper treatment; UPI apps' device-binding resets strand travelers without backups.</p>
+<blockquote class="tip">General information only, not security advice. Generate offline, store in a manager, enable MFA on email/bank. If you lose your master password it cannot be recovered by us.</blockquote>
+`;
+
+export const passwordMfa: BlogPost = {
+  pillar: "password-generator-guide",
+  slug: "2fa-vs-passkeys",
+  kind: "cluster",
+  title: "2FA vs Passkeys: Strength Ladder + Setup Order (2026)",
+  description:
+    "2FA vs passkeys ranked: SMS to hardware keys, migration order, one-evening setup. Phishing-resistant direction per NIST.",
+  keywords: [
+    "2fa vs passkeys",
+    "passkeys safer than authenticator",
+    "do passkeys replace passwords",
+    "sms 2fa sim swap risk",
+  ],
+  toolSlugs: ["otp-generator", "uuid-generator", "password-generator"],
+  relatedSlugs: ["how-to-create-strong-password", "what-to-do-after-data-breach", "how-to-remember-passwords"],
+  published: "2026-09-25",
+  updated: "2026-09-25",
+  readingMinutes: readingMinutesFor(html),
+  toc: [
+    { id: "ladder", text: "Strength ladder", level: 2 },
+    { id: "passkeys", text: "Do passkeys replace passwords?", level: 2 },
+    { id: "setup-order", text: "One-evening setup order", level: 2 },
+    { id: "backup-codes", text: "Backup codes protocol", level: 2 },
+  ],
+  html,
+  faqs: [
+    { question: "Is SMS 2FA safe?", answer: "Weakest real 2FA — SIM-swap, SS7 interception and phishing defeat it, and NIST restricts it. Better than nothing, but upgrade to app OTP or passkeys, starting with email and bank." },
+    { question: "Are passkeys safer than authenticator apps?", answer: "Yes — phishing-resistant cryptography versus phishable one-time codes. Synced passkeys cover convenience; hardware keys cover maximum assurance." },
+    { question: "Do passkeys replace passwords in 2026?", answer: "Not yet everywhere — majors support them, long-tail sites don't. Run both: passkeys where offered, strong unique passwords plus app-2FA elsewhere." },
+    { question: "What order should I enable 2FA?", answer: "Email, bank/UPI-linked, password manager itself, then socials and cloud — with offline recovery codes stored before trusting the system." },
+    { question: "What is MFA fatigue?", answer: "Attackers spam push approvals until victims tap accept. Always verify login context (location, device, time) before approving any push." },
+  ],
+};

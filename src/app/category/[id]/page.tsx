@@ -169,6 +169,17 @@ export async function generateMetadata({
     title: category.label,
     description: category.description,
     alternates: { canonical },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
     // Full object: Metadata merges shallowly — a partial openGraph here
     // would drop the parent type/locale/siteName/images.
     openGraph: {
@@ -206,6 +217,30 @@ export default async function CategoryPage({
   // are hidden from the ItemList and the ToolCard grid, but the category page
   // itself stays indexable + followable and still links to all categories below.
   const visibleTools = group.tools.filter((t) => !NOINDEX_SLUGS.has(t.slug));
+  const introForFaq = CATEGORY_INTROS[id] ?? FALLBACK_INTRO;
+  // 5Q category FAQ (answer-first 40-60w each) — visible below + FAQPage 1:1.
+  const categoryFaqs = [
+    {
+      q: `What are ${category.label}?`,
+      a: `${category.label} on Tool4SaaS are free browser tools that run locally with no signup. ${introForFaq.picks.map((p) => p.label).join(", ")} cover the most common jobs. Most work offline after load and your files never upload.`,
+    },
+    {
+      q: `Which ${category.label.toLowerCase()} tools should I try first?`,
+      a: `Start with ${introForFaq.picks.map((p) => p.label).join(", ")}. Each page shows a 4-step how-to plus worked numbers and edge cases. Open any card below to run the tool free in your browser today.`,
+    },
+    {
+      q: `Are ${category.label.toLowerCase()} tools free and private?`,
+      a: `Yes. Every tool in ${category.label} is free with no account and no watermark. Most run 100% locally in your browser, so inputs stay on your device. Only live-data tools need internet, and each page says so plainly.`,
+    },
+    {
+      q: `How do I use ${category.label.toLowerCase()} tools offline?`,
+      a: `Open the tool once while online and keep the tab open. Most ${category.label.toLowerCase()} tools then run without internet because math happens locally. Close the tab and your data is gone. No install is needed.`,
+    },
+    {
+      q: `Where do I get help for ${category.label.toLowerCase()}?`,
+      a: `Each tool page has its own FAQ with edge cases and worked examples — start with the ${introForFaq.faqLabel}. See also our testing methodology and contact page for requests, corrections, and new tool ideas.`,
+    },
+  ];
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -223,6 +258,7 @@ export default async function CategoryPage({
         url: categoryUrl,
         description: category.description,
         isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
+        author: { "@type": "Person", name: "Tool4SaaS Editorial Team", url: `${base}/author` },
         mainEntity: {
           "@type": "ItemList",
           itemListElement: visibleTools.map((t, i) => ({
@@ -232,6 +268,15 @@ export default async function CategoryPage({
             name: t.title,
           })),
         },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${categoryUrl}#faq`,
+        mainEntity: categoryFaqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
       },
     ],
   };
@@ -282,6 +327,45 @@ export default async function CategoryPage({
           </Grid>
         ))}
       </Grid>
+      {/* Category FAQ — 5Q answer-first passages, visible + FAQPage 1:1 */}
+      <Box
+        component="section"
+        aria-label={`Frequently asked questions about ${category.label}`}
+        sx={{ mt: 6, maxWidth: 800 }}
+      >
+        <Typography variant="h2" sx={{ fontSize: 22, fontWeight: 800, mb: 1 }}>
+          Frequently asked questions about {category.label}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+          Reviewed by the Tool4SaaS Editorial Team · <Link href="/author">Authors</Link> ·{" "}
+          <Link href="/methodology">How we test</Link>
+        </Typography>
+        {categoryFaqs.map((f) => (
+          <Box
+            key={f.q}
+            component="details"
+            sx={{
+              mb: 2,
+              p: 2.5,
+              borderRadius: "12px",
+              border: "1px solid",
+              borderColor: "divider",
+              bgcolor: "background.paper",
+            }}
+          >
+            <Typography
+              component="summary"
+              variant="h3"
+              sx={{ fontSize: "1.05rem", fontWeight: 700, cursor: "pointer" }}
+            >
+              {f.q}
+            </Typography>
+            <Typography color="text.secondary" sx={{ lineHeight: 1.7, mt: 1 }}>
+              {f.a}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
       <Box sx={{ mt: 5 }}>
         <Typography variant="h2" sx={{ fontSize: 20, mb: 2 }}>
           Browse all categories

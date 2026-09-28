@@ -26,6 +26,34 @@ const POPULAR_SLUGS = [
 
 const RECENT_GUIDES = [
   {
+    title: "Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup",
+    desc: "Reading-time math, Flesch formulas, density without myths, length-by-intent.",
+    label: "Word Count Guide",
+    date: "2026-09-26",
+    href: "/blog/word-counter-guide",
+  },
+  {
+    title: "How to Generate a Strong Password (Free Offline Tool)",
+    desc: "Settings, entropy table, passphrases, manager + 2FA pairing, breach basics.",
+    label: "Password Guide",
+    date: "2026-09-25",
+    href: "/blog/password-generator-guide",
+  },
+  {
+    title: "Mortgage Calculator Guide: Payments, PMI & Amortization",
+    desc: "PITI, $240k example, amortization, 15-vs-30, refinance, India EMI + rent-vs-buy.",
+    label: "Mortgage Guide",
+    date: "2026-09-24",
+    href: "/blog/mortgage-calculator-guide",
+  },
+  {
+    title: "Free Resume Builder Guide: Build a Job-Winning Resume Fast",
+    desc: "Sections, fresher vs experienced, ATS rules, India/US/UK formats + PDF export.",
+    label: "Resume Guide",
+    date: "2026-09-23",
+    href: "/blog/resume-builder-guide",
+  },
+  {
     title: "Free QR Code Generator Guide: Create Scannable QR Codes Fast",
     desc: "WiFi, UPI, menus, vCards, and print sizes that scan.",
     label: "QR Code Guide",
@@ -39,12 +67,17 @@ const RECENT_GUIDES = [
     date: "2026-09-18",
     href: "/blog/invoice-generator-guide",
   },
+];
+
+// Popular posts — evergreen high-intent clusters (traffic drivers, not newest).
+// Sorted by search intent: ATS jobs, QR payments, home loans, GST, word count.
+const POPULAR_GUIDES = [
   {
-    title: "Static vs Dynamic QR Codes: Which to Choose",
-    desc: "When free static wins and when paid dynamic earns it.",
-    label: "QR Code Guide",
-    date: "2026-09-22",
-    href: "/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes",
+    title: "ATS-Friendly Resume: Beat Applicant Tracking Software (2026)",
+    desc: "How parsers read, 80% keyword target + 5-minute pre-application loop.",
+    label: "Resume Guide",
+    date: "2026-09-23",
+    href: "/blog/resume-builder-guide/ats-resume-guide",
   },
   {
     title: "UPI QR Code for Payments: Setup, Counter Tips & Safety (India)",
@@ -54,22 +87,36 @@ const RECENT_GUIDES = [
     href: "/blog/qr-code-generator-guide/upi-payment-qr-code-india",
   },
   {
-    title: "vCard QR Code: Digital Business Card That Saves in 5 Seconds",
-    desc: "Fields that import cleanly on iPhone and Android.",
+    title: "Static vs Dynamic QR Codes: Which to Choose (Honest Guide)",
+    desc: "When free static wins and when paid dynamic earns it.",
     label: "QR Code Guide",
     date: "2026-09-22",
-    href: "/blog/qr-code-generator-guide/vcard-contact-qr-code",
+    href: "/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes",
   },
   {
-    title: "12 Invoice Mistakes That Delay Payment (and How to Fix Them)",
-    desc: "10-minute fixes plus a 60-second pre-send checklist.",
+    title: "Home Loan EMI & Eligibility India: CIBIL, FOIR, Prepayment (2026)",
+    desc: "CIBIL 750+, FOIR 50%, zero-penalty prepayment + bank comparison.",
+    label: "Mortgage Guide",
+    date: "2026-09-24",
+    href: "/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india",
+  },
+  {
+    title: "GST Invoice Format India: Mandatory Fields, HSN & Sample (2026)",
+    desc: "CGST/SGST vs IGST split, GSTIN, HSN codes + freelancers sample.",
     label: "Invoice Guide",
     date: "2026-09-18",
-    href: "/blog/invoice-generator-guide/invoicing-mistakes-to-avoid",
+    href: "/blog/invoice-generator-guide/gst-invoice-format-india",
+  },
+  {
+    title: "How to Count Words Online Free (No Signup)",
+    desc: "Paste 1,500 words, get count + reading time at 200 WPM instantly.",
+    label: "Word Count Guide",
+    date: "2026-09-26",
+    href: "/blog/word-counter-guide/how-to-count-words-online",
   },
 ];
 
-const FAQS = [
+export const FAQS = [
   {
     q: "What is Tool4SaaS?",
     a: "Tool4SaaS is a free set of web utilities that run in your browser. You can count words, make codes, format text, and plan money with ease. Most jobs run on your device, so they are fast and private.",
@@ -111,7 +158,7 @@ export default function HomePage() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', overflowX: 'clip' }}>
       <HomeToolsItemList />
-      <HomeFaqJsonLd />
+      <HomeFaqJsonLd faqs={FAQS} />
       <HomeBlogItemList />
       {/* Hero — H1 exact-match primary keyword, simple English */}
       <Box
@@ -168,6 +215,7 @@ export default function HomePage() {
             </Typography>
             <Typography
               variant="body1"
+              className="speakable-hero-summary"
               sx={{
                 fontWeight: 400,
                 color: "text.secondary",
@@ -240,7 +288,8 @@ export default function HomePage() {
               { href: "#categories", label: "Categories" },
               { href: "#tools", label: "All tools" },
               { href: "#what-is", label: "What is Tool4SaaS" },
-              { href: "#guides", label: "Guides" },
+              { href: "#popular-posts", label: "Popular posts" },
+              { href: "#recent-posts", label: "Recent posts" },
               { href: "#faq", label: "FAQ" },
             ].map((l) => (
               <Link
@@ -448,18 +497,58 @@ export default function HomePage() {
         </Box>
       </Container>
 
-      {/* Recent Guides — 2 pillars + 4 clusters */}
-      <Container maxWidth="xl" sx={{ pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 } }}>
-        <Box component="section" id="guides" aria-label="Recent guides" sx={{ scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 600px" }}>
+      {/* Popular Posts — evergreen high-intent clusters */}
+      <Container maxWidth="xl" sx={{ pb: { xs: 4, md: 6 }, px: { xs: 2, md: 4 } }}>
+        <Box component="section" id="popular-posts" aria-label="Popular posts" sx={{ scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 600px" }}>
           <Box sx={{ textAlign: 'center', mb: 4, maxWidth: 700, mx: 'auto' }}>
             <Typography variant="body2" sx={{ letterSpacing: "0.08em", fontWeight: 700, color: "primary.main", mb: 1 }}>
-              Learn — guides that show the clicks
+              Popular — most-read tutorials
             </Typography>
             <Typography variant="h2" sx={{ fontWeight: 700, letterSpacing: "-0.025em", fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', mb: 1 }}>
-              Recent guides and tutorials for free tools
+              Popular posts readers love
             </Typography>
             <Typography variant="body1" color="text.secondary">
-              Short, plain guides for real jobs. Each guide links back to its free tool.
+              Evergreen winners for jobs, QR payments, home loans, GST and word count.
+            </Typography>
+          </Box>
+          <Grid container spacing={3}>
+            {POPULAR_GUIDES.map((g) => (
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={g.href}>
+                <Box sx={{ p: 3, borderRadius: "16px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper", height: "100%", contentVisibility: "auto", containIntrinsicSize: "auto 300px" }}>
+                  <Typography variant="body2" sx={{ fontWeight: 700, color: "primary.main", mb: 1, fontSize: '0.75rem', letterSpacing: "0.06em" }}>
+                    {g.label} · <time dateTime={g.date}>{g.date}</time>
+                  </Typography>
+                  <Link href={g.href} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <Typography variant="h3" sx={{ fontSize: '1.125rem', fontWeight: 700, mb: 1, lineHeight: 1.4 }}>
+                      {g.title}
+                    </Typography>
+                  </Link>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.6 }}>
+                    {g.desc}
+                  </Typography>
+                  <Link href={g.href} aria-label={`Read guide: ${g.title}`} style={{ fontWeight: 700, fontSize: '0.875rem' }}>
+                    Read guide →
+                  </Link>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Container>
+
+      {/* Recent Posts — 6 pillars sorted by updated date (newest first) */}
+      <Container maxWidth="xl" sx={{ pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 } }}>
+        <Box component="section" id="recent-posts" aria-label="Recent posts" sx={{ scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 600px" }}>
+          <span id="guides" style={{ scrollMarginTop: 100 }} aria-hidden="true" />
+          <Box sx={{ textAlign: 'center', mb: 4, maxWidth: 700, mx: 'auto' }}>
+            <Typography variant="body2" sx={{ letterSpacing: "0.08em", fontWeight: 700, color: "primary.main", mb: 1 }}>
+              Fresh — latest guides
+            </Typography>
+            <Typography variant="h2" sx={{ fontWeight: 700, letterSpacing: "-0.025em", fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', mb: 1 }}>
+              Recent posts and tutorials
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              Newest pillar guides first. Each guide links back to its free tool.
             </Typography>
           </Box>
           <Grid container spacing={3}>
@@ -539,7 +628,7 @@ export default function HomePage() {
               <Typography component="summary" variant="h3" sx={{ fontSize: '1.125rem', fontWeight: 700, cursor: 'pointer', '&:focus-visible': { outline: '3px solid', outlineOffset: '2px' } }}>
                 {f.q}
               </Typography>
-              <Typography color="text.secondary" sx={{ lineHeight: 1.7, mt: 1 }}>
+              <Typography color="text.secondary" className="speakable-faq-answer" sx={{ lineHeight: 1.7, mt: 1 }}>
                 {f.a}
               </Typography>
             </Box>

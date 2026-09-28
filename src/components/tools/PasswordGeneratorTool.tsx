@@ -20,7 +20,7 @@ const SETS = {
   lower: "abcdefghijklmnopqrstuvwxyz",
   upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   number: "0123456789",
-  symbol: "!@#$%^&*()-_=+[]{};:,.?/",
+  symbol: "!@#$%^&*()-_=+[]{};:,.?/\"'<>\\`|~",
 };
 
 function secureRandom(max: number) {

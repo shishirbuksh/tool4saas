@@ -1,15 +1,16 @@
-# Tool4SaaS (185 free tools across 12 categories)
+# Tool4SaaS (184 free tools across 12 categories + guides)
 
-> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 185 tools across 12 categories.
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 184 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
 
 ## Overview
-- [Tool4SaaS](https://tool4saas.com/): Home page with all 185 free tools grouped by 12 categories.
+- [Tool4SaaS](https://tool4saas.com/): Home page with all 184 free tools grouped by 12 categories.
 - [About](https://tool4saas.com/about): What the site is and how it protects your privacy.
 - [Privacy Policy](https://tool4saas.com/privacy): How user data is handled (it stays in your browser).
 - [Contact](https://tool4saas.com/contact): Contact the Tool4SaaS team.
 - [Author](https://tool4saas.com/author): About the author behind Tool4SaaS.
 - [Methodology](https://tool4saas.com/methodology): How we build and test tools.
 - [Categories](https://tool4saas.com/category/text-documents): Browse tools by category.
+- [Full tool + FAQ + steps dump](https://tool4saas.com/llms-full.txt): Every tool with its top FAQ questions and HowTo steps for AI citations.
 ## Text & Documents
 - [Word Counter](https://tool4saas.com/word-counter): Count words, characters & reading time
 - [Case Converter](https://tool4saas.com/case-converter): UPPER, lower, Title, camel & more
@@ -220,11 +221,68 @@
 
 ## Guides & Blog
 - [All Guides](https://tool4saas.com/blog): View all long-form tool guides and tutorials.
-- [Free Invoice Generator Guide: Create Professional Invoices Fast](https://tool4saas.com/blog/invoice-generator-guide)
-- [Free QR Code Generator Guide: Create Scannable QR Codes Fast](https://tool4saas.com/blog/qr-code-generator-guide)
-- [Free Resume Builder Guide: Build a Job-Winning Resume Fast](https://tool4saas.com/blog/resume-builder-guide)
-- [Mortgage Calculator Guide: Payments, PMI & Amortization](https://tool4saas.com/blog/mortgage-calculator-guide)
+- [How to Create an Invoice Online Free in 5 Steps (PDF, No Signup)](https://tool4saas.com/blog/invoice-generator-guide/how-to-create-invoice-online)
+- [GST Invoice Format India: Mandatory Fields, HSN & Sample (2026)](https://tool4saas.com/blog/invoice-generator-guide/gst-invoice-format-india)
+- [Freelancer Invoice Guide: What to Include & Get Paid on Time](https://tool4saas.com/blog/invoice-generator-guide/freelancer-invoice-guide)
+- [Small Business Invoicing Without Paid Software: Complete Setup](https://tool4saas.com/blog/invoice-generator-guide/small-business-invoicing)
+- [Free Invoice Template Guide: Word, Excel, PDF & Printable (2026)](https://tool4saas.com/blog/invoice-generator-guide/invoice-template-formats)
+- [Invoice vs Quotation vs Receipt vs Purchase Order: Key Differences](https://tool4saas.com/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt)
+- [Invoice Numbering: GST-Compliant Formats, HSN & Tax Fields (2026)](https://tool4saas.com/blog/invoice-generator-guide/invoice-numbering)
+- [Invoice Payment Terms + Follow-Up Scripts That Get You Paid Faster](https://tool4saas.com/blog/invoice-generator-guide/payment-terms-and-followups)
+- [12 Invoice Mistakes That Delay Payment (and How to Fix Them)](https://tool4saas.com/blog/invoice-generator-guide/invoicing-mistakes-to-avoid)
+- [Free Invoice Generator Guide: Create Professional Invoices in Minutes](https://tool4saas.com/blog/invoice-generator-guide): Pillar guide.
+- [How to Calculate Mortgage Payment: Formula + Examples (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment)
+- [How Much House Can I Afford? 28/36 Rule Explained (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/how-much-house-can-i-afford)
+- [15 vs 30 Year Mortgage: Interest, Payoff & When 15 Wins (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/15-vs-30-year-mortgage)
+- [Should I Refinance? Break-Even Rule + Checklist (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage)
+- [Extra Mortgage Payments: Interest Saved & 10% Rules (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment)
+- [Home Loan EMI & Eligibility India: CIBIL, FOIR, Prepayment (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india)
+- [Mortgage Amortization Schedule: How Payments Split (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/mortgage-amortization-schedule)
+- [Down Payment & PMI: 20% Rule, Costs & Strategy (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/down-payment-pmi-cost)
+- [Rent vs Buy a House: 5% Rule + Break-Even Math (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/rent-vs-buy-house)
+- [Mortgage Calculator Guide: Payments, PMI & Amortization](https://tool4saas.com/blog/mortgage-calculator-guide): Pillar guide.
+- [How to Create a Strong Password: The 16-Character Rule (2026)](https://tool4saas.com/blog/password-generator-guide/how-to-create-strong-password)
+- [What Makes a Password Strong? Length, Entropy & Blacklists (2026)](https://tool4saas.com/blog/password-generator-guide/what-makes-password-strong)
+- [Password Strength Tester: Check Without Uploading (2026)](https://tool4saas.com/blog/password-generator-guide/password-strength-tester)
+- [Passphrase vs Password: When 5 Words Beat 12 Characters (2026)](https://tool4saas.com/blog/password-generator-guide/passphrase-vs-password)
+- [How to Remember Passwords Without Reusing Them (2026)](https://tool4saas.com/blog/password-generator-guide/how-to-remember-passwords)
+- [Random Password Ideas: Patterns to Generate (Never Copy) 2026](https://tool4saas.com/blog/password-generator-guide/random-password-ideas)
+- [What to Do After a Data Breach: 7-Step Checklist (2026)](https://tool4saas.com/blog/password-generator-guide/what-to-do-after-data-breach)
+- [2FA vs Passkeys: Strength Ladder + Setup Order (2026)](https://tool4saas.com/blog/password-generator-guide/2fa-vs-passkeys)
+- [Strong Wi-Fi & Router Passwords: Practical Setup (2026)](https://tool4saas.com/blog/password-generator-guide/wifi-router-password)
+- [How to Generate a Strong Password (Free Offline Tool)](https://tool4saas.com/blog/password-generator-guide): Pillar guide.
+- [How to Create a QR Code Free in 60 Seconds (PNG, No Signup)](https://tool4saas.com/blog/qr-code-generator-guide/how-to-create-qr-code)
+- [WiFi QR Code: Share Guest WiFi With One Scan (2026)](https://tool4saas.com/blog/qr-code-generator-guide/wifi-qr-code-guide)
+- [QR Codes for Small Business: 6 Placements That Pay (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-for-business)
+- [QR Code vs Barcode: Differences & When to Use Each (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-vs-barcode)
+- [QR Code Size Guide: Minimum Sizes for Print & Distance (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-size-print-guide)
+- [QR Code Not Scanning? 5 Causes & Fixes That Work (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-not-scanning-fix)
+- [vCard QR Code: Digital Business Card That Saves in 5 Seconds](https://tool4saas.com/blog/qr-code-generator-guide/vcard-contact-qr-code)
+- [UPI QR Code for Payments: Setup, Counter Tips & Safety (India)](https://tool4saas.com/blog/qr-code-generator-guide/upi-payment-qr-code-india)
+- [Static vs Dynamic QR Codes: Which to Choose (Honest Guide)](https://tool4saas.com/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes)
+- [Free QR Code Generator Guide: Create Scannable QR Codes Fast](https://tool4saas.com/blog/qr-code-generator-guide): Pillar guide.
+- [How to Make a Resume in 15 Minutes + Tailor It Per Job (2026)](https://tool4saas.com/blog/resume-builder-guide/how-to-make-resume)
+- [Resume Format Guide: Sections, Order & India/US/UK Norms (2026)](https://tool4saas.com/blog/resume-builder-guide/resume-format-guide)
+- [ATS-Friendly Resume: Beat Applicant Tracking Software (2026)](https://tool4saas.com/blog/resume-builder-guide/ats-resume-guide)
+- [Fresher Resume Guide: Get Interviews With Zero Experience (2026)](https://tool4saas.com/blog/resume-builder-guide/fresher-resume-guide)
+- [Resume for Experienced Professionals: Positioning That Wins (2026)](https://tool4saas.com/blog/resume-builder-guide/experienced-resume-guide)
+- [Resume vs CV vs Biodata: Differences & When to Use Each (2026)](https://tool4saas.com/blog/resume-builder-guide/resume-vs-cv)
+- [Cover Letter Guide: 4-Paragraph Format That Wins Shortlists (2026)](https://tool4saas.com/blog/resume-builder-guide/cover-letter-guide)
+- [7 Resume Mistakes That Kill Interviews (With Before/After Fixes)](https://tool4saas.com/blog/resume-builder-guide/resume-mistakes)
+- [Offer Letter Guide: CTC Math, Clauses & Negotiation (India, 2026)](https://tool4saas.com/blog/resume-builder-guide/offer-letter-guide)
+- [Free Resume Builder Guide: Build a Job-Winning Resume Fast](https://tool4saas.com/blog/resume-builder-guide): Pillar guide.
+- [How to Count Words Online Free (No Signup)](https://tool4saas.com/blog/word-counter-guide/how-to-count-words-online)
+- [How Long Should a Blog Post Be? Intent, Coverage and Limits](https://tool4saas.com/blog/word-counter-guide/ideal-blog-post-length-seo)
+- [Flesch Reading Ease Score Explained: Formula and Bands](https://tool4saas.com/blog/word-counter-guide/flesch-reading-ease-score-explained)
+- [Keyword Density Explained: How to Check and Fix Stuffing](https://tool4saas.com/blog/word-counter-guide/keyword-density-seo-check)
+- [How to Summarize Text Fast: Extractive Method](https://tool4saas.com/blog/word-counter-guide/how-to-summarize-text-fast)
+- [Lorem Ipsum: When to Use Placeholder Text](https://tool4saas.com/blog/word-counter-guide/lorem-ipsum-generator-use)
+- [Reading and Typing Speed: WPM Math and Practice Tips](https://tool4saas.com/blog/word-counter-guide/typing-speed-test-practice-tips)
+- [Grammar Check Before You Publish: Self-Editing Checklist](https://tool4saas.com/blog/word-counter-guide/grammar-check-before-publish)
+- [Proofread by Listening: Text-to-Speech Workflow](https://tool4saas.com/blog/word-counter-guide/text-to-speech-proofreading-use)
+- [Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup](https://tool4saas.com/blog/word-counter-guide): Pillar guide.
 
 ## Site
 - [Sitemap](https://tool4saas.com/sitemap.xml): Machine-readable list of all pages.
 - [Robots](https://tool4saas.com/robots.txt): Crawler directives.
+- [LLMs full](https://tool4saas.com/llms-full.txt): Full FAQ + HowTo step hints per tool.

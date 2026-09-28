@@ -45,9 +45,13 @@ export default function SiteJsonLd() {
         name: "Free Online Tools – No Sign-Up, Right in Your Browser",
         isPartOf: { "@id": `${base}#website` },
         about: { "@id": `${base}#organization` },
-        author: { "@id": `${base}#organization` },
+        author: { "@type": "Person", name: "Tool4SaaS Editorial Team", url: `${base}/author` },
         inLanguage: "en",
         dateModified: "2026-09-22",
+        speakableSpecification: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [".speakable-hero-summary", ".speakable-faq-answer"],
+        },
       },
     ],
   };
@@ -59,15 +63,15 @@ export default function SiteJsonLd() {
   );
 }
 
-// Full tool index as ItemList — rendered on the homepage only, where the
-// complete grid is visibly listed. Emitting it on every route duplicated
-// ~15KB of JSON-LD per page and mismatched visible content.
+// Homepage ItemList — MUST match SSR-visible grid (PaginatedToolGrid renders
+// INITIAL_VISIBLE=12 cards in initial HTML; rest load on scroll). Emitting all
+// 184 tools while only 12 are visible mismatches content, so list the first 12
+// SSR-visible tools only. Full crawl coverage lives in sitemap.xml.
 export function HomeToolsItemList() {
   const base = siteConfig.url.replace(/\/$/, "");
   // Exclude NOINDEX_SLUGS (e.g. pdf-compress placeholder) so the ItemList
-  // matches the sitemap + visible homepage grid; numberOfItems uses the
-  // visible count, not the full catalogue length.
-  const visibleTools = tools.filter((t) => !NOINDEX_SLUGS.has(t.slug));
+  // matches the sitemap + visible homepage grid; slice to SSR-visible 12.
+  const visibleTools = tools.filter((t) => !NOINDEX_SLUGS.has(t.slug)).slice(0, 12);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -90,9 +94,10 @@ export function HomeToolsItemList() {
 }
 
 // Homepage FAQ — must match visible FAQ copy 1:1 (no hidden answers).
-// Rendered on / only. No AggregateRating/Review anywhere (spam risk).
-export function HomeFaqJsonLd() {
-  const faqs: { q: string; a: string }[] = [
+// Rendered on / only. Pass `faqs` from page.tsx FAQS to keep a single source
+// of truth; the inline default below is a fallback only. No AggregateRating/Review anywhere (spam risk).
+export function HomeFaqJsonLd({ faqs: faqsProp }: { faqs?: { q: string; a: string }[] } = {}) {
+  const fallback: { q: string; a: string }[] = [
     {
       q: "What is Tool4SaaS?",
       a: "Tool4SaaS is a free set of web utilities that run in your browser. You can count words, make codes, format text, and plan money with ease. Most jobs run on your device, so they are fast and private.",
@@ -126,6 +131,7 @@ export function HomeFaqJsonLd() {
       a: "Send your idea through our contact page. Tell us the job to be done and what result you want to see. We review top requests each month and build free private tools first.",
     },
   ];
+  const faqs = faqsProp ?? fallback;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -144,30 +150,55 @@ export function HomeFaqJsonLd() {
   );
 }
 
-// Recent guides ItemList — homepage only, distinct @id from #tools.
-// Mirrors visible Recent Guides section (2 pillars + 4 clusters).
+// Recent + Popular posts ItemLists — homepage only, distinct @ids from #tools.
+// Recent mirrors visible Recent posts section (6 pillars, newest first).
+// Popular mirrors visible Popular posts section (6 evergreen clusters).
 export function HomeBlogItemList() {
   const base = siteConfig.url.replace(/\/$/, "");
-  const items = [
+  const recent = [
+    { name: "Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup", url: `${base}/blog/word-counter-guide` },
+    { name: "How to Generate a Strong Password (Free Offline Tool)", url: `${base}/blog/password-generator-guide` },
+    { name: "Mortgage Calculator Guide: Payments, PMI & Amortization", url: `${base}/blog/mortgage-calculator-guide` },
+    { name: "Free Resume Builder Guide: Build a Job-Winning Resume Fast", url: `${base}/blog/resume-builder-guide` },
     { name: "Free QR Code Generator Guide: Create Scannable QR Codes Fast", url: `${base}/blog/qr-code-generator-guide` },
     { name: "Free Invoice Generator Guide: Create Professional Invoices Fast", url: `${base}/blog/invoice-generator-guide` },
-    { name: "Static vs Dynamic QR Codes: Which to Choose", url: `${base}/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes` },
+  ];
+  const popular = [
+    { name: "ATS-Friendly Resume: Beat Applicant Tracking Software (2026)", url: `${base}/blog/resume-builder-guide/ats-resume-guide` },
     { name: "UPI QR Code for Payments: Setup, Counter Tips & Safety (India)", url: `${base}/blog/qr-code-generator-guide/upi-payment-qr-code-india` },
-    { name: "vCard QR Code: Digital Business Card That Saves in 5 Seconds", url: `${base}/blog/qr-code-generator-guide/vcard-contact-qr-code` },
-    { name: "12 Invoice Mistakes That Delay Payment (and How to Fix Them)", url: `${base}/blog/invoice-generator-guide/invoicing-mistakes-to-avoid` },
+    { name: "Static vs Dynamic QR Codes: Which to Choose (Honest Guide)", url: `${base}/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes` },
+    { name: "Home Loan EMI & Eligibility India: CIBIL, FOIR, Prepayment (2026)", url: `${base}/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india` },
+    { name: "GST Invoice Format India: Mandatory Fields, HSN & Sample (2026)", url: `${base}/blog/invoice-generator-guide/gst-invoice-format-india` },
+    { name: "How to Count Words Online Free (No Signup)", url: `${base}/blog/word-counter-guide/how-to-count-words-online` },
   ];
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "@id": `${base}#recent-posts`,
-    name: "Recent guides",
-    numberOfItems: items.length,
-    itemListElement: items.map((t, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      item: t.url,
-      name: t.name,
-    })),
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "@id": `${base}#recent-posts`,
+        name: "Recent posts",
+        numberOfItems: recent.length,
+        itemListElement: recent.map((t, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          item: t.url,
+          name: t.name,
+        })),
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${base}#popular-posts`,
+        name: "Popular posts",
+        numberOfItems: popular.length,
+        itemListElement: popular.map((t, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          item: t.url,
+          name: t.name,
+        })),
+      },
+    ],
   };
   return (
     <script

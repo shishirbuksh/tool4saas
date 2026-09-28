@@ -86,8 +86,8 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
         // Validated: free tool must be price 0 USD.
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         inLanguage: "en",
-        author: { "@type": "Organization", name: siteConfig.author, url: `${base}/author` },
-        reviewer: { "@type": "Organization", name: siteConfig.author, url: `${base}/author` },
+        author: { "@type": "Person", name: siteConfig.authorRole, url: `${base}/author` },
+        reviewer: { "@type": "Person", name: siteConfig.authorRole, url: `${base}/author` },
         datePublished,
         dateModified,
         ...(hasValidRating
@@ -109,7 +109,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
         inLanguage: "en",
         speakableSpecification: {
           "@type": "SpeakableSpecification",
-          cssSelector: ["h1", "h2"],
+          cssSelector: [".speakable-answer-first", ".faq-passage", ".howto-passage"],
         },
       },
       {
@@ -138,11 +138,15 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
             {
               "@type": "HowTo",
               name: `How to use ${tool.title}`,
+              totalTime: "PT3M",
+              estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "0" },
+              tool: [{ "@type": "HowToTool", name: tool.title }],
               step: validHowTo.map((s, i) => ({
                 "@type": "HowToStep",
                 position: i + 1,
                 name: s.name.trim(),
                 text: s.text.trim(),
+                url: `${url}#howto-step-${i + 1}`,
               })),
             },
           ]
@@ -174,10 +178,14 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography sx={{ fontWeight: 600 }}>{f.question}</Typography>
+                <Typography component="h3" sx={{ fontWeight: 600, fontSize: "1rem" }}>
+                  {f.question}
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography color="text.secondary">{f.answer}</Typography>
+                <Typography color="text.secondary" className="faq-passage speakable-answer-first">
+                  {f.answer}
+                </Typography>
               </AccordionDetails>
             </Accordion>
           ))}
@@ -191,7 +199,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
           </Typography>
           <Box component="ol" sx={{ pl: 3, color: "text.secondary", "& li": { mb: 1 } }}>
             {validHowTo.map((s, i) => (
-              <li key={i}>
+              <li key={i} id={`howto-step-${i + 1}`} className="howto-passage">
                 <Typography component="span" color="text.primary" sx={{ fontWeight: 600 }}>
                   {s.name}:{" "}
                 </Typography>

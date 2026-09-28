@@ -27,6 +27,14 @@ const TOOL_COMPONENTS: Record<string, React.ComponentType> = {
     ssr: false,
     loading: () => <Skeleton variant="rounded" height={420} />,
   }) as React.ComponentType,
+  "password-generator-guide": dynamic(() => import("@/components/tools/PasswordGeneratorTool"), {
+    ssr: false,
+    loading: () => <Skeleton variant="rounded" height={420} />,
+  }) as React.ComponentType,
+  "word-counter-guide": dynamic(() => import("@/components/tools/WordCounterTool"), {
+    ssr: false,
+    loading: () => <Skeleton variant="rounded" height={420} />,
+  }) as React.ComponentType,
 };
 
 const TOOL_SLUG_BY_PILLAR: Record<string, string> = {
@@ -34,6 +42,8 @@ const TOOL_SLUG_BY_PILLAR: Record<string, string> = {
   "qr-code-generator-guide": "qr-code-generator",
   "resume-builder-guide": "resume-builder",
   "mortgage-calculator-guide": "mortgage-calculator",
+  "password-generator-guide": "password-generator",
+  "word-counter-guide": "word-counter",
 };
 
 export default function EmbeddedTool({ pillar }: { pillar: string }) {

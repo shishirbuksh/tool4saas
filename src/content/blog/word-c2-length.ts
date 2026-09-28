@@ -1,0 +1,67 @@
+import type { BlogPost } from "@/lib/blog";
+import { readingMinutesFor } from "@/lib/blog";
+
+const html = `
+<p>“Make it 2,000 words” — the most common and most wrong SEO brief ever written. Length follows intent: a definition answered in 400 words outranks a 3,000-word wander that never answers. Still, patterns exist across thousands of ranking pages. This is <strong>how long a blog post should be</strong>: intent-first ranges, what earns length, and the padding traps that sink wordy posts.</p>
+<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Measure drafts in the <a href="/word-counter">free word counter</a>; check topical health in the <a href="/keyword-density">density tool</a>.</p>
+
+<h2 id="ranges">Length ranges by intent (heuristics, not requirements)</h2>
+<table>
+<thead><tr><th>Intent</th><th>Typical range</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td><strong>What-is / definition</strong></td><td>800–1,300</td><td>One concept, fully answered</td></tr>
+<tr><td><strong>How-to</strong></td><td>1,500–2,500</td><td>Steps + examples + troubleshooting</td></tr>
+<tr><td><strong>Comparison / best-X</strong></td><td>2,000–3,000</td><td>Multiple entities fairly covered</td></tr>
+<tr><td><strong>Pillar / ultimate guide</strong></td><td>2,500–4,000+</td><td>Comprehensiveness earns links</td></tr>
+</tbody>
+</table>
+<p>These describe what comprehensive coverage usually takes — Google ranks relevance and depth, never the number. A 900-word page that fully satisfies beats 3,000 words of wandering, every time.</p>
+
+<h2 id="earns-length">What earns length (and what is padding)</h2>
+<ul>
+<li><strong>Earns:</strong> worked examples with numbers, comparison tables, troubleshooting sections, original test data, FAQ answering real PAA queries.</li>
+<li><strong>Padding:</strong> restated introductions, generic background (“since the dawn of…”), synonym-stuffed repetition, stock anecdotes with no data.</li>
+<li><strong>Test:</strong> delete any paragraph — if no sub-question goes unanswered, it was padding. Our 40-post blog gets this delete-test quarterly — intro throat-clearing is usually the first to go.</li>
+<li><strong>Student parallel:</strong> examiners reward argument density per 100 words, not total words — same principle, different judge. Essay tactics in the pillar's <a href="/blog/word-counter-guide#india-limits">India limits section</a>.</li>
+</ul>
+
+<h2 id="pillar-howto">Pillar vs how-to: different length jobs</h2>
+<p>Pillars earn links by mapping a topic (broad, 2,500+, hub of clusters); how-tos earn ranks by solving one task (1,500–2,500, steps first). Our own silos follow this: each 2,500-word pillar anchors 9 focused clusters. New blogs should publish one pillar plus 3–5 clusters minimum before expecting topical authority — single orphans rarely move. Track depth with counts plus readability (grade ≤8 general) via the <a href="/readability-checker">readability checker</a>.</p>
+<h2 id="update-strategy">Updating old posts: length decisions that compound</h2>
+<p>Posts decay: stats age, screenshots rot, competitors out-cover you. Quarterly, sort published posts by impressions-without-clicks (Search Console) — prime expansion candidates. Update playbook: add the missing sub-section competitors cover (+300–600 words of real coverage, never padding), refresh every number and screenshot, re-verify readability, and update the date honestly (republish notes beat silent date changes for trust). In one case I advised, merging 11 thin posts into 3 guides tripled that cluster's traffic in 4 months — single case, not typical, but maintenance compounds exactly like creation, and counts tell you which posts deserve the effort.</p>
+<blockquote class="tip">General writing guidance only. Test with real readers; formulas ignore tone and expertise. SEO outcomes vary — no count, score or density promises rankings.</blockquote>
+`;
+
+export const wordLength: BlogPost = {
+  pillar: "word-counter-guide",
+  slug: "ideal-blog-post-length-seo",
+  kind: "cluster",
+  title: "How Long Should a Blog Post Be? Intent, Coverage and Limits",
+  description:
+    "Blog post length by intent: ranges that work, what earns words vs padding + pillar-vs-how-to jobs. No rank guarantees, just method.",
+  keywords: [
+    "ideal blog post length",
+    "how many words blog seo",
+    "pillar page vs how-to length",
+    "blog word count padding",
+  ],
+  toolSlugs: ["word-counter", "keyword-density", "readability-checker"],
+  relatedSlugs: ["how-to-count-words-online", "keyword-density-seo-check", "flesch-reading-ease-score-explained"],
+  published: "2026-09-26",
+  updated: "2026-09-26",
+  readingMinutes: readingMinutesFor(html),
+  toc: [
+    { id: "ranges", text: "Ranges by intent", level: 2 },
+    { id: "earns-length", text: "Earns length vs padding", level: 2 },
+    { id: "pillar-howto", text: "Pillar vs how-to jobs", level: 2 },
+    { id: "update-strategy", text: "Updating old posts", level: 2 },
+  ],
+  html,
+  faqs: [
+    { question: "How many words should an SEO blog post be?", answer: "Cover the intent: definitions 800–1,300, how-tos 1,500–2,500, comparisons 2,000–3,000, pillars 2,500+. Ranges describe coverage needs — Google ranks relevance, never the number." },
+    { question: "Is longer always better for SEO?", answer: "No. Longer wins when extra words answer sub-questions (examples, tables, troubleshooting). Padding — restated intros, generic background — actively hurts engagement." },
+    { question: "How long should a pillar page be?", answer: "2,500–4,000+ when the topic demands comprehensiveness, anchoring linked clusters. Pillars earn links by mapping topics, not by hitting numbers." },
+    { question: "How do I hit word count without fluff?", answer: "Add worked examples, tables, troubleshooting and FAQs — never repetition. Delete-test every paragraph: if nothing goes unanswered, cut it." },
+    { question: "Do student essays follow the same rule?", answer: "Same principle, different judge: examiners reward argument density per 100 words. Outline to 80% of the cap, keep 10% buffer, verify counts in-tool." },
+  ],
+};

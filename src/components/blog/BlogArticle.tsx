@@ -21,7 +21,11 @@ function canonicalFor(post: BlogPost): string {
 
 export function blogMetadataFor(post: BlogPost) {
   const canonical = canonicalFor(post);
-  const ogImage = `${siteConfig.url.replace(/\/$/, "")}/og/home`;
+  const base = siteConfig.url.replace(/\/$/, "");
+  // Per-post OG: prefer the funnel tool's /og/<slug> image so shares show
+  // the tool, not the generic home card. Falls back to /og/home only when
+  // the post has no toolSlugs.
+  const ogImage = post.toolSlugs[0] ? `${base}/og/${post.toolSlugs[0]}` : `${base}/og/home`;
   let core = post.title;
   if (core.length > 55) {
     core = core.slice(0, 55).trimEnd();
@@ -60,9 +64,31 @@ export function blogMetadataFor(post: BlogPost) {
   };
 }
 
+export function validBlogFaqs(post: BlogPost) {
+  return Array.isArray(post.faqs)
+    ? post.faqs.filter(
+        (f) =>
+          typeof f?.question === "string" &&
+          f.question.trim().length > 0 &&
+          typeof f?.answer === "string" &&
+          f.answer.trim().length > 0
+      )
+    : [];
+}
+
 export function BlogJsonLd({ post }: { post: BlogPost }) {
   const base = siteConfig.url.replace(/\/$/, "");
   const canonical = canonicalFor(post);
+  // Filter malformed/empty FAQs so FAQPage always has Question +
+  // acceptedAnswer Answer text (1:1 with visible copy below).
+  const validFaqs = validBlogFaqs(post);
+  // HowTo from TOC: every pillar/cluster has an h2 how-to spine; expose it
+  // as HowTo steps (name = TOC text, url = anchor) with totalTime so
+  // AI/voice can cite ordered steps, not just prose.
+  const howToSteps = Array.isArray(post.toc)
+    ? post.toc.filter((t) => t.level === 2).slice(0, 8)
+    : [];
+  const ogImage = post.toolSlugs[0] ? `${base}/og/${post.toolSlugs[0]}` : `${base}/og/home`;
   const pillarMeta = getPillarMeta(post.pillar);
   const crumbs =
     post.kind === "pillar"
@@ -86,10 +112,10 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
         headline: post.title,
         description: post.description,
         url: canonical,
-        image: `${base}/og/home`,
+        image: ogImage,
         inLanguage: "en",
-        author: { "@type": "Organization", name: siteConfig.author, url: `${base}/author` },
-        reviewer: { "@type": "Organization", name: siteConfig.author, url: `${base}/author` },
+        author: { "@type": "Person", name: "Tool4SaaS Editorial Team", url: `${base}/author` },
+        reviewer: { "@type": "Person", name: "Tool4SaaS Editorial Team", url: `${base}/author` },
         publisher: {
           "@type": "Organization",
           name: siteConfig.name,
@@ -105,16 +131,36 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
         dateModified: post.updated,
         mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
         ...(post.keywords.length ? { keywords: post.keywords.join(", ") } : {}),
+        wordCount: post.html ? post.html.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length : undefined,
+        timeRequired: `PT${Math.max(3, post.readingMinutes)}M`,
       },
       { "@type": "BreadcrumbList", itemListElement: crumbs },
-      ...(post.faqs.length
+      ...(validFaqs.length
         ? [
             {
               "@type": "FAQPage",
-              mainEntity: post.faqs.map((f) => ({
+              mainEntity: validFaqs.map((f) => ({
                 "@type": "Question",
-                name: f.question,
-                acceptedAnswer: { "@type": "Answer", text: f.answer },
+                name: f.question.trim(),
+                acceptedAnswer: { "@type": "Answer", text: f.answer.trim() },
+              })),
+            },
+          ]
+        : []),
+      ...(howToSteps.length
+        ? [
+            {
+              "@type": "HowTo",
+              name: post.title,
+              totalTime: `PT${Math.max(3, post.readingMinutes)}M`,
+              tool: post.toolSlugs[0]
+                ? [{ "@type": "HowToTool", name: post.toolSlugs[0] }]
+                : undefined,
+              step: howToSteps.map((t, i) => ({
+                "@type": "HowToStep",
+                position: i + 1,
+                name: t.text,
+                url: `${canonical}#${t.id}`,
               })),
             },
           ]
@@ -136,6 +182,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
   const related = getRelatedPosts(post, 4);
   const primaryTool = post.toolSlugs[0] ? getTool(post.toolSlugs[0]) : undefined;
   const secondaryTools = post.toolSlugs.slice(1).map((s) => getTool(s)).filter(Boolean);
+  const validFaqs = validBlogFaqs(post);
 
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
@@ -193,8 +240,8 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
       {post.kind === "pillar" && <EmbeddedTool pillar={post.pillar} />}
 
       <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "240px 1fr" }, gap: 4, alignItems: "start" }}>
-        {/* TOC */}
-        <Box component="nav" aria-label="Table of contents" sx={{ position: { md: "sticky" }, top: { md: 100 }, p: 2.5, border: "1px solid", borderColor: "divider", borderRadius: "12px", bgcolor: "background.paper", order: { xs: -1, md: 0 } }}>
+        {/* TOC — after body on mobile (order 2) so answer-first H1+intro stays above fold; sticky sidebar on md+ */}
+        <Box component="nav" aria-label="Table of contents" sx={{ position: { md: "sticky" }, top: { md: 100 }, p: 2.5, border: "1px solid", borderColor: "divider", borderRadius: "12px", bgcolor: "background.paper", order: { xs: 2, md: 0 } }}>
           <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 1.5, letterSpacing: "0.04em", textTransform: "uppercase", fontSize: "0.75rem" }}>
             On this page
           </Typography>
@@ -227,15 +274,17 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
             </Box>
           )}
 
-          {post.faqs.length > 0 && (
+          {validFaqs.length > 0 && (
             <Box component="section" sx={{ mt: 5 }}>
               <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "1.75rem" }, fontWeight: 800, mb: 2 }}>
                 Frequently asked questions
               </Typography>
-              {post.faqs.map((f, i) => (
+              {validFaqs.map((f, i) => (
                 <Accordion key={i} elevation={0} sx={{ border: "1px solid", borderColor: "divider", "&:before": { display: "none" }, mb: 1 }}>
                   <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography sx={{ fontWeight: 600 }}>{f.question}</Typography>
+                    <Typography component="h3" sx={{ fontWeight: 600, fontSize: "1rem" }}>
+                      {f.question}
+                    </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>{f.answer}</Typography>

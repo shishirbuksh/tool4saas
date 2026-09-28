@@ -16,16 +16,9 @@ import Typography from "@mui/material/Typography";
 // (word-counter) links only to topically adjacent existing guides.
 const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   // ---- Mapped heroes (existing guides only) ----
-  // word-counter maps to resume writing-quality guides (cover letters, ATS
-  // wording) — the closest existing cluster for a writing tool. Image/PDF
-  // heroes (image-compressor, pdf-merge) are intentionally unmapped until
-  // dedicated image/pdf pillars ship — linking them to unrelated posts
+  // Image/PDF heroes (image-compressor, pdf-merge) are intentionally unmapped
+  // until dedicated image/pdf pillars ship — linking them to unrelated posts
   // would be topically misleading.
-  "word-counter": [
-    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
-    { href: "/blog/resume-builder-guide/cover-letter-guide", title: "Cover letter: 4-paragraph format that wins" },
-    { href: "/blog/resume-builder-guide/ats-resume-guide", title: "ATS-friendly resume: beat tracking software" },
-  ],
   // ---- Finance tools with topical guides ----
   "freelance-rate-calculator": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
@@ -77,19 +70,6 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   "rent-receipt-generator": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
     { href: "/blog/invoice-generator-guide/payment-terms-and-followups", title: "Payment terms + follow-up scripts" },
-  ],
-  // ---- Writing tools → resume/cover-letter guides ----
-  "readability-checker": [
-    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
-    { href: "/blog/resume-builder-guide/cover-letter-guide", title: "Cover letter: 4-paragraph format that wins" },
-  ],
-  "grammar-checker": [
-    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
-    { href: "/blog/resume-builder-guide/cover-letter-guide", title: "Cover letter: 4-paragraph format that wins" },
-  ],
-  "text-summarizer": [
-    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
-    { href: "/blog/resume-builder-guide/ats-resume-guide", title: "ATS-friendly resume: beat tracking software" },
   ],
   // ---- Invoice family ----
   "invoice-generator": [
@@ -212,6 +192,77 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
     { href: "/blog/mortgage-calculator-guide/rent-vs-buy-house", title: "Rent vs buy: 5% rule + break-even math" },
     { href: "/blog/mortgage-calculator-guide/how-much-house-can-i-afford", title: "How much house can I afford? 28/36 rule" },
+  ],
+  "password-generator": [
+    { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
+    { href: "/blog/password-generator-guide/how-to-create-strong-password", title: "How to create a strong password: 16-character rule" },
+    { href: "/blog/password-generator-guide/passphrase-vs-password", title: "Passphrase vs password: when 5 words win" },
+    { href: "/blog/password-generator-guide/what-to-do-after-data-breach", title: "What to do after a data breach: 7-step checklist" },
+  ],
+  "password-strength": [
+    { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
+    { href: "/blog/password-generator-guide/password-strength-tester", title: "Strength tester: check without uploading" },
+    { href: "/blog/password-generator-guide/what-makes-password-strong", title: "What makes a password strong: entropy + blacklists" },
+  ],
+  "random-passphrase": [
+    { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
+    { href: "/blog/password-generator-guide/passphrase-vs-password", title: "Passphrase vs password: when 5 words win" },
+    { href: "/blog/password-generator-guide/how-to-remember-passwords", title: "Remember passwords without reusing them" },
+  ],
+  "otp-generator": [
+    { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
+    { href: "/blog/password-generator-guide/2fa-vs-passkeys", title: "2FA vs passkeys: strength ladder + setup" },
+    { href: "/blog/password-generator-guide/what-to-do-after-data-breach", title: "What to do after a data breach: 7-step checklist" },
+  ],
+  "random-string": [
+    { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
+    { href: "/blog/password-generator-guide/random-password-ideas", title: "Random password ideas: patterns that stay safe" },
+    { href: "/blog/password-generator-guide/wifi-router-password", title: "Strong Wi-Fi & router passwords: setup" },
+  ],
+  "word-counter": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/how-to-count-words-online", title: "How to count words online free (no signup)" },
+    { href: "/blog/word-counter-guide/ideal-blog-post-length-seo", title: "How long should a blog post be?" },
+    { href: "/blog/word-counter-guide/flesch-reading-ease-score-explained", title: "Flesch Reading Ease: formula and bands" },
+  ],
+  "readability-checker": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/flesch-reading-ease-score-explained", title: "Flesch Reading Ease: formula and bands" },
+    { href: "/blog/word-counter-guide/grammar-check-before-publish", title: "Grammar check before you publish" },
+  ],
+  "keyword-density": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/keyword-density-seo-check", title: "Keyword density: check and fix stuffing" },
+    { href: "/blog/word-counter-guide/ideal-blog-post-length-seo", title: "How long should a blog post be?" },
+  ],
+  "text-summarizer": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/how-to-summarize-text-fast", title: "How to summarize text: extractive method" },
+    { href: "/blog/word-counter-guide/text-to-speech-proofreading-use", title: "Proofread by listening: TTS workflow" },
+  ],
+  "grammar-checker": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/grammar-check-before-publish", title: "Grammar check before you publish" },
+    { href: "/blog/word-counter-guide/flesch-reading-ease-score-explained", title: "Flesch Reading Ease: formula and bands" },
+  ],
+  "typing-speed-test": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/typing-speed-test-practice-tips", title: "Reading and typing speed: WPM math + tips" },
+    { href: "/blog/word-counter-guide/how-to-count-words-online", title: "How to count words online free (no signup)" },
+  ],
+  "lorem-ipsum": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/lorem-ipsum-generator-use", title: "Lorem ipsum: when to use placeholder text" },
+    { href: "/blog/word-counter-guide/typing-speed-test-practice-tips", title: "Reading and typing speed: WPM math + tips" },
+  ],
+  "text-to-speech": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/text-to-speech-proofreading-use", title: "Proofread by listening: TTS workflow" },
+    { href: "/blog/word-counter-guide/grammar-check-before-publish", title: "Grammar check before you publish" },
+  ],
+  "case-converter": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/how-to-count-words-online", title: "How to count words online free (no signup)" },
   ],
 };
 

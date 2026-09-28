@@ -39,6 +39,26 @@ import { mortgageIndia } from "@/content/blog/mortgage-c6-india";
 import { mortgageAmort } from "@/content/blog/mortgage-c7-amort";
 import { mortgageDown } from "@/content/blog/mortgage-c8-down";
 import { mortgageRentBuy } from "@/content/blog/mortgage-c9-rentbuy";
+import { passwordPillar } from "@/content/blog/password-pillar";
+import { passwordHowTo } from "@/content/blog/password-c1-how-to";
+import { passwordStrong } from "@/content/blog/password-c2-strong";
+import { passwordTester } from "@/content/blog/password-c3-tester";
+import { passwordPassphrase } from "@/content/blog/password-c4-passphrase";
+import { passwordRemember } from "@/content/blog/password-c5-remember";
+import { passwordIdeas } from "@/content/blog/password-c6-ideas";
+import { passwordBreach } from "@/content/blog/password-c7-breach";
+import { passwordMfa } from "@/content/blog/password-c8-mfa";
+import { passwordWifi } from "@/content/blog/password-c9-wifi";
+import { wordPillar } from "@/content/blog/word-pillar";
+import { wordHowTo } from "@/content/blog/word-c1-how-to";
+import { wordLength } from "@/content/blog/word-c2-length";
+import { wordFlesch } from "@/content/blog/word-c3-flesch";
+import { wordDensity } from "@/content/blog/word-c4-density";
+import { wordSummarize } from "@/content/blog/word-c5-summarize";
+import { wordLorem } from "@/content/blog/word-c6-lorem";
+import { wordTyping } from "@/content/blog/word-c7-typing";
+import { wordGrammar } from "@/content/blog/word-c8-grammar";
+import { wordTts } from "@/content/blog/word-c9-tts";
 
 export const BLOG_PILLARS: BlogPillarMeta[] = [
   {
@@ -105,6 +125,38 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     ],
     updated: "2026-09-24",
   },
+  {
+    pillar: "password-generator-guide",
+    title: "How to Generate a Strong Password (Free Offline Tool)",
+    shortLabel: "Password Guide",
+    description:
+      "Generate strong passwords free and offline: settings, entropy table, passphrases, manager + 2FA pairing, breach basics. No signup, nothing uploads.",
+    toolSlug: "password-generator",
+    keywords: [
+      "how to generate strong password",
+      "password generator guide",
+      "offline password generator",
+      "passphrase vs password",
+      "password manager 2fa guide",
+    ],
+    updated: "2026-09-25",
+  },
+  {
+    pillar: "word-counter-guide",
+    title: "Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup",
+    shortLabel: "Word Count Guide",
+    description:
+      "Count words free with no signup: reading-time math, Flesch formulas, density without myths, length-by-intent + India limits. Local and private.",
+    toolSlug: "word-counter",
+    keywords: [
+      "word counter guide",
+      "how to check word count",
+      "reading time calculator",
+      "flesch reading ease",
+      "keyword density checker",
+    ],
+    updated: "2026-09-26",
+  },
 ];
 
 const ALL_POSTS: BlogPost[] = [
@@ -148,6 +200,26 @@ const ALL_POSTS: BlogPost[] = [
   mortgageAmort,
   mortgageDown,
   mortgageRentBuy,
+  passwordPillar,
+  passwordHowTo,
+  passwordStrong,
+  passwordTester,
+  passwordPassphrase,
+  passwordRemember,
+  passwordIdeas,
+  passwordBreach,
+  passwordMfa,
+  passwordWifi,
+  wordPillar,
+  wordHowTo,
+  wordLength,
+  wordFlesch,
+  wordDensity,
+  wordSummarize,
+  wordLorem,
+  wordTyping,
+  wordGrammar,
+  wordTts,
 ];
 
 export function getPillarMeta(pillar: string): BlogPillarMeta | undefined {

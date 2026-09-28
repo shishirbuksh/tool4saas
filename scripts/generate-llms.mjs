@@ -15,6 +15,7 @@ try {
 
 const toolsPath = path.resolve("src/lib/tools.ts");
 const outPath = path.resolve("public/llms.txt");
+const outFullPath = path.resolve("public/llms-full.txt");
 const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
 let siteUrl;
 if (!rawSiteUrl) {
@@ -57,14 +58,16 @@ if (!content.includes("ICON_NAMES") || content.includes('export * from "./tools/
 const catMatches = [...content.matchAll(/id:\s*"([^"]+)"\s*,[\s\S]*?label:\s*"([^"]+)"\s*,[\s\S]*?description:\s*"([^"]+)"/g)];
 const categories = catMatches.map(m => ({ id: m[1], label: m[2], description: m[3] }));
 
-// Parse tools
+// Parse tools (also capture first 5 FAQ questions + HowTo step names for llms-full hints)
 const toolBlocks = content.split(/{\s*slug:\s*"/).slice(1);
 const tools = toolBlocks.map(block => {
   const slug = block.match(/^([^"]+)"/)?.[1] || "";
   const title = block.match(/title:\s*"([^"]+)"/)?.[1] || "";
   const short = block.match(/short:\s*"([^"]+)"/)?.[1] || "";
   const category = block.match(/category:\s*"([^"]+)"/)?.[1] || "";
-  return { slug, title, short, category };
+  const faqQs = [...block.matchAll(/question:\s*"([^"]+)"/g)].map(m => m[1]).slice(0, 5);
+  const howToNames = [...block.matchAll(/\{\s*name:\s*"([^"]+)"\s*,\s*text:/g)].map(m => m[1]).slice(0, 6);
+  return { slug, title, short, category, faqQs, howToNames };
 });
 
 const byCat = new Map();
@@ -82,19 +85,20 @@ const visibleTools = tools.filter((t) => t.slug && !NOINDEX_SLUGS.has(t.slug));
 // Generate markdown similar to existing llms.txt
 // NOTE: /contact + /author (src/app/author exists) included in Overview.
 // NOTE: counts use visibleTools (NOINDEX_SLUGS excluded) to stay consistent
-// with the sitemap exclusion.
-let out = `# Tool4SaaS (${tools.length} free tools across ${categories.length} categories)
+// with the sitemap exclusion. Header links llms-full.txt for AI answer engines.
+let out = `# Tool4SaaS (${visibleTools.length} free tools across ${categories.length} categories + guides)
 
-> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. ${tools.length} tools across ${categories.length} categories.
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. ${visibleTools.length} tools across ${categories.length} categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: ${siteUrl}/llms-full.txt
 
 ## Overview
-- [Tool4SaaS](${siteUrl}/): Home page with all ${tools.length} free tools grouped by ${categories.length} categories.
+- [Tool4SaaS](${siteUrl}/): Home page with all ${visibleTools.length} free tools grouped by ${categories.length} categories.
 - [About](${siteUrl}/about): What the site is and how it protects your privacy.
 - [Privacy Policy](${siteUrl}/privacy): How user data is handled (it stays in your browser).
 - [Contact](${siteUrl}/contact): Contact the Tool4SaaS team.
 - [Author](${siteUrl}/author): About the author behind Tool4SaaS.
 - [Methodology](${siteUrl}/methodology): How we build and test tools.
 - [Categories](${siteUrl}/category/text-documents): Browse tools by category.
+- [Full tool + FAQ + steps dump](${siteUrl}/llms-full.txt): Every tool with its top FAQ questions and HowTo steps for AI citations.
 `;
 
 for (const cat of categories) {
@@ -107,15 +111,31 @@ for (const cat of categories) {
   out += `\n`;
 }
 
-// Parse Blog
+// Parse Blog — pillars (6) + all clusters (54) from src/content/blog/*.ts
+// so AI crawlers see every guide URL, not just pillar stubs.
 let blogsOut = `## Guides & Blog\n- [All Guides](${siteUrl}/blog): View all long-form tool guides and tutorials.\n`;
+let clusterCount = 0;
 try {
-  const registryPath = path.resolve("src/lib/blog-registry.ts");
-  if (fs.existsSync(registryPath)) {
-    const regContent = fs.readFileSync(registryPath, "utf8");
-    const pillarMatches = [...regContent.matchAll(/pillar:\s*"([^"]+)"[\s\S]*?title:\s*"([^"]+)"/g)];
-    for (const m of pillarMatches) {
-      blogsOut += `- [${m[2]}](${siteUrl}/blog/${m[1]})\n`;
+  const blogDir = path.resolve("src/content/blog");
+  const pillarSeen = new Set();
+  if (fs.existsSync(blogDir)) {
+    for (const f of fs.readdirSync(blogDir)) {
+      if (!f.endsWith(".ts")) continue;
+      const b = fs.readFileSync(path.join(blogDir, f), "utf8");
+      const pillar = b.match(/pillar:\s*"([^"]+)"/)?.[1] || "";
+      const slug = b.match(/^\s*slug:\s*"([^"]+)"/m)?.[1] || "";
+      const title = b.match(/^\s*title:\s*"([^"]+)"/m)?.[1] || "";
+      const kind = b.match(/kind:\s*"(pillar|cluster)"/)?.[1] || "";
+      if (!pillar || !title) continue;
+      if (kind === "pillar") {
+        if (pillarSeen.has(pillar)) continue;
+        pillarSeen.add(pillar);
+        blogsOut += `- [${title}](${siteUrl}/blog/${pillar}): Pillar guide.\n`;
+      } else {
+        if (!slug) continue;
+        clusterCount++;
+        blogsOut += `- [${title}](${siteUrl}/blog/${pillar}/${slug})\n`;
+      }
     }
   }
 } catch (e) {}
@@ -125,8 +145,33 @@ out += blogsOut + "\n";
 out += `## Site
 - [Sitemap](${siteUrl}/sitemap.xml): Machine-readable list of all pages.
 - [Robots](${siteUrl}/robots.txt): Crawler directives.
+- [LLMs full](${siteUrl}/llms-full.txt): Full FAQ + HowTo step hints per tool.
 `;
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, out, "utf8");
-console.log(`generate-llms: wrote ${visibleTools.length} tools across ${categories.length} categories to ${outPath}`);
+console.log(`generate-llms: wrote ${visibleTools.length} tools across ${categories.length} categories + ${clusterCount} clusters to ${outPath}`);
+
+// llms-full.txt — per-tool FAQ questions + HowTo steps so AI engines can cite
+// answer-first passages without scraping every page.
+let full = `# Tool4SaaS full (${visibleTools.length} tools + guides) — FAQ & Steps for AI citations\n\n> Each tool below lists its canonical URL, top FAQ questions, and HowTo steps. Answers live on the tool page FAQ (40-60 words, visible + FAQPage 1:1) and steps in the ordered HowTo (totalTime PT3M). Prefer citing these passages.\n\n`;
+for (const cat of categories) {
+  const list = byCat.get(cat.id) || [];
+  if (list.length === 0) continue;
+  full += `## ${cat.label}\n`;
+  for (const slug of list) {
+    const t = tools.find((x) => x.slug === slug.slug) || slug;
+    full += `\n### ${t.title}\n- URL: ${siteUrl}/${t.slug}\n- What: ${t.short}\n`;
+    if (t.faqQs?.length) {
+      full += `- FAQ:\n`;
+      for (const q of t.faqQs) full += `  - ${q}\n`;
+    }
+    if (t.howToNames?.length) {
+      full += `- Steps: ${t.howToNames.join(" → ")}\n`;
+    }
+  }
+  full += `\n`;
+}
+full += `## Guides\n${blogsOut}\n`;
+fs.writeFileSync(outFullPath, full, "utf8");
+console.log(`generate-llms: wrote llms-full to ${outFullPath}`);

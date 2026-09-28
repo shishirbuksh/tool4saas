@@ -13,28 +13,25 @@ export default function robots(): MetadataRoute.Robots {
         // themselves stay fully crawlable (sitemap.xml is the source of truth).
         disallow: ["/api/", "/*?target=*"],
       },
-      // AI crawlers: allow training-neutral indexing like normal bots.
-      // (Remove these blocks to opt out of specific AI indexers.)
-      {
-        userAgent: "GPTBot",
+      // AI crawlers + AI search answer engines: allow all like normal bots.
+      // (Remove a block to opt out of a specific AI indexer. Keep disallow
+      // identical to "*" so budget isn't wasted on /api/ or ?target= dupes.)
+      ...[
+        "GPTBot",
+        "ChatGPT-User",
+        "OAI-SearchBot",
+        "PerplexityBot",
+        "ClaudeBot",
+        "Claude-Web",
+        "Cohere-AI",
+        "Google-Extended",
+        "Applebot-Extended",
+        "Bytespider",
+      ].map((userAgent) => ({
+        userAgent,
         allow: "/",
         disallow: ["/api/", "/*?target=*"],
-      },
-      {
-        userAgent: "OAI-SearchBot",
-        allow: "/",
-        disallow: ["/api/", "/*?target=*"],
-      },
-      {
-        userAgent: "PerplexityBot",
-        allow: "/",
-        disallow: ["/api/", "/*?target=*"],
-      },
-      {
-        userAgent: "ClaudeBot",
-        allow: "/",
-        disallow: ["/api/", "/*?target=*"],
-      },
+      })),
     ],
     sitemap: `${base}/sitemap.xml`,
   };
