@@ -48,6 +48,18 @@ const html = `
 <li><strong>Never:</strong> pay just for “professional templates”. The free PDF already looks professional — I have had zero client complaints in 2 years.</li>
 </ul>
 <div class="cta-box"><strong>Set it up today:</strong> make QUO-2026-014 in the <a href="/quotation-generator">quotation generator</a>, convert to INV-2026-001 in the <a href="/invoice-generator">free invoice generator</a>, and read <a href="/blog/invoice-generator-guide">the pillar</a> for the full checklist.</div>
+
+<h2 id="templates-pack">Two templates that cover ninety percent of work</h2>
+<p>Maintain one quotation template QUO-2026-014 with scope, price, 15-day validity, plus 50% advance terms, and one tax-invoice template INV-2026-001 referencing the approved quote plus advance paid. Both share identical numbering logic, tax presets, and payments blocks with UPI plus bank details so clients learn one layout. The <a href="https://www.irs.gov/businesses/small-businesses-self-employed/recordkeeping">IRS recordkeeping basics</a> and your local equivalents agree on essentials: sequential numbers, dates, line items, taxes, and totals retained for years. Generate both in the <a href="/quotation-generator">quotation generator</a> and <a href="/invoice-generator">invoice generator</a>, storing PDFs as INV-2026-001-client.pdf by year. Twins beat a dozen clever variants nobody can find during audits.</p>
+<h2 id="late-proof">Late-payment proofs that collect without burning bridges</h2>
+<p>Most overdue bills clear within 48 hours of one polite nudge with the PDF re-attached, so systematize follow-ups before threatening penalties. Day-3 template restates total, due date, plus payment details warmly; day-7 adds a calendar due date plus late-fee disclosure from your terms; day-14 offers a call to resolve disputes. The <a href="https://www.gov.uk/invoicing-and-taking-payment-from-customers">UK invoicing payment rules</a> illustrate statutory interest options where applicable — adapt to your jurisdiction with CA guidance. Send Tuesday through Thursday mornings with totals in subjects, log every touch on one ledger line, and issue <a href="/receipt-generator">receipts</a> same-day when paid. Clients reorder from firms that close loops gracefully.</p>
+<h2 id="year-end">Year-end pack your accountant will love</h2>
+<p>Close each fiscal year with a folder containing every invoice, credit note, receipt, plus purchase order matched by number, a one-page summary of sent, paid, and written-off totals, and tax preset documentation showing GST, VAT, or sales-tax logic applied. Reconcile bank deposits against invoice numbers monthly so December holds no surprises. Retain records six years for UK VAT and per local statutes elsewhere — separate personal plus business folders from day one. Your CA handles filing; this pack makes their review billable hours shrink while audit queries resolve in minutes instead of weeks.</p>
+
+
+<h2 id="numbering-guardrails">Numbering guardrails that survive audits</h2>
+<p>Sequential INV-2026-001 numbering with one series plus separate CN-001 credit notes prevents duplicate gaps that auditors flag. Never reuse numbers across years without prefixes, never invoice from chat approvals without quotations, and void mistakes with credit notes instead of deletions. Review sequences every Friday alongside unpaid lists, confirming every quote maps to an invoice or a documented loss. Clean series turn tax-season scrambles into ten-minute exports.</p>
+
 `;
 
 export const invoiceSmallBusiness: BlogPost = {
@@ -61,13 +73,17 @@ export const invoiceSmallBusiness: BlogPost = {
   toolSlugs: ["invoice-generator", "quotation-generator", "receipt-generator", "purchase-order-generator"],
   relatedSlugs: ["freelancer-invoice-guide", "invoice-vs-quotation-vs-receipt", "invoicing-mistakes-to-avoid"],
   published: "2026-09-12",
-  updated: "2026-09-18",
+  updated: "2026-09-28",
   readingMinutes: readingMinutesFor(html),
   toc: [
     { id: "setup-stack", text: "Lean invoicing stack (₹0)", level: 2 },
     { id: "quote-to-cash", text: "Quote-to-cash workflow", level: 2 },
     { id: "pricing-taxes", text: "Pricing, taxes and records", level: 2 },
     { id: "when-to-upgrade", text: "When to upgrade to paid software", level: 2 },
+    { id: "templates-pack", text: "Two templates", level: 2 },
+    { id: "late-proof", text: "Late-payment proofs", level: 2 },
+    { id: "year-end", text: "Year-end pack", level: 2 },
+    { id: "numbering-guardrails", text: "Numbering guardrails", level: 2 },
   ],
   html,
   faqs: [
@@ -76,5 +92,6 @@ export const invoiceSmallBusiness: BlogPost = {
     { question: "How should small businesses handle GST/VAT?", answer: "India: GSTIN + HSN/SAC + CGST/SGST vs IGST on tax invoices. US: nexus-based sales tax. UK: 20% VAT if registered. Keep every PDF by year. Confirm filing with your CA — this is operations guidance, not tax advice." },
     { question: "How do I reduce late payments as a small business?", answer: "Net 15 with calendar due dates, 30–50% advances, Tue–Thu morning sends with total in the subject, and a fixed Friday nudge routine. Most late bills clear within 48 hours of the first polite follow-up." },
     { question: "When should I pay for invoicing software?", answer: "At 30+ invoices/month, multi-state GST e-invoicing, payroll, or portal-upload clients. Below that, free tools plus sheets are faster and ₹0. Never pay just for templates." },
+    { question: "How many invoice templates does a small business need?", answer: "Two: a quotation QUO-2026-014 with validity plus advance terms, and a tax invoice INV-2026-001 referencing the quote. Shared numbering, tax presets, and payment blocks beat a dozen variants during audits." },
   ],
 };

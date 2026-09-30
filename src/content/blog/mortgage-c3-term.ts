@@ -37,6 +37,18 @@ const html = `
 <li><strong>Refinance blindness:</strong> starting 30-year at 7% and never revisiting when rates fall to 6% wastes the option value — break-even math in <a href="/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage">refinance guide</a>.</li>
 </ol>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
+
+<h2 id="affordability-check">Affordability checks before choosing payments</h2>
+<p>Higher 15-year payments near $2,025 versus $1,439 for 30 years on $240,000 at 6% must clear strict guards: payment under 28% of gross income, six-month emergency reserves intact after down payment plus 2 to 6% closing costs, and stable income that survives job shocks. The <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-qualified-mortgage-en-1789/">CFPB qualified-mortgage standards</a> cap debt-to-income ratios for good reason — stretched borrowers face foreclosure when roofs, cars, and childcare arrive together. Model both tenures in the <a href="/mortgage-calculator">mortgage calculator</a> with taxes, insurance, plus HOA layered as PITI, then stress-test with one income paused three months. If 15-year payments breach guards, take 30 years and automate voluntary overpayments instead of gambling on perfect employment.</p>
+<h2 id="invest-compare">Investing the difference versus prepaying</h2>
+<p>The $586 monthly gap between 15-year and 30-year payments invites comparison with market investing, but risk profiles differ sharply. Overpaying guarantees after-tax returns equal to mortgage rates plus PMI savings, while equities average higher long-term with volatility that can lag loan horizons. Max tax-advantaged retirement accounts before accelerating low-rate mortgages, since employer matches plus compounding dwarf interest savings for most households. The <a href="https://www.investor.gov/additional-resources/news-alerts/alerts-bulletins">Investor.gov compounding basics</a> illustrate why early retirement contributions beat extra principal mathematically when rates sit near 6%. Consult a qualified advisor for your tax bracket plus risk tolerance; this page is informational only, not financial advice. See <a href="/terms">/terms</a>.</p>
+<h2 id="switching-later">Switching tenures later without regret</h2>
+<p>Starting with 30 years preserves options: overpay to mimic 15-year amortization when income allows, pause extras during lean months without penalties, and refinance to shorter terms when rates fall enough to clear break-even per the <a href="/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage">refinance guide</a>. Starting with 15 years locks higher obligations that distress sales cannot pause. Track equity quarterly in <a href="/blog/mortgage-calculator-guide/mortgage-amortization-schedule">amortization tables</a>, automate extras on payday to defeat lifestyle drift, and revisit tenure annually alongside emergency funds plus career plans. Flexibility compounds like interest when life veers unexpectedly. For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor. See <a href="/terms">/terms</a>.</p>
+
+
+<h2 id="lender-scripts">Lender scripts that frame choices narrowly</h2>
+<p>Lenders often quote only 15-year plus 30-year menus, omitting 20-year middle paths with payments 15% above 30-year and two-thirds of interest savings. Ask explicitly for 20-year pricing on $240,000 at 6% near $1,719 monthly plus $173,000 lifetime interest, then model all three tenures side by side. Request APR, points, plus lock terms in writing on the same day to prevent daily drift from biasing comparisons. Independent brokers should disclose compensation driving term recommendations.</p>
+
 `;
 
 export const mortgageTerm: BlogPost = {
@@ -55,13 +67,17 @@ export const mortgageTerm: BlogPost = {
   toolSlugs: ["mortgage-calculator", "loan-calculator", "mortgage-overpayment-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "mortgage-overpayment-extra-payment", "mortgage-amortization-schedule"],
   published: "2026-09-24",
-  updated: "2026-09-24",
+  updated: "2026-09-28",
   readingMinutes: readingMinutesFor(html),
   toc: [
     { id: "numbers", text: "$240k numbers compared", level: 2 },
     { id: "when-15", text: "When 15-year wins", level: 2 },
     { id: "twenty-year", text: "20-year middle path", level: 2 },
     { id: "traps", text: "Three traps both ways", level: 2 },
+    { id: "affordability-check", text: "Affordability checks", level: 2 },
+    { id: "invest-compare", text: "Invest vs prepay", level: 2 },
+    { id: "switching-later", text: "Switching later", level: 2 },
+    { id: "lender-scripts", text: "Lender scripts", level: 2 },
   ],
   html,
   faqs: [
@@ -70,5 +86,6 @@ export const mortgageTerm: BlogPost = {
     { question: "Can I get 15-year benefits with a 30-year loan?", answer: "Mostly — overpay the payment difference voluntarily. Same destination in good months with an escape hatch in lean ones. Automate it or the plan drifts." },
     { question: "Does 15-year build equity faster?", answer: "About 4× faster early (~$68,000 vs ~$17,000 at year 5 on the example). Faster equity drops PMI sooner and cushions price dips." },
     { question: "Is this mortgage advice?", answer: "No — illustrative education only. Consult a qualified advisor and your lender for your situation; see /terms." },
+    { question: "Should dual-income couples prefer 15-year loans?", answer: "Only when $2,025 payments stay under 28 percent of gross income with six-month reserves intact and 10-plus-year stays planned. Otherwise 30 years plus automated overpayments match outcomes with lower distress risk." },
   ],
 };

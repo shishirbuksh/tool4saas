@@ -35,6 +35,18 @@ const html = `
 <li>Lock the rate in writing; shopping without locks wastes the comparison.</li>
 </ul>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
+
+<h2 id="cost-anatomy">Closing-cost anatomy lenders rarely headline</h2>
+<p>Refinance quotes bundle origination fees, appraisal, title search plus insurance, recording charges, and prepaid escrow that together reach 2 to 6% of balances — $4,500 on $300,000 is typical. Lender credits marketed as no-closing-cost options simply roll expenses into higher rates that cost more when stays exceed five years. The <a href="https://www.consumerfinance.gov/ask-cfpb/what-are-closing-costs-en-1801/">CFPB closing-cost explainer</a> lists line items to compare across same-day Loan Estimates since daily rate moves distort comparisons. Demand itemized origination versus third-party splits, question application or lock fees from brokers shopping files around, and run both credit versus fee versions through break-even months equal to costs divided by savings. Written locks preserve comparisons; verbal quotes evaporate.</p>
+<h2 id="timing-windows">Timing windows that reward patience</h2>
+<p>Rate dips plus equity milestones create windows where refinancing pays triple duty: lower rates, PMI removal past 20% equity, and term alignment without resets. Monitor 0.5% drops from your note rate, appreciation pushing loan-to-value below 80%, and credit score tier upgrades that unlock better pricing together. The <a href="https://www.federalreserve.gov/consumers.htm">Federal Reserve consumer resources</a> track rate environments shaping lender competition. Compress shopping into one week so multiple hard pulls within about 14 days count as one inquiry, comparing APR plus points versus credits line by line. Set calendar alerts for break-even anniversaries to confirm savings materialized after closing, keeping statements plus disclosures filed for taxes and future moves.</p>
+<h2 id="alternatives">Alternatives when refinancing loses</h2>
+<p>When break-even exceeds honest stay horizons, alternatives beat new loans: automate overpayments targeting principal per the <a href="/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment">overpayment guide</a>, recast with lump sums where servicers allow lower payments without new closings, or shorten effective tenure with biweekly half-payments creating one extra annual installment. PMI removal via appraisal at 20% equity often saves more than rate cuts alone without refinancing costs. Track progress in <a href="/blog/mortgage-calculator-guide/mortgage-amortization-schedule">amortization schedules</a> and revisit refinance math annually as rates plus equity evolve. For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor. See <a href="/terms">/terms</a>.</p>
+
+
+<h2 id="score-protection">Score protection during rate shopping</h2>
+<p>Multiple mortgage hard pulls within about 14 days count as one inquiry under scoring models, so compress applications into a single Monday-to-Friday sprint with three same-day estimates. Avoid opening credit cards or auto loans concurrently, keep utilization low, and freeze stray subscriptions that trigger verifications. Document scores before shopping plus after closing to confirm expected recovery within months as new accounts age.</p>
+
 `;
 
 export const mortgageRefi: BlogPost = {
@@ -53,12 +65,16 @@ export const mortgageRefi: BlogPost = {
   toolSlugs: ["refinance-calculator", "mortgage-calculator", "mortgage-overpayment-calculator"],
   relatedSlugs: ["mortgage-overpayment-extra-payment", "15-vs-30-year-mortgage", "how-to-calculate-mortgage-payment"],
   published: "2026-09-24",
-  updated: "2026-09-24",
+  updated: "2026-09-28",
   readingMinutes: readingMinutesFor(html),
   toc: [
     { id: "breakeven", text: "Break-even rule", level: 2 },
     { id: "gotchas", text: "Three gotchas", level: 2 },
     { id: "rate-shopping", text: "Rate shopping safely", level: 2 },
+    { id: "cost-anatomy", text: "Closing-cost anatomy", level: 2 },
+    { id: "timing-windows", text: "Timing windows", level: 2 },
+    { id: "alternatives", text: "When refinance loses", level: 2 },
+    { id: "score-protection", text: "Score protection", level: 2 },
   ],
   html,
   faqs: [
@@ -67,5 +83,6 @@ export const mortgageRefi: BlogPost = {
     { question: "Does refinancing restart my loan term?", answer: "A fresh 30-year does — early payments go interest-heavy again. Ask about remaining-term loans (e.g. 22-year) or keep overpaying instead." },
     { question: "Can refinancing remove PMI?", answer: "Yes — if appreciation pushed equity past 20%, the PMI drop alone can justify refinancing. Get appraisal math before deciding." },
     { question: "Is this refinancing advice?", answer: "No — illustrative education as of Sept 2026. Consult a qualified advisor and compare written lender estimates; see /terms." },
+    { question: "What paperwork should I keep after refinancing?", answer: "Retain Loan Estimates, closing disclosures, appraisal reports, plus monthly statements showing break-even progress. File escrow analyses annually and keep records for taxes plus future moves." },
   ],
 };

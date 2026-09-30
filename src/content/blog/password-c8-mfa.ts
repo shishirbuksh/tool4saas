@@ -32,6 +32,18 @@ const html = `
 <h2 id="backup-codes">Backup codes: the MFA everyone forgets</h2>
 <p>Enabling 2FA without storing recovery codes trades one lockout risk for another — lost phone plus no codes equals account loss, with support recovery taking days or failing entirely. Protocol: at each MFA enrollment, print or hand-copy the 8–10 recovery codes onto paper stored with your sealed master backup (never screenshots in cloud photos, never the same device). Test one code immediately to confirm the set works, then mark it used. Annual audit: codes still locatable, still valid after authenticator migrations (new phone transfers invalidate some sets — regenerate after every device move). India note: bank “grid card” and e-verification fallbacks need the same paper treatment; UPI apps' device-binding resets strand travelers without backups.</p>
 <blockquote class="tip">General information only, not security advice. Generate offline, store in a manager, enable MFA on email/bank. If you lose your master password it cannot be recovered by us.</blockquote>
+
+<h2 id="phishing-tests">Phishing tests that prove the ladder matters</h2>
+<p>Simulated fake-login pages defeat SMS plus app codes at similar rates in industry tests, while passkeys plus hardware keys block them by design because private keys never leave devices. Try this safe drill: send yourself a mock login link, attempt entry with app OTP versus passkey, and note which flow warns about domains. The <a href="https://www.nist.gov/itl/smallbusinesscyber/guidance-topic-authentication">NIST authentication guidance</a> ranks phishing-resistant factors highest for exactly this gap. Migrate email, bank, and cloud first since inbox compromise cascades everywhere. Keep existing app MFA active until passkeys prove reliable across all your phones plus laptops, then consolidate rather than stacking redundant prompts that breed fatigue.</p>
+<h2 id="travel-backup">Travel and backup rules for authenticator moves</h2>
+<p>New phones strand travelers when authenticator seeds fail to transfer, so regenerate backup codes before every device move and test one immediately. Store 8 to 10 printed codes per critical account in a safe separate from devices, never as screenshots in cloud photos whose passwords you might also lose. The <a href="https://www.cisa.gov/secure-our-world/enable-mfa">CISA MFA guide</a> recommends offline recovery plus strongest available factors on email and financial accounts. India travelers note UPI device-binding resets plus SMS fallback risks abroad; carry bank grid cards on paper with the same treatment. Annual audit: codes locatable, valid after migrations, with one recovery flow tested end to end.</p>
+<h2 id="team-rollout">Team rollout without lockouts</h2>
+<p>Small teams deploying MFA together should sequence email first, then password manager itself, then bank plus cloud, leaving socials last to avoid simultaneous lockouts. Assign one owner per staffer to confirm enrollment plus printed codes within a week, tracking completion on a single sheet. Provide hardware-grade options for finance roles while allowing app OTP elsewhere to balance cost plus assurance. Document helpdesk verification steps for lost phones so resets do not depend on tribal memory. Quarterly, review unknown sessions plus authorized devices during the same 30-minute drill as backup restores, keeping protection tight without productivity drag.</p>
+
+
+<h2 id="sms-risks">SMS fallback risks worth removing</h2>
+<p>SMS recovery options undermine strong primary factors because SIM-swap plus SS7 interception bypass app codes and passkeys alike when accounts offer text fallback. Audit email, bank, and cloud recovery settings this week, replacing SMS with authenticator plus printed codes where platforms allow. India users facing mandatory OTP routes should prefer app-based approvals plus transaction limits, keeping SIM PINs locked and carrier verification strict. Where SMS remains unavoidable, pair it with transaction alerts plus low transfer caps to contain takeover damage.</p>
+
 `;
 
 export const passwordMfa: BlogPost = {
@@ -50,13 +62,17 @@ export const passwordMfa: BlogPost = {
   toolSlugs: ["otp-generator", "uuid-generator", "password-generator"],
   relatedSlugs: ["how-to-create-strong-password", "what-to-do-after-data-breach", "how-to-remember-passwords"],
   published: "2026-09-25",
-  updated: "2026-09-25",
+  updated: "2026-09-28",
   readingMinutes: readingMinutesFor(html),
   toc: [
     { id: "ladder", text: "Strength ladder", level: 2 },
     { id: "passkeys", text: "Do passkeys replace passwords?", level: 2 },
     { id: "setup-order", text: "One-evening setup order", level: 2 },
     { id: "backup-codes", text: "Backup codes protocol", level: 2 },
+    { id: "phishing-tests", text: "Phishing tests", level: 2 },
+    { id: "travel-backup", text: "Travel and backup", level: 2 },
+    { id: "team-rollout", text: "Team rollout", level: 2 },
+    { id: "sms-risks", text: "SMS fallback risks", level: 2 },
   ],
   html,
   faqs: [
@@ -65,5 +81,6 @@ export const passwordMfa: BlogPost = {
     { question: "Do passkeys replace passwords in 2026?", answer: "Not yet everywhere — majors support them, long-tail sites don't. Run both: passkeys where offered, strong unique passwords plus app-2FA elsewhere." },
     { question: "What order should I enable 2FA?", answer: "Email, bank/UPI-linked, password manager itself, then socials and cloud — with offline recovery codes stored before trusting the system." },
     { question: "What is MFA fatigue?", answer: "Attackers spam push approvals until victims tap accept. Always verify login context (location, device, time) before approving any push." },
+    { question: "What breaks most MFA setups?", answer: "Lost phones without tested recovery codes, plus authenticator migrations that invalidate old sets. Print codes before device moves, test one immediately, and regenerate after every transfer to avoid lockouts." },
   ],
 };

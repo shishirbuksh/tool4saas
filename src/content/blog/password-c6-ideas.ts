@@ -30,6 +30,26 @@ const html = `
 <h2 id="team-patterns">Team and classroom patterns (shared secrets done right)</h2>
 <p>Shared staging passwords, classroom demo logins and event Wi-Fi need memorizable-but-disposable secrets. Pattern: 3 random words + event tag + rotation date (“correct-event-march”), distributed via manager shared collections or QR, retired on schedule. Classroom trainers: one passphrase per cohort (never reuse across batches — former students keep old ones), projected temporarily, changed each term. Startup staging: per-contractor suffixes so departures revoke individually without team-wide resets. The principle holds everywhere: shared secrets get shorter lifetimes and scheduled deaths, personal secrets get permanence and uniqueness. Expiry dates are part of the secret — “valid till June” printed alongside prevents zombie access nobody remembers granting.</p>
 <blockquote class="tip">General information only, not security advice. Generate offline, store in a manager, enable MFA on email/bank. If you lose your master password it cannot be recovered by us.</blockquote>
+
+<h2 id="entropy-math">Entropy math: why length beats cleverness every time</h2>
+<p>Password strength is math, not mystery. Each random character multiplies possibilities: a 12-character full-chaos draw (upper, lower, digits, symbols) holds roughly 78 bits of entropy, while a 20-character draw exceeds 130 bits — a gap attackers cannot bridge with hardware. By contrast, clever substitutions like P at ssw0rd add barely 2 bits because guessing rules try them first. The <a href="https://www.nist.gov/itl/smallbusinesscyber/guidance-topic-passwords">NIST password guidance</a> emphasizes length plus uniqueness over complexity rituals for exactly this reason. Table comparing families makes it concrete:</p>
+<table>
+<thead><tr><th>Family (example structure)</th><th>Length</th><th>Entropy approx</th><th>Best for</th></tr></thead>
+<tbody>
+<tr><td><strong>Full-chaos 16-char</strong></td><td>16</td><td>~105 bits</td><td>Email, bank vault entries</td></tr>
+<tr><td><strong>Full-chaos 20-char</strong></td><td>20</td><td>~131 bits</td><td>Password manager master-adjacent secrets</td></tr>
+<tr><td><strong>5-word passphrase</strong></td><td>~28 chars</td><td>~65 bits</td><td>Laptop login, Wi-Fi sharing</td></tr>
+<tr><td><strong>Leet dictionary P at ssw0rd</strong></td><td>8</td><td>~20 bits</td><td>Never — cracked in seconds</td></tr>
+</tbody>
+</table>
+<p>Takeaway: generate 20-character chaos for vault-stored logins and 5-word random passphrases for typed ones, per <a href="https://www.cisa.gov/secure-our-world/use-strong-passwords">CISA strong-password guidance</a>. Never copy examples from articles — published strings enter dictionaries within days. Use the pattern families above, set parameters in the tool, and accept the uniform draw without editing it prettier.</p>
+<h2 id="rotation-schedule">Rotation schedules that actually work (without burnout)</h2>
+<p>Calendar rotation of everything every 90 days burns people out and breeds weaker passwords — NIST retired that advice years ago. What works is event-driven rotation with a short priority queue. Rotate immediately when a service discloses a breach, when you shared a secret for troubleshooting, when malware touched the device, or when a team member with access departs. Keep a one-line inventory in your manager: service, username, last-changed date, and recovery codes location. Quarterly, spend 20 minutes clearing manager flags for reused or weak entries, starting with email and bank because inbox compromise cascades everywhere. Annual drill: test one recovery flow per critical account to confirm backup codes still work after phone migrations. Classroom and family plans follow the same rhythm — shared event passwords die on schedule printed alongside them, while personal vault secrets live on untouched for years. Consistency beats intensity; a calm routine you keep outperforms heroic resets you abandon.</p>
+
+
+<h2 id="manager-setup">Manager setup that makes ideas stick</h2>
+<p>Ideas fail without storage, so pair generation with a vault routine this week. Import existing logins, let the manager flag reused and weak entries, and replace the top ten risks with fresh 20-character draws starting with email and bank. Store Wi-Fi passphrases as 5-word random phrases for dictation, API tokens as 32-character hex for clean pasting, and recovery codes as scanned paper backups in a safe. Enable biometric unlock plus a written master backup sealed offline, test autofill on two sites, and schedule quarterly 20-minute cleanups. Teams add shared collections with per-contractor suffixes so departures revoke individually. The system works because generation, storage, and rotation live in one place instead of scattered notes.</p>
+
 `;
 
 export const passwordIdeas: BlogPost = {
@@ -48,12 +68,15 @@ export const passwordIdeas: BlogPost = {
   toolSlugs: ["random-string", "password-generator", "uuid-generator"],
   relatedSlugs: ["how-to-create-strong-password", "passphrase-vs-password", "what-to-do-after-data-breach"],
   published: "2026-09-25",
-  updated: "2026-09-25",
+  updated: "2026-09-28",
   readingMinutes: readingMinutesFor(html),
   toc: [
     { id: "patterns", text: "Pattern families to generate", level: 2 },
     { id: "hall-of-shame", text: "Hall of shame", level: 2 },
     { id: "team-patterns", text: "Team + classroom patterns", level: 2 },
+    { id: "entropy-math", text: "Entropy math: length wins", level: 2 },
+    { id: "rotation-schedule", text: "Rotation without burnout", level: 2 },
+    { id: "manager-setup", text: "Manager setup that sticks", level: 2 },
   ],
   html,
   faqs: [
@@ -62,5 +85,6 @@ export const passwordIdeas: BlogPost = {
     { question: "Are funny passphrases secure?", answer: "Only if uniformly random — humor you invent follows guessable patterns. Generate random words, then enjoy whatever comedy the dice produce." },
     { question: "What is a good Wi-Fi password pattern?", answer: "Long pronounceable chunks (20+ chars) for dictation, or 32-char hex for set-and-forget routers. Details in the Wi-Fi router guide." },
     { question: "Are numeric PINs ever OK?", answer: "Only behind rate-limiting plus separate encryption/limits: phone unlock, UPI PINs. Never as sole web authentication." },
+    { question: "How long should generated passwords be?", answer: "Twenty characters from full pools for vault-stored logins, or five random words for typed ones. Both exceed guessing budgets when uniformly random; short clever variants fall first regardless of symbols." },
   ],
 };

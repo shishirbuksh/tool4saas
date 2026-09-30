@@ -110,4 +110,22 @@ describe("tools catalogue quality", () => {
       }
     }
   });
+
+  it("keyword architecture: 9 lowercase kws, unique primary, question + no template filler", () => {
+    // Slot contract: [0]=unique primary head, one `?` long-tail, no shared
+    // template phrases (decannibalization: `online free no signup` was on 56 tools).
+    const seenPrimary = new Map<string, string>();
+    for (const t of tools) {
+      expect(t.keywords.length, `${t.slug} keywords 7-9, got ${t.keywords.length}`).toBeGreaterThanOrEqual(7);
+      expect(t.keywords.length, `${t.slug} keywords 7-9, got ${t.keywords.length}`).toBeLessThanOrEqual(9);
+      for (const k of t.keywords) {
+        expect(k, `${t.slug} lowercase keyword`).toBe(k.toLowerCase());
+        expect(k, `${t.slug} template filler`).not.toContain("online free no signup");
+      }
+      expect(t.keywords.some((k) => k.includes("?")), `${t.slug} missing ? long-tail`).toBe(true);
+      const k0 = t.keywords[0].toLowerCase().replace(/\?+$/, "");
+      expect(seenPrimary.has(k0), `${t.slug} shares primary '${t.keywords[0]}' with ${seenPrimary.get(k0)}`).toBe(false);
+      seenPrimary.set(k0, t.slug);
+    }
+  });
 });

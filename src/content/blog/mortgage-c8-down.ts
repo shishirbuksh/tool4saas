@@ -31,6 +31,18 @@ const html = `
 <li><strong>Never zero the emergency fund:</strong> a 20% down payment that leaves 2 weeks' reserves converts one roof leak into credit-card debt. Keep 3–6 months liquid, then maximize down payment.</li>
 </ul>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
+
+<h2 id="ten-year-math">Ten-year math: PMI versus waiting to save 20%</h2>
+<p>Waiting two years to save 20% while renting at $1,500 monthly costs $36,000 in rent plus potential price growth, while buying now at 10% down costs roughly $180 monthly PMI plus higher interest on a $270,000 loan. Over ten years the early buyer pays about $35,000 extra versus the 20% baseline, but avoids $36,000 rent and captures appreciation on the full $300,000 asset. The <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-private-mortgage-insurance-en-122/">CFPB private mortgage insurance explainer</a> details cancellation rights that make this math work: request removal at 20% equity with appraisal and clean history, with automatic termination near 22%. Run both paths in the <a href="/mortgage-calculator">mortgage calculator</a> using your local rent, tax rate, and honest stay horizon. In fast-appreciating markets buying at 10% wins; in flat markets with cheap rent, waiting wins. Neither choice is moral — both are arithmetic with different risks.</p>
+<h2 id="assistance-gifts">Assistance programs, gift funds and reserve rules</h2>
+<p>First-time-buyer grants, 3%-down conventional options, and documented family gifts bridge down-payment gaps without draining emergency savings to zero. Most programs allow gifts with paper trails started early — large last-minute deposits trigger underwriting delays that jeopardize closings. Keep 3 to 6 months liquid reserves after down payment plus closing costs of 2 to 6% of price; a 20% down payment leaving two weeks reserves converts one roof leak into credit-card debt. The <a href="https://www.hud.gov/topics/buying_a_home">HUD homebuying guide</a> lists counseling agencies that review assistance eligibility free. Compare grant restrictions, income caps, and repayment triggers before committing, and confirm loan-type PMI or MIP rules since FHA timelines differ. Your lender plus a qualified advisor should validate scenarios; this page is informational only, not financial advice. See <a href="/terms">/terms</a>.</p>
+<h2 id="pmi-tactics">PMI tactics ranked by return per dollar</h2>
+<p>Every extra principal dollar toward 20% equity can save $200 monthly until PMI drops, a return no savings account matches. Rank tactics: automate overpayments from month one labeled PMI exit and track balance versus 80% of value quarterly; request removal promptly at 20% with appraisal rather than waiting for servicers to volunteer; apply bonuses as lump sums when they cross thresholds since six months early saves $1,200; and document permitted renovations because appraisers credit permitted work only. Avoid refinancing solely to drop PMI unless rate break-even also works per the <a href="/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage">refinance guide</a>. Watch amortization cross the line in <a href="/blog/mortgage-calculator-guide/mortgage-amortization-schedule">amortization tables</a>. For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor. See <a href="/terms">/terms</a>.</p>
+
+
+<h2 id="appraisal-math">Appraisal math that decides PMI removal dates</h2>
+<p>Removal hinges on 80% loan-to-value against current appraised value, not original price, so renovations plus market growth pull dates forward while price dips push them back. A $300,000 home appraised at $320,000 with a $250,000 balance sits at 78% and qualifies with clean history, while the same balance at $290,000 sits at 86% and waits. Order appraisals through servicer-approved channels, document permitted improvements with receipts, and avoid unpermitted work that appraises at zero. Track quarterly estimates conservatively to avoid paying for premature appraisals that fail.</p>
+
 `;
 
 export const mortgageDown: BlogPost = {
@@ -49,13 +61,17 @@ export const mortgageDown: BlogPost = {
   toolSlugs: ["mortgage-calculator", "home-affordability-calculator", "mortgage-overpayment-calculator"],
   relatedSlugs: ["how-much-house-can-i-afford", "mortgage-amortization-schedule", "rent-vs-buy-house"],
   published: "2026-09-24",
-  updated: "2026-09-24",
+  updated: "2026-09-28",
   readingMinutes: readingMinutesFor(html),
   toc: [
     { id: "pmi", text: "PMI cost + cancellation", level: 2 },
     { id: "levels", text: "3% vs 10% vs 20%", level: 2 },
     { id: "pmi-exit-plan", text: "PMI exit plan", level: 2 },
     { id: "strategy", text: "Down-payment strategy", level: 2 },
+    { id: "ten-year-math", text: "Ten-year PMI math", level: 2 },
+    { id: "assistance-gifts", text: "Assistance and gifts", level: 2 },
+    { id: "pmi-tactics", text: "PMI tactics ranked", level: 2 },
+    { id: "appraisal-math", text: "Appraisal math", level: 2 },
   ],
   html,
   faqs: [
@@ -64,5 +80,6 @@ export const mortgageDown: BlogPost = {
     { question: "How do I cancel PMI early?", answer: "Reach 20% equity then request cancellation with an appraisal and clean payment history; it auto-terminates near 22%. Early overpayments pull the date forward." },
     { question: "Is 3% down a bad idea?", answer: "Not automatically — it costs ~$60,000+ extra over a decade versus 20% on a $300k home, but beats years of rent in rising markets. Run rent-vs-buy for your timeline." },
     { question: "Is this down-payment advice?", answer: "No — illustrative education as of Sept 2026. Consult a qualified advisor and your lender for your situation; see /terms." },
+    { question: "Can gift funds cover my whole down payment?", answer: "Often yes with documented family gifts and paper trails started early, subject to program caps and loan-type rules. Last-minute large deposits delay underwriting, so route gifts early and confirm with your lender plus advisor." },
   ],
 };
