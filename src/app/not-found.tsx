@@ -1,18 +1,15 @@
+"use client";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import React from "react";
 import Link from "next/link";
-
-
 const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
   // @ts-expect-error - MUI passes href dynamically
   <Link ref={ref} {...props} />
 ));
-
 import ToolSearchIsland from "@/components/ToolSearchIsland";
-
 // Static popular links — hardcoded to avoid importing the full tools registry
 // (no catalogue import) and keep the 404 bundle lean.
 const POPULAR_TOOLS = [
@@ -21,14 +18,12 @@ const POPULAR_TOOLS = [
   { slug: "qr-code-generator", title: "QR Code Generator" },
   { slug: "mortgage-calculator", title: "Mortgage Calculator" },
 ];
-
 const POPULAR_CATEGORIES = [
   { id: "text-documents", label: "Text & Documents" },
   { id: "developer", label: "Developer Tools" },
   { id: "calculators", label: "Calculators" },
   { id: "finance", label: "Finance & Money" },
 ];
-
 export default function NotFound() {
   return (
     <Container maxWidth="sm" sx={{ py: 12, textAlign: "center" }}>
