@@ -7,7 +7,7 @@ import Stack from "@mui/material/Stack";
 import AdSlot from "@/components/AdSlotLazy";
 import HeroButtons from "@/components/HeroButtons";
 import PaginatedToolGrid from "@/components/PaginatedToolGrid";
-import { HomeToolsItemList, HomeFaqJsonLd, HomeBlogItemList } from "@/components/SiteJsonLd";
+import { HomeToolsItemList, HomeFaqJsonLd, HomeBlogItemList, HomeWebPageJsonLd } from "@/components/SiteJsonLd";
 import { tools, toolsByCategoryCached, getTool, EXPECTED_TOOL_COUNT, EXPECTED_CATEGORY_COUNT } from "@/lib/tools";
 import { homeMetadata } from "@/lib/metadata";
 
@@ -123,7 +123,7 @@ export const FAQS = [
   },
   {
     q: "Is Tool4SaaS free?",
-    a: "Yes. All 185 tools are free to use with no cost and no paywall. You can open any tool, maker, or generator as often as you like each day.",
+      a: "Yes. Every tool is free to use with no cost and no paywall. You can open any tool, maker, or generator as often as you like each day.",
   },
   {
     q: "Do I need to sign up?",
@@ -157,6 +157,7 @@ export default function HomePage() {
   const hubB = hubGroups[1]?.category;
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', overflowX: 'clip' }}>
+      <HomeWebPageJsonLd />
       <HomeToolsItemList />
       <HomeFaqJsonLd faqs={FAQS} />
       <HomeBlogItemList />
@@ -457,7 +458,7 @@ export default function HomePage() {
             What is Tool4SaaS? Free tools in your browser
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-            Reviewed by the Tool4SaaS Editorial Team · Last updated <time dateTime="2026-09-22">September 22, 2026</time> · <Link href="/author">Authors</Link> · <Link href="/methodology">How we test</Link> · <Link href="/contact">Contact us</Link>
+            Reviewed by the Tool4SaaS Editorial Team · Last updated <time dateTime="2026-10-01">October 1, 2026</time> · <Link href="/author">Authors</Link> · <Link href="/methodology">How we test</Link> · <Link href="/contact">Contact us</Link>
           </Typography>
           <Typography color="text.secondary" sx={{ mb: 3, lineHeight: 1.8 }}>
             Tool4SaaS is a set of free online tools that run in your web browser. You open a tool, do your job, and get a clear result in seconds. There is no install, no wait, and no cost to start.

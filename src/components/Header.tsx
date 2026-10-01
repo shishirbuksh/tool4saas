@@ -280,6 +280,20 @@ export default function Header() {
         </Toolbar>
       </Container>
 
+      {/* noscript fallback: Drawer/Menu/ToolSearch are ssr:false so SSR HTML has
+          zero category links without this. Plain anchors for all 12 hubs + home.
+          <noscript> content never hydrates — zero hydration risk. */}
+      <noscript>
+        <div style={{ padding: "8px 16px", display: "flex", flexWrap: "wrap", gap: "12px" }}>
+          <a href="/">Home</a>
+          {grouped.map((g) => (
+            <a key={g.category.id} href={`/category/${g.category.id}`}>
+              {g.category.label}
+            </a>
+          ))}
+        </div>
+      </noscript>
+
       {/* Mobile Drawer — MUI Drawer traps focus by default (Modal focus-trap + Escape to close); no custom trap needed. */}
       <DrawerDynamic
         anchor="right"

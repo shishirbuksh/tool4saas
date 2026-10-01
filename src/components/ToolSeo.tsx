@@ -86,8 +86,8 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
         // Validated: free tool must be price 0 USD.
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         inLanguage: "en",
-        author: { "@type": "Person", name: siteConfig.authorRole, url: `${base}/author` },
-        reviewer: { "@type": "Person", name: siteConfig.authorRole, url: `${base}/author` },
+        author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
+        reviewer: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
         datePublished,
         dateModified,
         ...(hasValidRating

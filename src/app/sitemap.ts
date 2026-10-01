@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // "changed daily") which wastes crawl budget. Bump only when content
   // actually changes. Tool routes use per-tool staggered dates below so
   // sitemap lastmod matches the visible <time> + JSON-LD dateModified.
-  const lastModified = new Date("2026-09-09T00:00:00.000Z");
+  const lastModified = new Date("2026-10-01T00:00:00.000Z");
 
   const home: MetadataRoute.Sitemap = [
     {

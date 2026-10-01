@@ -6,11 +6,25 @@
 - [Tool4SaaS](https://tool4saas.com/): Home page with all 184 free tools grouped by 12 categories.
 - [About](https://tool4saas.com/about): What the site is and how it protects your privacy.
 - [Privacy Policy](https://tool4saas.com/privacy): How user data is handled (it stays in your browser).
+- [Terms](https://tool4saas.com/terms): Terms of use for all tools and guides.
 - [Contact](https://tool4saas.com/contact): Contact the Tool4SaaS team.
 - [Author](https://tool4saas.com/author): About the author behind Tool4SaaS.
 - [Methodology](https://tool4saas.com/methodology): How we build and test tools.
 - [Categories](https://tool4saas.com/category/text-documents): Browse tools by category.
 - [Full tool + FAQ + steps dump](https://tool4saas.com/llms-full.txt): Every tool with its top FAQ questions and HowTo steps for AI citations.
+- [Text & Documents](https://tool4saas.com/category/text-documents): Count words, convert case, clean text and compare documents with 19 free browser-based writing utilities for everyday editing.
+- [Business & Writing](https://tool4saas.com/category/business): Create invoices, resumes, quotations and receipts instantly in your browser with 9 free business document generators.
+- [Developer Tools](https://tool4saas.com/category/developer): Encode Base64, hash, format JSON and SQL, test regex and validate code with 29 free developer utilities that run locally.
+- [Converters](https://tool4saas.com/category/converters): Convert units, currencies, YAML, JSON, CSV and number systems instantly with 13 free offline converters in one click.
+- [Generators](https://tool4saas.com/category/generators): Generate strong passwords, UUIDs, random strings, favicons and robots.txt with 13 free privacy-friendly generator tools.
+- [Images & Design](https://tool4saas.com/category/images-design): Generate QR codes, compress and resize images, extract colors and build gradients with 23 free design tools offline.
+- [PDF Tools](https://tool4saas.com/category/pdf): Merge, split, compress and convert PDFs and images to PDF securely in your browser with 7 free offline PDF utilities.
+- [Calculators](https://tool4saas.com/category/calculators): Calculate percentages, loans, grades, discounts and BMI instantly with 15 free everyday calculators that work offline.
+- [Finance & Money](https://tool4saas.com/category/finance): Mortgage, investment, salary and tax calculators for planning — informational only, not financial advice.
+- [Health & Fitness](https://tool4saas.com/category/health): Calorie, BMI and macro calculators for informational purposes only — not medical advice, consult a professional.
+- [SEO & Marketing](https://tool4saas.com/category/seo): Generate meta tags, sitemaps, robots.txt and SERP previews to rank higher with 8 free SEO and marketing utilities offline.
+- [Time & Date](https://tool4saas.com/category/time): Calculate age, workdays, timezones and durations with clocks, timers and converters in 8 free time and date utilities.
+
 ## Text & Documents
 - [Word Counter](https://tool4saas.com/word-counter): Count words, characters & reading time
 - [Case Converter](https://tool4saas.com/case-converter): UPPER, lower, Title, camel & more

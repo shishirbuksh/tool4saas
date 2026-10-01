@@ -109,10 +109,25 @@ export default function MethodologyPage() {
           5. Public references we check against
         </Typography>
         <Typography sx={{ display: "block", mb: 1 }}>
-          We cross-check behavior against public references: MDN Web Docs for JavaScript, date, and number
-          behavior; published RBI and IRS formula guidance for loan and tax estimate logic (results remain
-          estimates, not financial advice); and WHO BMI classification ranges for health calculators. See{" "}
-          <Link href="/terms">/terms</Link> for limitations.
+          We cross-check behavior against public references:{" "}
+          <a href="https://developer.mozilla.org" target="_blank" rel="noopener">
+            MDN Web Docs
+          </a>{" "}
+          for JavaScript, date, and number behavior; published{" "}
+          <a href="https://www.rbi.org.in" target="_blank" rel="noopener">
+            RBI
+          </a>{" "}
+          and{" "}
+          <a href="https://www.irs.gov" target="_blank" rel="noopener">
+            IRS
+          </a>{" "}
+          formula guidance for loan and tax estimate logic (results remain estimates, not financial advice);
+          and{" "}
+          <a href="https://www.who.int" target="_blank" rel="noopener">
+            WHO
+          </a>{" "}
+          BMI classification ranges for health calculators. See <Link href="/terms">/terms</Link> for
+          limitations.
         </Typography>
         <Typography variant="h2" sx={{ fontSize: "1.25rem", color: "text.primary", mt: 3, mb: 1 }}>
           6. Testing rig in detail

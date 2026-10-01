@@ -84,7 +84,21 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
   const validFaqs = validBlogFaqs(post);
   // HowTo from TOC: every pillar/cluster has an h2 how-to spine; expose it
   // as HowTo steps (name = TOC text, url = anchor) with totalTime so
-  // AI/voice can cite ordered steps, not just prose.
+  // AI/voice can cite ordered steps, not just prose. `text` is extracted
+  // from the section body (first ~300 chars of visible text after the h2)
+  // so steps stay valid per Google (HowToStep requires name + text).
+  const sectionText = (html: string, id: string): string | undefined => {
+    const start = html.indexOf(`id="${id}"`);
+    if (start < 0) return undefined;
+    const bodyStart = html.indexOf(">", html.indexOf("<h2", Math.max(0, start - 200)));
+    const nextH2 = html.indexOf("<h2", start + 1);
+    const raw = html.slice(bodyStart + 1, nextH2 > 0 ? nextH2 : undefined);
+    const text = raw
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    return text.length > 0 ? text.slice(0, 300) : undefined;
+  };
   const howToSteps = Array.isArray(post.toc)
     ? post.toc.filter((t) => t.level === 2).slice(0, 8)
     : [];
@@ -114,8 +128,8 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
         url: canonical,
         image: ogImage,
         inLanguage: "en",
-        author: { "@type": "Person", name: "Tool4SaaS Editorial Team", url: `${base}/author` },
-        reviewer: { "@type": "Person", name: "Tool4SaaS Editorial Team", url: `${base}/author` },
+        author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
+        reviewer: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
         publisher: {
           "@type": "Organization",
           name: siteConfig.name,
@@ -156,12 +170,14 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
               tool: post.toolSlugs[0]
                 ? [{ "@type": "HowToTool", name: post.toolSlugs[0] }]
                 : undefined,
-              step: howToSteps.map((t, i) => ({
-                "@type": "HowToStep",
-                position: i + 1,
-                name: t.text,
-                url: `${canonical}#${t.id}`,
-              })),
+              step: howToSteps
+                .map((t, i) => ({
+                  "@type": "HowToStep",
+                  position: i + 1,
+                  name: t.text,
+                  text: sectionText(post.html, t.id) ?? t.text,
+                  url: `${canonical}#${t.id}`,
+                })),
             },
           ]
         : []),

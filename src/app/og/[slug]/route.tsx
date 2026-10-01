@@ -28,12 +28,26 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
-  const tool = getTool(slug);
-  const title = sanitizeTitle(tool ? tool.title : siteConfig.name);
-  const desc = sanitizeDesc(tool ? tool.description : siteConfig.description);
-  const badge = tool
-    ? sanitizeTitle(getCategory(tool.category)?.label ?? "Free Tools")
-    : "Free Online Tools";
+  // Per-category OG: /og/category-<id> renders the category label + site name.
+  // Unknown slugs (including unknown category ids) fall back to the generic
+  // home image safely; NOINDEX tool slugs never match this prefix and stay
+  // excluded via the single-source NOINDEX_SLUGS (sitemap/category grids).
+  let title: string;
+  let desc: string;
+  let badge: string;
+  if (slug.startsWith("category-")) {
+    const category = getCategory(slug.slice("category-".length));
+    title = sanitizeTitle(category ? category.label : siteConfig.name);
+    desc = sanitizeDesc(category ? category.description : siteConfig.description);
+    badge = sanitizeTitle(category ? siteConfig.name : "Free Online Tools");
+  } else {
+    const tool = getTool(slug);
+    title = sanitizeTitle(tool ? tool.title : siteConfig.name);
+    desc = sanitizeDesc(tool ? tool.description : siteConfig.description);
+    badge = tool
+      ? sanitizeTitle(getCategory(tool.category)?.label ?? "Free Tools")
+      : "Free Online Tools";
+  }
 
   const image = new ImageResponse(
     (

@@ -33,14 +33,10 @@ describe("adsense readiness (static)", () => {
     expect(read(rel).length).toBeGreaterThan(0);
   });
 
-  it("Footer links contact (and author discoverability)", () => {
+  it("Footer links contact and author (discoverability)", () => {
     const src = read(path.join("src", "components", "Footer.tsx"));
     expect(src).toContain("/contact");
-    // NOTE (gap, non-failing): Footer currently has no /author link. Author
-    // discoverability is instead asserted via the author route + sitemap + llms.txt.
-    if (!src.includes("/author")) {
-      console.warn("[adsense-readiness] Footer.tsx has no /author link; author page must stay discoverable via sitemap/llms.txt");
-    }
+    expect(src).toContain("/author");
     expect(exists(path.join("src", "app", "author", "page.tsx"))).toBe(true);
     expect(read(path.join("src", "app", "sitemap.ts"))).toContain("/author");
   });
@@ -73,7 +69,7 @@ describe("adsense readiness (static)", () => {
     expect(src).toContain("Advertisement");
   });
 
-  it("YMYLDisclaimer exists and is imported by >=20 tool components", () => {
+  it("YMYLDisclaimer exists and is imported by >=30 tool components (script parity)", () => {
     const disc = path.join("src", "components", "YMYLDisclaimer.tsx");
     expect(exists(disc), disc).toBe(true);
     const dir = path.join(root, "src", "components", "tools");
@@ -83,19 +79,31 @@ describe("adsense readiness (static)", () => {
     for (const f of files) {
       if (fs.readFileSync(path.join(dir, f), "utf8").includes("YMYLDisclaimer")) importing += 1;
     }
-    expect(importing).toBeGreaterThanOrEqual(20);
+    expect(importing).toBeGreaterThanOrEqual(30);
   });
 
-  it("ads.txt exists with valid google.com DIRECT entry (placeholder id allowed)", () => {
+  it("ads.txt exists with valid google.com DIRECT entry (format only — real ID gated by adsense:check script)", () => {
     const rel = path.join("public", "ads.txt");
     expect(exists(rel), rel).toBe(true);
     const content = read(rel);
     expect(content).toContain("google.com");
     expect(content).toContain("DIRECT");
     expect(content).toContain("f08c47fec0942fa0");
+    // NOTE: placeholder publisher IDs are intentionally NOT approved here.
+    // scripts/check-adsense-readiness.mjs FAILs on pub-0{4,}/ca-pub-XXX placeholders;
+    // that script (npm run adsense:check) is the ID gate before review submission.
   });
 
-  it("llms.txt links Contact/Author when present (skip if missing)", () => {
+  it("AdSense IDs fail closed on placeholders (no fake client/slot reaches markup)", () => {
+    const site = read(path.join("src", "lib", "site.ts"));
+    expect(site).toContain("ca-pub-\\d{16}");
+    const slot = read(path.join("src", "components", "AdSlot.tsx"));
+    expect(slot).toContain("return null");
+    const script = read(path.join("src", "components", "AdSenseScript.tsx"));
+    expect(script).toContain("return null");
+  });
+
+  it("llms.txt links Contact/Author/Terms + all 12 category hubs when present (skip if missing)", () => {
     const rel = path.join("public", "llms.txt");
     if (!exists(rel)) {
       console.warn("[adsense-readiness] public/llms.txt missing; skipping");
@@ -104,5 +112,22 @@ describe("adsense readiness (static)", () => {
     const content = read(rel);
     expect(content).toContain("Contact");
     expect(content).toContain("Author");
+    expect(content).toContain("/terms");
+    for (const hub of [
+      "text-documents",
+      "business",
+      "developer",
+      "converters",
+      "generators",
+      "images-design",
+      "pdf",
+      "calculators",
+      "finance",
+      "health",
+      "seo",
+      "time",
+    ]) {
+      expect(content, `llms.txt missing hub ${hub}`).toContain(`/category/${hub}`);
+    }
   });
 });

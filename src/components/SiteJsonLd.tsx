@@ -38,22 +38,39 @@ export default function SiteJsonLd() {
         isPartOf: { "@id": `${base}#website` },
         about: { "@id": `${base}#organization` },
       },
-      {
-        "@type": "WebPage",
-        "@id": `${base}/#webpage`,
-        url: `${base}/`,
-        name: "Free Online Tools – No Sign-Up, Right in Your Browser",
-        isPartOf: { "@id": `${base}#website` },
-        about: { "@id": `${base}#organization` },
-        author: { "@type": "Person", name: "Tool4SaaS Editorial Team", url: `${base}/author` },
-        inLanguage: "en",
-        dateModified: "2026-09-22",
-        speakableSpecification: {
-          "@type": "SpeakableSpecification",
-          cssSelector: [".speakable-hero-summary", ".speakable-faq-answer"],
-        },
-      },
     ],
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+    />
+  );
+}
+
+// Homepage WebPage — rendered from src/app/page.tsx ONLY (not global).
+// Previously emitted in SiteJsonLd on every URL alongside each page's own
+// entity; now scoped to / so other routes emit only their own WebPage/
+// CollectionPage/ProfilePage plus @id references to #website/#organization.
+// Author is Organization (Tool4SaaS Editorial Team → /author) to match
+// /author ProfilePage>Organization (no invented people).
+export function HomeWebPageJsonLd() {
+  const base = siteConfig.url.replace(/\/$/, "");
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${base}/#webpage`,
+    url: `${base}/`,
+    name: "Free Online Tools – No Sign-Up, Right in Your Browser",
+    isPartOf: { "@id": `${base}#website` },
+    about: { "@id": `${base}#organization` },
+    author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
+    inLanguage: "en",
+    dateModified: "2026-10-01",
+    speakableSpecification: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".speakable-hero-summary", ".speakable-faq-answer"],
+    },
   };
   return (
     <script
@@ -104,7 +121,7 @@ export function HomeFaqJsonLd({ faqs: faqsProp }: { faqs?: { q: string; a: strin
     },
     {
       q: "Is Tool4SaaS free?",
-      a: "Yes. All 185 tools are free to use with no cost and no paywall. You can open any tool, maker, or generator as often as you like each day.",
+      a: "Yes. Every tool is free to use with no cost and no paywall. You can open any tool, maker, or generator as often as you like each day.",
     },
     {
       q: "Do I need to sign up?",

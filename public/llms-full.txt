@@ -7,70 +7,189 @@
 ### Word Counter
 - URL: https://tool4saas.com/word-counter
 - What: Count words, characters & reading time
+- FAQ:
+  - Does the word counter store my text?
+  - How is reading time calculated?
+  - What text size can it handle?
+  - What length should different content types target?
+  - Why do Word and Google Docs show slightly different counts?
+- Steps: Paste your essay draft → Watch live totals update → Check time, ease and density → Trim to intent then copy
 
 ### Case Converter
 - URL: https://tool4saas.com/case-converter
 - What: UPPER, lower, Title, camel & more
+- FAQ:
+  - Which text cases are supported?
+  - Does it change my numbers or punctuation?
+  - How does Title Case handle small words?
+  - Is my pasted text uploaded to a server?
+  - Why do developers and students reuse conversions?
+- Steps: Paste text → Pick a case → Preview result → Copy output
 
 ### Text Diff Checker
 - URL: https://tool4saas.com/text-diff
 - What: Compare two texts side by side
+- FAQ:
+  - What does the diff checker compare?
+  - Is my text stored?
+  - Can it handle code plus large pastes?
+  - When should line mode supplement word view?
+  - Why do whitespace shifts flag unexpectedly?
+- Steps: Paste original → Paste modified → Review highlights → Copy clean version
 
 ### List Tools
 - URL: https://tool4saas.com/text-list
 - What: Sort, dedupe, shuffle & reverse
+- FAQ:
+  - What operations transform line lists?
+  - Is my data uploaded?
+  - How large can inputs grow?
+  - When should shuffle replace sorting?
+  - Why do duplicates persist despite cleaning?
+- Steps: Paste list → Choose action → Preview count → Copy result
 
 ### Find & Replace
 - URL: https://tool4saas.com/text-find-replace
 - What: Find and replace text in bulk
+- FAQ:
+  - Can regex patterns accelerate replacements?
+  - Is my text uploaded?
+  - How do live match counts prevent errors?
+  - When should literal trump regex?
+  - Why do partial words change unexpectedly?
+- Steps: Paste text → Enter find and replace → Check match count → Apply and copy
 
 ### Text Reverser
 - URL: https://tool4saas.com/text-reverser
 - What: Reverse text, words or lines
+- FAQ:
+  - What units can reversal flip?
+  - Is my text uploaded?
+  - How does line mode preserve content?
+  - When should character mirroring be used?
+  - Why do emojis split strangely?
+- Steps: Paste text → Pick a mode → Preview output → Copy result
 
 ### Keyword Density Analyzer
 - URL: https://tool4saas.com/keyword-density
 - What: Word frequency & density
+- FAQ:
+  - Does it ignore common stopwords?
+  - How does frequency aid SEO balance?
+  - How much text ensures reliability?
+  - Is my article uploaded?
+  - Why do bigrams matter beyond singles?
+- Steps: Paste article → Set top words → Review bars → Rebalance copy
 
 ### Text to Speech
 - URL: https://tool4saas.com/text-to-speech
 - What: Listen to your text aloud
+- FAQ:
+  - Which voices can narration use?
+  - Is anything uploaded?
+  - How does slowing aid proofreading?
+  - When should alternate voices be tried?
+  - Why does quality vary across browsers?
+- Steps: Paste text → Pick a voice → Set rate and pitch → Press play
 
 ### Email Extractor
 - URL: https://tool4saas.com/email-extractor
 - What: Pull emails from any text
+- FAQ:
+  - Does it eliminate duplicate addresses?
+  - Is my text uploaded?
+  - Can any owned content be scanned?
+  - How large can pastes grow?
+  - Why do some addresses fail validation?
+- Steps: Paste source → Auto scan → Review deduped list → Copy all
 
 ### Markdown Editor
 - URL: https://tool4saas.com/markdown-editor
 - What: Write & preview markdown
+- FAQ:
+  - What markdown syntax is covered?
+  - Is my text stored?
+  - How does HTML transfer to blogs?
+  - When do tables break rendering?
+  - Why do code fences mis-highlight?
+- Steps: Write markdown → Preview live → Test code blocks → Copy HTML
 
 ### Text Cleaner
 - URL: https://tool4saas.com/text-cleaner
 - What: Trim & clean text
+- FAQ:
+  - What whitespace faults are repaired?
+  - Is my text uploaded when I use this Text Cleaner?
+  - How does Excel paste repair work?
+  - When should duplicate removal stay off?
+  - Why do invisible characters persist?
+- Steps: Paste messy text → Toggle options → Preview fix → Copy cleaned
 
 ### Readability Checker
 - URL: https://tool4saas.com/readability-checker
 - What: Flesch & grade level
+- FAQ:
+  - What does Flesch Ease signify?
+  - How is grade level derived?
+  - Which targets suit general audiences?
+  - Is my draft uploaded?
+  - Why do lists skew scores?
+- Steps: Paste text → View scores → Find long sentences → Simplify copy
 
 ### Text Summarizer
 - URL: https://tool4saas.com/text-summarizer
 - What: Extractive summary
+- FAQ:
+  - How does frequency scoring select sentences?
+  - Is my article uploaded when I use this Text Summarizer?
+  - What input lengths perform best?
+  - When should ratios tighten or loosen?
+  - Why do summaries preserve order?
+- Steps: Paste article → Set ratio → Generate summary → Copy summary
 
 ### Grammar Checker
 - URL: https://tool4saas.com/grammar-checker
 - What: Find grammar issues
+- FAQ:
+  - What surface flaws are flagged?
+  - Is my draft uploaded when I use this Grammar Checker?
+  - How are lengthy sentences handled?
+  - When should manual proofing supplement?
+  - Why do false positives appear?
+- Steps: Paste draft → Review highlights → Fix in place → Copy clean text
 
 ### AI Detector
 - URL: https://tool4saas.com/ai-detector
 - What: Detect AI-written text
+- FAQ:
+  - How reliable are heuristic estimates?
+  - Is my draft uploaded when I use this AI Detector?
+  - What volume ensures meaningful signals?
+  - When should human review override scores?
+  - Why do edited AI texts evade detection?
+- Steps: Paste 150 plus words → View likelihood → Check signals → Rewrite if needed
 
 ### Plagiarism Checker
 - URL: https://tool4saas.com/plagiarism-checker
 - What: Check uniqueness %
+- FAQ:
+  - Does it query external search indexes?
+  - Is my text uploaded when I use this Plagiarism Checker?
+  - What constitutes duplicated phrasing?
+  - When should source comparison be added?
+  - Why do short texts score optimistically?
+- Steps: Paste main text → Add source optional → Run check → Rewrite duplicates
 
 ### Typing Speed Test
 - URL: https://tool4saas.com/typing-speed-test
 - What: WPM & accuracy
+- FAQ:
+  - How are WPM plus accuracy derived?
+  - Is my keystrokes uploaded when I use this Typing Speed Test?
+  - What benchmarks define proficiency?
+  - When should practice passages change?
+  - Why does accuracy outweigh speed?
+- Steps: Click Start → Type the sample → Watch errors → See summary
 
 ### Speech to Text
 - URL: https://tool4saas.com/speech-to-text
@@ -81,118 +200,296 @@
   - Is it free?
   - When does accuracy degrade?
   - Why do transcripts lack punctuation?
+- Steps: Pick language → Allow microphone → Dictate clearly → Copy or download
 
 ### Fancy Text Generator
 - URL: https://tool4saas.com/fancy-text-generator
 - What: Bold, script & bubble
+- FAQ:
+  - Where can stylized Unicode be pasted?
+  - Is my text uploaded when I use this Fancy Text Generator?
+  - How should body copy avoid fancy styles?
+  - When do bubble versus script suit best?
+  - Why do some apps filter symbols?
+- Steps: Type plain text → Browse styles → Compare looks → Copy a style
 
 ## Business & Writing
 
 ### Invoice Generator
 - URL: https://tool4saas.com/invoice-generator
 - What: Create & download professional invoices
+- FAQ:
+  - Is the invoice generator free to use?
+  - Can I download or print the invoice as PDF?
+  - How many line items can an invoice hold?
+  - What GST split applies to my invoice?
+  - When should I use Net15 versus Net30 terms?
+- Steps: Enter sender details → Add line items → Review totals → Download or print
 
 ### Resume Builder
 - URL: https://tool4saas.com/resume-builder
 - What: Build a clean resume and export to PDF
+- FAQ:
+  - Is my resume saved on a server?
+  - Will the resume pass ATS (applicant tracking systems)?
+  - What sections and export formats are supported?
+  - How do I keep a one-page resume within 400 to 600 words?
+  - Should freshers and experienced candidates structure resumes differently?
+- Steps: Add your profile → Add experience → Add education and skills → Export to PDF
 
 ### Commission Calculator
 - URL: https://tool4saas.com/commission-calculator
 - What: Calculate sales commission
+- FAQ:
+  - How is commission calculated?
+  - Are calculations local?
+  - Can I handle tiered or split commissions?
+  - What distinguishes flat versus tiered commission structures?
+  - How should managers document splits to avoid disputes?
+- Steps: Enter sales amount → Enter commission rate → View results → Compare scenarios
 
 ### ATS Resume Checker
 - URL: https://tool4saas.com/ats-resume-checker
 - What: Check resume vs job
+- FAQ:
+  - How is the match score calculated?
+  - Is my resume uploaded to a server?
+  - How long can my resume and job texts be?
+  - Why do exact titles matter more than synonyms?
+  - How can career switchers frame freelance fragments effectively?
+- Steps: Paste resume text → Paste job description → Check match score → Fix keywords
 
 ### Signature Maker
 - URL: https://tool4saas.com/signature-maker
 - What: Draw & type signature
+- FAQ:
+  - Can I draw with touch or mouse?
+  - Is my signature private on this device?
+  - What download size and format do I get?
+  - How do stroke widths affect legibility at different sizes?
+  - When should typed fonts replace handwritten strokes?
+- Steps: Draw or type → Style the ink → Preview transparent → Download PNG
 
 ### Quotation Generator
 - URL: https://tool4saas.com/quotation-generator
 - What: Create quotations
+- FAQ:
+  - How is quote total calculated?
+  - Does my quote data leave my device?
+  - Can I add validity dates and payment notes?
+  - How does GST split differ for local versus interstate quotes?
+  - What payment safeguards belong in quotation notes?
+- Steps: Fill header details → Add line items → Set tax and notes → Print to PDF
 
 ### Purchase Order Generator
 - URL: https://tool4saas.com/purchase-order-generator
 - What: Create purchase orders
+- FAQ:
+  - How is PO total calculated?
+  - Does supplier data upload anywhere?
+  - Can I reuse PO numbers across orders?
+  - How do approval signatures strengthen purchase orders?
+  - What distinguishes purchase orders from vendor invoices?
+- Steps: Fill supplier details → Add order lines → Set tax and total → Preview and print
 
 ### Cover Letter Builder
 - URL: https://tool4saas.com/cover-letter-builder
 - What: Build cover letters
+- FAQ:
+  - Can I customize the tone of my cover letter?
+  - Is my cover letter private?
+  - How long should my cover letter be?
+  - How do I mirror posting language without sounding forced?
+  - What closing lines prompt hiring managers to respond?
+- Steps: Enter details → Choose tone → Customize body → Copy or print
 
 ### Receipt Generator
 - URL: https://tool4saas.com/receipt-generator
 - What: Free PDF receipts
+- FAQ:
+  - How is receipt total calculated?
+  - Are buyer details kept private?
+  - Can I create bulk receipts for many sales?
+  - How should sellers handle partial refunds gracefully?
+  - What payment details improve receipt credibility?
+- Steps: Fill receipt header → Add sold items → Set tax and total → Print receipt
 
 ### Offer Letter Generator
 - URL: https://tool4saas.com/offer-letter-generator
 - What: Offer letter + CTC PDF
+- FAQ:
+  - Is this legal advice?
+  - Can I download the offer letter as PDF?
+  - Is my offer-letter data uploaded anywhere?
+  - How should probation clauses be phrased cautiously?
+  - What CTC components deserve itemized transparency?
+- Steps: Enter offer details → Set employment terms → Preview letter → Export letter
 
 ### Payslip Generator
 - URL: https://tool4saas.com/payslip-generator
 - What: Salary slip + net pay
+- FAQ:
+  - Is the payslip legally valid?
+  - What deductions are included?
+  - Do my salary figures leave my device?
+  - How does loss-of-pay adjustment alter net calculations?
+  - What records complement payslips for loan approvals?
+- Steps: Enter employer details → Add salary breakup → Preview net pay → Print payslip
 
 ### Rent Receipt Generator
 - URL: https://tool4saas.com/rent-receipt-generator
 - What: HRA rent receipts PDF
+- FAQ:
+  - Are these valid for HRA?
+  - Can I generate 12 months at once?
+  - Are tenant and landlord details stored online?
+  - How should stamp duty notes be handled for cash payments?
+  - What distinguishes receipts from registered rental agreements?
+- Steps: Enter parties → Set rent and months → Generate receipts → Download PDF
 
 ### Freelance GST Invoice Generator
 - URL: https://tool4saas.com/freelance-gst-invoice-generator
 - What: GST invoice + tax PDF
+- FAQ:
+  - Do I need a GSTIN to bill?
+  - How is CGST vs IGST decided?
+  - Is GST math done locally without upload?
+  - How do SAC codes influence freelance billing accuracy?
+  - When must freelancers register for GST enrollment?
+- Steps: Enter supplier info → Add service lines → Review GST split → Save invoice PDF
 
 ## Developer Tools
 
 ### JSON Formatter
 - URL: https://tool4saas.com/json-formatter
 - What: Format, validate & minify JSON
+- FAQ:
+  - Is my JSON sent anywhere?
+  - Can it handle large JSON files?
+  - What is the size limit for JSON input?
+  - Why do developers prefer validated JSON for deployments?
+  - When should teams minify JSON instead of pretty-printing?
+- Steps: Paste JSON → Choose action → Fix errors → Copy output
 
 ### Base64 Encode / Decode
 - URL: https://tool4saas.com/base64-tool
 - What: Encode and decode Base64 text
+- FAQ:
+  - Does Base64 encrypt my data?
+  - Is Unicode text supported?
+  - Does it support URL-safe Base64?
+  - Why does encoded size grow by roughly one third?
+- Steps: Paste input → Choose mode → Handle Unicode → Copy output
 
 ### URL Encoder / Decoder
 - URL: https://tool4saas.com/url-encoder
 - What: Encode & decode URL components
+- FAQ:
+  - When should I URL-encode text for links?
+  - Does URL encoding upload my data?
+  - How are spaces and plus signs handled?
+  - Which characters must never appear raw inside query values?
+- Steps: Paste input → Choose mode → Set space style → Copy result
 
 ### Hash Generator
 - URL: https://tool4saas.com/hash-generator
 - What: SHA-1 / 256 / 512 of any text
+- FAQ:
+  - Which hash algorithms can I generate here?
+  - Is hashing the same as encryption?
+  - How do I compare hashes to verify integrity?
+  - Why do tiny edits avalanche digests completely?
+- Steps: Enter text → Select algorithm → Compare → Copy hash
 
 ### Base Converter
 - URL: https://tool4saas.com/base-converter
 - What: Binary, hex, decimal & more
+- FAQ:
+  - Which number bases are supported?
+  - Is this base converter useful for learning?
+  - Does it handle negative numbers correctly?
+  - Why do hexadecimal colors map neatly onto binary nibbles?
+- Steps: Enter number → Choose target base → Toggle signed → Copy value
 
 ### HTML Entity Encoder
 - URL: https://tool4saas.com/html-entities
 - What: Encode & decode HTML entities
+- FAQ:
+  - Why should I encode HTML entities?
+  - Can I decode entities back to text?
+  - Which entity formats are supported?
+  - How do entities differ from full sanitization libraries?
+- Steps: Paste input → Choose mode → Check output → Copy output
 
 ### Regex Tester
 - URL: https://tool4saas.com/regex-tester
 - What: Test JavaScript regular expressions
+- FAQ:
+  - Which regex syntax and flags are supported?
+  - Does regex testing upload my text?
+  - Is there an input size or safety limit?
+  - How do groups differ from simple string searches?
+- Steps: Enter pattern → Paste test text → Review matches → Fix and copy
 
 ### JWT Decoder
 - URL: https://tool4saas.com/jwt-decoder
 - What: Decode JSON Web Tokens safely
+- FAQ:
+  - Does this tool verify my JWT signature?
+  - Is my JWT uploaded anywhere?
+  - Can it flag expired tokens?
+  - How should teams debug audience mismatches safely?
+- Steps: Paste token → Read decoded parts → Check expiry → Copy
 
 ### MIME Type Lookup
 - URL: https://tool4saas.com/mime-type-lookup
 - What: File extension ↔ MIME
+- FAQ:
+  - What can I search by extension or MIME?
+  - Is this a complete MIME list?
+  - What if my extension is missing?
+  - How do MIME sniffs create security hazards?
+- Steps: Enter value → Read result → Check header use → Copy
 
 ### JSON to YAML
 - URL: https://tool4saas.com/json-to-yaml
 - What: Convert JSON into YAML
+- FAQ:
+  - Does JSON to YAML preserve nesting?
+  - Is my JSON data uploaded?
+  - Are YAML anchors or comments preserved?
+  - When should engineers favor YAML over JSON?
+- Steps: Paste JSON → Convert → Check indent → Copy
 
 ### HTML Beautifier
 - URL: https://tool4saas.com/html-beautifier
 - What: Pretty-print HTML
+- FAQ:
+  - Does beautifying change my markup?
+  - Are void elements handled correctly?
+  - Will it break inline elements or spacing?
+  - How should teams format templating directives?
+- Steps: Paste HTML → Beautify → Check nesting → Copy
 
 ### Credit Card Validator
 - URL: https://tool4saas.com/credit-card-validator
 - What: Luhn check & brand
+- FAQ:
+  - What does the card checker validate?
+  - Is it safe to paste card numbers here?
+  - Can it handle spaces and dashes?
+  - Why do Luhn passes still decline at checkout?
+- Steps: Enter number → Read result → Check formatting → Test safely
 
 ### Password Strength Checker
 - URL: https://tool4saas.com/password-strength
 - What: Rate your password
+- FAQ:
+  - Is my password sent anywhere?
+  - What makes a password strong?
+  - Can I use this checker offline?
+  - Why do passphrases often beat complex short passwords?
+- Steps: Type a password → Review checklist → Improve → Pick final
 
 ### Code Minifier
 - URL: https://tool4saas.com/code-minifier
@@ -211,6 +508,8 @@
   - What screen metrics are shown?
   - Is my screen data sent anywhere?
   - Why does viewport differ from screen size?
+  - How should testers cover foldables plus zoom levels?
+  - How does devicePixelRatio affect image sharpness?
 - Steps: Open tool → Read metrics → Resize test → Copy
 
 ### XML Formatter
@@ -291,6 +590,7 @@
   - Is subnet math private?
   - Does it support IPv6?
   - How should architects carve VPCs without overlap?
+  - Why are slash 31 and slash 32 special?
 - Steps: Enter IP → Set CIDR → View table → Copy plan
 
 ### Chmod Calculator
@@ -301,6 +601,7 @@
   - Is chmod calculation private?
   - What do 755 and 644 mean?
   - When should teams prefer symbolic over octal?
+  - What do setuid, setgid, plus sticky bits do?
 - Steps: Tick boxes → View codes → Test preset → Copy
 
 ### Code to Image
@@ -368,108 +669,290 @@
 ### Unit Converter
 - URL: https://tool4saas.com/unit-converter
 - What: Convert length, weight, temp & more
+- FAQ:
+  - Which units can the converter handle?
+  - Is the unit converter accurate?
+  - Does conversion upload my numbers?
+  - Why does 1 kilometer equal 0.621371 miles instead of rounded 0.62?
+  - When should home cooks weigh grams rather than scooping cups?
+- Steps: Select quantity → Enter value → Read result → Try an example
 
 ### JSON ↔ CSV Converter
 - URL: https://tool4saas.com/json-csv
 - What: Convert between JSON and CSV
+- FAQ:
+  - What JSON shape works for JSON to CSV?
+  - Is my table data uploaded?
+  - Can I convert large tables offline free?
+  - Why do commas inside names require quoted CSV fields?
+  - When should developers prefer CSV over JSON for exchange?
+- Steps: Pick a direction → Paste data → Copy result → Try an example
 
 ### URL Parser
 - URL: https://tool4saas.com/url-parser
 - What: Break down any URL
+- FAQ:
+  - What does the parser extract?
+  - Is my link sent anywhere?
+  - Can I parse private links with tokens safely?
+  - Why does percent-encoding matter when debugging query strings?
+  - When should QA engineers inspect fragments versus query parameters?
+- Steps: Paste URL → Review parts → Inspect params → Try an example
 
 ### Number to Words
 - URL: https://tool4saas.com/number-to-words
 - What: Spell out numbers in English
+- FAQ:
+  - What number range is supported?
+  - Is the number to words converter free without sign-up?
+  - Does number conversion upload data?
+  - Why do checks require hyphenated twenty-one instead of spaced words?
+  - How should invoice writers handle decimals and negative balances?
+- Steps: Enter a number → Read words → Copy → Try an example
 
 ### Roman Numeral Converter
 - URL: https://tool4saas.com/roman-numeral
 - What: Roman ↔ Arabic numbers
+- FAQ:
+  - What range does the Roman tool support?
+  - Can it convert both ways?
+  - Does Roman conversion need internet?
+  - Why does 44 become XLIV instead of XXXXIIII?
+  - When should writers choose Roman numerals over Arabic digits?
+- Steps: Choose direction → Enter value → Copy result → Try an example
 
 ### Image to Base64
 - URL: https://tool4saas.com/image-to-base64
 - What: Encode & decode image data URLs
+- FAQ:
+  - Are my images uploaded anywhere?
+  - Can I decode a Base64 image?
+  - Does encoding work offline for free?
+  - Why does Base64 output grow roughly 33 percent larger?
+  - When should developers embed images versus linking files?
+- Steps: Choose image → Or paste data URL → Copy or preview → Try an example
 
 ### CSV Viewer
 - URL: https://tool4saas.com/csv-viewer
 - What: View, sort & filter CSV
+- FAQ:
+  - Does it handle quoted commas?
+  - Can I sort and filter rows?
+  - Does viewing upload my spreadsheet?
+  - Why do quoted commas prevent column misalignment?
+  - When should analysts sort numerically versus lexically?
+- Steps: Paste CSV → View table → Filter and copy → Try an example
 
 ### Morse Code Translator
 - URL: https://tool4saas.com/morse-translator
 - What: Text ↔ Morse code
+- FAQ:
+  - What characters are supported?
+  - Does translation stay on my device?
+  - Does it work offline for free?
+  - Why do letter gaps and word slashes prevent ambiguity?
+  - When should operators prefer Morse over voice transmission?
+- Steps: Choose mode → Enter input → Copy → Try an example
 
 ### ASCII / Hex / Binary Converter
 - URL: https://tool4saas.com/ascii-converter
 - What: Text ↔ codes
+- FAQ:
+  - What bases are supported?
+  - Does encoding upload my text?
+  - Can I convert code points offline free?
+  - Why does letter A equal 65 in decimal systems?
+  - When should developers inspect hex dumps versus plain text?
+- Steps: Encode → Decode → Copy → Try an example
 
 ### File Size Converter
 - URL: https://tool4saas.com/file-size-converter
 - What: Bytes, KB, MB, GB
+- FAQ:
+  - Binary vs decimal bases?
+  - Does file-size math leave my device?
+  - Can I convert storage sizes offline free?
+  - Why do drives show less capacity than advertised?
+  - When should video teams use MiB versus MB estimates?
+- Steps: Enter value → Choose target → View → Try an example
 
 ### JSON to Excel
 - URL: https://tool4saas.com/json-to-excel
 - What: JSON → XLS download
+- FAQ:
+  - What JSON is accepted?
+  - Does my spreadsheet data stay private?
+  - Can I convert large JSON offline free?
+  - Why do nested objects flatten into dot-joined columns?
+  - When should teams choose XLS over CSV for sharing?
+- Steps: Paste JSON → Preview → Download → Try an example
 
 ### ZIP Creator
 - URL: https://tool4saas.com/zip-creator
 - What: Create ZIP files
+- FAQ:
+  - What files can I add?
+  - Are my files uploaded to make the ZIP?
+  - Can I create ZIPs offline for free?
+  - Why do text files compress well into ZIP archives?
+  - When should teams bundle files instead of sending separately?
+- Steps: Add files → Set ZIP name → Create → Try an example
 
 ### Currency Converter
 - URL: https://tool4saas.com/currency-converter
 - What: Live rates + offline
+- FAQ:
+  - Are rates live or cached offline?
+  - Does conversion share my amount?
+  - Can I check rates offline free?
+  - Why do USD to EUR and GBP to INR rates move intraday?
+  - When should travelers lock rates versus waiting?
+- Steps: Enter amount → Pick pair → View → Try an example
 
 ## Generators
 
 ### Password Generator
 - URL: https://tool4saas.com/password-generator
 - What: Strong random passwords
+- FAQ:
+  - Are the passwords truly random?
+  - Can I use the generator offline?
+  - What password length gives the best security for logins?
+  - Why do 16 characters outperform complex 8-character tricks?
+  - When should teams rotate generated secrets and API keys?
+- Steps: Set length → Choose character sets → Generate passwords → Copy securely
 
 ### Lorem Ipsum Generator
 - URL: https://tool4saas.com/lorem-ipsum
 - What: Placeholder text
+- FAQ:
+  - What is Lorem Ipsum used for in design?
+  - Can I generate words or sentences instead of paragraphs?
+  - How much placeholder text can I generate at once?
+  - Why does classic filler start with Lorem ipsum dolor sit?
+  - When should teams replace filler with real copy?
+- Steps: Choose format → Set amount → Generate text → Copy to design
 
 ### Slug Generator
 - URL: https://tool4saas.com/slug-generator
 - What: Turn titles into URL slugs
+- FAQ:
+  - What is a URL slug and why does it matter?
+  - How do I generate many slugs in bulk?
+  - Which separators and bulk limits are supported?
+  - Why do hyphens outperform underscores for Google rankings?
+  - When should editors shorten slugs below 60 characters?
+- Steps: Paste titles → Choose separator → Generate in bulk → Copy slugs
 
 ### Random Number Generator
 - URL: https://tool4saas.com/random-number
 - What: Secure random numbers & lists
+- FAQ:
+  - Are these random numbers cryptographically secure?
+  - How do I generate unique random numbers without duplicates?
+  - What ranges and batch sizes are supported?
+  - Why does rejection sampling ensure equal odds?
+  - When should draws use unique mode versus repeats?
+- Steps: Set range → Set count and uniqueness → Generate numbers → Copy or reuse
 
 ### UUID Generator
 - URL: https://tool4saas.com/uuid-generator
 - What: Generate v4 UUIDs in bulk
+- FAQ:
+  - What is a UUID and where is it used?
+  - Are these UUIDs really unique and secure?
+  - How many UUIDs can I generate in bulk?
+  - Why do version 4 UUIDs include fixed variant bits?
+  - When should teams choose UUIDs over auto-increment IDs?
+- Steps: Set count → Toggle formatting → Generate UUIDs → Copy UUIDs
 
 ### Random String Generator
 - URL: https://tool4saas.com/random-string
 - What: Secure random strings & keys
+- FAQ:
+  - Are these random strings cryptographically secure?
+  - How do I pick characters for tokens or codes?
+  - What entropy does a 32-character string provide?
+  - Why do API keys need 190-bit entropy minimum?
+  - When should teams use symbols versus alphanumerics only?
+- Steps: Set length and count → Pick character sets → Generate strings → Copy keys
 
 ### Dice Roller
 - URL: https://tool4saas.com/dice-roller
 - What: Roll virtual dice
+- FAQ:
+  - Are these dice rolls fair and random?
+  - How many dice and sides can I roll together?
+  - How do I copy dice results for games?
+  - Why does 2d6 cluster near 7 instead of uniform?
+  - When should groups use d20 versus percentile dice?
+- Steps: Choose dice and sides → Roll dice → Review total → Copy results
 
 ### Coin Flip
 - URL: https://tool4saas.com/coin-flip
 - What: Flip a fair coin
+- FAQ:
+  - Is this coin flip fair for decisions?
+  - Is the flip cryptographically secure?
+  - Does the coin flip work offline and track streaks?
+  - Why do streaks of 4 heads feel rigged but occur normally?
+  - When should groups use best-of-5 instead of single toss?
+- Steps: Flip coin → View outcome → Copy result → Repeat fairly
 
 ### Random Passphrase
 - URL: https://tool4saas.com/random-passphrase
 - What: Generate secure passphrase
+- FAQ:
+  - How is passphrase randomness generated securely?
+  - How strong is a 4-word passphrase?
+  - Should I use 4 words or 6 to 7 words?
+  - Why does 120-word list balance memory and strength?
+  - When should passphrases replace random character passwords?
+- Steps: Choose word count → Generate passphrase → Check strength → Store securely
 
 ### Random Hex Color
 - URL: https://tool4saas.com/random-hex-color
 - What: Generate random hex colors
+- FAQ:
+  - Are these hex colors uniformly random?
+  - How do I copy a color for CSS?
+  - How do I build palettes or export color codes?
+  - Why do 16.7 million possibilities inspire yet overwhelm?
+  - When should designers verify contrast versus trusting randomness?
+- Steps: Generate color → Preview shade → Copy HEX → Build palette
 
 ### Barcode Generator
 - URL: https://tool4saas.com/barcode-generator
 - What: CODE128, EAN13, UPC
+- FAQ:
+  - What barcode formats are supported here?
+  - Does barcode generation upload my data?
+  - Why does EAN13 need exactly 13 digits?
+  - Why do scanners reject low-contrast or tiny barcodes?
+  - When should teams choose SVG versus PNG exports?
+- Steps: Enter value → Pick format → Adjust size → Download code
 
 ### Fake Data Generator
 - URL: https://tool4saas.com/fake-data-generator
 - What: Generate test data
+- FAQ:
+  - Is this fake data real personal information?
+  - Does fake data generation stay private?
+  - How many test rows can I generate and export?
+  - Why do locales change phone and postal formats?
+  - When should testers use 20 versus 200 row batches?
+- Steps: Choose data type → Pick locale and row count → Generate table → Copy or export
 
 ### Business Name Generator
 - URL: https://tool4saas.com/business-name-generator
 - What: Ideas & filters
+- FAQ:
+  - How do I filter business names by style?
+  - Does my keyword leave the browser?
+  - How many names can I shortlist and copy?
+  - Why do short modern names win domains and recall?
+  - When should founders verify trademarks before launch?
+- Steps: Enter keyword → Pick style and length → Generate ideas → Shortlist favorites
 
 ## Images & Design
 
@@ -1366,68 +1849,180 @@
 ### Sitemap Generator
 - URL: https://tool4saas.com/sitemap-generator
 - What: XML sitemap builder
+- FAQ:
+  - What URLs are allowed?
+  - Is my URL list uploaded when I use this Sitemap Generator?
+  - Which limits constrain large sitemaps?
+  - When should changefreq be weekly versus monthly?
+  - Why does Search Console reject my sitemap?
+- Steps: Paste URLs → Set options → Validate list → Copy or download
 
 ### Robots.txt Generator
 - URL: https://tool4saas.com/robots-txt-generator
 - What: Generate robots.txt
+- FAQ:
+  - What is robots.txt?
+  - Is my robots rules uploaded when I use this Robots.txt Generator?
+  - Where do I install robots.txt?
+  - When does Crawl-delay help small servers?
+  - Why do blocked pages still appear indexed?
+- Steps: Pick user-agent → Add rules → Add sitemap → Copy or download
 
 ### Open Graph Preview
 - URL: https://tool4saas.com/open-graph-preview
 - What: Preview social cards
+- FAQ:
+  - What is Open Graph?
+  - Is my title and image uploaded when I use this Open Graph Preview?
+  - Which image dimensions prevent cropping?
+  - When should Twitter large images replace summary?
+  - Why do LinkedIn previews show stale titles?
+- Steps: Enter title and URL → Add description and image → Preview cards → Copy meta tags
 
 ### SERP Preview
 - URL: https://tool4saas.com/serp-preview
 - What: Google snippet preview
+- FAQ:
+  - What are pixel limits?
+  - Is my title and description uploaded when I use this SERP Preview?
+  - Which lengths avoid truncation?
+  - When does mobile truncation differ from desktop?
+  - Why do rewritten titles appear despite perfect lengths?
+- Steps: Type title → Type description → Edit slug → Fix warnings
 
 ### UTM Builder
 - URL: https://tool4saas.com/utm-builder
 - What: GA4 campaign links
+- FAQ:
+  - Which UTMs does GA4 require?
+  - Is my campaign URL uploaded when I use this UTM Builder?
+  - What characters are safe in UTM values?
+  - When should term and content be added?
+  - Why do GA4 reports show unassigned traffic?
+- Steps: Paste base URL → Fill required tags → Add optional tags → Copy clean link
 
 ### Meta Tag Generator
 - URL: https://tool4saas.com/meta-tag-generator
 - What: SEO + OG tags
+- FAQ:
+  - What length avoids truncation?
+  - Is my title and tags uploaded when I use this Meta Tag Generator?
+  - Which tags are included?
+  - When should canonical differ from og:url?
+  - Why does viewport matter for SEO?
+- Steps: Fill title and description → Add URL and image → Preview mocks → Copy tag block
 
 ### FAQ Schema Generator
 - URL: https://tool4saas.com/faq-schema-generator
 - What: JSON-LD FAQs
+- FAQ:
+  - Will this guarantee rich results?
+  - Is my FAQ content uploaded when I use this FAQ Schema Generator?
+  - What JSON-LD spec does it output?
+  - When should FAQ schema be avoided?
+  - Why does validator flag trailing commas?
+- Steps: Add questions → Preview JSON-LD → Validate JSON → Install script
 
 ### SEO Analyzer
 - URL: https://tool4saas.com/seo-analyzer
 - What: RankMath-style SEO score
+- FAQ:
+  - How is the score calculated?
+  - Is my content uploaded?
+  - What score and length should I target?
+  - When should analysis rerun during editing?
+  - Why do perfect scores still underperform?
+- Steps: Enter focus keyword → Paste SEO fields → Run 11 checks → Fix reds
 
 ## Time & Date
 
 ### Age Calculator
 - URL: https://tool4saas.com/age-calculator
 - What: Find your exact age & next birthday
+- FAQ:
+  - How precise is the age calculation?
+  - Does it show my birth day of the week?
+  - Can it count February 29 birthdays?
+  - Is my birth date uploaded?
+  - Why do month lengths affect results?
+- Steps: Enter birth date → Add compare date → View exact age → Check next birthday
 
 ### Timestamp Converter
 - URL: https://tool4saas.com/timestamp-converter
 - What: Epoch ↔ human-readable date
+- FAQ:
+  - What is a Unix timestamp?
+  - Can I convert both ways?
+  - Does it support milliseconds and DST?
+  - Is my timestamp data uploaded?
+  - Why do negative timestamps appear?
+- Steps: Enter value → Detect unit → Switch views → Copy result
 
 ### Date Calculator
 - URL: https://tool4saas.com/date-calculator
 - What: Add days or find the difference
+- FAQ:
+  - Can it add and subtract days?
+  - Does it compute differences between dates?
+  - How is DST plus leap safety ensured?
+  - Is my date input uploaded?
+  - Why do month additions vary in length?
+- Steps: Choose mode → Enter dates → See result → Use for planning
 
 ### Timezone Converter
 - URL: https://tool4saas.com/timezone-converter
 - What: Convert times across zones
+- FAQ:
+  - Which timezones are supported?
+  - Does it use my local zone?
+  - How does daylight saving apply?
+  - Is my meeting time uploaded?
+  - Why do winter gaps differ by hour?
+- Steps: Pick date and time → Select from zone → Select to zone → Read converted time
 
 ### Stopwatch Timer
 - URL: https://tool4saas.com/stopwatch
 - What: Accurate online stopwatch
+- FAQ:
+  - How accurate is timing?
+  - Can I record unlimited laps?
+  - Does background throttling corrupt results?
+  - Is my lap data uploaded?
+  - Why do displays briefly freeze?
+- Steps: Press Start → Record laps → Pause or resume → Reset timer
 
 ### Countdown Timer
 - URL: https://tool4saas.com/countdown-timer
 - What: Days until any date
+- FAQ:
+  - Can I share the countdown?
+  - Does ticking persist without internet?
+  - How do timezones synchronize globally?
+  - Is my target date uploaded?
+  - Why do past dates show zero?
+- Steps: Pick target → Click Start → Handle past dates → Share link
 
 ### World Clock
 - URL: https://tool4saas.com/world-clock
 - What: Time in world cities
+- FAQ:
+  - How is DST applied live?
+  - Can I add custom cities?
+  - How frequently do clocks refresh?
+  - Is my city selection uploaded?
+  - Why do some zones never shift?
+- Steps: View defaults → Add a zone → Compare DST → Copy time
 
 ### Pomodoro Timer
 - URL: https://tool4saas.com/pomodoro-timer
 - What: Focus & break cycles
+- FAQ:
+  - How do notifications signal breaks?
+  - Can durations adapt to deep work?
+  - Why do long sessions avoid drift?
+  - Is my focus history uploaded?
+  - When should 50-10 replace 25-5?
+- Steps: Set times → Start countdown → Get alert → Finish cycle
 
 ## Guides
 ## Guides & Blog
