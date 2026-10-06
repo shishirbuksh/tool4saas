@@ -7,6 +7,12 @@ import Link from "next/link";
 import HeroButtons from "@/components/HeroButtons";
 import { EXPECTED_TOOL_COUNT, EXPECTED_CATEGORY_COUNT } from "@/lib/tools";
 
+const QUICK_LINKS = [
+  { slug: "invoice-generator", label: "Invoice" },
+  { slug: "qr-code-generator", label: "QR Code" },
+  { slug: "word-counter", label: "Word Counter" },
+];
+
 // Hero — H1 exact-match primary keyword, simple English.
 export default function HomeHero({ firstSlug }: { firstSlug: string }) {
   return (
@@ -14,13 +20,13 @@ export default function HomeHero({ firstSlug }: { firstSlug: string }) {
       component="section"
       className="cinematic-hero"
       sx={{
-        py: { xs: 8, md: 12 },
+        py: { xs: 8, md: 10 },
         position: "relative",
         overflow: "hidden"
       }}
     >
       <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1, px: { xs: 2, md: 4 } }}>
-        <Grid container spacing={6} sx={{ alignItems: "center" }}>
+        <Grid container spacing={{ xs: 4, lg: 6 }} sx={{ alignItems: "center" }}>
           <Grid size={{ xs: 12, lg: 7 }}>
         <Stack
           spacing={4}
@@ -85,18 +91,17 @@ export default function HomeHero({ firstSlug }: { firstSlug: string }) {
           >
             {EXPECTED_TOOL_COUNT} free tools · {EXPECTED_CATEGORY_COUNT} categories · no sign-up
           </Typography>
-          <Box sx={{ pt: 2 }}>
+          <Box sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}>
             <HeroButtons firstSlug={firstSlug} />
           </Box>
         </Stack>
           </Grid>
           <Grid size={{ xs: 12, lg: 5 }} sx={{ display: { xs: "none", lg: "flex" }, justifyContent: "flex-end" }}>
             <Box
-              aria-hidden="true"
               className="glass"
+              aria-label="Tool4SaaS at a glance"
               sx={{
                 width: "100%",
-                maxWidth: 400,
                 borderRadius: "16px",
                 p: 4,
                 display: "flex",
@@ -111,8 +116,35 @@ export default function HomeHero({ firstSlug }: { firstSlug: string }) {
                 {EXPECTED_TOOL_COUNT}+ tools
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Free utilities, makers, and generators. Most run offline in your browser. Four tools need internet. See our privacy policy.
+                Free utilities, makers, and generators. Most run offline in your browser.
               </Typography>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, pt: 1 }}>
+                {QUICK_LINKS.map((q) => (
+                  <Link
+                    key={q.slug}
+                    href={`/${q.slug}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Box
+                      sx={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        minHeight: 44,
+                        padding: "0 16px",
+                        borderRadius: 999,
+                        border: "1px solid",
+                        borderColor: "divider",
+                        fontWeight: 600,
+                        fontSize: "0.875rem",
+                        color: "text.primary",
+                        bgcolor: "background.paper",
+                      }}
+                    >
+                      {q.label} →
+                    </Box>
+                  </Link>
+                ))}
+              </Box>
             </Box>
           </Grid>
         </Grid>

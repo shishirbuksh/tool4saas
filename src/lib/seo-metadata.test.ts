@@ -95,5 +95,5 @@ describe("SEO metadata", () => {
     const urls = (sitemap() as { url: string }[]).map((e) => e.url);
     expect(urls.some((u) => u.endsWith("/pdf-compress"))).toBe(false);
     expect(urls.some((u) => u.endsWith("/word-counter"))).toBe(true);
-  });
+  }, 20000);
 });

@@ -6,8 +6,11 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
+import Button from "@mui/material/Button";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
-import { CATEGORIES, getTool, EXPECTED_TOOL_COUNT, EXPECTED_CATEGORY_COUNT } from "@/lib/tools";
+import type { ReactNode } from "react";
+import { CATEGORIES, getTool, EXPECTED_TOOL_COUNT } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
 
 const popularSlugs = [
@@ -16,18 +19,49 @@ const popularSlugs = [
   "word-counter",
   "password-generator",
   "json-formatter",
-  "unit-converter",
-  "color-converter",
-  "age-calculator",
+  "mortgage-calculator",
   "emi-calculator",
   "sip-calculator",
-  "mortgage-calculator",
-  "compound-interest-calculator",
 ];
 
 const popular = popularSlugs
   .map((s) => getTool(s))
   .filter((t): t is NonNullable<typeof t> => Boolean(t));
+
+const GUIDES = [
+  { href: "/blog/invoice-generator-guide", label: "Invoice Generator Guide" },
+  { href: "/blog/qr-code-generator-guide", label: "QR Code Generator Guide" },
+  { href: "/blog/resume-builder-guide", label: "Resume Builder Guide" },
+  { href: "/blog/mortgage-calculator-guide", label: "Mortgage Calculator Guide" },
+  { href: "/blog/password-generator-guide", label: "Password Generator Guide" },
+  { href: "/blog/word-counter-guide", label: "Word Counter Guide" },
+];
+
+const COMPANY = [
+  { href: "/", label: "All Tools" },
+  { href: "/about", label: "About Us" },
+  { href: "/author", label: "Author" },
+  { href: "/methodology", label: "Methodology" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact Us" },
+];
+
+const linkStyle = {
+  display: "inline-flex",
+  alignItems: "center",
+  minHeight: "44px",
+  textDecoration: "none",
+} as const;
+
+function FooterLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <Link href={href} className="footer-link" style={linkStyle}>
+      <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+        {children}
+      </Typography>
+    </Link>
+  );
+}
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -78,15 +112,15 @@ export default function Footer() {
       }}
     >
       <Box sx={{ height: 4, background: "var(--brand-gradient)" }} aria-hidden="true" />
-      <Container maxWidth="xl" sx={{ pt: { xs: 10, md: 14 }, pb: 8 }}>
-        <Grid container spacing={7}>
+      <Container maxWidth="xl" sx={{ pt: { xs: 8, md: 10 }, pb: 6 }}>
+        <Grid container spacing={{ xs: 5, md: 4 }}>
           <Grid size={{ xs: 12, md: 4, lg: 3 }}>
-            <Stack spacing={3}>
+            <Stack spacing={2.5}>
               <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                <Box sx={{ 
-                  display: 'flex', 
-                  p: 1, 
-                  borderRadius: "12px", 
+                <Box sx={{
+                  display: 'flex',
+                  p: 1,
+                  borderRadius: "12px",
                   bgcolor: 'primary.main',
                   color: 'primary.contrastText',
                   boxShadow: '0 1px 2px rgba(34,29,29,0.08)',
@@ -97,188 +131,75 @@ export default function Footer() {
                   {siteConfig.name}
                 </Typography>
               </Box>
-              <Typography variant="body1" color="text.primary" sx={{ lineHeight: 1.7, opacity: 0.85 }}>
-                {EXPECTED_TOOL_COUNT} fast, local utilities for developers and creators. No sign-ups. Most tools run
-                locally in your browser; 4 network tools need internet (see{" "}
-                <Link href="/privacy" className="footer-link" style={{ textDecoration: "underline" }}>
-                  /privacy
-                </Link>
-                ). Ads/analytics in Privacy.
+              <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, maxWidth: 320 }}>
+                {EXPECTED_TOOL_COUNT} fast, local utilities for developers and creators. No sign-ups — most
+                tools run in your browser (see <Link href="/privacy" className="footer-link" style={{ textDecoration: "underline" }}>/privacy</Link>).
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
-                {EXPECTED_TOOL_COUNT} free tools across {EXPECTED_CATEGORY_COUNT} categories. ({CATEGORIES.length} categories live.)
-              </Typography>
+              <Button
+                component="a"
+                href={`mailto:${siteConfig.email}`}
+                variant="outlined"
+                size="small"
+                startIcon={<EmailOutlinedIcon fontSize="small" aria-hidden="true" />}
+                sx={{ alignSelf: "flex-start", borderRadius: 999, textTransform: "none" }}
+              >
+                {siteConfig.email}
+              </Button>
             </Stack>
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 4, md: 2, lg: 3 }}>
-            <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 3 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+            <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>
               Categories
             </Typography>
-            <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 2 }}>
               {CATEGORIES.map((c) => (
                 <Box component="li" key={c.id}>
-                  <Link href={`/category/${c.id}`} className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                    <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                      {c.label}
-                    </Typography>
-                  </Link>
+                  <FooterLink href={`/category/${c.id}`}>{c.label}</FooterLink>
                 </Box>
               ))}
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 4, md: 3, lg: 3 }}>
-            <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 3 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 4, lg: 2 }}>
+            <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>
               Popular Tools
             </Typography>
-            <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column' }}>
               {popular.map((t) => (
                 <Box component="li" key={t.slug}>
-                  <Link href={`/${t.slug}`} className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                    <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                      {t.title}
-                    </Typography>
-                  </Link>
+                  <FooterLink href={`/${t.slug}`}>{t.title}</FooterLink>
+                </Box>
+              ))}
+              <Box component="li">
+                <FooterLink href="/">View all tools →</FooterLink>
+              </Box>
+            </Box>
+          </Grid>
+
+          <Grid size={{ xs: 6, sm: 6, md: 4, lg: 2 }}>
+            <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>
+              Company
+            </Typography>
+            <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column' }}>
+              {COMPANY.map((l) => (
+                <Box component="li" key={l.href}>
+                  <FooterLink href={l.href}>{l.label}</FooterLink>
                 </Box>
               ))}
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 4, md: 3, lg: 3 }}>
-            <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 3 }}>
-              Company
+          <Grid size={{ xs: 6, sm: 6, md: 4, lg: 2 }}>
+            <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>
+              Guides
             </Typography>
-            <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 1 }}>
-              <Box component="li">
-                <Link href="/" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    All Tools
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/about" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    About Us
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/author" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Author
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/methodology" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Methodology
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/privacy" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Privacy Policy
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/terms" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Terms of Service
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/contact" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Contact Us
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/blog" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Blog — Tool Guides
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/blog/invoice-generator-guide" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Invoice Generator Guide
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/blog/qr-code-generator-guide" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    QR Code Generator Guide
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/blog/resume-builder-guide" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Resume Builder Guide
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/blog/mortgage-calculator-guide" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Mortgage Calculator Guide
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/blog/password-generator-guide" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Password Generator Guide
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href="/blog/word-counter-guide" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Word Counter Guide
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <Link href={`mailto:${siteConfig.email}`} className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', textDecoration: 'none' }}>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Contact Support
-                  </Typography>
-                </Link>
-              </Box>
-              <Box component="li">
-                <button
-                  type="button"
-                  onClick={() => window.dispatchEvent(new Event("t4s:open-cookie-choices"))}
-                  className="footer-link"
-                  style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
-                >
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Cookie choices
-                  </Typography>
-                </button>
-              </Box>
-              <Box component="li">
-                <button
-                  type="button"
-                  onClick={handleDoNotSell}
-                  className="footer-link"
-                  style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}
-                >
-                  <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
-                    Do Not Sell or Share
-                  </Typography>
-                </button>
-              </Box>
+            <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column' }}>
+              {GUIDES.map((l) => (
+                <Box component="li" key={l.href}>
+                  <FooterLink href={l.href}>{l.label}</FooterLink>
+                </Box>
+              ))}
             </Box>
           </Grid>
         </Grid>
@@ -287,8 +208,8 @@ export default function Footer() {
           sx={{
             borderTop: "1px solid",
             borderColor: "divider",
-            mt: 10,
-            pt: 6,
+            mt: 6,
+            pt: 3,
             pb: 'max(16px, env(safe-area-inset-bottom))',
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
@@ -300,7 +221,45 @@ export default function Footer() {
           <Typography variant="body2" sx={{ fontWeight: 500, color: 'text.secondary' }}>
             © {year} {siteConfig.name}. All rights reserved.
           </Typography>
-
+          <Box
+            component="ul"
+            sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexWrap: 'wrap', gap: { xs: 0.5, md: 1 }, alignItems: 'center' }}
+            aria-label="Legal and privacy"
+          >
+            <Box component="li">
+              <FooterLink href="/privacy">Privacy Policy</FooterLink>
+            </Box>
+            <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">·</Typography>
+            <Box component="li">
+              <FooterLink href="/terms">Terms of Service</FooterLink>
+            </Box>
+            <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">·</Typography>
+            <Box component="li">
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event("t4s:open-cookie-choices"))}
+                className="footer-link"
+                style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+              >
+                <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                  Cookie choices
+                </Typography>
+              </button>
+            </Box>
+            <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">·</Typography>
+            <Box component="li">
+              <button
+                type="button"
+                onClick={handleDoNotSell}
+                className="footer-link"
+                style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}
+              >
+                <Typography variant="body2" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, transition: 'color 150ms ease' }}>
+                  Do Not Sell or Share
+                </Typography>
+              </button>
+            </Box>
+          </Box>
         </Box>
       </Container>
     </Box>

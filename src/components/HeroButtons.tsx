@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 
 export default function HeroButtons({ firstSlug }: { firstSlug: string }) {
   return (
-    <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 1 }}>
+    <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 1, alignItems: { xs: "stretch", sm: "center" } }}>
       <Button href={`/${firstSlug}`} variant="contained" color="primary" size="large">
         Get started free
       </Button>
