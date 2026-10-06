@@ -18,12 +18,13 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import ToolCard from "@/components/ToolCard";
-import { NOINDEX_SLUGS } from "@/lib/tools";
-import type { Category, Tool } from "@/lib/tools";
+import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
+import type { Category } from "@/lib/tools";
+import type { LiteTool } from "@/lib/tools/catalog-lite";
 
 type Group = {
   category: Category;
-  tools: Tool[];
+  tools: LiteTool[];
 };
 
 const INITIAL_VISIBLE = 12;

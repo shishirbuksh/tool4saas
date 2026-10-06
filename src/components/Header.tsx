@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import React from "react";
 import MuiNextLink from "@/components/MuiNextLink";
 import dynamic from "next/dynamic";
@@ -26,7 +26,9 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
-import { toolsByCategoryCached } from "@/lib/tools";
+// CATEGORIES only (tiny, no catalogue data) — keeps the global header chunk
+// lean on every page. Full tool objects must never enter client bundles here.
+import { CATEGORIES } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
 import { useThemeMode } from "@/components/ThemeProviderClient";
 
@@ -47,7 +49,9 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [catAnchor, setCatAnchor] = useState<null | { el: HTMLElement; id: string }>(null);
   const pathname = usePathname();
-  const grouped = useMemo(() => toolsByCategoryCached(), []);
+  // Same { category } shape as toolsByCategoryCached() groups so the menu,
+  // noscript fallback and drawer below work unchanged — minus tool payloads.
+  const grouped = CATEGORIES.map((category) => ({ category }));
   const { mode, toggle } = useThemeMode();
 
   return (

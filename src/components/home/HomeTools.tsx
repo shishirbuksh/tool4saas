@@ -4,9 +4,23 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import Skeleton from "@mui/material/Skeleton";
 import AdSlot from "@/components/AdSlotLazy";
-import PaginatedToolGrid from "@/components/PaginatedToolGrid";
-import { toolsByCategoryCached, EXPECTED_TOOL_COUNT, type Category } from "@/lib/tools";
+import { EXPECTED_TOOL_COUNT, type Category } from "@/lib/tools";
+// Lite groups: full Tool objects (faq/howTo/guide bodies) must never reach
+// client props — they bloat the RSC payload + hydration parse on mobile.
+import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
+
+// Below-fold grid ships in its own chunk (SSR HTML preserved for SEO/crawlers,
+// JS parses + hydrates off the critical path). Skeleton reserves layout (CLS).
+const PaginatedToolGrid = dynamic(() => import("@/components/PaginatedToolGrid"), {
+  loading: () => (
+    <Box aria-hidden="true" sx={{ minHeight: { xs: 1200, md: 1600 } }}>
+      <Skeleton variant="rounded" width="100%" height={1200} sx={{ maxHeight: "60vh" }} />
+    </Box>
+  ),
+});
 
 // Features grid + all-tools grid + mid-page ad.
 export default function HomeTools({ hubA, hubB }: { hubA?: Category; hubB?: Category }) {
@@ -76,7 +90,7 @@ export default function HomeTools({ hubA, hubB }: { hubA?: Category; hubB?: Cate
           )}
         </Box>
 
-        <PaginatedToolGrid groups={toolsByCategoryCached()} />
+        <PaginatedToolGrid groups={liteToolsByCategory()} />
       </Container>
 
       {/* Mid-page Ad — after value, below fold, lazy, fixed reserve kills CLS */}

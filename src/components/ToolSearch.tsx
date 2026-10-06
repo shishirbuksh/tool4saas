@@ -7,17 +7,19 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import type { SxProps } from "@mui/material";
-import { tools, type Tool } from "@/lib/tools";
+import { LITE_TOOLS, type LiteTool } from "@/lib/tools/catalog-lite";
 
-type IndexedTool = Tool & { haystack: string };
-const indexedTools: IndexedTool[] = tools.map((t) => ({
+type IndexedTool = LiteTool & { haystack: string };
+// Lite catalogue only (no faq/howTo/guide bodies) — keeps the search chunk
+// lean; recall comes from title/short/description/slug/keywords.
+const indexedTools: IndexedTool[] = LITE_TOOLS.map((t) => ({
   ...t,
   haystack: [t.title, t.short, t.description, t.slug, ...(t.keywords ?? [])].join(" ").toLowerCase(),
 }));
 
 export default function ToolSearch({ sx }: { sx?: SxProps }) {
   const router = useRouter();
-  const [value, setValue] = useState<Tool | null>(null);
+  const [value, setValue] = useState<LiteTool | null>(null);
   const [inputValue, setInputValue] = useState("");
   const deferredInput = useDeferredValue(inputValue);
   const filtered = useMemo(() => {
@@ -27,7 +29,7 @@ export default function ToolSearch({ sx }: { sx?: SxProps }) {
   }, [deferredInput]);
 
   return (
-    <Autocomplete<Tool>
+    <Autocomplete<LiteTool>
       options={filtered}
       value={value}
       inputValue={inputValue}

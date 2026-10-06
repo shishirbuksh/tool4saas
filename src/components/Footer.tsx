@@ -10,7 +10,9 @@ import Button from "@mui/material/Button";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import type { ReactNode } from "react";
-import { CATEGORIES, getTool, EXPECTED_TOOL_COUNT } from "@/lib/tools";
+import { CATEGORIES, EXPECTED_TOOL_COUNT } from "@/lib/tools";
+// Lite lookup: full Tool objects (guide bodies) must never enter the footer chunk.
+import { liteGetTool } from "@/lib/tools/catalog-lite";
 import { siteConfig } from "@/lib/site";
 
 const popularSlugs = [
@@ -25,7 +27,7 @@ const popularSlugs = [
 ];
 
 const popular = popularSlugs
-  .map((s) => getTool(s))
+  .map((s) => liteGetTool(s))
   .filter((t): t is NonNullable<typeof t> => Boolean(t));
 
 const GUIDES = [

@@ -68,7 +68,8 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import type { SxProps } from "@mui/material";
-import type { Tool, IconName } from "@/lib/tools";
+import type { IconName } from "@/lib/tools";
+import type { LiteTool } from "@/lib/tools/catalog-lite";
 
 // Static imports (tree-shaken via next.config optimizePackageImports for
 // @mui/icons-material): icons ride shared chunks — no 57x dynamic() waterfall.
@@ -172,7 +173,7 @@ const CATEGORY_TINTS: Record<string, { bg: string; fg: string }> = {
 
 const DEFAULT_TINT = { bg: "#F5F5F5", fg: "#111111" };
 
-export default function ToolCard({ tool }: { tool: Tool }) {
+export default function ToolCard({ tool }: { tool: LiteTool }) {
   const tint = CATEGORY_TINTS[tool.category] ?? DEFAULT_TINT;
   return (
     <Card

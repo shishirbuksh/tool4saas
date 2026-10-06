@@ -25,6 +25,9 @@ const inter = Inter({
 
 // Display: Fraunces — 700 only for hero/h1/h2 critical path.
 // 800 dropped: unused (all headings resolve to 700), saves 1 woff2 preload + RTT on LCP.
+// preload:false: Inter (body + LCP-adjacent UI text) keeps the single preload;
+// Fraunces swaps in via display:swap with adjustFontFallback (no CLS), saving
+// high-priority bandwidth on mobile LCP.
 const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
@@ -32,7 +35,7 @@ const fraunces = Fraunces({
   weight: ["700"],
   fallback: ["Georgia", "Times New Roman", "serif"],
   adjustFontFallback: true,
-  preload: true,
+  preload: false,
 });
 
 export const metadata: Metadata = {

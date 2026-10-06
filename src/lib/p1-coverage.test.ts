@@ -32,6 +32,8 @@ import {
   NOINDEX_SLUGS,
 } from "./tools";
 import { validatePdfMagicBytes, MAX_PDF_PAGES } from "./validate";
+import { LITE_TOOLS, LITE_GROUPS, liteGetTool } from "./tools/catalog-lite";
+import { NOINDEX_SLUGS as LITE_NOINDEX } from "./tools/noindex";
 
 describe("dates – staggered invariant", () => {
   it("staggered day is deterministic in 1..9", () => {
@@ -171,8 +173,7 @@ describe("tools – single-source registries", () => {
   });
 });
 
-describe("validate – PDF magic bytes + page cap", () => {
-  function mockPdf(name: string, head: string | Error): File {
+describe("validate – PDF magic bytes + page cap", () => {  function mockPdf(name: string, head: string | Error): File {
     return {
       name,
       slice: () => ({
@@ -193,5 +194,33 @@ describe("validate – PDF magic bytes + page cap", () => {
 
   it("exposes a 200-page cap constant", () => {
     expect(MAX_PDF_PAGES).toBe(200);
+  });
+});
+
+describe("catalog-lite – client-safe projection parity", () => {
+  it("covers all 185 tools with title parity", () => {
+    expect(LITE_TOOLS.length).toBe(185);
+    expect(LITE_TOOLS.length).toBe(tools.length);
+    for (const t of tools) {
+      const lite = liteGetTool(t.slug);
+      expect(lite, t.slug).toBeDefined();
+      expect(lite!.title).toBe(t.title);
+      expect(lite!.description).toBe(t.description);
+      expect(lite!.category).toBe(t.category);
+    }
+  });
+
+  it("groups mirror categories without guide bodies", () => {
+    expect(LITE_GROUPS.length).toBe(12);
+    const total = LITE_GROUPS.reduce((s, g) => s + g.tools.length, 0);
+    expect(total).toBe(185);
+    const serialized = JSON.stringify(LITE_GROUPS);
+    expect(serialized).not.toContain("howTo");
+    expect(serialized).not.toContain("acceptedAnswer");
+  });
+
+  it("NOINDEX single source lives in the tiny noindex module", () => {
+    expect(LITE_NOINDEX.has("pdf-compress")).toBe(true);
+    expect(NOINDEX_SLUGS).toBe(LITE_NOINDEX);
   });
 });
