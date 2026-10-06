@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
-import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -40,7 +39,6 @@ export default function PercentageChangeTool() {
             slotProps={{ input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" } }}
           />
         </Stack>
-        <YMYLDisclaimer type="finance" />
         <Box
           sx={{
             p: 2,

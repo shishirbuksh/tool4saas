@@ -112,7 +112,7 @@ export default function UnitConverterTool() {
               ))}
             </Select>
           </FormControl>
-          <Button onClick={swap} aria-label="swap" sx={{ minWidth: 0 }}><SwapVertIcon /></Button>
+          <Button onClick={swap} aria-label="Swap units" sx={{ minWidth: 0 }}><SwapVertIcon /></Button>
           <FormControl fullWidth>
             <InputLabel>To</InputLabel>
             <Select label="To" value={to} onChange={(e) => setTo(e.target.value)}>

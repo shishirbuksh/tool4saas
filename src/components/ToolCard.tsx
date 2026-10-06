@@ -6,12 +6,9 @@ import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import Link from "next/link";
+import MuiNextLink from "@/components/MuiNextLink";
 
-const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
-  // @ts-expect-error - MUI passes href dynamically
-  <Link ref={ref} {...props} />
-));
+const LinkWrapper = MuiNextLink;
 
 import AbcIcon from "@mui/icons-material/Abc";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";

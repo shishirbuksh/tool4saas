@@ -49,6 +49,7 @@ export default function ToolSearch({ sx }: { sx?: SxProps }) {
       renderInput={({ InputLabelProps: _InputLabelProps, InputProps, ...params }: any) => (
         <TextField
           {...params}
+          label="Search tools"
           placeholder="Search tools…"
           slotProps={{
             input: {

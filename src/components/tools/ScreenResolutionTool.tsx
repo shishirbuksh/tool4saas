@@ -1,7 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Stack, Typography, Alert, Card, CardContent, Button, Box, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import Alert from "@mui/material/Alert";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import ToolPaper from "@/components/ToolPaper";
 

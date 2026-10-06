@@ -58,6 +58,18 @@ export const siteConfig = {
     }
     return raw;
   })(),
+  // GA measurement ID: env-overridable, falls back to the current property.
+  // Format: G- + 10 base-36 chars. Invalid values fall back (warn) so a
+  // typo never silently disables analytics wiring.
+  gaId: (() => {
+    const raw = (process.env.NEXT_PUBLIC_GA_ID || "").trim();
+    if (!raw) return "G-JD0HNN61MF";
+    if (!/^G-[A-Z0-9]{10}$/.test(raw)) {
+      console.warn(`NEXT_PUBLIC_GA_ID is invalid "${raw}" — expected format G-XXXXXXXXXX`);
+      return "G-JD0HNN61MF";
+    }
+    return raw;
+  })(),
   email: (process.env.NEXT_PUBLIC_CONTACT_EMAIL || "").trim() || "hello@tool4saas.com",
   author: "Tool4SaaS",
   // E-E-A-T author authority: role + short bio used by ToolPageShell author box

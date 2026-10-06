@@ -10,34 +10,10 @@ import Alert from "@mui/material/Alert";
 import Slider from "@mui/material/Slider";
 import { MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
+import { loadPdfjs } from "@/lib/pdfjs";
 
 const MAX_FILE_SIZE = MAX_IMAGE_SIZE; // 10MB guard
 const MAX_FILES = 1;
-
-type PdfViewport = {
-  width: number;
-  height: number;
-};
-
-type PdfRenderTask = {
-  promise: Promise<void>;
-};
-
-type PdfPage = {
-  getViewport: (opts: { scale: number }) => PdfViewport;
-  render: (opts: { canvasContext: CanvasRenderingContext2D; viewport: PdfViewport }) => PdfRenderTask;
-};
-
-type PdfDoc = {
-  numPages: number;
-  getPage: (pageNumber: number) => Promise<PdfPage>;
-  destroy?: () => Promise<void> | void;
-};
-
-type PdfJsLib = {
-  getDocument: (src: { data: Uint8Array }) => { promise: Promise<PdfDoc> };
-  GlobalWorkerOptions?: { workerSrc: string };
-};
 
 function canvasToJpgBlob(canvas: HTMLCanvasElement, quality: number): Promise<Blob> {
   return new Promise((resolve, reject) => {
@@ -108,28 +84,13 @@ export default function PdfToJpgTool() {
     setDone("");
     setProgress("");
     try {
-      let pdfjsLib: unknown;
+      let pdfjs: Awaited<ReturnType<typeof loadPdfjs>>;
       try {
-        // dynamic import("pdfjs-dist") lazy-loaded on convert
-        pdfjsLib = await import("pdfjs-dist");
+        // Shared CSP-safe loader (bundled worker, version-pinned).
+        pdfjs = await loadPdfjs();
       } catch {
-        setError('PDF to JPG requires "pdfjs-dist". Run "npm install pdfjs-dist" to enable client-side rendering.');
+        setError("Could not load PDF engine. Check your connection and retry.");
         return;
-      }
-
-      const pdfjs = pdfjsLib as Partial<PdfJsLib>;
-      if (!pdfjs || typeof pdfjs.getDocument !== "function") {
-        setError('PDF to JPG requires "pdfjs-dist". Run "npm install pdfjs-dist" to enable client-side rendering.');
-        return;
-      }
-
-      try {
-        if (pdfjs.GlobalWorkerOptions && !pdfjs.GlobalWorkerOptions.workerSrc) {
-          pdfjs.GlobalWorkerOptions.workerSrc =
-            "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-        }
-      } catch {
-        // Worker setup is best-effort; rendering can still work when bundled.
       }
 
       const bytes = new Uint8Array(await file.arrayBuffer());
@@ -190,7 +151,7 @@ export default function PdfToJpgTool() {
       }
 
       try {
-        const maybeDestroy = (doc as PdfDoc).destroy;
+        const maybeDestroy = doc.destroy;
         if (typeof maybeDestroy === "function") {
           await maybeDestroy.call(doc);
         }
@@ -202,11 +163,7 @@ export default function PdfToJpgTool() {
       setDone(`Converted ${pageCount} page(s) to JPG. Downloads started.`);
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
-      if (msg.includes("Cannot find module") || msg.includes("pdfjs-dist")) {
-        setError('PDF to JPG requires "pdfjs-dist". Run "npm install pdfjs-dist" to enable client-side rendering.');
-      } else {
-        setError(msg);
-      }
+      setError(msg);
       setProgress("");
     } finally {
       setBusy(false);
@@ -256,6 +213,7 @@ export default function PdfToJpgTool() {
           step={0.25}
           onChange={(_, v) => setScale(Array.isArray(v) ? v[0] : v)}
           disabled={!file || busy}
+          aria-label="Render scale"
         />
       </Box>
       <Box>
@@ -269,6 +227,7 @@ export default function PdfToJpgTool() {
           step={0.05}
           onChange={(_, v) => setQuality(Array.isArray(v) ? v[0] : v)}
           disabled={!file || busy}
+          aria-label="JPG output quality"
         />
       </Box>
       <Box>
@@ -280,11 +239,10 @@ export default function PdfToJpgTool() {
       {error && <Alert severity="error">{error}</Alert>}
       {done && <Alert severity="success">{done}</Alert>}
       <Alert severity="info">
-        Renders pages with <code>pdfjs-dist</code> via <code>dynamic import(&quot;pdfjs-dist&quot;)</code> (
+        Renders pages locally with <code>pdfjs-dist</code> (
         <code>getDocument</code> + <code>getPage</code> + <code>viewport</code> + <code>canvas</code>{" "}
-        <code>render</code>). Install with <code>npm install pdfjs-dist</code>. Tip: to bundle all JPGs into one
-        download, pack them into a ZIP (e.g. with <code>jszip</code> via <code>npm install jszip</code> or the
-        already-installed <code>fflate</code>).
+        <code>render</code>). Tip: to bundle all JPGs into one
+        download, pack them into a ZIP with the <code>fflate</code>-powered ZIP Creator.
       </Alert>
     </ToolPaper>
   );

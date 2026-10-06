@@ -11,7 +11,6 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Alert from "@mui/material/Alert";
 import ToolPaper from "@/components/ToolPaper";
-import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import { fmt0, fmtNumber } from "@/lib/format";
 
 type PresetKey = "balanced" | "highProtein" | "lowFat" | "highCarb" | "keto" | "custom";
@@ -105,7 +104,6 @@ export default function MacroCalculatorTool() {
 
   return (
     <ToolPaper>
-      <YMYLDisclaimer type="health" />
       <TextField
         label="Daily calories (kcal)"
         type="number"

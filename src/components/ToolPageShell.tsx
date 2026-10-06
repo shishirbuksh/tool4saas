@@ -5,9 +5,11 @@ import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import AdSlot from "@/components/AdSlotLazy";
 import ToolSeo from "@/components/ToolSeo";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import RelatedTools from "@/components/RelatedTools";
 import RelatedGuides from "@/components/blog/RelatedGuides";
 import { getCategory, NOINDEX_SLUGS, tools, type Tool } from "@/lib/tools";
+import { getYMYLType } from "@/lib/ymyl";
 import { siteConfig } from "@/lib/site";
 import { getStaggeredDay } from "@/lib/dates";
 
@@ -30,6 +32,10 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
   // equals the JSON-LD dateModified. Never clamp to a single date.
   const seeAlso = tools.filter((t) => t.category === tool.category && t.slug !== tool.slug && !NOINDEX_SLUGS.has(t.slug)).slice(0, 2);
   const { iso: dateModifiedIso, display: dateModifiedDisplay } = getStaggeredDate(tool.slug);
+  // Central YMYL injection (single source: src/lib/ymyl.ts). Covers finance +
+  // health categories plus 10 calculators/business overrides. Tools must not
+  // import YMYLDisclaimer directly.
+  const ymylType = getYMYLType(tool);
   return (
     <Container maxWidth="xl" sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 }, overflowX: "clip" }}>
       <Box sx={{ mb: { xs: 6, md: 8 }, maxWidth: 800, mx: "auto", textAlign: "center" }}>
@@ -83,7 +89,14 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
           alignItems: "start",
         }}
       >
-        <Box sx={{ width: "100%", minWidth: 0, overflowX: "auto" }}>{children}</Box>
+        <Box sx={{ width: "100%", minWidth: 0, overflowX: "auto" }}>
+          {ymylType && (
+            <Box sx={{ mb: 2 }}>
+              <YMYLDisclaimer type={ymylType} />
+            </Box>
+          )}
+          {children}
+        </Box>
         <Box sx={{ minHeight: { xs: 250, lg: 280 } }}>
           <AdSlot
             format="rectangle"

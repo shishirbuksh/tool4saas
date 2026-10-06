@@ -110,20 +110,20 @@ export default function MethodologyPage() {
         </Typography>
         <Typography sx={{ display: "block", mb: 1 }}>
           We cross-check behavior against public references:{" "}
-          <a href="https://developer.mozilla.org" target="_blank" rel="noopener">
+          <a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">
             MDN Web Docs
           </a>{" "}
           for JavaScript, date, and number behavior; published{" "}
-          <a href="https://www.rbi.org.in" target="_blank" rel="noopener">
+          <a href="https://www.rbi.org.in" target="_blank" rel="noopener noreferrer">
             RBI
           </a>{" "}
           and{" "}
-          <a href="https://www.irs.gov" target="_blank" rel="noopener">
+          <a href="https://www.irs.gov" target="_blank" rel="noopener noreferrer">
             IRS
           </a>{" "}
           formula guidance for loan and tax estimate logic (results remain estimates, not financial advice);
           and{" "}
-          <a href="https://www.who.int" target="_blank" rel="noopener">
+          <a href="https://www.who.int" target="_blank" rel="noopener noreferrer">
             WHO
           </a>{" "}
           BMI classification ranges for health calculators. See <Link href="/terms">/terms</Link> for

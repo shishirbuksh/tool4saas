@@ -169,7 +169,7 @@ export default function CurrencyConverterTool() {
             ))}
           </Select>
         </FormControl>
-        <Button onClick={swap} aria-label="swap" sx={{ minWidth: 0 }}>
+        <Button onClick={swap} aria-label="Swap currencies" sx={{ minWidth: 0 }}>
           <SwapVertIcon />
         </Button>
         <FormControl fullWidth>

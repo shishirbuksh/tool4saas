@@ -11,13 +11,13 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "business",
     label: "Business & Writing",
     description:
-      "Create invoices, resumes, quotations and receipts instantly in your browser with 9 free business document generators.",
+      "Create invoices, resumes, quotations and receipts instantly in your browser with 13 free business document generators.",
   },
   {
     id: "developer",
     label: "Developer Tools",
     description:
-      "Encode Base64, hash, format JSON and SQL, test regex and validate code with 29 free developer utilities that run locally.",
+      "Encode Base64, hash, format JSON and SQL, test regex and validate code with 30 free developer utilities that run locally.",
   },
   {
     id: "converters",
@@ -41,14 +41,14 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "pdf",
     label: "PDF Tools",
     description:
-      "Merge, split, compress and convert PDFs and images to PDF securely in your browser with 7 free offline PDF utilities.",
-    // NOTE: 7 tools (image-to-pdf, pdf-merge, pdf-compress, pdf-split, pdf-to-jpg, pdf-rotate, pdf-watermark) — kept lean to preserve client-only bundle size.
+      "Merge, split, compress and convert PDFs and images to PDF securely in your browser with 8 free offline PDF utilities.",
+    // NOTE: 8 tools (image-to-pdf, pdf-merge, pdf-compress, pdf-split, pdf-to-jpg, pdf-rotate, pdf-watermark, pdf-to-text) — kept lean to preserve client-only bundle size.
   },
   {
     id: "calculators",
     label: "Calculators",
     description:
-      "Calculate percentages, loans, grades, discounts and BMI instantly with 15 free everyday calculators that work offline.",
+      "Calculate percentages, loans, grades, discounts and BMI instantly with 16 free everyday calculators that work offline.",
   },
   {
     id: "finance",

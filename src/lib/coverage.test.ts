@@ -139,8 +139,8 @@ describe("mortgage EMI – golden values", () => {
   });
 });
 
-describe("tools – 123 unique and getTool O(1)", () => {
-  it("has 123 tools (150-200 range) and unique slugs", () => {
+describe("tools – 185 unique and getTool O(1)", () => {
+  it("has 185 tools (150-200 range) and unique slugs", () => {
     expect(tools.length).toBeGreaterThanOrEqual(150);
     expect(tools.length).toBeLessThanOrEqual(200);
     const slugs = tools.map((t) => t.slug);

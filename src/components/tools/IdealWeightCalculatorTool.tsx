@@ -13,7 +13,6 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Alert from "@mui/material/Alert";
 import ToolPaper from "@/components/ToolPaper";
-import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import { fmtNumber, BMI_UNDERWEIGHT, METERS_PER_INCH, KG_PER_LB } from "@/lib/format";
 
 type Sex = "male" | "female";
@@ -109,7 +108,6 @@ export default function IdealWeightCalculatorTool() {
 
   return (
     <ToolPaper>
-      <YMYLDisclaimer type="health" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center" }}>
         <ToggleButtonGroup
           size="small"

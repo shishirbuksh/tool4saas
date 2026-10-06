@@ -54,7 +54,7 @@ export default function Footer() {
             ad_personalization: "denied",
           });
         }
-        w["ga-disable-G-JD0HNN61MF"] = true;
+        w["ga-disable-" + siteConfig.gaId] = true;
       } catch {
         /* ignore gtag failures */
       }

@@ -14,7 +14,6 @@ import { money } from "@/lib/format";
 import { calcIndiaCG } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
 import NumericField from "@/components/NumericField";
-import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 type Asset = "equity" | "property" | "gold";
 
@@ -115,7 +114,6 @@ export default function CapitalGainsTool() {
           property / gold &gt; 24 mo.
         </Typography>
       )}
-      <YMYLDisclaimer type="finance" />
       <Box
         sx={{
           p: 2,

@@ -36,7 +36,6 @@ export function blogMetadataFor(post: BlogPost) {
   return {
     title: { absolute: fullTitle },
     description: post.description,
-    keywords: post.keywords,
     alternates: { canonical, languages: { en: canonical, "x-default": canonical } },
     robots: {
       index: true,

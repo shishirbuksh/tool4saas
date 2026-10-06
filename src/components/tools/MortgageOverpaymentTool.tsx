@@ -12,7 +12,6 @@ import InputLabel from "@mui/material/InputLabel";
 import { money } from "@/lib/format";
 import { calcEmi, overpaymentSchedule } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
-import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import NumericField from "@/components/NumericField";
 
 const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
@@ -45,7 +44,6 @@ export default function MortgageOverpaymentTool() {
 
   return (
     <ToolPaper>
-      <YMYLDisclaimer type="finance" />
       <FormControl fullWidth>
         <InputLabel>Currency</InputLabel>
         <Select

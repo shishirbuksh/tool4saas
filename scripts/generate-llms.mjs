@@ -193,7 +193,7 @@ try {
       }
     }
   }
-} catch (e) {}
+} catch {}
 
 out += blogsOut + "\n";
 

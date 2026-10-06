@@ -8,7 +8,6 @@ import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
-import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 export default function FreelanceRateCalculatorTool() {
   const [annualSalary, setAnnualSalary] = useState("");
@@ -59,7 +58,6 @@ export default function FreelanceRateCalculatorTool() {
 
   return (
     <ToolPaper>
-      <YMYLDisclaimer type="finance" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Desired annual salary", annualSalary, setAnnualSalary)}
         {field("Billable hours / year", billableHours, setBillableHours)}

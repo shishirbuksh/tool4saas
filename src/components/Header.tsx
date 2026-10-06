@@ -2,13 +2,10 @@
 
 import { useMemo, useState } from "react";
 import React from "react";
-import Link from "next/link";
+import MuiNextLink from "@/components/MuiNextLink";
 import dynamic from "next/dynamic";
 
-const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
-  // @ts-expect-error - MUI passes href dynamically
-  <Link ref={ref} {...props} />
-));
+const LinkWrapper = MuiNextLink;
 import { usePathname } from "next/navigation";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -118,7 +115,7 @@ export default function Header() {
           </Box>
 
           {/* Desktop Nav */}
-          <Box component="nav" sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box component="nav" aria-label="Primary" sx={{ display: { xs: "none", md: "flex" } }}>
             <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
               <Button
                 component={LinkWrapper}
@@ -285,6 +282,7 @@ export default function Header() {
           <noscript> content never hydrates — zero hydration risk. */}
       <noscript>
         <div style={{ padding: "8px 16px", display: "flex", flexWrap: "wrap", gap: "12px" }}>
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- noscript SSR fallback, no router */}
           <a href="/">Home</a>
           {grouped.map((g) => (
             <a key={g.category.id} href={`/category/${g.category.id}`}>

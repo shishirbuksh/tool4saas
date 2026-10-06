@@ -99,13 +99,13 @@ export default function TextToSpeechTool() {
           <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
             Rate: {rate.toFixed(1)}x
           </Typography>
-          <Slider value={rate} min={0.5} max={2} step={0.1} onChange={(_, v) => setRate(Array.isArray(v) ? v[0] : v)} />
+          <Slider value={rate} min={0.5} max={2} step={0.1} onChange={(_, v) => setRate(Array.isArray(v) ? v[0] : v)} aria-label="Speech rate" />
         </Box>
         <Box sx={{ maxWidth: 320 }}>
           <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
             Pitch: {pitch.toFixed(1)}
           </Typography>
-          <Slider value={pitch} min={0} max={2} step={0.1} onChange={(_, v) => setPitch(Array.isArray(v) ? v[0] : v)} />
+          <Slider value={pitch} min={0} max={2} step={0.1} onChange={(_, v) => setPitch(Array.isArray(v) ? v[0] : v)} aria-label="Speech pitch" />
         </Box>
         <Stack direction="row" spacing={1}>
           <Button variant="contained" onClick={speak} disabled={!text}>

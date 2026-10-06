@@ -4,11 +4,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import React from "react";
-import Link from "next/link";
-const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
-  // @ts-expect-error - MUI passes href dynamically
-  <Link ref={ref} {...props} />
-));
+import MuiNextLink from "@/components/MuiNextLink";
+const LinkWrapper = MuiNextLink;
 import ToolSearchIsland from "@/components/ToolSearchIsland";
 // Static popular links — hardcoded to avoid importing the full tools registry
 // (no catalogue import) and keep the 404 bundle lean.
@@ -27,7 +24,7 @@ const POPULAR_CATEGORIES = [
 export default function NotFound() {
   return (
     <Container maxWidth="sm" sx={{ py: 12, textAlign: "center" }}>
-      <Typography variant="h1" sx={{ fontSize: "4rem", fontWeight: 800, color: "primary.main" }}>404</Typography>
+      <Typography variant="h1" sx={{ fontSize: "4rem", fontWeight: 800, color: "primary.main" }} aria-label="404 Page not found">404</Typography>
       <Typography variant="h2" sx={{ fontSize: "1.5rem", mb: 2 }}>Page not found</Typography>
       <Typography color="text.secondary" sx={{ mb: 4 }}>
         The page you&apos;re looking for doesn&apos;t exist or has moved.

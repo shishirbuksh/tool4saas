@@ -7,12 +7,9 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import React from "react";
-import Link from "next/link";
+import MuiNextLink from "@/components/MuiNextLink";
 
-const LinkWrapper = React.forwardRef<HTMLAnchorElement, any>((props, ref) => (
-  // @ts-expect-error - MUI passes href dynamically
-  <Link ref={ref} {...props} />
-));
+const LinkWrapper = MuiNextLink;
 
 export default function Error({
   error,
@@ -26,7 +23,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <Container maxWidth="sm" sx={{ py: 12, textAlign: "center" }}>
+    <Container maxWidth="sm" sx={{ py: 12, textAlign: "center" }} role="alert">
       <Typography variant="h1" sx={{ fontSize: "3rem", fontWeight: 800, mb: 1 }}>
         Something went wrong
       </Typography>

@@ -12,7 +12,6 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
-import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;
 
@@ -64,7 +63,6 @@ export default function MortgageCalculatorTool() {
 
   return (
     <ToolPaper>
-      <YMYLDisclaimer type="finance" />
       <FormControl fullWidth>
         <InputLabel>Currency</InputLabel>
         <Select

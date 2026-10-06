@@ -7,10 +7,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
 import Slider from "@mui/material/Slider";
-import { MAX_IMAGE_SIZE } from "@/lib/validate";
+import { MAX_PDF_SIZE } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 
-const MAX_FILE_SIZE = MAX_IMAGE_SIZE;
+const MAX_FILE_SIZE = MAX_PDF_SIZE;
 
 export default function PdfCompressTool() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -40,7 +40,7 @@ export default function PdfCompressTool() {
     setBusy(true);
     setError("");
     try {
-      setError('PDF compression requires "pdf-lib" with image recompression. Run "npm install pdf-lib" to enable.');
+      setError("True PDF recompression is not yet available in-browser — this tool validates your PDF (10 MB max) and stays private with no upload. For now use PDF Merge / Split / Rotate, or re-export at lower quality.");
     } finally {
       setBusy(false);
     }
@@ -64,7 +64,7 @@ export default function PdfCompressTool() {
         <Typography variant="body2" color="text.secondary" gutterBottom>
           Compression: {Math.round((1 - quality) * 100)}% (lower quality = smaller file)
         </Typography>
-        <Slider value={quality} min={0.1} max={1} step={0.05} onChange={(_, v) => setQuality(Array.isArray(v) ? v[0] : v)} disabled={!file || busy} />
+        <Slider value={quality} min={0.1} max={1} step={0.05} onChange={(_, v) => setQuality(Array.isArray(v) ? v[0] : v)} disabled={!file || busy} aria-label="Compression quality" />
       </Box>
       <Box>
         <Button variant="contained" onClick={compress} disabled={!file || busy}>
@@ -72,7 +72,7 @@ export default function PdfCompressTool() {
         </Button>
       </Box>
       <Typography variant="caption" color="text.secondary">
-        True lossless recompression needs <code>pdf-lib</code>. This placeholder validates and guides installation without uploading.
+        Beta placeholder: validates PDFs privately (no upload). Full image-downsampling recompression is roadmap — page is noindexed until then.
       </Typography>
     </ToolPaper>
   );

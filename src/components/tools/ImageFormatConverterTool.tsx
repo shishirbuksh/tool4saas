@@ -208,6 +208,7 @@ export default function ImageFormatConverterTool() {
           onChange={(_, v) => setQuality(Array.isArray(v) ? v[0] : v)}
           disabled={!file || !showQuality || busy}
           valueLabelDisplay="auto"
+          aria-label="Output image quality"
           valueLabelFormat={(v) => `${Math.round(v * 100)}%`}
         />
       </Box>

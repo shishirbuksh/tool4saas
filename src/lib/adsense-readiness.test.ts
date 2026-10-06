@@ -49,6 +49,28 @@ describe("adsense readiness (static)", () => {
     expect(src).toContain("analytics_storage: 'denied'");
   });
 
+  it("layout has no unconditional Google fetch (gated loader only)", () => {
+    const src = read(path.join("src", "app", "layout.tsx"));
+    expect(src).not.toContain("googletagmanager.com/gtag/js");
+    expect(src).not.toContain("pagead2.googlesyndication.com");
+    expect(src).toContain("ConsentGatedGoogleScripts");
+  });
+
+  it("ConsentGatedGoogleScripts gates on stored consent + split grants", () => {
+    const src = read(path.join("src", "components", "ConsentGatedGoogleScripts.tsx"));
+    expect(src).toContain("t4s:consent-updated");
+    expect(src).toContain("t4s-consent-v1");
+    expect(src).toContain("analytics_storage");
+    expect(src).toContain("ad_storage");
+    expect(src).toContain("AdSenseScript");
+  });
+
+  it("site GA ID is env-overridable with safe fallback", () => {
+    const src = read(path.join("src", "lib", "site.ts"));
+    expect(src).toContain("NEXT_PUBLIC_GA_ID");
+    expect(src).toContain("G-JD0HNN61MF");
+  });
+
   it("next.config.js allows AdSense + Funding Choices", () => {
     const src = read("next.config.js");
     expect(src).toContain("pagead2");
@@ -69,17 +91,26 @@ describe("adsense readiness (static)", () => {
     expect(src).toContain("Advertisement");
   });
 
-  it("YMYLDisclaimer exists and is imported by >=30 tool components (script parity)", () => {
+  it("YMYLDisclaimer is centrally injected by ToolPageShell (no manual imports)", () => {
     const disc = path.join("src", "components", "YMYLDisclaimer.tsx");
     expect(exists(disc), disc).toBe(true);
+    // Shell renders the disclaimer from the single source (src/lib/ymyl.ts).
+    const shell = read(path.join("src", "components", "ToolPageShell.tsx"));
+    expect(shell).toContain("YMYLDisclaimer");
+    expect(shell).toContain("getYMYLType");
+    // The mapping covers finance + health categories plus overrides.
+    const map = read(path.join("src", "lib", "ymyl.ts"));
+    expect(map).toContain('"finance"');
+    expect(map).toContain('"health"');
+    expect(map).toContain("getYMYLType");
+    // Regression guard: no tool imports the disclaimer directly (no doubles).
     const dir = path.join(root, "src", "components", "tools");
     const files = fs.readdirSync(dir).filter((f) => f.endsWith(".tsx"));
     expect(files.length).toBeGreaterThan(0);
-    let importing = 0;
-    for (const f of files) {
-      if (fs.readFileSync(path.join(dir, f), "utf8").includes("YMYLDisclaimer")) importing += 1;
-    }
-    expect(importing).toBeGreaterThanOrEqual(30);
+    const importing = files.filter((f) =>
+      fs.readFileSync(path.join(dir, f), "utf8").includes("YMYLDisclaimer")
+    );
+    expect(importing, importing.join(", ")).toEqual([]);
   });
 
   it("ads.txt exists with valid google.com DIRECT entry (format only — real ID gated by adsense:check script)", () => {

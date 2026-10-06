@@ -88,7 +88,7 @@ export default function PasswordGeneratorTool() {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton onClick={() => pw && void import("@/lib/clipboard").then(m=>m.copyToClipboard(pw))} aria-label="Copy generated password" disabled={!pw}><ContentCopyIcon /></IconButton>
-                <IconButton onClick={regen} aria-label="regenerate"><RefreshIcon /></IconButton>
+                <IconButton onClick={regen} aria-label="Generate new password"><RefreshIcon /></IconButton>
               </InputAdornment>
             ),
            } }}

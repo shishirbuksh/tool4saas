@@ -283,6 +283,40 @@ for (const p of ["contact", "author", "methodology"]) {
         .join(", ");
       add("layout consent-default", "FAIL", `layout.tsx missing: ${missing}`);
     }
+    // 6b. No unconditional Google fetch in layout (privacy H1): gtag/js and
+    // adsbygoogle must load only via ConsentGatedGoogleScripts after consent.
+    const hasUnconditionalGa =
+      layout.includes("googletagmanager.com/gtag/js") ||
+      layout.includes("pagead2.googlesyndication.com");
+    const hasLoader = layout.includes("ConsentGatedGoogleScripts");
+    if (!hasUnconditionalGa && hasLoader) {
+      add(
+        "layout gated-load",
+        "PASS",
+        "no unconditional gtag/adsbygoogle fetch; ConsentGatedGoogleScripts present"
+      );
+    } else {
+      add(
+        "layout gated-load",
+        "FAIL",
+        !hasLoader
+          ? "ConsentGatedGoogleScripts missing in layout.tsx"
+          : "layout.tsx fetches Google scripts unconditionally"
+      );
+    }
+    // 6c. Loader subscribes to consent state (event + key + split grants).
+    const loader = readRel("src/components/ConsentGatedGoogleScripts.tsx");
+    const loaderOk =
+      loader &&
+      loader.includes("t4s:consent-updated") &&
+      loader.includes("t4s-consent-v1") &&
+      loader.includes("analytics_storage") &&
+      loader.includes("ad_storage");
+    add(
+      "loader subscribes",
+      loaderOk ? "PASS" : "FAIL",
+      loaderOk ? "subscribed to consent updates + split grants" : "ConsentGatedGoogleScripts.tsx subscription missing"
+    );
   }
 }
 
@@ -373,19 +407,32 @@ for (const p of ["contact", "author", "methodology"]) {
 }
 
 // ---------------------------------------------------------------------------
-// 10. YMYLDisclaimer exists + used in >=30 tools
+// 10. YMYLDisclaimer shell injection (single source: src/lib/ymyl.ts)
 // ---------------------------------------------------------------------------
 {
   if (!existsRel("src/components/YMYLDisclaimer.tsx")) {
     add("YMYLDisclaimer exists", "FAIL", "src/components/YMYLDisclaimer.tsx missing");
-    add("YMYLDisclaimer coverage", "FAIL", "component missing");
+    add("YMYLDisclaimer shell injection", "FAIL", "component missing");
   } else {
     add("YMYLDisclaimer exists", "PASS", "src/components/YMYLDisclaimer.tsx");
+    const shell = readRel("src/components/ToolPageShell.tsx");
+    const map = readRel("src/lib/ymyl.ts");
+    const shellOk =
+      shell &&
+      shell.includes("YMYLDisclaimer") &&
+      shell.includes("getYMYLType");
+    const mapOk =
+      map && map.includes("getYMYLType") && map.includes('"finance"') && map.includes('"health"');
+    add(
+      "YMYLDisclaimer shell injection",
+      shellOk && mapOk ? "PASS" : "FAIL",
+      shellOk && mapOk ? "ToolPageShell renders getYMYLType(tool)" : "shell/map wiring missing"
+    );
+    // Regression guard: no tool imports the disclaimer directly (no doubles).
     const files = [];
-    walkSrc(path.join(ROOT, "src"), files);
+    walkSrc(path.join(ROOT, "src", "components", "tools"), files);
     const users = new Set();
     for (const f of files) {
-      if (f.endsWith("YMYLDisclaimer.tsx")) continue;
       let text = null;
       try {
         text = fs.readFileSync(f, "utf8");
@@ -396,9 +443,9 @@ for (const p of ["contact", "author", "methodology"]) {
     }
     const n = users.size;
     add(
-      "YMYLDisclaimer coverage",
-      n >= 30 ? "PASS" : "FAIL",
-      `used in ${n} file(s), need >=30`
+      "YMYLDisclaimer no manual imports",
+      n === 0 ? "PASS" : "FAIL",
+      n === 0 ? "0 manual imports (shell only)" : `still imported by ${n} file(s): ${[...users].slice(0, 5).join(", ")}`
     );
   }
 }

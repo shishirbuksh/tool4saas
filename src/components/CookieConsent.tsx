@@ -8,9 +8,10 @@ import Paper from "@mui/material/Paper";
 import Switch from "@mui/material/Switch";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import { siteConfig } from "@/lib/site";
 
 const KEY = "t4s-consent-v1";
-const GA_ID = "G-JD0HNN61MF";
+const GA_ID = siteConfig.gaId;
 // 12-month expiry for stored choices (365 days).
 const EXPIRY_MS = 365 * 24 * 60 * 60 * 1000;
 
@@ -236,20 +237,28 @@ export default function CookieConsent() {
     setVisible(false);
   };
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setVisible(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   if (!visible) return null;
 
   return (
     <Box
-      role="dialog"
-      aria-live="polite"
+      role="region"
       aria-label="Cookie consent"
+      aria-describedby="t4s-consent-desc"
       sx={{ position: "fixed", left: 16, right: 16, bottom: "max(16px, env(safe-area-inset-bottom))", zIndex: 1500, display: "flex", justifyContent: "center", pointerEvents: "none" }}
     >
       <Paper elevation={0} sx={{ pointerEvents: "auto", maxWidth: 720, width: "100%", p: { xs: 2, sm: 3 }, border: "1px solid", borderColor: "divider", borderRadius: "12px" }}>
         <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
           Cookies and ads
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.7 }}>
+        <Typography id="t4s-consent-desc" variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.7 }}>
           Tool inputs run locally, but we use Google Analytics and Google AdSense cookies for measurement and ads. See our{" "}
           <Link href="/privacy">Privacy Policy</Link>. You can accept or reject — the site works either way.
           Choices expire after 12 months; you can change them anytime via “Cookie choices” in the footer.

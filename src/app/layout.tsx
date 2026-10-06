@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import dynamic from "next/dynamic";
 import { Inter, Fraunces } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import Box from "@mui/material/Box";
@@ -8,8 +7,8 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AdSenseScript from "@/components/AdSenseScript";
 import ThemeProviderClient from "@/components/ThemeProviderClient";
+import ConsentGatedGoogleScripts from "@/components/ConsentGatedGoogleScripts";
 import SiteJsonLd from "@/components/SiteJsonLd";
 
 import CookieConsentLazy from "@/components/CookieConsentLazy";
@@ -69,6 +68,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
       { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
@@ -111,7 +111,9 @@ export default function RootLayout({
         {/* DEEP-5: Google Funding Choices (TCF v2.2) snippet placeholder.
             Paste the Funding Choices script(s) from
             Ad Manager > Privacy & messaging here, BEFORE consent-default.
-            Keep order: Funding Choices -> consent-default -> GA -> AdSense.
+            Keep order: Funding Choices -> consent-default -> gated loader.
+            GA + AdSense load ONLY via ConsentGatedGoogleScripts after stored
+            consent grants them (privacy H1) — never unconditionally here.
             Left commented until AdSense approval; CookieConsent forwards
             t4s-consent to window.__tcfapi only when FC is present (stub guard). */}
         {/* <Script src="https://fundingchoicesmessages.google.com/i/xxxx.js?ers=1" strategy="beforeInteractive" /> */}
@@ -129,19 +131,7 @@ export default function RootLayout({
             gtag('consent', 'default', { ad_storage: 'denied', analytics_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', wait_for_update: 500 });
           `}
         </Script>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-JD0HNN61MF"
-          strategy="lazyOnload"
-        />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-JD0HNN61MF');
-          `}
-        </Script>
-        <AdSenseScript />
+        <ConsentGatedGoogleScripts />
         <CookieConsentLazy />
         <a href="#main" className="skip-link">
           Skip to content

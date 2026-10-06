@@ -44,6 +44,7 @@ export default function GradientGeneratorTool() {
         value={c}
         onChange={(e) => set(e.target.value)}
         size="small"
+        label={`${label} hex value`}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
         sx={{ width: 140 }}
       />
@@ -63,7 +64,7 @@ export default function GradientGeneratorTool() {
             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
               Angle: {angle}°
             </Typography>
-            <Slider value={angle} min={0} max={360} step={1} onChange={(_, v) => setAngle(Array.isArray(v) ? v[0] : v)} />
+            <Slider value={angle} min={0} max={360} step={1} onChange={(_, v) => setAngle(Array.isArray(v) ? v[0] : v)} aria-label="Gradient angle in degrees" />
           </Box>
         )}
         <Box

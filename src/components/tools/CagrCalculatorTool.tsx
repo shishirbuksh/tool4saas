@@ -8,7 +8,6 @@ import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
-import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 
 export default function CagrCalculatorTool() {
   const [startValue, setStartValue] = useState("");
@@ -42,7 +41,6 @@ export default function CagrCalculatorTool() {
 
   return (
     <ToolPaper>
-      <YMYLDisclaimer type="finance" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Start value", startValue, setStartValue)}
         {field("End value", endValue, setEndValue)}

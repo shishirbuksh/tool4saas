@@ -9,7 +9,6 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Alert from "@mui/material/Alert";
 import ToolPaper from "@/components/ToolPaper";
-import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import { fmt1 } from "@/lib/format";
 
 type Unit = "kg" | "lb";
@@ -39,7 +38,6 @@ export default function OneRepMaxCalculatorTool() {
 
   return (
     <ToolPaper>
-      <YMYLDisclaimer type="health" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <TextField
           label={`Weight lifted (${unit})`}

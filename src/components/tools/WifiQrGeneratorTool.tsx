@@ -102,6 +102,7 @@ export default function WifiQrGeneratorTool() {
                 max={512}
                 step={32}
                 onChange={(_, v) => setSize(Array.isArray(v) ? v[0] : v)}
+                aria-label="QR code size in pixels"
               />
             </Box>
           </Stack>

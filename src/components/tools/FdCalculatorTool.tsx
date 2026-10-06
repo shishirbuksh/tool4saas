@@ -14,7 +14,6 @@ import TableContainer from "@mui/material/TableContainer";
 import { money } from "@/lib/format";
 import { fdMaturity } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
-import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import NumericField from "@/components/NumericField";
 
 export default function FdCalculatorTool() {
@@ -48,7 +47,6 @@ export default function FdCalculatorTool() {
 
   return (
     <ToolPaper>
-      <YMYLDisclaimer type="finance" />
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <NumericField label="Principal (₹)" value={principal} onChange={setPrincipal} />
         <NumericField label="Annual rate (% p.a.)" value={rate} onChange={setRate} />

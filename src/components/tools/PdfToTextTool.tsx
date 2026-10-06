@@ -12,30 +12,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import DownloadIcon from "@mui/icons-material/Download";
 import { validatePdfFile, validatePdfMagicBytes, MAX_PDF_SIZE, MAX_PDF_PAGES } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
-
-type PdfTextItem = {
-  str?: string;
-  hasEOL?: boolean;
-};
-
-type PdfTextContent = {
-  items: PdfTextItem[];
-};
-
-type PdfTextPage = {
-  getTextContent: () => Promise<PdfTextContent>;
-};
-
-type PdfTextDoc = {
-  numPages: number;
-  getPage: (pageNumber: number) => Promise<PdfTextPage>;
-  destroy?: () => Promise<void> | void;
-};
-
-type PdfJsLib = {
-  getDocument: (src: { data: Uint8Array }) => { promise: Promise<PdfTextDoc> };
-  GlobalWorkerOptions?: { workerSrc: string };
-};
+import { loadPdfjs } from "@/lib/pdfjs";
 
 function parseSelectedPages(input: string, pageCount: number): number[] {
   const raw = input.trim();
@@ -137,27 +114,13 @@ export default function PdfToTextTool() {
         return;
       }
 
-      let pdfjsLib: unknown;
+      let pdfjs: Awaited<ReturnType<typeof loadPdfjs>>;
       try {
-        pdfjsLib = await import("pdfjs-dist");
+        // Shared CSP-safe loader (bundled worker, version-pinned).
+        pdfjs = await loadPdfjs();
       } catch {
-        setError('Could not load PDF engine. Check your connection and retry.');
+        setError("Could not load PDF engine. Check your connection and retry.");
         return;
-      }
-
-      const pdfjs = pdfjsLib as Partial<PdfJsLib>;
-      if (!pdfjs || typeof pdfjs.getDocument !== "function") {
-        setError('Could not load PDF engine. Check your connection and retry.');
-        return;
-      }
-
-      try {
-        if (pdfjs.GlobalWorkerOptions && !pdfjs.GlobalWorkerOptions.workerSrc) {
-          pdfjs.GlobalWorkerOptions.workerSrc =
-            "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-        }
-      } catch {
-        // Worker setup is best-effort; extraction can still work when bundled.
       }
 
       const bytes = new Uint8Array(await file.arrayBuffer());
@@ -182,12 +145,17 @@ export default function PdfToTextTool() {
       let emptyPages = 0;
       for (const p of selected) {
         const page = await doc.getPage(p);
-        const tc = await page.getTextContent();
+        const getText = page.getTextContent;
+        if (typeof getText !== "function") {
+          throw new Error("Text extraction is not supported by the loaded PDF engine.");
+        }
+        const tc = await getText.call(page);
         const items = Array.isArray(tc.items) ? tc.items : [];
         let pageText = "";
         for (const it of items) {
-          const s = typeof it.str === "string" ? it.str : "";
-          pageText += s + (it.hasEOL ? "\n" : " ");
+          const item = it as { str?: unknown; hasEOL?: unknown };
+          const s = typeof item.str === "string" ? item.str : "";
+          pageText += s + (item.hasEOL ? "\n" : " ");
         }
         pageText = pageText.replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
         const empty = pageText.length === 0;
@@ -210,11 +178,7 @@ export default function PdfToTextTool() {
       );
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
-      if (msg.includes("Cannot find module") || msg.includes("pdfjs-dist")) {
-        setError('Could not load PDF engine. Check your connection and retry.');
-      } else {
-        setError(msg);
-      }
+      setError(msg);
     } finally {
       setBusy(false);
     }
