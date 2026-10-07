@@ -54,7 +54,14 @@ export const invoiceMistakes: BlogPost = {
   title: "12 Invoice Mistakes That Delay Payment (and How to Fix Them)",
   description:
     "12 invoicing mistakes that delay payment — vague lines, wrong tax, no due date — with 10-minute fixes and a 60-second pre-send checklist.",
-  keywords: ["professional invoice tips", "invoicing mistakes", "why client not paying invoice", "how to make invoice look professional", "invoice checklist before sending"],
+  keywords: [
+    "professional invoice tips",
+    "invoicing mistakes",
+    "why client not paying invoice",
+    "how to make invoice look professional",
+    "invoice checklist before sending",
+    "What should I check before sending an invoice?",
+  ],
   toolSlugs: ["invoice-generator", "quotation-generator", "receipt-generator"],
   relatedSlugs: ["payment-terms-and-followups", "invoice-numbering", "small-business-invoicing"],
   published: "2026-09-15",
@@ -69,9 +76,9 @@ export const invoiceMistakes: BlogPost = {
   html,
   faqs: [
     { question: "Why is my client not paying my invoice?", answer: "Usually missing due date, vague lines, wrong tax, wrong recipient, or no payment method — not malice. Fix the field, resend with number + total + due date in the subject, and nudge day 3 and day 7 with the PDF re-attached." },
-    { question: "How do I make my invoice look professional?", answer: "Logo, sequential number, itemized qty × rate lines, correct tax split, bold total with currency and words, printed payment method, quote/PO reference, and a clean filename like invoice-acme-001.pdf." },
-    { question: "What should I check before sending an invoice?", answer: "Number unique, calendar due date, specific lines, right tax slab and GSTIN, bold total with currency and words, payment method printed, correct recipient, Tue–Thu morning send with numbered subject." },
-    { question: "Should I edit an invoice after sending?", answer: "No — issue a credit note reversing the error and re-issue with the next number, with a one-line note referencing both. Editing history breaks audit trails." },
-    { question: "How do I avoid late payments entirely?", answer: "You cannot entirely, but Net 15 with dates, 30–50% advances, Tue–Thu sends, printed payment details and a fixed day-3/day-7 nudge routine cut my average from 16 days to 7." },
+    { question: "How do I make my invoice look professional?", answer: "Use logo with sequential number like INV-2026-001, itemized qty times rate lines such as 12 posts Aug 2026, correct tax split with GSTIN, bold total with currency and words like ₹23,600 Rupees twenty-three thousand six hundred only, printed UPI or bank method, quote or PO reference like QUO-2026-014 or PO-1042, plus clean filename invoice-acme-001.pdf." },
+    { question: "What should I check before sending an invoice?", answer: "Confirm unique sequential number like INV-2026-001, issued plus calendar due date, specific lines with qty and rate, right tax slab plus GSTIN with correct CGST/SGST versus IGST split, bold total with currency and words, printed UPI or bank method, correct recipient in accounts not just founder, and Tue–Thu morning send with numbered subject." },
+    { question: "Should I edit an invoice after sending?", answer: "No. Never edit sent history because it breaks audit trails. Issue a credit note like CN-001 reversing the error such as duplicate design hours, then re-issue with the next sequential number. Add a one-line note referencing both numbers, for example CN-001 reverses INV-2026-001 line 3, and keep the original filed." },
+    { question: "How do I avoid late payments entirely?", answer: "You cannot entirely, but Net 15 with calendar dates, 30–50% advances, Tue–Thu morning sends with numbered subjects, printed UPI or bank details and a fixed day-3 plus day-7 nudge routine with re-attached PDF cut my average from 16 days to 7. Always quote first with QUO-2026-014 and invoice only on sign-off." },
   ],
 };

@@ -62,6 +62,7 @@ export const qrBusiness: BlogPost = {
     "qr code for google reviews",
     "qr code for shop payments",
     "business qr code ideas",
+    "How much does it cost to start?",
   ],
   toolSlugs: ["qr-code-generator", "wifi-qr-generator", "barcode-generator"],
   relatedSlugs: ["upi-payment-qr-code-india", "wifi-qr-code-guide", "static-vs-dynamic-qr-codes"],
@@ -76,10 +77,10 @@ export const qrBusiness: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How can small businesses use QR codes?", answer: "Menus on table tents, UPI payment at billing, review links on bills, guest WiFi framed at reception, how-to videos on packaging, and feedback forms at events. Each code does one job, printed once as a static code." },
-    { question: "How much does it cost to start?", answer: "Under ₹1,000 for a café starter set: table tents, a payment standee and a reception frame at local printers. The static QR codes themselves are free and never expire." },
-    { question: "How do I get more Google reviews with QR codes?", answer: "Print the review link on the bill folder with a 10-seconds ask at the payment moment. One salon tripled monthly reviews this way — timing matters more than design." },
-    { question: "Should I use QR codes or barcodes on products?", answer: "QR for customer content (videos, manuals, offers); barcodes for checkout scanners and inventory. Different scanners, different jobs — compared in the QR vs barcode guide." },
-    { question: "How do I measure results without scan analytics?", answer: "Track outcomes per placement: reviews per month, queue length, password questions per day. Static codes give no dashboards, so baseline one number per sign and review monthly." },
+    { question: "How can small businesses use QR codes?", answer: "Use menus on table tents with 2048px prints updated on the page, UPI payment at billing, review links on bill folders at the payment moment, guest WiFi framed at reception, how-to videos on packaging, plus feedback forms and vCards at events printed for halls. Each code does one job as a static print." },
+    { question: "How much does it cost to start?", answer: "Budget under ₹1,000 for a café starter set in one afternoon: 10 table tents at ₹300–500, acrylic payment standee at ₹150–300 and A4 reception frame at ₹250–400 from local printers. Static QR codes are unlimited and ₹0, never expiring. Bigger runs like 500 flyers cost ₹1,500–2,500 with a ₹30 one-copy test first." },
+    { question: "How do I get more Google reviews with QR codes?", answer: "Print the review link on the bill folder with wording Loved your visit? 10 seconds and ask at the payment moment, not at the door. One Bandra salon went from about 5 to 15 reviews monthly by timing the ask. Position at payment beats design — customers decide in seconds with the folder in hand." },
+    { question: "Should I use QR codes or barcodes on products?", answer: "Use QR for customer phone content like videos, manuals and offers, and barcodes for checkout scanners, shelf labels and inventory. They use different scanners for different jobs: QR speaks to customers, striped EAN speaks to billing systems. The QR versus barcode guide compares phones, lasers and checkout uses." },
+    { question: "How do I measure results without scan analytics?", answer: "Track outcomes per placement with one baseline number: menu please calls, queue minutes, reviews per month and password questions per day. Static codes give no dashboards, so check monthly and compare. If a placement shows nothing after 6 weeks, move the sign — position beats design more than graphics." },
   ],
 };

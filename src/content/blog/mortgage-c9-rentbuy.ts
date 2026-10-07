@@ -53,6 +53,7 @@ export const mortgageRentBuy: BlogPost = {
     "rent vs buy break-even years",
     "is it cheaper to rent or buy",
     "5 percent rule renting vs buying",
+    "Is renting throwing money away?",
   ],
   toolSlugs: ["home-affordability-calculator", "mortgage-calculator", "rent-vs-buy-calculator"],
   relatedSlugs: ["how-much-house-can-i-afford", "down-payment-pmi-cost", "how-to-calculate-mortgage-payment"],
@@ -68,10 +69,10 @@ export const mortgageRentBuy: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "Is renting throwing money away?", answer: "No — rent buys flexibility and avoids interest, tax, maintenance, closing costs and down-payment opportunity cost. Compare total 5–7 year costs both ways instead of slogans." },
-    { question: "What is the 5% rule?", answer: "Yearly unrecoverable owning costs run roughly 5% of home value (interest, tax, maintenance). Compare that against annual rent for a quick screen, then run break-even math." },
-    { question: "How long until buying beats renting?", answer: "Typically 5–7 years in the US. Under 3 years renting usually wins on closing costs; past 10 years owning usually wins on principal paydown and appreciation." },
-    { question: "Does rent-vs-buy differ in India?", answer: "Same method, local numbers: 9% loan rates and high yields in some cities favor short-horizon renting; use the EMI calculator with local rents and prices." },
-    { question: "Is this housing advice?", answer: "No — illustrative education as of Sept 2026. Consult a qualified advisor for your situation; see /terms." },
+    { question: "Is renting throwing money away?", answer: "No — rent buys flexibility and avoids interest, tax, maintenance, closing costs and down-payment opportunity cost like $60,000 growing to ~$118,000 at 7% in a decade. Compare total 5–7 year costs both ways, including 2–6% closing and 1% maintenance, instead of slogans about throwing money away." },
+    { question: "What is the 5% rule?", answer: "Yearly unrecoverable owning costs run roughly 5% of home value (interest, tax, maintenance). On $300,000 that is $15,000 yearly versus $18,000 rent, favoring buying long-term; at $1,000 monthly rent, renting wins. Compare that against annual rent for a quick screen, then run break-even math for your horizon." },
+    { question: "How long until buying beats renting?", answer: "Typically 5–7 years in the US. Under 3 years renting usually wins on closing costs of 2–6% rarely recovered; past 10 years owning usually wins on principal paydown and appreciation compounding. A 4-year Pune stay favored renting by ~Rs 6L, while a 12-year Austin stay favored buying overall." },
+    { question: "Does rent-vs-buy differ in India?", answer: "Same method, local numbers: 9% loan rates and high yields in some cities favor short-horizon renting, while family stability favors long buying. A Pune Rs 28,000 rent versus Rs 54,000 EMI on Rs 60L shows the gap; use the EMI calculator with local rents and prices for timelines." },
+    { question: "Is this housing advice?", answer: "No — illustrative education as of Sept 2026, excluding taxes, insurance, PMI, HOA, fees and ARM resets. Collect price, rent, down payment and quotes, then run the 15-minute PITI plus maintenance and closing comparison. Consult a qualified advisor for your situation before deciding with partners; see /terms." },
   ],
 };

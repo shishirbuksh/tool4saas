@@ -50,6 +50,7 @@ export const resumeMistakes: BlogPost = {
     "why no interview calls",
     "resume rejected reasons",
     "resume checklist before applying",
+    "Are Canva resumes bad?",
   ],
   toolSlugs: ["resume-builder", "ats-resume-checker", "cover-letter-builder"],
   relatedSlugs: ["how-to-make-resume", "ats-resume-guide", "resume-format-guide"],
@@ -64,10 +65,10 @@ export const resumeMistakes: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "Why am I getting no interview calls?", answer: "Usually objectives instead of metric summaries, unquantified duties, graphics layouts parsers drop, zero tailoring, or header typos. Run the 60-second checklist — most readers find 3+ fixes." },
-    { question: "Are Canva resumes bad?", answer: "For applications, yes — two-column graphics parse around 31% versus 88% for clean text. Keep design in typography; save Canva for portfolios." },
-    { question: "Should I use the same resume everywhere?", answer: "No — 10-minute tailors per JD (mirror honest keywords, reorder bullets, re-check ATS) took my callbacks from ~0% to ~20%. Generic blasts convert near zero." },
-    { question: "What is the biggest resume mistake?", answer: "Duties without numbers. Recruiters buy outcomes; every bullet needs a metric or scope. No metric remembered? Use team size, users or volume." },
-    { question: "How do I check my resume before sending?", answer: "Length, metric summary, quantified bullets, ATS 80%+ with selectable text, JD tailoring, verified header contacts, proper PDF filename — in that order." },
+    { question: "Why am I getting no interview calls?", answer: "Usually objectives instead of metric summaries, unquantified duties, graphics layouts parsers drop, zero tailoring, or header typos like dead phone numbers. Run the 60-second checklist covering length, bullets, ATS 80%+, tailoring and filename — most readers find 3+ fixes in one sitting tonight before sending." },
+    { question: "Are Canva resumes bad?", answer: "For applications, yes — two-column graphics parse around 31% versus 88% for clean text. Skill bars, tables and sidebars scramble reading order so parsers drop content. Keep design in typography per the ATS guide; save Canva layouts for portfolios, never for parsed applications submitted through portals." },
+    { question: "Should I use the same resume everywhere?", answer: "No — 10-minute tailors per JD (mirror honest keywords, reorder bullets, re-check ATS) took my callbacks from ~0% to ~20%. Same career, different process. Generic blasts convert near zero because parsers miss terms and humans skim past irrelevance; tailored PDFs with mirrored TypeScript, CI/CD or Figma win interviews." },
+    { question: "What is the biggest resume mistake?", answer: "Duties without numbers. Recruiters buy outcomes; every bullet needs a metric or scope like team size, users or volume. Rewrite Responsible for testing into Cut release bugs 35% via automated suite and led 2-dev deploy rotation. Objectives beg; quantified summaries with backend, stack and years prove value instantly." },
+    { question: "How do I check my resume before sending?", answer: "Length, metric summary, quantified bullets, ATS 80%+ with selectable text, JD tailoring, verified header contacts, proper PDF filename — in that order. Check one page, 3-line summary, verb-scope-number bullets, Notepad paste order, mirrored keywords, dialed number and firstname-resume.pdf before sending anything tonight fixing failures first always." },
   ],
 };

@@ -137,6 +137,7 @@ export const wordPillar: BlogPost = {
     "word count vs character count",
     "word count readability seo",
     "free word count tools students",
+    "How do I count words in my text for free?",
   ],
   toolSlugs: ["word-counter", "readability-checker", "keyword-density", "text-summarizer"],
   relatedSlugs: ["how-to-count-words-online", "ideal-blog-post-length-seo", "flesch-reading-ease-score-explained"],
@@ -149,32 +150,32 @@ export const wordPillar: BlogPost = {
     {
       question: "How do I count words in my text for free?",
       answer:
-        "Paste into the free word counter — words, characters, sentences, paragraphs and reading time appear instantly, locally in your browser. No signup, nothing uploads.",
+        "Paste into the free word counter — words, characters, sentences, paragraphs and reading time appear instantly, computed locally in your browser with Unicode-aware rules. No signup, nothing uploads, and the same paste simultaneously shows Flesch score plus keyword hits.",
     },
     {
       question: "Does word count affect Google rankings?",
       answer:
-        "No — word count is not a ranking factor per Google's Mueller and Sullivan. Rankings follow relevance, depth and intent satisfaction; write as long or short as the query needs.",
+        "No — word count is not a ranking factor per Google's Mueller and Sullivan. Rankings follow relevance, depth and intent satisfaction; write as long or short as the query needs, since padded length bounces readers and thin coverage starves them.",
     },
     {
       question: "What is a good Flesch Reading Ease score?",
       answer:
-        "60–70 (Standard, 8th–9th grade) suits general audiences; 70+ for broad consumer content. Formula: 206.835−1.015×(words/sentences)−84.6×(syllables/words).",
+        "60–70 (Standard, 8th–9th grade) suits general audiences, 70+ for broad consumer content. Formula: 206.835−1.015×(words/sentences)−84.6×(syllables/words). Score drafts in the readability checker, but remember formulas ignore tone and expertise.",
     },
     {
       question: "What is the ideal keyword density?",
       answer:
-        "There is none — Google names no ideal %. Use density readouts diagnostically (rewrite at 4%+ on money terms), write topically and naturally, and never stuff.",
+        "There is none — Google names no ideal %. Use density readouts diagnostically (rewrite money terms crossing 4%), write topically with natural vocabulary, and never stuff. A 1–2% band with placement in title, headings and intro beats any fixed target.",
     },
     {
       question: "How many words should a blog post be?",
       answer:
-        "Cover the intent: definitions 300–800, news 400–800, how-tos 1,500–2,500, pillars 2,500+. These are editorial heuristics, not Google requirements — sharp beats padded.",
+        "Cover the intent: definitions 300–800, news 400–800, how-tos 1,500–2,500, pillars 2,500+. These are editorial heuristics from ranking patterns, not Google requirements — sharp, complete coverage beats padded length every time.",
     },
     {
       question: "Do hyphenated words and CJK count differently?",
       answer:
-        "Yes — hyphen compounds, CJK characters and numbers split by implementation rules that vary per tool. Use one tool consistently per project rather than comparing counts across tools.",
+        "Yes — hyphen compounds, CJK characters and numbers split by implementation rules that vary per tool (hyphenated pairs may count as one or two, CJK per character). Use one tool consistently per project rather than comparing counts across tools with different tokenizers.",
     },
   ],
 };

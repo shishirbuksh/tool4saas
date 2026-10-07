@@ -67,10 +67,12 @@ export const wordLorem: BlogPost = {
   description:
     "Lorem ipsum done right: layout testing wins, content decisions it ruins + pre-launch filler check. Free generator with amount control.",
   keywords: [
-    "lorem ipsum generator",
+    "when to use lorem ipsum vs real copy",
     "when to use lorem ipsum",
     "lorem ipsum vs real copy",
+    "lorem ipsum generator",
     "placeholder text web design",
+    "When should I use lorem ipsum?",
   ],
   toolSlugs: ["lorem-ipsum", "word-counter", "case-converter"],
   relatedSlugs: ["how-to-count-words-online", "ideal-blog-post-length-seo", "typing-speed-test-practice-tips"],
@@ -87,10 +89,10 @@ export const wordLorem: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "When should I use lorem ipsum?", answer: "For layout testing: typography rhythm, component stress at word counts, and structure approvals. Never for headline, CTA, SEO or localization decisions." },
-    { question: "How much lorem ipsum per component?", answer: "Match real expectations: hero 3 paragraphs, cards 2 sentences. Exact-amount generation beats pasting walls." },
-    { question: "How do I avoid shipping filler to production?", answer: "Global pre-launch search for lorem, ipsum, TODO and XXX, plus labeled DRAFT mockups so screenshots never ship." },
-    { question: "Does lorem ipsum hurt SEO?", answer: "Live filler does — thin meaningless content. Staging filler is invisible to crawlers; just ensure none survives launch." },
-    { question: "What replaces lorem ipsum for real testing?", answer: "Real headlines and CTAs early, longest-locale strings for localization, and actual keyword-mapped headings for SEO structure." },
+    { question: "When should I use lorem ipsum?", answer: "Use lorem ipsum for layout testing including typography rhythm, component stress at word counts, and structure approvals where clients review architecture. It reveals line-length, orphans and breakpoints without content debates derailing reviews. Never use it for headline hierarchy, CTA conversion, SEO structure, localization or reading-level decisions that need real words." },
+    { question: "How much lorem ipsum per component?", answer: "Match expectations with hero at 3 paragraphs around 60 words, feature cards at 2 sentences around 25 words, table cells at 8 to 12 words, and footer blurbs at 1 paragraph. Exact-amount generation in the lorem ipsum tool beats pasting random walls. Verify real totals in the word counter and re-check counts after replacing slots." },
+    { question: "How do I avoid shipping filler to production?", answer: "Run a global pre-launch search for lorem, ipsum, TODO and XXX across code, content and fixtures before every deploy. Label mockups visibly as DRAFT with dated watermarks so forwarded screenshots never ship accidentally. Add the grep as a CI gate that fails builds on hits outside tests, since one blocked deploy beats a public screenshot." },
+    { question: "Does lorem ipsum hurt SEO?", answer: "Live filler hurts because thin meaningless content offers no value to readers or search systems. Staging filler is invisible to crawlers and safe during construction, but production filler becomes an embarrassing meme. Search rendered pages, meta descriptions and OG tags before launch and validate share cards in the open graph preview." },
+    { question: "What replaces lorem ipsum for real testing?", answer: "Use real headlines and CTAs early because buttons need verbs and hierarchy varies wildly in length. Test localization with longest-locale strings since German runs about 30 percent longer, and outline real H1 and H2 headings for SEO structure. Score real drafts for Flesch readability and density, and ship one real paragraph per template." },
   ],
 };

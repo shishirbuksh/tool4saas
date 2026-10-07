@@ -44,6 +44,7 @@ export const wordLength: BlogPost = {
     "how many words blog seo",
     "pillar page vs how-to length",
     "blog word count padding",
+    "How many words should an SEO blog post be?",
   ],
   toolSlugs: ["word-counter", "keyword-density", "readability-checker"],
   relatedSlugs: ["how-to-count-words-online", "keyword-density-seo-check", "flesch-reading-ease-score-explained"],
@@ -58,10 +59,10 @@ export const wordLength: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How many words should an SEO blog post be?", answer: "Cover the intent: definitions 800–1,300, how-tos 1,500–2,500, comparisons 2,000–3,000, pillars 2,500+. Ranges describe coverage needs — Google ranks relevance, never the number." },
-    { question: "Is longer always better for SEO?", answer: "No. Longer wins when extra words answer sub-questions (examples, tables, troubleshooting). Padding — restated intros, generic background — actively hurts engagement." },
-    { question: "How long should a pillar page be?", answer: "2,500–4,000+ when the topic demands comprehensiveness, anchoring linked clusters. Pillars earn links by mapping topics, not by hitting numbers." },
-    { question: "How do I hit word count without fluff?", answer: "Add worked examples, tables, troubleshooting and FAQs — never repetition. Delete-test every paragraph: if nothing goes unanswered, cut it." },
-    { question: "Do student essays follow the same rule?", answer: "Same principle, different judge: examiners reward argument density per 100 words. Outline to 80% of the cap, keep 10% buffer, verify counts in-tool." },
+    { question: "How many words should an SEO blog post be?", answer: "Cover the intent with definitions at 800 to 1,300, how-tos at 1,500 to 2,500, comparisons at 2,000 to 3,000, and pillars at 2,500 plus. These ranges describe what comprehensive coverage usually takes, not requirements. Google ranks relevance and depth, so a 900-word page that fully satisfies beats 3,000 wandering words every time." },
+    { question: "Is longer always better for SEO?", answer: "No, longer wins only when extra words answer sub-questions through worked examples with numbers, comparison tables, troubleshooting sections, original test data and FAQs. Padding like restated introductions, generic background and synonym-stuffed repetition actively hurts engagement. Delete-test every paragraph and cut anything that leaves no sub-question unanswered." },
+    { question: "How long should a pillar page be?", answer: "Aim for 2,500 to 4,000 plus words when the topic demands comprehensiveness and must anchor linked clusters. Pillars earn links by mapping a topic broadly as hubs, while how-tos earn ranks by solving one task. New blogs should publish one pillar plus 3 to 5 clusters minimum before expecting topical authority." },
+    { question: "How do I hit word count without fluff?", answer: "Add worked examples, comparison tables, troubleshooting sections and FAQs that answer real PAA queries instead of repetition. Use the delete-test on every paragraph and cut it if no sub-question goes unanswered. Our 40-post blog runs this quarterly because intro throat-clearing is usually padding that should go first." },
+    { question: "Do student essays follow the same rule?", answer: "Same principle with a different judge, since examiners reward argument density per 100 words rather than total words. Outline to 80 percent of the cap, keep 10 percent buffer, and verify counts in-tool before submitting. That discipline mirrors SEO delete-tests because dense coverage beats wandering length in both classrooms and search." },
   ],
 };

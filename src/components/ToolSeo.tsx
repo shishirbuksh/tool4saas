@@ -109,7 +109,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
         inLanguage: "en",
         speakableSpecification: {
           "@type": "SpeakableSpecification",
-          cssSelector: [".speakable-answer-first", ".faq-passage", ".howto-passage"],
+          cssSelector: [".speakable-answer-first", ".faq-passage", ".howto-passage", ".tldr-passage"],
         },
       },
       {

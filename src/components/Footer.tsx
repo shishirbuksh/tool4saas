@@ -202,6 +202,9 @@ export default function Footer() {
                   <FooterLink href={l.href}>{l.label}</FooterLink>
                 </Box>
               ))}
+              <Box component="li">
+                <FooterLink href="/llms.txt">llms.txt (for AI)</FooterLink>
+              </Box>
             </Box>
           </Grid>
         </Grid>

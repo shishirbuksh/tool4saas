@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency: "monthly",
     priority: 0.7,
+    images: [`${base}/og/category-${c.id}`],
   }));
 
   // Priority tiers: hero money pages rank highest, long-tail utilities lower.
@@ -84,13 +85,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const blogIndex: MetadataRoute.Sitemap = [
-    { url: `${base}/blog`, lastModified, changeFrequency: "weekly", priority: 0.7 },
+    {
+      url: `${base}/blog`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.7,
+      images: [`${base}/og/home`],
+    },
   ];
   const blogPillars: MetadataRoute.Sitemap = BLOG_PILLARS.map((p) => ({
     url: `${base}/blog/${p.pillar}`,
     lastModified: new Date(`${p.updated}T00:00:00.000Z`),
     changeFrequency: "monthly",
     priority: 0.65,
+    images: [`${base}/og/${p.toolSlug}`],
   }));
   const blogClusters: MetadataRoute.Sitemap = BLOG_PILLARS.flatMap((p) =>
     getClustersForPillar(p.pillar).map((c) => ({
@@ -98,6 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(`${c.updated}T00:00:00.000Z`),
       changeFrequency: "monthly" as const,
       priority: 0.6,
+      images: [`${base}/og/${c.toolSlugs[0] ?? p.toolSlug}`],
     }))
   );
 

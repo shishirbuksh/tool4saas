@@ -60,6 +60,7 @@ export const qrUpi: BlogPost = {
     "upi payment qr for shop",
     "gpay phonepe qr code shop",
     "upi qr safety tips",
+    "How do I create a UPI QR code for my shop?",
   ],
   toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
   relatedSlugs: ["qr-code-for-business", "how-to-create-qr-code", "qr-code-not-scanning-fix"],
@@ -76,9 +77,9 @@ export const qrUpi: BlogPost = {
   html,
   faqs: [
     { question: "How do I create a UPI QR code for my shop?", answer: "Encode your UPI payee ID and name (plus fixed amount for set prices) in the free QR code generator, download the PNG, print 8–10 cm laminated and fix it to the counter. Customers scan, tap pay and enter their PIN." },
-    { question: "Fixed amount or open amount — which is better?", answer: "Fixed for single-price items (chai ₹30, combos) — zero typing errors. Open amount for variable bills (kirana, salon) — reusable forever. Reprint fixed codes when prices change." },
-    { question: "How do I avoid QR swap fraud?", answer: "Laminate and fix the code down, verify the displayed payee name every morning, confirm credits on your own phone (not the customer's screen), and keep a backup code in the drawer." },
-    { question: "Do customers need my phone number?", answer: "No — the UPI ID suffices. Never print your personal number on payment codes; keep one channel (UPI ID) for money and handle disputes via your bank." },
-    { question: "Are there charges for UPI collections?", answer: "Usually free for small merchants, but caps, settlement timing and device charges vary by bank and app. Confirm with your bank — this guide covers code setup only, not financial advice." },
+    { question: "Fixed amount or open amount — which is better?", answer: "Choose fixed for single-price items like chai ₹30, combos such as ₹99 breakfast or ₹499 service, with zero typing errors and reprint when prices change using versioned files like chai-30-sep2026.png. Choose open amount for variable bills like kirana or salon, reusable forever across bills with a spoken total such as ₹450." },
+    { question: "How do I avoid QR swap fraud?", answer: "Laminate the 8–10 cm code and fix it behind counter glass or to the counter, checking daily for pasted stickers. Verify the displayed payee name every morning like Pay to Sharma General Store only, confirm credits on your own phone or UPI soundbox rather than customer screens, and keep a backup code in the drawer." },
+    { question: "Do customers need my phone number?", answer: "No. The UPI payee ID like name@bank plus payee name suffices for GPay, PhonePe, Paytm and BHIM with amount prefilled. Never print your personal number on payment codes. Keep one channel with UPI ID for money and handle wrong-number transfers or disputes via your bank." },
+    { question: "Are there charges for UPI collections?", answer: "Usually free for small merchants on person-to-merchant collections, but caps, settlement timing, daily limits, soundbox charges around ₹1,000–1,500 for busy counters and dispute handling vary by bank and app. Confirm charges and limits with your bank before scaling. This guide covers code setup only, not financial advice." },
   ],
 };

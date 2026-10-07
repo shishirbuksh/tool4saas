@@ -44,6 +44,7 @@ export const wordFlesch: BlogPost = {
     "flesch kincaid score good",
     "improve readability score",
     "reading ease formula bands",
+    "What is a good Flesch Reading Ease score?",
   ],
   toolSlugs: ["readability-checker", "word-counter", "keyword-density"],
   relatedSlugs: ["keyword-density-seo-check", "how-to-count-words-online", "ideal-blog-post-length-seo"],
@@ -58,10 +59,10 @@ export const wordFlesch: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is a good Flesch Reading Ease score?", answer: "60–70 (Standard, 8th–9th grade) for general audiences; 70+ for broad consumer content. Specialist writing scores lower legitimately." },
-    { question: "What is the Flesch Reading Ease formula?", answer: "206.835−1.015×(words/sentences)−84.6×(syllables/words). Higher means easier; scores can exceed 100 or go negative." },
-    { question: "How is Flesch-Kincaid Grade different?", answer: "It outputs US grade level directly: 0.39×(W/S)+11.8×(Syl/W)−15.59. Target grade 8 or below for the general public." },
-    { question: "How do I improve readability without dumbing down?", answer: "Split 25+ word sentences, swap Latinate abstractions for plain verbs, prefer verbs over nominalizations — keep necessary jargon for expert readers." },
-    { question: "Does readability score affect SEO?", answer: "Indirectly — readable pages engage better. But formulas ignore expertise and no score guarantees rankings; test with real readers." },
+    { question: "What is a good Flesch Reading Ease score?", answer: "Aim for 60 to 70 Standard at 8th to 9th grade for general audiences, with 70 plus for consumer content like news and blogs. Scores of 90 to 100 suit comics and blurbs, while 30 to 50 fits academic or legal writing. Cardiology papers scoring 40 are difficult because formulas ignore audience expertise by design." },
+    { question: "What is the Flesch Reading Ease formula?", answer: "Calculate 206.835 minus 1.015 times words divided by sentences minus 84.6 times syllables divided by words, where higher means easier. Scores can exceed 100 for toddler books or go negative for legal disclaimers. The sibling Flesch-Kincaid Grade outputs US grade level directly, with general audiences targeting grade 8 or below." },
+    { question: "How is Flesch-Kincaid Grade different?", answer: "Flesch-Kincaid Grade outputs US grade level through 0.39 times words per sentence plus 11.8 times syllables per word minus 15.59. Target grade 8 or below for the public, 6 to 8 for web content and 9 to 11 for B2B professionals. Use FRE for quick comparison, grade for audience targeting, and reader feedback over both." },
+    { question: "How do I improve readability without dumbing down?", answer: "Split sentences over 25 words into one idea per sentence, since averages decide scores and occasional long sentences preserve rhythm. Swap Latinate abstractions like utilize to use and prefer verbs over nominalizations like make a decision to decide. Keep necessary jargon for expert readers and target the reader, not the number." },
+    { question: "Does readability score affect SEO?", answer: "Only indirectly, because readable pages with FRE 60 plus and grade 8 or below engage better and sustain attention. Formulas ignore tone, expertise and topical completeness, so no score guarantees rankings. Pair readability with density diagnostics in one paste, cover topical terms naturally without stuffing, and test with real readers." },
   ],
 };

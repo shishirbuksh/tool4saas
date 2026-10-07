@@ -64,11 +64,12 @@ export const qrWifi: BlogPost = {
   description:
     "WiFi QR code guide: share guest WiFi with one scan. SSID tips, WPA/WEP, hidden networks, print sizes and join-failure fixes. Free generator.",
   keywords: [
-    "wifi qr code generator",
+    "share wifi password qr code guests",
     "qr code for wifi password",
     "share wifi with qr code",
     "wifi qr code for guests",
     "scan to join wifi",
+    "Does it work with hidden networks?",
   ],
   toolSlugs: ["wifi-qr-generator", "qr-code-generator", "qr-scanner"],
   relatedSlugs: ["how-to-create-qr-code", "qr-code-size-print-guide", "qr-code-not-scanning-fix"],
@@ -85,10 +86,10 @@ export const qrWifi: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How do I share my WiFi password with a QR code?", answer: "Enter the exact SSID, password and security type (WPA/WPA2 usually) in the WiFi QR generator, download the PNG, print at 5–8 cm and frame it. Guests scan with their camera and tap Join — no typing." },
-    { question: "Does it work with hidden networks?", answer: "Yes, toggle the hidden-SSID flag when generating. Without it, phones scan fine but fail to join — the most common hidden-network failure." },
-    { question: "Is sharing WiFi via QR safe?", answer: "Share a guest network, never your main one. Guest SSIDs with client isolation keep visitors off your private devices. Reprint the code whenever the password changes." },
-    { question: "What if the QR scans but won't join?", answer: "Check SSID exactness (capitals, spaces), hidden-network flag, and security-type match. Then check size and glare — enlarge to 8 cm matte and retest with a second phone." },
-    { question: "Do old phones support WiFi QR codes?", answer: "Cameras from roughly the last 6 years join natively. Older phones may need a scanner app. Verify code contents any time with the free QR scanner." },
+    { question: "How do I share my WiFi password with a QR code?", answer: "Enter the exact SSID with capitals and spaces plus password and security type usually WPA/WPA2 in the WiFi QR generator, then download guest-wifi.png and print 5–8 cm matte black on white for counter display. Frame it and test with one Android plus one iPhone. Guests scan with their camera and tap Join with no typing." },
+    { question: "Does it work with hidden networks?", answer: "Yes. Toggle the hidden-SSID flag in the WiFi QR generator when generating for a non-broadcasting network. Without it, phones scan successfully yet fail to join — the most confusing failure mode. If a hidden code scans but will not join, recheck the flag first, then SSID exactness, security match, size and glare." },
+    { question: "Is sharing WiFi via QR safe?", answer: "Share a dedicated guest SSID with client isolation, never your main network with NAS, printers and smart locks. Anyone photographing the sign joins forever, so keep private SSID unprinted and rotate guest passwords quarterly or per tenant. Reprint the framed code same day with versioned filenames like guest-wifi-2026-09.png whenever passwords change." },
+    { question: "What if the QR scans but won't join?", answer: "Check SSID exactness including capitals, spaces and trailing spaces by re-copying from the router settings page, plus hidden-network flag and WPA versus WEP security-type match. Then check print size and glare — enlarge to 8 cm matte on a flat surface and retest with a second phone at arm's length." },
+    { question: "Do old phones support WiFi QR codes?", answer: "Cameras from roughly the last 6 years join guest networks natively with no app needed. Older pre-2018 phones with fixed-focus cameras may need a scanner app and cannot resolve dense codes. Test with a sparse short-URL code at 4 cm before blaming the print, and verify contents anytime with the free QR scanner." },
   ],
 };

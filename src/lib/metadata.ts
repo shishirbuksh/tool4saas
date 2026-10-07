@@ -12,7 +12,33 @@ export function toolMetadata(slug: string): Metadata {
     return {
       title: siteConfig.title,
       description: siteConfig.description,
-      alternates: { canonical: url },
+      alternates: { canonical: url, languages: { en: url, "x-default": url } },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+          "max-video-preview": -1,
+        },
+      },
+      openGraph: {
+        type: "website",
+        locale: siteConfig.locale,
+        url,
+        siteName: siteConfig.name,
+        title: siteConfig.title,
+        description: siteConfig.description,
+        images: [{ url: ogImage, width: 1200, height: 630, alt: siteConfig.name }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: siteConfig.title,
+        description: siteConfig.description,
+        images: [ogImage],
+      },
     };
   }
 
@@ -115,7 +141,9 @@ export function staticPageMetadata(opts: {
 }): Metadata {
   const base = siteConfig.url.replace(/\/$/, "");
   const url = `${base}${opts.path}`;
-  const ogImage = `${base}/og/home`;
+  // Per-page share card: /og/static-<name> renders curated title/desc
+  // (route falls back to site defaults for unknown names).
+  const ogImage = `${base}/og/static-${opts.path.replace(/^\//, "").replace(/\//g, "-") || "home"}`;
   // absolute: static titles already carry brand once (e.g. "Our Authors -
   // Tool4SaaS Editorial Team"); plain strings would get a second suffix from
   // the layout template. Titles without brand get it appended once here.

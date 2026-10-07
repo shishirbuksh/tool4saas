@@ -142,6 +142,7 @@ export const mortgagePillar: BlogPost = {
     "mortgage calculator first-time buyers pmi",
     "home loan calculator guide",
     "house payment estimator",
+    "How is a monthly mortgage payment calculated?",
   ],
   toolSlugs: ["mortgage-calculator", "home-affordability-calculator", "refinance-calculator", "mortgage-overpayment-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "how-much-house-can-i-afford", "15-vs-30-year-mortgage"],
@@ -159,12 +160,12 @@ export const mortgagePillar: BlogPost = {
     {
       question: "What is PITI in a mortgage payment?",
       answer:
-        "Principal, interest, property tax and insurance — plus PMI under 20% down and HOA where applicable. Lenders quote principal and interest; homeowners pay the full stack, often hundreds more monthly.",
+        "Principal, interest, property tax and insurance — plus PMI under 20% down and HOA dues where applicable. Lenders quote principal and interest only, but homeowners pay the full stack, often hundreds more monthly; budget on PITI, never P&I alone.",
     },
     {
       question: "Why is my early mortgage payment mostly interest?",
       answer:
-        "Each payment covers that month's interest on the remaining balance first. Early balances are large, so interest dominates; as principal falls, the split flips. Extra early payments cut lifetime interest fastest.",
+        "Each payment covers that month's interest on the remaining balance first. Early balances are large, so interest dominates; as principal falls, the split flips toward principal. Extra early payments therefore cut lifetime interest fastest — the mathematical case for overpaying early.",
     },
     {
       question: "Is a 15-year mortgage better than 30-year?",

@@ -66,7 +66,13 @@ export const invoiceVsDocs: BlogPost = {
   title: "Invoice vs Quotation vs Receipt vs Purchase Order: Key Differences",
   description:
     "Invoice vs quotation vs receipt vs purchase order explained with a comparison table and quote-to-cash flow. Know when to send each + free tools.",
-  keywords: ["invoice vs quotation vs receipt", "difference between invoice and bill", "what is purchase order vs invoice", "when to use quotation vs proforma invoice"],
+  keywords: [
+    "invoice vs quotation vs receipt",
+    "difference between invoice and bill",
+    "what is purchase order vs invoice",
+    "when to use quotation vs proforma invoice",
+    "When do I send a quotation vs an invoice?",
+  ],
   toolSlugs: ["invoice-generator", "quotation-generator", "receipt-generator", "purchase-order-generator"],
   relatedSlugs: ["invoice-template-formats", "small-business-invoicing", "invoicing-mistakes-to-avoid"],
   published: "2026-09-13",
@@ -81,10 +87,10 @@ export const invoiceVsDocs: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is the difference between an invoice and a bill?", answer: "Mostly wording. A bill is casual; an invoice is the numbered tax-ready request with lines, tax, total and terms. Use invoice numbers (INV-2026-001) for anything business." },
-    { question: "When do I send a quotation vs an invoice?", answer: "Quotation first to propose price (QUO-2026-014, valid 15 days), invoice later to request payment referencing the quote. Never treat a quote as payable." },
-    { question: "What is a purchase order vs an invoice?", answer: "A purchase order is the buyer authorizing the work (PO-1042); the invoice is the seller requesting payment. Reference the PO on your invoice so enterprise accounts clears it." },
-    { question: "Do I send an invoice or receipt after payment?", answer: "Receipt (RCP-0231) — it confirms money received. A second invoice looks like a duplicate demand and can freeze accounts. Reference the paid invoice number on the receipt." },
-    { question: "What is a proforma invoice?", answer: "A quote-like advance request before work, often for 50% upfront. Label it proforma clearly — it is not a tax invoice. Convert to a real tax invoice on delivery." },
+    { question: "What is the difference between an invoice and a bill?", answer: "Mostly wording for the same payment request. A bill is casual speech, while an invoice is the tax-ready document like INV-2026-001 with lines, tax, total and Net terms. I bill ₹23,600 as INV-2026-001 and my Mumbai client still calls it the bill on WhatsApp. Use invoice numbers with UPI or Stripe printed for anything business." },
+    { question: "When do I send a quotation vs an invoice?", answer: "Send quotation first like QUO-2026-014 with scope, ₹23,600 price, 15-day validity and 50% advance to propose price. Send invoice later like INV-2026-001 referencing the quote to request payment on delivery or milestone. Never treat a quote as payable or invoice from a quote number, because accounts will hold it." },
+    { question: "What is a purchase order vs an invoice?", answer: "A purchase order like PO-1042 is the buyer authorizing work and telling you go ahead after accepting the quote. An invoice like INV-2026-001 is the seller requesting payment with pay now wording. Reference the PO number on your invoice so enterprise accounts clears it, because AP filters by PO and holds bills without it." },
+    { question: "Do I send an invoice or receipt after payment?", answer: "Send receipt RCP-0231 confirming money received with seller, buyer, date, UPI or bank method, amount and paid invoice reference. A second invoice looks like a duplicate demand and can freeze accounts. Never send another invoice after payment — send the receipt same day as money arrives to close the loop." },
+    { question: "What is a proforma invoice?", answer: "A proforma is an advance request before work, for 50% upfront saying pay so we start. Label it PROFORMA — not a tax invoice or accounts may book it wrong. Convert to a tax invoice like INV-2026-001 on delivery. I learned this when a client paid the proforma and asked where the GST invoice was." },
   ],
 };

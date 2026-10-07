@@ -80,6 +80,7 @@ export const invoiceGstFormat: BlogPost = {
     "gst invoice mandatory fields gstin",
     "freelance gst invoice india free",
     "cgst sgst vs igst invoice",
+    "Where do HSN and SAC codes go?",
   ],
   toolSlugs: ["freelance-gst-invoice-generator", "invoice-generator", "gst-calculator"],
   relatedSlugs: ["how-to-create-invoice-online", "invoice-numbering", "freelancer-invoice-guide"],
@@ -95,10 +96,10 @@ export const invoiceGstFormat: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is mandatory on a GST invoice in India?", answer: "Supplier and buyer GSTIN, serial number, date, HSN/SAC codes, qty, rate, taxable value, CGST/SGST or IGST split, place of supply, total in figures and words, bank details and signatory. Enterprise buyers reject bills missing any of these." },
-    { question: "When do I use CGST+SGST vs IGST?", answer: "Same-state supply: split GST into CGST + SGST (e.g. 9% + 9%). Inter-state: single IGST line (18%). The split follows place of supply, not your office. The freelance GST generator picks this automatically." },
-    { question: "Where do HSN and SAC codes go?", answer: "Per line next to the description. Goods use HSN, services use SAC (e.g. 9983 for design). 4 digits below ₹5 cr turnover, 6 above. Copy from the official master — wrong codes bounce." },
-    { question: "Do freelancers need GSTIN on every invoice?", answer: "Only if registered. Unregistered freelancers bill without GST and note their status. Once registered, every tax invoice needs your GSTIN plus buyer GSTIN for B2B. Thresholds change — check with your CA." },
-    { question: "Can I make a GST invoice free without signup?", answer: "Yes. Use the freelance GST invoice generator: enter supplier info with GSTIN, add service lines with SAC and GST%, review the auto CGST/SGST vs IGST split, then Print to PDF. Everything stays in your browser." },
+    { question: "What is mandatory on a GST invoice in India?", answer: "Supplier GSTIN like 27ABCDE1234F1Z5 and buyer GSTIN, serial number such as INV-GST-011, date, HSN/SAC codes, qty, rate, taxable value, CGST/SGST or IGST split, place of supply with state code, total in figures and words, bank/UPI details, signatory and LUT or reverse-charge note. Enterprise buyers reject bills missing any of these." },
+    { question: "When do I use CGST+SGST vs IGST?", answer: "Same-state supply like Mumbai to Mumbai uses CGST plus SGST such as 9% plus 9% or ₹1,800 plus ₹1,800 on ₹20,000 for ₹23,600 total. Inter-state like Mumbai to Delhi uses IGST 18% or ₹3,600. The split follows place of supply, not your office. The freelance GST generator picks this automatically; cross-check with the GST calculator." },
+    { question: "Where do HSN and SAC codes go?", answer: "Per line next to the description: goods use HSN, services use SAC such as 9983 for design, 9984 for IT and 9992 for consulting. Use 4 digits below ₹5 cr turnover and 6 above. Copy from the official master and mirror your last accepted invoice, because accounts software validates these and wrong codes bounce." },
+    { question: "Do freelancers need GSTIN on every invoice?", answer: "Only if registered. Unregistered freelancers bill ₹15,000 without GST and note unregistered supplier status with sequential numbering. Once registered, every tax invoice like INV-GST-011 needs your GSTIN such as 27ABCDE1234F1Z5 plus buyer GSTIN for B2B with correct HSN/SAC. Thresholds change — check with your CA." },
+    { question: "Can I make a GST invoice free without signup?", answer: "Yes. Use the freelance GST invoice generator: enter supplier info with GSTIN like 27ABCDE1234F1Z5, add service lines such as UI design SAC 9983 with 10 hrs times ₹2,000 for ₹20,000, review the auto CGST/SGST versus IGST split like IGST 18% ₹3,600 for ₹23,600 total, then Print to PDF as gst-invoice-011-zeta.pdf. Everything stays in your browser." },
   ],
 };

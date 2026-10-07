@@ -44,11 +44,12 @@ export const mortgageIndia: BlogPost = {
   description:
     "India home loan guide: EMI math in lakh/crore, CIBIL 750 + FOIR eligibility, raising limits + prepayment superpower. Free EMI + eligibility tools.",
   keywords: [
+    "home loan eligibility cibil foir salary explained india",
     "home loan emi calculator india",
-    "home loan eligibility india",
     "cibil score home loan 750",
     "foir home loan meaning",
     "home loan prepayment india",
+    "What is the EMI for a Rs 60 lakh home loan?",
   ],
   toolSlugs: ["emi-calculator", "home-loan-eligibility-india", "mortgage-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "mortgage-overpayment-extra-payment", "how-much-house-can-i-afford"],
@@ -63,10 +64,10 @@ export const mortgageIndia: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is the EMI for a Rs 60 lakh home loan?", answer: "At illustrative 9% for 20 years: near Rs 54,000/month with lifetime interest near Rs 70 lakh. Longer tenure or lower rates cut EMI; bigger down payments cut both. Illustrative as of Sept 2026; see /terms." },
-    { question: "What CIBIL score is needed for a home loan?", answer: "750+ qualifies for the lowest slabs banks publish; below 700 expect higher rates or rejection. Check and dispute months before applying — inquiries stack." },
-    { question: "What is FOIR in home loans?", answer: "Fixed-Obligation-to-Income Ratio: all EMIs must fit roughly 50–60% of net monthly income. Clearing small loans frees eligibility rupee-for-rupee." },
-    { question: "Is prepayment allowed on Indian home loans?", answer: "Floating-rate loans carry near-zero prepayment penalties — annual bonus prepayments demolish lifetime interest. Fixed-rate loans may charge ~2%; check your sanction letter." },
-    { question: "Is this home loan advice?", answer: "No — illustrative education only. RBI rules, LTV caps and fees change; confirm with your bank/HFC and a qualified advisor; see /terms." },
+    { question: "What is the EMI for a Rs 60 lakh home loan?", answer: "At illustrative 9% for 20 years: near Rs 54,000/month with lifetime interest near Rs 70 lakh on Rs 60 lakh (r=0.0075, n=240, total ~Rs 1.3 crore). Longer tenure to 30 years drops EMI ~20% but adds ~Rs 40 lakh interest; bigger down payments cut both. Illustrative as of Sept 2026; see /terms." },
+    { question: "What CIBIL score is needed for a home loan?", answer: "750+ qualifies for the lowest slabs banks publish; below 700 expect higher rates or rejection, with the same Rs 60L file quoted 0.4% higher. Check and dispute months before applying — disputes take time and hard inquiries stack. Verify with the eligibility tool before house-hunting decisions today." },
+    { question: "What is FOIR in home loans?", answer: "Fixed-Obligation-to-Income Ratio: all EMIs must fit roughly 50–60% of net monthly income. With Rs 1L salary and Rs 20k car EMI, home-loan room is ~Rs 30–40k. Clearing small loans frees eligibility rupee-for-rupee, so clear personal loans before applying for maximum limits and verify with eligibility tool." },
+    { question: "Is prepayment allowed on Indian home loans?", answer: "Floating-rate loans carry near-zero prepayment penalties — annual bonus prepayments demolish lifetime interest. Rs 2L yearly on Rs 60L can cut ~5+ years and ~Rs 25L+ interest; even Rs 50,000 yearly moves needles via standing instructions. Fixed-rate loans may charge ~2%; check your sanction letter first always." },
+    { question: "Is this home loan advice?", answer: "No — illustrative education only. RBI repo-linked reset rules, LTV caps and fees change; confirm with your bank/HFC and a qualified advisor. Rates and examples are Sept 2026 snapshots for teaching, with stamp duty, registration and balance-transfer costs excluded from EMI math before signing today; see /terms." },
   ],
 };

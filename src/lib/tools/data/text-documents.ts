@@ -137,7 +137,7 @@ export const textDocumentsTools: Tool[] = [
     slug: "readability-checker",
     title: "Readability Checker",
     short: "Flesch & grade level",
-    description: "Check reading ease 0-100 and grade level in one click. See long sentences and hard words, then fix them fast.",
+    description: "Check Flesch reading ease 0-100 plus grade level in one click. Spot long sentences and hard words, then fix them fast.",
     icon: "BarChart",
     keywords: ["readability checker", "flesch kincaid", "grade level checker", "readability analyzer", "what grade is 450 words in 30 sentences?", "readability checker online free", "gunning fog flesch ease 60 70", "grade 12 vs grade 7 split 28 words", "flesch reading ease checker"],
     category: "text-documents",

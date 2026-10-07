@@ -126,6 +126,7 @@ export const passwordPillar: BlogPost = {
     "passphrase vs random password",
     "store passwords securely 2fa guide",
     "password generator guide",
+    "How do I generate a strong password for free?",
   ],
   toolSlugs: ["password-generator", "password-strength", "random-passphrase", "otp-generator"],
   relatedSlugs: ["how-to-create-strong-password", "what-makes-password-strong", "passphrase-vs-password"],
@@ -158,12 +159,12 @@ export const passwordPillar: BlogPost = {
     {
       question: "How often should I change passwords?",
       answer:
-        "Only on breach evidence — NIST retired forced rotation because it produces weaker sequential passwords. Unique-per-site passwords plus MFA beat calendar changes.",
+        "Only on breach evidence — NIST retired forced rotation because it produces weaker sequential passwords (Winter2024! → Spring2025!). Unique-per-site passwords plus MFA beat calendar changes; spend the effort on enabling 2FA everywhere instead.",
     },
     {
       question: "Is this security advice?",
       answer:
-        "No — general information only. Consider your threat model, and note no tool can recover a lost master password, so keep recovery codes offline.",
+        "No — general information only, not tailored security counsel. Consider your personal threat model, prefer authenticator apps and passkeys over SMS, and note no tool can recover a lost master password, so keep recovery codes offline.",
     },
   ],
 };

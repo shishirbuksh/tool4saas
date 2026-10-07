@@ -72,12 +72,28 @@ describe("blog – word counting", () => {
 });
 
 describe("blog-registry – mesh integrity", () => {
-  it("has 60 posts: 6 pillars x (1 + 9 clusters)", () => {
-    expect(BLOG_POST_COUNT).toBe(60);
-    expect(BLOG_PILLARS.length).toBe(6);
+  it("every pillar has exactly 1 pillar post; params cover all posts", () => {
+    expect(BLOG_PILLARS.length).toBeGreaterThanOrEqual(6);
     for (const meta of BLOG_PILLARS) {
       expect(getPillarPost(meta.pillar)).toBeDefined();
-      expect(getClustersForPillar(meta.pillar).length).toBe(9);
+      expect(getPillarMeta(meta.pillar)?.toolSlug.length).toBeGreaterThan(0);
+    }
+    const params = getAllBlogStaticParams();
+    expect(params.length).toBe(BLOG_POST_COUNT);
+    const clusters = params.filter((p) => p.cluster !== undefined);
+    expect(BLOG_POST_COUNT).toBe(BLOG_PILLARS.length + clusters.length);
+  });
+
+  it("legacy silos keep 9 clusters each", () => {
+    for (const pillar of [
+      "invoice-generator-guide",
+      "qr-code-generator-guide",
+      "resume-builder-guide",
+      "mortgage-calculator-guide",
+      "password-generator-guide",
+      "word-counter-guide",
+    ]) {
+      expect(getClustersForPillar(pillar).length).toBe(9);
     }
   });
 
@@ -89,7 +105,7 @@ describe("blog-registry – mesh integrity", () => {
 
   it("relatedSlugs all resolve + related is pillar-first for clusters", () => {
     const params = getAllBlogStaticParams();
-    expect(params.length).toBe(60);
+    expect(params.length).toBe(BLOG_POST_COUNT);
     for (const meta of BLOG_PILLARS) {
       for (const c of getClustersForPillar(meta.pillar)) {
         for (const rel of c.relatedSlugs) {

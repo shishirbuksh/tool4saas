@@ -45,6 +45,7 @@ export const mortgageHowTo: BlogPost = {
     "mortgage payment formula with taxes",
     "calculate principal and interest by hand",
     "mortgage emi formula example",
+    "What is the formula for monthly mortgage payment?",
   ],
   toolSlugs: ["mortgage-calculator", "loan-calculator", "home-affordability-calculator"],
   relatedSlugs: ["mortgage-amortization-schedule", "down-payment-pmi-cost", "15-vs-30-year-mortgage"],
@@ -59,10 +60,10 @@ export const mortgageHowTo: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is the formula for monthly mortgage payment?", answer: "EMI = P×r×(1+r)^n÷((1+r)^n−1): loan amount, monthly rate (annual÷12÷100), months. Example: $240,000 at 6% for 30 years gives r=0.005, n=360, EMI near $1,439. See /terms." },
-    { question: "How do I calculate with taxes and insurance?", answer: "Compute P&I with the formula, then add monthly property tax (~1.1%/yr of value ÷ 12), insurance (~$100–250), PMI if under 20% down, and HOA. The sum is your real PITI payment." },
-    { question: "Can I verify a calculator's result?", answer: "Yes — run the same inputs through the formula or a spreadsheet PMT function. Fixed-rate P&I should match within cents; differences mean fees or escrow are included." },
-    { question: "How much does 1% rate change my payment?", answer: "On $240,000 over 30 years, 5% vs 6% differs about $150/month and ~$50,000 lifetime. Rate shopping beats fee haggling." },
-    { question: "Is this calculation financial advice?", answer: "No — illustrative math only, as of Sept 2026, excluding taxes, insurance, PMI, HOA, fees and ARM resets. Consult a qualified advisor and your lender; see /terms." },
+    { question: "What is the formula for monthly mortgage payment?", answer: "EMI = P×r×(1+r)^n÷((1+r)^n−1): loan amount after down payment, monthly rate (annual÷12÷100), months. Example: $240,000 at 6% for 30 years gives r=0.005, n=360, (1.005)^360 near 6.0226, EMI near $1,439. Never run it on sticker price; price minus down sets P. Verify with =PMT today. See /terms." },
+    { question: "How do I calculate with taxes and insurance?", answer: "Compute P&I with the formula, then add monthly property tax (~1.1%/yr of value ÷ 12 or ~$275 on $300k), insurance (~$100–250, example $150), PMI if under 20% down ($100–300, example $115), and HOA. The sum is your real PITI payment; a $1,439 quote became $1,940 real." },
+    { question: "Can I verify a calculator's result?", answer: "Yes — run the same inputs through the formula or a spreadsheet PMT function like =PMT(6%/12,360,240000), which returns ~$1,439. Fixed-rate P&I should match within cents; differences mean fees or escrow are included. Multiply payment by term, subtract principal to see ~$278,000 interest, then ask for itemized splits." },
+    { question: "How much does 1% rate change my payment?", answer: "On $240,000 over 30 years, 5% vs 6% differs about $150/month and ~$50,000 lifetime ($1,288 with ~$224,000 interest versus $1,439 with ~$278,000). Rate shopping beats fee haggling. A 15-year term jumps payments 30–40% but roughly halves lifetime interest, so compare sensitivity before deciding anything today." },
+    { question: "Is this calculation financial advice?", answer: "No — illustrative math only, as of Sept 2026, excluding taxes, insurance, PMI, HOA, fees and ARM resets. Examples use $240,000 at 6% and $300,000 values for teaching, not lender offers. Consult a qualified advisor and your lender for decisions; verify every quote with spreadsheets first. See /terms." },
   ],
 };

@@ -165,6 +165,7 @@ export const qrPillar: BlogPost = {
     "qr code generator no expiry",
     "wifi qr code how to",
     "upi qr code how to",
+    "How can I create a QR code for free with no signup?",
   ],
   toolSlugs: ["qr-code-generator", "wifi-qr-generator", "qr-scanner", "barcode-generator"],
   relatedSlugs: ["how-to-create-qr-code", "wifi-qr-code-guide", "qr-code-size-print-guide"],

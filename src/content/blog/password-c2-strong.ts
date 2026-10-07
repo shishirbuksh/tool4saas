@@ -45,6 +45,7 @@ export const passwordStrong: BlogPost = {
     "password entropy explained",
     "how long to crack 16 character password",
     "password complexity vs length",
+    "What matters more, length or complexity?",
   ],
   toolSlugs: ["password-strength", "hash-generator", "password-generator"],
   relatedSlugs: ["password-strength-tester", "how-to-create-strong-password", "passphrase-vs-password"],
@@ -59,10 +60,10 @@ export const passwordStrong: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What matters more, length or complexity?", answer: "Length, by far — each full-pool character multiplies search space ~94×. Complexity rules without length produce predictable patterns crackers test first. NIST dropped composition mandates for this reason." },
-    { question: "Is a 16-character password uncrackable?", answer: "By brute force at illustrative offline rates, effectively yes (~104.9 bits). But reuse, phishing and dictionary patterns bypass math entirely — uniqueness and screening matter equally." },
-    { question: "Why do strong-looking passwords still get cracked?", answer: "Dictionary + rule attacks guess human patterns (words, substitutions, keyboard walks) far below brute-force estimates. Screening creations against breach lists catches these." },
-    { question: "Are passphrases as strong as random passwords?", answer: "Five random EFF words (~64.6 bits) beat any memorizable gibberish and suffice for master secrets. For manager-stored secrets, full 16+ randomness still wins." },
-    { question: "Do password meters measure real strength?", answer: "Good ones (zxcvbn-style) estimate guessing patterns, not just length — far better than character-class checklists. Test privately without uploading." },
+    { question: "What matters more, length or complexity?", answer: "Length, by far — each full-pool character multiplies search space ~94×, while each word multiplies ~7,776×. Complexity rules without length produce predictable patterns like capitals first and 123! last that crackers test first. NIST dropped composition mandates for this reason, replacing them with length plus breach screening." },
+    { question: "Is a 16-character password uncrackable?", answer: "By brute force at illustrative offline rates near 10 billion guesses/sec, effectively yes (~104.9 bits). But reuse, phishing and dictionary patterns like qwerty123 bypass math entirely — uniqueness and screening matter equally. An 8-char lowercase falls in minutes, 12-char full pool is decent minimum, and throttled online logins are vastly slower." },
+    { question: "Why do strong-looking passwords still get cracked?", answer: "Dictionary + rule attacks guess human patterns (words, substitutions, keyboard walks like qwerty123, birthdays, lyrics) far below brute-force estimates. Even Correct-Horse-9! sits in every cracker dictionary despite looking strong. Screening creations against breach corpora, dictionaries and service names catches what math cannot predict alone for safety." },
+    { question: "Are passphrases as strong as random passwords?", answer: "Five random EFF words (~64.6 bits) beat any memorizable gibberish and suffice for master secrets, rivaling 12 random characters at ~78.7 bits. Six words (~77.5 bits) match them for high-value masters. For manager-stored secrets, full 16+ randomness at ~104.9 bits still wins since memory constraints disappear entirely." },
+    { question: "Do password meters measure real strength?", answer: "Good ones (zxcvbn-style) estimate guessing patterns, not just length — far better than character-class checklists. They simulate attackers checking dictionaries, spatial patterns and substitutions. Test privately without uploading using verified-local tools, since human random choices like birthdays collapse entropy regardless of apparent length rules for every account." },
   ],
 };

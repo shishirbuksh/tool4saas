@@ -48,6 +48,7 @@ export const mortgageAfford: BlogPost = {
     "house affordability by salary",
     "dti rule mortgage",
     "how much mortgage on 90k income",
+    "What is the 28/36 rule?",
   ],
   toolSlugs: ["home-affordability-calculator", "mortgage-calculator", "loan-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "down-payment-pmi-cost", "rent-vs-buy-house"],
@@ -63,10 +64,10 @@ export const mortgageAfford: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How much house can I afford on $90,000 salary?", answer: "At 28/36 with $800 monthly debts: ~$1,900 mortgage room, supporting roughly a $316,000 loan at illustrative 6%/30yr — about a $395,000 home with 20% down. Illustrative only; see /terms." },
-    { question: "What is the 28/36 rule?", answer: "Lenders cap housing at 28% of gross monthly income and all debts at 36%. It sizes preapproval, rate tiers and PMI — debts move your ceiling more than buyers expect." },
-    { question: "Should I buy at my full preapproval?", answer: "No — preapproval is a lender maximum ignoring daycare, savings and job risk. Leave 10–15% buffer under the ceiling." },
-    { question: "How do debts affect affordability?", answer: "Every monthly debt dollar cuts mortgage room at 36% DTI. Clearing a $400/month car payment can raise buying power ~$50,000 in price." },
-    { question: "Is this affordability advice?", answer: "No — illustrative education as of Sept 2026. Consult a qualified advisor and your lender for your situation; see /terms." },
+    { question: "How much house can I afford on $90,000 salary?", answer: "At 28/36 with $800 monthly debts: ~$1,900 mortgage room from $7,500 gross, supporting roughly a $316,000 loan at illustrative 6%/30yr — about a $395,000 home with 20% down. Housing ceiling is $2,100 PITI and all-debts $2,700. Debts move ceilings sharply today. Illustrative only; see /terms." },
+    { question: "What is the 28/36 rule?", answer: "Lenders cap housing at 28% of gross monthly income and all debts at 36%. On $7,500 gross that means $2,100 for PITI and $2,700 total debts. It sizes preapproval, rate tiers and PMI — debts move your ceiling more than buyers expect, so pay down installments before house-hunting." },
+    { question: "Should I buy at my full preapproval?", answer: "No — preapproval is a lender maximum ignoring daycare, savings and job risk. Leave 10–15% buffer under the ceiling. Target ~$1,700 not $1,900 on $7,500 income so payments survive one income dropping 30% for six months. Keep six months PITI liquid and budget daycare plus tax creep." },
+    { question: "How do debts affect affordability?", answer: "Every monthly debt dollar cuts mortgage room at 36% DTI. Clearing a $400/month car payment can raise buying power ~$50,000 in price, while a partner's $600 student payment erases ~$75,000. With $800 debts room is ~$1,900; at $1,500 the same income buys far less house overall." },
+    { question: "Is this affordability advice?", answer: "No — illustrative education as of Sept 2026, excluding taxes, insurance, PMI, HOA, fees and ARM resets. Run payment-to-price chains in the affordability calculator and stress-test at 5%, 6% and 7%. Consult a qualified advisor and your lender for your situation before committing jointly; see /terms." },
   ],
 };

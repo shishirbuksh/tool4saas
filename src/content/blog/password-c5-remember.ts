@@ -40,6 +40,7 @@ export const passwordRemember: BlogPost = {
     "remember master password safely",
     "memorize passphrase story method",
     "passwords without password manager",
+    "How many passwords should I memorize?",
   ],
   toolSlugs: ["random-passphrase", "password-generator", "password-strength"],
   relatedSlugs: ["passphrase-vs-password", "how-to-create-strong-password", "2fa-vs-passkeys"],
@@ -54,10 +55,10 @@ export const passwordRemember: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How many passwords should I memorize?", answer: "Two: email and manager master, both 5+ word passphrases. Everything else is generated, stored and autofilled — memorizing more fails into reuse." },
-    { question: "How do I memorize a random passphrase?", answer: "Build one absurd mental movie linking the words, rehearse at 1 hour, 1 day, 1 week, and type it 20 times in setup week. Bizarre images persist for years." },
-    { question: "Is writing passwords on paper OK?", answer: "As a temporary bridge: a home-kept notebook beats reuse while adopting a manager. Never photograph or carry it; migrate fully within 30 days." },
-    { question: "Are browser-saved passwords enough?", answer: "No as sole storage — convenient but tied to phishable accounts. Use a dedicated manager; browsers are a convenience layer, not the vault." },
-    { question: "What if I forget my master password?", answer: "No tool can recover it — that's the security model. Sealed paper backup with a trusted person or safe, plus offline MFA recovery codes, before you need them." },
+    { question: "How many passwords should I memorize?", answer: "Two: email and manager master, both 5+ word passphrases. Everything else among 200+ logins is generated, stored and autofilled — memorizing more fails into reuse. Onboard email first, manager second, bank third, then migrate in weekly batches of ten without heroic weekends for permanent success." },
+    { question: "How do I memorize a random passphrase?", answer: "Build one absurd mental movie linking the words, like a candle on a violet tractor launching past seven moons, rehearse at 1 hour, 1 day, 1 week, and type it 20 times in setup week. Rehearse the movie, not the list; bizarre images persist for years while boring ones fade quickly." },
+    { question: "Is writing passwords on paper OK?", answer: "As a temporary bridge: a home-kept notebook beats reuse while adopting a manager. Never photograph or carry it routinely. Priority-migrate email, bank, UPI-linked and work logins first, then finish fully within 30 days on scheduled Sundays before bridge routines calcify permanently for complete safety always." },
+    { question: "Are browser-saved passwords enough?", answer: "No as sole storage — convenient but tied to phishable accounts attackers target. Use a dedicated manager; browsers are a convenience layer, not the vault. Never rely on plaintext phone notes or encrypted Word docs with guessable passwords, which fail exactly when phishing succeeds today." },
+    { question: "What if I forget my master password?", answer: "No tool can recover it — that's the security model. Keep a sealed paper backup with a trusted person or safe, plus offline MFA recovery codes, before you need them. Review yearly that paper stays sealed, codes stay current after changes, and recovery paths were tested once successfully." },
   ],
 };

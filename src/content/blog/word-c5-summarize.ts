@@ -75,6 +75,7 @@ export const wordSummarize: BlogPost = {
     "summarize article own words",
     "summarize vs paraphrase",
     "extractive summarizer method",
+    "How do I summarize a long article quickly?",
   ],
   toolSlugs: ["text-summarizer", "grammar-checker", "word-counter"],
   relatedSlugs: ["grammar-check-before-publish", "how-to-count-words-online", "ideal-blog-post-length-seo"],
@@ -92,10 +93,10 @@ export const wordSummarize: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How do I summarize a long article quickly?", answer: "Read intro and conclusion, mark one claim sentence per section, compress 10:1 twice into your own sentences, preserve numbers and caveats, cite the source." },
-    { question: "What is extractive summarization?", answer: "Selecting and compressing the source's own key sentences rather than generating new text — private, predictable, and citable. Our tool does this locally with length control." },
-    { question: "Summarize vs paraphrase — what's the difference?", answer: "Summarizing compresses main points; paraphrasing restates ideas at similar length. Both need citations; only common knowledge doesn't." },
-    { question: "Is using a summarizer cheating for students?", answer: "As a study aid producing notes you understand, no — as submitted work, yes. Check institutional AI/plagiarism policies; cite everything." },
-    { question: "How long should a summary be?", answer: "Executive briefs ~5%, study notes ~20%, literature reviews ~10% plus critique. Match length to the decision the summary serves." },
+    { question: "How do I summarize a long article quickly?", answer: "Read the intro and conclusion for thesis and verdict, then mark one claim sentence per section without copying. Compress 10 to 1 twice, from 40 pages to 4 pages of claims and then to 1 page of prose in your sentences. Preserve numbers, dates and caveats, verify length in the word counter, and cite source." },
+    { question: "What is extractive summarization?", answer: "Extractive summarization selects and compresses the source own key sentences rather than generating new text. Every line traces to a page, nothing is invented, and our tool runs locally with length control so sensitive reports never upload. It suits reports, contracts and cited work, unlike abstractive rewrites that hallucinate figures and retain uploads." },
+    { question: "Summarize vs paraphrase — what's the difference?", answer: "Summarizing compresses main points into shorter form, while paraphrasing restates ideas at similar length in your sentences. Quoting uses exact marked words, and all three need citations. Only common knowledge of established facts needs no citation, so students must cite both summaries and paraphrases to avoid plagiarism." },
+    { question: "Is using a summarizer cheating for students?", answer: "As a study aid that produces notes you understand and then recall, no, but as submitted work, yes. Summaries inform decisions while citations defend them, so cite every source and add critique for literature reviews. Check institutional AI and plagiarism policies first because summarizing inherits the same citation rule as paraphrasing." },
+    { question: "How long should a summary be?", answer: "Make executive briefs about 5 percent, as 40 pages to 2 pages with decision plus 3 numbers. Make study notes about 20 percent for retention and literature reviews about 10 percent plus critique. Match length to the decision the summary serves and verify in the word counter, since a 900-word one-page brief is two pages." },
   ],
 };

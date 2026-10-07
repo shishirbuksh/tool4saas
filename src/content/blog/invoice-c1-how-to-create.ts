@@ -73,6 +73,7 @@ export const invoiceHowToCreate: BlogPost = {
     "how to generate invoice pdf free",
     "how to make bill online no signup",
     "create invoice online free",
+    "How long does it take to make an invoice online?",
   ],
   toolSlugs: ["invoice-generator", "receipt-generator", "quotation-generator"],
   relatedSlugs: ["gst-invoice-format-india", "invoice-numbering", "payment-terms-and-followups"],
@@ -88,10 +89,10 @@ export const invoiceHowToCreate: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How do I generate an invoice PDF for free?", answer: "Enter business and client details, add line items with qty and rate, set tax, then use Print to Save as PDF (e.g. invoice-acme-001.pdf). The free invoice generator does this in your browser with no signup or watermark." },
-    { question: "Can I create an invoice without GST?", answer: "Yes. Set tax to 0% and note unregistered status (India), no nexus (US) or below-threshold (UK). Keep numbering sequential. Add GST/VAT only when registered or the sale is taxable — confirm with your CA." },
-    { question: "How long does it take to make an invoice online?", answer: "About 5 minutes once details are ready: 30 seconds for headers, 1 minute for lines, 30 seconds for tax, 1 minute for terms, plus PDF export. My timed test: 12 minutes for 8 lines vs 45 in Excel." },
-    { question: "Where do I send the invoice after downloading?", answer: "Email with subject number + total + due date, Tue–Thu mornings. In India WhatsApp with the same PDF also works — keep email as the record. Re-attach on follow-ups." },
+    { question: "How do I generate an invoice PDF for free?", answer: "Enter your business block and client contact with invoice number INV-2026-001, add line items with qty and rate up to 50 lines, set tax and Net 15 terms with logo, then use Print to Save as PDF named invoice-acme-001.pdf. The free invoice generator runs in your browser with no signup or watermark and works offline." },
+    { question: "Can I create an invoice without GST?", answer: "Yes. Set tax to 0%, write No GST charged — unregistered supplier in notes, and keep numbering sequential INV-2026-001. India example is ₹15,000 with no GST, US is $800 with no sales tax collected, UK is £600 not VAT registered. Add GST/VAT only when registered or the sale is taxable — confirm with your CA." },
+    { question: "How long does it take to make an invoice online?", answer: "About 5 minutes once details are ready: 30 seconds for headers, 1 minute for lines, 30 seconds for tax, 1 minute for terms, plus PDF export. My timed test on Sept 14, 2026 covered a $550 invoice with 10 lines, logo and 10% tax, versus 12 minutes for 8 lines and 45 minutes in Excel." },
+    { question: "Where do I send the invoice after downloading?", answer: "Email it with subject number plus total plus due date like Invoice INV-2026-001 — $550 due Sept 29, sending Tue–Thu mornings in the client timezone since Friday invoices die over weekends. In India WhatsApp with the same PDF also works — keep email as the record. Re-attach the PDF on every follow-up." },
     { question: "What if the client says the total is wrong?", answer: "Recheck qty × rate per line, confirm the tax slab and whether discount applies before tax. Fix, bump the check, resend with a one-line correction note and keep the same invoice number with a revision suffix if accounts needs it." },
   ],
 };

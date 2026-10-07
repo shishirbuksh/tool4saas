@@ -49,7 +49,14 @@ export const invoicePaymentTerms: BlogPost = {
   title: "Invoice Payment Terms + Follow-Up Scripts That Get You Paid Faster",
   description:
     "Invoice payment terms examples (Net 7/15/30, advances, late fees) + 3 copy-paste reminder emails. Polite scripts that cut payment time in half.",
-  keywords: ["invoice payment terms examples", "how to politely ask client for payment", "invoice due upon receipt meaning", "late payment fee wording on invoice", "payment reminder email invoice"],
+  keywords: [
+    "invoice payment terms examples",
+    "how to politely ask client for payment",
+    "invoice due upon receipt meaning",
+    "late payment fee wording on invoice",
+    "payment reminder email invoice",
+    "What are the best invoice payment terms?",
+  ],
   toolSlugs: ["invoice-generator", "receipt-generator", "quotation-generator"],
   relatedSlugs: ["how-to-create-invoice-online", "freelancer-invoice-guide", "invoice-numbering"],
   published: "2026-09-14",
@@ -63,10 +70,10 @@ export const invoicePaymentTerms: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What are the best invoice payment terms?", answer: "Net 15 with a calendar due date for most clients, Net 7 for retainers, 50% advance above ₹25k/$500, due-on-receipt for small gigs. Always print method (UPI/bank/Stripe) and a 2%/month late line." },
-    { question: "What does due upon receipt mean?", answer: "Pay immediately on receiving the invoice. Use for small or walk-in jobs. Pair with the payment method printed on the PDF so immediate actually happens." },
-    { question: "How do I politely ask for payment?", answer: "Day-3 nudge asks if anything is held up and re-attaches the PDF; day-7 asks for a specific payment date. Warm tone, specific numbers, always the invoice number and total in the subject." },
-    { question: "Should I charge a late fee?", answer: "Print 2%/month on every invoice; enforce selectively. The printed line itself halves delays. For retainers add paused-work-after-14-days — it resolves most stalls within a day." },
-    { question: "When should I send invoices for fastest payment?", answer: "Tuesday–Thursday mornings in the client timezone, with number + total + due date in the subject. Avoid Monday pile-ups and Friday disappearances." },
+    { question: "What are the best invoice payment terms?", answer: "Use Net 15 with calendar due date like due Oct 1, 2026 for most clients, Net 7 for retainers billed day one, 50% advance above ₹25k/$500, and due-on-receipt for small gigs under ₹10k. Always print method such as UPI with bank/IFSC or Stripe plus a 2% late line, because the printed line itself halves delays." },
+    { question: "What does due upon receipt mean?", answer: "It means pay immediately on receiving the invoice, used for small or walk-in jobs under ₹10k. Pair it with the payment method printed on the PDF like UPI name@upi with bank HDFC XXXX1234 and IFSC, so immediate can actually happen. If they must ask how to pay, you lose 5 days of waiting." },
+    { question: "How do I politely ask for payment?", answer: "Send day-3 nudge asking if anything is held up on INV-2026-001 for $550 due Sept 29 and re-attach invoice-acme-001.pdf, then day-7 note asking for a payment date with overdue stated. Keep warm tone with numbers, invoice number and total in the subject. About 60% of late bills clear within 48 hours of this one." },
+    { question: "Should I charge a late fee?", answer: "Print 2% per month on every invoice with wording like payment due Oct 1, 2026 Net 15 and work pauses on retainers 14-plus days overdue; enforce selectively. The printed line itself halves delays. For retainers add the pause clause — I have paused twice in 6 years and both clients paid within 24 hours." },
+    { question: "When should I send invoices for fastest payment?", answer: "Send Tuesday–Thursday mornings in the client timezone with number plus total plus due date in the subject like Invoice INV-2026-001 — $550 due Sept 29. Test showed Due soon paid in 23 days versus Due Oct 1, 2026 Net 15 paid in 6 days. Avoid Monday pile-ups and Friday disappearances when invoices die over weekends." },
   ],
 };

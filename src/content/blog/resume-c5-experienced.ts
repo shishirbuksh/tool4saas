@@ -48,6 +48,7 @@ export const resumeExperienced: BlogPost = {
     "resume after 5 years experience",
     "career gap resume",
     "resume career change",
+    "How long should an experienced resume be?",
   ],
   toolSlugs: ["resume-builder", "ats-resume-checker", "offer-letter-generator"],
   relatedSlugs: ["how-to-make-resume", "offer-letter-guide", "ats-resume-guide"],
@@ -62,10 +63,10 @@ export const resumeExperienced: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How should resumes change after 5 years?", answer: "From duties to outcomes-scope-trajectory: every bullet carries a result, arena size or growth signal. Recent 3 years dominate; older roles compress to one line." },
-    { question: "How long should an experienced resume be?", answer: "One page to ~8 years, two max beyond — and page two must hold leadership scope or major launches, not coursework. Recruiters decide on page one." },
-    { question: "How do I show a promotion?", answer: "As a headline fact: SDE-1 → SDE-2 (14 months). Fast growth is the strongest signal in the packet — never bury it in prose." },
-    { question: "How do I explain a career gap?", answer: "One honest line (family care, freelance, study) with dates. Never stretch dates — background checks end offers. Named beats blank." },
-    { question: "How do I pivot domains on a resume?", answer: "Hybrid format: target-domain skills snapshot up top, honest timeline below, bridge bullets translating old wins into new-domain language. One pivot story, told in the summary." },
+    { question: "How should resumes change after 5 years?", answer: "From duties to outcomes-scope-trajectory: every bullet carries a result, arena size or growth signal. Recent 3 years dominate; older roles compress to one line after two roles. Model senior bullets like promoted to lead in 18 months, owning Rs 2 cr monthly billing and cutting failures 30% with six engineers." },
+    { question: "How long should an experienced resume be?", answer: "One page to ~8 years, two max beyond — and page two must hold leadership scope or major launches, not coursework. Recruiters decide on page one. Compress by cutting the oldest role to two bullets, listing roles beyond the last two in one line, and reducing early career to company, title and dates only." },
+    { question: "How do I show a promotion?", answer: "As a headline fact: SDE-1 → SDE-2 (14 months). Fast growth is the strongest signal in the packet — never bury it in prose. Lead with the last three years, show expanding ownership, and audit every line so promotions read instantly instead of hiding beneath tool lists." },
+    { question: "How do I explain a career gap?", answer: "One honest line (family care, freelance, study) with dates like Career break 2023–24: family care; freelance billing APIs. Never stretch dates — background checks end offers. Named beats blank, so avoid apologies, name consulting, courses or care clearly and keep it to one line always." },
+    { question: "How do I pivot domains on a resume?", answer: "Hybrid format: target-domain skills snapshot up top, honest timeline below, bridge bullets translating old wins into new-domain language like support escalations to incident leadership. One pivot story, told in the summary. Translate per project with proof, not claims, keeping timeline honest throughout. Kill legacy 2016 skills target JDs need now." },
   ],
 };

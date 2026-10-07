@@ -6,7 +6,7 @@ export const convertersTools: Tool[] = [
     title: "Unit Converter",
     short: "Convert length, weight, temp & more",
     description:
-      "Convert length, weight, temperature, and more. Fast, accurate unit conversions right in your browser.",
+      "Convert length, weight, temperature, volume, time and data instantly. Exact factors with 6-decimal precision, offline and private in your browser.",
     icon: "Straighten",
     keywords: ["unit converter", "length weight converter", "km to miles converter", "kg to lb converter", "how to convert km to miles?", "unit converter free offline", "metric imperial factors affine conversion", "metric vs imperial use cases", "miles to km offline"],
     category: "converters",
@@ -19,7 +19,7 @@ export const convertersTools: Tool[] = [
     title: "JSON ↔ CSV Converter",
     short: "Convert between JSON and CSV",
     description:
-      "Convert JSON arrays to CSV or parse CSV back to JSON. Fast, offline conversions for spreadsheets and APIs.",
+      "Convert JSON arrays to CSV or parse CSV back to JSON with RFC4180 quoting. Fast offline conversions for spreadsheets, APIs and databases.",
     icon: "TableChart",
     keywords: ["json to csv", "csv to json", "csv to json offline", "convert json to csv instantly", "how to convert json to csv?", "json to csv free", "rfc4180 quoting headers flatten nested", "json csv vs xls comparison", "json to csv no signup"],
     category: "converters",
@@ -143,7 +143,7 @@ export const convertersTools: Tool[] = [
     slug: "zip-creator",
     title: "ZIP Creator",
     short: "Create ZIP files",
-    description: "Bundle multiple text files into a downloadable ZIP archive. Create and compress files entirely offline.",
+    description: "Bundle text, CSV and Markdown files into a downloadable ZIP archive entirely offline. Fast compression, private by design.",
     icon: "AttachFile",
     keywords: ["zip creator", "make zip file", "create zip offline", "make zip instantly", "how to bundle text files to zip?", "zip creator free", "deflate lz77 huffman compression", "zip vs tar vs 7z archives", "compress files no signup"],
     category: "converters",

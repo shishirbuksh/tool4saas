@@ -74,6 +74,7 @@ export const wordGrammar: BlogPost = {
     "proofread blog post checklist",
     "common grammar mistakes bloggers",
     "self-editing checklist",
+    "How do I proofread my own blog post?",
   ],
   toolSlugs: ["grammar-checker", "readability-checker", "word-counter"],
   relatedSlugs: ["text-to-speech-proofreading-use", "flesch-reading-ease-score-explained", "how-to-summarize-text-fast"],
@@ -91,10 +92,10 @@ export const wordGrammar: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How do I proofread my own blog post?", answer: "Automated pass, readability pass (FRE 60+, grade ≤8), read-aloud or TTS pass, facts-and-names verification, then citations and headline-match check. Fifteen minutes per post." },
-    { question: "What do grammar checkers miss?", answer: "Wrong-word errors (their/there), tangled modifiers, tone issues, and all factual errors. Automation handles spelling and agreement; humans handle meaning and truth." },
-    { question: "How much passive voice is OK?", answer: "Up to ~10% per Yoast's guideline — a ceiling, not zero. Science, history and formal contexts legitimately need more." },
-    { question: "Should students use grammar checkers?", answer: "Yes as learning aids — review each flag to learn the rule, don't blind-accept. Check institutional policies on AI writing assistance first." },
-    { question: "What's the fastest final check?", answer: "Listening via text-to-speech. Ears catch missing words, doubles and rhythm breaks that multiple silent re-reads miss." },
+    { question: "How do I proofread my own blog post?", answer: "Run an automated pass in the grammar checker, then a readability pass for FRE 60 plus and grade 8 or below with 25-plus-word splits. Add a read-aloud or TTS pass, verify every number, name, date and link, then check citations and headline-match. This fifteen-minute routine per post catches wrong-word errors and tone issues automation skips." },
+    { question: "What do grammar checkers miss?", answer: "Checkers miss wrong-word errors like their versus there, dangling modifiers, unclear antecedents, tone problems and all factual errors. Automation nails spelling typos, subject-verb agreement and comma placement in seconds. Humans must handle meaning, truth and headline-body promise mismatch, so work the checklist after the tool." },
+    { question: "How much passive voice is OK?", answer: "Up to about 10 percent per Yoast guideline works as a ceiling, not a zero target. One passive per paragraph adds texture while ten in a row cause anesthesia. Science, history and formal contexts legitimately need more agentless constructions, so flip mistakes-were-made styles into actors except where formality genuinely requires passives." },
+    { question: "Should students use grammar checkers?", answer: "Yes as learning aids when each flag is reviewed to learn the underlying rule rather than blind-accepted. Tools misread style as error, so interrogate the remaining 10 percent after accepting most flags. Check institutional policies on AI writing assistance first and follow mandated style guides where they exist." },
+    { question: "What's the fastest final check?", answer: "Listening through text-to-speech is fastest because ears catch missing words, doubles and rhythm breaks that multiple silent re-reads miss. Silent reading predicts and autocompletes familiar patterns, while listening processes sequentially. Follow along with highlighted sentences at 1x speed, mark issues without fixing live, then batch fixes afterward." },
   ],
 };

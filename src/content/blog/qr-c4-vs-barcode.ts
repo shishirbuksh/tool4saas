@@ -58,6 +58,7 @@ export const qrVsBarcode: BlogPost = {
     "difference between qr and barcode",
     "barcode vs qr code for products",
     "when to use barcode vs qr",
+    "Can phones scan barcodes?",
   ],
   toolSlugs: ["qr-code-generator", "barcode-generator", "qr-scanner"],
   relatedSlugs: ["qr-code-for-business", "static-vs-dynamic-qr-codes", "how-to-create-qr-code"],
@@ -72,10 +73,10 @@ export const qrVsBarcode: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is the difference between a QR code and a barcode?", answer: "QR codes store thousands of characters for phone cameras (menus, payments, links). Barcodes store a short product number for checkout laser scanners. QR speaks to customers; barcodes speak to shop systems." },
-    { question: "Can phones scan barcodes?", answer: "Yes, but you get a raw number, not a website — barcodes reference the shop's database. For customer content like menus or videos, use QR codes instead." },
-    { question: "Should products have both?", answer: "Often yes: striped barcode near the MRP for billing plus a QR linking offers or how-to videos for customers. Same pack, two readers, two jobs." },
-    { question: "Which barcode format should I use?", answer: "EAN-13 for retail products in stores, Code-128 for internal labels and parcels, UPC-A for US retail. Generate free in the barcode generator and print at 100% scale without stretching." },
-    { question: "Can checkout scanners read QR codes?", answer: "Most laser scanners cannot — they read 1D stripes. Use barcodes for billing and QR codes for customer phones. Verify with the actual scanner before printing labels." },
+    { question: "What is the difference between a QR code and a barcode?", answer: "QR codes store up to about 4,000 characters for any phone camera, covering menus, payments and links with error correction surviving about 30% damage. Barcodes store 20–40 digits for checkout laser scanners and need only a local database. In one line: QR speaks to customers phones, while barcodes speak to shop systems." },
+    { question: "Can phones scan barcodes?", answer: "Yes, but a phone camera returns only the raw product number, not a website, because barcodes reference the shop local database rather than the internet. That behavior is by design for billing and inventory. For customer content like menus, payments or videos that should open something, use QR codes instead." },
+    { question: "Should products have both?", answer: "Often yes. Print the striped barcode near the MRP for billing plus a QR linking offers or how-to videos for customers, like FMCG packs and medicine strips with dosage instructions. Same pack serves two readers with two jobs: laser scanners for checkout totals and phone cameras for customer content." },
+    { question: "Which barcode format should I use?", answer: "Use EAN-13 for retail products sold in stores with registered numbers for big marketplaces like Amazon, Code-128 for internal labels, parcels and shelves with no registration, and UPC-A for US retail. Generate free in the barcode generator and print at 100% scale without stretching, then test with the actual laser scanner." },
+    { question: "Can checkout scanners read QR codes?", answer: "Most laser checkout scanners cannot read QR codes because they read one-dimensional stripes, not two-dimensional squares. Use barcodes for billing and inventory totals plus UPI QR at the counter for collecting money. Verify with the actual shop scanner before printing labels, since phone tests prove nothing." },
   ],
 };

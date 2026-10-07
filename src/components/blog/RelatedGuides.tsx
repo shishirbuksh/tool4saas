@@ -8,17 +8,10 @@ import Typography from "@mui/material/Typography";
 //
 // Every href below is verified against src/lib/blog-registry.ts
 // (pillar + cluster slugs in src/content/blog/*). No dead links.
-// Tools without a relevant silo yet (sip-calculator,
-// compound-interest-calculator, fd-calculator, ppf-calculator,
-// image-compressor, pdf-merge, ...) stay unmapped — mapping them to
+// Tools without a relevant silo yet stay unmapped — mapping them to
 // unrelated posts would be irrelevant.
-// unmapped until dedicated image/pdf pillars ship. Mapped hero
-// (word-counter) links only to topically adjacent existing guides.
 const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   // ---- Mapped heroes (existing guides only) ----
-  // Image/PDF heroes (image-compressor, pdf-merge) are intentionally unmapped
-  // until dedicated image/pdf pillars ship — linking them to unrelated posts
-  // would be topically misleading.
   // ---- Finance tools with topical guides ----
   "freelance-rate-calculator": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
@@ -263,6 +256,182 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   "case-converter": [
     { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
     { href: "/blog/word-counter-guide/how-to-count-words-online", title: "How to count words online free (no signup)" },
+  ],
+  // ---- Image optimization silo ----
+  "image-compressor": [
+    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
+    { href: "/blog/image-compressor-guide/compress-jpg-100kb-portal", title: "Compress JPG to 100KB for online forms" },
+    { href: "/blog/image-compressor-guide/strip-exif-before-upload", title: "Strip EXIF data before uploading" },
+  ],
+  "image-resizer": [
+    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
+    { href: "/blog/image-compressor-guide/resize-image-exact-pixels", title: "Resize images to exact pixels without blur" },
+    { href: "/blog/image-compressor-guide/crop-passport-photos", title: "Crop passport photos to exact size" },
+  ],
+  "image-format-converter": [
+    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
+    { href: "/blog/image-compressor-guide/png-vs-jpg-vs-webp", title: "PNG vs JPG vs WebP: which format to use" },
+    { href: "/blog/image-compressor-guide/png-to-webp-transparency", title: "PNG to WebP without losing transparency" },
+  ],
+  "image-cropper": [
+    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
+    { href: "/blog/image-compressor-guide/crop-passport-photos", title: "Crop passport photos to exact size" },
+    { href: "/blog/image-compressor-guide/resize-image-exact-pixels", title: "Resize images to exact pixels without blur" },
+  ],
+  "svg-optimizer": [
+    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
+    { href: "/blog/image-compressor-guide/optimize-svg-logos", title: "Optimize SVG logos without breaking them" },
+  ],
+  "exif-viewer": [
+    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
+    { href: "/blog/image-compressor-guide/strip-exif-before-upload", title: "Strip EXIF data before uploading" },
+  ],
+  // ---- PDF workflow silo ----
+  "pdf-merge": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/merge-multiple-pdfs-order", title: "Merge multiple PDFs in order" },
+    { href: "/blog/pdf-merge-guide/extract-pages-range", title: "Extract pages by range: 1-3,5 syntax" },
+  ],
+  "image-to-pdf": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/jpg-scans-single-pdf", title: "JPG scans to single PDF: A4 setup" },
+  ],
+  "pdf-split": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/extract-pages-range", title: "Extract pages by range: 1-3,5 syntax" },
+    { href: "/blog/pdf-merge-guide/fix-sideways-scans", title: "Fix sideways scans: rotate upright" },
+  ],
+  "pdf-compress": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/compress-pdf-1mb-email", title: "Compress PDF to 1MB for email" },
+  ],
+  "pdf-to-jpg": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/pdf-pages-high-quality-jpg", title: "PDF pages to high-quality JPG" },
+  ],
+  "pdf-to-text": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/extract-text-without-ocr", title: "Extract text without OCR" },
+  ],
+  "pdf-rotate": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/fix-sideways-scans", title: "Fix sideways scans: rotate upright" },
+  ],
+  "pdf-watermark": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/add-draft-watermark", title: "Add DRAFT watermark readably" },
+  ],
+  // ---- Developer toolkit silo ----
+  "json-formatter": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/json-parse-errors", title: "Why JSON.parse fails: commas and quotes" },
+    { href: "/blog/json-formatter-guide/regex-flags-capture-groups", title: "Regex flags and capture groups" },
+  ],
+  "base64-tool": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/base64-url-safe-vs-standard", title: "Base64 URL-safe vs standard" },
+  ],
+  "hash-generator": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/sha256-vs-md5-hashes", title: "SHA-256 vs MD5: when to use which" },
+  ],
+  "uuid-generator": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/uuid-seed-test-database", title: "Seed test databases with UUIDs" },
+  ],
+  "regex-tester": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/regex-flags-capture-groups", title: "Regex flags and capture groups" },
+    { href: "/blog/json-formatter-guide/json-parse-errors", title: "Why JSON.parse fails: commas and quotes" },
+  ],
+  "jwt-decoder": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/jwt-expiry-without-trust", title: "Check JWT expiry without trusting it" },
+  ],
+  "url-encoder": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/url-encoding-spaces-symbols", title: "URL encoding: spaces and symbols" },
+  ],
+  // ---- SEO publishing silo ----
+  "seo-analyzer": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/fix-score-60-to-80", title: "Fix SEO score from 60 to 80" },
+    { href: "/blog/seo-analyzer-guide/title-meta-length-2026", title: "Title and meta lengths that avoid truncation" },
+    { href: "/blog/seo-analyzer-guide/geo-checklist-ai-citations", title: "GEO checklist: get cited by AI search" },
+  ],
+  "meta-tag-generator": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/title-meta-length-2026", title: "Title and meta lengths that avoid truncation" },
+  ],
+  "serp-preview": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/title-meta-length-2026", title: "Title and meta lengths that avoid truncation" },
+    { href: "/blog/seo-analyzer-guide/fix-score-60-to-80", title: "Fix SEO score from 60 to 80" },
+  ],
+  "sitemap-generator": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/split-large-sitemap", title: "Split large sitemaps Search Console accepts" },
+  ],
+  "robots-txt-generator": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/robots-vs-noindex", title: "Robots.txt vs noindex: when to use each" },
+  ],
+  "utm-builder": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/utm-naming-governance", title: "Name UTM campaigns without splitting reports" },
+  ],
+  "faq-schema-generator": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/ai-content-false-positives", title: "Check AI content without false positives" },
+  ],
+  "open-graph-preview": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/stale-og-image-fix", title: "Fix stale LinkedIn and social preview images" },
+  ],
+  "ai-detector": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/ai-content-false-positives", title: "Check AI content without false positives" },
+  ],
+  "plagiarism-checker": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/ai-content-false-positives", title: "Check AI content without false positives" },
+  ],
+  // ---- India wealth & tax silo ----
+  "sip-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/sip-5000-10-years", title: "₹5,000 SIP in 10/15/20 years" },
+    { href: "/blog/sip-calculator-guide/sip-1-crore-goal", title: "How much SIP for ₹1 crore?" },
+  ],
+  "compound-interest-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/lumpsum-compounding-frequency", title: "Lump sum compounding frequency" },
+  ],
+  "fd-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/fd-quarterly-tds", title: "FD quarterly compounding and TDS" },
+    { href: "/blog/sip-calculator-guide/equity-ltcg-vs-fd-tax", title: "Equity LTCG vs FD tax" },
+  ],
+  "ppf-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/ppf-extend-15-years", title: "PPF after 15 years: extend or close?" },
+  ],
+  "income-tax-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/old-vs-new-regime-2026", title: "Old vs new tax regime in 2026" },
+    { href: "/blog/sip-calculator-guide/budget-2026-verdict-salaried", title: "Budget 2026 verdict for salaried savers" },
+  ],
+  "inflation-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/real-return-inflation", title: "Real vs nominal returns" },
+  ],
+  "retirement-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/sip-1-crore-goal", title: "How much SIP for ₹1 crore?" },
+  ],
+  "capital-gains-tax-india": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/equity-ltcg-vs-fd-tax", title: "Equity LTCG vs FD tax" },
+    { href: "/blog/sip-calculator-guide/budget-2026-verdict-salaried", title: "Budget 2026 verdict for salaried savers" },
   ],
 };
 

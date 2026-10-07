@@ -157,6 +157,27 @@ export function introForCategory(id: string): CategoryIntro {
   return CATEGORY_INTROS[id] ?? FALLBACK_INTRO;
 }
 
+// SEO title cores (~35-45ch; layout template appends " | Tool4SaaS").
+// Hub pages rendered "PDF Tools | Tool4SaaS" (21ch) — too thin for SERPs.
+export const CATEGORY_SEO_TITLES: Record<string, string> = {
+  "text-documents": "Text Tools: Count Words, Convert Case Free",
+  business: "Business Tools: Invoice, Resume Builder Free",
+  developer: "Developer Tools: JSON, Base64, Regex Free",
+  converters: "Converters: Units, Currency, JSON-CSV Free",
+  generators: "Generators: Passwords, UUIDs, Random Free",
+  "images-design": "Image Tools: Compress, Resize, QR Codes",
+  pdf: "PDF Tools: Merge, Split, Compress Free",
+  calculators: "Calculators: Percent, Loan, BMI Free",
+  finance: "Finance Calculators: Mortgage, SIP, Tax",
+  health: "Health Calculators: BMI, Calorie, Macro",
+  seo: "SEO Tools: Meta Tags, Sitemap Free",
+  time: "Time Tools: Age, Timezone, Pomodoro Free",
+};
+
+export function seoTitleForCategory(id: string, fallbackLabel: string): string {
+  return CATEGORY_SEO_TITLES[id] ?? fallbackLabel;
+}
+
 // Per-category FAQ bodies (40-60w each) reusing intro worked numbers for AEO depth.
 // Each entry links one related tool where natural; visible rendering splits plain text
 // by link.label so textContent stays identical to JSON-LD `a` (FAQPage 1:1).

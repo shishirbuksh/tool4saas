@@ -51,6 +51,7 @@ export const qrVcard: BlogPost = {
     "contact qr code generator",
     "qr code for business card",
     "save contact qr scan",
+    "How do I make a QR code for my contact details?",
   ],
   toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
   relatedSlugs: ["how-to-create-qr-code", "qr-code-size-print-guide", "qr-code-for-business"],
@@ -65,10 +66,10 @@ export const qrVcard: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How do I make a QR code for my contact details?", answer: "Draft name, mobile with country code, email, company and website (~150 chars), generate in the free QR code generator, download 512px PNG, print at 2–2.5 cm on cards and save-test on iPhone and Android." },
-    { question: "Do vCard QR codes work on iPhone and Android?", answer: "Yes with standard fields (name, TEL, EMAIL, ORG). Stick to classic labels, avoid exotic extensions, and test-save on both platforms — one mislabeled second number once imported as fax on Android." },
-    { question: "How big should a contact QR be on a business card?", answer: "2–2.5 cm minimum since vCards run denser than URL codes. Label it Scan to save contact. For expo stands use 5–8 cm matte." },
-    { question: "Should I include a photo in the vCard?", answer: "No — photos bloat the payload past reliable density for small prints. Keep 5–6 text fields; link to your photo via the website field instead." },
-    { question: "Can I add UPI ID to my business card QR?", answer: "Keep contact and payment codes separate: vCard for saving details, UPI payee code for collecting money. Two labeled codes beat one overloaded code — see the UPI payment guide." },
+    { question: "How do I make a QR code for my contact details?", answer: "Draft minimal fields with name, mobile plus country code like +91, email, company plus title and one website totaling about 150 characters. Generate in the free QR code generator, download 512px PNG as qr-contact-512.png, print at 2–2.5 cm on cards and save-test by tapping Save on one iPhone plus one Android." },
+    { question: "Do vCard QR codes work on iPhone and Android?", answer: "Yes with standard vCard fields like N, FN, ORG, TITLE, TEL, EMAIL, URL and ADR that work everywhere. Stick to classic labels and avoid exotic extensions ignored by one platform. Always test-save on both phones — one mislabeled second TEL line without a type label once imported as fax on Android." },
+    { question: "How big should a contact QR be on a business card?", answer: "Print 2–2.5 cm minimum on business cards since vCards run denser than short URL codes with about 150 characters. Always label it Scan to save contact because bare squares get ignored. For expo stands or badges use 5–8 cm matte for reliable arm's length scanning in crowds." },
+    { question: "Should I include a photo in the vCard?", answer: "No. Photos bloat the payload past reliable density for small prints, turning the preview into a snowstorm pattern that needs large sizes. Keep 5–6 text fields around 150 characters for 2–2.5 cm cards. Link to your photo or portfolio via the website field instead of embedding images." },
+    { question: "Can I add UPI ID to my business card QR?", answer: "Keep contact and payment codes separate: vCard for saving details and UPI payee code for collecting money like freelancer advances. Two labeled codes beat one overloaded code that scans poorly. Print Scan to save contact on one and payment wording on the other — setup details in the UPI payment guide." },
   ],
 };

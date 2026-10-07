@@ -60,7 +60,14 @@ export const invoiceNumbering: BlogPost = {
   title: "Invoice Numbering: GST-Compliant Formats, HSN & Tax Fields (2026)",
   description:
     "Invoice numbering done right: sequential formats, GSTIN/HSN placement, CGST/SGST vs IGST fields + fixes for duplicates. Free generator walkthrough.",
-  keywords: ["invoice number format", "hsn code on invoice", "how to do invoice numbering gst compliant", "where to put gstin on bill", "cgst sgst vs igst in invoice"],
+  keywords: [
+    "invoice number format",
+    "hsn code on invoice",
+    "how to do invoice numbering gst compliant",
+    "where to put gstin on bill",
+    "cgst sgst vs igst in invoice",
+    "Where do HSN/SAC codes go?",
+  ],
   toolSlugs: ["invoice-generator", "freelance-gst-invoice-generator", "number-to-words"],
   relatedSlugs: ["how-to-create-invoice-online", "gst-invoice-format-india", "payment-terms-and-followups"],
   published: "2026-09-14",
@@ -75,10 +82,10 @@ export const invoiceNumbering: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How should I format invoice numbers?", answer: "Unique sequential with year prefix: INV-2026-001, 002, 003. One series per year, credit notes separate (CN-001). Never reuse or backfill gaps — log voids honestly." },
-    { question: "Where does GSTIN go on the invoice?", answer: "Supplier GSTIN top-right, buyer GSTIN in the bill-to block for B2B. Copy from the GST portal. Wrong digits bounce at enterprise accounts." },
-    { question: "Where do HSN/SAC codes go?", answer: "Per line next to the description. HSN for goods, SAC for services (e.g. 9983 design). 4 digits below ₹5 cr turnover, 6 above. Verify against the current master." },
-    { question: "How do I fix a duplicate invoice number?", answer: "Do not edit history. Issue a credit note reversing it, re-issue with the next sequential number, and send a one-line correction note referencing both numbers." },
-    { question: "Do US/UK invoices need the same fields?", answer: "Numbering discipline is universal. US adds sales-tax jurisdiction and rate where nexus applies; UK VAT invoices need VAT number plus net/VAT/gross split. Retain 3–7 years (IRS) or 6 years (HMRC)." },
+    { question: "How should I format invoice numbers?", answer: "Use sequential numbers with year prefix like INV-2026-001, 002 and 003, one series per year with April–March reset common in India. Keep GST bills separate as INV-GST-011 and credit notes as CN-001. Never reuse or backfill gaps — I skipped 004 in Aug 2026 and spent 3 days answering my CA, so log voids honestly." },
+    { question: "Where does GSTIN go on the invoice?", answer: "Print supplier GSTIN like 27ABCDE1234F1Z5 top-right and buyer GSTIN in the bill-to block for B2B, with place-of-supply state code deciding CGST/SGST versus IGST. Copy-paste both numbers from the GST portal and never retype them. One wrong digit bounces at enterprise accounts and costs days of rework." },
+    { question: "Where do HSN/SAC codes go?", answer: "Put them per line next to the description with HSN for goods and SAC for services like 9983 for design and 9984 for IT. Use 4 digits below ₹5 cr turnover and 6 digits above. Verify against the master and mirror your last accepted bill, because consistency beats creativity and missing codes trigger accounts queries." },
+    { question: "How do I fix a duplicate invoice number?", answer: "Do not edit sent history. Issue credit note like CN-001 reversing the duplicate INV-2026-001 line, re-issue with the next sequential number, and send a one-line apology referencing both numbers. Log the void honestly in your sheet and confirm no duplicates during the last-Friday monthly check with receipts issued." },
+    { question: "Do US/UK invoices need the same fields?", answer: "Numbering is universal with sequential INV-2026-001. US adds sales-tax jurisdiction and rate like 8.5% NYC where nexus applies or notes no nexus, retaining 3–7 years for IRS. UK VAT invoices need VAT number plus net, VAT at 20% and gross split, retaining 6 years for HMRC. I keep separate yearly folders per country-client for audits." },
   ],
 };

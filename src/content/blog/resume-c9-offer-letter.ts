@@ -60,6 +60,7 @@ export const resumeOfferLetter: BlogPost = {
     "ctc breakup explained",
     "offer letter negotiation",
     "probation notice period meaning",
+    "What should an offer letter include?",
   ],
   toolSlugs: ["offer-letter-generator", "resume-builder", "cover-letter-builder"],
   relatedSlugs: ["experienced-resume-guide", "cover-letter-guide", "how-to-make-resume"],
@@ -75,10 +76,10 @@ export const resumeOfferLetter: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What should an offer letter include?", answer: "Exact role and level, full CTC breakup table, joining date and offer validity, probation terms, notice period, location and work mode, plus any bond clauses — all in writing with a signature block." },
-    { question: "How do I read CTC breakup?", answer: "Separate fixed (guaranteed monthly driver) from variable, joining bonus (check clawbacks) and ESOPs (check vesting). Compare fixed-to-fixed across offers, not headline totals." },
-    { question: "Can I negotiate an offer letter?", answer: "Yes — anchor on market data, trade concessions like joining speed, negotiate structure (variable-to-fixed, notice length) alongside headlines, and get every change re-issued in writing before resigning." },
-    { question: "What notice period is normal in India?", answer: "30–90 days depending on seniority; US/UK typically 2–4 weeks. Negotiate before signing — exit-time negotiation has no leverage." },
-    { question: "Should I resign on a verbal offer?", answer: "Never. Verbal offers evaporate with budget freezes and manager changes. Resign only against a signed written letter with the full CTC table." },
+    { question: "What should an offer letter include?", answer: "Exact role and level, full CTC breakup table, joining date and offer validity of 7–15 days, probation terms, notice period, location and work mode, plus any bond clauses — all in writing with a signature block. Demand exact designation like SDE-1 versus SDE-2, team, manager and transfer clause in ink only." },
+    { question: "How do I read CTC breakup?", answer: "Separate fixed (guaranteed monthly driver) from variable, joining bonus (check clawbacks) and ESOPs (check vesting). At Rs 12 LPA with 70% fixed, only Rs 8.4L is guaranteed. Compare fixed-to-fixed across offers, not headline totals; Rs 10L all-fixed often beats Rs 12L with heavy variable pay." },
+    { question: "Can I negotiate an offer letter?", answer: "Yes — anchor on market data like similar SDE-1 roles closing at Rs 9–10L fixed, trade concessions like joining speed, negotiate structure (variable-to-fixed, notice length) alongside headlines, and get every change re-issued in writing before resigning. Trade, don't just ask; data beats expectations and protects joining terms." },
+    { question: "What notice period is normal in India?", answer: "30–90 days depending on seniority; US/UK typically 2–4 weeks. Long notice traps you later, so negotiate before signing, not during exit when leverage is gone. Ask probation confirmation criteria and notice buyout terms in writing, especially for senior hires with competing offers and joining bonuses." },
+    { question: "Should I resign on a verbal offer?", answer: "Never. Verbal offers evaporate with budget freezes and manager changes. Resign only against a signed written letter with the full CTC table, joining date and 7–15 day validity. Never resign on promises of a letter next week while pressed to quit; urgency plus opacity equals a bad deal always." },
   ],
 };

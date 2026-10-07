@@ -67,6 +67,7 @@ export const qrSizePrint: BlogPost = {
     "qr code print size cm",
     "how big should qr code be",
     "qr code resolution for poster",
+    "512px or 2048px PNG?",
   ],
   toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
   relatedSlugs: ["how-to-create-qr-code", "qr-code-not-scanning-fix", "vcard-contact-qr-code"],
@@ -82,10 +83,10 @@ export const qrSizePrint: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is the minimum size for a printed QR code?", answer: "2 × 2 cm for short-URL codes scanned at arm's length. Dense codes with 150+ characters need 3–4 cm at the same distance. Shorter content scans smaller." },
-    { question: "How big should a QR code be for a poster?", answer: "Use size ≈ viewing distance ÷ 10: 10 cm for 1 meter, 20 cm for 2 meters. Export 2048px PNG and test-walk the real distance with a mid-range phone." },
-    { question: "512px or 2048px PNG?", answer: "512px for screens, cards, tents and flyers up to ~5 cm print. 2048px for posters, windows and anything scanned beyond a meter. Never upscale — regenerate at the bigger size." },
-    { question: "Does paper finish matter?", answer: "Yes. Glossy lamination glares in sunlight and kills scans; matte paper or matte laminate works everywhere. Flat surfaces beat curved ones every time." },
-    { question: "Why leave white space around the code?", answer: "Scanners need a quiet zone about 4 modules wide to find the pattern edges. Text or borders touching the code is the most common flyer failure." },
+    { question: "What is the minimum size for a printed QR code?", answer: "Use 2 by 2 cm as the floor for short-URL codes scanned at arm's length around 30 cm. Dense codes with 150-plus characters need 3–4 cm at the same distance because longer text creates denser grids. For wider viewing, apply size about distance divided by 10, and shorten URLs since shorter content scans smaller." },
+    { question: "How big should a QR code be for a poster?", answer: "Apply size about viewing distance divided by 10: 10 cm for 1 meter and 20 cm for 2 meters, matching A3 or A2 posters at 10–20 cm. Export 2048px PNG rather than upscaling 512px, which blurs module edges. Test-walk the real distance with a mid-range Android and confirm a two-second scan for customers." },
+    { question: "512px or 2048px PNG?", answer: "Choose 512px for screens, websites, chat, cards, folders, tents and flyers up to about 5 cm, where it stays crisp. Choose 2048px for posters, windows, banners and anything scanned beyond a meter, crisp to A3 and beyond. Never upscale a small file — regenerate at the bigger size in 30 seconds free." },
+    { question: "Does paper finish matter?", answer: "Yes, finish decides outdoor success. Glossy lamination glares in sunlight and kills scans, while matte paper, matte laminate or unlaminated frames work everywhere. Flat walls, tents and cards scan reliably, but curved cups, bottles and pillars distort the grid. The Pune glass-door sticker failed partly on curved glossy glass." },
+    { question: "Why leave white space around the code?", answer: "Scanners need a quiet zone about 4 modules wide with white margin on all sides to find pattern edges reliably. Text or borders touching the code stops detection and causes the most common flyer failure. Preserve the margin after printing and disable fit to page, which shrinks everything about 5%." },
   ],
 };

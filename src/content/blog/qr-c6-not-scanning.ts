@@ -63,6 +63,7 @@ export const qrNotScanning: BlogPost = {
     "why wont my qr code scan",
     "qr code scanning problems",
     "fix blurry qr code",
+    "Does iPhone need an app to scan QR codes?",
   ],
   toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
   relatedSlugs: ["qr-code-size-print-guide", "how-to-create-qr-code", "wifi-qr-code-guide"],
@@ -78,10 +79,10 @@ export const qrNotScanning: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "Why is my QR code not scanning?", answer: "Most often too small or too dense, low contrast, glare or curve, a blurry JPG/upscaled file, or malformed content like unescaped WiFi strings. Work the five causes in order — 60% resolve at size/density." },
-    { question: "Does iPhone need an app to scan QR codes?", answer: "No, the native camera reads QR since iOS 11, with a Code Scanner backup in Control Center. If nothing happens, suspect code size, contrast or brightness before the phone." },
-    { question: "Why do QR codes fail in sunlight?", answer: "Glare on glossy prints plus low-contrast colors wash out module edges. Reprint black on white, matte finish, with a quiet margin, and test at noon — not just indoors." },
-    { question: "Can I fix a blurry QR code?", answer: "No — regenerate it. Re-saving or upscaling cannot restore module edges. Generate a fresh 2048px PNG, keep PNG masters, and avoid JPG/WhatsApp-forward chains for print files." },
-    { question: "How do I verify a code before bulk printing?", answer: "Decode it with the QR scanner to confirm contents, print one copy at 100% matte, and test two phones at real distance in daylight and indoor light. Only then order bulk." },
+    { question: "Why is my QR code not scanning?", answer: "Small or too dense like a 200-character URL at 2 cm, contrast such as yellow on white, glare or curve on glossy surfaces, a blurry JPG or upscaled 512px file, or malformed content like unescaped WiFi strings. Work the five causes in order — 60% resolve at size and density with enlargement or shortened content." },
+    { question: "Does iPhone need an app to scan QR codes?", answer: "No. The native iPhone camera reads QR codes since iOS 11 with no app needed, plus Control Center Code Scanner as backup. If nothing happens, suspect tiny size, low contrast or low brightness before blaming the phone. Check the quiet margin survived printing and test at arm's length in good light." },
+    { question: "Why do QR codes fail in sunlight?", answer: "Glare on glossy prints plus low-contrast colors like yellow on white wash out black-white module edges in bright light. The Pune glass-door sticker failed this way on curved glass. Reprint black on white with matte finish and quiet margin, then test at noon outdoors — not just in office light." },
+    { question: "Can I fix a blurry QR code?", answer: "No. Re-saving or upscaling cannot restore blurred module edges from forwarded JPGs or stretched 512px files enlarged to posters. Generate a fresh 2048px PNG in the free generator and archive PNG masters. Avoid JPG and WhatsApp-forward chains for print files, keeping PNG end to end." },
+    { question: "How do I verify a code before bulk printing?", answer: "Decode the code with the QR scanner to confirm the destination URL or WiFi string is correct, then print one copy at 100% matte with quiet margin and size. Test two phones at real distance in daylight plus indoor light. Only order bulk after passes — the ₹30 test print beats a ₹2,500 failed run." },
   ],
 };

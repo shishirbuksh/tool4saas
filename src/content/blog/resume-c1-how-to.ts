@@ -63,6 +63,7 @@ export const resumeHowTo: BlogPost = {
     "resume building steps",
     "how to tailor resume per job",
     "resume email subject line",
+    "How long does it take to make a resume?",
   ],
   toolSlugs: ["resume-builder", "ats-resume-checker", "cover-letter-builder"],
   relatedSlugs: ["ats-resume-guide", "resume-format-guide", "resume-mistakes"],
@@ -78,10 +79,10 @@ export const resumeHowTo: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How long does it take to make a resume?", answer: "About 15 minutes in a builder once facts are gathered: 2 for header, 3 for summary, 6 for bullets, 2 for skills and education, 1 for PDF export. Word takes 45–60 for the same content." },
-    { question: "Should I tailor my resume for each job?", answer: "Yes — mirror the posting's repeated skills honestly, reorder bullets by relevance, and re-check ATS coverage. Ten minutes per job; my callbacks went from ~0% generic to ~20% tailored." },
-    { question: "PDF or Word resume?", answer: "PDF with real selectable text, always — unless a portal explicitly demands .docx. Never send image-based or scanned PDFs; parsers read nothing." },
-    { question: "What filename should my resume have?", answer: "firstname-lastname-resume.pdf. Recruiters download hundreds; searchable names get found, final-v2 does not." },
-    { question: "What do I write in the application email?", answer: "Subject with role, years and name; 4-line body (role, years, one metric, availability); attach PDF; link LinkedIn. Same skim logic as the resume itself." },
+    { question: "How long does it take to make a resume?", answer: "About 15 minutes in a builder once facts are gathered: 2 for header, 3 for summary, 6 for bullets, 2 for skills and education, 1 for PDF export. Gather role titles, companies, month-year dates and 2–3 wins first before typing anything. Word takes 45–60 for the same content." },
+    { question: "Should I tailor my resume for each job?", answer: "Yes — mirror the posting's 8–10 repeated skills honestly, reorder bullets by relevance, and re-check ATS coverage above 80%. Ten minutes per job using the extract-mirror-reorder-recheck routine; my callbacks went from ~0% generic to ~20% tailored. Never invent skills interviews expose quickly and destroy trust in minutes." },
+    { question: "PDF or Word resume?", answer: "PDF with real selectable text, always — unless a portal explicitly demands .docx. Verify text selects after Print to PDF, because formatting shifts between Word versions. Never send image-based or scanned PDFs; parsers read nothing. Preview one page first and name it firstname-resume.pdf before sending anything today." },
+    { question: "What filename should my resume have?", answer: "Use firstname-lastname-resume.pdf with real selectable text. Recruiters download hundreds; searchable names get found, final-v2 does not. Always send PDF, never .docx unless the portal demands it, and keep portal fields identical so parsers match your file. Test the email you list and link LinkedIn in the body for findability." },
+    { question: "What do I write in the application email?", answer: "Use subject with role, years and name like Application: Backend Developer (3 yrs) — Aarav Mehta; it beats Please find attached. Write a 4-line body covering role, years, one metric and availability, attach the PDF and link LinkedIn. Recruiters skim emails like resumes, so keep it tight." },
   ],
 };

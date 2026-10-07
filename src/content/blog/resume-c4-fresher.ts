@@ -54,6 +54,7 @@ export const resumeFresher: BlogPost = {
     "resume with no experience",
     "fresher resume sample india",
     "first job resume tips",
+    "Should freshers write one page?",
   ],
   toolSlugs: ["resume-builder", "ats-resume-checker", "cover-letter-builder"],
   relatedSlugs: ["how-to-make-resume", "ats-resume-guide", "cover-letter-guide"],
@@ -68,10 +69,10 @@ export const resumeFresher: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What do I put on a resume with no experience?", answer: "Projects with your contribution and metrics, internships (even virtual), certifications paired with projects, coursework and skills. Two to three substantial projects outrank blank experience sections." },
-    { question: "Should freshers write one page?", answer: "Strictly one page. Density signals judgment; recruiters spend the same 6 seconds on fresher resumes and reward the scannable one." },
-    { question: "Do I include CGPA?", answer: "Above 8 (or equivalent), yes with coursework. Below that, list the degree without the number — nobody rejects a missing CGPA, many downgrade a weak displayed one." },
-    { question: "How do freshers beat ATS with no keywords?", answer: "Project stacks are keywords: frameworks, tools and methods from real work mirror JD terms naturally. Check coverage per posting and add honest matches." },
-    { question: "Do cover letters help freshers?", answer: "Disproportionately — most freshers skip them. A 250-word tailored letter with one project proof doubles shortlist odds in my experience." },
+    { question: "What do I put on a resume with no experience?", answer: "Projects with your contribution and metrics, internships (even virtual), certifications paired with projects, coursework and skills. List 2–3 projects with purpose, stack and one metric like 800+ downloads or 99% crash-free. Two to three substantial projects with GitHub links outrank blank experience sections completely for recruiters." },
+    { question: "Should freshers write one page?", answer: "Strictly one page. Density signals judgment; recruiters spend the same 6 seconds on fresher resumes and reward the scannable one. On campus they screen hundreds in an evening by CGPA brackets first, then one differentiator, so carry 5 clean prints and keep your top project ready." },
+    { question: "Do I include CGPA?", answer: "Above 8 (or equivalent), yes with coursework and final-year project title. Below that, list the degree without the number — nobody rejects a missing CGPA, many downgrade a weak displayed one. Lead with qualifying facts like no backlogs where true, since eligibility cutoffs decide campus shortlists first." },
+    { question: "How do freshers beat ATS with no keywords?", answer: "Project stacks are keywords: frameworks, tools and methods from real work mirror JD terms naturally. List skills from target JDs for ATS fuel, check coverage per posting and add honest matches only. Include your stack, contribution and one metric per project so parsers find true terms to score." },
+    { question: "Do cover letters help freshers?", answer: "Disproportionately — most freshers skip them. A 250-word tailored letter with one project proof doubles shortlist odds in my experience. Cover role, one project proof and why this company specifically, built in the cover letter builder, to stand out immediately where recruiters buy proof and trainability, not tenure." },
   ],
 };

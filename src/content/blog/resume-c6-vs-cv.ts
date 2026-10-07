@@ -50,6 +50,7 @@ export const resumeVsCv: BlogPost = {
     "cv vs resume india",
     "biodata vs resume",
     "what is biodata format",
+    "Do Indian companies want a resume or CV?",
   ],
   toolSlugs: ["resume-builder", "ats-resume-checker", "cover-letter-builder"],
   relatedSlugs: ["resume-format-guide", "how-to-make-resume", "fresher-resume-guide"],
@@ -64,10 +65,10 @@ export const resumeVsCv: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is the difference between a resume and a CV?", answer: "A resume is a short tailored 1–2 page summary for a specific job; a CV (UK/academia) is a fuller chronological record, 2 pages standard in the UK and unlimited in research." },
-    { question: "What is a biodata?", answer: "A personal-details format (photo, DOB, family, marital status) used for matrimonial purposes and some government posts. Never send it for startup or MNC roles." },
-    { question: "Do Indian companies want a resume or CV?", answer: "Resume — private-sector hiring means short, tailored, metric-led documents. CV on Indian portals just means upload your resume." },
-    { question: "Should my resume have a photo?", answer: "No, across India, US and UK — except acting/modeling/hospitality where appearance is a stated criterion. Photos risk bias filtering and break ATS parsing." },
-    { question: "How long should a UK CV be?", answer: "Two pages standard, with a personal statement up top. Academic CVs are the exception with no page limit." },
+    { question: "What is the difference between a resume and a CV?", answer: "A resume is a short tailored 1–2 page summary for a specific job with skills, experience and outcomes. A CV (UK/academia) is a fuller chronological record, 2 pages standard in the UK and unlimited in research with publications, teaching and grants. UK CVs add a personal statement; academic CVs include full references." },
+    { question: "What is a biodata?", answer: "A personal-details format (photo, DOB, family, marital status) spanning 1–4 pages, used for matrimonial purposes and some government posts like UPSC, SSC and PSU roles. Never send it for startup or MNC roles. If explicitly requested, follow their proforma exactly with nothing creative, since compliance is the test." },
+    { question: "Do Indian companies want a resume or CV?", answer: "Resume — private-sector hiring means short, tailored, metric-led documents for startups, MNCs and portals like Naukri, LinkedIn and Indeed. CV on Indian portals just means upload your resume; the button label is legacy while the parser wants the short tailored document customized per role always." },
+    { question: "Should my resume have a photo?", answer: "No, across India, US and UK — except acting/modeling/hospitality where appearance is a stated criterion. Photos risk bias filtering and break ATS parsing, inviting bias before page one. Everyone else stays photo-free, parser-clean and bias-safe, never volunteering DOB or marital status voluntarily either on resumes today." },
+    { question: "How long should a UK CV be?", answer: "Two pages standard, with a personal statement up top. Academic CVs are the exception with no page limit, listing complete career, education, publications, teaching and grants. For UK employers asking for a CV, send the 2-page version with the same content discipline and slightly longer leash." },
   ],
 };

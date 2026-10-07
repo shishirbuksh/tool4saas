@@ -76,6 +76,7 @@ export const wordTts: BlogPost = {
     "listen to article catch errors",
     "tts study notes",
     "proofread by listening",
+    "Does listening really catch more errors?",
   ],
   toolSlugs: ["text-to-speech", "readability-checker", "word-counter"],
   relatedSlugs: ["grammar-check-before-publish", "how-to-summarize-text-fast", "flesch-reading-ease-score-explained"],
@@ -92,10 +93,10 @@ export const wordTts: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "Does listening really catch more errors?", answer: "Yes for specific classes: doubled words, missing small words, wrong-word typos (form/from), and rhythm breaks. Ears process sequentially and cannot skim past them." },
-    { question: "What speed should I proof-listen at?", answer: "1× first for error detection, 1.25× second pass for flow. Faster speeds skip the detail this method exists to catch." },
-    { question: "Should I fix errors while listening?", answer: "No — mark timestamps and keep listening. Stopping breaks the flow that catches structural issues; batch fixes after, then spot-check changed regions." },
-    { question: "Can TTS help studying?", answer: "Yes — audio summaries enable commute revision, and dual coding (reading plus hearing) beats re-reading for retention. Summarize first, then listen." },
-    { question: "Is TTS proofing an accessibility win?", answer: "Yes — hearing your post approximates screen-reader experiences, surfacing confusing structures before they exclude readers." },
+    { question: "Does listening really catch more errors?", answer: "Yes for specific classes like doubled words such as the the, missing small words, wrong-word typos like form versus from, and rhythm breaks from stacked long sentences. Ears process language sequentially and cannot skim, while eyes skip through prediction. That difference makes one listening pass the highest-ROI editing step most writers skip." },
+    { question: "What speed should I proof-listen at?", answer: "Use 1x speed first for error detection with the clearest neural voice, since natural pace exposes missing words, doubles and rhythm breaks. Use 1.25x on the second pass for flow because pacing problems surface at speed. Faster speeds skip the detail this method exists to catch, so save presets for one-click proof-listening." },
+    { question: "Should I fix errors while listening?", answer: "No, mark timestamps or line numbers and keep listening without fixing live. Stopping breaks the flow state that catches structural issues like abrupt topic jumps and tense drift. Batch fixes afterward in one pass, then re-listen to changed sections only because full replays waste the method efficiency." },
+    { question: "Can TTS help studying?", answer: "Yes, audio summaries enable commute revision through dual coding where reading plus hearing beats re-reading for retention. Summarize the chapter to one dense page first, since listening to 40 pages invites zoning out. Listen actively once at 1.25x, recall each section aloud from memory, then replay for gaps." },
+    { question: "Is TTS proofing an accessibility win?", answer: "Yes, hearing your post approximates screen-reader and low-vision experiences, surfacing confusing structures before they exclude readers. If a sentence confuses you at 1x, it confuses assistive tech twice over. Non-native writers also gain an accent-neutral second opinion, while scripts that sound clean at 1x read clean on mic." },
   ],
 };

@@ -73,6 +73,7 @@ export const qrHowToCreate: BlogPost = {
     "generate qr code png free",
     "create qr code for link free",
     "qr code maker no signup",
+    "Which size should I download?",
   ],
   toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
   relatedSlugs: ["qr-code-size-print-guide", "qr-code-not-scanning-fix", "wifi-qr-code-guide"],
@@ -89,9 +90,9 @@ export const qrHowToCreate: BlogPost = {
   html,
   faqs: [
     { question: "How do I create a QR code for free?", answer: "Enter your URL or text in the free QR code generator, pick 512px for screens or 2048px for print, preview the pattern, download the PNG and test-scan with two phones. About 60 seconds, no signup, and the static code never expires." },
-    { question: "Which size should I download?", answer: "512px PNG for websites, chat, slides and small prints up to ~5 cm. 2048px for posters, flyers and anything scanned beyond arm's length. Never upscale a small file — regenerate at the bigger size." },
-    { question: "Why does content length matter?", answer: "Longer text makes a denser module pattern that needs larger prints to scan. A short URL scans at 2 cm; a 200-character payload needs 3–4 cm. Shorten URLs before encoding." },
-    { question: "PNG or JPG for QR codes?", answer: "PNG always for the master file — it is lossless, so module edges stay razor sharp. JPG recompression blurs edges and causes scan failures, especially after multiple re-saves or WhatsApp forwarding." },
-    { question: "How do I know my code works before printing?", answer: "Scan the screen preview, then print one copy and scan from the real viewing distance and lighting with two different phones (old Android + iPhone ideally). Only then print in bulk." },
+    { question: "Which size should I download?", answer: "Pick 512px PNG for websites, WhatsApp, slides, social posts and small prints up to about 5 cm. Pick 2048px for posters, flyers, menus and anything scanned beyond arm's length or over 1 meter. Never upscale a small file because stretched edges blur — regenerate at the bigger size in 30 seconds." },
+    { question: "Why does content length matter?", answer: "Longer text makes a denser module pattern needing larger prints to scan reliably. A short URL under about 60 characters scans at 2 cm with a sparse forgiving grid, while a 200-character payload needs 3–4 cm and a 340-character tracking URL becomes an unscannable brick. Shorten URLs before encoding for print codes." },
+    { question: "PNG or JPG for QR codes?", answer: "Use PNG always for the master file like qr-menu-512.png because it is lossless, so black-white module edges stay razor sharp and print-safe. JPG recompression blurs edges and causes scan failures, especially after multiple re-saves or WhatsApp forwarding. Avoid re-saving as JPG and keep PNG end to end for printing." },
+    { question: "How do I know my code works before printing?", answer: "Scan the screen preview with your phone, then print one copy and scan from the real viewing distance and lighting with two different phones such as old Android plus iPhone. Test sunlight, shade, low brightness and office light. One flagship in office light proves nothing — only then print in bulk." },
   ],
 };

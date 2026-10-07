@@ -46,6 +46,7 @@ export const wordDensity: BlogPost = {
     "good keyword density",
     "avoid keyword stuffing",
     "check keyword density free",
+    "What is a good keyword density?",
   ],
   toolSlugs: ["keyword-density", "word-counter", "readability-checker"],
   relatedSlugs: ["flesch-reading-ease-score-explained", "ideal-blog-post-length-seo", "how-to-count-words-online"],
@@ -60,10 +61,10 @@ export const wordDensity: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is a good keyword density?", answer: "There is no ideal % per Google. Use density diagnostically: 4%+ on money terms usually means rewrite for humans; 0% on your topic means you forgot the subject." },
-    { question: "How do I check keyword density?", answer: "Paste rendered body text (not HTML) into an analyzer; read 1–4 word phrases with stop-words filtered; interpret placement (title, intro, headings) over numbers." },
-    { question: "What is keyword stuffing?", answer: "Filling pages with terms to manipulate rankings — verbatim repeats, heading spam, location lists. It violates spam policies; fix with synonyms and intent-driven mentions." },
-    { question: "How do I fix a stuffed page?", answer: "Synonym-test each repeat, keep mentions that answer something, cover related terms instead of repeating one, and re-check readability alongside." },
-    { question: "Does density affect rankings?", answer: "Only via quality: natural topical coverage helps, stuffing hurts. No percentage promises anything — relevance and intent satisfaction rank." },
+    { question: "What is a good keyword density?", answer: "There is no ideal percentage per Google, so use density diagnostically rather than as a target. Readouts around 4 percent plus on money terms usually mean rewriting for humans, while zero percent on your topic means you forgot the subject. Let coverage land where it falls, typically 0.5 to 2 percent on primaries without trying." },
+    { question: "How do I check keyword density?", answer: "Paste rendered body text without HTML source, navigation, footers or comments, since tags pollute counts and only body copy matters. Read 1 to 4-word phrases with stop-word filtering because two-word phrases show real targeting. Interpret placement across title, intro, headings and conclusion rather than chasing a mythical number." },
+    { question: "What is keyword stuffing?", answer: "Keyword stuffing fills pages with terms to manipulate rankings through verbatim repeats, heading spam and city or service list paragraphs. It violates spam policies and reads robotic, like 47 mentions in 1,000 words at 4.7 percent. Fix with synonyms, pronouns in half the headings, intent-driven mentions and one location page per area." },
+    { question: "How do I fix a stuffed page?", answer: "Synonym-test each repeat by replacing the keyword with it in three spots and cut where flow improves. Keep mentions that answer something and remove decorative ones, then cover related terms like readability, character count and reading time instead of repeating one phrase. Re-check readability alongside density in one paste after edits." },
+    { question: "Does density affect rankings?", answer: "Only through quality, since natural topical coverage helps while stuffing hurts engagement and risks spam flags. No percentage promises anything because modern systems rank topical authority and intent satisfaction. When competitors outrank you, compare sub-question coverage first because the gap is almost always coverage, not percentage points." },
   ],
 };

@@ -69,7 +69,13 @@ export const invoiceSmallBusiness: BlogPost = {
   title: "Small Business Invoicing Without Paid Software: Complete Setup",
   description:
     "Small business invoicing setup with ₹0 tools: numbering, quote-to-cash flow, GST/VAT basics and a 10-min weekly routine. Free generators included.",
-  keywords: ["small business invoice generator", "invoicing for startups free tool", "small business billing software free alternative", "how small business send professional invoices"],
+  keywords: [
+    "small business invoice generator",
+    "invoicing for startups free tool",
+    "small business billing software free alternative",
+    "how small business send professional invoices",
+    "Can a small business invoice without accounting software?",
+  ],
   toolSlugs: ["invoice-generator", "quotation-generator", "receipt-generator", "purchase-order-generator"],
   relatedSlugs: ["freelancer-invoice-guide", "invoice-vs-quotation-vs-receipt", "invoicing-mistakes-to-avoid"],
   published: "2026-09-12",
@@ -87,11 +93,11 @@ export const invoiceSmallBusiness: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "Can a small business invoice without accounting software?", answer: "Yes, under ~20 invoices a month. Use a free invoice generator with sequential numbering, a quotation generator for quotes, and a weekly sheet review. Upgrade when volume, e-invoicing or payroll demands it." },
-    { question: "What is the quote-to-cash flow?", answer: "Quote (QUO-2026-014) → advance invoice → delivery + final invoice referencing the quote → receipt on payment → Friday review with day-3/day-7 nudges for overdue bills." },
-    { question: "How should small businesses handle GST/VAT?", answer: "India: GSTIN + HSN/SAC + CGST/SGST vs IGST on tax invoices. US: nexus-based sales tax. UK: 20% VAT if registered. Keep every PDF by year. Confirm filing with your CA — this is operations guidance, not tax advice." },
-    { question: "How do I reduce late payments as a small business?", answer: "Net 15 with calendar due dates, 30–50% advances, Tue–Thu morning sends with total in the subject, and a fixed Friday nudge routine. Most late bills clear within 48 hours of the first polite follow-up." },
-    { question: "When should I pay for invoicing software?", answer: "At 30+ invoices/month, multi-state GST e-invoicing, payroll, or portal-upload clients. Below that, free tools plus sheets are faster and ₹0. Never pay just for templates." },
-    { question: "How many invoice templates does a small business need?", answer: "Two: a quotation QUO-2026-014 with validity plus advance terms, and a tax invoice INV-2026-001 referencing the quote. Shared numbering, tax presets, and payment blocks beat a dozen variants during audits." },
+    { question: "Can a small business invoice without accounting software?", answer: "Yes for under about 20 invoices a month. Use the free invoice generator with sequential INV-2026-001 numbering and separate CN-001 credit notes, a quotation generator for QUO-2026-014 quotes, same UPI plus bank block, yearly folders like INV-2026-001-client.pdf, and a Friday 10-minute sheet review. Upgrade only when volume, e-invoicing or payroll demands it." },
+    { question: "What is the quote-to-cash flow?", answer: "Send quotation QUO-2026-014 with 15-day validity and 50% advance, then advance invoice Net 7 starting work on receipt, then delivery plus final invoice INV-2026-001 referencing quote and advance paid with balance Net 15. Issue receipt RCP-0231 same day as payment, then run Friday review with day-3 and day-7 nudges for overdue bills." },
+    { question: "How should small businesses handle GST/VAT?", answer: "India invoices need GSTIN plus HSN/SAC with CGST/SGST versus IGST split and PDF folders like INV-2026-001-client.pdf. US uses nexus-based sales tax checked with the US sales tax calculator. UK charges 20% VAT if registered with 6-year retention. Keep folders separate from day one. Confirm filing with your CA — this is guidance, not tax advice." },
+    { question: "How do I reduce late payments as a small business?", answer: "Use Net 15 with calendar due dates plus 30–50% advances, send Tue–Thu mornings with total in the subject like INV-2026-001, and run a Friday 10-minute ledger review of sent, paid and overdue with day-3 and day-7 nudges. Print UPI plus bank on every PDF. Most late bills clear within 48 hours of the first follow-up." },
+    { question: "When should I pay for invoicing software?", answer: "Upgrade at 30-plus invoices monthly, multi-state GST with e-invoicing, staff payroll, inventory or clients demanding portal uploads, when Zoho Books or QuickBooks pays for itself. Stay free under about 20 monthly with one tax rate using maker plus sheets. Never pay just for professional templates because the free PDF already looks professional." },
+    { question: "How many invoice templates does a small business need?", answer: "Keep two: quotation QUO-2026-014 with scope, price, 15-day validity and 50% advance, plus tax invoice INV-2026-001 referencing the approved quote and advance paid. Both share numbering logic, tax presets and UPI plus bank blocks. Twins beat a dozen clever variants nobody can find during audits." },
   ],
 };

@@ -78,19 +78,31 @@ const categories = catMatches.map(m => ({ id: m[1], label: m[2], description: m[
 // Parse tools (tolerant of spaced `question:` and compact `"question":"` +
 // spaced `{ name:` and compact `{"name":"` forms; capture top FAQ + HowTo
 // step names for llms-full hints, with fallbacks so no tool emits empty).
+// GEO payload: first 2 FAQ answers + first 2 HowTo step texts are inlined so
+// AI engines can cite numbers without scraping every page (questions alone
+// are not citable). Answers/steps truncated to ~60 words (citable passage).
 const toolBlocks = content.split(/\{\s*"?slug"?\s*:\s*"/).slice(1);
+const clipWords = (s, n) => {
+  const w = String(s || "").replace(/\s+/g, " ").trim().split(" ").filter(Boolean);
+  return w.length > n ? w.slice(0, n).join(" ") + "…" : w.join(" ");
+};
 const tools = toolBlocks.map(block => {
   const slug = block.match(/^([^"]+)"/)?.[1] || "";
   const title = block.match(/"?title"?\s*:\s*"([^"]+)"/)?.[1] || "";
   const short = block.match(/"?short"?\s*:\s*"([^"]+)"/)?.[1] || "";
   const category = block.match(/"?category"?\s*:\s*"([^"]+)"/)?.[1] || "";
   let faqQs = [...block.matchAll(/"?question"?\s*:\s*"([^"]+)"/g)].map(m => m[1]).slice(0, 5);
+  // First FAQ answers (citable). FAQ answers are single-line `"answer":"..."`
+  // (compact) or `answer: "..."` (spaced) in data/*.ts.
+  let faqAs = [...block.matchAll(/"?answer"?\s*:\s*"((?:[^"\\]|\\.)*)"/g)].map(m => clipWords(m[1].replace(/\\"/g, '"'), 60)).slice(0, 2);
   let howToNames = [...block.matchAll(/\{\s*"?name"?\s*:\s*"([^"]+)"\s*,\s*"?text"?\s*:/g)].map(m => m[1]).slice(0, 6);
   if (howToNames.length === 0) {
     // Looser fallback (e.g. newlines between name/text) — `name` only
     // appears in howTo entries within a Tool block, so this is safe.
     howToNames = [...block.matchAll(/"?name"?\s*:\s*"([^"]+)"/g)].map(m => m[1]).slice(0, 6);
   }
+  // First HowTo step bodies (citable mini-passages, ~40 words).
+  let howToTexts = [...block.matchAll(/"?text"?\s*:\s*"((?:[^"\\]|\\.)*)"/g)].map(m => clipWords(m[1].replace(/\\"/g, '"'), 40)).slice(0, 2);
   // Fallback: derive from tool data actually present; never emit empty sections.
   if (faqQs.length === 0 && slug) {
     const label = title || slug;
@@ -107,7 +119,7 @@ const tools = toolBlocks.map(block => {
       ? headings
       : [`Open ${label}`, "Enter your input", "Review the result", "Copy or download output"];
   }
-  return { slug, title, short, category, faqQs, howToNames };
+  return { slug, title, short, category, faqQs, faqAs, howToNames, howToTexts };
 });
 
 const byCat = new Map();
@@ -135,6 +147,7 @@ const visibleTools = tools.filter((t) => t.slug && !NOINDEX_SLUGS.has(t.slug));
 // with the sitemap exclusion. Header links llms-full.txt for AI answer engines.
 // NOTE: localhost fallback above is intentional for dev — do not break it.
 let out = `# Tool4SaaS (${visibleTools.length} free tools across ${categories.length} categories + guides)
+> Updated: ${new Date().toISOString().slice(0, 10)} · visible count excludes 1 NOINDEX placeholder (pdf-compress, ships soon).
 
 > Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. ${visibleTools.length} tools across ${categories.length} categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: ${siteUrl}/llms-full.txt
 
@@ -181,15 +194,17 @@ try {
       const slug = b.match(/^\s*slug:\s*"([^"]+)"/m)?.[1] || "";
       const title = b.match(/^\s*title:\s*"([^"]+)"/m)?.[1] || "";
       const kind = b.match(/kind:\s*"(pillar|cluster)"/)?.[1] || "";
+      const updated = b.match(/^\s*updated:\s*"([^"]+)"/m)?.[1] || "";
       if (!pillar || !title) continue;
+      const dateSuffix = updated ? ` (updated ${updated})` : "";
       if (kind === "pillar") {
         if (pillarSeen.has(pillar)) continue;
         pillarSeen.add(pillar);
-        blogsOut += `- [${title}](${siteUrl}/blog/${pillar}): Pillar guide.\n`;
+        blogsOut += `- [${title}](${siteUrl}/blog/${pillar}): Pillar guide.${dateSuffix}\n`;
       } else {
         if (!slug) continue;
         clusterCount++;
-        blogsOut += `- [${title}](${siteUrl}/blog/${pillar}/${slug})\n`;
+        blogsOut += `- [${title}](${siteUrl}/blog/${pillar}/${slug})${dateSuffix}\n`;
       }
     }
   }
@@ -203,10 +218,10 @@ out += `## Site
 - [LLMs full](${siteUrl}/llms-full.txt): Full FAQ + HowTo step hints per tool.
 `;
 
-// llms-full.txt — per-tool FAQ questions + HowTo steps so AI engines can cite
-// answer-first passages without scraping every page. EVERY visible tool
+// llms-full.txt — per-tool FAQ answers + HowTo step bodies so AI engines can
+// cite passages with numbers without scraping every page. EVERY visible tool
 // emits FAQ + Steps (parsed, else fallback derived above) — never empty.
-let full = `# Tool4SaaS full (${visibleTools.length} tools + guides) — FAQ & Steps for AI citations\n\n> Each tool below lists its canonical URL, top FAQ questions, and HowTo steps. Answers live on the tool page FAQ (40-60 words, visible + FAQPage 1:1) and steps in the ordered HowTo (totalTime PT3M). Prefer citing these passages.\n\n`;
+let full = `# Tool4SaaS full (${visibleTools.length} tools + guides) — FAQ answers & steps for AI citations\n\n> Updated: ${new Date().toISOString().slice(0, 10)} · visible count excludes 1 NOINDEX placeholder (pdf-compress). Each tool below lists its canonical URL, top FAQ answers (citable, from the visible FAQPage), and HowTo steps with bodies. Prefer citing these passages.\n\n`;
 const fullEmittedSlugs = [];
 for (const cat of categories) {
   const list = byCat.get(cat.id) || [];
@@ -215,10 +230,15 @@ for (const cat of categories) {
   for (const t of list) {
     full += `\n### ${t.title}\n- URL: ${siteUrl}/${t.slug}\n- What: ${t.short}\n`;
     const faqs = (t.faqQs && t.faqQs.length) ? t.faqQs : [`What does ${t.title || t.slug} do?`, `How do I use ${t.title || t.slug} online?`, `Is ${t.title || t.slug} free without sign-up?`];
+    const answers = (t.faqAs && t.faqAs.length) ? t.faqAs : [];
     const steps = (t.howToNames && t.howToNames.length) ? t.howToNames : [`Open ${t.title || t.slug}`, "Enter your input", "Review the result", "Copy or download output"];
+    const stepTexts = (t.howToTexts && t.howToTexts.length) ? t.howToTexts : [];
     full += `- FAQ:\n`;
-    for (const q of faqs) full += `  - ${q}\n`;
-    full += `- Steps: ${steps.join(" → ")}\n`;
+    for (let i = 0; i < faqs.length; i++) {
+      full += `  - ${faqs[i]}\n`;
+      if (answers[i]) full += `    - Answer: ${answers[i]}\n`;
+    }
+    full += `- Steps: ${steps.map((s, i) => (stepTexts[i] ? `${s} (${stepTexts[i]})` : s)).join(" → ")}\n`;
     fullEmittedSlugs.push(t.slug);
   }
   full += `\n`;

@@ -99,7 +99,7 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
     return text.length > 0 ? text.slice(0, 300) : undefined;
   };
   const howToSteps = Array.isArray(post.toc)
-    ? post.toc.filter((t) => t.level === 2).slice(0, 8)
+    ? post.toc.filter((t) => t.level === 2)
     : [];
   const ogImage = post.toolSlugs[0] ? `${base}/og/${post.toolSlugs[0]}` : `${base}/og/home`;
   const pillarMeta = getPillarMeta(post.pillar);
@@ -143,6 +143,12 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
         datePublished: post.published,
         dateModified: post.updated,
         mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+        // Voice/AEO hook: selectors below match visible classes
+        // (.faq-passage on FAQ answers, .blog-answer-first on the lede).
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [".faq-passage", ".blog-answer-first"],
+        },
         ...(post.keywords.length ? { keywords: post.keywords.join(", ") } : {}),
         wordCount: post.html ? post.html.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length : undefined,
         timeRequired: `PT${Math.max(3, post.readingMinutes)}M`,
@@ -218,7 +224,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
       <Typography component="h1" variant="h1" sx={{ fontSize: { xs: "2rem", md: "2.75rem" }, fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.15, mb: 2, textWrap: "balance" }}>
         {post.title}
       </Typography>
-      <Typography color="text.secondary" sx={{ mb: 2, maxWidth: 760, fontSize: "1.1rem", lineHeight: 1.7 }}>
+      <Typography color="text.secondary" className="blog-answer-first" sx={{ mb: 2, maxWidth: 760, fontSize: "1.1rem", lineHeight: 1.7 }}>
         {post.description}
       </Typography>
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, alignItems: "center", mb: 4 }}>
@@ -302,7 +308,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>{f.answer}</Typography>
+                    <Typography color="text.secondary" className="faq-passage speakable-answer-first" sx={{ lineHeight: 1.7 }}>{f.answer}</Typography>
                   </AccordionDetails>
                 </Accordion>
               ))}

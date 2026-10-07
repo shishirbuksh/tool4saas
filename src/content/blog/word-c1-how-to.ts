@@ -49,6 +49,7 @@ export const wordHowTo: BlogPost = {
     "how to check character count",
     "count words without word",
     "word count pdf text",
+    "How do I count words without Microsoft Word?",
   ],
   toolSlugs: ["word-counter", "case-converter", "readability-checker"],
   relatedSlugs: ["ideal-blog-post-length-seo", "flesch-reading-ease-score-explained", "keyword-density-seo-check"],
@@ -63,10 +64,10 @@ export const wordHowTo: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How do I count words without Microsoft Word?", answer: "Paste into the free word counter — words, characters, sentences and reading time appear instantly in your browser. Works for Docs, web, CMS and PDF text alike." },
-    { question: "How do I count words in a PDF?", answer: "Copy real text from the PDF and paste it in. Scanned-image PDFs need OCR first — without it, counts read zero because no text exists." },
-    { question: "Do characters with spaces matter?", answer: "Yes for hard caps (abstracts, meta descriptions, social bios). Track both figures; our counter shows characters with and without spaces." },
-    { question: "Why do Word and online counters differ?", answer: "Hyphen compounds, footnotes, text boxes and CJK rules differ by implementation. Neither is wrong — use one tool consistently per project." },
-    { question: "Can I count case-changed text?", answer: "Yes — run text through the case converter first. Counts stay identical while readability improves." },
+    { question: "How do I count words without Microsoft Word?", answer: "Paste text into the free word counter, where words, characters with and without spaces, sentences, paragraphs and reading time appear live in your browser. It works for Docs, web, CMS and PDF text alike without signup since processing stays local. For uppercase drafts, run the case converter first because counts stay identical while readability jumps." },
+    { question: "How do I count words in a PDF?", answer: "Copy real text from the PDF and paste it into the counter for instant words, characters and reading time. Scanned-image PDFs need OCR first because without extractable text counts read zero. Tables may split oddly and image pages need share-to-text or retyping, so never estimate by eye and verify in-tool." },
+    { question: "Do characters with spaces matter?", answer: "Yes for hard caps like abstracts, meta descriptions and social bios where limits count every space. Track both figures throughout drafting because with-space and without-space totals diverge on formatted copy. Our counter shows characters with and without spaces live, so compare against your target with 10 percent buffer." },
+    { question: "Why do Word and online counters differ?", answer: "Hyphenated compounds like well-known count as one or two words depending on the splitter, while footnotes, text boxes and CJK rules differ by implementation. Numbers like 2026 and symbols also split inconsistently across tools. Neither result is wrong, so pick one tool per project, note the rule once, and avoid cross-tool comparison." },
+    { question: "Can I count case-changed text?", answer: "Yes, run text through the case converter first to fix uppercase drafts and title mishaps, then paste into the counter. Counts stay identical while readability improves because casing changes no word boundaries. This cleanup helps before interpreting against assignment caps or SEO briefs, letting counts guide revision scope rather than grading quality." },
   ],
 };

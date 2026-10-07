@@ -95,6 +95,16 @@ export default function ToolPageShell({ tool, children }: { tool: Tool; children
               <YMYLDisclaimer type={ymylType} />
             </Box>
           )}
+          {/* TL;DR answer box: 40-60w citable definition above the tool UI
+              for answer engines + voice (see speakable .tldr-passage). */}
+          <Box
+            sx={{ mb: 3, p: 2.5, borderRadius: "12px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}
+          >
+            <Typography color="text.primary" className="tldr-passage speakable-answer-first" sx={{ lineHeight: 1.7 }}>
+              <strong>Quick answer:</strong> {tool.title} — {tool.short} Free, no signup, runs in your browser.
+              See below for the interactive tool, 4-step guide and FAQs.
+            </Typography>
+          </Box>
           {children}
         </Box>
         <Box sx={{ minHeight: { xs: 250, lg: 280 } }}>

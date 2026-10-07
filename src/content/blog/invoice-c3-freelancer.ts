@@ -77,6 +77,7 @@ export const invoiceFreelancer: BlogPost = {
     "how do freelancers invoice clients",
     "freelance invoice without gst india",
     "freelancer payment terms invoice",
+    "What should a freelancer include on an invoice?",
   ],
   toolSlugs: ["invoice-generator", "freelance-gst-invoice-generator", "freelance-rate-calculator"],
   relatedSlugs: ["how-to-create-invoice-online", "gst-invoice-format-india", "payment-terms-and-followups"],
@@ -92,10 +93,10 @@ export const invoiceFreelancer: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What should a freelancer include on an invoice?", answer: "Your details, client contact, unique number, issue and due dates, specific line items with qty and rate, subtotal, tax or zero-tax note, bold total with currency, payment method (UPI/bank/Stripe), quote reference and late-fee terms." },
-    { question: "How much advance should freelancers ask for?", answer: "30–50% for projects above ₹25,000/$500, 100% upfront under ₹10,000, and day-1 billing with Net 7 for retainers. State it on the discovery call and repeat on the quote and invoice." },
-    { question: "How do freelancers invoice without GST in India?", answer: "Set tax to 0%, note unregistered status, keep sequential numbering, and add UPI/bank details. Add GST only when registered — confirm threshold and slabs with your CA." },
-    { question: "When should I follow up on an unpaid invoice?", answer: "Day 0 send with clear subject, polite nudge day 3 overdue, firmer check day 7 asking for a payment date. Always re-attach the PDF. Most of my late bills clear within 48 hours of the first nudge." },
-    { question: "Should I use Net 15 or Net 30?", answer: "Net 7–15 for new clients and retainers; Net 30 only for large enterprises with slow accounts cycles. Shorter terms get paid faster with no pushback in my tests — always pair with a calendar due date." },
+    { question: "What should a freelancer include on an invoice?", answer: "Your name, client human plus company plus email with GSTIN for B2B India, number like INV-2026-014 with issue and calendar due dates, specific lines with qty and rate, subtotal, tax or zero-tax note, bold total with currency, payment method such as UPI with bank/IFSC or Stripe, plus quote reference like QUO-2026-014 and 2% late-fee terms." },
+    { question: "How much advance should freelancers ask for?", answer: "Ask 30–50% advance for projects above ₹25,000/$500 before starting, with balance on delivery, and 100% upfront under ₹10,000. Bill retainers day one with Net 7 and pause on late payment. Invoice milestones per approval like homepage approved invoice 2 of 3. State terms on the discovery call and repeat on the quote and invoice." },
+    { question: "How do freelancers invoice without GST in India?", answer: "Set tax to 0%, note unregistered status, keep numbering like INV-2026-014, and print UPI ID with bank details on the PDF. Many sub-₹25,000 bills arrive via UPI within 48 hours after a WhatsApp nudge. Add GST with SAC codes and CGST/SGST versus IGST split only when registered — confirm threshold and slabs with your CA." },
+    { question: "When should I follow up on an unpaid invoice?", answer: "Send day zero with subject number plus total plus due date, nudge day 3 overdue asking if accounts needs anything, firmer check day 7 asking for a specific payment date. Always re-attach the PDF like INV-2026-014 for ₹23,600 due Sept 29 with UPI name@upi. Most late bills clear within 48 hours of the first nudge." },
+    { question: "Should I use Net 15 or Net 30?", answer: "Use Net 7 to 15 for new clients and retainers, weekly billing for hourly work like 22 hrs times $60 Sprint 14, and Net 30 only for large enterprises with slow accounts cycles. Shorter terms get paid faster with no pushback in my tests. Always pair term with a calendar due date, never Net alone." },
   ],
 };

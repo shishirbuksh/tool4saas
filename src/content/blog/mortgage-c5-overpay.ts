@@ -46,10 +46,11 @@ export const mortgageOverpay: BlogPost = {
   description:
     "Mortgage overpayment math: $100/$200/$500 extra savings, biweekly trick, UK 10% rule + prepayment traps. Free overpayment calculator.",
   keywords: [
-    "mortgage overpayment calculator",
+    "extra mortgage payment save interest biweekly",
     "extra mortgage payment save interest",
     "biweekly vs monthly mortgage",
     "uk overpayment 10 percent rule",
+    "Can I overpay without penalty in the UK?",
   ],
   toolSlugs: ["mortgage-overpayment-calculator", "refinance-calculator", "mortgage-calculator"],
   relatedSlugs: ["mortgage-amortization-schedule", "should-i-refinance-my-mortgage", "15-vs-30-year-mortgage"],
@@ -65,10 +66,10 @@ export const mortgageOverpay: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How much do extra mortgage payments save?", answer: "On $240,000 at 6%/30yr: +$200/month cuts roughly 7 years and saves tens of thousands in interest; +$500 saves roughly 12 years. Early principal skips interest across all remaining months." },
-    { question: "Is biweekly better than monthly?", answer: "Half-payments every two weeks equal 13 monthly payments yearly — about 4 years saved with no budgeting pain. Same effect as one extra payment per year." },
-    { question: "Can I overpay without penalty in the UK?", answer: "Most UK lenders allow ~10% of balance yearly penalty-free. Check your terms first — penalties on larger amounts can erase the gain." },
-    { question: "Should extra cash go to mortgage or savings?", answer: "Six months' emergency fund and higher-interest debts (cards, 8% student loans) come first — extra principal is illiquid until sale or refinance." },
-    { question: "Is this overpayment advice?", answer: "No — illustrative education as of Sept 2026. Mark extra payments principal-only, verify statements, and consult a qualified advisor; see /terms." },
+    { question: "How much do extra mortgage payments save?", answer: "On $240,000 at 6%/30yr: +$200/month cuts roughly 7 years and saves tens of thousands in interest (~$70,000+); +$500 saves roughly 12 years (~$130,000+). Early principal skips interest across all remaining months, with year-one dollars working hardest under front-loaded amortization schedules today model mixes in calculator first." },
+    { question: "Is biweekly better than monthly?", answer: "Half-payments every two weeks equal 13 monthly payments yearly — about 4 years saved with no budgeting pain. Splitting payments creates 26 halves or 13 months, automating one extra payment yearly. Same effect as one extra payment per year, with willpower removed through autopay started early." },
+    { question: "Can I overpay without penalty in the UK?", answer: "Most UK lenders allow ~10% of balance yearly penalty-free. Check your terms first — penalties on larger amounts can erase the gain. US mainstream fixed loans rarely charge, though some subprime or ARM products do. Read the note, mark every extra payment principal-only and verify statements monthly." },
+    { question: "Should extra cash go to mortgage or savings?", answer: "Six months' emergency fund and higher-interest debts (cards near 20%, 8% student loans) come first — extra principal is illiquid until sale or refinance. Six months saved beats year-seven payoff math. Kill high-rate debts first, then overpay; specify principal-only so servicers don't park cash as next payments." },
+    { question: "Is this overpayment advice?", answer: "No — illustrative education as of Sept 2026, excluding taxes, insurance, PMI, HOA, fees and ARM resets. Mark extra payments principal-only, verify statements, and consult a qualified advisor. Above 7% overpaying often wins; below 5% investing often wins; between split thoughtfully for your situation today; see /terms." },
   ],
 };

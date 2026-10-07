@@ -166,6 +166,7 @@ export const resumePillar: BlogPost = {
     "ats friendly resume guide",
     "resume format india guide",
     "fresher resume guide",
+    "How can I build a resume for free with no signup?",
   ],
   toolSlugs: ["resume-builder", "ats-resume-checker", "cover-letter-builder", "offer-letter-generator"],
   relatedSlugs: ["how-to-make-resume", "ats-resume-guide", "resume-format-guide"],

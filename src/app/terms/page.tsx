@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = staticPageMetadata({
   title: "Terms of Service — Fair Use & Disclaimers",
-  description: "Terms of Service for Tool4SaaS — use of free browser-based tools, disclaimers for calculators and content.",
+  description: "Terms of Service for Tool4SaaS — fair use of free browser tools, finance/health calculator disclaimers and content limits.",
   path: "/terms",
 });
 

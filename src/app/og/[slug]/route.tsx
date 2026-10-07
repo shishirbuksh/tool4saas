@@ -23,19 +23,38 @@ function sanitizeDesc(text: string): string {
   return Array.from(sanitize(text)).slice(0, 180).join("");
 }
 
+// Curated share cards for static pages (mirrors staticPageMetadata titles).
+const STATIC_PAGES: Record<string, { title: string; desc: string }> = {
+  about: { title: "About Tool4SaaS", desc: "Free browser tools, tested in-house. Local-first, private by design." },
+  privacy: { title: "Privacy Policy", desc: "What runs locally, what needs internet, and your cookie choices." },
+  terms: { title: "Terms of Service", desc: "Fair use, calculator disclaimers and content limits." },
+  contact: { title: "Contact Tool4SaaS", desc: "Request tools, report issues, ask questions." },
+  author: { title: "Tool4SaaS Editorial Team", desc: "In-house reviewers testing every tool across browsers." },
+  methodology: { title: "How We Test Tools", desc: "Golden values, boundary tests and browser matrix." },
+  blog: { title: "Tool4SaaS Blog Guides", desc: "Tested walkthroughs for invoices, QR, resumes and more." },
+};
+
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
   // Per-category OG: /og/category-<id> renders the category label + site name.
+  // Per-static OG: /og/static-<name> renders curated title/desc so the 7
+  // static pages (about/privacy/terms/contact/author/methodology/blog) get
+  // distinct share cards instead of sharing /og/home.
   // Unknown slugs (including unknown category ids) fall back to the generic
   // home image safely; NOINDEX tool slugs never match this prefix and stay
   // excluded via the single-source NOINDEX_SLUGS (sitemap/category grids).
   let title: string;
   let desc: string;
   let badge: string;
-  if (slug.startsWith("category-")) {
+  if (slug.startsWith("static-")) {
+    const page = STATIC_PAGES[slug.slice("static-".length)];
+    title = sanitizeTitle(page ? page.title : siteConfig.name);
+    desc = sanitizeDesc(page ? page.desc : siteConfig.description);
+    badge = siteConfig.name;
+  } else if (slug.startsWith("category-")) {
     const category = getCategory(slug.slice("category-".length));
     title = sanitizeTitle(category ? category.label : siteConfig.name);
     desc = sanitizeDesc(category ? category.description : siteConfig.description);

@@ -44,6 +44,7 @@ export const passwordHowTo: BlogPost = {
     "how to make password with symbols",
     "create unique password each account",
     "strong password steps",
+    "How long should a strong password be?",
   ],
   toolSlugs: ["password-generator", "random-passphrase", "password-strength"],
   relatedSlugs: ["what-makes-password-strong", "how-to-remember-passwords", "password-strength-tester"],
@@ -58,10 +59,10 @@ export const passwordHowTo: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How long should a strong password be?", answer: "16 characters minimum from the full 94-character pool (~104.9 bits); 20+ for email, bank and other critical accounts. Length dominates all other settings." },
-    { question: "Should I include symbols?", answer: "Yes when allowed — they widen the pool to 94 characters. Where forbidden, add length instead: +4 characters beats the lost symbol set at these sizes." },
-    { question: "Can I edit a generated password to improve it?", answer: "No — hand-editing uniform randomness only shrinks unpredictability. Generate three candidates and accept one verbatim." },
-    { question: "What if my bank limits password length?", answer: "Max out their cap with all allowed pools, enable every alert and MFA option, and treat that account as weaker — monitor it more closely." },
-    { question: "Do I need a manager if passwords are strong?", answer: "Yes — no human holds 200 unique 16-character secrets. The manager holds them; your brain holds two passphrases; 2FA guards the rest." },
+    { question: "How long should a strong password be?", answer: "16 characters minimum from the full 94-character pool (~104.9 bits); 20+ for email, bank and other critical accounts like manager masters. Length dominates all other settings at ~6.55 bits per character. Open the generator, drag to 16 minimum and 20 for important accounts for best protection." },
+    { question: "Should I include symbols?", answer: "Yes when allowed — they widen the pool to 94 characters with upper, lower, digits and symbols ON. Where forbidden, add length instead: +4 characters beats the lost symbol set at these sizes. If legacy sites cap at 12–16, max the length, enable all allowed pools and add two characters to compensate." },
+    { question: "Can I edit a generated password to improve it?", answer: "No — hand-editing uniform randomness only shrinks unpredictability. Generate three candidates and accept one verbatim from crypto.getRandomValues. Hand-improving by swapping a distrusted character only reduces entropy, so trust the uniform draw and store the result immediately without tweaks in your manager today securely for every account." },
+    { question: "What if my bank limits password length?", answer: "Max out their cap with all allowed pools, enable every alert and MFA option, and treat that account as weaker — monitor it more closely. Note legacy sites capped at 12–16 as weak, use authenticator over SMS, and never reuse its pattern for personal accounts elsewhere for safety." },
+    { question: "Do I need a manager if passwords are strong?", answer: "Yes — no human holds 200 unique 16-character secrets. The manager holds them; your brain holds two passphrases for email and master, while 2FA guards the rest. Copy straight into any reputable manager, never notes, chats or screenshots, and enable authenticator on email and bank today." },
   ],
 };

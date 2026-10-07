@@ -45,6 +45,7 @@ export const passwordPassphrase: BlogPost = {
     "are 4 random words safer",
     "correct horse battery staple entropy",
     "eff passphrase words",
+    "Is a passphrase stronger than a password?",
   ],
   toolSlugs: ["random-passphrase", "password-generator", "password-strength"],
   relatedSlugs: ["how-to-remember-passwords", "what-makes-password-strong", "how-to-create-strong-password"],
@@ -59,10 +60,10 @@ export const passwordPassphrase: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "Is a passphrase stronger than a password?", answer: "Five random EFF words (~64.6 bits) beat any memorizable gibberish and rival 12 random characters while staying memorable. Six words (~77.5 bits) match them. Randomness is mandatory — quotes and lyrics collapse entropy." },
+    { question: "Is a passphrase stronger than a password?", answer: "Five random EFF words (~64.6 bits) beat any memorizable gibberish and rival 12 random characters while staying memorable. Six words (~77.5 bits) match them for high-value masters. Randomness is mandatory — quotes and lyrics collapse entropy because attackers try published text first, unlike dice or crypto-generated draws." },
     { question: "How many words should a passphrase have?", answer: "Five minimum from a full 7,776-word list for master secrets, six for high-value ones. Four words suit low-value shared logins like guest Wi-Fi. Compact demo wordlists (like our practice tool's) carry far fewer bits — count only full-list draws toward these targets." },
-    { question: "Can I use song lyrics as a passphrase?", answer: "No — attackers try published text first. Only uniformly random words (dice, crypto generator) count toward the entropy math." },
-    { question: "What is Diceware?", answer: "Dice-picked words from a 7,776-entry list: five dice rolls per word, 5–6 words per secret. No software to trust; keep the first draw and destroy the paper after memorizing." },
-    { question: "Should stored passwords be passphrases?", answer: "No — where a manager removes memory constraints, full 16+ randomness wins (~104.9 bits). Passphrases are for the few secrets brains must hold." },
+    { question: "Can I use song lyrics as a passphrase?", answer: "No — attackers try published text first. Only uniformly random words from dice or crypto generators count toward the entropy math. Favorite quotes, lyrics or proverbs carry a fraction of expected entropy, collapsing toward single digits against smart attacks that try published text immediately for every master." },
+    { question: "What is Diceware?", answer: "Dice-picked words from a 7,776-entry list: five dice rolls per word, 5–6 words per secret. Dice have no code to backdoor and no memory to leak. No software to trust; keep the first draw since re-rolling injects bias, write on paper until memorized, then destroy it without photographing." },
+    { question: "Should stored passwords be passphrases?", answer: "No — where a manager removes memory constraints, full 16+ randomness wins (~104.9 bits). Use random strings for all 200 site logins, API keys and router admins with zero memory burden. Passphrases are for the few secrets brains must hold like masters, email and encryption keys." },
   ],
 };

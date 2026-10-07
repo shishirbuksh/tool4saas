@@ -59,6 +59,51 @@ import { wordLorem } from "@/content/blog/word-c6-lorem";
 import { wordTyping } from "@/content/blog/word-c7-typing";
 import { wordGrammar } from "@/content/blog/word-c8-grammar";
 import { wordTts } from "@/content/blog/word-c9-tts";
+import { imagePillar } from "@/content/blog/image-pillar";
+import { imagePortal100kb } from "@/content/blog/image-c1-portal-100kb";
+import { imageFormats } from "@/content/blog/image-c2-formats";
+import { imageResize } from "@/content/blog/image-c3-resize";
+import { imageWebp } from "@/content/blog/image-c4-webp";
+import { imageSvg } from "@/content/blog/image-c5-svg";
+import { imageExif } from "@/content/blog/image-c6-exif";
+import { imageSeo } from "@/content/blog/image-c7-seo";
+import { imageCrop } from "@/content/blog/image-c8-crop";
+import { pdfPillar } from "@/content/blog/pdf-pillar";
+import { pdfMergeOrder } from "@/content/blog/pdf-c1-merge-order";
+import { pdfScansPdf } from "@/content/blog/pdf-c2-scans-pdf";
+import { pdfExtractRange } from "@/content/blog/pdf-c3-extract-range";
+import { pdfCompress1mb } from "@/content/blog/pdf-c4-compress-1mb";
+import { pdfPagesJpg } from "@/content/blog/pdf-c5-pages-jpg";
+import { pdfRotateFix } from "@/content/blog/pdf-c6-rotate-fix";
+import { pdfWatermarkDraft } from "@/content/blog/pdf-c7-watermark-draft";
+import { pdfTextOcr } from "@/content/blog/pdf-c8-text-ocr";
+import { jsonPillar } from "@/content/blog/json-pillar";
+import { jsonParseErrors } from "@/content/blog/json-c1-parse-errors";
+import { base64Modes } from "@/content/blog/json-c2-base64-modes";
+import { hashCompare } from "@/content/blog/json-c3-hash-compare";
+import { uuidSeed } from "@/content/blog/json-c4-uuid-seed";
+import { regexFlags } from "@/content/blog/json-c5-regex-flags";
+import { jwtExpiry } from "@/content/blog/json-c6-jwt-expiry";
+import { urlEncoding } from "@/content/blog/json-c7-url-encoding";
+import { seoPillar } from "@/content/blog/seo-pillar";
+import { seoFixScore } from "@/content/blog/seo-c1-fix-score";
+import { seoTitleLength } from "@/content/blog/seo-c2-title-length";
+import { seoSplitSitemap } from "@/content/blog/seo-c3-split-sitemap";
+import { seoRobotsNoindex } from "@/content/blog/seo-c4-robots-noindex";
+import { seoStaleOg } from "@/content/blog/seo-c5-stale-og";
+import { seoUtmNaming } from "@/content/blog/seo-c6-utm-naming";
+import { seoAiFalsePositive } from "@/content/blog/seo-c7-ai-false-positive";
+import { seoGeoChecklist } from "@/content/blog/seo-c8-geo-checklist";
+import { wealthPillar } from "@/content/blog/wealth-pillar";
+import { sipGrowth } from "@/content/blog/wealth-c1-sip-5000";
+import { lumpSumFreq } from "@/content/blog/wealth-c2-lumpsum-frequency";
+import { fdTds } from "@/content/blog/wealth-c3-fd-tds";
+import { ppfExtend } from "@/content/blog/wealth-c4-ppf-extend";
+import { taxRegime } from "@/content/blog/wealth-c5-tax-regime";
+import { realReturn } from "@/content/blog/wealth-c6-real-return";
+import { sipCrore } from "@/content/blog/wealth-c7-sip-crore";
+import { ltcgFd } from "@/content/blog/wealth-c8-ltcg-fd";
+import { wealthBudgetVerdict } from "@/content/blog/wealth-c9-budget-verdict";
 
 export const BLOG_PILLARS: BlogPillarMeta[] = [
   {
@@ -157,6 +202,86 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     ],
     updated: "2026-09-26",
   },
+  {
+    pillar: "image-compressor-guide",
+    title: "Compress Images for Web Without Losing Quality: 80% Guide",
+    shortLabel: "Image Guide",
+    description:
+      "The complete image optimization guide — 80% quality rule, JPG vs PNG vs WebP, exact resize presets, 100KB portal method, EXIF privacy + image SEO.",
+    toolSlug: "image-compressor",
+    keywords: [
+      "how to compress images for web",
+      "compress images without losing quality",
+      "jpg vs png vs webp",
+      "resize image exact pixels",
+      "remove exif before upload",
+    ],
+    updated: "2026-10-07",
+  },
+  {
+    pillar: "pdf-merge-guide",
+    title: "Manage PDFs Offline: Merge, Split, Compress Without Uploading",
+    shortLabel: "PDF Guide",
+    description:
+      "The complete PDF workflow guide — merge in order, range extraction, 1MB compression, scans to PDF, JPG export, text vs OCR, rotate + watermark.",
+    toolSlug: "pdf-merge",
+    keywords: [
+      "how to manage pdf files offline",
+      "merge split compress pdf private",
+      "pdf tools without upload",
+      "jpg scans to single pdf",
+      "extract text from pdf without ocr",
+    ],
+    updated: "2026-10-07",
+  },
+  {
+    pillar: "json-formatter-guide",
+    title: "Debug API Responses Locally: JSON, Base64, JWT, Regex Guide",
+    shortLabel: "Developer Guide",
+    description:
+      "The complete local debugging guide — JSON errors, Base64 modes, SHA-256 vs MD5, UUID seeding, regex flags, JWT expiry + URL encoding. No uploads.",
+    toolSlug: "json-formatter",
+    keywords: [
+      "how to debug api json responses locally",
+      "json parse errors line column",
+      "base64 url safe vs standard",
+      "sha256 vs md5 which to use",
+      "jwt expiry check without trust",
+    ],
+    updated: "2026-10-07",
+  },
+  {
+    pillar: "seo-analyzer-guide",
+    title: "Score 80+ On-Page SEO Without a Plugin: 11 Checks",
+    shortLabel: "SEO Guide",
+    description:
+      "The complete on-page SEO workflow — 11 weighted checks, density truth, pixel titles, crawl plumbing, social cards + honest AI checks. Free analyzer.",
+    toolSlug: "seo-analyzer",
+    keywords: [
+      "how to score 80 on page seo without plugin",
+      "11 checks title slug density headings alt",
+      "600 words 1-2 percent density",
+      "rankmath vs yoast audit free",
+      "core web vitals vs on page",
+    ],
+    updated: "2026-10-07",
+  },
+  {
+    pillar: "sip-calculator-guide",
+    title: "SIP vs FD vs PPF: Where Should ₹5,000/Month Go (2026)",
+    shortLabel: "Wealth Guide",
+    description:
+      "The complete India wealth guide — SIP vs FD vs PPF numbers, compounding frequency, tax regimes, real returns, goal math + LTCG. Free calculators.",
+    toolSlug: "sip-calculator",
+    keywords: [
+      "sip vs fd vs ppf which is better india 2026",
+      "sip vs lumpsum returns comparison",
+      "ppf vs fd tax free comparison",
+      "step-up sip vs flat sip",
+      "real vs nominal return after inflation",
+    ],
+    updated: "2026-10-07",
+  },
 ];
 
 const ALL_POSTS: BlogPost[] = [
@@ -220,6 +345,51 @@ const ALL_POSTS: BlogPost[] = [
   wordTyping,
   wordGrammar,
   wordTts,
+  imagePillar,
+  imagePortal100kb,
+  imageFormats,
+  imageResize,
+  imageWebp,
+  imageSvg,
+  imageExif,
+  imageSeo,
+  imageCrop,
+  pdfPillar,
+  pdfMergeOrder,
+  pdfScansPdf,
+  pdfExtractRange,
+  pdfCompress1mb,
+  pdfPagesJpg,
+  pdfRotateFix,
+  pdfWatermarkDraft,
+  pdfTextOcr,
+  jsonPillar,
+  jsonParseErrors,
+  base64Modes,
+  hashCompare,
+  uuidSeed,
+  regexFlags,
+  jwtExpiry,
+  urlEncoding,
+  seoPillar,
+  seoFixScore,
+  seoTitleLength,
+  seoSplitSitemap,
+  seoRobotsNoindex,
+  seoStaleOg,
+  seoUtmNaming,
+  seoAiFalsePositive,
+  seoGeoChecklist,
+  wealthPillar,
+  sipGrowth,
+  lumpSumFreq,
+  fdTds,
+  ppfExtend,
+  taxRegime,
+  realReturn,
+  sipCrore,
+  ltcgFd,
+  wealthBudgetVerdict,
 ];
 
 export function getPillarMeta(pillar: string): BlogPillarMeta | undefined {

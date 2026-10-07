@@ -40,6 +40,7 @@ export const passwordWifi: BlogPost = {
     "router admin password length",
     "wpa3 password generator offline",
     "guest wifi network setup",
+    "What is a strong Wi-Fi password?",
   ],
   toolSlugs: ["password-generator", "random-string", "password-strength"],
   relatedSlugs: ["how-to-create-strong-password", "random-password-ideas", "2fa-vs-passkeys"],
@@ -54,10 +55,10 @@ export const passwordWifi: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is a strong Wi-Fi password?", answer: "20+ random characters or a 5-word passphrase on WPA2-AES minimum (WPA3 preferred). Dictation-friendly passphrases suit sharing; max randomness suits set-and-forget routers." },
-    { question: "Should router admin and Wi-Fi passwords differ?", answer: "Always — admin guards settings (DNS, firmware), Wi-Fi guards joining. Different 20+ secrets; guests get Wi-Fi only, never admin." },
-    { question: "Is WEP or open Wi-Fi ever OK?", answer: "No — both offer zero real protection and fall in minutes. Minimum WPA2-AES; upgrade hardware if it cannot do better." },
-    { question: "Where do smart home gadgets go?", answer: "Isolated guest network, away from laptops and NAS. Change gadget defaults where possible; isolation is the defense where not." },
-    { question: "What do I do with the router when moving?", answer: "Factory-reset before selling or returning — Wi-Fi history, ISP credentials and configs persist in backups otherwise." },
+    { question: "What is a strong Wi-Fi password?", answer: "20+ random characters or a 5-word passphrase on WPA2-AES minimum (WPA3 preferred). Dictation-friendly passphrases suit sharing via QR; max randomness suits set-and-forget routers. Generate 5-word phrases for ease or 20-char random for strength, with separate guest SSIDs always isolated from main devices today for complete safety." },
+    { question: "Should router admin and Wi-Fi passwords differ?", answer: "Always — admin guards settings (DNS, firmware, port forwarding), Wi-Fi guards joining. Use different 20+ secrets; guests get Wi-Fi only via QR, never admin. Botnets scan admin/admin daily, so change defaults immediately, disable remote administration, and factory-reset secondhand routers before configuring for complete safety always." },
+    { question: "Is WEP or open Wi-Fi ever OK?", answer: "No — both offer zero real protection and fall in minutes. Minimum WPA2-AES; upgrade hardware if it cannot do better. Check firmware updates first, since unpatched routers fall regardless of password strength. Use WPA3 where hardware supports it and never rely on WEP or open networks." },
+    { question: "Where do smart home gadgets go?", answer: "Isolated guest network, away from laptops and NAS. Smart bulbs, cameras and plugs ship with default credentials, so change gadget defaults where possible; isolation is the defense where not. Share via QR, rotate yearly, and quarantine IoT where compromise reaches internet but never your laptop." },
+    { question: "What do I do with the router when moving?", answer: "Factory-reset before selling or returning — Wi-Fi history, ISP credentials and configs persist in backups otherwise. Verify by logging back with defaults, remove from trusted-device lists, and rotate any password typed on admin pages. Movers should rebuild clean with new SSID and secrets everywhere for complete safety." },
   ],
 };

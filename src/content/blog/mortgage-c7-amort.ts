@@ -52,6 +52,7 @@ export const mortgageAmort: BlogPost = {
     "how amortization front-loads interest",
     "principal vs interest over time",
     "amortization table explained",
+    "Why is my early mortgage payment mostly interest?",
   ],
   toolSlugs: ["mortgage-calculator", "mortgage-overpayment-calculator", "refinance-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "mortgage-overpayment-extra-payment", "down-payment-pmi-cost"],
@@ -67,10 +68,10 @@ export const mortgageAmort: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "Why is my early mortgage payment mostly interest?", answer: "Each payment covers that month's interest on the full remaining balance first. Early balances are large so interest dominates; as principal falls the split flips toward principal around year 12–15." },
-    { question: "How do I read an amortization schedule?", answer: "Track principal vs interest by year (overpay timing), remaining balance vs value (PMI exit), cumulative interest (refinance comparison) and the final row (payoff date)." },
-    { question: "When do payments become mostly principal?", answer: "Roughly year 12–15 of a 30-year fixed loan. Extra payments before the flip earn the most lifetime-interest savings." },
-    { question: "Does extra payment change the schedule?", answer: "Yes — principal-only extras compress all future rows: less interest each month after, earlier payoff. Model it in the overpayment calculator." },
-    { question: "Is this amortization advice?", answer: "No — illustrative education as of Sept 2026 for fixed-rate P&I. ARM resets rewrite future rows; consult a qualified advisor; see /terms." },
+    { question: "Why is my early mortgage payment mostly interest?", answer: "Each payment covers that month's interest on the full remaining balance first. Month one on $240,000 at 6% is ~$1,200 interest plus ~$239 principal; year one totals ~$14,300 interest with ~$3,000 principal. Early balances are large so interest dominates; as principal falls the split flips toward principal around year 12–15." },
+    { question: "How do I read an amortization schedule?", answer: "Track principal vs interest by year (overpay timing before year 15), remaining balance vs value (PMI exit at 20% equity), cumulative interest (refinance comparison) and the final row (payoff date). Download CSV yearly tables, chart cumulative interest curves, and remember ARM resets rewrite future rows completely for planning." },
+    { question: "When do payments become mostly principal?", answer: "Roughly year 12–15 of a 30-year fixed loan, when payments turn principal-majority. Extra payments before the flip earn the most lifetime-interest savings, so front-load cash early. As a rule, in year N roughly (30−N)/30 of payment still goes to interest; overpayments after flipping earn noticeably less." },
+    { question: "Does extra payment change the schedule?", answer: "Yes — principal-only extras compress all future rows: less interest each month after, earlier payoff. One $10,000 lump at month 12 deletes ~30 payments and pulls payoff over a year closer. Year-one dollars outweigh year-20 dollars ~5× saved. Model exact compressions in the overpayment calculator with automation today." },
+    { question: "Is this amortization advice?", answer: "No — illustrative education as of Sept 2026 for fixed-rate P&I, excluding taxes, insurance, PMI, HOA, fees and ARM resets. ARM resets rewrite future rows, so never plan ten years from teaser schedules. Generate yearly tables plus CSV exports, then consult a qualified advisor; see /terms." },
   ],
 };

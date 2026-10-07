@@ -54,7 +54,7 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "finance",
     label: "Finance & Money",
     description:
-      "Mortgage, investment, salary and tax calculators for planning — informational only, not financial advice.",
+      "Mortgage, SIP, salary and tax calculators for planning — 24 free tools, informational only, not financial advice.",
   },
   {
     id: "health",

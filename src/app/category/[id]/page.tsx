@@ -8,7 +8,7 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Grid from "@mui/material/Grid";
 import ToolCard from "@/components/ToolCard";
 import { CATEGORIES, getCategory, toolsByCategoryCached, NOINDEX_SLUGS } from "@/lib/tools";
-import { introForCategory, faqContentForCategory } from "@/lib/category-content";
+import { introForCategory, faqContentForCategory, seoTitleForCategory } from "@/lib/category-content";
 import { siteConfig } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -26,8 +26,11 @@ export async function generateMetadata({
   const base = siteConfig.url.replace(/\/$/, "");
   const canonical = `${base}/category/${id}`;
   const ogImage = `${base}/og/category-${id}`;
+  // Enriched core (~40ch) instead of bare label (21-30ch rendered) — hub
+  // pages carry priority 0.7 above 185 tool links and need keyword signal.
+  const seoTitle = seoTitleForCategory(id, category.label);
   return {
-    title: category.label,
+    title: seoTitle,
     description: category.description,
     alternates: { canonical, languages: { en: canonical, "x-default": canonical } },
     robots: {
@@ -48,13 +51,13 @@ export async function generateMetadata({
       locale: siteConfig.locale,
       url: canonical,
       siteName: siteConfig.name,
-      title: `${category.label} — ${siteConfig.name}`,
+      title: `${seoTitle} — ${siteConfig.name}`,
       description: category.description,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: `${category.label} — ${siteConfig.name}` }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${seoTitle} — ${siteConfig.name}` }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${category.label} — ${siteConfig.name}`,
+      title: `${seoTitle} — ${siteConfig.name}`,
       description: category.description,
       images: [ogImage],
     },
@@ -126,6 +129,10 @@ export default async function CategoryPage({
         description: category.description,
         isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
         author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [".faq-passage", ".category-answer-first"],
+        },
         mainEntity: {
           "@type": "ItemList",
           itemListElement: visibleTools.map((t, i) => ({
@@ -231,7 +238,7 @@ export default async function CategoryPage({
               >
                 {f.q}
               </Typography>
-              <Typography color="text.secondary" sx={{ lineHeight: 1.7, mt: 1 }}>
+              <Typography color="text.secondary" className="faq-passage speakable-answer-first" sx={{ lineHeight: 1.7, mt: 1 }}>
                 {parts ? (
                   <>
                     {parts.map((part, idx) => (

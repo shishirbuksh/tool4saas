@@ -53,6 +53,7 @@ export const resumeCoverLetter: BlogPost = {
     "cover letter for job application",
     "cover letter tone professional",
     "short cover letter sample",
+    "How long should a cover letter be?",
   ],
   toolSlugs: ["cover-letter-builder", "resume-builder", "ats-resume-checker"],
   relatedSlugs: ["how-to-make-resume", "fresher-resume-guide", "offer-letter-guide"],
@@ -67,10 +68,10 @@ export const resumeCoverLetter: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How long should a cover letter be?", answer: "250–350 words, four paragraphs. Hiring managers spend ~30 seconds; concise tailored letters beat long generic ones. Referrals can go shorter at ~150 words." },
-    { question: "What goes in each cover letter paragraph?", answer: "Hook (role + years + metric), fit (2–3 requirements mapped to proof), why-them (one specific company point), close (availability + interview ask)." },
-    { question: "Should freshers write cover letters?", answer: "Yes — most skip them, so a tailored 250-word letter with one project proof stands out disproportionately and doubles shortlist odds in my experience." },
-    { question: "Professional or enthusiastic tone?", answer: "Professional for banks and enterprises, enthusiastic for startups and junior roles, concise for referrals and volume. Same details, different voice — pick per employer." },
-    { question: "Should salary go in the cover letter?", answer: "No — negotiate at offer stage. Early numbers anchor low or filter you out before anyone reads your proof." },
+    { question: "How long should a cover letter be?", answer: "250–350 words, four paragraphs. Hiring managers spend ~30 seconds; concise tailored letters beat long generic ones. Referrals can go shorter at ~150 words with three bullets. Swap paragraphs two and three per application in 10 minutes, since generic letters read worse than none at all." },
+    { question: "What goes in each cover letter paragraph?", answer: "Hook (role + years + metric like 3 yrs Node.js cutting failures 30%), fit (2–3 requirements mapped to proof), why-them (one specific company point like UPI-switch migration), close (availability + interview ask). Mirror their language throughout; never repeat the resume, but interpret why you fit this exact role." },
+    { question: "Should freshers write cover letters?", answer: "Yes — most skip them, so a tailored 250-word letter with one project proof stands out disproportionately and doubles shortlist odds in my experience. Use enthusiastic tone with proof-led energy for startups and junior roles, mapping two requirements to your strongest project for impact today." },
+    { question: "Professional or enthusiastic tone?", answer: "Professional for banks and enterprises, enthusiastic for startups and junior roles, concise for referrals and volume. Same details, different voice — pick per employer. Professional stays measured and formal, enthusiastic adds proof-led energy, concise delivers 150 words in three bullets for high-volume applications every time." },
+    { question: "Should salary go in the cover letter?", answer: "No — negotiate at offer stage per the offer guide, not in the introduction. Early numbers anchor low or filter you out before anyone reads your proof. A wrong company name or salary demand ends the read instantly, so close with availability and an interview ask instead." },
   ],
 };

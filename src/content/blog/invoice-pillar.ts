@@ -166,7 +166,7 @@ export const invoicePillar: BlogPost = {
   kind: "pillar",
   title: "Free Invoice Generator Guide: Create Professional Invoices in Minutes",
   description:
-    "Learn how to create a professional invoice free — 12-point checklist, 5-step PDF walkthrough, GST rules, templates, numbering and payment tips. No signup needed.",
+    "Create a professional invoice free: 12-point checklist, 5-step PDF walkthrough, GST rules, templates and numbering tips.",
   keywords: [
     "free invoice generator guide",
     "free invoice generator online no signup",
@@ -176,6 +176,7 @@ export const invoicePillar: BlogPost = {
     "free professional invoice generator india",
     "invoice template guide",
     "gst invoice format guide",
+    "How can I create an invoice for free with no signup?",
   ],
   toolSlugs: ["invoice-generator", "freelance-gst-invoice-generator", "quotation-generator", "receipt-generator"],
   relatedSlugs: ["how-to-create-invoice-online", "gst-invoice-format-india", "freelancer-invoice-guide"],
