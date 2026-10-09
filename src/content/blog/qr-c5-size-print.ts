@@ -58,9 +58,9 @@ export const qrSizePrint: BlogPost = {
   pillar: "qr-code-generator-guide",
   slug: "qr-code-size-print-guide",
   kind: "cluster",
-  title: "QR Code Size Guide: Minimum Sizes for Print & Distance (2026)",
+  title: "QR Code Print Size: cm, Inches & Pixels Chart (2026)",
   description:
-    "QR code size guide: minimum print sizes, distance rule, 512px vs 2048px, paper and finish tips. Tested numbers for cards to billboards.",
+    "QR print size chart: 2cm cards, 3-5cm tents, 10-20cm posters. Distance-divided-by-10 rule, 512 vs 2048px, matte tips — tested 2026.",
   keywords: [
     "qr code size for print",
     "minimum qr code size",

@@ -26,6 +26,8 @@ export default function RelatedTools({ slug }: { slug: string }) {
             key={t.slug}
             href={`/${t.slug}`}
             underline="none"
+            title={`${t.title} – ${t.short} (free, no signup)`}
+            aria-label={`Open ${t.title} tool – ${t.short}, free`}
             sx={{
               display: "inline-flex",
               alignItems: "center",

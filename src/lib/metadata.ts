@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import { getTool } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
+import { getPilotLocales } from "@/lib/i18n";
+
+function pilotLanguages(url: string, slug: string): Record<string, string> {
+  // Bidirectional hreflang for pilot slugs only (EN root <-> /<locale>/slug).
+  // Non-pilot tools keep {en, x-default} to avoid pointing at 404s.
+  // Generalized over getPilotLocales so new locales plug in via i18n.ts only.
+  const base = siteConfig.url.replace(/\/$/, "");
+  const langs: Record<string, string> = { en: url, "x-default": url };
+  for (const loc of getPilotLocales(slug)) {
+    langs[loc as string] = `${base}/${loc}/${slug}`;
+  }
+  return langs;
+}
 
 export function toolMetadata(slug: string): Metadata {
   const tool = getTool(slug);
@@ -64,7 +77,7 @@ export function toolMetadata(slug: string): Metadata {
     authors: [{ name: siteConfig.author }],
     alternates: {
       canonical: url,
-      languages: { en: url, "x-default": url },
+      languages: pilotLanguages(url, slug),
     },
     robots: {
       index: true,

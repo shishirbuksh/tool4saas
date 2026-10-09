@@ -4,9 +4,9 @@ export const businessTools: Tool[] = [
   {
     slug: "invoice-generator",
     title: "Invoice Generator",
-    short: "Create & download professional invoices",
+    short: "Free PDF with GST & logo",
     description:
-      "Build clean PDF invoices with your logo, line items, taxes and totals. Free invoice generator that works offline in your browser with no sign-up needed.",
+      "Free invoice generator: build clean PDF invoices with logo, GST, tax & totals. Works offline in your browser, no sign-up needed.",
     icon: "ReceiptLong",
     keywords: ["invoice generator", "download invoice pdf", "invoice maker with logo tax", "bill generator no signup", "how to create gst invoice with hsn code?", "free invoice generator", "hsn wise gstr-1 invoice template", "proforma vs tax invoice format", "sales receipt creator offline"],
     category: "business",

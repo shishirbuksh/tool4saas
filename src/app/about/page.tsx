@@ -7,9 +7,9 @@ import { staticPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = staticPageMetadata({
-  title: "About Tool4SaaS — Free Privacy-First Tools",
+  title: "About Tool4SaaS — Team & How We Test",
   description:
-    "Tool4SaaS is a free, privacy-friendly collection of browser-based productivity tools. Learn how and why we built it.",
+    "Meet the Tool4SaaS team, our local-first mission, testing rig and contact. Online-only service, replies in 2 business days.",
   path: "/about",
 });
 
@@ -25,7 +25,7 @@ export default function AboutPage() {
           <span translate="no">{siteConfig.name}</span> is a collection of free, privacy-friendly productivity tools that run mostly in your browser. Most tools run 100% locally; 4 network tools (currency converter, YouTube thumbnails, SSL checker, voice input) need internet — see <Link href="/privacy">/privacy</Link>. We built it because great tools shouldn&apos;t require an account, a subscription, or handing over your data.
         </Typography>
         <Typography  sx={{ display: "block", mb: 1 }}>
-          Most tools — from the invoice generator to the word counter — process your input locally on your device. Nothing you type is uploaded to our servers unless you explicitly download or print the result, except for the 4 network tools disclosed in our Privacy Policy.
+          Most tools process your input locally on your device. Nothing you type is uploaded to our servers unless you explicitly download or print the result, except for the 4 network tools disclosed in our Privacy Policy.
         </Typography>
         <Typography  sx={{ display: "block", mb: 1 }}>
           We keep the service free by displaying advertisements. This helps us cover hosting and continue improving the toolkit. Thank you for using it.
@@ -40,7 +40,7 @@ export default function AboutPage() {
       <Box component="section" aria-label="Timeline" sx={{ mt: 4 }}>
         <Typography variant="h2" sx={{ fontSize: "1.5rem", mb: 1, color: "text.primary" }}>Launched in 2026: why local-first</Typography>
         <Typography sx={{ display: "block", mb: 1, color: "text.secondary", lineHeight: 1.8 }}>
-          <span translate="no">{siteConfig.name}</span> launched in 2026 as a one-person side project that grew into a maintained library of 185 free utilities. The founding constraint has never changed: tools must work the moment the page opens, with no account wall and no upload step. Most utilities therefore run entirely in the browser, a harder way to build that keeps invoices, resumes, and code on the visitor device. Advertising covers hosting so the library stays free.
+          <span translate="no">{siteConfig.name}</span> launched in 2026 as a one-person side project that grew into a maintained library of free utilities. The founding constraint has never changed: tools must work the moment the page opens, with no account wall and no upload step. Most utilities therefore run entirely in the browser, a harder way to build that keeps your work on the visitor device. Advertising covers hosting so the library stays free.
         </Typography>
       </Box>
       <Box component="section" aria-label="Testing rig" sx={{ mt: 4 }}>
@@ -103,10 +103,10 @@ export default function AboutPage() {
       >
         <Typography variant="h2" sx={{ fontSize: "1.5rem", mb: 1, color: "text.primary" }}>Why I built this</Typography>
         <Typography sx={{ display: "block", mb: 1, color: "text.secondary", lineHeight: 1.8 }}>
-          I started <span translate="no">{siteConfig.name}</span> because I kept hitting the same wall: I needed a quick invoice, a QR code, or a word count, and every site asked me to sign up or upload my files first. I wanted tools that just work — open the page, get it done, leave nothing behind.
+          I started <span translate="no">{siteConfig.name}</span> because I kept hitting the same wall: I needed a quick document, code or calculation, and every site asked me to sign up or upload my files first. I wanted tools that just work — open the page, get it done, leave nothing behind.
         </Typography>
         <Typography sx={{ display: "block", color: "text.secondary", lineHeight: 1.8 }}>
-          So I built every tool to run locally in your browser. Your text, invoices, and images never leave your device. That constraint makes the work harder, but it is the whole point — and why I keep <span translate="no">{siteConfig.name}</span> free and privacy-first.
+          So I built every tool to run locally in your browser. Your text and files never leave your device. That constraint makes the work harder, but it is the whole point — and why I keep <span translate="no">{siteConfig.name}</span> free and privacy-first.
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
           — Founder, <span translate="no">{siteConfig.name}</span> · <time dateTime="2026-09-09">September 9, 2026</time>

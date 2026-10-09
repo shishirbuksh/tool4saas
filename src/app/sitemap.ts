@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/site";
 import { tools, CATEGORIES, NOINDEX_SLUGS } from "@/lib/tools";
 import { BLOG_PILLARS, getClustersForPillar } from "@/lib/blog-registry";
 import { getDateModifiedIso } from "@/lib/dates";
+import { ES_BLOG_PILOTS, HUB_LOCALES, NON_DEFAULT_LOCALES, pilotSlugsForLocale } from "@/lib/i18n";
 
 export const revalidate = 86400;
 
@@ -110,5 +111,51 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...home, ...pages, ...categoryRoutes, ...toolRoutes, ...blogIndex, ...blogPillars, ...blogClusters];
+  // Pilot i18n (P1): subdirectory with English slugs kept (/<locale>/<slug>).
+  // Only pilot slugs are listed — never multiply all 185 until EN CTR>=2%
+  // and the full [locale]/ migration lands (dynamic <html lang>, per-locale
+  // sitemaps, translated OG). Gated expansion, not day-one N locales.
+  // Generalized: per-locale pilot sets + hub only where a landing exists,
+  // so the sitemap never lists a page that does not exist.
+  const esPilotRoutes: MetadataRoute.Sitemap = NON_DEFAULT_LOCALES.flatMap((locale) => [
+    ...(HUB_LOCALES.includes(locale)
+      ? [
+          {
+            url: `${base}/${locale}`,
+            lastModified,
+            changeFrequency: "weekly" as const,
+            priority: 0.8,
+            images: [`${base}/og/home`],
+          },
+        ]
+      : []),
+    ...tools
+      .filter((t) => pilotSlugsForLocale(locale).has(t.slug) && !NOINDEX_SLUGS.has(t.slug))
+      .map((t) => ({
+        url: `${base}/${locale}/${t.slug}`,
+        lastModified: new Date(`${getDateModifiedIso(t.slug)}T00:00:00.000Z`),
+        changeFrequency: "monthly" as const,
+        priority: priorityForTool(t.slug, t.category),
+        images: [`${base}/og/${t.slug}`],
+      })),
+  ]);
+
+  // ES blog pilots (P1): /es/blog/<pillar>/<slug> with English pillar/slug kept.
+  // Only listed clusters — pillar pages stay EN-only in V1.
+  const esBlogRoutes: MetadataRoute.Sitemap = NON_DEFAULT_LOCALES.flatMap((locale) =>
+    [...ES_BLOG_PILOTS].map((key) => {
+      const [pillar, slug] = key.split("/");
+      const clusters = getClustersForPillar(pillar);
+      const cluster = clusters.find((c) => c.slug === slug);
+      return {
+        url: `${base}/${locale}/blog/${pillar}/${slug}`,
+        lastModified: new Date(`${cluster?.updated ?? "2026-09-22"}T00:00:00.000Z`),
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+        images: [`${base}/og/${cluster?.toolSlugs[0] ?? "qr-code-generator"}`],
+      };
+    }),
+  );
+
+  return [...home, ...pages, ...categoryRoutes, ...toolRoutes, ...blogIndex, ...blogPillars, ...blogClusters, ...esPilotRoutes, ...esBlogRoutes];
 }

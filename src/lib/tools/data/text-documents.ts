@@ -184,8 +184,8 @@ export const textDocumentsTools: Tool[] = [
   {
     slug: "plagiarism-checker",
     title: "Plagiarism Checker",
-    short: "Check uniqueness %",
-    description: "Check originality with 5-gram plagiarism scanning. Score an 800-word post at 96 percent unique locally, free offline, no signup.",
+    short: "800 words 96% unique free",
+    description: "Free plagiarism checker: score 800 words at 96% unique with 5-gram scan. 100% local, offline, no signup needed.",
     icon: "FindReplace",
     keywords: ["plagiarism checker", "duplicate checker", "plagiarism analyzer", "duplicate content checker", "is 800 words at 96 percent unique original?", "plagiarism checker online free", "5 gram sliding window overlap match", "95 percent vs 70 percent rewrite flag", "uniqueness checker"],
     category: "text-documents",
@@ -196,8 +196,8 @@ export const textDocumentsTools: Tool[] = [
   {
     slug: "typing-speed-test",
     title: "Typing Speed Test",
-    short: "WPM & accuracy",
-    description: "Test typing speed with a 60-second passage, live WPM and accuracy tracking, error highlighting, and restartable rounds to improve keyboard skills offline.",
+    short: "62 WPM free 60-sec test",
+    description: "Free 60-second typing test: hit 62 WPM at 97% with live WPM, accuracy & errors. Restartable rounds to boost keyboard skills offline.",
     icon: "TextSnippet",
     keywords: ["typing speed test", "wpm test", "typing speed checker", "wpm counter", "is 62 wpm at 97 percent good?", "typing speed test online free", "chars divided by 5 accuracy formula", "62 wpm vs 40 average professional", "typing test online"],
     category: "text-documents",

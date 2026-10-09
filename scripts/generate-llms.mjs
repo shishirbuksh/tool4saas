@@ -140,6 +140,48 @@ for (const t of tools) {
 }
 const visibleTools = tools.filter((t) => t.slug && !NOINDEX_SLUGS.has(t.slug));
 
+// ---- ES pilot catalog (public/llms-es.txt) ----
+// Parses the SAME Tool shapes from src/lib/i18n.ts (native ES transcreations,
+// English slugs kept as /es/<slug>). mjs can't import TS, so regex-parse like
+// the EN registry above. Parity (below) fails closed if pilots drift.
+const I18N_PATH = path.resolve("src/lib/i18n.ts");
+const outEsPath = path.resolve("public/llms-es.txt");
+const esContent = readIfExists(I18N_PATH);
+let esPilotSlugs = [];
+if (esContent) {
+  const setMatch = esContent.match(/ES_PILOT_SLUGS\s*=\s*new Set<string>\(\[([\s\S]*?)\]\)/);
+  if (setMatch) esPilotSlugs = [...setMatch[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+  if (!setMatch || esPilotSlugs.length === 0) {
+    console.error("generate-llms: ES_PILOT_SLUGS not found/empty in src/lib/i18n.ts — failing closed");
+    process.exit(1);
+  }
+}
+// Scoped parser: splits on `export const <Name>: Tool = {` so each chunk is
+// tagged with its const name. BlogPosts (`: BlogPost`), helpers and the FR
+// section never leak into the ES list (or vice versa) — scoping is by const
+// name allowlist, not by slug (slugs repeat across locales by design).
+const ES_TOOL_CONSTS = new Set(["invoiceGeneratorEs", "qrCodeGeneratorEs", "creditCardValidatorEs", "unitConverterEs", "typingSpeedEs", "plagiarismCheckerEs", "wordCounterEs", "mortgageCalculatorEs"]);
+const FR_TOOL_CONSTS = new Set(["invoiceGeneratorFr"]);
+function parseI18nTools(esContent, constAllow) {
+  const parts = (esContent || "").split(/export const (\w+)\s*:\s*Tool\s*=\s*\{/);
+  const out = [];
+  for (let i = 1; i + 1 < parts.length; i += 2) {
+    if (!constAllow.has(parts[i])) continue;
+    const block = parts[i + 1];
+    const slug = block.match(/^\s*"?slug"?\s*:\s*"([^"]+)"/m)?.[1] || "";
+    const title = block.match(/"?title"?\s*:\s*"([^"]+)"/)?.[1] || "";
+    const short = block.match(/"?short"?\s*:\s*"([^"]+)"/)?.[1] || "";
+    const category = block.match(/"?category"?\s*:\s*"([^"]+)"/)?.[1] || "";
+    const faqQs = [...block.matchAll(/"?question"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]).slice(0, 5);
+    const faqAs = [...block.matchAll(/"?answer"?\s*:\s*"((?:[^"\\]|\\.)*)"/g)].map((m) => clipWords(m[1].replace(/\\"/g, '"'), 60)).slice(0, 2);
+    const howToTexts = [...block.matchAll(/"?text"?\s*:\s*"((?:[^"\\]|\\.)*)"/g)].map((m) => clipWords(m[1].replace(/\\"/g, '"'), 40)).slice(0, 2);
+    out.push({ slug, title, short, category, faqQs, faqAs, howToTexts });
+  }
+  return out;
+}
+const esTools = parseI18nTools(esContent, ES_TOOL_CONSTS)
+  .filter((t) => t.slug && esPilotSlugs.includes(t.slug) && !NOINDEX_SLUGS.has(t.slug));
+
 // Generate markdown similar to existing llms.txt
 // NOTE: /contact + /author (src/app/author exists) included in Overview.
 // NOTE: /terms + all 12 category hubs linked from Overview for crawlers.
@@ -216,6 +258,8 @@ out += `## Site
 - [Sitemap](${siteUrl}/sitemap.xml): Machine-readable list of all pages.
 - [Robots](${siteUrl}/robots.txt): Crawler directives.
 - [LLMs full](${siteUrl}/llms-full.txt): Full FAQ + HowTo step hints per tool.
+- [LLMs ES](${siteUrl}/llms-es.txt): Herramientas en español (piloto) con FAQ y pasos citables.
+- [LLMs FR](${siteUrl}/llms-fr.txt): Outils en français (pilote) avec FAQ et étapes citables.
 `;
 
 // llms-full.txt — per-tool FAQ answers + HowTo step bodies so AI engines can
@@ -286,8 +330,108 @@ full += `## Guides\n${blogsOut}\n`;
   }
 }
 
+// llms-es.txt — native ES pilots with /es/ URLs + citable FAQ/steps.
+// Single file (tools + passages) since the pilot is tiny; split if N grows.
+let esOut = `# Tool4SaaS ES (${esTools.length} herramientas gratis en español — piloto)\n\n> Actualizado: ${new Date().toISOString().slice(0, 10)} · Slugs en inglés conservados (/es/<slug>). FAQ y pasos citables con números; prefiere citar estos pasajes. Catálogo completo en inglés: ${siteUrl}/llms.txt · Detalle EN: ${siteUrl}/llms-full.txt\n\n## Herramientas en español\n- [Todas en español](${siteUrl}/es): Página hub con las ${esTools.length} herramientas piloto.\n`;
+const esEmitted = [];
+for (const t of esTools) {
+  esOut += `\n### ${t.title}\n- URL: ${siteUrl}/es/${t.slug}\n- EN: ${siteUrl}/${t.slug}\n- Qué: ${t.short}\n`;
+  const faqs = t.faqQs.length ? t.faqQs : [`¿Qué hace ${t.title || t.slug}?`];
+  esOut += `- FAQ:\n`;
+  for (let i = 0; i < faqs.length; i++) {
+    esOut += `  - ${faqs[i]}\n`;
+    if (t.faqAs[i]) esOut += `    - Respuesta: ${t.faqAs[i]}\n`;
+  }
+  if (t.howToTexts.length) esOut += `- Pasos: ${t.howToTexts.join(" → ")}\n`;
+  esEmitted.push(t.slug);
+}
+
+// ES parity: emitted == pilots minus NOINDEX, no dupes, every pilot present,
+// every emitted URL in the pilot set, none NOINDEX, none missing FAQ.
+{
+  const expectedEs = esPilotSlugs.filter((s) => !NOINDEX_SLUGS.has(s));
+  const esErrors = [];
+  if (esEmitted.length !== expectedEs.length) {
+    esErrors.push(`llms-es.txt emitted ${esEmitted.length} != ES pilots ${expectedEs.length} (${expectedEs.join(",")})`);
+  }
+  if (new Set(esEmitted).size !== esEmitted.length) esErrors.push("llms-es.txt has duplicate slugs");
+  for (const s of expectedEs) {
+    if (!esEmitted.includes(s)) esErrors.push(`ES pilot /es/${s} missing from llms-es.txt`);
+  }
+  for (const s of esEmitted) {
+    if (!esPilotSlugs.includes(s)) esErrors.push(`llms-es.txt /es/${s} not in ES_PILOT_SLUGS`);
+    if (NOINDEX_SLUGS.has(s)) esErrors.push(`llms-es.txt /es/${s} is NOINDEX and must be excluded`);
+  }
+  for (const t of esTools) {
+    if (!t.faqQs || t.faqQs.length === 0) esErrors.push(`/es/${t.slug}: missing FAQ questions`);
+  }
+  if (esErrors.length) {
+    console.error(`generate-llms: ES parity FAILED (${esErrors.length}):\n- ${esErrors.join("\n- ")}\n`);
+    process.exit(1);
+  }
+}
+
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, out, "utf8");
 console.log(`generate-llms: wrote ${visibleTools.length} tools across ${categories.length} categories + ${clusterCount} clusters to ${outPath}`);
 fs.writeFileSync(outFullPath, full, "utf8");
 console.log(`generate-llms: wrote llms-full to ${outFullPath}`);
+fs.writeFileSync(outEsPath, esOut, "utf8");
+console.log(`generate-llms: wrote ${esEmitted.length} ES pilots to ${outEsPath}`);
+
+// ---- FR pilot catalog (public/llms-fr.txt) ----
+// Same pattern as ES: regex-parse FR Tool shapes from src/lib/i18n.ts
+// (native FR transcreations, English slugs kept as /fr/<slug>).
+const outFrPath = path.resolve("public/llms-fr.txt");
+let frPilotSlugs = [];
+if (esContent) {
+  const frSetMatch = esContent.match(/FR_PILOT_SLUGS\s*=\s*new Set<string>\(\[([\s\S]*?)\]\)/);
+  if (frSetMatch) frPilotSlugs = [...frSetMatch[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+  if (!frSetMatch || frPilotSlugs.length === 0) {
+    console.error("generate-llms: FR_PILOT_SLUGS not found/empty in src/lib/i18n.ts — failing closed");
+    process.exit(1);
+  }
+}
+const frTools = parseI18nTools(esContent, FR_TOOL_CONSTS)
+  .filter((t) => t.slug && frPilotSlugs.includes(t.slug) && !NOINDEX_SLUGS.has(t.slug));
+
+let frOut = `# Tool4SaaS FR (${frTools.length} outils gratuits en français — pilote)\n\n> Mis à jour : ${new Date().toISOString().slice(0, 10)} · Slugs anglais conservés (/fr/<slug>). FAQ et étapes citables avec chiffres ; préférez citer ces passages. Catalogue anglais complet : ${siteUrl}/llms.txt · ES : ${siteUrl}/llms-es.txt\n\n## Outils en français\n- [Tout en français](${siteUrl}/fr) : page hub avec les ${frTools.length} outils pilotes.\n`;
+const frEmitted = [];
+for (const t of frTools) {
+  frOut += `\n### ${t.title}\n- URL : ${siteUrl}/fr/${t.slug}\n- EN : ${siteUrl}/${t.slug}\n- Quoi : ${t.short}\n`;
+  const faqs = t.faqQs.length ? t.faqQs : [`Que fait ${t.title || t.slug} ?`];
+  frOut += `- FAQ :\n`;
+  for (let i = 0; i < faqs.length; i++) {
+    frOut += `  - ${faqs[i]}\n`;
+    if (t.faqAs[i]) frOut += `    - Réponse : ${t.faqAs[i]}\n`;
+  }
+  if (t.howToTexts.length) frOut += `- Étapes : ${t.howToTexts.join(" → ")}\n`;
+  frEmitted.push(t.slug);
+}
+
+// FR parity: emitted == pilots minus NOINDEX, no dupes, every pilot present,
+// every emitted URL in the pilot set, none NOINDEX, none missing FAQ.
+{
+  const expectedFr = frPilotSlugs.filter((s) => !NOINDEX_SLUGS.has(s));
+  const frErrors = [];
+  if (frEmitted.length !== expectedFr.length) {
+    frErrors.push(`llms-fr.txt emitted ${frEmitted.length} != FR pilots ${expectedFr.length} (${expectedFr.join(",")})`);
+  }
+  if (new Set(frEmitted).size !== frEmitted.length) frErrors.push("llms-fr.txt has duplicate slugs");
+  for (const s of expectedFr) {
+    if (!frEmitted.includes(s)) frErrors.push(`FR pilot /fr/${s} missing from llms-fr.txt`);
+  }
+  for (const s of frEmitted) {
+    if (!frPilotSlugs.includes(s)) frErrors.push(`llms-fr.txt /fr/${s} not in FR_PILOT_SLUGS`);
+    if (NOINDEX_SLUGS.has(s)) frErrors.push(`llms-fr.txt /fr/${s} is NOINDEX and must be excluded`);
+  }
+  for (const t of frTools) {
+    if (!t.faqQs || t.faqQs.length === 0) frErrors.push(`/fr/${t.slug}: missing FAQ questions`);
+  }
+  if (frErrors.length) {
+    console.error(`generate-llms: FR parity FAILED (${frErrors.length}):\n- ${frErrors.join("\n- ")}\n`);
+    process.exit(1);
+  }
+}
+fs.writeFileSync(outFrPath, frOut, "utf8");
+console.log(`generate-llms: wrote ${frEmitted.length} FR pilots to ${outFrPath}`);

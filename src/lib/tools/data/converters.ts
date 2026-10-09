@@ -4,9 +4,9 @@ export const convertersTools: Tool[] = [
   {
     slug: "unit-converter",
     title: "Unit Converter",
-    short: "Convert length, weight, temp & more",
+    short: "km to miles, kg to lb free",
     description:
-      "Convert length, weight, temperature, volume, time and data instantly. Exact factors with 6-decimal precision, offline and private in your browser.",
+      "Free unit converter: 10 mi = 16.09 km, 150 lb = 68.04 kg, 20C = 68F. Exact 6-decimal factors, offline & private in browser.",
     icon: "Straighten",
     keywords: ["unit converter", "length weight converter", "km to miles converter", "kg to lb converter", "how to convert km to miles?", "unit converter free offline", "metric imperial factors affine conversion", "metric vs imperial use cases", "miles to km offline"],
     category: "converters",

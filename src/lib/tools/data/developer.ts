@@ -139,9 +139,9 @@ export const developerTools: Tool[] = [
   {
     slug: "credit-card-validator",
     title: "Credit Card Validator",
-    short: "Luhn check & brand",
+    short: "Free Luhn test – 4111 safe",
     description:
-      "Validate card numbers with Luhn checksum, brand detection for Visa and Mastercard, and length checks while keeping every digit local and private offline.",
+      "Test card numbers free with Luhn check, Visa/MC/Amex detection. Try 4111 1111 safely — 100% local, private offline, never use real PAN.",
     icon: "CreditCard",
     keywords: ["credit card validator", "luhn check", "card number validator", "luhn validator online free", "does 4111 1111 1111 1111 pass luhn?", "how to validate credit card free", "luhn checksum visa mastercard amex", "test cards vs real pan safety", "paste card number check locally no upload"],
     category: "developer",

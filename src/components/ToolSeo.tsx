@@ -7,15 +7,17 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { getCategory, type Tool } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
 import { getDateModifiedIso, SITE_PUBLISHED_ISO } from "@/lib/dates";
+import type { Locale } from "@/lib/i18n";
 
 // Staggered dateModified per-tool (Sept 1-9) — see src/lib/dates.ts
 // (shared with ToolPageShell visible <time> and sitemap lastmod).
 
-export default function ToolSeo({ tool }: { tool: Tool }) {
+export default function ToolSeo({ tool, locale = "en" }: { tool: Tool; locale?: Locale }) {
   const cat = getCategory(tool.category);
   const base = siteConfig.url.replace(/\/$/, "");
-  const url = `${base}/${tool.slug}`;
+  const url = locale === "en" ? `${base}/${tool.slug}` : `${base}/${locale}/${tool.slug}`;
   const catUrl = cat ? `${base}/category/${cat.id}` : undefined;
+  const inLanguage: Locale = locale;
 
   const datePublished = SITE_PUBLISHED_ISO;
   const dateModified = getDateModifiedIso(tool.slug);
@@ -44,7 +46,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
 
   // BreadcrumbList with guaranteed sequential positions 1..n.
   const crumbItems: { name: string; item: string | undefined }[] = [
-    { name: "Home", item: base },
+    { name: locale === "es" ? "Inicio" : locale === "fr" ? "Accueil" : "Home", item: base },
     ...(cat ? [{ name: cat.label, item: catUrl }] : []),
     { name: tool.title, item: url },
   ];
@@ -85,7 +87,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
         ...(tool.keywords?.length >= 3 ? { featureList: tool.keywords } : {}),
         // Validated: free tool must be price 0 USD.
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        inLanguage: "en",
+        inLanguage,
         author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
         reviewer: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
         datePublished,
@@ -106,7 +108,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
         url,
         name: tool.title,
         description: tool.description,
-        inLanguage: "en",
+        inLanguage,
         speakableSpecification: {
           "@type": "SpeakableSpecification",
           cssSelector: [".speakable-answer-first", ".faq-passage", ".howto-passage", ".tldr-passage"],
@@ -137,7 +139,12 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
         ? [
             {
               "@type": "HowTo",
-              name: `How to use ${tool.title}`,
+              name:
+                locale === "es"
+                  ? `Cómo usar ${tool.title}`
+                  : locale === "fr"
+                    ? `Comment utiliser ${tool.title}`
+                    : `How to use ${tool.title}`,
               totalTime: "PT3M",
               estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "0" },
               tool: [{ "@type": "HowToTool", name: tool.title }],
@@ -163,7 +170,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
       {validFaq.length > 0 && (
         <>
           <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, mb: 2 }}>
-            Frequently asked questions
+            {locale === "es" ? "Preguntas frecuentes" : locale === "fr" ? "Questions fréquentes" : "Frequently asked questions"}
           </Typography>
           {validFaq.map((f, i) => (
             <Accordion
@@ -195,7 +202,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
       {validHowTo.length > 0 && (
         <Box component="section" sx={{ mt: 4 }}>
           <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, mb: 2 }}>
-            How to use {tool.title}
+            {locale === "es" ? `Cómo usar ${tool.title}` : locale === "fr" ? `Comment utiliser ${tool.title}` : `How to use ${tool.title}`}
           </Typography>
           <Box component="ol" sx={{ pl: 3, color: "text.secondary", "& li": { mb: 1 } }}>
             {validHowTo.map((s, i) => (
@@ -213,7 +220,7 @@ export default function ToolSeo({ tool }: { tool: Tool }) {
       {guideSections.length > 0 && (
         <Box component="section" aria-label="In-depth guide" sx={{ mt: 4 }}>
           <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, mb: 2 }}>
-            In-depth guide
+            {locale === "es" ? "Guía en profundidad" : locale === "fr" ? "Guide approfondi" : "In-depth guide"}
           </Typography>
           {guideSections.map((entry: unknown, i: number) => {
             if (typeof entry === "string") {

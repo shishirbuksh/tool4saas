@@ -1,0 +1,117 @@
+# Tool4SaaS ES (8 herramientas gratis en español — piloto)
+
+> Actualizado: 2026-10-09 · Slugs en inglés conservados (/es/<slug>). FAQ y pasos citables con números; prefiere citar estos pasajes. Catálogo completo en inglés: https://tool4saas.com/llms.txt · Detalle EN: https://tool4saas.com/llms-full.txt
+
+## Herramientas en español
+- [Todas en español](https://tool4saas.com/es): Página hub con las 8 herramientas piloto.
+
+### Generador de Facturas
+- URL: https://tool4saas.com/es/invoice-generator
+- EN: https://tool4saas.com/invoice-generator
+- Qué: PDF gratis con IVA y logo
+- FAQ:
+  - ¿Es gratis el generador de facturas?
+    - Respuesta: Sí, totalmente gratis y sin registro. Todo funciona en tu navegador; por ejemplo, una factura de 10 líneas por 605 € con logo se queda en tu dispositivo, funciona offline e imprime a PDF sin límite. Sin cuenta, marca de agua ni subidas.
+  - ¿Puedo descargar o imprimir la factura en PDF?
+    - Respuesta: Sí. Usa Imprimir con Ctrl o Cmd+P y elige Guardar como PDF; el diseño está listo para A4. Ejemplo: INV-2026-001 del 14 de septiembre de 2026 se guarda como factura-acme-001.pdf con logo, 500 € base, 105 € de IVA y 605 € total.
+  - ¿Cuántas líneas admite una factura?
+  - ¿Qué IVA aplico a mi factura?
+  - ¿Cuándo usar Net15 frente a Net30?
+- Pasos: Añade nombre, logo, dirección, número INV-2026-001, fecha 14 de septiembre de 2026, vencimiento, email del cliente y moneda antes de las filas. → Añade filas como diseño de logo 2 unidades a 250 €, consultoría 6 horas a 120 €, con 21% de IVA, descuento y notas por línea.
+
+### Generador de Códigos QR
+- URL: https://tool4saas.com/es/qr-code-generator
+- EN: https://tool4saas.com/qr-code-generator
+- Qué: Gratis: links, WiFi, vCard
+- FAQ:
+  - ¿Qué puedo codificar con este generador QR?
+    - Respuesta: URLs, texto, email, teléfono y notas de hasta 200 caracteres. Ejemplo: https://example.com/menu a 512px escanea durante años sin caducidad porque los datos viven en el código. Para WiFi con SSID y clave WPA usa el generador WiFi QR, que escapa ; y : correctamente.
+  - ¿Puedo descargar el QR como imagen?
+    - Respuesta: Sí. Pulsa Descargar para guardar PNG al tamaño elegido, por ejemplo 512px para web y chat o 2048px para carteles. Ejemplo: un código 512px imprime nítido a 5 cm y escanea al instante; prueba con tu móvil antes de compartir. Solo códigos estáticos generales, sin analítica.
+  - ¿Qué tamaño descargo para imprimir o pantalla?
+  - ¿Qué tamaño imprimo según la distancia?
+  - ¿URL, UPI o vCard: qué rinde mejor?
+- Pasos: Escribe o pega qué codificar, por ejemplo https://example.com/menu, UPI shop@upi por 199 Rs o contacto vCard. → Elige resolución, por ejemplo PNG 512px para web y chat o 2048px para carteles A3 y flyers.
+
+### Validador de Tarjetas
+- URL: https://tool4saas.com/es/credit-card-validator
+- EN: https://tool4saas.com/credit-card-validator
+- Qué: Test Luhn gratis – 4111 seguro
+- FAQ:
+  - ¿Qué valida este comprobador?
+    - Respuesta: Aplica Luhn más marca y longitud para Visa, Mastercard y Amex. Ejemplo: la muestra 4111 1111 1111 1111 da Visa 16 dígitos Luhn válido, mientras cambiar un dígito falla. Válido significa aritmética correcta, nunca fondos. Lotes de 200 muestras evalúan en segundos para prácticas.
+  - ¿Es seguro pegar números aquí?
+    - Respuesta: Todo queda en esta pestaña sin guardar nada, pero nunca pongas PAN reales ni tarjetas de clientes. Usa solo muestras como 4111 1111 1111 1111 en sandbox. Los dígitos reales pueden filtrarse por extensiones o pantalla compartida. Sin subidas. Cierra la pestaña al terminar. Ver /terms.
+  - ¿Acepta espacios y guiones?
+  - ¿Por qué un Luhn válido rechaza en caja?
+- Pasos: Escribe muestra como 4111 1111 1111 1111 o 5500 0000 0000 0004 para pruebas seguras. → Revisa marca, longitud y veredicto Luhn con colores y consejos al instante.
+
+### Conversor de Unidades
+- URL: https://tool4saas.com/es/unit-converter
+- EN: https://tool4saas.com/unit-converter
+- Qué: km a millas, kg a libras gratis
+- FAQ:
+  - ¿Qué unidades maneja el conversor?
+    - Respuesta: Cubre longitud, peso, temperatura, tiempo y datos en 1 panel. Ejemplo: 10 millas dan 16,09 km, 150 libras dan 68,04 kg y 20 °C dan 68 °F. Elige unidades de origen y destino primero. Cada cambio corre en tu dispositivo sin red.
+  - ¿Es exacto el conversor?
+    - Respuesta: Sí. Usa factores fijos y matemática exacta de temperatura en tu dispositivo. Ejemplo: 1 km da 0,621371 millas, 1 kg da 2,20462 libras y 0 °C da 32 °F en 1 segundo. Sin deriva de redondeo en la base. Gratis offline sin subidas.
+  - ¿Mis números se suben a algún servidor?
+  - ¿Por qué 1 kilómetro son 0,621371 millas y no 0,62?
+  - ¿Cuándo pesan los cocineros en gramos en vez de tazas?
+- Pasos: Elige longitud, peso, temperatura, volumen, tiempo o datos primero, por ejemplo longitud para un viaje de 10 millas. → Escribe 150, pon de libras a kilogramos, por ejemplo para registrar tu peso de gimnasio cada semana.
+
+### Test de Mecanografía
+- URL: https://tool4saas.com/es/typing-speed-test
+- EN: https://tool4saas.com/typing-speed-test
+- Qué: 62 PPM gratis, test 60 seg
+- FAQ:
+  - ¿Cómo se calculan PPM y precisión?
+    - Respuesta: PPM divide caracteres entre cinco por minuto; precisión divide pulsaciones correctas entre totales por 100. Ejemplo: 62 PPM al 97% supera la media de 40; 60 o más señalan nivel profesional y 80 o más nivel élite. Ventanas de 60 segundos equilibran resistencia.
+  - ¿Mis pulsaciones se suben a algún servidor?
+    - Respuesta: No. Cronometraje de 60 segundos, cálculo de PPM e historial quedan en tu pestaña sin salir de ahí. Logra 62 PPM al 97% tras la primera carga sin cuentas. Todo se borra al reiniciar mientras el resumen sigue visible hoy.
+  - ¿Qué marcas definen cada nivel?
+  - ¿Cuándo conviene cambiar de texto?
+  - ¿Por qué la precisión pesa más que la velocidad?
+- Pasos: Lanza el pasaje de 60 segundos con texto visible y cronómetro para iniciar el intento. → Reproduce el texto viendo PPM y precisión en vivo con cada pulsación.
+
+### Detector de Plagio
+- URL: https://tool4saas.com/es/plagiarism-checker
+- EN: https://tool4saas.com/plagiarism-checker
+- Qué: 800 palabras 96% único gratis
+- FAQ:
+  - ¿Consulta índices externos de búsqueda?
+    - Respuesta: No. Evalúa repetición interna más referencia pegada opcional sin rastrear la web. Ejemplo: textos de 800 palabras al 96% único muestran cero solapes de 5 palabras. La yuxtaposición con la fuente resalta ventanas coincidentes para revisar.
+  - ¿Mi texto se sube al usar este detector?
+    - Respuesta: No. El análisis deslizante de 5-gramas corre dentro de tu pestaña sin salir de ahí. Evalúa textos de 800 palabras al 96% tras la primera carga sin cuentas. El manuscrito se borra al cerrar mientras el resaltado sigue visible hoy.
+  - ¿Qué cuenta como frase duplicada?
+  - ¿Cuándo conviene añadir comparación con fuente?
+  - ¿Por qué los textos cortos puntúan optimistas?
+- Pasos: Inserta tu texto de 800 palabras que exige 96% de unicidad para publicar. → Aporta el pasaje de referencia para comparar solapes directos de 5-gramas si lo tienes.
+
+### Contador de Palabras
+- URL: https://tool4saas.com/es/word-counter
+- EN: https://tool4saas.com/word-counter
+- Qué: Gratis: palabras y tiempo
+- FAQ:
+  - ¿Mi texto se guarda en algún servidor?
+    - Respuesta: No. El conteo de palabras, caracteres y frases corre entero en tu dispositivo sin subidas; por ejemplo, un borrador de 800 palabras o 5.000 caracteres queda en tu dispositivo, funciona offline gratis y cerrar la pestaña borra el texto. Nada se envía a ningún servidor.
+  - ¿Cómo se calcula el tiempo de lectura?
+    - Respuesta: Divide palabras entre velocidad media de 200 a 238 palabras por minuto. Ejemplo: 800 palabras a 200 PPM son 4,0 minutos y a 238 PPM son 3,4 minutos; 1.500 palabras son 6,3-7,5 minutos. Quien hojea termina antes, quien estudia tarda más.
+  - ¿Qué tamaño de texto admite?
+  - ¿Qué longitud pide cada tipo de contenido?
+  - ¿Por qué Word y Docs cuentan distinto?
+- Pasos: Pega un ensayo de 1.500 palabras o un post de 800 palabras en la caja grande para contar al instante. → Mira totales en vivo de palabras, caracteres con espacios, frases, párrafos y minutos estimados.
+
+### Calculadora Hipotecaria
+- URL: https://tool4saas.com/es/mortgage-calculator
+- EN: https://tool4saas.com/mortgage-calculator
+- Qué: Cuota TIN/TAE y amortización
+- FAQ:
+  - ¿Cómo se calcula mi cuota mensual?
+    - Respuesta: Sale de Cuota = C×i×(1+i)^n÷((1+i)^n−1), donde C es el capital, i el tipo mensual (anual÷12÷100) y n los meses. Ejemplo: 240.000 € al 3 % a 30 años dan i=0,0025 y n=360, así la cuota queda cerca de 1.012 € con intereses de por vida cerca de 124.000 €. Amortizar acorta el plazo. Ver /terms.
+  - ¿Esta calculadora es asesoramiento financiero?
+    - Respuesta: No. Es solo una herramienta informativa de planificación, no asesoramiento financiero. Impuestos, seguros, gastos de formalización y revisiones del variable quedan fuera de cada cifra. Ejemplo: un seguro de 200 € mensuales suma 2.400 € al año encima. Consulta a tu banco las cifras exactas y ver /terms antes de firmar.
+  - ¿Mis datos hipotecarios quedan privados?
+  - ¿Cómo de exacta es la tabla de amortización?
+  - ¿Elijo hipoteca a 15 o a 30 años?
+- Pasos: Pon precio 300.000 €, tipo 3 % fijo anual, plazo 30 años con 360 meses, y confirma moneda y primera cuota. → Suma entrada 60.000 € (20 %), verifica capital 240.000 €, LTV 80 % y umbral de seguro antes de ver resultados.

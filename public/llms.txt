@@ -1,5 +1,5 @@
 # Tool4SaaS (184 free tools across 12 categories + guides)
-> Updated: 2026-10-07 · visible count excludes 1 NOINDEX placeholder (pdf-compress, ships soon).
+> Updated: 2026-10-09 · visible count excludes 1 NOINDEX placeholder (pdf-compress, ships soon).
 
 > Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 184 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
 
@@ -42,13 +42,13 @@
 - [Text Summarizer](https://tool4saas.com/text-summarizer): Extractive summary
 - [Grammar Checker](https://tool4saas.com/grammar-checker): Find grammar issues
 - [AI Detector](https://tool4saas.com/ai-detector): Detect AI-written text
-- [Plagiarism Checker](https://tool4saas.com/plagiarism-checker): Check uniqueness %
-- [Typing Speed Test](https://tool4saas.com/typing-speed-test): WPM & accuracy
+- [Plagiarism Checker](https://tool4saas.com/plagiarism-checker): 800 words 96% unique free
+- [Typing Speed Test](https://tool4saas.com/typing-speed-test): 62 WPM free 60-sec test
 - [Speech to Text](https://tool4saas.com/speech-to-text): Free voice typing
 - [Fancy Text Generator](https://tool4saas.com/fancy-text-generator): Bold, script & bubble
 
 ## Business & Writing
-- [Invoice Generator](https://tool4saas.com/invoice-generator): Create & download professional invoices
+- [Invoice Generator](https://tool4saas.com/invoice-generator): Free PDF with GST & logo
 - [Resume Builder](https://tool4saas.com/resume-builder): Build a clean resume and export to PDF
 - [Commission Calculator](https://tool4saas.com/commission-calculator): Calculate sales commission
 - [ATS Resume Checker](https://tool4saas.com/ats-resume-checker): Check resume vs job
@@ -74,7 +74,7 @@
 - [MIME Type Lookup](https://tool4saas.com/mime-type-lookup): File extension ↔ MIME
 - [JSON to YAML](https://tool4saas.com/json-to-yaml): Convert JSON into YAML
 - [HTML Beautifier](https://tool4saas.com/html-beautifier): Pretty-print HTML
-- [Credit Card Validator](https://tool4saas.com/credit-card-validator): Luhn check & brand
+- [Credit Card Validator](https://tool4saas.com/credit-card-validator): Free Luhn test – 4111 safe
 - [Password Strength Checker](https://tool4saas.com/password-strength): Rate your password
 - [Code Minifier](https://tool4saas.com/code-minifier): Minify JS, CSS & HTML
 - [Screen Resolution](https://tool4saas.com/screen-resolution): Detect screen metrics
@@ -95,7 +95,7 @@
 - [AI Token Counter](https://tool4saas.com/ai-token-counter): Tokens + API cost
 
 ## Converters
-- [Unit Converter](https://tool4saas.com/unit-converter): Convert length, weight, temp & more
+- [Unit Converter](https://tool4saas.com/unit-converter): km to miles, kg to lb free
 - [JSON ↔ CSV Converter](https://tool4saas.com/json-csv): Convert between JSON and CSV
 - [URL Parser](https://tool4saas.com/url-parser): Break down any URL
 - [Number to Words](https://tool4saas.com/number-to-words): Spell out numbers in English
@@ -296,7 +296,7 @@
 - [WiFi QR Code: Share Guest WiFi With One Scan (2026)](https://tool4saas.com/blog/qr-code-generator-guide/wifi-qr-code-guide) (updated 2026-09-22)
 - [QR Codes for Small Business: 6 Placements That Pay (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-for-business) (updated 2026-09-22)
 - [QR Code vs Barcode: Differences & When to Use Each (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-vs-barcode) (updated 2026-09-22)
-- [QR Code Size Guide: Minimum Sizes for Print & Distance (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-size-print-guide) (updated 2026-09-22)
+- [QR Code Print Size: cm, Inches & Pixels Chart (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-size-print-guide) (updated 2026-09-22)
 - [QR Code Not Scanning? 5 Causes & Fixes That Work (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-not-scanning-fix) (updated 2026-09-22)
 - [vCard QR Code: Digital Business Card That Saves in 5 Seconds](https://tool4saas.com/blog/qr-code-generator-guide/vcard-contact-qr-code) (updated 2026-09-22)
 - [UPI QR Code for Payments: Setup, Counter Tips & Safety (India)](https://tool4saas.com/blog/qr-code-generator-guide/upi-payment-qr-code-india) (updated 2026-09-22)
@@ -346,3 +346,5 @@
 - [Sitemap](https://tool4saas.com/sitemap.xml): Machine-readable list of all pages.
 - [Robots](https://tool4saas.com/robots.txt): Crawler directives.
 - [LLMs full](https://tool4saas.com/llms-full.txt): Full FAQ + HowTo step hints per tool.
+- [LLMs ES](https://tool4saas.com/llms-es.txt): Herramientas en español (piloto) con FAQ y pasos citables.
+- [LLMs FR](https://tool4saas.com/llms-fr.txt): Outils en français (pilote) avec FAQ et étapes citables.

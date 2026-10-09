@@ -161,7 +161,7 @@ export function introForCategory(id: string): CategoryIntro {
 // Hub pages rendered "PDF Tools | Tool4SaaS" (21ch) — too thin for SERPs.
 export const CATEGORY_SEO_TITLES: Record<string, string> = {
   "text-documents": "Text Tools: Count Words, Convert Case Free",
-  business: "Business Tools: Invoice, Resume Builder Free",
+  business: "Invoice, Resume & Quotes – 13 Free Tools",
   developer: "Developer Tools: JSON, Base64, Regex Free",
   converters: "Converters: Units, Currency, JSON-CSV Free",
   generators: "Generators: Passwords, UUIDs, Random Free",

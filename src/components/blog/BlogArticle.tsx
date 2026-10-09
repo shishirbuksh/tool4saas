@@ -9,19 +9,24 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { siteConfig } from "@/lib/site";
 import { getTool } from "@/lib/tools";
+import { getEsTool } from "@/lib/i18n";
+import { isEsBlogPilot } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import { getPillarMeta, getRelatedPosts } from "@/lib/blog-registry";
 import type { BlogPost } from "@/lib/blog";
 import EmbeddedTool from "@/components/blog/EmbeddedTool";
 
-function canonicalFor(post: BlogPost): string {
+function canonicalFor(post: BlogPost, locale: Locale = "en"): string {
   const base = siteConfig.url.replace(/\/$/, "");
-  if (post.kind === "pillar") return `${base}/blog/${post.pillar}`;
-  return `${base}/blog/${post.pillar}/${post.slug}`;
+  const prefix = locale === "en" ? "" : `/${locale}`;
+  if (post.kind === "pillar") return `${base}${prefix}/blog/${post.pillar}`;
+  return `${base}${prefix}/blog/${post.pillar}/${post.slug}`;
 }
 
-export function blogMetadataFor(post: BlogPost) {
-  const canonical = canonicalFor(post);
+export function blogMetadataFor(post: BlogPost, locale: Locale = "en") {
+  const canonical = canonicalFor(post, locale);
   const base = siteConfig.url.replace(/\/$/, "");
+  const enCanonical = canonicalFor(post, "en");
   // Per-post OG: prefer the funnel tool's /og/<slug> image so shares show
   // the tool, not the generic home card. Falls back to /og/home only when
   // the post has no toolSlugs.
@@ -33,10 +38,18 @@ export function blogMetadataFor(post: BlogPost) {
     if (lastSpace > 35) core = core.slice(0, lastSpace);
   }
   const fullTitle = `${core} | Tool4SaaS`;
+  // Bidirectional hreflang for ES blog pilots (EN <-> /es/blog/...).
+  // Non-pilot posts keep {en, x-default} to avoid pointing at 404s.
+  const languages =
+    locale === "en"
+      ? isEsBlogPilot(post.pillar, post.slug)
+        ? { en: canonical, es: `${base}/es/blog/${post.pillar}/${post.slug}`, "x-default": canonical }
+        : { en: canonical, "x-default": canonical }
+      : { es: canonical, en: enCanonical, "x-default": enCanonical };
   return {
     title: { absolute: fullTitle },
     description: post.description,
-    alternates: { canonical, languages: { en: canonical, "x-default": canonical } },
+    alternates: { canonical, languages },
     robots: {
       index: true,
       follow: true,
@@ -44,7 +57,8 @@ export function blogMetadataFor(post: BlogPost) {
     },
     openGraph: {
       type: "article" as const,
-      locale: siteConfig.locale,
+      locale: locale === "es" ? "es_ES" : siteConfig.locale,
+      ...(locale === "es" ? { alternateLocale: ["en_US"] } : {}),
       url: canonical,
       siteName: siteConfig.name,
       title: fullTitle,
@@ -75,9 +89,9 @@ export function validBlogFaqs(post: BlogPost) {
     : [];
 }
 
-export function BlogJsonLd({ post }: { post: BlogPost }) {
+export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: Locale }) {
   const base = siteConfig.url.replace(/\/$/, "");
-  const canonical = canonicalFor(post);
+  const canonical = canonicalFor(post, locale);
   // Filter malformed/empty FAQs so FAQPage always has Question +
   // acceptedAnswer Answer text (1:1 with visible copy below).
   const validFaqs = validBlogFaqs(post);
@@ -103,17 +117,21 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
     : [];
   const ogImage = post.toolSlugs[0] ? `${base}/og/${post.toolSlugs[0]}` : `${base}/og/home`;
   const pillarMeta = getPillarMeta(post.pillar);
+  // ES pilot has no translated pillar page yet: pillar crumb falls back to the
+  // EN pillar URL (exists) instead of a 404 /es/blog/<pillar>.
+  const pillarUrl = `${base}/blog/${post.pillar}`;
+  const homeName = locale === "es" ? "Inicio" : "Home";
   const crumbs =
     post.kind === "pillar"
       ? [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+          { "@type": "ListItem", position: 1, name: homeName, item: `${base}/` },
           { "@type": "ListItem", position: 2, name: "Blog", item: `${base}/blog` },
           { "@type": "ListItem", position: 3, name: post.title, item: canonical },
         ]
       : [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+          { "@type": "ListItem", position: 1, name: homeName, item: `${base}/` },
           { "@type": "ListItem", position: 2, name: "Blog", item: `${base}/blog` },
-          { "@type": "ListItem", position: 3, name: pillarMeta?.title ?? post.pillar, item: `${base}/blog/${post.pillar}` },
+          { "@type": "ListItem", position: 3, name: pillarMeta?.title ?? post.pillar, item: pillarUrl },
           { "@type": "ListItem", position: 4, name: post.title, item: canonical },
         ];
   const jsonLd = {
@@ -126,7 +144,7 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
         description: post.description,
         url: canonical,
         image: ogImage,
-        inLanguage: "en",
+        inLanguage: locale === "es" ? "es" : "en",
         author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
         reviewer: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
         publisher: {
@@ -196,7 +214,7 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
   );
 }
 
-export default function BlogArticle({ post }: { post: BlogPost }) {
+export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; locale?: Locale }) {
   const base = siteConfig.url.replace(/\/$/, "");
   void base;
   const pillarMeta = getPillarMeta(post.pillar);
@@ -204,12 +222,19 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
   const primaryTool = post.toolSlugs[0] ? getTool(post.toolSlugs[0]) : undefined;
   const secondaryTools = post.toolSlugs.slice(1).map((s) => getTool(s)).filter(Boolean);
   const validFaqs = validBlogFaqs(post);
+  // ES pilot: primary CTA deep-links /es/<slug> with the native ES title/short
+  // when a transcreation exists; siblings/secondary stay EN (exist only in EN).
+  const esPrimaryTool = locale === "es" && post.toolSlugs[0] ? getEsTool(post.toolSlugs[0]) : undefined;
+  const primaryHref =
+    locale === "es" && esPrimaryTool ? `/es/${post.toolSlugs[0]}` : primaryTool ? `/${primaryTool.slug}` : undefined;
+  const primaryTitle = esPrimaryTool?.title ?? primaryTool?.title ?? "";
+  const primaryShort = esPrimaryTool?.short ?? primaryTool?.short ?? "";
 
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
-      <BlogJsonLd post={post} />
+      <BlogJsonLd post={post} locale={locale} />
       <Breadcrumbs sx={{ mb: 2 }} aria-label="breadcrumb">
-        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>Home</Link>
+        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>{locale === "es" ? "Inicio" : "Home"}</Link>
         <Link href="/blog" style={{ color: "inherit", textDecoration: "none" }}>Blog</Link>
         {post.kind === "cluster" && pillarMeta && (
           <Link href={`/blog/${post.pillar}`} style={{ color: "inherit", textDecoration: "none" }}>
@@ -229,30 +254,50 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
       </Typography>
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, alignItems: "center", mb: 4 }}>
         <Typography variant="body2" color="text.secondary">
-          By <Link href="/author" style={{ fontWeight: 600 }}>{siteConfig.author} Editorial Team</Link>
-          {" · "}
-          <time dateTime={post.published}>Published {post.published}</time>
-          {" · Updated "}<time dateTime={post.updated}>{post.updated}</time>
-          {" · "}{post.readingMinutes} min read
+          {locale === "es" ? (
+            <>
+              Por <Link href="/author" style={{ fontWeight: 600 }}>{siteConfig.author} Editorial Team</Link>
+              {" · "}
+              <time dateTime={post.published}>Publicado {post.published}</time>
+              {" · Actualizado "}<time dateTime={post.updated}>{post.updated}</time>
+              {" · "}{post.readingMinutes} min de lectura
+            </>
+          ) : (
+            <>
+              By <Link href="/author" style={{ fontWeight: 600 }}>{siteConfig.author} Editorial Team</Link>
+              {" · "}
+              <time dateTime={post.published}>Published {post.published}</time>
+              {" · Updated "}<time dateTime={post.updated}>{post.updated}</time>
+              {" · "}{post.readingMinutes} min read
+            </>
+          )}
         </Typography>
       </Box>
 
       {/* Above-fold tool CTA */}
-      {primaryTool && (
+      {primaryTool && primaryHref && (
         <Box sx={{ p: 3, mb: 4, borderRadius: "16px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper", display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 2, alignItems: { sm: "center" }, justifyContent: "space-between" }}>
           <Box>
             <Typography variant="h2" sx={{ fontSize: "1.1rem", fontWeight: 700, mb: 0.5 }}>
-              Try it now — {primaryTool.title}, free in your browser
+              {locale === "es" ? (
+                <>Pruébala ahora — {primaryTitle}, gratis en tu navegador</>
+              ) : (
+                <>Try it now — {primaryTool.title}, free in your browser</>
+              )}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {primaryTool.short} · No signup · No watermark · Free forever.
+              {locale === "es" ? (
+                <>{primaryShort} · Sin registro · Sin marca de agua · Gratis siempre.</>
+              ) : (
+                <>{primaryTool.short} · No signup · No watermark · Free forever.</>
+              )}
             </Typography>
           </Box>
           <Link
-            href={`/${primaryTool.slug}`}
+            href={primaryHref}
             style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 48, padding: "12px 24px", borderRadius: 12, background: "var(--brand-gradient, #1976d2)", color: "#fff", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap" }}
           >
-            Open {primaryTool.title} →
+            {locale === "es" ? <>Abrir {primaryTitle} →</> : <>Open {primaryTool.title} →</>}
           </Link>
         </Box>
       )}
@@ -262,9 +307,9 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
 
       <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "240px 1fr" }, gap: 4, alignItems: "start" }}>
         {/* TOC — after body on mobile (order 2) so answer-first H1+intro stays above fold; sticky sidebar on md+ */}
-        <Box component="nav" aria-label="Table of contents" sx={{ position: { md: "sticky" }, top: { md: 100 }, p: 2.5, border: "1px solid", borderColor: "divider", borderRadius: "12px", bgcolor: "background.paper", order: { xs: 2, md: 0 } }}>
+        <Box component="nav" aria-label={locale === "es" ? "Índice" : "Table of contents"} sx={{ position: { md: "sticky" }, top: { md: 100 }, p: 2.5, border: "1px solid", borderColor: "divider", borderRadius: "12px", bgcolor: "background.paper", order: { xs: 2, md: 0 } }}>
           <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 1.5, letterSpacing: "0.04em", textTransform: "uppercase", fontSize: "0.75rem" }}>
-            On this page
+            {locale === "es" ? "En esta página" : "On this page"}
           </Typography>
           <Box component="ul" sx={{ m: 0, p: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 0.5 }}>
             {post.toc.map((t) => (
@@ -283,7 +328,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
           {secondaryTools.length > 0 && (
             <Box sx={{ mt: 4, p: 3, borderRadius: "12px", bgcolor: "action.hover", border: "1px solid", borderColor: "divider" }}>
               <Typography variant="h2" sx={{ fontSize: "1.1rem", fontWeight: 700, mb: 1 }}>
-                Related free tools
+                {locale === "es" ? "Herramientas gratis relacionadas" : "Related free tools"}
               </Typography>
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
                 {secondaryTools.map((t) => (
@@ -298,7 +343,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
           {validFaqs.length > 0 && (
             <Box component="section" sx={{ mt: 5 }}>
               <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "1.75rem" }, fontWeight: 800, mb: 2 }}>
-                Frequently asked questions
+                {locale === "es" ? "Preguntas frecuentes" : "Frequently asked questions"}
               </Typography>
               {validFaqs.map((f, i) => (
                 <Accordion key={i} elevation={0} sx={{ border: "1px solid", borderColor: "divider", "&:before": { display: "none" }, mb: 1 }}>
@@ -315,16 +360,24 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
             </Box>
           )}
 
-          {primaryTool && (
+          {primaryTool && primaryHref && (
             <Box sx={{ mt: 5, p: 4, borderRadius: "16px", textAlign: "center", border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}>
               <Typography variant="h2" sx={{ fontSize: "1.4rem", fontWeight: 800, mb: 1 }}>
-                Done reading — open the {primaryTool.title}
+                {locale === "es" ? (
+                  <>Terminaste de leer — abre {primaryTitle}</>
+                ) : (
+                  <>Done reading — open the {primaryTool.title}</>
+                )}
               </Typography>
               <Typography color="text.secondary" sx={{ mb: 2 }}>
-                {primaryTool.short} — free in your browser, no signup.
+                {locale === "es" ? (
+                  <>{primaryShort} — gratis en tu navegador, sin registro.</>
+                ) : (
+                  <>{primaryTool.short} — free in your browser, no signup.</>
+                )}
               </Typography>
-              <Link href={`/${primaryTool.slug}`} style={{ display: "inline-flex", minHeight: 48, alignItems: "center", padding: "12px 28px", borderRadius: 12, background: "var(--brand-gradient, #1976d2)", color: "#fff", fontWeight: 700, textDecoration: "none" }}>
-                Open {primaryTool.title} →
+              <Link href={primaryHref} style={{ display: "inline-flex", minHeight: 48, alignItems: "center", padding: "12px 28px", borderRadius: 12, background: "var(--brand-gradient, #1976d2)", color: "#fff", fontWeight: 700, textDecoration: "none" }}>
+                {locale === "es" ? <>Abrir {primaryTitle} →</> : <>Open {primaryTool.title} →</>}
               </Link>
             </Box>
           )}
@@ -334,7 +387,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
       {/* Sibling silo mesh */}
       <Box component="section" sx={{ mt: 6, pt: 4, borderTop: "1px solid", borderColor: "divider" }}>
         <Typography variant="h2" sx={{ fontSize: "1.25rem", fontWeight: 800, mb: 2 }}>
-          Keep reading in this guide
+          {locale === "es" ? "Sigue leyendo en esta guía" : "Keep reading in this guide"}
         </Typography>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
           {related.map((r) => (
@@ -344,7 +397,9 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
               style={{ textDecoration: "none", color: "inherit", display: "block", padding: 20, borderRadius: 12, border: "1px solid var(--mui-palette-divider)" }}
             >
               <Typography variant="subtitle2" color="primary" sx={{ fontWeight: 700, mb: 0.5, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                {r.kind === "pillar" ? "Pillar guide" : "In this silo"}
+                {r.kind === "pillar"
+                  ? locale === "es" ? "Guía pilar" : "Pillar guide"
+                  : locale === "es" ? "En este bloque" : "In this silo"}
               </Typography>
               <Typography variant="h3" sx={{ fontSize: "1rem", fontWeight: 700, lineHeight: 1.4 }}>
                 {r.title}

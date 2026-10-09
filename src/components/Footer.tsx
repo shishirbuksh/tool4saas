@@ -170,7 +170,7 @@ export default function Footer() {
             <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column' }}>
               {popular.map((t) => (
                 <Box component="li" key={t.slug}>
-                  <FooterLink href={`/${t.slug}`}>{t.title}</FooterLink>
+                  <FooterLink href={`/${t.slug}`}>{`${t.title} – Free`}</FooterLink>
                 </Box>
               ))}
               <Box component="li">

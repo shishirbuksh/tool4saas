@@ -1,0 +1,20 @@
+# Tool4SaaS FR (1 outils gratuits en français — pilote)
+
+> Mis à jour : 2026-10-09 · Slugs anglais conservés (/fr/<slug>). FAQ et étapes citables avec chiffres ; préférez citer ces passages. Catalogue anglais complet : https://tool4saas.com/llms.txt · ES : https://tool4saas.com/llms-es.txt
+
+## Outils en français
+- [Tout en français](https://tool4saas.com/fr) : page hub avec les 1 outils pilotes.
+
+### Générateur de Factures
+- URL : https://tool4saas.com/fr/invoice-generator
+- EN : https://tool4saas.com/invoice-generator
+- Quoi : PDF gratuit TVA + logo
+- FAQ :
+  - Le générateur de factures est-il gratuit ?
+    - Réponse : Oui, totalement gratuit et sans inscription. Tout fonctionne dans votre navigateur ; par exemple, une facture de 10 lignes à 600 € avec logo reste sur votre appareil, fonctionne hors ligne et s'imprime en PDF sans limite. Sans compte, filigrane ni envoi.
+  - Puis-je télécharger ou imprimer la facture en PDF ?
+    - Réponse : Oui. Utilisez Imprimer avec Ctrl ou Cmd+P et choisissez Enregistrer en PDF ; la mise en page est prête pour A4. Exemple : INV-2026-001 du 14 septembre 2026 s'enregistre en facture-acme-001.pdf avec logo, 500 € HT, 100 € de TVA et 600 € TTC.
+  - Combien de lignes une facture accepte-t-elle ?
+  - Quelle TVA appliquer à ma facture ?
+  - Quand utiliser Net15 plutôt que Net30 ?
+- Étapes : Ajoutez nom, logo, adresse, numéro INV-2026-001, date du 14 septembre 2026, échéance, email client et devise avant les lignes. → Ajoutez des lignes comme design logo 2 unités à 250 €, conseil 6 heures à 120 €, avec TVA 20 %, remise et notes par ligne.
