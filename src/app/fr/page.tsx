@@ -4,12 +4,12 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
-import { invoiceGeneratorFr } from "@/lib/i18n";
+import { invoiceGeneratorFr, qrCodeGeneratorFr, unitConverterFr, wordCounterFr, creditCardValidatorFr, typingSpeedFr, plagiarismCheckerFr, mortgageCalculatorFr } from "@/lib/i18n";
 
-// FR hub: /fr/ — crawl hub for the French pilot (1 tool in V1).
+// FR hub: /fr/ — crawl hub for the French pilots (8 tools).
 // Canonical /fr/, hreflang fr/en. Global Header/Footer/nav stay EN (root
 // layout); hub body is native FR. Listed in the sitemap via HUB_LOCALES.
-const pilots = [invoiceGeneratorFr];
+const pilots = [invoiceGeneratorFr, qrCodeGeneratorFr, unitConverterFr, wordCounterFr, creditCardValidatorFr, typingSpeedFr, plagiarismCheckerFr, mortgageCalculatorFr];
 
 export const metadata: Metadata = (() => {
   const base = siteConfig.url.replace(/\/$/, "");
@@ -57,7 +57,7 @@ export default function FrHubPage() {
         </Link>
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
-        Un outil gratuit, sans inscription et privé dans votre navigateur — avec guide en 4 étapes
+        Huit outils gratuits, sans inscription et privés dans votre navigateur — avec guide en 4 étapes
         et questions fréquentes. D&apos;autres outils suivront.
       </Typography>
       <Box component="ul" sx={{ p: 0, m: 0, listStyle: "none", display: "grid", gap: 2 }}>

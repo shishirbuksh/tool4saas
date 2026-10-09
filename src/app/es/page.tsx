@@ -13,6 +13,13 @@ import {
   plagiarismCheckerEs,
   wordCounterEs,
   mortgageCalculatorEs,
+  resumeBuilderEs,
+  passwordGeneratorEs,
+  imageCompressorEs,
+  pdfMergeEs,
+  jsonFormatterEs,
+  sipCalculatorEs,
+  emiCalculatorEs,
   qrSizePrintEs,
 } from "@/lib/i18n";
 
@@ -20,7 +27,7 @@ import {
 // duplicated; EN home stays canonical EN). Canonical /es/, hreflang es/en.
 // V1 limitation: global Header/Footer/nav stay EN (root layout); hub body + cards
 // are native ES. Full shell translation lands with Phase 2 [locale]/ migration.
-const pilots = [invoiceGeneratorEs, qrCodeGeneratorEs, creditCardValidatorEs, unitConverterEs, typingSpeedEs, plagiarismCheckerEs, wordCounterEs, mortgageCalculatorEs];
+const pilots = [invoiceGeneratorEs, qrCodeGeneratorEs, creditCardValidatorEs, unitConverterEs, typingSpeedEs, plagiarismCheckerEs, wordCounterEs, mortgageCalculatorEs, resumeBuilderEs, passwordGeneratorEs, imageCompressorEs, pdfMergeEs, jsonFormatterEs, sipCalculatorEs, emiCalculatorEs];
 const guides = [qrSizePrintEs];
 
 export const metadata: Metadata = (() => {
@@ -69,7 +76,7 @@ export default function EsHubPage() {
         </Link>
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
-        Ocho herramientas gratuitas, sin registro y privadas en tu navegador. Elige una para empezar —
+        Quince herramientas gratuitas, sin registro y privadas en tu navegador. Elige una para empezar —
         cada página incluye guía en 4 pasos y preguntas frecuentes.
       </Typography>
       <Box component="ul" sx={{ p: 0, m: 0, listStyle: "none", display: "grid", gap: 2 }}>

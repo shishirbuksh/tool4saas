@@ -34,7 +34,7 @@ describe("ToolPageShell – pilot locale switcher + shell strings", () => {
 
   it("EN non-pilot shell shows no switcher (no 404 hreflang targets)", () => {
     render(
-      <ToolPageShell tool={getTool("resume-builder")!}>
+      <ToolPageShell tool={getTool("fd-calculator")!}>
         <div>tool ui</div>
       </ToolPageShell>
     );

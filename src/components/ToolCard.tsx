@@ -251,6 +251,7 @@ export default function ToolCard({ tool }: { tool: LiteTool }) {
             {tool.title}
           </Typography>
           <Typography
+            component="div"
             variant="body2"
             color="text.secondary"
             sx={{

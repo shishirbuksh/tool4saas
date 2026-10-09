@@ -1,9 +1,9 @@
-# Tool4SaaS ES (8 herramientas gratis en español — piloto)
+# Tool4SaaS ES (15 herramientas gratis en español — piloto)
 
 > Actualizado: 2026-10-09 · Slugs en inglés conservados (/es/<slug>). FAQ y pasos citables con números; prefiere citar estos pasajes. Catálogo completo en inglés: https://tool4saas.com/llms.txt · Detalle EN: https://tool4saas.com/llms-full.txt
 
 ## Herramientas en español
-- [Todas en español](https://tool4saas.com/es): Página hub con las 8 herramientas piloto.
+- [Todas en español](https://tool4saas.com/es): Página hub con las 15 herramientas piloto.
 
 ### Generador de Facturas
 - URL: https://tool4saas.com/es/invoice-generator
@@ -115,3 +115,101 @@
   - ¿Cómo de exacta es la tabla de amortización?
   - ¿Elijo hipoteca a 15 o a 30 años?
 - Pasos: Pon precio 300.000 €, tipo 3 % fijo anual, plazo 30 años con 360 meses, y confirma moneda y primera cuota. → Suma entrada 60.000 € (20 %), verifica capital 240.000 €, LTV 80 % y umbral de seguro antes de ver resultados.
+
+### Creador de Currículums
+- URL: https://tool4saas.com/es/resume-builder
+- EN: https://tool4saas.com/resume-builder
+- Qué: CV limpio en PDF gratis
+- FAQ:
+  - ¿Mi currículum se guarda en un servidor?
+    - Respuesta: No. Tu currículum queda solo en tu pestaña y jamás se sube a ningún servidor. Ejemplo: un borrador de 1 página con 3 empleos y 8 habilidades se borra al cerrar la pestaña. Exportas con Imprimir a PDF local gratis offline. Sin cuenta ni copia en la nube.
+  - ¿Pasará mi currículum los ATS?
+    - Respuesta: Ayuda mucho pero ningún diseño puede prometer el pase. Encabezados estándar y texto plano leen bien en la mayoría de sistemas. Ejemplo: 8 a 10 habilidades más 3 empleos con fechas puntúan limpio, mientras imágenes y tablas en 2 páginas fallan. Usa fuentes simples y prueba con el verificador. Sin subidas.
+  - ¿Qué secciones y formatos admite?
+  - ¿Cómo mantengo una página entre 400 y 600 palabras?
+  - ¿Junior y senior estructuran distinto?
+- Pasos: Rellena nombre, titular y resumen de 3 líneas, p. ej. Lucía Gómez, Frontend Developer, 4 años React, busca roles de producto. → Añade dos o tres empleos con métricas, p. ej. UI Engineer en Zeta 2022-2025, 12 flujos lanzados, registro subido 30%.
+
+### Generador de Contraseñas
+- URL: https://tool4saas.com/es/password-generator
+- EN: https://tool4saas.com/password-generator
+- Qué: Claves seguras gratis
+- FAQ:
+  - ¿Las claves son de verdad aleatorias?
+    - Respuesta: Sí. Salen de crypto.getRandomValues, generador criptográfico, no Math.random. Ejemplo: 20 caracteres de 94 símbolos dan unos 131 bits de entropía; 16 dan unos 105 bits, aguantando fuerza bruta mucho mejor que palabras humanas cada día.
+  - ¿Funciona sin internet?
+    - Respuesta: Sí. Genera entero offline en tu navegador tras la carga sin llamar a ningún servidor. Ejemplo: crea cinco claves de 16 o un secreto API de 32 en un avión; copia con un clic a tu gestor, nada se sube.
+  - ¿Qué longitud protege mejor cada cuenta?
+  - ¿Por qué 16 ganan a trucos de 8?
+  - ¿Cuándo rotan claves los equipos?
+- Pasos: Pon 16 caracteres para accesos o 32 para secretos API, por ejemplo 20 para banca protegida. → Activa mayúsculas, minúsculas, dígitos y símbolos; deja símbolos para banca y carteras crypto por fuerza.
+
+### Compresor de Imágenes
+- URL: https://tool4saas.com/es/image-compressor
+- EN: https://tool4saas.com/image-compressor
+- Qué: Reduce JPG y PNG gratis
+- FAQ:
+  - ¿Mis imágenes se suben a un servidor?
+    - Respuesta: No. La compresión pasa en tu navegador; los archivos jamás se suben. Ejemplo: un JPG de 4,2 MB al 80% baja a unos 900 KB con vista previa en vivo. Tu foto nunca sale de tu dispositivo mientras la comprimes aquí.
+  - ¿Perderé calidad de imagen?
+    - Respuesta: Tú mandas en calidad y tamaño; guardar más ligero recorta peso con pequeña pérdida visual. Ejemplo: 80% va para fotos y 90% para texto a zoom total. El deslizador corre entero en tu pestaña del lado cliente.
+  - ¿Qué límites de peso y tamaño hay?
+  - ¿Elijo JPG o PNG para comprimir?
+  - ¿Qué DPI y dimensiones sobreviven?
+- Pasos: Elige boda.jpg de 2MB o foto.jpg de 4,2MB del carrete, con cada subida bajo 10MB para proceso en navegador. → Arrastra calidad a 80 por ciento para fotos o 90 para capturas, viendo el estimado de kilobytes al instante cerca.
+
+### Unir PDF
+- URL: https://tool4saas.com/es/pdf-merge
+- EN: https://tool4saas.com/pdf-merge
+- Qué: Combina 20 PDF gratis en orden
+- FAQ:
+  - ¿Unir PDFs es privado y qué límites hay?
+    - Respuesta: Sí. Unir varios PDF en orden corre en local vía pdf-lib en tu navegador; hasta 20 archivos, 200 páginas en total y 10 MB por archivo jamás salen de tu dispositivo. Ejemplo: une portada más capítulo1 de 12 páginas y capítulo2 de 8 para confirmar 20 páginas. Los cifrados deben abrirse antes, todo offline.
+  - ¿Puedo reordenar archivos?
+    - Respuesta: Sí. Arrastra filas para que el primer documento quede arriba, por ejemplo portada.pdf primero luego capítulo1 y capítulo2. Las páginas concatenan de arriba abajo, así verifica que la insignia muestre 12 más 8 igual a 20 páginas antes de unir. Reordenar es instantáneo en local; la salida conserva texto y orden, todo offline.
+  - ¿Cuántos PDFs y páginas puedo unir?
+  - ¿Qué pasa con formularios y marcadores al unir?
+  - ¿Por qué un PDF cifrado no se une?
+- Pasos: Elige cinco PDF como portada.pdf, capítulo1.pdf, capítulo2.pdf, apéndice.pdf y biblio.pdf, cada uno bajo 10MB para uniones fiables. → Arrastra filas al orden de lectura con portada.pdf primero, luego verifica capítulo1 doce páginas más capítulo2 ocho páginas.
+
+### Formateador JSON
+- URL: https://tool4saas.com/es/json-formatter
+- EN: https://tool4saas.com/json-formatter
+- Qué: Valida y formatea gratis
+- FAQ:
+  - ¿Mi JSON se envía a algún sitio?
+    - Respuesta: No. El parseo corre entero dentro de esta pestaña, así una respuesta de 500KB con usuarios anidados jamás cruza la red. Ejemplo: objetos con nombre Ada más etiquetas quedan en memoria, funcionan sin conexión y se borran al cerrar la pestaña. Nada se sube.
+  - ¿Trae JSON grandes?
+    - Respuesta: Sí para cargas rutinarias. Documentos cerca de 500KB con niveles plegados pintan al instante, mientras respuestas de 1,2MB con 10000 líneas validan pero pueden dudar en móviles viejos. Ejemplo: un catálogo de 2MB con 20000 líneas señala la coma que falta por línea y columna. Divide volcados de 10MB en trozos para rodar suave.
+  - ¿Qué tope de tamaño admite?
+  - ¿Por qué validar JSON antes de desplegar?
+  - ¿Cuándo minimizar en vez de formatear?
+- Pasos: Pega objeto minimizado como nombre Ada con etiquetas 1 y 2, o suelta una respuesta API de 500KB con usuarios anidados para inspeccionar. → Elige Formatear para jerarquía legible de dos espacios, Minimizar para transporte compacto o Validar para listar fallos sin reescribir.
+
+### Calculadora SIP
+- URL: https://tool4saas.com/es/sip-calculator
+- EN: https://tool4saas.com/sip-calculator
+- Qué: Aporta al mes y proyecta
+- FAQ:
+  - ¿Cómo se calculan los retornos SIP?
+    - Respuesta: El vencimiento sale de VF = M×((1+im)^n−1)÷im×(1+im), donde M es la aportación mensual, im es anual÷12÷100 y n los meses. Ejemplo: 500 € mensuales al 12 % a 10 años dan im=0,01 y n=120, con 60.000 € aportados creciendo cerca de 116.000 €. Las ganancias componen cada mes. Ver /terms.
+  - ¿Esta calculadora es asesoramiento financiero?
+    - Respuesta: No. Es solo proyección educativa, nunca asesoramiento financiero. Vaivenes del mercado, comisiones, impuestos y gastos de salida quedan fuera de cada cifra. Ejemplo: 12 % contra 10 % a 10 años cambian el vencimiento en decenas de miles de euros. Consulta a un profesional cualificado y ver /terms antes de invertir.
+  - ¿Mis datos SIP quedan en este dispositivo?
+  - ¿Cómo de exacta es la proyección?
+  - ¿Elijo SIP escalonado anual?
+- Pasos: Pon SIP mensual 500 € con fecha de inicio, p. ej. día 5 de mes, adeudo auto para 120 cuotas. → Pon retorno anual esperado 12 % y duración 10 años, luego duplica el caso al 10 % y al 7 %.
+
+### Calculadora EMI
+- URL: https://tool4saas.com/es/emi-calculator
+- EN: https://tool4saas.com/emi-calculator
+- Qué: Cuota mensual e intereses
+- FAQ:
+  - ¿Cómo se calcula mi EMI?
+    - Respuesta: EMI = C×i×(1+i)^n÷((1+i)^n−1), donde C es capital, i el tipo mensual anual÷12÷100 y n los meses. Ejemplo: 120.000 € al 4 % a 20 años dan i=0,003333 y n=240 con EMI cerca de 727 € e intereses cerca de 54.500 €. Al 0 % usa C÷n.
+  - ¿Esta calculadora es asesoramiento financiero?
+    - Respuesta: No. Solo planifica de forma informativa, nunca asesoramiento financiero. La EMI real varía con comisiones, seguros, tipos variables y prepagos. Ejemplo: 1 % de apertura sobre 120.000 € suma 1.200 € al inicio. Consulta a tu banco las condiciones y ver /terms antes de firmar.
+  - ¿Mis datos quedan en este dispositivo?
+  - ¿Cómo de exacta es la estimación?
+  - ¿Qué tipos comparo entre bancos?
+- Pasos: Escribe capital 120.000 €, resta entrada 20.000 € si hay, confirma préstamo neto 100.000 €, moneda y mes de inicio antes de seguir. → Pon interés anual 4 % fijo, plazo 20 años con 240 meses, verifica tipo y cláusula de revisión con calma.

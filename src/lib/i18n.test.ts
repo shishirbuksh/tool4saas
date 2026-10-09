@@ -57,9 +57,9 @@ describe("i18n pilot registry", () => {
       expect(pilotUrl("es", slug)).toBe(`/es/${slug}`);
       expect(pilotUrl("en", slug)).toBe(`/${slug}`);
     }
-    expect(isPilotSlug("resume-builder")).toBe(false);
-    expect(getPilotLocales("resume-builder")).toEqual([]);
-    expect(getEsTool("resume-builder")).toBeUndefined();
+    expect(isPilotSlug("fd-calculator")).toBe(false);
+    expect(getPilotLocales("fd-calculator")).toEqual([]);
+    expect(getEsTool("fd-calculator")).toBeUndefined();
   });
 
   it("EN toolMetadata emits bidirectional hreflang only for pilots", () => {
@@ -70,37 +70,47 @@ describe("i18n pilot registry", () => {
       expect(langs.es).toBe(`${base}/es/${slug}`);
       expect(langs["x-default"]).toBe(`${base}/${slug}`);
     }
-    const plain = (toolMetadata("resume-builder").alternates as { languages: Record<string, string> })
+    const plain = (toolMetadata("fd-calculator").alternates as { languages: Record<string, string> })
       .languages;
     expect(plain.es).toBeUndefined();
     expect(plain.fr).toBeUndefined();
-    expect(plain.en).toBe(`${base}/resume-builder`);
+    expect(plain.en).toBe(`${base}/fd-calculator`);
   });
 
-  it("FR pilot has valid SEO contracts + full N-locale hreflang/sitemap parity", () => {
-    expect(FR_PILOT_SLUGS.size).toBeGreaterThanOrEqual(1);
-    const fr = getFrTool("invoice-generator");
-    expect(fr).toBeDefined();
-    let core = `${fr!.title} - ${fr!.short}`;
-    if (core.length > 55) {
-      core = core.slice(0, 55).trimEnd();
-      const ls = core.lastIndexOf(" ");
-      if (ls > 35) core = core.slice(0, ls);
+  it("FR pilots have valid SEO contracts + full N-locale hreflang/sitemap parity", () => {
+    expect(FR_PILOT_SLUGS.size).toBeGreaterThanOrEqual(8);
+    for (const slug of FR_PILOT_SLUGS) {
+      const fr = getFrTool(slug);
+      expect(fr, `${slug} has FR tool`).toBeDefined();
+      let core = `${fr!.title} - ${fr!.short}`;
+      if (core.length > 55) {
+        core = core.slice(0, 55).trimEnd();
+        const ls = core.lastIndexOf(" ");
+        if (ls > 35) core = core.slice(0, ls);
+      }
+      const full = `${core} | Tool4SaaS`;
+      expect(full).toContain("Tool4SaaS");
+      expect(full.length).toBeLessThanOrEqual(70);
+      expect(fr!.description.length).toBeGreaterThanOrEqual(100);
+      expect(fr!.description.length).toBeLessThanOrEqual(180);
+      expect(fr!.keywords.length).toBeGreaterThanOrEqual(7);
+      expect(fr!.keywords.some((k) => k.includes("?"))).toBe(true);
+      expect(fr!.faq.length).toBeGreaterThanOrEqual(4);
+      expect(fr!.howTo.length).toBeGreaterThanOrEqual(4);
+      expect(pilotUrl("fr", slug)).toBe(`/fr/${slug}`);
     }
-    const full = `${core} | Tool4SaaS`;
-    expect(full).toContain("Tool4SaaS");
-    expect(full.length).toBeLessThanOrEqual(70);
-    expect(fr!.description.length).toBeGreaterThanOrEqual(100);
-    expect(fr!.description.length).toBeLessThanOrEqual(180);
-    expect(fr!.keywords.length).toBeGreaterThanOrEqual(7);
-    expect(fr!.keywords.some((k) => k.includes("?"))).toBe(true);
-    expect(fr!.faq.length).toBeGreaterThanOrEqual(4);
-    expect(fr!.howTo.length).toBeGreaterThanOrEqual(4);
+    expect(getFrTool("typing-speed-test")).toBeDefined();
+    expect(getFrTool("password-generator")).toBeUndefined();
     expect(getPilotLocales("invoice-generator")).toEqual(
       expect.arrayContaining(["es", "fr"]),
     );
-    expect(pilotUrl("fr", "invoice-generator")).toBe("/fr/invoice-generator");
-    // EN invoice now serves es+fr; ES-only pilots serve es only.
+    expect(getPilotLocales("qr-code-generator")).toEqual(
+      expect.arrayContaining(["es", "fr"]),
+    );
+    expect(getPilotLocales("word-counter")).toEqual(
+      expect.arrayContaining(["es", "fr"]),
+    );
+    // EN invoice + QR now serve es+fr; ES-only pilots serve es only.
     const invLangs = (toolMetadata("invoice-generator").alternates as { languages: Record<string, string> })
       .languages;
     expect(invLangs.es).toBe(`${base}/es/invoice-generator`);
@@ -108,7 +118,28 @@ describe("i18n pilot registry", () => {
     const qrLangs = (toolMetadata("qr-code-generator").alternates as { languages: Record<string, string> })
       .languages;
     expect(qrLangs.es).toBe(`${base}/es/qr-code-generator`);
-    expect(qrLangs.fr).toBeUndefined();
+    expect(qrLangs.fr).toBe(`${base}/fr/qr-code-generator`);
+    const unitLangs = (toolMetadata("unit-converter").alternates as { languages: Record<string, string> })
+      .languages;
+    expect(unitLangs.es).toBe(`${base}/es/unit-converter`);
+    expect(unitLangs.fr).toBe(`${base}/fr/unit-converter`);
+    const wordLangs = (toolMetadata("word-counter").alternates as { languages: Record<string, string> })
+      .languages;
+    expect(wordLangs.es).toBe(`${base}/es/word-counter`);
+    expect(wordLangs.fr).toBe(`${base}/fr/word-counter`);
+    const cardLangs = (toolMetadata("credit-card-validator").alternates as { languages: Record<string, string> })
+      .languages;
+    expect(cardLangs.es).toBe(`${base}/es/credit-card-validator`);
+    expect(cardLangs.fr).toBe(`${base}/fr/credit-card-validator`);
+    const mortLangs = (toolMetadata("mortgage-calculator").alternates as { languages: Record<string, string> })
+      .languages;
+    expect(mortLangs.es).toBe(`${base}/es/mortgage-calculator`);
+    expect(mortLangs.fr).toBe(`${base}/fr/mortgage-calculator`);
+    // ES-only pilots serve es only (no FR content yet).
+    const passLangs = (toolMetadata("password-generator").alternates as { languages: Record<string, string> })
+      .languages;
+    expect(passLangs.es).toBe(`${base}/es/password-generator`);
+    expect(passLangs.fr).toBeUndefined();
   });
 
   it("sitemap includes every pilot /es URL and no non-pilot /es URLs", async () => {
@@ -123,9 +154,9 @@ describe("i18n pilot registry", () => {
     for (const slug of FR_PILOT_SLUGS) {
       expect(urls).toContain(`${base}/fr/${slug}`);
     }
-    expect(urls.some((u) => u.endsWith("/es/resume-builder"))).toBe(false);
+    expect(urls.some((u) => u.endsWith("/es/fd-calculator"))).toBe(false);
     // Per-locale pilot sets: no /fr page without FR content.
-    expect(urls.some((u) => u.endsWith("/fr/qr-code-generator"))).toBe(false);
+    expect(urls.some((u) => u.endsWith("/fr/password-generator"))).toBe(false);
   }, 20000);
 
   it("ES blog pilot has valid SEO contracts and registry parity", async () => {

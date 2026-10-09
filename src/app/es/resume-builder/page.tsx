@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import ToolPageShell from "@/components/ToolPageShell";
-import MortgageCalculatorTool from "@/components/tools/MortgageCalculatorTool";
+import ResumeTool from "@/components/tools/ResumeTool";
 import { siteConfig } from "@/lib/site";
-import { mortgageCalculatorEs } from "@/lib/i18n";
+import { resumeBuilderEs } from "@/lib/i18n";
 
-// ES pilot #8: /es/mortgage-calculator (top finance hero: HERO_SLUGS 0.9, YMYL).
-// English slug kept. SEO shell renders native ES (TIN/TAE/Euríbor numbers);
-// MortgageCalculatorTool UI stays EN in V1. Canonical /es/slug, hreflang ES<->EN.
-// Finance YMYL banner renders localized via YMYLDisclaimer locale.
+// ES pilot #9: /es/resume-builder (top business hero: HERO_SLUGS 0.9, pairs
+// with invoice-generator; non-YMYL).
+// English slug kept. SEO shell renders native ES; ResumeTool UI stays EN
+// in V1. Canonical /es/slug, hreflang ES<->EN.
 // Same <html lang> limitation as other pilots (Phase 2 fixes via [locale]/).
-const tool = mortgageCalculatorEs;
+const tool = resumeBuilderEs;
 
 function esTitle(): string {
   let core = `${tool.title} - ${tool.short}`;
@@ -25,7 +25,6 @@ export const metadata: Metadata = (() => {
   const base = siteConfig.url.replace(/\/$/, "");
   const url = `${base}/es/${tool.slug}`;
   const enUrl = `${base}/${tool.slug}`;
-  const frUrl = `${base}/fr/${tool.slug}`;
   const ogImage = `${base}/og/${tool.slug}`;
   const fullTitle = esTitle();
   return {
@@ -35,7 +34,7 @@ export const metadata: Metadata = (() => {
     authors: [{ name: siteConfig.author }],
     alternates: {
       canonical: url,
-      languages: { es: url, fr: frUrl, en: enUrl, "x-default": enUrl },
+      languages: { es: url, en: enUrl, "x-default": enUrl },
     },
     robots: {
       index: true,
@@ -51,7 +50,7 @@ export const metadata: Metadata = (() => {
     openGraph: {
       type: "website",
       locale: "es_ES",
-      alternateLocale: ["en_US", "fr_FR"],
+      alternateLocale: ["en_US"],
       url,
       siteName: siteConfig.name,
       title: fullTitle,
@@ -67,10 +66,10 @@ export const metadata: Metadata = (() => {
   };
 })();
 
-export default function EsMortgageCalculatorPage() {
+export default function EsResumeBuilderPage() {
   return (
     <ToolPageShell tool={tool} locale="es">
-      <MortgageCalculatorTool />
+      <ResumeTool />
     </ToolPageShell>
   );
 }

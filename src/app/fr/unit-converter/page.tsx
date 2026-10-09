@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import ToolPageShell from "@/components/ToolPageShell";
-import MortgageCalculatorTool from "@/components/tools/MortgageCalculatorTool";
+import UnitConverterTool from "@/components/tools/UnitConverterTool";
 import { siteConfig } from "@/lib/site";
-import { mortgageCalculatorEs } from "@/lib/i18n";
+import { unitConverterFr } from "@/lib/i18n";
 
-// ES pilot #8: /es/mortgage-calculator (top finance hero: HERO_SLUGS 0.9, YMYL).
-// English slug kept. SEO shell renders native ES (TIN/TAE/Euríbor numbers);
-// MortgageCalculatorTool UI stays EN in V1. Canonical /es/slug, hreflang ES<->EN.
-// Finance YMYL banner renders localized via YMYLDisclaimer locale.
+// FR pilot #3: /fr/unit-converter (everyday utility, steady FR volume).
+// English slug kept. SEO shell renders native FR; UnitConverterTool UI stays
+// EN in V1. Canonical /fr/slug, hreflang FR<->EN (ES gains fr via the EN hub).
 // Same <html lang> limitation as other pilots (Phase 2 fixes via [locale]/).
-const tool = mortgageCalculatorEs;
+const tool = unitConverterFr;
 
-function esTitle(): string {
+function frTitle(): string {
   let core = `${tool.title} - ${tool.short}`;
   if (core.length > 55) {
     core = core.slice(0, 55).trimEnd();
@@ -23,11 +22,10 @@ function esTitle(): string {
 
 export const metadata: Metadata = (() => {
   const base = siteConfig.url.replace(/\/$/, "");
-  const url = `${base}/es/${tool.slug}`;
+  const url = `${base}/fr/${tool.slug}`;
   const enUrl = `${base}/${tool.slug}`;
-  const frUrl = `${base}/fr/${tool.slug}`;
   const ogImage = `${base}/og/${tool.slug}`;
-  const fullTitle = esTitle();
+  const fullTitle = frTitle();
   return {
     title: { absolute: fullTitle },
     description: tool.description,
@@ -35,7 +33,7 @@ export const metadata: Metadata = (() => {
     authors: [{ name: siteConfig.author }],
     alternates: {
       canonical: url,
-      languages: { es: url, fr: frUrl, en: enUrl, "x-default": enUrl },
+      languages: { fr: url, en: enUrl, "x-default": enUrl },
     },
     robots: {
       index: true,
@@ -50,8 +48,8 @@ export const metadata: Metadata = (() => {
     },
     openGraph: {
       type: "website",
-      locale: "es_ES",
-      alternateLocale: ["en_US", "fr_FR"],
+      locale: "fr_FR",
+      alternateLocale: ["en_US"],
       url,
       siteName: siteConfig.name,
       title: fullTitle,
@@ -67,10 +65,10 @@ export const metadata: Metadata = (() => {
   };
 })();
 
-export default function EsMortgageCalculatorPage() {
+export default function FrUnitConverterPage() {
   return (
-    <ToolPageShell tool={tool} locale="es">
-      <MortgageCalculatorTool />
+    <ToolPageShell tool={tool} locale="fr">
+      <UnitConverterTool />
     </ToolPageShell>
   );
 }

@@ -24,6 +24,7 @@ export const metadata: Metadata = (() => {
   const base = siteConfig.url.replace(/\/$/, "");
   const url = `${base}/es/${tool.slug}`;
   const enUrl = `${base}/${tool.slug}`;
+  const frUrl = `${base}/fr/${tool.slug}`;
   const ogImage = `${base}/og/${tool.slug}`;
   const fullTitle = esTitle();
   return {
@@ -33,7 +34,7 @@ export const metadata: Metadata = (() => {
     authors: [{ name: siteConfig.author }],
     alternates: {
       canonical: url,
-      languages: { es: url, en: enUrl, "x-default": enUrl },
+      languages: { es: url, fr: frUrl, en: enUrl, "x-default": enUrl },
     },
     robots: {
       index: true,
@@ -49,7 +50,7 @@ export const metadata: Metadata = (() => {
     openGraph: {
       type: "website",
       locale: "es_ES",
-      alternateLocale: ["en_US"],
+      alternateLocale: ["en_US", "fr_FR"],
       url,
       siteName: siteConfig.name,
       title: fullTitle,

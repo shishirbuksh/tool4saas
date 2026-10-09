@@ -12,15 +12,7 @@ import { EXPECTED_TOOL_COUNT, type Category } from "@/lib/tools";
 // client props — they bloat the RSC payload + hydration parse on mobile.
 import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
 
-// Below-fold grid ships in its own chunk (SSR HTML preserved for SEO/crawlers,
-// JS parses + hydrates off the critical path). Skeleton reserves layout (CLS).
-const PaginatedToolGrid = dynamic(() => import("@/components/PaginatedToolGrid"), {
-  loading: () => (
-    <Box aria-hidden="true" sx={{ minHeight: { xs: 1200, md: 1600 } }}>
-      <Skeleton variant="rounded" width="100%" height={1200} sx={{ maxHeight: "60vh" }} />
-    </Box>
-  ),
-});
+import PaginatedToolGrid from "@/components/PaginatedToolGrid";
 
 // Features grid + all-tools grid + mid-page ad.
 export default function HomeTools({ hubA, hubB }: { hubA?: Category; hubB?: Category }) {

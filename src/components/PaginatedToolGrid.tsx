@@ -121,6 +121,7 @@ export default function PaginatedToolGrid({ groups }: { groups: Group[] }) {
               aria-label={`View all ${fullCount} ${group.category.label} tools`}
             >
               <Typography
+                component="span"
                 variant="body2"
                 sx={{ color: "primary.main", fontWeight: 600 }}
               >
