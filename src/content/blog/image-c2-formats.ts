@@ -43,7 +43,7 @@ export const imageFormats: BlogPost = {
   description:
     "PNG vs JPG vs WebP decision tree with tested sizes, the transparency trap explained, photo format tests + logo and AVIF guidance. Free converter.",
   keywords: ["png vs jpg vs webp for website", "should logo be png or webp", "photo png to jpg size difference", "does webp keep transparency"],
-  toolSlugs: ["image-format-converter", "image-compressor", "image-resizer"],
+  toolSlugs: ["image-format-converter", "image-compressor"],
   relatedSlugs: ["compress-jpg-100kb-portal", "resize-image-exact-pixels", "optimize-svg-logos"],
   published: "2026-10-07",
   updated: "2026-10-07",

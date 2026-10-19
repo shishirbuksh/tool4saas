@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>A GST invoice gets rejected at many accounts desks when tax is written as 18% on one line instead of splitting 9% CGST + 9% SGST. Same total, wrong presentation — one week lost. This tutorial fixes that: the exact <strong>GST invoice format India</strong> requires, with HSN codes, GSTIN placement and a copy-paste sample, so your bill clears on first submission.</p>
-<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. For the hands-on build, use the <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> (auto CGST/SGST vs IGST) or the general <a href="/invoice-generator">free invoice generator</a>. This is format guidance, not tax advice — confirm slabs with your CA.</p>
+<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. For the hands-on build, use the <a href="/invoice-generator">freelance GST invoice generator</a> (auto CGST/SGST vs IGST) or the general <a href="/invoice-generator">free invoice generator</a>. This is format guidance, not tax advice — confirm slabs with your CA.</p>
 
 <h2 id="mandatory-fields">GST invoice mandatory fields (the 14-point check)</h2>
 <p>Under CGST rules every tax invoice needs these. Miss one and enterprise accounts bounces it. Bold them on your PDF.</p>
@@ -35,7 +35,7 @@ const html = `
 <tr><td><strong>Unregistered freelancer</strong></td><td>No GST, status note</td><td>₹15,000, “unregistered supplier”</td></tr>
 </tbody>
 </table>
-<p>The <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> picks the split from place-of-supply state codes automatically — A Mumbai intra-state bill must produce CGST+SGST while Mumbai shipping to Bengaluru flips to IGST — confirm both formulas on the draft before printing. Cross-check percentages with the <a href="/gst-calculator">GST calculator</a> before sending.</p>
+<p>The <a href="/invoice-generator">freelance GST invoice generator</a> picks the split from place-of-supply state codes automatically — A Mumbai intra-state bill must produce CGST+SGST while Mumbai shipping to Bengaluru flips to IGST — confirm both formulas on the draft before printing. Cross-check percentages with the <a href="/gst-calculator">GST calculator</a> before sending.</p>
 
 <h2 id="hsn-sac-gstin">HSN, SAC and GSTIN: where they go on the bill</h2>
 <ul>
@@ -52,7 +52,7 @@ const html = `
 <p><strong>Lines:</strong> UI design, SAC 9983, 10 hrs × ₹2,000 = ₹20,000 taxable. <strong>Tax:</strong> IGST 18% = ₹3,600 (inter-state). <strong>Total: ₹23,600</strong> — Rupees twenty-three thousand six hundred only. <strong>Footer:</strong> UPI + bank/IFSC, “50% advance received vide QUO-2026-014”, signatory block.</p>
 <ul>
 <li>File name: <strong>gst-invoice-011-zeta.pdf</strong>. Subject: “GST Invoice INV-GST-011 — ₹23,600 due Sept 29”.</li>
-<li>Made with: <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> → Print to PDF. Verify with <a href="/invoice-generator">free invoice generator</a> for non-GST bills.</li>
+<li>Made with: <a href="/invoice-generator">freelance GST invoice generator</a> → Print to PDF. Verify with <a href="/invoice-generator">free invoice generator</a> for non-GST bills.</li>
 <li>After payment: issue a <a href="/receipt-generator">payment receipt</a> referencing INV-GST-011.</li>
 </ul>
 
@@ -64,7 +64,7 @@ const html = `
 <li><strong>Total in words missing</strong> — banks and large buyers require it. The full pre-send sweep is in <a href="/blog/invoice-generator-guide/invoicing-mistakes-to-avoid">12 invoice mistakes to avoid</a>.</li>
 <li><strong>Duplicate series</strong> — keep GST bills in one sequence; credit notes separate (CN-001). Freelancers: the <a href="/blog/invoice-generator-guide/freelancer-invoice-guide">freelancer guide</a> shows advances + UPI wording that pairs with GST bills; payment chasing in <a href="/blog/invoice-generator-guide/payment-terms-and-followups">payment terms and reminders</a>.</li>
 </ol>
-<div class="cta-box"><strong>Make it now:</strong> open the <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> — CGST/SGST vs IGST handled for you. Back to <a href="/blog/invoice-generator-guide">the pillar guide</a> for taxes in the US/UK and sending tips.</div>
+<div class="cta-box"><strong>Make it now:</strong> open the <a href="/invoice-generator">freelance GST invoice generator</a> — CGST/SGST vs IGST handled for you. Back to <a href="/blog/invoice-generator-guide">the pillar guide</a> for taxes in the US/UK and sending tips.</div>
 `;
 
 export const invoiceGstFormat: BlogPost = {
@@ -75,7 +75,7 @@ export const invoiceGstFormat: BlogPost = {
   description:
     "GST invoice format India explained: 14 mandatory fields, CGST/SGST vs IGST split, HSN/SAC codes, GSTIN placement + sample. Free generator included.",
   keywords: ["gst invoice format india", "gst bill format with hsn code", "gst invoice mandatory fields gstin", "freelance gst invoice india free", "cgst sgst vs igst invoice"],
-  toolSlugs: ["freelance-gst-invoice-generator", "invoice-generator", "gst-calculator"],
+  toolSlugs: ["invoice-generator", "gst-calculator"],
   relatedSlugs: ["how-to-create-invoice-online", "invoice-numbering", "freelancer-invoice-guide"],
   published: "2026-09-11",
   updated: "2026-09-18",

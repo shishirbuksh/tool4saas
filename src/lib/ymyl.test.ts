@@ -8,16 +8,13 @@ describe("ymyl – central mapping", () => {
     expect(getYMYLType({ slug: "calorie-calculator", category: "health" })).toBe("health");
   });
 
-  it("covers the 10 calculators/business overrides", () => {
+  it("covers the 7 calculators/business overrides", () => {
     const overrides: [string, "finance" | "health"][] = [
       ["bmi-calculator", "health"],
       ["tip-calculator", "finance"],
-      ["loan-calculator", "finance"],
       ["discount-calculator", "finance"],
       ["gst-calculator", "finance"],
       ["percentage-calculator", "finance"],
-      ["percentage-change", "finance"],
-      ["percentage-difference", "finance"],
       ["us-sales-tax-calculator", "finance"],
       ["commission-calculator", "finance"],
     ];
@@ -33,8 +30,8 @@ describe("ymyl – central mapping", () => {
     expect(getYMYLType({ slug: "qr-code-generator", category: "images-design" })).toBeNull();
   });
 
-  it("every finance/health tool gets a banner (44 total with overrides)", () => {
+  it("every finance/health tool gets a banner (38 total with overrides)", () => {
     const covered = tools.filter((t) => getYMYLType(t) !== null);
-    expect(covered.length).toBe(44);
+    expect(covered.length).toBe(38);
   });
 });

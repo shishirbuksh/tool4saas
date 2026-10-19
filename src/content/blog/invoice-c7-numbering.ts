@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Duplicate INV-2026-001. Skipped 004. A “final” invoice numbered “3b”. All three are routine triggers for accounts queries that cost days. <strong>Invoice numbering</strong> looks trivial until money depends on it. Here is the GST-compliant way to format numbers and HSN placement and tax-field rules that keep Indian, US and UK bills clean.</p>
-<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Build numbered bills in the <a href="/invoice-generator">free invoice generator</a> (general) or <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> (auto tax split). Convert totals to words with the <a href="/number-to-words">number to words converter</a>.</p>
+<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Build numbered bills in the <a href="/invoice-generator">free invoice generator</a> (general) or <a href="/invoice-generator">freelance GST invoice generator</a> (auto tax split). Convert totals to words with the <a href="/number-to-words">number to words converter</a>.</p>
 
 <h2 id="format-rules">Numbering formats that pass audits (pick one, never change mid-year)</h2>
 <table>
@@ -61,7 +61,7 @@ export const invoiceNumbering: BlogPost = {
   description:
     "Invoice numbering done right: sequential formats, GSTIN/HSN placement, CGST/SGST vs IGST fields + fixes for duplicates. Free generator walkthrough.",
   keywords: ["invoice number format", "hsn code on invoice", "how to do invoice numbering gst compliant", "where to put gstin on bill", "cgst sgst vs igst in invoice"],
-  toolSlugs: ["invoice-generator", "freelance-gst-invoice-generator", "number-to-words"],
+  toolSlugs: ["invoice-generator", "number-to-words"],
   relatedSlugs: ["how-to-create-invoice-online", "gst-invoice-format-india", "payment-terms-and-followups"],
   published: "2026-09-14",
   updated: "2026-09-18",

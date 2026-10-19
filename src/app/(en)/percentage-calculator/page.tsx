@@ -1,5 +1,5 @@
 ﻿import ToolPageShell from "@/components/ToolPageShell";
-import PercentageCalculatorTool from "@/components/tools/PercentageCalculatorTool";
+import PercentageStudioTool from "@/components/tools/PercentageStudioTool";
 import { getTool } from "@/lib/tools";
 import { toolMetadata } from "@/lib/metadata";
 
@@ -11,7 +11,7 @@ export const metadata = toolMetadata(slug);
 export default function Page() {
   return (
     <ToolPageShell tool={tool}>
-      <PercentageCalculatorTool />
+      <PercentageStudioTool />
     </ToolPageShell>
   );
 }

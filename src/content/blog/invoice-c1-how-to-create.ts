@@ -22,7 +22,7 @@ const html = `
 <h3>Step 2 — Add line items with quantity and rate</h3>
 <p>Add rows like “Logo design, qty 2, $250 each”. Keep each line to one deliverable. The tool supports up to 50 lines — the A4 layout stays clean at ten-plus line items. Vague lines (“Services”) get questioned; specific lines get paid. If the job came from a quote, paste the <a href="/quotation-generator">quotation number (e.g. QUO-2026-014)</a> into notes.</p>
 <h3>Step 3 — Set tax, discount and currency</h3>
-<p>Watch the math go live: $500 subtotal + 10% tax ($50) = <strong>$550 total</strong>. India same-state? That 18% splits to 9% CGST + 9% SGST; inter-state is 18% IGST — the <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> does this split automatically. US: sales tax only with nexus. UK: 20% VAT if registered. Discounts go before tax unless your contract says otherwise.</p>
+<p>Watch the math go live: $500 subtotal + 10% tax ($50) = <strong>$550 total</strong>. India same-state? That 18% splits to 9% CGST + 9% SGST; inter-state is 18% IGST — the <a href="/invoice-generator">freelance GST invoice generator</a> does this split automatically. US: sales tax only with nexus. UK: 20% VAT if registered. Discounts go before tax unless your contract says otherwise.</p>
 <h3>Step 4 — Add logo, notes and payment terms</h3>
 <p>Upload the logo, paste terms (“Net 15, UPI / bank transfer”), add “Pay to: name@upi” and bank + IFSC for larger Indian invoices. One warm line (“Thanks for the quick turnaround on feedback!”) keeps it human. This is what makes a <strong>professional invoice PDF</strong> instead of a spreadsheet printout.</p>
 <h3>Step 5 — Download the PDF and name it right</h3>

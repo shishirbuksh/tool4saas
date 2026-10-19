@@ -33,7 +33,7 @@ export const imageWebp: BlogPost = {
   description:
     "Convert PNG to WebP keeping transparency: 70% savings tested, quality picks, WebP-to-JPG flattening, white-background diagnosis + email fallbacks. Free tool.",
   keywords: ["how to convert png to webp without losing transparency", "jpg to webp 85 percent quality", "webp to jpg for email", "why transparent png gets white background in jpg", "avif fallback"],
-  toolSlugs: ["image-format-converter", "image-compressor", "image-resizer"],
+  toolSlugs: ["image-format-converter", "image-compressor"],
   relatedSlugs: ["png-vs-jpg-vs-webp", "compress-jpg-100kb-portal", "resize-image-exact-pixels"],
   published: "2026-10-07",
   updated: "2026-10-07",

@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>At a Sept 2025 closing I sat in on, the buyer's $1,439 P&I quote became $1,940 real — $275 tax, $150 insurance, $115 PMI on top. The formula below prevents exactly that: <strong>how to calculate mortgage payment</strong> by hand, so every calculator output (including ours) is something you can verify, not something you must trust. Paste =PMT(6%/12,360,240000) into any spreadsheet and you will see $1,439 yourself before adding PITI.</p>
-<p>Part of the <a href="/blog/mortgage-calculator-guide">mortgage calculator guide</a> — the pillar covers the system, this is the math tutorial. Follow along in the <a href="/mortgage-calculator">free mortgage calculator</a>; compare loan structures in the <a href="/loan-calculator">loan calculator</a>.</p>
+<p>Part of the <a href="/blog/mortgage-calculator-guide">mortgage calculator guide</a> — the pillar covers the system, this is the math tutorial. Follow along in the <a href="/mortgage-calculator">free mortgage calculator</a>; compare loan structures in the <a href="/emi-calculator">loan calculator</a>.</p>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 
 <h2 id="formula">The formula (and what each symbol means)</h2>
@@ -41,7 +41,7 @@ export const mortgageHowTo: BlogPost = {
   description:
     "Calculate mortgage payment by hand: EMI formula, $240k worked example, rate sensitivity + PITI add-ons. Verify any calculator yourself.",
   keywords: ["how to calculate mortgage payment", "mortgage payment formula with taxes", "calculate principal and interest by hand", "mortgage emi formula example"],
-  toolSlugs: ["mortgage-calculator", "loan-calculator", "home-affordability-calculator"],
+  toolSlugs: ["mortgage-calculator", "emi-calculator", "home-affordability-calculator"],
   relatedSlugs: ["mortgage-amortization-schedule", "down-payment-pmi-cost", "15-vs-30-year-mortgage"],
   published: "2026-09-24",
   updated: "2026-09-24",

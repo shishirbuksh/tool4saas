@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>My first freelance invoice said “Design stuff — $400”. The client replied: “Which stuff?” Two days lost to clarification. Six years later my invoices read like mini-contracts — and get paid in 6 days average. This is the <strong>freelancer invoice guide</strong>: what to include, when to send, and the exact payment terms that stop awkward money chases.</p>
-<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Build yours in the <a href="/invoice-generator">free invoice generator</a> (or the <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> for India). Price your work first with the <a href="/freelance-rate-calculator">freelance rate calculator</a> if needed.</p>
+<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Build yours in the <a href="/invoice-generator">free invoice generator</a> (or the <a href="/invoice-generator">freelance GST invoice generator</a> for India). Price your work first with the <a href="/freelance-rate-calculator">freelance rate calculator</a> if needed.</p>
 
 <h2 id="what-freelancers-get-wrong">What freelancers get wrong (the 4 classics)</h2>
 <ul>
@@ -72,7 +72,7 @@ export const invoiceFreelancer: BlogPost = {
   description:
     "Freelancer invoicing done right: line items, advances, Net terms, GST/UPI tips for India + follow-up scripts. Free invoice maker walkthrough.",
   keywords: ["freelancer invoice template", "invoice for freelancers", "how do freelancers invoice clients", "freelance invoice without gst india", "freelancer payment terms invoice"],
-  toolSlugs: ["invoice-generator", "freelance-gst-invoice-generator", "freelance-rate-calculator"],
+  toolSlugs: ["invoice-generator", "freelance-rate-calculator"],
   relatedSlugs: ["how-to-create-invoice-online", "gst-invoice-format-india", "payment-terms-and-followups"],
   published: "2026-09-12",
   updated: "2026-09-18",

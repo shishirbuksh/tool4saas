@@ -1,5 +1,5 @@
 ﻿import ToolPageShell from "@/components/ToolPageShell";
-import ColorConverterTool from "@/components/tools/ColorConverterTool";
+import ColorStudioTool from "@/components/tools/ColorStudioTool";
 import { getTool } from "@/lib/tools";
 import { toolMetadata } from "@/lib/metadata";
 
@@ -11,7 +11,7 @@ export const metadata = toolMetadata(slug);
 export default function Page() {
   return (
     <ToolPageShell tool={tool}>
-      <ColorConverterTool />
+      <ColorStudioTool />
     </ToolPageShell>
   );
 }

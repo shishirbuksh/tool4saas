@@ -4,20 +4,20 @@ import { readingMinutesFor } from "@/lib/blog";
 const html = `
 <p>A visa agent once emailed me a 34-file application — scans, forms, bank statements — as 34 separate attachments with names like “scan_final_FINAL2.pdf”. The consulate asked for one ordered PDF. Merging took four minutes; renaming discipline would have saved forty. That afternoon taught me <strong>PDF workflow</strong>: merge, split, compress and convert as one local, private pipeline. This guide covers all eight operations with the exact limits (20 files, 200 pages, 10MB each) so you never discover them mid-deadline.</p>
 <p>Here is the promise: you will learn to <strong>merge PDFs in order, split by page ranges, compress to 1MB for email, convert scans to PDF and pages to JPG, rotate sideways scans and stamp watermarks — entirely offline, files never uploaded</strong>. I ran every flow below in October 2026 with real documents: a 5-report bundle, a 120-page manual, an 18MB photo deck. Work alongside me starting at our <a href="/pdf-merge">free PDF merge tool</a>.</p>
-<p>Part of the <a href="/blog">blog guides</a>. Merge in <a href="/pdf-merge">PDF merge</a>; split in <a href="/pdf-split">PDF split</a>; scans to PDF in <a href="/image-to-pdf">image to PDF</a>. (Our dedicated PDF compress tool is in development.)</p>
+<p>Part of the <a href="/blog">blog guides</a>. Merge in <a href="/pdf-merge">PDF merge</a>; split in <a href="/pdf-merge">PDF split</a>; scans to PDF in <a href="/image-to-pdf">image to PDF</a>. (Our dedicated PDF compress tool is in development.)</p>
 
 <h2 id="toolbox">The 8-tool offline toolbox (what each does)</h2>
 <table>
 <thead><tr><th>Job</th><th>Tool</th><th>Limits that matter</th></tr></thead>
 <tbody>
 <tr><td><strong>Join PDFs in order</strong></td><td><a href="/pdf-merge">PDF merge</a></td><td>20 files, 200 pages, 10MB each</td></tr>
-<tr><td><strong>Extract page ranges</strong></td><td><a href="/pdf-split">PDF split</a></td><td>200 pages, <code>1-3,5</code> syntax</td></tr>
+<tr><td><strong>Extract page ranges</strong></td><td><a href="/pdf-merge">PDF split</a></td><td>200 pages, <code>1-3,5</code> syntax</td></tr>
 <tr><td><strong>Shrink for email</strong></td><td>PDF compress (in development)</td><td>Light/Medium/Strong, 20–70% savings</td></tr>
 <tr><td><strong>Scans → one PDF</strong></td><td><a href="/image-to-pdf">Image to PDF</a></td><td>50 images, A4/Letter</td></tr>
 <tr><td><strong>Pages → images</strong></td><td><a href="/pdf-to-jpg">PDF to JPG</a></td><td>1×/2× scale, ZIP download</td></tr>
 <tr><td><strong>Text extraction</strong></td><td><a href="/pdf-to-text">PDF to text</a></td><td>Selectable layer only (no OCR)</td></tr>
-<tr><td><strong>Fix orientation</strong></td><td><a href="/pdf-rotate">PDF rotate</a></td><td>90/180/270 all pages</td></tr>
-<tr><td><strong>Stamp drafts</strong></td><td><a href="/pdf-watermark">PDF watermark</a></td><td>25% opacity diagonal</td></tr>
+<tr><td><strong>Fix orientation</strong></td><td><a href="/pdf-merge">PDF rotate</a></td><td>90/180/270 all pages</td></tr>
+<tr><td><strong>Stamp drafts</strong></td><td><a href="/pdf-merge">PDF watermark</a></td><td>25% opacity diagonal</td></tr>
 </tbody>
 </table>
 <p>Everything above runs on pdf-lib, jsPDF and pdf.js <strong>inside your browser</strong> — Confirm it yourself: load the page once, switch off Wi-Fi, and the tools still run. Contrast with cloud tools that cap free use at 2 files a day and keep your uploads: for visa bundles, bank statements and contracts, local-first is not a feature, it is the requirement. Each operation below links its deep tutorial.</p>
@@ -51,7 +51,7 @@ const html = `
 <p>Born-digital PDFs embed selectable glyphs — extraction is instant and exact. Scanned pages are flat pictures with no text layer: extraction returns empty per-page flags, correctly. That is not a bug; OCR (optical recognition) is a different technology and out of scope here — use dedicated OCR software for scans, then bring the result back. For digital files, select ranges like <code>1-3,5</code>, extract, copy or download chapter.txt. Method: <a href="/blog/pdf-merge-guide/extract-text-without-ocr">text without OCR</a>.</p>
 
 <h2 id="rotate-mixed">Fix sideways scans (split-rotate-merge for mixed bundles)</h2>
-<p>Flatbeds produce sideways pages; phone scans inherit orientation flags. If every page is wrong, rotate all 90/180/270 in one click. If only pages 5–8 are sideways (mixed bundle), the pro move: split out 5–8 at <a href="/pdf-split">PDF split</a>, rotate that segment, merge back at <a href="/pdf-merge">PDF merge</a>. Preview the first thumbnail before committing — double-rotating an already-correct file wastes a round trip. Fixes: <a href="/blog/pdf-merge-guide/fix-sideways-scans">sideways scan repair</a>.</p>
+<p>Flatbeds produce sideways pages; phone scans inherit orientation flags. If every page is wrong, rotate all 90/180/270 in one click. If only pages 5–8 are sideways (mixed bundle), the pro move: split out 5–8 at <a href="/pdf-merge">PDF split</a>, rotate that segment, merge back at <a href="/pdf-merge">PDF merge</a>. Preview the first thumbnail before committing — double-rotating an already-correct file wastes a round trip. Fixes: <a href="/blog/pdf-merge-guide/fix-sideways-scans">sideways scan repair</a>.</p>
 
 <h2 id="watermark-draft">Watermark DRAFT at 25% without ruining readability</h2>
 <p>Twenty-five percent gray, center-diagonal, 48pt — visible enough to deter screenshots, light enough to read through. Eighty-percent black screams and obscures; corners suit near-final samples. Underlying text stays selectable because the overlay draws independently. Use DRAFT, CONFIDENTIAL, SAMPLE or DO NOT COPY per audience, and archive unwatermarked masters. Stamping: <a href="/blog/pdf-merge-guide/add-draft-watermark">watermark guide</a>.</p>
@@ -70,7 +70,7 @@ export const pdfPillar: BlogPost = {
   description:
     "Merge, split, compress PDFs offline: 20-file ordering, range syntax, 1MB email levels, scans to PDF, JPG export, text vs OCR + watermarks. Free tools.",
   keywords: ["how to manage pdf files offline", "merge split compress pdf private", "pdf tools without upload", "jpg scans to single pdf", "extract text from pdf without ocr"],
-  toolSlugs: ["pdf-merge", "pdf-split", "image-to-pdf"],
+  toolSlugs: ["pdf-merge", "image-to-pdf"],
   relatedSlugs: ["merge-multiple-pdfs-order", "jpg-scans-single-pdf", "extract-pages-range"],
   published: "2026-10-07",
   updated: "2026-10-07",

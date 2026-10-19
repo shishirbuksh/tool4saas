@@ -43,7 +43,7 @@ export function HomeWhatIs() {
           Most tools are local-first. That means your words, files, and photos stay on your own device. They are not sent to our servers. When you close the tab, your data is gone. Only 4 web tools need the net, like live money rates. Each page says so in plain words. See our <Link href="/privacy">privacy policy</Link> and <Link href="/methodology">methodology page</Link>.
         </Typography>
         <Typography color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
-          Try three top picks. The <Link href="/word-counter">word counter</Link> checks a 1,500-word essay and shows grade level and read time. The <Link href="/loan-calculator">loan maker</Link> shows that a $100,000 loan at 5 percent for 30 years costs $536.82 a month. The <Link href="/qr-code-generator">QR generator</Link> makes a scan code for a shop menu in one click. Each utility is free, quick, and safe to try today.
+          Try three top picks. The <Link href="/word-counter">word counter</Link> checks a 1,500-word essay and shows grade level and read time. The <Link href="/emi-calculator">loan calculator</Link> shows that a $100,000 loan at 5 percent for 30 years costs $536.82 a month. The <Link href="/qr-code-generator">QR generator</Link> makes a scan code for a shop menu in one click. Each utility is free, quick, and safe to try today.
         </Typography>
         <Box sx={{ p: 3, borderRadius: "12px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}>
           <Typography variant="h3" sx={{ fontSize: "1.125rem", fontWeight: 700, mb: 1 }}>

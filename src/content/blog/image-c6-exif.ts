@@ -36,7 +36,7 @@ export const imageExif: BlogPost = {
   description:
     "Photo EXIF leaks GPS, timestamps, device: 10-second local check method, WhatsApp stripping myth, recompress-to-strip workflow. Free private viewer.",
   keywords: ["how to remove exif data before uploading", "what is exif gps location risk", "view exif online private", "does whatsapp strip exif", "exif vs metadata"],
-  toolSlugs: ["exif-viewer", "image-compressor", "image-resizer"],
+  toolSlugs: ["exif-viewer", "image-compressor"],
   relatedSlugs: ["compress-jpg-100kb-portal", "png-vs-jpg-vs-webp", "image-seo-size-alt"],
   published: "2026-10-07",
   updated: "2026-10-07",

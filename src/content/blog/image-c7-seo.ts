@@ -24,7 +24,7 @@ const html = `
 <p>Images without width/height (or aspect-ratio CSS) push text around as they load — Cumulative Layout Shift, a ranking factor. Fix at the source: set explicit dimensions matching the file (1200×630 hero → <code>width="1200" height="630"</code>), or <code>aspect-ratio: 1200/630</code> in CSS for responsive scaling. Reserve space even for lazy images — the placeholder box holds layout while bytes stream in. Our card components bake 280px intrinsic sizes for exactly this reason. Verify in Lighthouse: CLS under 0.1 is the target, and image-caused shifts are the most common failure I audit.</p>
 
 <h2 id="lazy-srcset">Lazy-load below fold, srcset for screens</h2>
-<p>Two attributes, big wins: <code>loading="lazy"</code> on every below-fold image (never on the hero/LCP image — that delays the most important paint), and <code>srcset</code> serving 400/800/1200px variants so phones don't download desktop bytes. Export the widths once from the <a href="/image-resizer">resizer</a>, compress each with the <a href="/image-compressor">compressor</a>, and wire all three. Finish by previewing share cards in the <a href="/open-graph-preview">open graph preview</a> — social crops punish unprepared dimensions.</p>
+<p>Two attributes, big wins: <code>loading="lazy"</code> on every below-fold image (never on the hero/LCP image — that delays the most important paint), and <code>srcset</code> serving 400/800/1200px variants so phones don't download desktop bytes. Export the widths once from the <a href="/image-compressor">resizer</a>, compress each with the <a href="/image-compressor">compressor</a>, and wire all three. Finish by previewing share cards in the <a href="/open-graph-preview">open graph preview</a> — social crops punish unprepared dimensions.</p>
 <blockquote class="tip">General guidance only. Measure with Lighthouse field data after shipping — lab scores approximate, real-user metrics decide.</blockquote>
 `;
 
@@ -36,7 +36,7 @@ export const imageSeo: BlogPost = {
   description:
     "Image SEO checklist: per-slot size budgets, 8-12 word alt formula, CLS-killing dimensions + lazy/srcset wiring. Free compressor + page scorer.",
   keywords: ["image seo size and alt guide", "what image size for blog hero fast load", "how to write alt text seo", "lazy load vs compress", "1200px hero lighthouse score"],
-  toolSlugs: ["image-compressor", "seo-analyzer", "image-resizer"],
+  toolSlugs: ["image-compressor", "seo-analyzer"],
   relatedSlugs: ["resize-image-exact-pixels", "png-vs-jpg-vs-webp", "strip-exif-before-upload"],
   published: "2026-10-07",
   updated: "2026-10-07",

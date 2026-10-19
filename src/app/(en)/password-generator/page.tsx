@@ -1,5 +1,5 @@
 ﻿import ToolPageShell from "@/components/ToolPageShell";
-import PasswordGeneratorTool from "@/components/tools/PasswordGeneratorTool";
+import PasswordStudioTool from "@/components/tools/PasswordStudioTool";
 import { getTool } from "@/lib/tools";
 import { toolMetadata } from "@/lib/metadata";
 
@@ -11,7 +11,7 @@ export const metadata = toolMetadata(slug);
 export default function Page() {
   return (
     <ToolPageShell tool={tool}>
-      <PasswordGeneratorTool />
+      <PasswordStudioTool />
     </ToolPageShell>
   );
 }

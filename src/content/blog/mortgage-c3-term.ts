@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>I ran this comparison in the calculator last Diwali week for three friends — two took 30 years at ~6% ($1,439 on $240,000) for cash-flow room with kids and single incomes, one took 15 years (~$2,025) on dual income with an 8-month buffer. Here is how to decide for your numbers.</p>
-<p>Part of the <a href="/blog/mortgage-calculator-guide">mortgage calculator guide</a>. Compare your scenarios in the <a href="/mortgage-calculator">mortgage calculator</a> (try both tenures) and structure options in the <a href="/loan-calculator">loan calculator</a>.</p>
+<p>Part of the <a href="/blog/mortgage-calculator-guide">mortgage calculator guide</a>. Compare your scenarios in the <a href="/mortgage-calculator">mortgage calculator</a> (try both tenures) and structure options in the <a href="/emi-calculator">loan calculator</a>.</p>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 
 <h2 id="numbers">The numbers: $240,000 at illustrative rates</h2>
@@ -59,7 +59,7 @@ export const mortgageTerm: BlogPost = {
   description:
     "15 vs 30 year mortgage compared: payments, ~$150k interest gap, equity speed + 15-year checklist and hybrid overpay strategy. Free calculator.",
   keywords: ["is 15 year mortgage worth it", "30 year mortgage overpay strategy", "15 year mortgage worth the higher payment"],
-  toolSlugs: ["mortgage-calculator", "loan-calculator", "mortgage-overpayment-calculator"],
+  toolSlugs: ["mortgage-calculator", "emi-calculator", "mortgage-overpayment-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "mortgage-overpayment-extra-payment", "mortgage-amortization-schedule"],
   published: "2026-09-24",
   updated: "2026-09-28",

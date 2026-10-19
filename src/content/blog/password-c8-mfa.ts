@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>A strong password and SMS code feels armored — until a SIM-swap hands both factors to a stranger in one phone call. Authentication has a ladder, and most people stand two rungs below where they think. This is <strong>2FA vs passkeys</strong>: the strength ranking from SMS to hardware keys, what to enable today, and whether passkeys finally retire passwords.</p>
-<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Time-based codes pair with the <a href="/otp-generator">OTP generator</a>; stable device identifiers pair with the <a href="/uuid-generator">UUID tool</a> where apps need them.</p>
+<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Time-based codes pair with the <a href="/otp-generator">OTP generator</a>; stable device identifiers pair with the <a href="/random-number">UUID tool</a> where apps need them.</p>
 
 <h2 id="ladder">The strength ladder (weakest to strongest)</h2>
 <table>
@@ -54,7 +54,7 @@ export const passwordMfa: BlogPost = {
   description:
     "2FA vs passkeys ranked: SMS to hardware keys, migration order, one-evening setup. Phishing-resistant direction per NIST.",
   keywords: ["passkeys safer than authenticator", "do passkeys replace passwords", "sms 2fa sim swap risk"],
-  toolSlugs: ["otp-generator", "uuid-generator", "password-generator"],
+  toolSlugs: ["otp-generator", "random-number", "password-generator"],
   relatedSlugs: ["how-to-create-strong-password", "what-to-do-after-data-breach", "how-to-remember-passwords"],
   published: "2026-09-25",
   updated: "2026-09-28",

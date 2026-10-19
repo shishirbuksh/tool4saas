@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>“Extract text,” I told the tool, pointing at a 10-page flat scan. It returned ten blank pages with polite per-page flags. Correct behavior — and the moment I finally internalized the distinction that saves hours: <strong>selectable text extracts; scanned images need OCR</strong>. They look identical on screen and behave oppositely under extraction. This guide teaches telling them apart in seconds, extracting with page ranges, and knowing exactly when to reach for OCR software instead.</p>
-<p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Extract in <a href="/pdf-to-text">PDF to text</a>; split large sets first in <a href="/pdf-split">PDF split</a>. Scans to PDF background in <a href="/blog/pdf-merge-guide/jpg-scans-single-pdf">scans guide</a>.</p>
+<p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Extract in <a href="/pdf-to-text">PDF to text</a>; split large sets first in <a href="/pdf-merge">PDF split</a>. Scans to PDF background in <a href="/blog/pdf-merge-guide/jpg-scans-single-pdf">scans guide</a>.</p>
 
 <h2 id="layer-vs-scan">Selectable layer vs scanned image (the 5-second test)</h2>
 <table>
@@ -39,7 +39,7 @@ export const pdfTextOcr: BlogPost = {
   description:
     "PDF text extraction: 5-second layer-vs-scan test, range syntax, empty-page flags + when OCR is actually needed. Free local extractor.",
   keywords: ["how to extract text from pdf without ocr", "pdf to txt 1-3 5 chapter", "scanned pdf blank output why", "pdf.js text layer", "ocr vs text extraction"],
-  toolSlugs: ["pdf-to-text", "pdf-split", "image-to-pdf"],
+  toolSlugs: ["pdf-to-text", "pdf-merge", "image-to-pdf"],
   relatedSlugs: ["extract-pages-range", "jpg-scans-single-pdf", "pdf-pages-high-quality-jpg"],
   published: "2026-10-07",
   updated: "2026-10-07",

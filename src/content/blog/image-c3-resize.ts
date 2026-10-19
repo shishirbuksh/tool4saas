@@ -3,12 +3,12 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>A food blogger sent 4000×3000 photos to a theme displaying 800×600 — every visitor downloaded 5× the pixels their screen could show. Page weight: 9MB. After resizing to display size and 80% compression: 1.1MB, visually identical. <strong>Resize first, compress second</strong> — compressing pixels you will discard wastes the entire quality budget. This guide covers exact dimensions, aspect locks, and the resize-vs-compress order with presets for every common slot.</p>
-<p>Part of the <a href="/blog/image-compressor-guide">image optimization guide</a>. Resize in the <a href="/image-resizer">image resizer</a> (aspect locked by default); then compress in the <a href="/image-compressor">image compressor</a>. Format choice in <a href="/blog/image-compressor-guide/png-vs-jpg-vs-webp">formats guide</a>.</p>
+<p>Part of the <a href="/blog/image-compressor-guide">image optimization guide</a>. Resize in the <a href="/image-compressor">image resizer</a> (aspect locked by default); then compress in the <a href="/image-compressor">image compressor</a>. Format choice in <a href="/blog/image-compressor-guide/png-vs-jpg-vs-webp">formats guide</a>.</p>
 
 <h2 id="order">Order of operations: crop → resize → compress</h2>
 <ol>
-<li><strong>Crop</strong> composition changes in the <a href="/image-cropper">image cropper</a> (passport frames, avatar squares, banner ratios).</li>
-<li><strong>Resize</strong> to exact display pixels in the <a href="/image-resizer">image resizer</a> — this is where megabytes die.</li>
+<li><strong>Crop</strong> composition changes in the <a href="/image-compressor">image cropper</a> (passport frames, avatar squares, banner ratios).</li>
+<li><strong>Resize</strong> to exact display pixels in the <a href="/image-compressor">image resizer</a> — this is where megabytes die.</li>
 <li><strong>Compress</strong> at 80% in the <a href="/image-compressor">image compressor</a> for the final squeeze.</li>
 <li><strong>Verify</strong> at 100% zoom: edges sharp, text legible, no banding in skies.</li>
 </ol>
@@ -43,7 +43,7 @@ export const imageResize: BlogPost = {
   description:
     "Resize images to exact pixels: crop-resize-compress order, preset table for heroes/OG/avatars, aspect-lock rules + upscaling limits. Free resizer.",
   keywords: ["how to resize image without losing quality", "scale 4000x3000 to 1200x900", "hero 1200x630 resize without blur", "aspect lock vs skew", "resize vs compress which first"],
-  toolSlugs: ["image-resizer", "image-compressor", "image-cropper"],
+  toolSlugs: ["image-compressor"],
   relatedSlugs: ["compress-jpg-100kb-portal", "png-vs-jpg-vs-webp", "crop-passport-photos"],
   published: "2026-10-07",
   updated: "2026-10-07",

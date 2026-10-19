@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>The flatbed scanner delivered 40 pages of meeting notes — every single one sideways. Neck craned, I read three pages before accepting reality: fix the files, not my posture. Ten seconds later all 40 stood upright. <strong>Sideways scans have three causes</strong> (flatbed orientation, phone rotation flags, mixed bundles), and each has a different fix. This guide diagnoses yours and repairs it — including the mixed bundle that needs split-rotate-merge surgery.</p>
-<p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Rotate in <a href="/pdf-rotate">PDF rotate</a>; isolate pages with <a href="/pdf-split">PDF split</a>; rejoin with <a href="/pdf-merge">PDF merge</a>.</p>
+<p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Rotate in <a href="/pdf-merge">PDF rotate</a>; isolate pages with <a href="/pdf-merge">PDF split</a>; rejoin with <a href="/pdf-merge">PDF merge</a>.</p>
 
 <h2 id="diagnose">Diagnose: flatbed, phone flag, or mixed bundle</h2>
 <table>
@@ -22,7 +22,7 @@ const html = `
 
 <h2 id="mixed-surgery">Mixed bundles: split-rotate-merge surgery</h2>
 <ol>
-<li><strong>Split</strong> the sideways range (e.g. pages 5–8) out at <a href="/pdf-split">PDF split</a> using <code>5-8</code> syntax from <a href="/blog/pdf-merge-guide/extract-pages-range">range extraction</a>.</li>
+<li><strong>Split</strong> the sideways range (e.g. pages 5–8) out at <a href="/pdf-merge">PDF split</a> using <code>5-8</code> syntax from <a href="/blog/pdf-merge-guide/extract-pages-range">range extraction</a>.</li>
 <li><strong>Rotate</strong> only that 4-page segment to upright — the 116 good pages stay untouched.</li>
 <li><strong>Merge</strong> original-part + fixed segment + remainder back in order at <a href="/pdf-merge">PDF merge</a>.</li>
 <li><strong>Verify</strong> by sampling first, middle and final pages and running heads continuity.</li>
@@ -39,7 +39,7 @@ export const pdfRotateFix: BlogPost = {
   description:
     "Fix sideways PDF scans: diagnose flatbed vs flag vs mixed causes, one-click uniform rotation + split-rotate-merge surgery. Free local tools.",
   keywords: ["why scans come out sideways and how to fix", "sideways flatbed scan upright", "rotate all pages 90 degrees", "mixed orientation split-rotate-merge", "orientation flag vs encode"],
-  toolSlugs: ["pdf-rotate", "pdf-split", "pdf-merge"],
+  toolSlugs: ["pdf-merge"],
   relatedSlugs: ["extract-pages-range", "merge-multiple-pdfs-order", "fix-sideways-scans"],
   published: "2026-10-07",
   updated: "2026-10-07",

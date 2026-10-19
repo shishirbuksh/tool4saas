@@ -17,7 +17,7 @@ const ROOT = path.resolve(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "src", "lib", "tools", "data");
 const OUT = path.join(ROOT, "src", "lib", "tools", "catalog-lite.ts");
 
-const EXPECTED_TOOLS = 185;
+const EXPECTED_TOOLS = 155;
 const CATEGORY_IDS = new Set([
   "text-documents",
   "business",

@@ -71,12 +71,8 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/invoice-generator-guide/invoicing-mistakes-to-avoid", title: "12 invoice mistakes that delay payment" },
     { href: "/blog/invoice-generator-guide/invoice-numbering", title: "Invoice numbering: GST-compliant formats & sequences" },
     { href: "/blog/invoice-generator-guide/invoice-template-formats", title: "Free invoice templates: Word, Excel & PDF formats" },
-  ],
-  "freelance-gst-invoice-generator": [
-    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
     { href: "/blog/invoice-generator-guide/gst-invoice-format-india", title: "GST invoice format India: fields, HSN & sample" },
     { href: "/blog/invoice-generator-guide/freelancer-invoice-guide", title: "Freelancer invoice guide: get paid on time" },
-    { href: "/blog/invoice-generator-guide/invoice-numbering", title: "Invoice numbering: GST-compliant formats & sequences" },
   ],
   "quotation-generator": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
@@ -171,15 +167,12 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   "emi-calculator": [
     { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
     { href: "/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india", title: "Home loan EMI & eligibility India" },
+    { href: "/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment", title: "How to calculate mortgage payment: formula + examples" },
+    { href: "/blog/mortgage-calculator-guide/15-vs-30-year-mortgage", title: "15 vs 30 year mortgage: interest & payoff compared" },
   ],
   "home-loan-eligibility-india": [
     { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
     { href: "/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india", title: "Home loan EMI & eligibility India" },
-  ],
-  "loan-calculator": [
-    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
-    { href: "/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment", title: "How to calculate mortgage payment: formula + examples" },
-    { href: "/blog/mortgage-calculator-guide/15-vs-30-year-mortgage", title: "15 vs 30 year mortgage: interest & payoff compared" },
   ],
   "rent-vs-buy-calculator": [
     { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
@@ -190,6 +183,7 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
     { href: "/blog/password-generator-guide/how-to-create-strong-password", title: "How to create a strong password: 16-character rule" },
     { href: "/blog/password-generator-guide/passphrase-vs-password", title: "Passphrase vs password: when 5 words win" },
+    { href: "/blog/password-generator-guide/how-to-remember-passwords", title: "Remember passwords without reusing them" },
     { href: "/blog/password-generator-guide/what-to-do-after-data-breach", title: "What to do after a data breach: 7-step checklist" },
   ],
   "password-strength": [
@@ -197,20 +191,17 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/password-generator-guide/password-strength-tester", title: "Strength tester: check without uploading" },
     { href: "/blog/password-generator-guide/what-makes-password-strong", title: "What makes a password strong: entropy + blacklists" },
   ],
-  "random-passphrase": [
-    { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
-    { href: "/blog/password-generator-guide/passphrase-vs-password", title: "Passphrase vs password: when 5 words win" },
-    { href: "/blog/password-generator-guide/how-to-remember-passwords", title: "Remember passwords without reusing them" },
-  ],
   "otp-generator": [
     { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
     { href: "/blog/password-generator-guide/2fa-vs-passkeys", title: "2FA vs passkeys: strength ladder + setup" },
     { href: "/blog/password-generator-guide/what-to-do-after-data-breach", title: "What to do after a data breach: 7-step checklist" },
   ],
-  "random-string": [
+  "random-number": [
     { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
     { href: "/blog/password-generator-guide/random-password-ideas", title: "Random password ideas: patterns that stay safe" },
     { href: "/blog/password-generator-guide/wifi-router-password", title: "Strong Wi-Fi & router passwords: setup" },
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/uuid-seed-test-database", title: "Seed test databases with UUIDs" },
   ],
   "word-counter": [
     { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
@@ -261,22 +252,14 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   "image-compressor": [
     { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
     { href: "/blog/image-compressor-guide/compress-jpg-100kb-portal", title: "Compress JPG to 100KB for online forms" },
-    { href: "/blog/image-compressor-guide/strip-exif-before-upload", title: "Strip EXIF data before uploading" },
-  ],
-  "image-resizer": [
-    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
     { href: "/blog/image-compressor-guide/resize-image-exact-pixels", title: "Resize images to exact pixels without blur" },
     { href: "/blog/image-compressor-guide/crop-passport-photos", title: "Crop passport photos to exact size" },
+    { href: "/blog/image-compressor-guide/strip-exif-before-upload", title: "Strip EXIF data before uploading" },
   ],
   "image-format-converter": [
     { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
     { href: "/blog/image-compressor-guide/png-vs-jpg-vs-webp", title: "PNG vs JPG vs WebP: which format to use" },
     { href: "/blog/image-compressor-guide/png-to-webp-transparency", title: "PNG to WebP without losing transparency" },
-  ],
-  "image-cropper": [
-    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
-    { href: "/blog/image-compressor-guide/crop-passport-photos", title: "Crop passport photos to exact size" },
-    { href: "/blog/image-compressor-guide/resize-image-exact-pixels", title: "Resize images to exact pixels without blur" },
   ],
   "svg-optimizer": [
     { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
@@ -291,15 +274,12 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
     { href: "/blog/pdf-merge-guide/merge-multiple-pdfs-order", title: "Merge multiple PDFs in order" },
     { href: "/blog/pdf-merge-guide/extract-pages-range", title: "Extract pages by range: 1-3,5 syntax" },
+    { href: "/blog/pdf-merge-guide/fix-sideways-scans", title: "Fix sideways scans: rotate upright" },
+    { href: "/blog/pdf-merge-guide/add-draft-watermark", title: "Add DRAFT watermark readably" },
   ],
   "image-to-pdf": [
     { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
     { href: "/blog/pdf-merge-guide/jpg-scans-single-pdf", title: "JPG scans to single PDF: A4 setup" },
-  ],
-  "pdf-split": [
-    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
-    { href: "/blog/pdf-merge-guide/extract-pages-range", title: "Extract pages by range: 1-3,5 syntax" },
-    { href: "/blog/pdf-merge-guide/fix-sideways-scans", title: "Fix sideways scans: rotate upright" },
   ],
   "pdf-compress": [
     { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
@@ -312,14 +292,6 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   "pdf-to-text": [
     { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
     { href: "/blog/pdf-merge-guide/extract-text-without-ocr", title: "Extract text without OCR" },
-  ],
-  "pdf-rotate": [
-    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
-    { href: "/blog/pdf-merge-guide/fix-sideways-scans", title: "Fix sideways scans: rotate upright" },
-  ],
-  "pdf-watermark": [
-    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
-    { href: "/blog/pdf-merge-guide/add-draft-watermark", title: "Add DRAFT watermark readably" },
   ],
   // ---- Developer toolkit silo ----
   "json-formatter": [
@@ -334,10 +306,6 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   "hash-generator": [
     { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
     { href: "/blog/json-formatter-guide/sha256-vs-md5-hashes", title: "SHA-256 vs MD5: when to use which" },
-  ],
-  "uuid-generator": [
-    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
-    { href: "/blog/json-formatter-guide/uuid-seed-test-database", title: "Seed test databases with UUIDs" },
   ],
   "regex-tester": [
     { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },

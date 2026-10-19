@@ -1,10 +1,10 @@
-# Tool4SaaS (184 free tools across 12 categories + guides)
+# Tool4SaaS (154 free tools across 12 categories + guides)
 > Updated: 2026-10-19 · visible count excludes 1 NOINDEX placeholder (pdf-compress, ships soon).
 
-> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 184 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 154 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
 
 ## Overview
-- [Tool4SaaS](https://tool4saas.com/): Home page with all 184 free tools grouped by 12 categories.
+- [Tool4SaaS](https://tool4saas.com/): Home page with all 154 free tools grouped by 12 categories.
 - [About](https://tool4saas.com/about): What the site is and how it protects your privacy.
 - [Privacy Policy](https://tool4saas.com/privacy): How user data is handled (it stays in your browser).
 - [Terms](https://tool4saas.com/terms): Terms of use for all tools and guides.
@@ -17,9 +17,9 @@
 - [Business & Writing](https://tool4saas.com/category/business): Create invoices, resumes, quotations and receipts instantly in your browser with 13 free business document generators.
 - [Developer Tools](https://tool4saas.com/category/developer): Encode Base64, hash, format JSON and SQL, test regex and validate code with 30 free developer utilities that run locally.
 - [Converters](https://tool4saas.com/category/converters): Convert units, currencies, YAML, JSON, CSV and number systems instantly with 13 free offline converters in one click.
-- [Generators](https://tool4saas.com/category/generators): Generate strong passwords, UUIDs, random strings, favicons and robots.txt with 13 free privacy-friendly generator tools.
-- [Images & Design](https://tool4saas.com/category/images-design): Generate QR codes, compress and resize images, extract colors and build gradients with 23 free design tools offline.
-- [PDF Tools](https://tool4saas.com/category/pdf): Merge, split, compress and convert PDFs and images to PDF securely in your browser with 8 free offline PDF utilities.
+- [Generators](https://tool4saas.com/category/generators): Generate strong passwords and passphrases, random numbers, strings and UUIDs, coin flips, dice rolls, favicons and robots.txt with 8 free privacy-friendly generator tools.
+- [Images & Design](https://tool4saas.com/category/images-design): Generate QR codes, compress, resize, crop and frame images, extract colors and build gradients with 14 free design tools offline.
+- [PDF Tools](https://tool4saas.com/category/pdf): Merge, split, compress and convert PDFs and images to PDF securely in your browser with 5 free offline PDF utilities.
 - [Calculators](https://tool4saas.com/category/calculators): Calculate percentages, loans, grades, discounts and BMI instantly with 16 free everyday calculators that work offline.
 - [Finance & Money](https://tool4saas.com/category/finance): Mortgage, SIP, salary and tax calculators for planning — 24 free tools, informational only, not financial advice.
 - [Health & Fitness](https://tool4saas.com/category/health): Calorie, BMI and macro calculators for informational purposes only — not medical advice, consult a professional.
@@ -60,10 +60,9 @@
 - [Offer Letter Generator](https://tool4saas.com/offer-letter-generator): Offer letter + CTC PDF
 - [Payslip Generator](https://tool4saas.com/payslip-generator): Salary slip + net pay
 - [Rent Receipt Generator](https://tool4saas.com/rent-receipt-generator): HRA rent receipts PDF
-- [Freelance GST Invoice Generator](https://tool4saas.com/freelance-gst-invoice-generator): GST invoice + tax PDF
 
 ## Developer Tools
-- [JSON Formatter](https://tool4saas.com/json-formatter): Format, validate & minify JSON
+- [JSON Formatter](https://tool4saas.com/json-formatter): Format, view & convert JSON and YAML
 - [Base64 Encode / Decode](https://tool4saas.com/base64-tool): Encode and decode Base64 text
 - [URL Encoder / Decoder](https://tool4saas.com/url-encoder): Encode & decode URL components
 - [Hash Generator](https://tool4saas.com/hash-generator): SHA-1 / 256 / 512 of any text
@@ -72,17 +71,12 @@
 - [Regex Tester](https://tool4saas.com/regex-tester): Test JavaScript regular expressions
 - [JWT Decoder](https://tool4saas.com/jwt-decoder): Decode JSON Web Tokens safely
 - [MIME Type Lookup](https://tool4saas.com/mime-type-lookup): File extension ↔ MIME
-- [JSON to YAML](https://tool4saas.com/json-to-yaml): Convert JSON into YAML
-- [HTML Beautifier](https://tool4saas.com/html-beautifier): Pretty-print HTML
 - [Credit Card Validator](https://tool4saas.com/credit-card-validator): Free Luhn test – 4111 safe
 - [Password Strength Checker](https://tool4saas.com/password-strength): Rate your password
-- [Code Minifier](https://tool4saas.com/code-minifier): Minify JS, CSS & HTML
+- [Code Formatter & Minifier](https://tool4saas.com/code-minifier): Format & minify HTML, CSS & JS
 - [Screen Resolution](https://tool4saas.com/screen-resolution): Detect screen metrics
 - [XML Formatter](https://tool4saas.com/xml-formatter): Format & validate XML
 - [Cron Parser](https://tool4saas.com/cron-parser): Explain cron expressions
-- [CSS Beautifier](https://tool4saas.com/css-beautifier): Format CSS nicely
-- [YAML to JSON](https://tool4saas.com/yaml-to-json): Convert YAML to JSON
-- [JSON Tree Viewer](https://tool4saas.com/json-tree-viewer): Explore JSON as tree
 - [SSL Checker](https://tool4saas.com/ssl-checker): Check SSL certificate
 - [SQL Formatter](https://tool4saas.com/sql-formatter): Format SQL queries
 - [Subnet Calculator](https://tool4saas.com/subnet-calculator): IPv4 network calc
@@ -90,7 +84,6 @@
 - [Code to Image](https://tool4saas.com/code-to-image): Pretty code PNG
 - [HMAC Generator](https://tool4saas.com/hmac-generator): HMAC SHA auth codes
 - [AES Encryptor](https://tool4saas.com/aes-encryptor): Encrypt with password
-- [JS Beautifier](https://tool4saas.com/js-beautifier): Format JS nicely
 - [OTP Generator (TOTP 2FA)](https://tool4saas.com/otp-generator): 30-sec 2FA codes
 - [AI Token Counter](https://tool4saas.com/ai-token-counter): Tokens + API cost
 
@@ -110,63 +103,43 @@
 - [Currency Converter](https://tool4saas.com/currency-converter): Live rates + offline
 
 ## Generators
-- [Password Generator](https://tool4saas.com/password-generator): Strong random passwords
+- [Password & Passphrase Generator](https://tool4saas.com/password-generator): Strong passwords & passphrases
 - [Lorem Ipsum Generator](https://tool4saas.com/lorem-ipsum): Placeholder text
 - [Slug Generator](https://tool4saas.com/slug-generator): Turn titles into URL slugs
-- [Random Number Generator](https://tool4saas.com/random-number): Secure random numbers & lists
-- [UUID Generator](https://tool4saas.com/uuid-generator): Generate v4 UUIDs in bulk
-- [Random String Generator](https://tool4saas.com/random-string): Secure random strings & keys
-- [Dice Roller](https://tool4saas.com/dice-roller): Roll virtual dice
-- [Coin Flip](https://tool4saas.com/coin-flip): Flip a fair coin
-- [Random Passphrase](https://tool4saas.com/random-passphrase): Generate secure passphrase
-- [Random Hex Color](https://tool4saas.com/random-hex-color): Generate random hex colors
+- [Random Number, String & UUID Generator](https://tool4saas.com/random-number): Numbers, strings & UUIDs
+- [Coin Flip & Dice Roller](https://tool4saas.com/coin-flip): Flip a coin or roll dice
 - [Barcode Generator](https://tool4saas.com/barcode-generator): CODE128, EAN13, UPC
 - [Fake Data Generator](https://tool4saas.com/fake-data-generator): Generate test data
 - [Business Name Generator](https://tool4saas.com/business-name-generator): Ideas & filters
 
 ## Images & Design
 - [QR Code Generator](https://tool4saas.com/qr-code-generator): Generate QR codes for links, text & more
-- [Image Compressor](https://tool4saas.com/image-compressor): Shrink images without uploading
-- [Color Converter](https://tool4saas.com/color-converter): HEX, RGB & HSL conversions
+- [Image Editor: Compress, Resize, Crop & Border](https://tool4saas.com/image-compressor): Compress, resize, crop & border
+- [Color Studio](https://tool4saas.com/color-converter): HEX, RGB, CMYK, palettes & shades
 - [Color Contrast Checker](https://tool4saas.com/color-contrast): WCAG contrast for any two colors
-- [Gradient Generator](https://tool4saas.com/gradient-generator): Design CSS gradients visually
+- [CSS Gradient & Effects Studio](https://tool4saas.com/gradient-generator): Gradients, shadows, radius & clip-path
 - [Favicon Generator](https://tool4saas.com/favicon-generator): Make a favicon from text or emoji
-- [Color Palette Generator](https://tool4saas.com/color-palette): Harmonies from any color
-- [Image Resizer](https://tool4saas.com/image-resizer): Resize images in browser
-- [Image Border](https://tool4saas.com/image-border): Add borders to images
 - [Image Format Converter](https://tool4saas.com/image-format-converter): WebP, PNG, JPG, AVIF
 - [SVG Optimizer](https://tool4saas.com/svg-optimizer): Shrink SVG files
 - [EXIF Viewer](https://tool4saas.com/exif-viewer): Read image metadata
-- [Color Shades Generator](https://tool4saas.com/color-shades-generator): Shades & tints
 - [YouTube Thumbnail Downloader](https://tool4saas.com/youtube-thumbnail-downloader): Grab YT thumbnails
 - [Image Color Extractor](https://tool4saas.com/image-color-extractor): Extract 5 colors
 - [QR Scanner](https://tool4saas.com/qr-scanner): Scan QR from image
-- [CMYK Converter](https://tool4saas.com/cmyk-converter): HEX, RGB ↔ CMYK
 - [WiFi QR Generator](https://tool4saas.com/wifi-qr-generator): QR for guest WiFi
-- [Image Cropper](https://tool4saas.com/image-cropper): Crop to pixels/ratio
-- [CSS Box Shadow Generator](https://tool4saas.com/css-box-shadow-generator): Shadow CSS live
-- [CSS Border Radius Generator](https://tool4saas.com/css-border-radius-generator): Radius CSS live
-- [CSS Clip Path Generator](https://tool4saas.com/css-clip-path-generator): Clip shapes live
 - [SVG to PNG Converter](https://tool4saas.com/svg-to-png-converter): Crisp PNG export
 
 ## PDF Tools
 - [Image to PDF](https://tool4saas.com/image-to-pdf): Images → PDF
-- [PDF Merge](https://tool4saas.com/pdf-merge): Merge multiple PDFs
-- [PDF Splitter](https://tool4saas.com/pdf-split): Extract pages
+- [PDF Merge & Organizer](https://tool4saas.com/pdf-merge): Merge, split, rotate & watermark
 - [PDF to JPG](https://tool4saas.com/pdf-to-jpg): Pages to images
-- [Rotate PDF Pages](https://tool4saas.com/pdf-rotate): Rotate all pages
-- [PDF Watermark](https://tool4saas.com/pdf-watermark): Add text watermark
 - [PDF to Text](https://tool4saas.com/pdf-to-text): Extract text pages
 
 ## Calculators
-- [Percentage Calculator](https://tool4saas.com/percentage-calculator): X% of Y & what percent
+- [Percentage Calculator](https://tool4saas.com/percentage-calculator): Percent of, change & difference
 - [BMI Calculator](https://tool4saas.com/bmi-calculator): Body Mass Index in metric & imperial
 - [Tip Calculator](https://tool4saas.com/tip-calculator): Split bills & calculate tips
-- [Loan Calculator](https://tool4saas.com/loan-calculator): Monthly payment & interest
 - [Discount Calculator](https://tool4saas.com/discount-calculator): Sale price & savings
 - [GST / VAT Calculator](https://tool4saas.com/gst-calculator): Tax inclusive & exclusive
-- [Percentage Change](https://tool4saas.com/percentage-change): Old-to-new % change & growth
-- [Percentage Difference](https://tool4saas.com/percentage-difference): Absolute |A-B|/avg difference
 - [Work Days Calculator](https://tool4saas.com/work-days-calculator): Calculate business days
 - [GPA Calculator](https://tool4saas.com/gpa-calculator): Grade point average
 - [Scientific Calculator](https://tool4saas.com/scientific-calculator): Trig, logs, powers
@@ -178,21 +151,18 @@
 
 ## Finance & Money
 - [Mortgage Calculator](https://tool4saas.com/mortgage-calculator): EMI & amortization schedule
-- [Compound Interest Calculator](https://tool4saas.com/compound-interest-calculator): Maturity & interest growth
+- [Compound Interest & CAGR Calculator](https://tool4saas.com/compound-interest-calculator): Growth, maturity & CAGR
 - [Salary Calculator](https://tool4saas.com/salary-calculator): Take-home pay estimates
 - [Profit Margin Calculator](https://tool4saas.com/profit-margin-calculator): Calculate margin & markup
 - [Income Tax Calculator](https://tool4saas.com/income-tax-calculator): Net pay after taxes
 - [Inflation Calculator](https://tool4saas.com/inflation-calculator): Future purchasing power
 - [SIP Calculator](https://tool4saas.com/sip-calculator): SIP maturity & gains
-- [Simple Interest Calculator](https://tool4saas.com/simple-interest-calculator): Interest & total cost
 - [Retirement Calculator](https://tool4saas.com/retirement-calculator): Plan your savings goal
-- [Auto Loan Calculator](https://tool4saas.com/auto-loan-calculator): EMI & total cost
 - [Rent vs Buy Calculator](https://tool4saas.com/rent-vs-buy-calculator): Rent or buy?
 - [Freelance Rate Calculator](https://tool4saas.com/freelance-rate-calculator): Hourly & project rates
 - [Home Affordability Calculator](https://tool4saas.com/home-affordability-calculator): How much house?
 - [Refinance Calculator](https://tool4saas.com/refinance-calculator): Break-even refi
-- [CAGR Calculator](https://tool4saas.com/cagr-calculator): Growth rate + multiple
-- [EMI Calculator](https://tool4saas.com/emi-calculator): Loan EMI + interest cost
+- [Loan & EMI Calculator](https://tool4saas.com/emi-calculator): EMI, auto loan & simple interest
 - [Home Loan Eligibility India](https://tool4saas.com/home-loan-eligibility-india): Max loan by salary
 - [Mortgage Overpayment Calculator](https://tool4saas.com/mortgage-overpayment-calculator): Extra pay savings
 - [US Paycheck Calculator 2026](https://tool4saas.com/us-paycheck-calculator): Take-home per pay

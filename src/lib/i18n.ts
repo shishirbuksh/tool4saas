@@ -6,7 +6,7 @@ import { readingMinutesFor } from "@/lib/blog";
 // EN stays at root (/invoice-generator). Pilots live at /<locale>/<slug>.
 // Full [locale]/ migration (dynamic <html lang>, per-locale sitemaps, translated
 // slugs) is Phase 2; this file proves the hreflang + sitemap + native-keyword
-// pattern on winners before multiplying 185xN.
+// pattern on winners before multiplying 155xN.
 export const LOCALES = ["en", "es", "fr"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";
@@ -1398,11 +1398,11 @@ export const pdfMergeEs: Tool = {
     },
     {
       heading: "Cómo funciona unir en orden",
-      body: "La ingesta valida cabeceras, abre permisos, numera folios y pinta miniaturas para reordenar al tacto antes de juntar bytes. Arrastra portada.pdf sobre capítulo1.pdf; la lista recalcula doce más ocho igual a veinte al instante, marcando dimensiones dispares, apaisados o claves con insignias rojas. La salida guarda texto vectorial, enlaces y jerarquía, aunque widgets pueden rasterizar. Extractos cifrados piden desbloqueo previo con credencial de propietario, mientras archivos de imprenta sobre diez megas deben recomprimirse antes con /pdf-compress. Escaneos sin OCR quedan pictóricos tras unir y piden OCR externo. Verifica paginación muestreando primera, media y última hoja, confirmando que cabeceras y pies siguen lógicos. Aborta y reordena si la secuencia falla, pues reordenar tras montar exige dividir de nuevo en /pdf-split.",
+      body: "La ingesta valida cabeceras, abre permisos, numera folios y pinta miniaturas para reordenar al tacto antes de juntar bytes. Arrastra portada.pdf sobre capítulo1.pdf; la lista recalcula doce más ocho igual a veinte al instante, marcando dimensiones dispares, apaisados o claves con insignias rojas. La salida guarda texto vectorial, enlaces y jerarquía, aunque widgets pueden rasterizar. Extractos cifrados piden desbloqueo previo con credencial de propietario, mientras archivos de imprenta sobre diez megas deben recomprimirse antes con /pdf-compress. Escaneos sin OCR quedan pictóricos tras unir y piden OCR externo. Verifica paginación muestreando primera, media y última hoja, confirmando que cabeceras y pies siguen lógicos. Aborta y reordena si la secuencia falla, pues reordenar tras montar exige dividir de nuevo en /pdf-merge.",
     },
     {
       heading: "Ejemplo resuelto y límites",
-      body: "Elige portada.pdf, capítulo1.pdf de 12 páginas y capítulo2.pdf de 8, ordena con portada primero, confirma la insignia de 20 páginas y pulsa Unir para descargar libro-unido.pdf. Segundo caso: cinco archivos de solicitud con 85 páginas en segundos en portátil. Prueba hipervínculos y texto buscable tras unir. Límite: 20 archivos, 200 páginas, 10 MB cada uno; formularios pueden aplanarse y cifrados piden clave — para rangos exactos usa /pdf-split tras unir.",
+      body: "Elige portada.pdf, capítulo1.pdf de 12 páginas y capítulo2.pdf de 8, ordena con portada primero, confirma la insignia de 20 páginas y pulsa Unir para descargar libro-unido.pdf. Segundo caso: cinco archivos de solicitud con 85 páginas en segundos en portátil. Prueba hipervínculos y texto buscable tras unir. Límite: 20 archivos, 200 páginas, 10 MB cada uno; formularios pueden aplanarse y cifrados piden clave — para rangos exactos usa /pdf-merge tras unir.",
     },
   ],
 };
@@ -1478,7 +1478,7 @@ export const jsonFormatterEs: Tool = {
   guide: [
     {
       heading: "Qué hace el formateador",
-      body: "Valida, formatea y minimiza JSON con resaltado de sintaxis, niveles plegables y errores por línea y columna para depurar APIs en privado. Ejemplo: pega una respuesta de 500KB con usuarios anidados y ve la jerarquía de dos espacios al instante; minimiza para ahorrar cerca de veinte por ciento de bytes en producción. Todo parsea en tu pestaña sin red, con matrices de usuarios, etiquetas y honduras marcadas con precisión. Caso borde: volcados de 10MB piden partir en trozos; logs de 3MB con 60000 nodos rinden mejor plegados. Inspecciona con /json-tree-viewer y convierte planillas con /json-csv.",
+      body: "Valida, formatea y minimiza JSON con resaltado de sintaxis, niveles plegables y errores por línea y columna para depurar APIs en privado. Ejemplo: pega una respuesta de 500KB con usuarios anidados y ve la jerarquía de dos espacios al instante; minimiza para ahorrar cerca de veinte por ciento de bytes en producción. Todo parsea en tu pestaña sin red, con matrices de usuarios, etiquetas y honduras marcadas con precisión. Caso borde: volcados de 10MB piden partir en trozos; logs de 3MB con 60000 nodos rinden mejor plegados. Inspecciona con /json-formatter y convierte planillas con /json-csv.",
     },
     {
       heading: "Cómo validan línea y columna",
@@ -1486,7 +1486,7 @@ export const jsonFormatterEs: Tool = {
     },
     {
       heading: "Ejemplo resuelto y límites",
-      body: "Pega {\"nombre\":\"Ada\",\"tags\":[1,2]}, pulsa Formatear y copia la jerarquía de dos espacios para documentar. Segundo caso: suelta 500KB de API, repara la coma de línea 1 columna 18 y exporta el minimizado con veinte por ciento menos bytes. Límite: techo práctico de pocos megas y validación sintáctica, no de esquema — para ver árbol usa /json-tree-viewer y para planillas /json-csv.",
+      body: "Pega {\"nombre\":\"Ada\",\"tags\":[1,2]}, pulsa Formatear y copia la jerarquía de dos espacios para documentar. Segundo caso: suelta 500KB de API, repara la coma de línea 1 columna 18 y exporta el minimizado con veinte por ciento menos bytes. Límite: techo práctico de pocos megas y validación sintáctica, no de esquema — para ver árbol usa /json-formatter y para planillas /json-csv.",
     },
   ],
 };
@@ -1658,7 +1658,7 @@ export const emiCalculatorEs: Tool = {
   guide: [
     {
       heading: "Qué es una EMI",
-      body: "La EMI es la cuota mensual fija que devuelve capital más intereses durante el plazo, con primeros años cargados de intereses y últimos de capital. Ejemplo: 120.000 € al 4 % a 20 años (i=0,003333, n=240) dan EMI cerca de 727 €, total cerca de 174.500 € e intereses cerca de 54.500 €. Los precios bancarios varían por scoring, nómina y referencia: | Banco | Tipo fijo ilustrativo | EMI sobre 120 mil/20a | Santander | 3,00 % | 666 € | BBVA | 3,20 % | ~681 € | CaixaBank | 3,50 % | 696 € |. Diferenciales, Euríbor y aperturas mueven ofertas reales. Caso borde: préstamos al 0 % tiran de capital entre meses. Límite: amortización a tipo fijo, sin revisiones ni gastos. Compara variantes con /loan-calculator. Solo educa, no aconseja. Ver /terms.",
+      body: "La EMI es la cuota mensual fija que devuelve capital más intereses durante el plazo, con primeros años cargados de intereses y últimos de capital. Ejemplo: 120.000 € al 4 % a 20 años (i=0,003333, n=240) dan EMI cerca de 727 €, total cerca de 174.500 € e intereses cerca de 54.500 €. Los precios bancarios varían por scoring, nómina y referencia: | Banco | Tipo fijo ilustrativo | EMI sobre 120 mil/20a | Santander | 3,00 % | 666 € | BBVA | 3,20 % | ~681 € | CaixaBank | 3,50 % | 696 € |. Diferenciales, Euríbor y aperturas mueven ofertas reales. Caso borde: préstamos al 0 % tiran de capital entre meses. Límite: amortización a tipo fijo, sin revisiones ni gastos. Compara variantes con /mortgage-calculator. Solo educa, no aconseja. Ver /terms.",
     },
     {
       heading: "Cómo se calcula la EMI",

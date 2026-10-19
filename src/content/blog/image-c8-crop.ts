@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Passport office, counter 3: “Photo rejected — wrong size.” The applicant had a perfect photo at the wrong aspect ratio, stretched to fit by a helpful cousin. Faces 15% wider, ears cropped, application delayed a week. <strong>Cropping is not resizing</strong>: resizing scales everything, cropping cuts composition. ID photos, visas and avatars need cuts — this guide shows exact sizes, the crop-before-resize order, and the stretched-face check.</p>
-<p>Part of the <a href="/blog/image-compressor-guide">image optimization guide</a>. Frame in the <a href="/image-cropper">image cropper</a>; finish pixels in the <a href="/image-resizer">image resizer</a>; shrink bytes in the <a href="/image-compressor">image compressor</a>.</p>
+<p>Part of the <a href="/blog/image-compressor-guide">image optimization guide</a>. Frame in the <a href="/image-compressor">image cropper</a>; finish pixels in the <a href="/image-compressor">image resizer</a>; shrink bytes in the <a href="/image-compressor">image compressor</a>.</p>
 
 <h2 id="id-sizes">Exact ID sizes (India + international)</h2>
 <table>
@@ -19,8 +19,8 @@ const html = `
 
 <h2 id="method">Crop → resize → compress (worked example)</h2>
 <ol>
-<li><strong>Crop composition</strong> in the <a href="/image-cropper">image cropper</a>: face centered, head 70–80% of frame height, required margins visible. For 35×45mm from a 4:3 photo, cut sides — never squeeze width.</li>
-<li><strong>Resize to exact pixels</strong> in the <a href="/image-resizer">image resizer</a>: 600×600 for square specs. One resize only — repeated resizes soften edges cumulatively.</li>
+<li><strong>Crop composition</strong> in the <a href="/image-compressor">image cropper</a>: face centered, head 70–80% of frame height, required margins visible. For 35×45mm from a 4:3 photo, cut sides — never squeeze width.</li>
+<li><strong>Resize to exact pixels</strong> in the <a href="/image-compressor">image resizer</a>: 600×600 for square specs. One resize only — repeated resizes soften edges cumulatively.</li>
 <li><strong>Compress to the byte limit</strong> in the <a href="/image-compressor">image compressor</a>: 80% default; drop 5 points at a time if over. See the <a href="/blog/image-compressor-guide/compress-jpg-100kb-portal">100KB portal method</a> for limit-hitting tactics.</li>
 <li><strong>Stretched-face check:</strong> compare ears-to-face-width against the original. Any widening means aspect broke — redo the crop, don't ship it. Officers reject distorted photos on sight.</li>
 </ol>
@@ -41,7 +41,7 @@ export const imageCrop: BlogPost = {
   description:
     "Crop passport and ID photos to exact size: spec table, crop-resize-compress order, stretched-face check, avatars + print prep. Free cropper.",
   keywords: ["passport photo size and crop guide india", "35x45mm passport crop online", "crop square avatar without stretching", "visa photo 2x2 inch pixels", "image cropper vs resizer"],
-  toolSlugs: ["image-cropper", "image-resizer", "image-compressor"],
+  toolSlugs: ["image-compressor"],
   relatedSlugs: ["resize-image-exact-pixels", "compress-jpg-100kb-portal", "png-vs-jpg-vs-webp"],
   published: "2026-10-07",
   updated: "2026-10-07",

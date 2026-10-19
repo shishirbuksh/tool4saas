@@ -1,6 +1,6 @@
 // Category editorial copy (extracted from src/app/category/[id]/page.tsx).
 // Single source for AdSense content-depth intros + per-category FAQ bodies.
-// Counts here must match src/lib/tools/data/*.ts slug counts (185 tools total).
+// Counts here must match src/lib/tools/data/*.ts slug counts (155 tools total).
 
 export type CategoryIntro = {
   body: string;
@@ -40,7 +40,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Invoice Generator FAQ",
   },
   developer: {
-    body: "Debug APIs, patterns, and tokens with 30 developer utilities that run 100 percent locally, so secrets never leave your device. The JSON formatter pretty-prints a 500 KB response and points to exact line-column errors like a missing comma at 1:18. The regex tester highlights matches for digit patterns across sample logs, while the JWT decoder exposes expiry claims instantly. For example, formatting a 10,000-line payload takes a blink, and minifying cuts bytes by roughly 20 percent. Each tool page answers common questions in its FAQ, free and offline.",
+    body: "Debug APIs, patterns, and tokens with 24 developer utilities that run 100 percent locally, so secrets never leave your device. The JSON formatter pretty-prints a 500 KB response and points to exact line-column errors like a missing comma at 1:18. The regex tester highlights matches for digit patterns across sample logs, while the JWT decoder exposes expiry claims instantly. For example, formatting a 10,000-line payload takes a blink, and minifying cuts bytes by roughly 20 percent. Each tool page answers common questions in its FAQ, free and offline.",
     picks: [
       { slug: "json-formatter", label: "JSON Formatter" },
       { slug: "regex-tester", label: "Regex Tester" },
@@ -60,20 +60,20 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Unit Converter FAQ",
   },
   generators: {
-    body: "Create passwords, IDs, and game randomness with 13 privacy-friendly generators powered by your browser crypto engine. The password generator builds 20-character logins with about 131 bits of entropy that resist brute force. The UUID tool mints 500 v4 IDs per batch for database seeding, while the dice roller totals 2d6 like 4 and 6 equals 10. For example, 16 characters from 94 symbols give about 105 bits of protection. Each tool page answers common questions in its FAQ, with nothing uploaded ever.",
+    body: "Create passwords, IDs, and game randomness with 8 privacy-friendly generators powered by your browser crypto engine. The password generator builds 20-character logins with about 131 bits of entropy that resist brute force. The random generator mints 500 v4 IDs per batch for database seeding, while the coin and dice views total 2d6 like 4 and 6 equals 10. For example, 16 characters from 94 symbols give about 105 bits of protection. Each tool page answers common questions in its FAQ, with nothing uploaded ever.",
     picks: [
       { slug: "password-generator", label: "Password Generator" },
-      { slug: "uuid-generator", label: "UUID Generator" },
-      { slug: "dice-roller", label: "Dice Roller" },
+      { slug: "random-number", label: "Random Generator" },
+      { slug: "coin-flip", label: "Coin Flip & Dice Roller" },
     ],
     faqSlug: "password-generator",
     faqLabel: "Password Generator FAQ",
   },
   "images-design": {
-    body: "Design faster with 23 free utilities for codes, images, and color that run offline in your browser. The QR generator encodes long URLs into crisp scannable squares, while the compressor shrinks a 2 MB photo for the web without visible loss. The contrast checker verifies pairs like indigo on white against accessibility ratios before you ship. For example, a #6366F1 swatch copies in one click and resizes cleanly to any layout. Each tool page answers common questions in its FAQ, with no sign-up needed.",
+    body: "Design faster with 14 free utilities for codes, images, and color that run offline in your browser. The QR generator encodes long URLs into crisp scannable squares, while the image editor compresses, resizes, crops and frames a 2 MB photo for the web without visible loss. The contrast checker verifies pairs like indigo on white against accessibility ratios before you ship. For example, a #6366F1 swatch copies in one click and resizes cleanly to any layout. Each tool page answers common questions in its FAQ, with no sign-up needed.",
     picks: [
       { slug: "qr-code-generator", label: "QR Code Generator" },
-      { slug: "image-compressor", label: "Image Compressor" },
+      { slug: "image-compressor", label: "Image Editor" },
       { slug: "color-contrast", label: "Color Contrast Checker" },
     ],
     faqSlug: "qr-code-generator",
@@ -83,17 +83,16 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     body: "Handle everyday PDF jobs with a focused set of offline utilities that keep documents on your device. Convert JPG or PNG pages into a single PDF, merge 5 reports into one file, or split a 40-page deck into exact ranges. For example, 10 photos become one shareable PDF in seconds, and a 12 MB file stays private throughout because files process locally start to finish. Each tool page answers common questions in its FAQ, free with no uploads or accounts.",
     picks: [
       { slug: "image-to-pdf", label: "Image to PDF" },
-      { slug: "pdf-merge", label: "PDF Merge" },
-      { slug: "pdf-split", label: "PDF Split" },
+      { slug: "pdf-merge", label: "PDF Merge & Organizer" },
     ],
     faqSlug: "image-to-pdf",
     faqLabel: "Image to PDF FAQ",
   },
   calculators: {
-    body: "Answer everyday percent, loan, and body questions with 16 free calculators that work offline. The percentage tool turns 45 out of 60 into 75 percent in one step, while the loan calculator splits a $100,000 loan at 5 percent over 30 years into $536.82 monthly. The BMI checker converts 70 kg at 175 cm into 22.9 with clear ranges. For example, a 20 percent tip on $85 is $17 exactly. Each tool page answers common questions in its FAQ, with no sign-up or limits.",
+    body: "Answer everyday percent, loan, and body questions with 13 free calculators that work offline. The percentage tool turns 45 out of 60 into 75 percent in one step, while the loan calculator splits a $100,000 loan at 5 percent over 30 years into $536.82 monthly. The BMI checker converts 70 kg at 175 cm into 22.9 with clear ranges. For example, a 20 percent tip on $85 is $17 exactly. Each tool page answers common questions in its FAQ, with no sign-up or limits.",
     picks: [
       { slug: "percentage-calculator", label: "Percentage Calculator" },
-      { slug: "loan-calculator", label: "Loan Calculator" },
+      { slug: "emi-calculator", label: "Loan & EMI Calculator" },
       { slug: "bmi-calculator", label: "BMI Calculator" },
     ],
     faqSlug: "percentage-calculator",
@@ -238,7 +237,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   developer: [
     {
-      text: "In practice, they are 30 free developer utilities that run 100 percent locally so secrets never leave your device. The JSON Formatter pretty-prints a 500 KB response and flags a missing comma at 1:18, while Regex Tester highlights digit matches across logs. Most work offline after first load.",
+      text: "In practice, they are 24 free developer utilities that run 100 percent locally so secrets never leave your device. The JSON Formatter pretty-prints a 500 KB response and flags a missing comma at 1:18, while Regex Tester highlights digit matches across logs. Most work offline after first load.",
       linkSlug: "json-formatter",
       linkLabel: "JSON Formatter",
     },
@@ -292,19 +291,19 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   generators: [
     {
-      text: "Simply put, they are 13 privacy-friendly generators powered by your browser crypto engine with no signup. The Password Generator builds 20-character logins with about 131 bits of entropy, while UUID Generator mints 500 v4 IDs per batch. Nothing ever uploads, and most work offline.",
+      text: "Simply put, they are 8 privacy-friendly generators powered by your browser crypto engine with no signup. The Password Generator builds 20-character logins with about 131 bits of entropy, while UUID Generator mints 500 v4 IDs per batch. Nothing ever uploads, and most work offline.",
       linkSlug: "password-generator",
       linkLabel: "Password Generator",
     },
     {
-      text: "Lead with Password Generator, UUID Generator, and Dice Roller for logins, seeding, and play. Mint 500 v4 IDs for databases, roll 2d6 like 4 and 6 equals 10, then build 16 characters from 94 symbols for about 105 bits. Each page shows entropy notes and offline use.",
-      linkSlug: "uuid-generator",
-      linkLabel: "UUID Generator",
+      text: "Lead with Password Generator, Random Generator, and Coin Flip & Dice Roller for logins, seeding, and play. Mint 500 v4 IDs for databases, roll 2d6 like 4 and 6 equals 10, then build 16 characters from 94 symbols for about 105 bits. Each page shows entropy notes and offline use.",
+      linkSlug: "random-number",
+      linkLabel: "Random Generator",
     },
     {
-      text: "Completely — every generator is free with no account and runs 100 percent locally via crypto randomness. Dice Roller totals 2d6 like 4 and 6 equals 10 on your device, so results stay private. No internet is needed after load, and 20-character passwords with 131 bits never leave.",
-      linkSlug: "dice-roller",
-      linkLabel: "Dice Roller",
+      text: "Completely — every generator is free with no account and runs 100 percent locally via crypto randomness. The dice view totals 2d6 like 4 and 6 equals 10 on your device, so results stay private. No internet is needed after load, and 20-character passwords with 131 bits never leave.",
+      linkSlug: "coin-flip",
+      linkLabel: "Coin Flip & Dice Roller",
     },
     {
       text: "Open the page Password Generator once while online and keep the tab ready. Most generators then work offline because crypto happens locally, so 16 characters from 94 symbols still give about 105 bits without internet. Closing the tab discards results. No install or signup is required.",
@@ -319,14 +318,14 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   "images-design": [
     {
-      text: "Picture them as 23 free utilities for codes, images, and color that run offline with no signup. The QR Code Generator encodes long URLs into crisp scannable squares, while Image Compressor shrinks a 2 MB photo without visible loss. Color tools copy a #6366F1 swatch in one click.",
+      text: "Picture them as 14 free utilities for codes, images, and color that run offline with no signup. The QR Code Generator encodes long URLs into crisp scannable squares, while the Image Editor compresses, resizes, crops and frames a 2 MB photo without visible loss. Color tools copy a #6366F1 swatch in one click.",
       linkSlug: "qr-code-generator",
       linkLabel: "QR Code Generator",
     },
     {
-      text: "Open with QR Code Generator, Image Compressor, and Color Contrast Checker for shipping designs. Shrink a 2 MB photo for the web, verify indigo on white against accessibility ratios, then encode long URLs cleanly. Each page shows one-click copy like #6366F1 and resizing guidance.",
+      text: "Open with QR Code Generator, Image Editor, and Color Contrast Checker for shipping designs. Compress, resize, crop and frame a 2 MB photo for the web, verify indigo on white against accessibility ratios, then encode long URLs cleanly. Each page shows one-click copy like #6366F1 and resizing guidance.",
       linkSlug: "image-compressor",
-      linkLabel: "Image Compressor",
+      linkLabel: "Image Editor",
     },
     {
       text: "Yes. Every design tool is free with no watermark and processes files locally in your browser. Color Contrast Checker verifies pairs like indigo on white before you ship, so palettes stay private. Only font or stock fetches need internet, labeled clearly. Resizing that #6366F1 swatch stays instant.",
@@ -351,14 +350,14 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "Image to PDF",
     },
     {
-      text: "Tackle first Image to PDF, PDF Merge, and PDF Split for everyday document jobs. Merge 5 reports into one file, split a 40-page deck into exact ranges, or turn 10 photos into one PDF in seconds. Each page explains local processing with no uploads and free use.",
+      text: "Tackle Image to PDF and PDF Merge & Organizer for everyday document jobs. Merge 5 reports into one file, split a 40-page deck into exact ranges, or turn 10 photos into one PDF in seconds. Each page explains local processing with no uploads and free use.",
       linkSlug: "pdf-merge",
-      linkLabel: "PDF Merge",
+      linkLabel: "PDF Merge & Organizer",
     },
     {
-      text: "Yep — every PDF tool is free with no account or watermark and runs locally. PDF Split divides a 40-page deck into exact ranges on your device, so pages never upload. A 12 MB file stays private start to finish. Only help pages need internet, and each tool states that plainly.",
-      linkSlug: "pdf-split",
-      linkLabel: "PDF Split",
+      text: "Yep — every PDF tool is free with no account or watermark and runs locally. PDF Merge & Organizer divides a 40-page deck into exact ranges on your device, so pages never upload. A 12 MB file stays private start to finish. Only help pages need internet, and each tool states that plainly.",
+      linkSlug: "pdf-merge",
+      linkLabel: "PDF Merge & Organizer",
     },
     {
       text: "Because PDFs stay local, open Image to PDF once while online and keep the tab. Most PDF jobs then run offline, turning 10 photos into one PDF or merging 5 reports without internet. A 12 MB file never leaves your device. Close the tab and your files vanish; no install needed.",
@@ -373,14 +372,14 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   calculators: [
     {
-      text: "In short, they are 16 free calculators for everyday percent, loan, and body questions with no signup. The Percentage Calculator turns 45 out of 60 into 75 percent, while Loan Calculator splits $100,000 at 5 percent into $536.82 monthly. Most run offline after load.",
+      text: "In short, they are 13 free calculators for everyday percent, loan, and body questions with no signup. The Percentage Calculator turns 45 out of 60 into 75 percent, while Loan Calculator splits $100,000 at 5 percent into $536.82 monthly. Most run offline after load.",
       linkSlug: "percentage-calculator",
       linkLabel: "Percentage Calculator",
     },
     {
-      text: "Work through Percentage Calculator, Loan Calculator, and BMI Calculator for the most useful math. Split a $100,000 loan at 5 percent over 30 years into $536.82 monthly, convert 70 kg at 175 cm into 22.9 BMI, and confirm a 20 percent tip on $85 equals $17. Each page shows steps.",
-      linkSlug: "loan-calculator",
-      linkLabel: "Loan Calculator",
+      text: "Work through Percentage Calculator, Loan & EMI Calculator, and BMI Calculator for the most useful math. Split a $100,000 loan at 5 percent over 30 years into $536.82 monthly, convert 70 kg at 175 cm into 22.9 BMI, and confirm a 20 percent tip on $85 equals $17. Each page shows steps.",
+      linkSlug: "emi-calculator",
+      linkLabel: "Loan & EMI Calculator",
     },
     {
       text: "Yes, fully free with no account, watermark, or limits, running locally in your browser. BMI Calculator turns 70 kg at 175 cm into 22.9 with clear ranges privately, so inputs never upload. Only help articles need internet. You can also recheck 45 out of 60 as 75 percent offline.",

@@ -40,7 +40,7 @@ export const passwordHowTo: BlogPost = {
   description:
     "Create a strong password in 5 steps: 16+ length, full pools, uniqueness, manager storage + 2FA. Tested local flow, no signup.",
   keywords: ["how to create strong password", "how to make password with symbols", "create unique password each account", "strong password steps"],
-  toolSlugs: ["password-generator", "random-passphrase", "password-strength"],
+  toolSlugs: ["password-generator", "password-strength"],
   relatedSlugs: ["what-makes-password-strong", "how-to-remember-passwords", "password-strength-tester"],
   published: "2026-09-25",
   updated: "2026-09-25",

@@ -44,7 +44,7 @@ export const mortgageAfford: BlogPost = {
   description:
     "House affordability via the 28/36 DTI rule: worked $90k example, 4 lender inputs + payment-to-price chain. Free affordability calculator.",
   keywords: ["how much house can i afford", "house affordability by salary", "dti rule mortgage", "how much mortgage on 90k income"],
-  toolSlugs: ["home-affordability-calculator", "mortgage-calculator", "loan-calculator"],
+  toolSlugs: ["home-affordability-calculator", "mortgage-calculator", "emi-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "down-payment-pmi-cost", "rent-vs-buy-house"],
   published: "2026-09-24",
   updated: "2026-09-24",

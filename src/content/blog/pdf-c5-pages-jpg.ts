@@ -32,7 +32,7 @@ export const pdfPagesJpg: BlogPost = {
   description:
     "PDF to JPG at 1x vs 2x scale: DPI table, JPEG 85% vs PNG rules, phone batch limits + ZIP delivery. Free local renderer, no upload.",
   keywords: ["how to convert pdf pages to high quality jpg", "brochure 6 pages to zip", "pdf to image no upload"],
-  toolSlugs: ["pdf-to-jpg", "pdf-split", "image-to-pdf"],
+  toolSlugs: ["pdf-to-jpg", "pdf-merge", "image-to-pdf"],
   relatedSlugs: ["extract-pages-range", "extract-text-without-ocr", "fix-sideways-scans"],
   published: "2026-10-07",
   updated: "2026-10-07",

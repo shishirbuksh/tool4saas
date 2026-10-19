@@ -37,7 +37,7 @@ export const pdfCompress1mb: BlogPost = {
   description:
     "Compress PDFs for email: Light/Medium/Strong levels with tested savings, 100% zoom verification protocol + locked-file and scan limits. Free tool.",
   keywords: ["how to compress pdf to 1mb for email", "18MB report to 6MB medium", "shrink pdf for 10MB portal", "compress without unlocking"],
-  toolSlugs: ["pdf-compress", "pdf-split", "pdf-merge"],
+  toolSlugs: ["pdf-compress", "pdf-merge"],
   relatedSlugs: ["merge-multiple-pdfs-order", "extract-pages-range", "jpg-scans-single-pdf"],
   published: "2026-10-07",
   updated: "2026-10-07",

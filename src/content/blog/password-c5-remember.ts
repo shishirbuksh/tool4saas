@@ -3,13 +3,13 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Here is the liberating secret the password industry buries: you only need to memorize <strong>two</strong> passwords — your email and your manager master. Everything else gets generated, stored and autofilled. People who try memorizing twenty unique secrets fail into reuse; people who memorize two passphrases properly succeed permanently. This is <strong>how to remember passwords</strong> without reusing a single one.</p>
-<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Build masters with the <a href="/random-passphrase">passphrase tool</a>; bulk-generate the rest in the <a href="/password-generator">generator</a>; verify ratings in the <a href="/password-strength">strength tester</a>.</p>
+<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Build masters with the <a href="/password-generator">passphrase tool</a>; bulk-generate the rest in the <a href="/password-generator">generator</a>; verify ratings in the <a href="/password-strength">strength tester</a>.</p>
 
 <h2 id="two-system">The two-secret system (memorize this, automate the rest)</h2>
 <ol>
 <li><strong>Email passphrase (5 words):</strong> your inbox resets everything else, so it earns a master-grade secret. Memorize via story method below; enable app-2FA the same day.</li>
 <li><strong>Manager master (5–6 words):</strong> the vault key. Never stored anywhere except your head (+ sealed paper backup with a trusted person or safe).</li>
-<li><strong>Everything else (200+ logins):</strong> random 16+ strings, generated per site, autofilled by the manager. Zero memory allocated, ever. Practice passphrase mechanics with the <a href="/random-passphrase">passphrase tool</a>; build real masters from full-size wordlists (physical dice) or 20+ character generator secrets.</li>
+<li><strong>Everything else (200+ logins):</strong> random 16+ strings, generated per site, autofilled by the manager. Zero memory allocated, ever. Practice passphrase mechanics with the <a href="/password-generator">passphrase tool</a>; build real masters from full-size wordlists (physical dice) or 20+ character generator secrets.</li>
 </ol>
 <p>Onboarding order matters: email first (resets depend on it), manager second, bank third, then migrate accounts in weekly batches of ten — not a heroic weekend that burns out at forty. New accounts get generated secrets from birth; no legacy exceptions.</p>
 
@@ -36,7 +36,7 @@ export const passwordRemember: BlogPost = {
   description:
     "Remember passwords safely: two-secret system, story method for passphrases + no-manager bridge routine. Memorize 2, generate the rest.",
   keywords: ["how to remember passwords", "remember master password safely", "memorize passphrase story method", "passwords without password manager"],
-  toolSlugs: ["random-passphrase", "password-generator", "password-strength"],
+  toolSlugs: ["password-generator", "password-strength"],
   relatedSlugs: ["passphrase-vs-password", "how-to-create-strong-password", "2fa-vs-passkeys"],
   published: "2026-09-25",
   updated: "2026-09-25",

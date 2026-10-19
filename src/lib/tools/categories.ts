@@ -29,20 +29,20 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "generators",
     label: "Generators",
     description:
-      "Generate strong passwords, UUIDs, random strings, favicons and robots.txt with 13 free privacy-friendly generator tools.",
+      "Generate strong passwords and passphrases, random numbers, strings and UUIDs, coin flips, dice rolls, favicons and robots.txt with 8 free privacy-friendly generator tools.",
   },
   {
     id: "images-design",
     label: "Images & Design",
     description:
-      "Generate QR codes, compress and resize images, extract colors and build gradients with 23 free design tools offline.",
+      "Generate QR codes, compress, resize, crop and frame images, extract colors and build gradients with 14 free design tools offline.",
   },
   {
     id: "pdf",
     label: "PDF Tools",
     description:
-      "Merge, split, compress and convert PDFs and images to PDF securely in your browser with 8 free offline PDF utilities.",
-    // NOTE: 8 tools (image-to-pdf, pdf-merge, pdf-compress, pdf-split, pdf-to-jpg, pdf-rotate, pdf-watermark, pdf-to-text) — kept lean to preserve client-only bundle size.
+      "Merge, split, compress and convert PDFs and images to PDF securely in your browser with 5 free offline PDF utilities.",
+    // NOTE: 5 tools (image-to-pdf, pdf-merge, pdf-compress, pdf-to-jpg, pdf-to-text) — split/rotate/watermark are views inside pdf-merge; kept lean to preserve client-only bundle size.
   },
   {
     id: "calculators",

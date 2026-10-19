@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p><code>Unexpected token } in JSON at position 412.</code> No line number, no context, just a position to count by hand. Every developer meets this error monthly; the fix takes seconds once you know the three causes that produce 90% of failures: <strong>trailing commas, comments, and single quotes</strong>. This guide teaches reading the error, fixing each cause, and validating at scale — with the line:column pinpointing that turns counting into clicking.</p>
-<p>Part of the <a href="/blog/json-formatter-guide">developer toolkit guide</a>. Validate in the <a href="/json-formatter">JSON formatter</a>; inspect trees in the <a href="/json-tree-viewer">JSON tree viewer</a>; convert configs in <a href="/json-to-yaml">JSON to YAML</a>.</p>
+<p>Part of the <a href="/blog/json-formatter-guide">developer toolkit guide</a>. Validate in the <a href="/json-formatter">JSON formatter</a>; its tree view navigates large responses and its YAML view converts configs.</p>
 
 <h2 id="read-error">Read the error: position → line:column</h2>
 <p>V8 reports a character offset, not a location. Pasting into the <a href="/json-formatter">formatter</a> translates position 412 to line 18, column 7 with the offending token highlighted — and names the cause class. The 500KB API reply that defeats eyeballing submits instantly; collapse completed subtrees to isolate the broken branch. For recurring feeds, validate on a schedule and diff against the last green payload — most production JSON breaks come from upstream schema drift, not your code.</p>
@@ -21,7 +21,7 @@ const html = `
 <p>After fixing, minify and re-pretty-print: a clean round-trip proves validity better than any single check. Payloads over 10MB should split before pasting — oversized dumps hang tabs in every tool, not just ours.</p>
 
 <h2 id="scale">At scale: 500KB replies, duplicate keys, minify math</h2>
-<p>Large API responses fail differently: truncated transfers (compare Content-Length), duplicated keys across merged objects (last-wins silently corrupts), and encoding mismatches (BOM prefixes break strict parsers — strip <code>\\uFEFF</code>). Minified output runs ~20% smaller than pretty-printed — meaningful at 500KB over metered connections. Keep a known-good sample response per endpoint; when parse fails, diff structure first (added field? renamed key?) and syntax second. For config files, consider YAML source with JSON build output — humans edit YAML, machines consume JSON, and the <a href="/json-to-yaml">converter</a> bridges them.</p>
+<p>Large API responses fail differently: truncated transfers (compare Content-Length), duplicated keys across merged objects (last-wins silently corrupts), and encoding mismatches (BOM prefixes break strict parsers — strip <code>\\uFEFF</code>). Minified output runs ~20% smaller than pretty-printed — meaningful at 500KB over metered connections. Keep a known-good sample response per endpoint; when parse fails, diff structure first (added field? renamed key?) and syntax second. For config files, consider YAML source with JSON build output — humans edit YAML, machines consume JSON, and the <a href="/json-formatter">converter</a> bridges them.</p>
 <blockquote class="tip">General guidance only. Validate untrusted payloads before processing — malformed JSON is also a classic injection vector; parse strictly, never eval.</blockquote>
 `;
 
@@ -33,7 +33,7 @@ export const jsonParseErrors: BlogPost = {
   description:
     "Fix JSON.parse errors fast: position to line:column, trailing commas, comments, quotes + 500KB-scale validation. Free local formatter.",
   keywords: ["why json parse fails trailing commas single quotes", "json line column error fix", "duplicate keys last wins", "500KB api reply collapse"],
-  toolSlugs: ["json-formatter", "json-tree-viewer", "json-to-yaml"],
+  toolSlugs: ["json-formatter"],
   relatedSlugs: ["base64-url-safe-vs-standard", "regex-flags-capture-groups", "jwt-expiry-without-trust"],
   published: "2026-10-07",
   updated: "2026-10-07",

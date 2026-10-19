@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Staring at an empty “new password” field, everyone types the same tragicomedies: name+birthyear, season+year, “Password123!”. Attackers know — their dictionaries open with exactly these. This page gives <strong>random password ideas</strong> the right way: pattern families you generate (never copy verbatim), what to steal from each, and the hall of shame to delete from your repertoire forever.</p>
-<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Generate real ones in the <a href="/random-string">random string tool</a> (custom pools) or <a href="/password-generator">password generator</a>; IDs and tokens via <a href="/uuid-generator">UUID generator</a>.</p>
+<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Generate real ones in the <a href="/random-number">random string tool</a> (custom pools) or <a href="/password-generator">password generator</a>; IDs and tokens via <a href="/random-number">UUID generator</a>.</p>
 
 <h2 id="patterns">Pattern families worth generating (adapt, never copy)</h2>
 <ul>
@@ -60,7 +60,7 @@ export const passwordIdeas: BlogPost = {
   description:
     "Password ideas done right: 5 generatable pattern families + hall-of-shame patterns attackers try first. Generate, never copy verbatim.",
   keywords: ["random password ideas", "strong password examples", "password patterns to avoid", "funny strong passphrase ideas"],
-  toolSlugs: ["random-string", "password-generator", "uuid-generator"],
+  toolSlugs: ["random-number", "password-generator"],
   relatedSlugs: ["how-to-create-strong-password", "passphrase-vs-password", "what-to-do-after-data-breach"],
   published: "2026-09-25",
   updated: "2026-09-28",

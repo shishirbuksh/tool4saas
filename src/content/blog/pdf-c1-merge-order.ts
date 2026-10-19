@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Thirty-four attachments named “scan_final_FINAL2.pdf”. That visa application taught me what consulates actually want: <strong>one ordered PDF where page 1 is the cover and every chapter follows</strong>. Merging is the highest-leverage PDF skill because every bundle — applications, reports, portfolios — ends as one file. This guide covers ordering, limits, what survives merging, and the encrypted-file wall, with a cover+chapters worked example.</p>
-<p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Merge in <a href="/pdf-merge">PDF merge</a>; split ranges in <a href="/pdf-split">PDF split</a>. Pair with <a href="/blog/pdf-merge-guide/jpg-scans-single-pdf">scans to PDF</a> for mixed bundles.</p>
+<p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Merge in <a href="/pdf-merge">PDF merge</a>; split ranges in <a href="/pdf-merge">PDF split</a>. Pair with <a href="/blog/pdf-merge-guide/jpg-scans-single-pdf">scans to PDF</a> for mixed bundles.</p>
 
 <h2 id="method">Method: select, order, verify, merge</h2>
 <ol>
@@ -39,7 +39,7 @@ export const pdfMergeOrder: BlogPost = {
   description:
     "Merge PDFs in reading order: drag-to-sort workflow, 20-file/200-page limits, what survives vs flattens + encrypted-file fixes. Free merge tool.",
   keywords: ["merge pdfs cover first appendix last order", "combine 5 pdfs cover chapter appendix", "drag reorder pdf pages", "merge 20 pdfs 200 pages limit", "merge without losing text layer"],
-  toolSlugs: ["pdf-merge", "pdf-split", "image-to-pdf"],
+  toolSlugs: ["pdf-merge", "image-to-pdf"],
   relatedSlugs: ["jpg-scans-single-pdf", "extract-pages-range", "extract-text-without-ocr"],
   published: "2026-10-07",
   updated: "2026-10-07",

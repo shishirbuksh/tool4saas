@@ -3,14 +3,14 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Flaky test, third failure this week. Root cause: seed data with auto-increment IDs — test B assumed the user from test A still had ID 7. Switched the fixtures to bulk UUIDs; flakes vanished that afternoon. <strong>Random IDs decouple tests from insertion order</strong>, and v4 UUIDs make collisions a non-event at any sane volume. This guide covers how many you need, bulk workflows, and when random strings serve better.</p>
-<p>Part of the <a href="/blog/json-formatter-guide">developer toolkit guide</a>. Mint in bulk in the <a href="/uuid-generator">UUID generator</a>; human-readable codes in <a href="/random-string">random strings</a>.</p>
+<p>Part of the <a href="/blog/json-formatter-guide">developer toolkit guide</a>. Mint in bulk in the <a href="/random-number">UUID generator</a>; human-readable codes in <a href="/random-number">random strings</a>.</p>
 
 <h2 id="math">The math: 122 bits means stop worrying</h2>
 <p>v4 UUIDs carry 122 random bits. Birthday-paradox math needs ~2.7 quintillion IDs for 50% collision odds — generating a million per second, you would wait centuries. Practical translation: <strong>10,000 fixture IDs cannot collide</strong> (odds ~10⁻²⁸, far below hardware-error rates). Dedupe on insert anyway as belt-and-braces, then forget about it. Variant bits and RFC 4122 formatting (<code>8-4-4-4-12</code> hex groups) are cosmetic; randomness is the substance.</p>
 
 <h2 id="bulk">Bulk workflow: 10,000 IDs into seed scripts</h2>
 <ol>
-<li><strong>Mint in bulk</strong> with count input in the <a href="/uuid-generator">UUID generator</a> — one click, copy-all, no rate limits, offline.</li>
+<li><strong>Mint in bulk</strong> with count input in the <a href="/random-number">UUID generator</a> — one click, copy-all, no rate limits, offline.</li>
 <li><strong>Store as strings</strong> (CHAR(36) or native UUID columns), indexed. Never truncate for “readability” — truncated UUIDs lose the randomness guarantee.</li>
 <li><strong>Reference across fixtures</strong> by literal ID: order #3f… belongs to user #7a… regardless of insertion order. Tests become order-independent.</li>
 <li><strong>Rotate secrets separately:</strong> fixture UUIDs are identifiers, not credentials. API keys need entropy <em>plus</em> revocation — different system.</li>
@@ -26,7 +26,7 @@ const html = `
 <tr><td><strong>Short URLs</strong></td><td>Neither — use counter+hashids</td><td>UUIDs waste 36 chars per link</td></tr>
 </tbody>
 </table>
-<p>API keys deserve their own design (prefix for identification like <code>sk_live_</code>, 32+ random bytes, hashed storage, rotation) — a bare UUID works for prototypes, not production secrets. Compare generators in the <a href="/uuid-generator">UUID tool</a> and <a href="/random-string">random string tool</a> side by side.</p>
+<p>API keys deserve their own design (prefix for identification like <code>sk_live_</code>, 32+ random bytes, hashed storage, rotation) — a bare UUID works for prototypes, not production secrets. Compare generators in the <a href="/random-number">UUID tool</a> and <a href="/random-number">random string tool</a> side by side.</p>
 <blockquote class="tip">General guidance only. UUIDs identify; they do not authorize — keep authentication and revocation in dedicated systems.</blockquote>
 `;
 
@@ -38,7 +38,7 @@ export const uuidSeed: BlogPost = {
   description:
     "Seed fixtures with bulk UUIDs: 122-bit collision math, 10,000-ID workflow + UUID vs random-string vs GUID rules. Free bulk generator.",
   keywords: ["how many uuids to seed test database without collisions", "bulk uuid offline free", "122 random bits rfc4122", "guid vs uuid", "database seeding 10000 ids"],
-  toolSlugs: ["uuid-generator", "random-string", "hash-generator"],
+  toolSlugs: ["random-number", "hash-generator"],
   relatedSlugs: ["sha256-vs-md5-hashes", "json-parse-errors", "regex-flags-capture-groups"],
   published: "2026-10-07",
   updated: "2026-10-07",

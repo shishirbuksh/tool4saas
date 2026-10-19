@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Router credentials guard everything behind them — one kept default like admin/password123 exposes laptop, phone and bank logins at once. Here is what to change, in order: admin password, Wi-Fi passphrase, guest network. This is the practical setup: <strong>strong Wi-Fi and router passwords</strong> in 15 minutes, once.</p>
-<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Generate both secrets in the <a href="/password-generator">password generator</a>; bulk tokens via <a href="/random-string">random string tool</a>. Concepts in <a href="/blog/password-generator-guide/how-to-create-strong-password">creation steps</a>.</p>
+<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Generate both secrets in the <a href="/password-generator">password generator</a>; bulk tokens via <a href="/random-number">random string tool</a>. Concepts in <a href="/blog/password-generator-guide/how-to-create-strong-password">creation steps</a>.</p>
 
 <h2 id="two-secrets">Two secrets, two jobs (stop confusing them)</h2>
 <ul>
@@ -36,7 +36,7 @@ export const passwordWifi: BlogPost = {
   description:
     "Wi-Fi + router passwords done right: admin vs PSK, WPA3 settings, guest network, IoT isolation. 15-minute once-only setup.",
   keywords: ["how to create strong wifi password", "router admin password length", "wpa3 password generator offline", "guest wifi network setup"],
-  toolSlugs: ["password-generator", "random-string", "password-strength"],
+  toolSlugs: ["password-generator", "random-number", "password-strength"],
   relatedSlugs: ["how-to-create-strong-password", "random-password-ideas", "2fa-vs-passkeys"],
   published: "2026-09-25",
   updated: "2026-09-25",

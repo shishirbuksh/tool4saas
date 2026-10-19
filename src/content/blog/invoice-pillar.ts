@@ -74,7 +74,7 @@ const html = `
 <h3>Step 2 — Add line items, quantity and rate (45 seconds)</h3>
 <p>Add rows like “Logo design, qty 2, $250 each”. Keep descriptions concrete: deliverable + period (“Homepage copy, Aug 2026”). Up to 50 lines supported — the layout stays clean past ten items on A4.</p>
 <h3>Step 3 — Set tax, discount and currency (20 seconds)</h3>
-<p>Set tax to 10% and watch $500 → $50 → <strong>$550 total</strong> update live. For India use 18% GST; the <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> splits CGST/SGST vs IGST automatically. US sellers: add sales tax only if nexus applies; UK: 20% VAT if registered.</p>
+<p>Set tax to 10% and watch $500 → $50 → <strong>$550 total</strong> update live. For India use 18% GST; the <a href="/invoice-generator">freelance GST invoice generator</a> splits CGST/SGST vs IGST automatically. US sellers: add sales tax only if nexus applies; UK: 20% VAT if registered.</p>
 <h3>Step 4 — Customize: logo, notes and terms (25 seconds)</h3>
 <p>Upload your logo, paste payment terms (“Net 15, UPI / bank transfer”), add bank or UPI ID and a thank-you note. This is what separates a <strong>professional invoice template</strong> from a spreadsheet printout.</p>
 <h3>Step 5 — Download the PDF and send (15 seconds)</h3>
@@ -114,7 +114,7 @@ const html = `
 <ul>
 <li><strong>GSTIN</strong> of supplier (and buyer for B2B), invoice serial number, date, HSN/SAC codes, taxable value, <strong>CGST + SGST (same state) or IGST (inter-state)</strong>, place of supply, and total in words.</li>
 <li>Example: ₹20,000 services + 18% GST = ₹3,600 tax → <strong>₹23,600 total</strong>. Same-state splits to 9% + 9%.</li>
-<li>Use the <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> for auto CGST/SGST vs IGST. Full rules + sample in <a href="/blog/invoice-generator-guide/gst-invoice-format-india">GST invoice format India</a>.</li>
+<li>Use the <a href="/invoice-generator">freelance GST invoice generator</a> for auto CGST/SGST vs IGST. Full rules + sample in <a href="/blog/invoice-generator-guide/gst-invoice-format-india">GST invoice format India</a>.</li>
 </ul>
 <h3>US and UK: sales tax, VAT and record-keeping</h3>
 <ul>
@@ -168,7 +168,7 @@ export const invoicePillar: BlogPost = {
   description:
     "Create a professional invoice free: 12-point checklist, 5-step PDF walkthrough, GST rules, templates and numbering tips.",
   keywords: ["free invoice generator guide", "free invoice generator online no signup", "invoice maker guide", "create invoice online free tutorial", "online invoice generator free download pdf", "free professional invoice generator india", "invoice template guide", "gst invoice format guide"],
-  toolSlugs: ["invoice-generator", "freelance-gst-invoice-generator", "quotation-generator", "receipt-generator"],
+  toolSlugs: ["invoice-generator", "quotation-generator", "receipt-generator"],
   relatedSlugs: ["how-to-create-invoice-online", "gst-invoice-format-india", "freelancer-invoice-guide"],
   published: "2026-09-10",
   updated: "2026-09-18",

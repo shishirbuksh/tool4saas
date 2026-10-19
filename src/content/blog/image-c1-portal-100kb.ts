@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>UPSC photo rejected: 214KB, limit 100KB. SSC: 173KB, limit 100KB. IBPS: 96KB — accepted, after three attempts and one cyber-café printout. Every admission season, lakhs of applicants discover that <strong>government portals enforce file-size limits ruthlessly</strong> while giving zero guidance on meeting them. This guide gives the exact method: resize to required pixels first, compress to land under 100KB (or 20–50KB), verify, upload — all offline, nothing uploaded.</p>
-<p>Part of the <a href="/blog/image-compressor-guide">image optimization guide</a>. Do it in the <a href="/image-compressor">image compressor</a>; fix dimensions first in the <a href="/image-resizer">image resizer</a>. Format background in <a href="/blog/image-compressor-guide/png-vs-jpg-vs-webp">PNG vs JPG vs WebP</a>.</p>
+<p>Part of the <a href="/blog/image-compressor-guide">image optimization guide</a>. Do it in the <a href="/image-compressor">image compressor</a>; fix dimensions first in the <a href="/image-compressor">image resizer</a>. Format background in <a href="/blog/image-compressor-guide/png-vs-jpg-vs-webp">PNG vs JPG vs WebP</a>.</p>
 
 <h2 id="know-limits">Know your portal's limits before touching a slider</h2>
 <p>Limits vary by exam and document type — photo, signature and certificates often differ on the same form. Check the official notification PDF (usually “Instructions to candidates”, page 2–3) and note three numbers: max KB, required pixels, accepted formats. Common patterns:</p>
@@ -20,7 +20,7 @@ const html = `
 
 <h2 id="method">The resize-first method (worked example: 4.2MB → 96KB)</h2>
 <ol>
-<li><strong>Resize to exact pixels in the <a href="/image-resizer">image resizer</a>:</strong> my 4032×3024 phone photo → 413×531. File drops 4.2MB → ~180KB before any quality change. This single step does 80% of the work.</li>
+<li><strong>Resize to exact pixels in the <a href="/image-compressor">image resizer</a>:</strong> my 4032×3024 phone photo → 413×531. File drops 4.2MB → ~180KB before any quality change. This single step does 80% of the work.</li>
 <li><strong>Compress at 80% in the <a href="/image-compressor">image compressor</a>:</strong> 180KB → ~140KB. Still over? Drop to 75% (~110KB), then 70% (~95KB). Accepted.</li>
 <li><strong>Verify three things:</strong> byte count under limit, dimensions exactly as required, face clearly recognizable at 100% zoom. Portals reject blurry under-dimensioned photos more often than slightly-compressed correct ones.</li>
 <li><strong>Keep the original:</strong> save the accepted file as <code>upsc-photo-96kb.jpg</code> and archive the original separately — re-compressing an accepted file for the next portal degrades it further.</li>
@@ -43,7 +43,7 @@ export const imagePortal100kb: BlogPost = {
   description:
     "Compress photos to 100KB for UPSC, SSC, IBPS portals: resize-first method with worked 4.2MB example, signatures, thumb tips + cyber-café safety. Free tool.",
   keywords: ["how to compress jpg to 100kb for online form", "compress photo to 100kb for upsc", "reduce image to 100kb without losing clarity", "photo size reducer for government portal", "signature compress 50kb online"],
-  toolSlugs: ["image-compressor", "image-resizer", "image-format-converter"],
+  toolSlugs: ["image-compressor", "image-format-converter"],
   relatedSlugs: ["png-vs-jpg-vs-webp", "resize-image-exact-pixels", "strip-exif-before-upload"],
   published: "2026-10-07",
   updated: "2026-10-07",

@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>“correct horse battery staple” — four random words, ~51.7 bits, memorable in seconds. “Tr0ub4dor&3” — 11 characters of pain, weaker against smart guessing, forgotten by Friday. The famous xkcd #936 comparison settled the <strong>passphrase vs password</strong> debate a decade ago, and NIST agreed: length from random words beats complexity theater. But the details decide — word count, wordlist size and use case. Here they are.</p>
-<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Generate both kinds in the <a href="/password-generator">generator</a> (random strings) and <a href="/random-passphrase">passphrase tool</a>. Memory method in <a href="/blog/password-generator-guide/how-to-remember-passwords">remembering guide</a>.</p>
+<p>Part of the <a href="/blog/password-generator-guide">password generator guide</a>. Generate both kinds in the <a href="/password-generator">generator</a> (random strings) and <a href="/password-generator">passphrase tool</a>. Memory method in <a href="/blog/password-generator-guide/how-to-remember-passwords">remembering guide</a>.</p>
 
 <h2 id="math">The math: 5 words beat 12 characters</h2>
 <p>EFF's 7,776-word list: each random word ≈12.9 bits, so 4 words ≈51.7 bits, 5 words ≈64.6 bits, 6 words ≈77.5 bits. A 12-character full-pool password: ~78.7 bits. So 6 random words roughly equal 12 random characters — while remaining humanly memorizable and typable. Critical qualifier: RANDOM words. A favorite quote, lyric or proverb has a fraction of the entropy — attackers try published text first. Dice, crypto generators, or the passphrase tool — never “words that feel random.”</p>
@@ -27,7 +27,7 @@ const html = `
 </ul>
 
 <h2 id="diceware">Diceware in 2 minutes (trustable randomness by hand)</h2>
-<p>Distrust software? Roll physical dice: five rolls pick one of 7,776 EFF words; repeat 5–6 times. Dice have no code to backdoor and no memory to leak — the gold standard paranoids and experts agree on. Our <a href="/random-passphrase">passphrase tool</a> demonstrates the concept with a compact built-in wordlist (fine for practice and low-value secrets — for real masters, use physical dice or a 20+ character secret from the <a href="/password-generator">generator</a>). Either way: keep the first draw — re-rolling “ugly” words injects human bias that shrinks entropy. Write the result on paper until memorized, then destroy the paper; never photograph it.</p>
+<p>Distrust software? Roll physical dice: five rolls pick one of 7,776 EFF words; repeat 5–6 times. Dice have no code to backdoor and no memory to leak — the gold standard paranoids and experts agree on. Our <a href="/password-generator">passphrase tool</a> demonstrates the concept with a compact built-in wordlist (fine for practice and low-value secrets — for real masters, use physical dice or a 20+ character secret from the <a href="/password-generator">generator</a>). Either way: keep the first draw — re-rolling “ugly” words injects human bias that shrinks entropy. Write the result on paper until memorized, then destroy the paper; never photograph it.</p>
 <h2 id="multilingual">Non-English passphrases (untapped entropy)</h2>
 <p>Wordlists exist beyond English — and attackers' dictionaries skew English-first. Hindi, Spanish or Tamil wordlists from reputable sources add equivalent bits per word (~12.9 at 7,776 entries) while dodging English-centric guessing. Rules: use a published uniform list (never your own vocabulary — personal word choice is predictable), keep words space-separated for entry, and confirm every login form accepts Unicode (legacy bank forms sometimes mangle it — test before committing a master to Devanagari). Mixed-language draws are fine if uniformly generated, but single-list draws keep the math clean. Whatever the language, randomness source matters more than tongue: dice or crypto.getRandomValues, first draw kept.</p>
 <blockquote class="tip">General information only, not security advice. Generate offline, store in a manager, enable MFA on email/bank. If you lose your master password it cannot be recovered by us.</blockquote>
@@ -41,7 +41,7 @@ export const passwordPassphrase: BlogPost = {
   description:
     "Passphrase vs password compared: EFF word math, when to use each, Diceware by hand. Memorable masters + random stored secrets.",
   keywords: ["passphrase vs password", "are 4 random words safer", "correct horse battery staple entropy", "eff passphrase words"],
-  toolSlugs: ["random-passphrase", "password-generator", "password-strength"],
+  toolSlugs: ["password-generator", "password-strength"],
   relatedSlugs: ["how-to-remember-passwords", "what-makes-password-strong", "how-to-create-strong-password"],
   published: "2026-09-25",
   updated: "2026-09-25",

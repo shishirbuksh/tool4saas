@@ -114,7 +114,7 @@ export default function GstInvoiceTool() {
         y += 6;
       }
       doc.setFontSize(8);
-      doc.text("Made with Tool4SaaS — Free, private, no signup — tool4saas.com/freelance-gst-invoice-generator", 15, 290);
+      doc.text("Made with Tool4SaaS — Free, private, no signup — tool4saas.com/invoice-generator", 15, 290);
       doc.save(`gst-invoice-${invNo.trim() || "draft"}.pdf`);
     } catch (e) {
       alert(e instanceof Error ? e.message : "PDF export failed. Try Print instead.");
