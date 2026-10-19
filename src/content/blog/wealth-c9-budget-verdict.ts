@@ -21,7 +21,7 @@ const html = `
 <h2 id="bands">What it means per income band</h2>
 <ul>
 <li><strong>Under ₹12.75L salaried:</strong> effectively zero-tax under new regime — redirect planning energy from tax-saving to step-up SIPs (see <a href="/blog/sip-calculator-guide/sip-1-crore-goal">₹1 crore math</a>).</li>
-<li><strong>₹12.75–20L:</strong> marginal-relief zone plus slab climb — model both regimes; 80C/HRA stacks decide.</li>
+<li><strong>₹12.75–20L:</strong> marginal-relief zone and slab climb — model both regimes; 80C/HRA stacks decide.</li>
 <li><strong>Above ₹20L:</strong> 25–30% slabs dominate — old-regime deductions, HRA structuring and capital-gains timing carry real money.</li>
 <li><strong>Capital income:</strong> STCG 20% flat vs LTCG 12.5% above ₹1.25L/yr exemption — holding-period discipline unchanged.</li>
 </ul>
@@ -43,14 +43,7 @@ export const wealthBudgetVerdict: BlogPost = {
   title: "Budget 2026 Verdict: What Changed for Salaried Savers",
   description:
     "Budget 2026 verdict: retained slabs, 87A, STCG/LTCG per-band impact + 3 pre-window actions. Free tax calculators. Refreshes yearly.",
-  keywords: [
-    "budget 2026 salaried tax slab ltcg change?",
-    "fy 2026-27 retained slabs declare regime?",
-    "87a 60k 12l retained budget 2026?",
-    "new income tax act 2025 sections?",
-    "equity stcg 20 retained harvest?",
-    "Did Budget 2026 change income tax slabs?",
-  ],
+  keywords: ["budget 2026 salaried tax slab ltcg change", "fy 2026-27 retained slabs declare regime", "87a 60k 12l retained budget 2026", "new income tax act 2025 sections", "equity stcg 20 retained harvest", "budget 2026 income tax slabs verdict"],
   toolSlugs: ["income-tax-calculator", "capital-gains-tax-india", "sip-calculator"],
   relatedSlugs: ["old-vs-new-regime-2026", "equity-ltcg-vs-fd-tax", "sip-1-crore-goal"],
   published: "2026-10-07",

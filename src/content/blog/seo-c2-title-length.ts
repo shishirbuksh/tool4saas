@@ -13,7 +13,7 @@ const html = `
 <tr><td><strong>Description</strong></td><td>150–155 chars (~880px)</td><td>165 chars (~940px)</td><td>178+ chars (~990px+)</td></tr>
 </tbody>
 </table>
-<p>Character width varies: <code>W</code> and emojis consume far more than <code>i</code>, <code>l</code> or hyphens. Two 55-char titles can differ 100px in render. Always validate in a pixel meter, never by count alone. Front-load keywords within the first 40 characters — mobile viewports clip hardest, and favicon plus date stamps steal additional room on real SERPs.</p>
+<p>Character width varies: <code>W</code> and emojis consume far more than <code>i</code>, <code>l</code> or hyphens. Two 55-char titles can differ 100px in render. Always validate in a pixel meter, never by count alone. Front-load keywords within the first 40 characters — mobile viewports clip hardest, and favicon and date stamps steal additional room on real SERPs.</p>
 
 <h2 id="mobile-rewrite">Mobile clipping and Google rewrites</h2>
 <p>Mobile shows ~40 characters of title before cutting — put the value words first or mobile searchers never see them. And accept what you cannot control: Google rewrites 60%+ of titles (site-name appends, keyword swaps, date injections). Rewrites favor pages with clear H1s and descriptive links — which the <a href="/blog/seo-analyzer-guide/fix-score-60-to-80">60-to-80 rescue</a> covers. When your crafted title gets replaced, improve H1/heading alignment rather than re-tuning characters.</p>
@@ -35,14 +35,7 @@ export const seoTitleLength: BlogPost = {
   title: "Title and Meta Lengths That Avoid Truncation (2026)",
   description:
     "Title/description pixel budgets: safe/caution/truncated table, mobile clipping, Google rewrites + draft-meter-generate workflow. Free preview tools.",
-  keywords: [
-    "how long should title and meta description be 2026",
-    "55 char 540px safe green",
-    "72 char 660px ellipsis",
-    "mobile clips earlier 40 chars",
-    "google rewrites title why",
-    "How long should a meta description be?",
-  ],
+  keywords: ["how long should title and meta description be 2026", "55 char 540px safe green", "72 char 660px ellipsis", "mobile clips earlier 40 chars", "google rewrites title why"],
   toolSlugs: ["serp-preview", "meta-tag-generator", "seo-analyzer"],
   relatedSlugs: ["fix-score-60-to-80", "stale-og-image-fix", "utm-naming-governance"],
   published: "2026-10-07",
@@ -56,8 +49,8 @@ export const seoTitleLength: BlogPost = {
   html,
   faqs: [
     { question: "How long should an SEO title be?", answer: "Keep titles 50 to 60 characters near 580 pixels maximum, since 55 near 540 pixels stays safe green while 72 near 660 truncates. Width varies because W and emojis consume far more than narrow letters, so validate pixels not counts. Front-load keywords within 40 characters, meter in SERP preview, and re-meter after font changes." },
-    { question: "How long should a meta description be?", answer: "Keep descriptions 150 to 160 characters near 880 to 920 pixels, since 155 near 880 pixels displays fully while 178 near 990 pixels gets cut before the call to action. Draft the benefit plus CTA in the meta tag generator, meter title and description in SERP preview, and re-verify after template changes." },
-    { question: "Why does mobile cut my title sooner?", answer: "Mobile viewports show about 40 characters before cutting, plus favicon and date stamps steal room on SERPs, so screens clip hardest. Put value words and keywords within the first 40 characters or mobile searchers never see them. Draft with keywords fronted, then meter in SERP preview." },
+    { question: "How long should a meta description be?", answer: "Keep descriptions 150 to 160 characters near 880 to 920 pixels, since 155 near 880 pixels displays fully while 178 near 990 pixels gets cut before the call to action. Draft the benefit and CTA in the meta tag generator, meter title and description in SERP preview, and re-verify after template changes." },
+    { question: "Why does mobile cut my title sooner?", answer: "Mobile viewports show about 40 characters before cutting and favicon and date stamps steal room on SERPs, so screens clip hardest. Put value words and keywords within the first 40 characters or mobile searchers never see them. Draft with keywords fronted, then meter in SERP preview." },
     { question: "Why did Google rewrite my title?", answer: "Google rewrites more than 60 percent of titles through site-name appends, keyword swaps and date injections, no matter how you craft characters. Rewrites favor pages with clear H1s and descriptive links, so improve H1 and heading alignment rather than re-tuning characters. When a crafted title gets replaced, fix heading alignment as the 60-to-80 rescue covers." },
     { question: "Do pixel budgets change?", answer: "Yes, pixel budgets drift as Google restyles SERPs and when templates or fonts change, since pixel widths shift with typography. A green title at 540 pixels can drift amber without edits, as can descriptions at 880 pixels. Re-meter quarterly in SERP preview, not once, and re-verify after every template change." },
   ],

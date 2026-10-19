@@ -41,13 +41,7 @@ export const wordDensity: BlogPost = {
   title: "Keyword Density Explained: How to Check and Fix Stuffing",
   description:
     "Keyword density without myths: how to check, read 1–4 word phrases, fix stuffing patterns + why ideal-% died. Free local analyzer.",
-  keywords: [
-    "keyword density checker",
-    "good keyword density",
-    "avoid keyword stuffing",
-    "check keyword density free",
-    "What is a good keyword density?",
-  ],
+  keywords: ["keyword density checker", "good keyword density", "avoid keyword stuffing", "check keyword density free"],
   toolSlugs: ["keyword-density", "word-counter", "readability-checker"],
   relatedSlugs: ["flesch-reading-ease-score-explained", "ideal-blog-post-length-seo", "how-to-count-words-online"],
   published: "2026-09-26",
@@ -61,7 +55,7 @@ export const wordDensity: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is a good keyword density?", answer: "There is no ideal percentage per Google, so use density diagnostically rather than as a target. Readouts around 4 percent plus on money terms usually mean rewriting for humans, while zero percent on your topic means you forgot the subject. Let coverage land where it falls, typically 0.5 to 2 percent on primaries without trying." },
+    { question: "What is a good keyword density?", answer: "There is no ideal percentage per Google, so use density diagnostically rather than as a target. Readouts around 4 percent and on money terms usually mean rewriting for humans, while zero percent on your topic means you forgot the subject. Let coverage land where it falls, typically 0.5 to 2 percent on primaries without trying." },
     { question: "How do I check keyword density?", answer: "Paste rendered body text without HTML source, navigation, footers or comments, since tags pollute counts and only body copy matters. Read 1 to 4-word phrases with stop-word filtering because two-word phrases show real targeting. Interpret placement across title, intro, headings and conclusion rather than chasing a mythical number." },
     { question: "What is keyword stuffing?", answer: "Keyword stuffing fills pages with terms to manipulate rankings through verbatim repeats, heading spam and city or service list paragraphs. It violates spam policies and reads robotic, like 47 mentions in 1,000 words at 4.7 percent. Fix with synonyms, pronouns in half the headings, intent-driven mentions and one location page per area." },
     { question: "How do I fix a stuffed page?", answer: "Synonym-test each repeat by replacing the keyword with it in three spots and cut where flow improves. Keep mentions that answer something and remove decorative ones, then cover related terms like readability, character count and reading time instead of repeating one phrase. Re-check readability alongside density in one paste after edits." },

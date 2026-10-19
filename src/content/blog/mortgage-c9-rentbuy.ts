@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>My friend in Pune rented at Rs 28,000 versus a Rs 54,000 EMI on a Rs 60L loan in 2024 — 4-year stay, renting won by roughly Rs 6L after closing plus maintenance. Same math, opposite coast: my Austin cousin staying 12 years, buying won walking away. The honest answer is always <strong>it depends on timeline, rates and local prices</strong> — which is exactly what break-even math settles. Here is the complete comparison.</p>
+<p>My friend in Pune rented at Rs 28,000 versus a Rs 54,000 EMI on a Rs 60L loan in 2024 — 4-year stay, renting won by roughly Rs 6L after closing and maintenance. Same math, opposite coast: my Austin cousin staying 12 years, buying won walking away. The honest answer is always <strong>it depends on timeline, rates and local prices</strong> — which is exactly what break-even math settles. Here is the complete comparison.</p>
 <p>Part of the <a href="/blog/mortgage-calculator-guide">mortgage calculator guide</a>. Size buying power in the <a href="/home-affordability-calculator">affordability calculator</a>; price payments in the <a href="/mortgage-calculator">mortgage calculator</a>.</p>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 
@@ -34,7 +34,7 @@ const html = `
 <li><strong>India lens:</strong> high rental yields in some cities + 9% loan rates tilt short horizons to renting; family stability needs tilt long ones to buying. Same break-even method, local numbers via the <a href="/emi-calculator">EMI calculator</a> and <a href="/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india">India guide</a>.</li>
 </ul>
 <h2 id="calculator-method">Run your own comparison (15-minute method)</h2>
-<p>Collect four numbers: target home price, local annual rent for equivalent space, your down payment, and a mortgage quote (or illustrative 6%). Step 1: compute PITI via the <a href="/mortgage-calculator">mortgage calculator</a> plus local tax/insurance. Step 2: add 1% maintenance and amortize 2–6% closing over your horizon (divide by stay years). Step 3: subtract principal repaid by horizon end (read it off the <a href="/blog/mortgage-calculator-guide/mortgage-amortization-schedule">amortization schedule</a>). Step 4: compare against rent × years plus down-payment growth at ~7%. Whichever total is lower wins — then adjust for the non-math factors in the previous section. Most couples finish this in 15 minutes and argue about the inputs, not the method — which means the method works. Size the buying side first with the <a href="/home-affordability-calculator">affordability calculator</a>.</p>
+<p>Collect four numbers: target home price, local annual rent for equivalent space, your down payment, and a mortgage quote (or illustrative 6%). Step 1: compute PITI via the <a href="/mortgage-calculator">mortgage calculator</a> and local tax/insurance. Step 2: add 1% maintenance and amortize 2–6% closing over your horizon (divide by stay years). Step 3: subtract principal repaid by horizon end (read it off the <a href="/blog/mortgage-calculator-guide/mortgage-amortization-schedule">amortization schedule</a>). Step 4: compare against rent × years and down-payment growth at ~7%. Whichever total is lower wins — then adjust for the non-math factors in the previous section. Most couples finish this in 15 minutes and argue about the inputs, not the method — which means the method works. Size the buying side first with the <a href="/home-affordability-calculator">affordability calculator</a>.</p>
 <p>Rates and examples as of Sept 2026, illustrative only — not a lender offer. Excludes taxes, insurance, PMI, HOA, fees and ARM resets.</p>
 <h2 id="couple-disagreement">When partners disagree (settle it with numbers)</h2>
 <p>Rent-vs-buy splits couples more often than any spreadsheet admits — one values roots, the other freedom, and both argue math that is really emotion. The settlement protocol: each writes their horizon (years you will actually stay), then run the 15-minute method twice — once per horizon. Different horizons, different winners, both computed honestly. Then price the disagreement: if buying wins only past year 8 but one partner may relocate at year 4, the “winner” is conditional and renting wins on expected value. Non-math tiebreakers get explicit weights: school stability, commute sanity, renovation joy, landlord fatigue. Couples who quantify first and emote second decide in one evening; couples who emote first re-litigate for a year. The method does not pick sides — it prices each side's assumptions until one becomes undeniable.</p>
@@ -48,13 +48,7 @@ export const mortgageRentBuy: BlogPost = {
   title: "Rent vs Buy a House: 5% Rule + Break-Even Math (2026)",
   description:
     "Rent vs buy compared honestly: true owning costs, 5% rule, break-even years + when each wins. Free affordability + mortgage calculators.",
-  keywords: [
-    "renting vs buying a house",
-    "rent vs buy break-even years",
-    "is it cheaper to rent or buy",
-    "5 percent rule renting vs buying",
-    "Is renting throwing money away?",
-  ],
+  keywords: ["renting vs buying a house", "rent vs buy break-even years", "is it cheaper to rent or buy"],
   toolSlugs: ["home-affordability-calculator", "mortgage-calculator", "rent-vs-buy-calculator"],
   relatedSlugs: ["how-much-house-can-i-afford", "down-payment-pmi-cost", "how-to-calculate-mortgage-payment"],
   published: "2026-09-24",
@@ -73,6 +67,6 @@ export const mortgageRentBuy: BlogPost = {
     { question: "What is the 5% rule?", answer: "Yearly unrecoverable owning costs run roughly 5% of home value (interest, tax, maintenance). On $300,000 that is $15,000 yearly versus $18,000 rent, favoring buying long-term; at $1,000 monthly rent, renting wins. Compare that against annual rent for a quick screen, then run break-even math for your horizon." },
     { question: "How long until buying beats renting?", answer: "Typically 5–7 years in the US. Under 3 years renting usually wins on closing costs of 2–6% rarely recovered; past 10 years owning usually wins on principal paydown and appreciation compounding. A 4-year Pune stay favored renting by ~Rs 6L, while a 12-year Austin stay favored buying overall." },
     { question: "Does rent-vs-buy differ in India?", answer: "Same method, local numbers: 9% loan rates and high yields in some cities favor short-horizon renting, while family stability favors long buying. A Pune Rs 28,000 rent versus Rs 54,000 EMI on Rs 60L shows the gap; use the EMI calculator with local rents and prices for timelines." },
-    { question: "Is this housing advice?", answer: "No — illustrative education as of Sept 2026, excluding taxes, insurance, PMI, HOA, fees and ARM resets. Collect price, rent, down payment and quotes, then run the 15-minute PITI plus maintenance and closing comparison. Consult a qualified advisor for your situation before deciding with partners; see /terms." },
+    { question: "Is this housing advice?", answer: "No — illustrative education as of Sept 2026, excluding taxes, insurance, PMI, HOA, fees and ARM resets. Collect price, rent, down payment and quotes, then run the 15-minute PITI and maintenance and closing comparison. Consult a qualified advisor for your situation before deciding with partners; see /terms." },
   ],
 };

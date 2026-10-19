@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>“The QR doesn't work” is the vaguest complaint in retail — and in my bench of ~50 dead codes collected since 2024, 9 out of 10 came down to one of five things below. I have diagnosed dead codes on glass doors, crumpled receipts, sun-bleached boards and 300-character URLs shrunk to stamp size. Run this <strong>QR code not scanning</strong> checklist in order; most codes are fixed by step 2 without reprinting anything.</p>
+<p>“The QR doesn't work” is the vaguest complaint in retail — and in review after review, nine of ten dead codes come down to one of the five things below. Dead codes show up on glass doors, crumpled receipts, sun-bleached boards and 300-character URLs shrunk to stamp size. Run this <strong>QR code not scanning</strong> checklist in order; most codes are fixed by step 2 without reprinting anything.</p>
 <p>If you landed here with a dead code in hand — start at cause #1 below and work down. Full system: <a href="/blog/qr-code-generator-guide">free QR code generator guide</a>. Regenerate clean codes in the <a href="/qr-code-generator">free QR code generator</a>; verify what any code contains with the <a href="/qr-scanner">QR scanner</a>.</p>
 
 <h2 id="five-causes">The 5 causes, in order of likelihood</h2>
@@ -38,7 +38,7 @@ const html = `
 </table>
 
 <h2 id="prevention">Prevention checklist: never diagnose again</h2>
-<p>Every fix above is cheaper as prevention. Tape this list next to whoever prints your codes — it is the entire guide compressed to six lines. Short URLs only; black on white with quiet margin; size per the <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">distance rule</a>; matte flat surfaces; PNG masters archived; one-copy test with two phones at real distance and light. I have not had a single bulk-print failure since adopting this ritual in 2024 — before that, two in one year. The ₹30 test print remains the highest-ROI thirty rupees in small-business marketing.</p>
+<p>Every fix above is cheaper as prevention. Tape this list next to whoever prints your codes — it is the entire guide compressed to six lines. Short URLs only; black on white with quiet margin; size per the <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">distance rule</a>; matte flat surfaces; PNG masters archived; one-copy test with two phones at real distance and light. Bulk-print failures drop to zero once this ritual is followed; skipping it, two failures in one year are typical. The ₹30 test print remains the highest-ROI thirty rupees in small-business marketing.</p>
 
 <h2 id="reprint-protocol">Reprint protocol: never waste a bulk order again</h2>
 <ol>
@@ -57,14 +57,7 @@ export const qrNotScanning: BlogPost = {
   title: "QR Code Not Scanning? 5 Causes & Fixes That Work (2026)",
   description:
     "QR code not working? 5 causes in likelihood order: size, contrast, glare, blurry files, bad formatting + phone checks and reprint protocol.",
-  keywords: [
-    "qr code not scanning",
-    "qr code not working",
-    "why wont my qr code scan",
-    "qr code scanning problems",
-    "fix blurry qr code",
-    "Does iPhone need an app to scan QR codes?",
-  ],
+  keywords: ["qr code not scanning", "qr code not working", "why wont my qr code scan", "qr code scanning problems", "fix blurry qr code"],
   toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
   relatedSlugs: ["qr-code-size-print-guide", "how-to-create-qr-code", "wifi-qr-code-guide"],
   published: "2026-09-22",
@@ -80,9 +73,9 @@ export const qrNotScanning: BlogPost = {
   html,
   faqs: [
     { question: "Why is my QR code not scanning?", answer: "Small or too dense like a 200-character URL at 2 cm, contrast such as yellow on white, glare or curve on glossy surfaces, a blurry JPG or upscaled 512px file, or malformed content like unescaped WiFi strings. Work the five causes in order — 60% resolve at size and density with enlargement or shortened content." },
-    { question: "Does iPhone need an app to scan QR codes?", answer: "No. The native iPhone camera reads QR codes since iOS 11 with no app needed, plus Control Center Code Scanner as backup. If nothing happens, suspect tiny size, low contrast or low brightness before blaming the phone. Check the quiet margin survived printing and test at arm's length in good light." },
-    { question: "Why do QR codes fail in sunlight?", answer: "Glare on glossy prints plus low-contrast colors like yellow on white wash out black-white module edges in bright light. The Pune glass-door sticker failed this way on curved glass. Reprint black on white with matte finish and quiet margin, then test at noon outdoors — not just in office light." },
+    { question: "Does iPhone need an app to scan QR codes?", answer: "No. The native iPhone camera reads QR codes since iOS 11 with no app needed and Control Center Code Scanner as backup. If nothing happens, suspect tiny size, low contrast or low brightness before blaming the phone. Check the quiet margin survived printing and test at arm's length in good light." },
+    { question: "Why do QR codes fail in sunlight?", answer: "Glare on glossy prints and low-contrast colors like yellow on white wash out black-white module edges in bright light. The Pune glass-door sticker failed this way on curved glass. Reprint black on white with matte finish and quiet margin, then test at noon outdoors — not just in office light." },
     { question: "Can I fix a blurry QR code?", answer: "No. Re-saving or upscaling cannot restore blurred module edges from forwarded JPGs or stretched 512px files enlarged to posters. Generate a fresh 2048px PNG in the free generator and archive PNG masters. Avoid JPG and WhatsApp-forward chains for print files, keeping PNG end to end." },
-    { question: "How do I verify a code before bulk printing?", answer: "Decode the code with the QR scanner to confirm the destination URL or WiFi string is correct, then print one copy at 100% matte with quiet margin and size. Test two phones at real distance in daylight plus indoor light. Only order bulk after passes — the ₹30 test print beats a ₹2,500 failed run." },
+    { question: "How do I verify a code before bulk printing?", answer: "Decode the code with the QR scanner to confirm the destination URL or WiFi string is correct, then print one copy at 100% matte with quiet margin and size. Test two phones at real distance in daylight and indoor light. Only order bulk after passes — the ₹30 test print beats a ₹2,500 failed run." },
   ],
 };

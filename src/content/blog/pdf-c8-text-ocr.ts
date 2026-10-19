@@ -27,7 +27,7 @@ const html = `
 <li><strong>After OCR:</strong> proofread proper nouns and numbers (OCR confuses 0/O, 1/l, 5/S); searchable PDFs from good OCR then extract normally.</li>
 <li><strong>Handwriting:</strong> specialized engines only; general OCR fails on cursive — budget human transcription for critical passages.</li>
 </ul>
-<p>Preprocessing checklist for the 120-page manual: split <code>1-3,5</code> plus <code>10-20</code> test batches through extraction first (free, instant) to map which pages are digital vs scanned — then OCR only the scanned subset instead of paying for all 120.</p>
+<p>Preprocessing checklist for the 120-page manual: split <code>1-3,5</code> and <code>10-20</code> test batches through extraction first (free, instant) to map which pages are digital vs scanned — then OCR only the scanned subset instead of paying for all 120.</p>
 <blockquote class="tip">General guidance only. Cite extracted passages with original pagination — copy-paste without attribution is still plagiarism with extra steps.</blockquote>
 `;
 
@@ -38,14 +38,7 @@ export const pdfTextOcr: BlogPost = {
   title: "Extract Text From PDF Without OCR (When It Works)",
   description:
     "PDF text extraction: 5-second layer-vs-scan test, range syntax, empty-page flags + when OCR is actually needed. Free local extractor.",
-  keywords: [
-    "how to extract text from pdf without ocr",
-    "pdf to txt 1-3 5 chapter",
-    "scanned pdf blank output why",
-    "pdf.js text layer",
-    "ocr vs text extraction",
-    "Why is my extracted PDF text blank?",
-  ],
+  keywords: ["how to extract text from pdf without ocr", "pdf to txt 1-3 5 chapter", "scanned pdf blank output why", "pdf.js text layer", "ocr vs text extraction"],
   toolSlugs: ["pdf-to-text", "pdf-split", "image-to-pdf"],
   relatedSlugs: ["extract-pages-range", "jpg-scans-single-pdf", "pdf-pages-high-quality-jpg"],
   published: "2026-10-07",
@@ -59,7 +52,7 @@ export const pdfTextOcr: BlogPost = {
   html,
   faqs: [
     { question: "Why is my extracted PDF text blank?", answer: "Scanned pages are flat images with no text layer, so extraction correctly returns empty with per-page flags rather than failing. Those pages need dedicated OCR software, not extraction. Run the five-second drag-select test first, then OCR only the scanned subset instead of paying for all 120 manual pages." },
-    { question: "How do I tell digital from scanned PDF?", answer: "Drag-select, 400% zoom, Ctrl+F, or size-per-page reveals it. Selectable plus sharp plus searchable plus small means digital and extractable, while whole-page selection, pixel blur and hundreds of KB per page mean scanned. Hybrid documents mix both types, so review per-page flags rather than assuming uniformity." },
+    { question: "How do I tell digital from scanned PDF?", answer: "Drag-select, 400% zoom, Ctrl+F, or size-per-page reveals it. Selectable and sharp and searchable and small means digital and extractable, while whole-page selection, pixel blur and hundreds of KB per page mean scanned. Hybrid documents mix both types, so review per-page flags rather than assuming uniformity." },
     { question: "Can I extract specific pages only?", answer: "Yes — ranges like 1-3,5 pull chapters while blank means all pages up to the 200-page cap. Output arrives as plain-text preview with Page N separators, while empty pages flag no extractable text rather than skipping. Copy to clipboard for Word or download chapter.txt, retaining original pagination for quotes." },
     { question: "When do I need OCR instead?", answer: "For image-only scans, handwriting with specialized engines, or secured files after unlocking. Preprocess first by straightening skew, splitting 300-page bundles and unlocking — accuracy tracks input quality linearly. After OCR, proofread proper nouns and numbers since OCR confuses 0/O, 1/l and 5/S characters before searching across long reports." },
     { question: "How should I cite extracted text?", answer: "Keep original pagination, author and range like pp.10–20 of the manual rather than extract numbering. Archive source PDFs beside notes for verification trails, since copy-paste without attribution remains plagiarism. Retain Page N separators when copying chapters to preserve reference context for readers across academic and compliance filings." },

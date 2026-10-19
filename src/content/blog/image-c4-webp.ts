@@ -32,14 +32,7 @@ export const imageWebp: BlogPost = {
   title: "PNG to WebP Without Losing Transparency",
   description:
     "Convert PNG to WebP keeping transparency: 70% savings tested, quality picks, WebP-to-JPG flattening, white-background diagnosis + email fallbacks. Free tool.",
-  keywords: [
-    "how to convert png to webp without losing transparency",
-    "jpg to webp 85 percent quality",
-    "webp to jpg for email",
-    "why transparent png gets white background in jpg",
-    "avif fallback",
-    "Does WebP keep transparency?",
-  ],
+  keywords: ["how to convert png to webp without losing transparency", "jpg to webp 85 percent quality", "webp to jpg for email", "why transparent png gets white background in jpg", "avif fallback"],
   toolSlugs: ["image-format-converter", "image-compressor", "image-resizer"],
   relatedSlugs: ["png-vs-jpg-vs-webp", "compress-jpg-100kb-portal", "resize-image-exact-pixels"],
   published: "2026-10-07",
@@ -56,7 +49,7 @@ export const imageWebp: BlogPost = {
     { question: "Does WebP keep transparency?", answer: "Yes — lossless WebP preserves alpha at about 70% smaller than PNG; five test logos averaged 310KB to 95KB pixel-identical. Only JPG destroys transparency since it has no alpha channel. Convert one file, compare at 100% zoom, then batch, and keep the transparent master for future formats." },
     { question: "What quality for WebP conversion?", answer: "85% default, 90%+ for tiny text under 14px, never below 75% for graphics since artifacts show early. A 2.4MB screenshot dropped to 380KB at 85% with text still crisp. Photos follow the 80% rule instead. Test one file at 100% zoom first, then batch the rest through the compressor." },
     { question: "Why did my logo get a white box?", answer: "Something converted transparency to JPG, which has no alpha, or page CSS paints white behind it. Diagnose by opening the file in two viewers and checking the checkerboard preview: identical white means baked-in background needing re-export, white in one viewer means CSS or old viewer behavior." },
-    { question: "Can I use WebP in email?", answer: "Risky — Outlook desktop and several webmails still refuse it in 2026, showing broken-image icons to high-value readers. Ship a JPG/PNG fallback pair like hero.webp plus hero-fallback.jpg for campaigns. For email inline images, prefer JPG 80% under 200KB since many clients clip larger files for reliable delivery." },
+    { question: "Can I use WebP in email?", answer: "Risky — Outlook desktop and several webmails still refuse it in 2026, showing broken-image icons to high-value readers. Ship a JPG/PNG fallback pair like hero.webp and hero-fallback.jpg for campaigns. For email inline images, prefer JPG 80% under 200KB since many clients clip larger files for reliable delivery." },
     { question: "Is AVIF better than WebP?", answer: "About 20% smaller on photos, but slow encodes and spotty CMS support limit it. Treat AVIF as a hero-only experiment in 2026 while WebP stays the pragmatic default. Revisit yearly as support moves fast, keep transparent masters, and always run conversions through the compressor afterward." },
   ],
 };

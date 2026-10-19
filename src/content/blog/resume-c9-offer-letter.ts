@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>You cleared four interview rounds — then the offer letter arrived with a 3-month probation, 90-day notice period and a variable-pay-heavy CTC nobody mentioned. A friend signed without reading; leaving later cost him the notice-period buyout fight. <strong>Offer letters</strong> deserve the same scrutiny you gave the interviews. Here is what every clause means, the CTC math, and the negotiation lines that work — plus a generator for the other side of the table.</p>
+<p>You cleared four interview rounds — then the offer letter arrived with a 3-month probation, 90-day notice period and a variable-pay-heavy CTC nobody mentioned. A friend signed without reading; leaving later cost him the notice-period buyout fight. <strong>Offer letters</strong> deserve the same scrutiny you gave the interviews. Here is what every clause means, the CTC math, and the negotiation lines that work — and a generator for the other side of the table.</p>
 <p>Part of the <a href="/blog/resume-builder-guide">free resume builder guide</a>. Employers: generate clean letters with the <a href="/offer-letter-generator">offer letter generator</a> (role, CTC, joining date, terms, print to PDF locally). I'm not a lawyer; verified Sept 2026 for India private-sector offers and rules change by state and year — have HR or counsel review anything you sign or send.</p>
 
 <h2 id="anatomy">Anatomy of an offer letter: every clause explained</h2>
@@ -41,7 +41,7 @@ const html = `
 <li><strong>Experienced hires:</strong> probation waiver and notice buyout terms are negotiable at senior levels — see <a href="/blog/resume-builder-guide/experienced-resume-guide">experienced guide</a>. Not legal advice; run final letters past counsel for CXO contracts.</li>
 </ul>
 <h2 id="red-flags">Red flags: when to walk away</h2>
-<p>Some letters warn you off the job itself. Verbal-only offers with “letter next week” while pressing you to resign — never resign on promises. CTC with no breakup table — the variable share is hiding. Bonds exceeding 2 years for junior roles, or training-cost clauses above Rs 2L without itemization — price your exit before entry. Probation beyond 6 months, termination-at-will buried in appointment terms, non-competes barring your entire industry for a year — each negotiable, each a signal about culture. And the classic: joining date pressure (“sign in 24 hours”) paired with vague variable math. Urgency plus opacity equals a bad deal; good employers answer in writing and wait a week. Walking away from one bad offer beats a year of bond-trapped regret — I have watched both outcomes, and patience won every time. Document questions? Run final CXO paperwork past counsel; this guide is orientation, not legal advice.</p>
+<p>Some letters warn you off the job itself. Verbal-only offers with “letter next week” while pressing you to resign — never resign on promises. CTC with no breakup table — the variable share is hiding. Bonds exceeding 2 years for junior roles, or training-cost clauses above Rs 2L without itemization — price your exit before entry. Probation beyond 6 months, termination-at-will buried in appointment terms, non-competes barring your entire industry for a year — each negotiable, each a signal about culture. And the classic: joining date pressure (“sign in 24 hours”) paired with vague variable math. Urgency and opacity equals a bad deal; good employers answer in writing and wait a week. Walking away from one bad offer beats a year of bond-trapped regret — Between both outcomes, patience wins every time. Document questions? Run final CXO paperwork past counsel; this guide is orientation, not legal advice.</p>
 <h2 id="campus-offers">Campus offers: PPOs, Day-1 slots and fine print freshers miss</h2>
 <p>Campus placements add traps working professionals never meet. <strong>PPOs (pre-placement offers)</strong> from internships often carry lower fixed pay than Day-1 offers for the same role — compare fixed-to-fixed before accepting out of gratitude. <strong>Day-slot pressure:</strong> “sign in 48 hours or lose the slot” is placement-cell mechanics, not employer generosity; ask for the written letter with CTC table before blocking competing processes. Freshers routinely miss: training-period stipend vs confirmed salary (6 months at Rs 25k then Rs 45k changes year-one math), service agreements of 1–2 years with Rs 1–2L payouts (price your exit before entry), and location-flexibility clauses that move you cities later. Rule: no competing offer is worse than a bad signed bond — 48 hours of polite stalling (“awaiting the written CTC table”) beats a year of regret. Pair with <a href="/blog/resume-builder-guide/fresher-resume-guide">fresher resume tactics</a> for the application side.</p>
 <div class="cta-box"><strong>Generate or verify now:</strong> employers use the <a href="/offer-letter-generator">offer letter generator</a>; candidates compare fixed-to-fixed and get revisions in writing. System: <a href="/blog/resume-builder-guide">pillar guide</a>.</div>
@@ -54,14 +54,7 @@ export const resumeOfferLetter: BlogPost = {
   title: "Offer Letter Guide: CTC Math, Clauses & Negotiation (India, 2026)",
   description:
     "Offer letter explained: CTC breakup math, probation, notice, bonds + negotiation lines. For candidates and employers. Free generator included.",
-  keywords: [
-    "offer letter format",
-    "job offer letter with ctc india",
-    "ctc breakup explained",
-    "offer letter negotiation",
-    "probation notice period meaning",
-    "What should an offer letter include?",
-  ],
+  keywords: ["offer letter format", "job offer letter with ctc india", "ctc breakup explained", "offer letter negotiation", "probation notice period meaning"],
   toolSlugs: ["offer-letter-generator", "resume-builder", "cover-letter-builder"],
   relatedSlugs: ["experienced-resume-guide", "cover-letter-guide", "how-to-make-resume"],
   published: "2026-09-23",
@@ -76,10 +69,10 @@ export const resumeOfferLetter: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What should an offer letter include?", answer: "Exact role and level, full CTC breakup table, joining date and offer validity of 7–15 days, probation terms, notice period, location and work mode, plus any bond clauses — all in writing with a signature block. Demand exact designation like SDE-1 versus SDE-2, team, manager and transfer clause in ink only." },
+    { question: "What should an offer letter include?", answer: "Exact role and level, full CTC breakup table, joining date and offer validity of 7–15 days, probation terms, notice period, location and work mode and any bond clauses — all in writing with a signature block. Demand exact designation like SDE-1 versus SDE-2, team, manager and transfer clause in ink only." },
     { question: "How do I read CTC breakup?", answer: "Separate fixed (guaranteed monthly driver) from variable, joining bonus (check clawbacks) and ESOPs (check vesting). At Rs 12 LPA with 70% fixed, only Rs 8.4L is guaranteed. Compare fixed-to-fixed across offers, not headline totals; Rs 10L all-fixed often beats Rs 12L with heavy variable pay." },
     { question: "Can I negotiate an offer letter?", answer: "Yes — anchor on market data like similar SDE-1 roles closing at Rs 9–10L fixed, trade concessions like joining speed, negotiate structure (variable-to-fixed, notice length) alongside headlines, and get every change re-issued in writing before resigning. Trade, don't just ask; data beats expectations and protects joining terms." },
     { question: "What notice period is normal in India?", answer: "30–90 days depending on seniority; US/UK typically 2–4 weeks. Long notice traps you later, so negotiate before signing, not during exit when leverage is gone. Ask probation confirmation criteria and notice buyout terms in writing, especially for senior hires with competing offers and joining bonuses." },
-    { question: "Should I resign on a verbal offer?", answer: "Never. Verbal offers evaporate with budget freezes and manager changes. Resign only against a signed written letter with the full CTC table, joining date and 7–15 day validity. Never resign on promises of a letter next week while pressed to quit; urgency plus opacity equals a bad deal always." },
+    { question: "Should I resign on a verbal offer?", answer: "Never. Verbal offers evaporate with budget freezes and manager changes. Resign only against a signed written letter with the full CTC table, joining date and 7–15 day validity. Never resign on promises of a letter next week while pressed to quit; urgency and opacity equals a bad deal always." },
   ],
 };

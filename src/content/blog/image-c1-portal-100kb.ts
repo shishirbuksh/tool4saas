@@ -42,14 +42,7 @@ export const imagePortal100kb: BlogPost = {
   title: "Compress JPG to 100KB for Online Forms (UPSC/SSC Guide)",
   description:
     "Compress photos to 100KB for UPSC, SSC, IBPS portals: resize-first method with worked 4.2MB example, signatures, thumb tips + cyber-café safety. Free tool.",
-  keywords: [
-    "how to compress jpg to 100kb for online form",
-    "compress photo to 100kb for upsc",
-    "reduce image to 100kb without losing clarity",
-    "photo size reducer for government portal",
-    "signature compress 50kb online",
-    "How do I compress a photo to 100KB for UPSC?",
-  ],
+  keywords: ["how to compress jpg to 100kb for online form", "compress photo to 100kb for upsc", "reduce image to 100kb without losing clarity", "photo size reducer for government portal", "signature compress 50kb online"],
   toolSlugs: ["image-compressor", "image-resizer", "image-format-converter"],
   relatedSlugs: ["png-vs-jpg-vs-webp", "resize-image-exact-pixels", "strip-exif-before-upload"],
   published: "2026-10-07",

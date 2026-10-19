@@ -38,16 +38,9 @@ export const pdfMergeOrder: BlogPost = {
   title: "Merge Multiple PDFs in Order (Cover + Chapters)",
   description:
     "Merge PDFs in reading order: drag-to-sort workflow, 20-file/200-page limits, what survives vs flattens + encrypted-file fixes. Free merge tool.",
-  keywords: [
-    "merge pdfs cover first appendix last order",
-    "combine 5 pdfs cover chapter appendix",
-    "drag reorder pdf pages",
-    "merge 20 pdfs 200 pages limit",
-    "merge without losing text layer",
-    "How do I merge PDFs in a specific order?",
-  ],
+  keywords: ["merge pdfs cover first appendix last order", "combine 5 pdfs cover chapter appendix", "drag reorder pdf pages", "merge 20 pdfs 200 pages limit", "merge without losing text layer"],
   toolSlugs: ["pdf-merge", "pdf-split", "image-to-pdf"],
-  relatedSlugs: ["jpg-scans-single-pdf", "extract-pages-range", "compress-pdf-1mb-email"],
+  relatedSlugs: ["jpg-scans-single-pdf", "extract-pages-range", "extract-text-without-ocr"],
   published: "2026-10-07",
   updated: "2026-10-07",
   readingMinutes: readingMinutesFor(html),
@@ -62,6 +55,6 @@ export const pdfMergeOrder: BlogPost = {
     { question: "How many PDFs can I merge at once?", answer: "20 files, 200 pages total, 10MB each per run. A 12+8 page booklet flies on phones, while a 20-file archive needs a laptop. Over the ceiling, split into parts with range extraction, merge parts, then merge the merged files in two passes for the same result." },
     { question: "Do merged PDFs keep clickable links?", answer: "Yes — text layers stay searchable, while hyperlinks and outlines concatenate in order, so spot-check first and last pages. Form fields, signatures and annotations flatten to static ink, so archive editable originals. Bank statements often carry owner passwords that must be unlocked before merging with proper credentials beforehand." },
     { question: "Why won't my PDF merge?", answer: "Usually owner-password encryption, since locked files refuse parsing by design. Unlock with the owner password first, remove restrictions in Acrobat, or reprint via Microsoft Print to PDF. Brute-forcing violates policy and terms, and user passwords alone only open viewing without releasing merge permissions for protected bank workflows reliably." },
-    { question: "What should I name the merged file?", answer: "Content plus date, like visa-bundle-2026-10.pdf, so future retrieval works by name rather than final_FINAL chaos. Start from sane filenames before ordering, since sequence errors caught late cost resubmissions. Verify merged pagination by sampling first, middle and final pages after downloading for dependable long-term archiving needs." },
+    { question: "What should I name the merged file?", answer: "Content and date, like visa-bundle-2026-10.pdf, so future retrieval works by name rather than final_FINAL chaos. Start from sane filenames before ordering, since sequence errors caught late cost resubmissions. Verify merged pagination by sampling first, middle and final pages after downloading for dependable long-term archiving needs." },
   ],
 };

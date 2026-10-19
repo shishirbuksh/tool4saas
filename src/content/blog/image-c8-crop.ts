@@ -40,14 +40,7 @@ export const imageCrop: BlogPost = {
   title: "Crop Passport Photos to Exact Size at Home",
   description:
     "Crop passport and ID photos to exact size: spec table, crop-resize-compress order, stretched-face check, avatars + print prep. Free cropper.",
-  keywords: [
-    "passport photo size and crop guide india",
-    "35x45mm passport crop online",
-    "crop square avatar without stretching",
-    "visa photo 2x2 inch pixels",
-    "image cropper vs resizer",
-    "What size is an Indian passport photo?",
-  ],
+  keywords: ["passport photo size and crop guide india", "35x45mm passport crop online", "crop square avatar without stretching", "visa photo 2x2 inch pixels", "image cropper vs resizer"],
   toolSlugs: ["image-cropper", "image-resizer", "image-compressor"],
   relatedSlugs: ["resize-image-exact-pixels", "compress-jpg-100kb-portal", "png-vs-jpg-vs-webp"],
   published: "2026-10-07",

@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>I was cc'd when a founder forwarded a 4-page biodata — photo, father's name, religion — for a Bengaluru startup role, as a joke. The applicant never got a reply. “Send your CV.” “Send your resume.” “Send your biodata.” Three requests, three different documents — and sending the wrong one marks you as careless before page one. Do not be that applicant. Here are the exact lines between <strong>resume vs CV vs biodata</strong>.</p>
+<p>One founder forwarded a 4-page biodata — photo, father's name, religion — for a startup role as a joke; the applicant never got a reply. “Send your CV.” “Send your resume.” “Send your biodata.” Three requests, three different documents — and sending the wrong one marks you as careless before page one. Do not be that applicant. Here are the exact lines between <strong>resume vs CV vs biodata</strong>.</p>
 <p>Part of the <a href="/blog/resume-builder-guide">free resume builder guide</a>. Build resumes in the <a href="/resume-builder">free resume builder</a>.</p>
 
 <h2 id="three-docs">The three documents side by side</h2>
@@ -44,14 +44,7 @@ export const resumeVsCv: BlogPost = {
   title: "Resume vs CV vs Biodata: Differences & When to Use Each (2026)",
   description:
     "Resume vs CV vs biodata explained with a comparison table, country rules and the photo rule. Send the right document every time.",
-  keywords: [
-    "resume vs cv",
-    "difference between resume and cv",
-    "cv vs resume india",
-    "biodata vs resume",
-    "what is biodata format",
-    "Do Indian companies want a resume or CV?",
-  ],
+  keywords: ["resume vs cv", "difference between resume and cv", "cv vs resume india", "biodata vs resume", "what is biodata format"],
   toolSlugs: ["resume-builder", "ats-resume-checker", "cover-letter-builder"],
   relatedSlugs: ["resume-format-guide", "how-to-make-resume", "fresher-resume-guide"],
   published: "2026-09-23",

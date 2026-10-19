@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>Twelve phone scans, one rental agreement, zero scanner. The landlord needed a single PDF; I had IMG_20261007_1 through _12 and a deadline. Twenty minutes later: one A4 portrait PDF, pages ordered, 4.2MB, emailed. <strong>Phone scans to single PDF</strong> is the most common PDF job in India — admissions, KYC, rentals — and it fails most often on paper size and orientation, not technology. This guide nails both, plus the HEIC trap and the 50-image split rule.</p>
+<p>Twelve phone scans, one rental agreement, zero scanner. The landlord needed a single PDF; I had IMG_20261007_1 through _12 and a deadline. Twenty minutes later: one A4 portrait PDF, pages ordered, 4.2MB, emailed. <strong>Phone scans to single PDF</strong> is the most common PDF job in India — admissions, KYC, rentals — and it fails most often on paper size and orientation, not technology. This guide nails both and the HEIC trap and the 50-image split rule.</p>
 <p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Assemble in <a href="/image-to-pdf">image to PDF</a>; shrink oversized scans via <a href="/blog/image-compressor-guide/compress-jpg-100kb-portal">image compression</a> first. Then <a href="/blog/pdf-merge-guide/merge-multiple-pdfs-order">merge</a> with other documents.</p>
 
 <h2 id="setup">Paper setup: A4 vs Letter, portrait vs landscape</h2>
@@ -26,7 +26,7 @@ const html = `
 </ol>
 
 <h2 id="heic-split">HEIC trap and the 50-image split rule</h2>
-<p>iPhones shoot HEIC by default — convert to JPG before importing (most phones offer “Most Compatible” in camera settings for future scans). Over 50 images or memory warnings on phones: split into two PDFs, then join with <a href="/blog/pdf-merge-guide/merge-multiple-pdfs-order">PDF merge</a>. Scans above 10MB each should pass through the <a href="/image-compressor">image compressor</a> first. For portal uploads with byte caps, finish with the <a href="/blog/pdf-merge-guide/compress-pdf-1mb-email">1MB compression levels</a>.</p>
+<p>iPhones shoot HEIC by default — convert to JPG before importing (most phones offer “Most Compatible” in camera settings for future scans). Over 50 images or memory warnings on phones: split into two PDFs, then join with <a href="/blog/pdf-merge-guide/merge-multiple-pdfs-order">PDF merge</a>. Scans above 10MB each should pass through the <a href="/image-compressor">image compressor</a> first. For portal uploads with byte caps, downsample images before building the PDF.</p>
 <blockquote class="tip">General guidance only. For legally binding filings, verify the recipient accepts assembled PDFs — some authorities require original scans per file.</blockquote>
 `;
 
@@ -37,16 +37,9 @@ export const pdfScansPdf: BlogPost = {
   title: "JPG Scans to Single PDF: A4 Size + Order Guide",
   description:
     "Turn phone scans into one PDF: A4 vs Letter setup, 12-scan worked example, HEIC conversion + 50-image split rule. Free local tool, no upload.",
-  keywords: [
-    "how to convert jpg scans to single pdf",
-    "scan 01-04 jpg to a4 portrait",
-    "50 images to pdf split in 2",
-    "150 dpi scan pdf size",
-    "heic to jpg before pdf",
-    "How do I combine JPG scans into one PDF?",
-  ],
+  keywords: ["how to convert jpg scans to single pdf", "scan 01-04 jpg to a4 portrait", "50 images to pdf split in 2", "150 dpi scan pdf size", "heic to jpg before pdf"],
   toolSlugs: ["image-to-pdf", "pdf-merge", "image-compressor"],
-  relatedSlugs: ["merge-multiple-pdfs-order", "extract-pages-range", "compress-pdf-1mb-email"],
+  relatedSlugs: ["merge-multiple-pdfs-order", "extract-pages-range", "extract-text-without-ocr"],
   published: "2026-10-07",
   updated: "2026-10-07",
   readingMinutes: readingMinutesFor(html),

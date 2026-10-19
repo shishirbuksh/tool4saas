@@ -4,7 +4,7 @@ import { readingMinutesFor } from "@/lib/blog";
 const html = `
 <p>In 2024 a friend lost her Instagram, Gmail and UPI-linked email in one evening. Cause: one reused 9-character password, leaked in an old breach, credential-stuffed into everything she owned. Recovery took three weeks and a bank visit. Her new setup — unique 16+ character passwords from a generator, stored in a manager, 2FA on email and bank — took one afternoon. If your passwords are variations of one memorable base, this <strong>password generator guide</strong> rebuilds the system before attackers do it for you.</p>
 <p>Give me 10 minutes with the tool open in the next tab and you will leave with working passwords: what length to set, when to pick a passphrase over gibberish, and what to switch on right after (manager + 2FA).</p>
-<p>Below is the full system I wish she had had — settings that matter, the entropy math that justifies them, what to memorize versus store, and what to do when a breach lands, including the UPI/OTP scams US guides skip. Open our <a href="/password-generator">free password generator</a> in the next tab — I tested lengths 4–64 with full pools in September 2026 and verified zero network calls. Nine short tutorials linked inline for depth.</p> In a hurry? Jump to <a href="#settings-that-matter">settings that matter</a>.</p>
+<p>Below is the full system I wish she had had — settings that matter, the entropy math that justifies them, what to memorize versus store, and what to do when a breach lands, including the UPI/OTP scams US guides skip. Open our <a href="/password-generator">free password generator</a> in the next tab — lengths from 4 to 64 characters are supported end to end, and the generator makes zero network calls — confirm by going offline after the page loads. Nine short tutorials linked inline for depth.</p> In a hurry? Jump to <a href="#settings-that-matter">settings that matter</a>.</p>
 
 <h2 id="what-generator-does">What a password generator does — and the no-cloud proof</h2>
 <p>A <strong>password generator</strong> (also called a <strong>password maker</strong> or <strong>random password creator</strong>) produces unpredictable strings from your operating system's cryptographic randomness (<strong>crypto.getRandomValues</strong> in our tool — never the predictable Math.random some toys use). You pick length and character pools; it draws uniformly, so every combination is equally likely. That uniformity is the entire security property: attackers cannot shrink the search space.</p>
@@ -88,7 +88,7 @@ const html = `
 <h2 id="developer-secrets">Developer secrets: API keys, .env files and rotation</h2>
 <p>App passwords and machine secrets obey stricter rules than human ones. <strong>Never hardcode:</strong> keys live in environment variables or secret managers, never in git — one pushed .env burns the key forever (rotate immediately; public repo scanners find secrets in seconds). <strong>Generate properly:</strong> 32+ character hex or UUIDs from the <a href="/random-string">random string</a> and <a href="/uuid-generator">UUID tools</a> — human-memorable patterns have no place in machine credentials. <strong>Scope and rotate:</strong> least-privilege scopes, per-environment keys, rotation on team changes and quarterly for production. <strong> Fingerprint, don't log:</strong> verify deployments with hashes via the <a href="/hash-generator">hash generator</a> rather than printing secrets into logs. The human-password rules in this guide protect people; these protect systems — both fail identically when secrets travel in chat screenshots and email threads.</p>
 <h2 id="action-summary">Action summary: your security in one page</h2>
-<p>If this guide becomes one printed page on your desk, let it be this list. Generate 16+ random secrets per site in the <a href="/password-generator">free generator</a> (offline, uniform draws). Store all of them in a manager; memorize exactly two passphrases (email + master) via story method from <a href="/blog/password-generator-guide/how-to-remember-passwords">remembering guide</a>. Enable app-2FA or passkeys on email, bank and cloud this week per <a href="/blog/password-generator-guide/2fa-vs-passkeys">MFA order</a>. Answer breach notices with <a href="/blog/password-generator-guide/what-to-do-after-data-breach">checklist order</a>, never panic rotation. Rotate router and Wi-Fi secrets per <a href="/blog/password-generator-guide/wifi-router-password">setup guide</a>, and run the <a href="#thirty-day">30-day overhaul</a> once — then live normally while the system guards you quietly. Cost is one focused afternoon: print the checklist above, work it top to bottom once, then revisit quarterly — unique passwords plus MFA hold up well while threats move around them. Start with email today even if the rest waits for the weekend; that single account guards all the others, and securing it first makes every later step safer and faster.</p>
+<p>If this guide becomes one printed page on your desk, let it be this list. Generate 16+ random secrets per site in the <a href="/password-generator">free generator</a> (offline, uniform draws). Store all of them in a manager; memorize exactly two passphrases (email + master) via story method from <a href="/blog/password-generator-guide/how-to-remember-passwords">remembering guide</a>. Enable app-2FA or passkeys on email, bank and cloud this week per <a href="/blog/password-generator-guide/2fa-vs-passkeys">MFA order</a>. Answer breach notices with <a href="/blog/password-generator-guide/what-to-do-after-data-breach">checklist order</a>, never panic rotation. Rotate router and Wi-Fi secrets per <a href="/blog/password-generator-guide/wifi-router-password">setup guide</a>, and run the <a href="#thirty-day">30-day overhaul</a> once — then live normally while the system guards you quietly. Cost is one focused afternoon: print the checklist above, work it top to bottom once, then revisit quarterly — unique passwords and MFA hold up well while threats move around them. Start with email today even if the rest waits for the weekend; that single account guards all the others, and securing it first makes every later step safer and faster.</p>
 <blockquote class="tip">General information only, not security advice. Generate offline, store in a manager, enable MFA on email/bank. If you lose your master password it cannot be recovered by us.</blockquote>
 `;
 
@@ -119,15 +119,7 @@ export const passwordPillar: BlogPost = {
   title: "How to Generate a Strong Password (Free Offline Tool)",
   description:
     "Generate strong passwords free and offline: settings, entropy table, passphrases, manager + 2FA pairing, breach basics. No signup, nothing uploads.",
-  keywords: [
-    "how to generate strong password",
-    "how to create strong password without manager",
-    "offline password generator no signup",
-    "passphrase vs random password",
-    "store passwords securely 2fa guide",
-    "password generator guide",
-    "How do I generate a strong password for free?",
-  ],
+  keywords: ["how to generate strong password", "how to create strong password without manager", "offline password generator no signup", "passphrase vs random password", "store passwords securely 2fa guide", "password generator guide"],
   toolSlugs: ["password-generator", "password-strength", "random-passphrase", "otp-generator"],
   relatedSlugs: ["how-to-create-strong-password", "what-makes-password-strong", "passphrase-vs-password"],
   published: "2026-09-25",
@@ -159,7 +151,7 @@ export const passwordPillar: BlogPost = {
     {
       question: "How often should I change passwords?",
       answer:
-        "Only on breach evidence — NIST retired forced rotation because it produces weaker sequential passwords (Winter2024! → Spring2025!). Unique-per-site passwords plus MFA beat calendar changes; spend the effort on enabling 2FA everywhere instead.",
+        "Only on breach evidence — NIST retired forced rotation because it produces weaker sequential passwords (Winter2024! → Spring2025!). Unique-per-site passwords and MFA beat calendar changes; spend the effort on enabling 2FA everywhere instead.",
     },
     {
       question: "Is this security advice?",

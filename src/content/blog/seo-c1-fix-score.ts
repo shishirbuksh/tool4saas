@@ -32,14 +32,7 @@ export const seoFixScore: BlogPost = {
   title: "Fix SEO Score From 60 to 80: Worked Example",
   description:
     "Lift on-page SEO 62 to 84: ordered fix sequence with score-after table, density math + publish gate. Free analyzer walkthrough.",
-  keywords: [
-    "how to fix on page seo score from 60 to 80",
-    "12 mentions in 1000 words 1.2 percent",
-    "missing h1 thin alt fix",
-    "rerun after 100 words",
-    "80 plus publish ready",
-    "How do I raise my SEO score quickly?",
-  ],
+  keywords: ["how to fix on page seo score from 60 to 80", "12 mentions in 1000 words 1.2 percent", "missing h1 thin alt fix", "rerun after 100 words", "80 and publish ready"],
   toolSlugs: ["seo-analyzer", "serp-preview", "meta-tag-generator"],
   relatedSlugs: ["title-meta-length-2026", "split-large-sitemap", "ai-content-false-positives"],
   published: "2026-10-07",
@@ -52,9 +45,9 @@ export const seoFixScore: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How do I raise my SEO score quickly?", answer: "Fix in weight order: title plus slug plus H1 plus distance first for 37 points, then density placement, then alts plus description. The 62 to 84 vegan protein powder rescue used a 56-character title, slug, H1 with 12 mentions, 190 to 154-character description and three alts. Re-run the analyzer after each fix." },
+    { question: "How do I raise my SEO score quickly?", answer: "Fix in weight order: title and slug and H1 and distance first for 37 points, then density placement, then alts and description. The 62 to 84 vegan protein powder rescue used a 56-character title, slug, H1 with 12 mentions, 190 to 154-character description and three alts. Re-run the analyzer after each fix." },
     { question: "What keyword density should I hit?", answer: "Hit 1 to 2 percent, which is 12 mentions per 1000 words for 1.2 percent, placed in the title, intro, one subhead and two alts. That density lifted the 600-word vegan protein powder draft from 62 toward 84 without tripping the 5 percent stuffing flag. Validate in SERP preview and re-run about every 100 words." },
-    { question: "Is 80 a good SEO score?", answer: "Yes, 80 is publish-ready, so ship with remaining yellows documented and chase 90 plus only for money pages worth another hour. Never trade readability for points by cramming keywords into every H2. Post-publish, re-score after 100 words, monitor Search Console impressions for two to four weeks and refresh when templates change." },
+    { question: "Is 80 a good SEO score?", answer: "Yes, 80 is publish-ready, so ship with remaining yellows documented and chase 90 and only for money pages worth another hour. Never trade readability for points by cramming keywords into every H2. Post-publish, re-score after 100 words, monitor Search Console impressions for two to four weeks and refresh when templates change." },
     { question: "How often should I re-score?", answer: "Re-score after every 100 words of edits, not once at the end, because errors compound in batch runs. Each fix re-ran the analyzer before the 155-character description and 60-character title were validated in SERP preview. Post-publish, re-score after future edits and quarterly after template changes since fonts shift pixel widths." },
     { question: "Do scores guarantee rankings?", answer: "No, scores measure fix-completeness, not rankings, because demand, backlinks, authority and intent decide traffic. The 62 to 84 rescue improved a 600-word vegan protein powder draft with good research but bad metadata through mechanical edits where each red check mapped to one concrete fix. Use scores to sequence title, H1, density, alts and description." },
   ],

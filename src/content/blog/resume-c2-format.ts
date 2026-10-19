@@ -30,7 +30,7 @@ const html = `
 <tr><td><strong>Hybrid</strong></td><td>Skills snapshot + short history</td><td>Career pivots, big gaps</td><td>Acceptable if honest</td></tr>
 </tbody>
 </table>
-<p>Functional resumes read as gap-hiding to experienced recruiters — I have heard three hiring managers say exactly that. Pivoting? Use hybrid: a skills snapshot up top, then a compact honest timeline. Career-switch tactics in <a href="/blog/resume-builder-guide/experienced-resume-guide">experienced guide</a>.</p>
+<p>Functional resumes read as gap-hiding to experienced recruiters. Pivoting? Use hybrid: a skills snapshot up top, then a compact honest timeline. Career-switch tactics in <a href="/blog/resume-builder-guide/experienced-resume-guide">experienced guide</a>.</p>
 
 <h2 id="country-norms">India vs US vs UK norms (get these right)</h2>
 <ul>
@@ -46,13 +46,13 @@ const html = `
 <h2 id="ats-tests">ATS parsing tests you can run in ten minutes</h2>
 <p>Paste your resume text into our <a href="/ats-resume-checker">ATS checker</a> and confirm scores above 80% against a target job description before submitting. Then run manual checks recruiters use: copy all text from the PDF and paste into plain Notepad — scrambled order means tables or text boxes broke parsing; search for standard headings like Experience and Education since creative labels like My Journey confuse parsers; and verify dates align right without disappearing. The <a href="https://www.dol.gov/general/topic/hiring">US Department of Labor hiring resources</a> confirm standard chronological formats parse most reliably. Fix failures by switching to single-column layouts, Arial or Calibri at 10.5 to 11.5pt, and real-text PDFs exported from the <a href="/resume-builder">free resume builder</a> rather than scanned images or Canva graphics.</p>
 <h2 id="page-length">One page versus two pages: decide with experience math</h2>
-<p>Stay on one page through roughly eight years by cutting older internships, redundant bullets, and coursework that no longer signals seniority. Move to two pages when three quantified roles plus 10 skills cannot fit at readable density — shrinking to 9pt to force one page fails the skim before content gets judged. The <a href="https://www.careeronestop.org/Resumes/ResumeGuide/ResumeGuide.aspx">CareerOneStop resume guide</a> advises concise relevant history over exhaustive lists. UK CVs run two pages standard with personal statements; US early-career stays strictly one. Test both lengths with hiring-manager friends who spend 30 seconds each: if page two holds the metric that wins interviews, keep it; if it holds hobbies, cut it.</p>
+<p>Stay on one page through roughly eight years by cutting older internships, redundant bullets, and coursework that no longer signals seniority. Move to two pages when three quantified roles and 10 skills cannot fit at readable density — shrinking to 9pt to force one page fails the skim before content gets judged. The <a href="https://www.careeronestop.org/Resumes/ResumeGuide/ResumeGuide.aspx">CareerOneStop resume guide</a> advises concise relevant history over exhaustive lists. UK CVs run two pages standard with personal statements; US early-career stays strictly one. Test both lengths with hiring-manager friends who spend 30 seconds each: if page two holds the metric that wins interviews, keep it; if it holds hobbies, cut it.</p>
 <h2 id="bullets-proof">Bullets that prove instead of claim</h2>
-<p>Recruiters trust numbers over adjectives, so rewrite duties as outcomes with scope. Formula: strong verb plus task plus metric plus context — Led checkout redesign lifting conversion 18% across 40k monthly users, or Cut report time 6 hours weekly by automating SQL pulls for 12 analysts. Mirror exact tool spellings from target descriptions since parsers match literally: Next.js versus NextJS counts separately. Keep 3 to 5 bullets per role, newest first, with past tense for prior jobs and present for current. Run a final verb-only read down the left edge plus date-only read down the right edge; inconsistencies reveal themselves in two minutes.</p>
+<p>Recruiters trust numbers over adjectives, so rewrite duties as outcomes with scope. Formula: strong verb and task and metric and context — Led checkout redesign lifting conversion 18% across 40k monthly users, or Cut report time 6 hours weekly by automating SQL pulls for 12 analysts. Mirror exact tool spellings from target descriptions since parsers match literally: Next.js versus NextJS counts separately. Keep 3 to 5 bullets per role, newest first, with past tense for prior jobs and present for current. Run a final verb-only read down the left edge and date-only read down the right edge; inconsistencies reveal themselves in two minutes.</p>
 
 
 <h2 id="header-mistakes">Header mistakes that cost callbacks</h2>
-<p>Headers decide whether recruiters reach your bullets: include name, phone with country code, email, city, plus LinkedIn URL on one line, and omit photos, birth dates, marital status, plus full street addresses that trigger bias filters and waste space. Use a one-line headline with role, stack, plus years to orient skim readers instantly. Test headers by printing at 100 percent and viewing from one meter — crowded contact blocks signal poor prioritization before experience gets read.</p>
+<p>Headers decide whether recruiters reach your bullets: include name, phone with country code, email, city and LinkedIn URL on one line, and omit photos, birth dates, marital status and full street addresses that trigger bias filters and waste space. Use a one-line headline with role, stack and years to orient skim readers instantly. Test headers by printing at 100 percent and viewing from one meter — crowded contact blocks signal poor prioritization before experience gets read.</p>
 
 `;
 
@@ -63,14 +63,7 @@ export const resumeFormat: BlogPost = {
   title: "Resume Format Guide: Sections, Order & India/US/UK Norms (2026)",
   description:
     "Professional resume format: exact section order, chronological vs functional, India/US/UK norms + skeleton to copy. Free builder + ATS check.",
-  keywords: [
-    "resume format",
-    "professional resume format",
-    "resume format india",
-    "chronological resume format",
-    "resume section order",
-    "What is the best resume format?",
-  ],
+  keywords: ["resume format", "professional resume format", "resume format india", "chronological resume format", "resume section order"],
   toolSlugs: ["resume-builder", "ats-resume-checker", "cover-letter-builder"],
   relatedSlugs: ["how-to-make-resume", "resume-vs-cv", "ats-resume-guide"],
   published: "2026-09-23",
@@ -89,8 +82,8 @@ export const resumeFormat: BlogPost = {
   html,
   faqs: [
     { question: "What is the best resume format?", answer: "Chronological, single column, standard headings — newest role first. It suits 90% of applicants and parses cleanly in ATS software, unlike two-column Canva layouts that scored 31% versus 88% for plain text. Use hybrid only for pivots or large gaps, with fonts like Arial or Calibri at 10.5–11.5pt." },
-    { question: "What order should resume sections go in?", answer: "Header with phone, email, city and LinkedIn, one-line headline with role, stack and years, 3-line summary, experience newest-first with quantified bullets, skills, compact education and one-line extras. Recruiters scan top-down; proof must come before history, so keep education compact for experienced hires and certifications plus languages last." },
-    { question: "Is a functional resume a good idea?", answer: "Almost never — recruiters read skill-only formats as gap-hiding, and three hiring managers said exactly that. Career switchers should use hybrid: skills snapshot plus an honest compact timeline. It suits pivots or big gaps only, keeping standard headings, single-column text and honest dates throughout for trust." },
+    { question: "What order should resume sections go in?", answer: "Header with phone, email, city and LinkedIn, one-line headline with role, stack and years, 3-line summary, experience newest-first with quantified bullets, skills, compact education and one-line extras. Recruiters scan top-down; proof must come before history, so keep education compact for experienced hires and certifications and languages last." },
+    { question: "Is a functional resume a good idea?", answer: "Almost never — recruiters read skill-only formats as gap-hiding. Career switchers should use hybrid: skills snapshot and an honest compact timeline. It suits pivots or big gaps only, keeping standard headings, single-column text and honest dates throughout for trust." },
     { question: "How long should my resume be in India?", answer: "One page for freshers and early career, up to two with substantial experience through roughly eight years. UK CVs run two pages standard; US resumes stay one page early-career. If adding a line forces page two, cut a weaker bullet instead of shrinking to 9pt unreadable density." },
     { question: "Should Indian resumes include photos?", answer: "No — standard practice across India, US and UK is no photo. Photos risk bias filtering and break ATS parsing, wasting space better used for metrics. The only exception is acting, modeling and front-desk hospitality where appearance is a stated criterion; everyone else stays photo-free and parser-clean." },
     { question: "How do I test resume parsing quickly?", answer: "Copy PDF text into Notepad to check order, verify standard headings like Experience and Education parse, and score above 80 percent in the ATS checker against a target job description. Single-column real-text PDFs in Arial or Calibri at 10.5–11.5pt pass most reliably; scrambled order means tables broke parsing." },

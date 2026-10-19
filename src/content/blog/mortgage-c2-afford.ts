@@ -7,7 +7,7 @@ const html = `
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 
 <h2 id="rule">The 28/36 rule (with a worked paycheck)</h2>
-<p>Gross monthly income $7,500 ($90k/year). Housing ceiling: 28% → <strong>$2,100</strong> for PITI. All-debts ceiling: 36% → $2,700; with $800 car + student payments, mortgage room = $1,900. That $1,900 — not the listing price — is the search filter. At illustrative 6%/30yr, $1,900 P&I supports roughly a $316,000 loan; plus 20% down, roughly a $395,000 home. Change the debts to $1,500 and the same income buys far less house — debts move affordability more than most buyers expect.</p>
+<p>Gross monthly income $7,500 ($90k/year). Housing ceiling: 28% → <strong>$2,100</strong> for PITI. All-debts ceiling: 36% → $2,700; with $800 car + student payments, mortgage room = $1,900. That $1,900 — not the listing price — is the search filter. At illustrative 6%/30yr, $1,900 P&I supports roughly a $316,000 loan; and 20% down, roughly a $395,000 home. Change the debts to $1,500 and the same income buys far less house — debts move affordability more than most buyers expect.</p>
 
 <h2 id="inputs">The 4 inputs lenders actually weigh</h2>
 <table>
@@ -43,13 +43,7 @@ export const mortgageAfford: BlogPost = {
   title: "How Much House Can I Afford? 28/36 Rule Explained (2026)",
   description:
     "House affordability via the 28/36 DTI rule: worked $90k example, 4 lender inputs + payment-to-price chain. Free affordability calculator.",
-  keywords: [
-    "how much house can i afford",
-    "house affordability by salary",
-    "dti rule mortgage",
-    "how much mortgage on 90k income",
-    "What is the 28/36 rule?",
-  ],
+  keywords: ["how much house can i afford", "house affordability by salary", "dti rule mortgage", "how much mortgage on 90k income"],
   toolSlugs: ["home-affordability-calculator", "mortgage-calculator", "loan-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "down-payment-pmi-cost", "rent-vs-buy-house"],
   published: "2026-09-24",
@@ -66,7 +60,7 @@ export const mortgageAfford: BlogPost = {
   faqs: [
     { question: "How much house can I afford on $90,000 salary?", answer: "At 28/36 with $800 monthly debts: ~$1,900 mortgage room from $7,500 gross, supporting roughly a $316,000 loan at illustrative 6%/30yr — about a $395,000 home with 20% down. Housing ceiling is $2,100 PITI and all-debts $2,700. Debts move ceilings sharply today. Illustrative only; see /terms." },
     { question: "What is the 28/36 rule?", answer: "Lenders cap housing at 28% of gross monthly income and all debts at 36%. On $7,500 gross that means $2,100 for PITI and $2,700 total debts. It sizes preapproval, rate tiers and PMI — debts move your ceiling more than buyers expect, so pay down installments before house-hunting." },
-    { question: "Should I buy at my full preapproval?", answer: "No — preapproval is a lender maximum ignoring daycare, savings and job risk. Leave 10–15% buffer under the ceiling. Target ~$1,700 not $1,900 on $7,500 income so payments survive one income dropping 30% for six months. Keep six months PITI liquid and budget daycare plus tax creep." },
+    { question: "Should I buy at my full preapproval?", answer: "No — preapproval is a lender maximum ignoring daycare, savings and job risk. Leave 10–15% buffer under the ceiling. Target ~$1,700 not $1,900 on $7,500 income so payments survive one income dropping 30% for six months. Keep six months PITI liquid and budget daycare and tax creep." },
     { question: "How do debts affect affordability?", answer: "Every monthly debt dollar cuts mortgage room at 36% DTI. Clearing a $400/month car payment can raise buying power ~$50,000 in price, while a partner's $600 student payment erases ~$75,000. With $800 debts room is ~$1,900; at $1,500 the same income buys far less house overall." },
     { question: "Is this affordability advice?", answer: "No — illustrative education as of Sept 2026, excluding taxes, insurance, PMI, HOA, fees and ARM resets. Run payment-to-price chains in the affordability calculator and stress-test at 5%, 6% and 7%. Consult a qualified advisor and your lender for your situation before committing jointly; see /terms." },
   ],

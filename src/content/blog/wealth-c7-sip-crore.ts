@@ -15,7 +15,7 @@ const html = `
 <tr><td><strong>45</strong></td><td>15</td><td>₹28,000</td><td>₹50.4L</td></tr>
 </tbody>
 </table>
-<p>Annuity math (PMT×(((1+mr)^n−1)/mr)) rewards duration exponentially: five early years beat higher payments later — 25-vs-35 at ₹500/month already gaps ₹7.9L by 60. Late starters bridge with step-ups plus lump-sum seeds (bonus, arrears) rather than unaffordable flat SIPs. Verify your exact age band with presets before committing.</p>
+<p>Annuity math (PMT×(((1+mr)^n−1)/mr)) rewards duration exponentially: five early years beat higher payments later — 25-vs-35 at ₹500/month already gaps ₹7.9L by 60. Late starters bridge with step-ups and lump-sum seeds (bonus, arrears) rather than unaffordable flat SIPs. Verify your exact age band with presets before committing.</p>
 
 <h2 id="shortfall">Shortfalls, inflation haircuts and the 4% lens</h2>
 <p>Two adjustments before celebrating: <strong>inflation haircut</strong> — ₹1 crore in 2045 spends like ~₹31L today at 6% (see <a href="/blog/sip-calculator-guide/real-return-inflation">real returns</a>), so target ₹3Cr nominal for ₹1Cr real; and <strong>shortfall planning</strong> — a ₹20L gap at 60 needs either +₹3,500/month for the last decade or 2 extra working years, quantified in the <a href="/retirement-calculator">retirement calculator</a> with nominal, real and shortfall outputs. The 4% withdrawal lens: ₹1Cr supports ~₹33,000/month inflation-adjusted — size lifestyle to that, not to the crore number itself.</p>
@@ -32,14 +32,7 @@ export const sipCrore: BlogPost = {
   title: "How Much SIP for ₹1 Crore? Start-Age Math",
   description:
     "₹1 crore SIP math by start age: monthly table 25→45, inflation haircut, shortfall fixes + ₹500 vs ₹800 lesson. Free goal planner.",
-  keywords: [
-    "how much sip needed to retire with 1 crore",
-    "800 monthly 30 years corpus",
-    "early vs late start 25 vs 35",
-    "corpus shortfall inflation adjusted",
-    "500 vs 800 monthly gap 367000",
-    "What is ₹1 crore worth in 20 years?",
-  ],
+  keywords: ["how much sip needed to retire with 1 crore", "800 monthly 30 years corpus", "corpus shortfall inflation adjusted"],
   toolSlugs: ["retirement-calculator", "sip-calculator", "inflation-calculator"],
   relatedSlugs: ["sip-5000-10-years", "real-return-inflation", "old-vs-new-regime-2026"],
   published: "2026-10-07",
@@ -52,7 +45,7 @@ export const sipCrore: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How much SIP for ₹1 crore by 60?", answer: "At 12 percent, invest about 2,800 monthly from age 25, 5,000 from 30, 8,500 from 35, and 28,000 from 45 to reach 1 crore by 60. Timing dominates because five early years beat higher later payments through exponential duration rewards. Verify your age band with presets and bridge late starts with step-ups plus lump-sum seeds." },
+    { question: "How much SIP for ₹1 crore by 60?", answer: "At 12 percent, invest about 2,800 monthly from age 25, 5,000 from 30, 8,500 from 35, and 28,000 from 45 to reach 1 crore by 60. Timing dominates because five early years beat higher later payments through exponential duration rewards. Verify your age band with presets and bridge late starts with step-ups and lump-sum seeds." },
     { question: "What is ₹1 crore worth in 20 years?", answer: "About 31 lakh of today's spending at 6 percent inflation, so a 1 crore corpus in 2045 spends far less than headlines suggest. Target about 3 crore nominal for 1 crore real purchasing power and plan in real terms. Deflate projections in the inflation calculator and extend horizons or contributions rather than retiring surprised." },
     { question: "What if my corpus falls short?", answer: "Close a 20 lakh gap at 60 with about 3,500 extra monthly for the final decade or roughly two extra working years. Model nominal, real and shortfall outputs explicitly in the retirement calculator rather than hoping markets close the gap. Late starters should combine step-ups with bonus or arrears seeds instead of unaffordable flat SIPs." },
     { question: "Does ₹500 a month even matter?", answer: "Yes, 500 monthly at 7 percent for 30 years grows to 6.1 lakh versus 9.8 lakh for 800, so a 300 habit gap compounds to 3.7 lakh. Small-step framing beats crore intimidation because a 25-year-old 500 beats a 35-year-old 800 over the finish line. Start small, step up 10 percent yearly and review at milestones." },

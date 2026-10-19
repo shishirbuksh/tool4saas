@@ -44,13 +44,7 @@ export const wordHowTo: BlogPost = {
   title: "How to Count Words Online Free (No Signup)",
   description:
     "Count words from Docs, Word, web or PDF in 3 steps: paste-and-read flow, per-source tricks + why tools disagree. Free local counter.",
-  keywords: [
-    "how to count words online",
-    "how to check character count",
-    "count words without word",
-    "word count pdf text",
-    "How do I count words without Microsoft Word?",
-  ],
+  keywords: ["how to count words online", "how to check character count", "count words without word", "word count pdf text"],
   toolSlugs: ["word-counter", "case-converter", "readability-checker"],
   relatedSlugs: ["ideal-blog-post-length-seo", "flesch-reading-ease-score-explained", "keyword-density-seo-check"],
   published: "2026-09-26",

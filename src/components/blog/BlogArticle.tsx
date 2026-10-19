@@ -272,6 +272,21 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
             </>
           )}
         </Typography>
+        {/* Visible language toggle mirroring the bidirectional hreflang
+            metadata above: only posts in the ES blog pilot registry render
+            it, so links never point at 404s. ES view links back to EN. */}
+        {isEsBlogPilot(post.pillar, post.slug) && (
+          <Typography variant="body2" color="text.secondary" sx={{ width: "100%" }}>
+            {locale === "es" ? "Also available in: " : "También disponible en: "}
+            <Link
+              href={locale === "es" ? `/blog/${post.pillar}/${post.slug}` : `/es/blog/${post.pillar}/${post.slug}`}
+              hrefLang={locale === "es" ? "en" : "es"}
+              style={{ fontWeight: 600 }}
+            >
+              {locale === "es" ? "English version →" : "versión en español →"}
+            </Link>
+          </Typography>
+        )}
       </Box>
 
       {/* Above-fold tool CTA */}

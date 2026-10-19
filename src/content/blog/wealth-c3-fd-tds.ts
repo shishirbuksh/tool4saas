@@ -31,14 +31,7 @@ export const fdTds: BlogPost = {
   title: "FD Quarterly Compounding, TDS and Penalties (2026)",
   description:
     "FD mechanics: quarterly rests to 7.19% effective, TDS thresholds, premature penalties + FD vs RD vs savings rules. Free calculator.",
-  keywords: [
-    "how fd quarterly compounding and tds works india",
-    "fd 5 years 7 percent maturity",
-    "quarterly vs monthly fd payout",
-    "tds threshold premature penalty",
-    "fd vs rd which compounding",
-    "What is the effective yield of a 7% FD?",
-  ],
+  keywords: ["how fd quarterly compounding and tds works india", "fd 5 years 7 percent maturity", "quarterly vs monthly fd payout", "tds threshold premature penalty", "fd vs rd which compounding"],
   toolSlugs: ["fd-calculator", "compound-interest-calculator", "income-tax-calculator"],
   relatedSlugs: ["lumpsum-compounding-frequency", "sip-5000-10-years", "old-vs-new-regime-2026"],
   published: "2026-10-07",
@@ -53,7 +46,7 @@ export const fdTds: BlogPost = {
   faqs: [
     { question: "What is the effective yield of a 7% FD?", answer: "About 7.19 percent cumulative through quarterly rests at 7 divided by 4 per quarter reinvested, which is the number that actually credits. Monthly-payout variants pay exactly 7 percent as cash flow with no compounding. Ask first whether booking is cumulative or payout and at what rest, then confirm in the sanction letter and calculator comparison." },
     { question: "When is TDS deducted on FDs?", answer: "TDS applies above per-financial-year interest thresholds per depositor, tracked across branches rather than per deposit. Submit Form 15G or 15H if eligible and track cumulative interest yourself through the year. Bank terms vary by institution and change, so verify current slabs and thresholds before booking deposits." },
-    { question: "What does breaking an FD cost?", answer: "Breaking typically costs about 1 percent penalty plus repricing to the completed-tenure slab rate, so a 5-year FD broken in year 2 earns 2-year rates minus penalty. That outcome sometimes falls below savings-account returns. Compute break cost before breaking and ladder maturities across 1, 2, 3 and 5 years instead of one mega-deposit." },
+    { question: "What does breaking an FD cost?", answer: "Breaking typically costs about 1 percent penalty and repricing to the completed-tenure slab rate, so a 5-year FD broken in year 2 earns 2-year rates minus penalty. That outcome sometimes falls below savings-account returns. Compute break cost before breaking and ladder maturities across 1, 2, 3 and 5 years instead of one mega-deposit." },
     { question: "FD or RD for salaried savings?", answer: "Use FDs for parked lump goals with known dates like fees, admissions or down payments where certainty dominates under 3 years. Use RDs for building monthly from salary through forced discipline with identical quarterly compounding. Compare both before committing salary flows, since cash-flow shapes differ while compounding mechanics match." },
     { question: "Do senior citizens get better FD terms?", answer: "Senior citizens usually receive higher FD rates and higher TDS thresholds, though exact age-based slabs vary by bank and rate cycle. Confirm eligible thresholds, penalty terms and payout versus cumulative rests at booking. Rate-check quarterly against repo moves, since 2026 repricing moves both directions and terms change." },
   ],

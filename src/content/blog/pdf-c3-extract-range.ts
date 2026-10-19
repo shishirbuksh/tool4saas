@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>A 120-page equipment manual, and the client needs “just the installation chapter, pages 10–20, plus the wiring diagram on page 5.” Emailing the whole manual buries the answer; screenshots lose vector sharpness. <strong>Page-range extraction</strong> pulls exactly <code>1-3,5</code> style selections into clean new files. This guide teaches the range syntax that never fails, live validation habits, and the split-first patterns behind chapter pulls, invoice quarantines and exhibit segregation.</p>
+<p>A 120-page equipment manual, and the client needs “just the installation chapter, pages 10–20 and the wiring diagram on page 5.” Emailing the whole manual buries the answer; screenshots lose vector sharpness. <strong>Page-range extraction</strong> pulls exactly <code>1-3,5</code> style selections into clean new files. This guide teaches the range syntax that never fails, live validation habits, and the split-first patterns behind chapter pulls, invoice quarantines and exhibit segregation.</p>
 <p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Extract in <a href="/pdf-split">PDF split</a>; rejoin with <a href="/blog/pdf-merge-guide/merge-multiple-pdfs-order">PDF merge</a>. Orientation fixes via <a href="/blog/pdf-merge-guide/fix-sideways-scans">split-rotate-merge</a>.</p>
 
 <h2 id="syntax">Range syntax: <code>1-3,5</code> and every-Nth</h2>
@@ -37,14 +37,7 @@ export const pdfExtractRange: BlogPost = {
   title: "Extract PDF Pages by Range: 1-3,5 Syntax Guide",
   description:
     "Split PDFs by page ranges: 1-3,5 syntax table, chapter/quarantine/sampling patterns + split-merge round-trips. Free local splitter with validation.",
-  keywords: [
-    "how to extract pages from pdf by range",
-    "split pdf 1-3 5 meaning",
-    "extract chapter 10-20",
-    "every Nth page sampling",
-    "split vs merge pdf workflow",
-    "What does 1-3,5 mean in PDF splitting?",
-  ],
+  keywords: ["how to extract pages from pdf by range", "split pdf 1-3 5 meaning", "extract chapter 10-20", "every Nth page sampling", "split vs merge pdf workflow"],
   toolSlugs: ["pdf-split", "pdf-merge", "pdf-rotate"],
   relatedSlugs: ["merge-multiple-pdfs-order", "jpg-scans-single-pdf", "fix-sideways-scans"],
   published: "2026-10-07",

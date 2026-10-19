@@ -32,14 +32,7 @@ export const jsonParseErrors: BlogPost = {
   title: "Why JSON.parse Fails: Trailing Commas and Quotes",
   description:
     "Fix JSON.parse errors fast: position to line:column, trailing commas, comments, quotes + 500KB-scale validation. Free local formatter.",
-  keywords: [
-    "why json parse fails trailing commas single quotes",
-    "json line column error fix",
-    "minify vs pretty 20 percent bytes",
-    "duplicate keys last wins",
-    "500KB api reply collapse",
-    "Can JSON have comments?",
-  ],
+  keywords: ["why json parse fails trailing commas single quotes", "json line column error fix", "duplicate keys last wins", "500KB api reply collapse"],
   toolSlugs: ["json-formatter", "json-tree-viewer", "json-to-yaml"],
   relatedSlugs: ["base64-url-safe-vs-standard", "regex-flags-capture-groups", "jwt-expiry-without-trust"],
   published: "2026-10-07",

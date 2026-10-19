@@ -32,7 +32,7 @@ const html = `
 <blockquote class="tip">General information only, not security advice. Generate offline, store in a manager, enable MFA on email/bank. If you lose your master password it cannot be recovered by us.</blockquote>
 
 <h2 id="entropy-math">Entropy math: why length beats cleverness every time</h2>
-<p>Password strength is math, not mystery. Each random character multiplies possibilities: a 12-character full-chaos draw (upper, lower, digits, symbols) holds roughly 78 bits of entropy, while a 20-character draw exceeds 130 bits — a gap attackers cannot bridge with hardware. By contrast, clever substitutions like P at ssw0rd add barely 2 bits because guessing rules try them first. The <a href="https://www.nist.gov/itl/smallbusinesscyber/guidance-topic-passwords">NIST password guidance</a> emphasizes length plus uniqueness over complexity rituals for exactly this reason. Table comparing families makes it concrete:</p>
+<p>Password strength is math, not mystery. Each random character multiplies possibilities: a 12-character full-chaos draw (upper, lower, digits, symbols) holds roughly 78 bits of entropy, while a 20-character draw exceeds 130 bits — a gap attackers cannot bridge with hardware. By contrast, clever substitutions like P at ssw0rd add barely 2 bits because guessing rules try them first. The <a href="https://www.nist.gov/itl/smallbusinesscyber/guidance-topic-passwords">NIST password guidance</a> emphasizes length and uniqueness over complexity rituals for exactly this reason. Table comparing families makes it concrete:</p>
 <table>
 <thead><tr><th>Family (example structure)</th><th>Length</th><th>Entropy approx</th><th>Best for</th></tr></thead>
 <tbody>
@@ -48,7 +48,7 @@ const html = `
 
 
 <h2 id="manager-setup">Manager setup that makes ideas stick</h2>
-<p>Ideas fail without storage, so pair generation with a vault routine this week. Import existing logins, let the manager flag reused and weak entries, and replace the top ten risks with fresh 20-character draws starting with email and bank. Store Wi-Fi passphrases as 5-word random phrases for dictation, API tokens as 32-character hex for clean pasting, and recovery codes as scanned paper backups in a safe. Enable biometric unlock plus a written master backup sealed offline, test autofill on two sites, and schedule quarterly 20-minute cleanups. Teams add shared collections with per-contractor suffixes so departures revoke individually. The system works because generation, storage, and rotation live in one place instead of scattered notes.</p>
+<p>Ideas fail without storage, so pair generation with a vault routine this week. Import existing logins, let the manager flag reused and weak entries, and replace the top ten risks with fresh 20-character draws starting with email and bank. Store Wi-Fi passphrases as 5-word random phrases for dictation, API tokens as 32-character hex for clean pasting, and recovery codes as scanned paper backups in a safe. Enable biometric unlock and a written master backup sealed offline, test autofill on two sites, and schedule quarterly 20-minute cleanups. Teams add shared collections with per-contractor suffixes so departures revoke individually. The system works because generation, storage, and rotation live in one place instead of scattered notes.</p>
 
 `;
 
@@ -59,13 +59,7 @@ export const passwordIdeas: BlogPost = {
   title: "Random Password Ideas: Patterns to Generate (Never Copy) 2026",
   description:
     "Password ideas done right: 5 generatable pattern families + hall-of-shame patterns attackers try first. Generate, never copy verbatim.",
-  keywords: [
-    "random password ideas",
-    "strong password examples",
-    "password patterns to avoid",
-    "funny strong passphrase ideas",
-    "Can I copy password examples from articles?",
-  ],
+  keywords: ["random password ideas", "strong password examples", "password patterns to avoid", "funny strong passphrase ideas"],
   toolSlugs: ["random-string", "password-generator", "uuid-generator"],
   relatedSlugs: ["how-to-create-strong-password", "passphrase-vs-password", "what-to-do-after-data-breach"],
   published: "2026-09-25",
@@ -85,7 +79,7 @@ export const passwordIdeas: BlogPost = {
     { question: "What password patterns do hackers try first?", answer: "Keyboard walks like qwerty123, seasons+years like Summer2024!, leet substitutions like P@ssw0rd, names+digits like Aarav1998, and reused bases with suffixes like Base-FB. If yours matches, rotate starting with email and bank this week, verifying replacements score 3+ in the strength tester following breach-order discipline always today." },
     { question: "Are funny passphrases secure?", answer: "Only if uniformly random — humor you invent follows guessable patterns. Generate random words with dice or crypto tools, then enjoy whatever comedy the dice produce. Never use invented phrases, lyrics or keyboard patterns; non-random choice collapses entropy toward single digits against smart attacks for every master." },
     { question: "What is a good Wi-Fi password pattern?", answer: "Long pronounceable chunks (20+ chars like ba-ne-vo-qi) for dictation and phone sharing, or 32-char hex for set-and-forget routers that paste cleanly. Compensate lower entropy per character with 20+ length. Details in the Wi-Fi router guide covering WPA3 settings and guest networks for homes with isolation always." },
-    { question: "Are numeric PINs ever OK?", answer: "Only behind rate-limiting plus separate encryption/limits: 6–8 digit phone unlock with data encryption, UPI PINs with bank limits. Never as sole web authentication. Numeric PINs lack entropy for online logins, so use full-chaos 20-char or passphrases for websites and reserve PINs for device-bound checks for complete safety." },
+    { question: "Are numeric PINs ever OK?", answer: "Only behind rate-limiting and separate encryption/limits: 6–8 digit phone unlock with data encryption, UPI PINs with bank limits. Never as sole web authentication. Numeric PINs lack entropy for online logins, so use full-chaos 20-char or passphrases for websites and reserve PINs for device-bound checks for complete safety." },
     { question: "How long should generated passwords be?", answer: "Twenty characters from full pools for vault-stored logins, or five random words for typed ones. Full-chaos 16-char holds ~105 bits, 20-char ~131 bits, 5-word ~65 bits, while leet variants hold ~20 bits. Both recommended lengths exceed guessing budgets when uniformly random; short clever variants fall first regardless of symbols used." },
   ],
 };

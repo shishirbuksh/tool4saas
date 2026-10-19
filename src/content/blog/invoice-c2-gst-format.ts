@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>A GST invoice got rejected at my client's accounts desk because I wrote 18% as a single line instead of splitting 9% CGST + 9% SGST. Same total, wrong presentation — one week lost. This tutorial fixes that: the exact <strong>GST invoice format India</strong> requires, with HSN codes, GSTIN placement and a copy-paste sample, so your bill clears on first submission.</p>
+<p>A GST invoice gets rejected at many accounts desks when tax is written as 18% on one line instead of splitting 9% CGST + 9% SGST. Same total, wrong presentation — one week lost. This tutorial fixes that: the exact <strong>GST invoice format India</strong> requires, with HSN codes, GSTIN placement and a copy-paste sample, so your bill clears on first submission.</p>
 <p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. For the hands-on build, use the <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> (auto CGST/SGST vs IGST) or the general <a href="/invoice-generator">free invoice generator</a>. This is format guidance, not tax advice — confirm slabs with your CA.</p>
 
 <h2 id="mandatory-fields">GST invoice mandatory fields (the 14-point check)</h2>
@@ -10,8 +10,8 @@ const html = `
 <ol>
 <li><strong>Supplier name, address, GSTIN</strong> (e.g. 27ABCDE1234F1Z5) — top of the invoice.</li>
 <li><strong>Invoice serial number</strong> — unique, sequential, e.g. INV-GST-011. Rules in <a href="/blog/invoice-generator-guide/invoice-numbering">invoice numbering guide</a>.</li>
-<li><strong>Date of issue</strong> — plus time of supply for services where relevant.</li>
-<li><strong>Buyer name, address, GSTIN</strong> (B2B) — plus place of supply with state code.</li>
+<li><strong>Date of issue</strong> — and time of supply for services where relevant.</li>
+<li><strong>Buyer name, address, GSTIN</strong> (B2B) — and place of supply with state code.</li>
 <li><strong>HSN code (goods) / SAC code (services)</strong> — e.g. SAC 9983 for design. 4–6 digits depending on turnover.</li>
 <li><strong>Description of goods/services</strong> — specific, with quantity and unit.</li>
 <li><strong>Quantity, rate and taxable value</strong> — per line, e.g. 10 hrs × ₹2,000 = ₹20,000.</li>
@@ -35,7 +35,7 @@ const html = `
 <tr><td><strong>Unregistered freelancer</strong></td><td>No GST, status note</td><td>₹15,000, “unregistered supplier”</td></tr>
 </tbody>
 </table>
-<p>The <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> picks the split from place-of-supply state codes automatically — I tested Mumbai→Mumbai vs Mumbai→Bengaluru and it flipped correctly. Cross-check percentages with the <a href="/gst-calculator">GST calculator</a> before sending.</p>
+<p>The <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> picks the split from place-of-supply state codes automatically — A Mumbai intra-state bill must produce CGST+SGST while Mumbai shipping to Bengaluru flips to IGST — confirm both formulas on the draft before printing. Cross-check percentages with the <a href="/gst-calculator">GST calculator</a> before sending.</p>
 
 <h2 id="hsn-sac-gstin">HSN, SAC and GSTIN: where they go on the bill</h2>
 <ul>
@@ -44,7 +44,7 @@ const html = `
 <li><strong>GSTIN:</strong> supplier top-right, buyer in bill-to block. Wrong digit = rejection. Copy-paste from GST portal, never retype.</li>
 <li><strong>State code + place of supply:</strong> drives CGST/SGST vs IGST. “Maharashtra (27)” style labels prevent confusion.</li>
 </ul>
-<h3>Freelancer specials: SAC mistakes I have seen</h3>
+<h3>Freelancer specials: common SAC mistakes</h3>
 <p>Three real bounces: a writer used goods-HSN for editing services; a designer omitted SAC entirely; a developer billed inter-state as CGST+SGST. All fixed in 10 minutes once the code and split were right. When in doubt, mirror your last accepted invoice — consistency beats creativity here.</p>
 
 <h2 id="sample-invoice">Sample GST invoice (copy the structure)</h2>
@@ -74,14 +74,7 @@ export const invoiceGstFormat: BlogPost = {
   title: "GST Invoice Format India: Mandatory Fields, HSN & Sample (2026)",
   description:
     "GST invoice format India explained: 14 mandatory fields, CGST/SGST vs IGST split, HSN/SAC codes, GSTIN placement + sample. Free generator included.",
-  keywords: [
-    "gst invoice format india",
-    "gst bill format with hsn code",
-    "gst invoice mandatory fields gstin",
-    "freelance gst invoice india free",
-    "cgst sgst vs igst invoice",
-    "Where do HSN and SAC codes go?",
-  ],
+  keywords: ["gst invoice format india", "gst bill format with hsn code", "gst invoice mandatory fields gstin", "freelance gst invoice india free", "cgst sgst vs igst invoice"],
   toolSlugs: ["freelance-gst-invoice-generator", "invoice-generator", "gst-calculator"],
   relatedSlugs: ["how-to-create-invoice-online", "invoice-numbering", "freelancer-invoice-guide"],
   published: "2026-09-11",
@@ -97,9 +90,9 @@ export const invoiceGstFormat: BlogPost = {
   html,
   faqs: [
     { question: "What is mandatory on a GST invoice in India?", answer: "Supplier GSTIN like 27ABCDE1234F1Z5 and buyer GSTIN, serial number such as INV-GST-011, date, HSN/SAC codes, qty, rate, taxable value, CGST/SGST or IGST split, place of supply with state code, total in figures and words, bank/UPI details, signatory and LUT or reverse-charge note. Enterprise buyers reject bills missing any of these." },
-    { question: "When do I use CGST+SGST vs IGST?", answer: "Same-state supply like Mumbai to Mumbai uses CGST plus SGST such as 9% plus 9% or ₹1,800 plus ₹1,800 on ₹20,000 for ₹23,600 total. Inter-state like Mumbai to Delhi uses IGST 18% or ₹3,600. The split follows place of supply, not your office. The freelance GST generator picks this automatically; cross-check with the GST calculator." },
+    { question: "When do I use CGST+SGST vs IGST?", answer: "Same-state supply like Mumbai to Mumbai uses CGST and SGST such as 9% and 9% or ₹1,800 and ₹1,800 on ₹20,000 for ₹23,600 total. Inter-state like Mumbai to Delhi uses IGST 18% or ₹3,600. The split follows place of supply, not your office. The freelance GST generator picks this automatically; cross-check with the GST calculator." },
     { question: "Where do HSN and SAC codes go?", answer: "Per line next to the description: goods use HSN, services use SAC such as 9983 for design, 9984 for IT and 9992 for consulting. Use 4 digits below ₹5 cr turnover and 6 above. Copy from the official master and mirror your last accepted invoice, because accounts software validates these and wrong codes bounce." },
-    { question: "Do freelancers need GSTIN on every invoice?", answer: "Only if registered. Unregistered freelancers bill ₹15,000 without GST and note unregistered supplier status with sequential numbering. Once registered, every tax invoice like INV-GST-011 needs your GSTIN such as 27ABCDE1234F1Z5 plus buyer GSTIN for B2B with correct HSN/SAC. Thresholds change — check with your CA." },
+    { question: "Do freelancers need GSTIN on every invoice?", answer: "Only if registered. Unregistered freelancers bill ₹15,000 without GST and note unregistered supplier status with sequential numbering. Once registered, every tax invoice like INV-GST-011 needs your GSTIN such as 27ABCDE1234F1Z5 and buyer GSTIN for B2B with correct HSN/SAC. Thresholds change — check with your CA." },
     { question: "Can I make a GST invoice free without signup?", answer: "Yes. Use the freelance GST invoice generator: enter supplier info with GSTIN like 27ABCDE1234F1Z5, add service lines such as UI design SAC 9983 with 10 hrs times ₹2,000 for ₹20,000, review the auto CGST/SGST versus IGST split like IGST 18% ₹3,600 for ₹23,600 total, then Print to PDF as gst-invoice-011-zeta.pdf. Everything stays in your browser." },
   ],
 };

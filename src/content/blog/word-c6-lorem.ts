@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>I once caught “lorem ipsum” still sitting in a staging footer an hour before launch — a visible reminder that filler is scaffolding: essential during construction, catastrophic if left standing. This is <strong>when to use Lorem Ipsum</strong>: layout testing where it shines, content decisions where it lies, and the replacement workflow that prevents live filler.</p>
+<p>A “lorem ipsum” remnant in a staging footer an hour before launch is the vivid reminder of why filler is scaffolding: essential during construction, catastrophic if left standing. This is <strong>when to use Lorem Ipsum</strong>: layout testing where it shines, content decisions where it lies, and the replacement workflow that prevents live filler.</p>
 <p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Generate filler in the <a href="/lorem-ipsum">lorem ipsum tool</a>; measure real copy in the <a href="/word-counter">word counter</a>. For length targets see <a href="/blog/word-counter-guide/ideal-blog-post-length-seo">ideal blog post length</a>, and for counting basics <a href="/blog/word-counter-guide/how-to-count-words-online">how to count words online</a>.</p>
 
 <h2 id="when-use">When filler helps (layout testing)</h2>
@@ -21,7 +21,7 @@ const html = `
 <tr><td><strong>Hero</strong></td><td>3 paragraphs, ~60 words</td><td>Mirrors a real value-prop block; exposes headline-to-body rhythm</td></tr>
 <tr><td><strong>Feature card</strong></td><td>2 sentences, ~25 words</td><td>Matches scannable card copy; catches overflow at 40+ words</td></tr>
 <tr><td><strong>Table cell</strong></td><td>8–12 words</td><td>Prevents column blowout from pasted paragraphs</td></tr>
-<tr><td><strong>Footer blurb</strong></td><td>1 paragraph, ~40 words</td><td>The exact slot where I once found live filler — never skip it</td></tr>
+<tr><td><strong>Footer blurb</strong></td><td>1 paragraph, ~40 words</td><td>The exact slot where forgotten filler lives — never skip it</td></tr>
 <tr><td><strong>Empty state</strong></td><td>1 sentence, ~12 words</td><td>Short slots break most often when filled with walls</td></tr>
 </tbody>
 </table>
@@ -45,9 +45,9 @@ const html = `
 <p>Run all three before every deploy — filler hides in footers, alt text, meta descriptions and JSON fixtures:</p>
 <ul>
 <li><strong>Repo-wide grep:</strong> <code>grep -ri "lorem\|ipsum\|TODO\|XXX\|changeme" --include="*.tsx" --include="*.ts" --include="*.json" src public</code> — catches code, content and seed data in one pass.</li>
-<li><strong>Editor search:</strong> VS Code <code>Ctrl+Shift+F</code> for <code>lorem|ipsum</code> with match-case off across the workspace, including <code>*.md</code> and CMS exports — I found a staging footer this way sixty minutes before launch.</li>
+<li><strong>Editor search:</strong> VS Code <code>Ctrl+Shift+F</code> for <code>lorem|ipsum</code> with match-case off across the workspace, including <code>*.md</code> and CMS exports — This exact search is how a live lorem-ipsum footer gets caught an hour before launch.</li>
 <li><strong>CI gate:</strong> add the grep as a pre-deploy step that fails the build on any hit outside <code>__tests__</code> and <code>*.test.*</code> fixtures. One blocked deploy beats one public screenshot.</li>
-<li><strong>Rendered-page pass:</strong> view-source on home, pricing, blog index and 404 plus RSS/sitemap previews — filler in meta descriptions and OG tags is invisible on-page but visible in shares. Validate share cards with the <a href="/open-graph-preview">open graph preview</a> before launch.</li>
+<li><strong>Rendered-page pass:</strong> view-source on home, pricing, blog index and 404 and RSS/sitemap previews — filler in meta descriptions and OG tags is invisible on-page but visible in shares. Validate share cards with the <a href="/open-graph-preview">open graph preview</a> before launch.</li>
 <li><strong>Screenshot sweep:</strong> capture 360px, 768px and 1280px of every template; DRAFT watermarks must appear in all three or the mock is shippable by accident.</li>
 </ul>
 
@@ -66,14 +66,7 @@ export const wordLorem: BlogPost = {
   title: "Lorem Ipsum: When to Use Placeholder Text",
   description:
     "Lorem ipsum done right: layout testing wins, content decisions it ruins + pre-launch filler check. Free generator with amount control.",
-  keywords: [
-    "when to use lorem ipsum vs real copy",
-    "when to use lorem ipsum",
-    "lorem ipsum vs real copy",
-    "lorem ipsum generator",
-    "placeholder text web design",
-    "When should I use lorem ipsum?",
-  ],
+  keywords: ["when to use lorem ipsum vs real copy", "when to use lorem ipsum", "lorem ipsum vs real copy", "lorem ipsum generator", "placeholder text web design"],
   toolSlugs: ["lorem-ipsum", "word-counter", "case-converter"],
   relatedSlugs: ["how-to-count-words-online", "ideal-blog-post-length-seo", "typing-speed-test-practice-tips"],
   published: "2026-09-26",

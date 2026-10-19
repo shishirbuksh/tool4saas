@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>₹12,75,000 salary, zero tax. The figure broke Indian personal-finance Twitter in 2025 and still confuses declarations in 2026: <strong>under the new regime, 87A rebate plus standard deduction can zero out tax near ₹12.75L</strong> for eligible salaried — while the old regime with full 80C/HRA/home-loan deductions wins bigger for others. Picking blind costs tens of thousands yearly. This guide runs both regimes on real salaries, explains 115BAC slabs, 87A mechanics and marginal relief, and tells you exactly when to switch.</p>
+<p>₹12,75,000 salary, zero tax. The figure broke Indian personal-finance Twitter in 2025 and still confuses declarations in 2026: <strong>under the new regime, 87A rebate and standard deduction can zero out tax near ₹12.75L</strong> for eligible salaried — while the old regime with full 80C/HRA/home-loan deductions wins bigger for others. Picking blind costs tens of thousands yearly. This guide runs both regimes on real salaries, explains 115BAC slabs, 87A mechanics and marginal relief, and tells you exactly when to switch.</p>
 <p>Part of the <a href="/blog/sip-calculator-guide">India wealth &amp; tax guide</a>. Model your salary in the <a href="/income-tax-calculator">income tax calculator</a>; check take-home in <a href="/in-hand-salary-india">in-hand salary</a>.</p>
 
 <h2 id="slabs">FY 2026-27 slabs: 115BAC, 87A, standard deduction</h2>
@@ -40,14 +40,7 @@ export const taxRegime: BlogPost = {
   title: "Old vs New Tax Regime for Salaried in 2026",
   description:
     "Old vs new regime FY 2026-27: 115BAC slabs, 87A rebate, crossover salaries + declaration discipline. Free side-by-side calculator.",
-  keywords: [
-    "old vs new tax regime which is better for salaried 2026",
-    "12.75 lakh zero tax new regime",
-    "87a rebate standard deduction 2026",
-    "115bac slab rates fy 2026-27",
-    "ctc take home old vs new",
-    "How does 87A rebate work?",
-  ],
+  keywords: ["12.75 lakh zero tax new regime", "87a rebate standard deduction 2026", "115bac slab rates fy 2026-27", "ctc take home old vs new"],
   toolSlugs: ["income-tax-calculator", "in-hand-salary-india", "salary-calculator"],
   relatedSlugs: ["ppf-extend-15-years", "fd-quarterly-tds", "sip-1-crore-goal"],
   published: "2026-10-07",
@@ -60,7 +53,7 @@ export const taxRegime: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "Which regime is better for salaried in 2026?", answer: "New regime suits low-deduction profiles with near-zero tax up to 12.75 lakh through 87A rebate plus standard deduction. Old regime usually wins with heavy 80C, HRA and home-loan stacks, as shown by 15 lakh and 25 lakh crossover examples. Model your CTC side by side in the tax calculator because crossover is personal, not universal." },
+    { question: "Which regime is better for salaried in 2026?", answer: "New regime suits low-deduction profiles with near-zero tax up to 12.75 lakh through 87A rebate and standard deduction. Old regime usually wins with heavy 80C, HRA and home-loan stacks, as shown by 15 lakh and 25 lakh crossover examples. Model your CTC side by side in the tax calculator because crossover is personal, not universal." },
     { question: "How does 87A rebate work?", answer: "Section 87A zeroes computed tax up to the threshold income for eligible taxpayers, creating near-zero liability near 12.75 lakh for salaried under new regime. Just above the line, marginal relief softens the cliff so small raises do not cost disproportionately. Verify current limits yearly against the Finance Act because slabs and rebate thresholds move." },
     { question: "What is 115BAC?", answer: "115BAC is the new-regime slab structure offering graduated rates with minimal or no deductions and standard deduction for salaried. It contrasts with old-regime slabs that allow full 80C, HRA and home-loan claims at higher marginal rates. Compare both regimes on your exact salary because slab creep as pay rises changes the winner." },
     { question: "When must I declare my regime?", answer: "Declare your regime choice early in the financial cycle to your employer so TDS reflects the correct slabs and rebate. Late declarations mean defaults may over-withhold for months, which is recoverable only at filing and painful meanwhile. Track HRA receipts, 80C proofs and home-loan certificates through the year to avoid April scrambles." },

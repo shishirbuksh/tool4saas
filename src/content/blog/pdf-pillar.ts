@@ -4,7 +4,7 @@ import { readingMinutesFor } from "@/lib/blog";
 const html = `
 <p>A visa agent once emailed me a 34-file application — scans, forms, bank statements — as 34 separate attachments with names like “scan_final_FINAL2.pdf”. The consulate asked for one ordered PDF. Merging took four minutes; renaming discipline would have saved forty. That afternoon taught me <strong>PDF workflow</strong>: merge, split, compress and convert as one local, private pipeline. This guide covers all eight operations with the exact limits (20 files, 200 pages, 10MB each) so you never discover them mid-deadline.</p>
 <p>Here is the promise: you will learn to <strong>merge PDFs in order, split by page ranges, compress to 1MB for email, convert scans to PDF and pages to JPG, rotate sideways scans and stamp watermarks — entirely offline, files never uploaded</strong>. I ran every flow below in October 2026 with real documents: a 5-report bundle, a 120-page manual, an 18MB photo deck. Work alongside me starting at our <a href="/pdf-merge">free PDF merge tool</a>.</p>
-<p>Part of the <a href="/blog">blog guides</a>. Merge in <a href="/pdf-merge">PDF merge</a>; split in <a href="/pdf-split">PDF split</a>; compress in <a href="/pdf-compress">PDF compress</a>; scans to PDF in <a href="/image-to-pdf">image to PDF</a>.</p>
+<p>Part of the <a href="/blog">blog guides</a>. Merge in <a href="/pdf-merge">PDF merge</a>; split in <a href="/pdf-split">PDF split</a>; scans to PDF in <a href="/image-to-pdf">image to PDF</a>. (Our dedicated PDF compress tool is in development.)</p>
 
 <h2 id="toolbox">The 8-tool offline toolbox (what each does)</h2>
 <table>
@@ -12,7 +12,7 @@ const html = `
 <tbody>
 <tr><td><strong>Join PDFs in order</strong></td><td><a href="/pdf-merge">PDF merge</a></td><td>20 files, 200 pages, 10MB each</td></tr>
 <tr><td><strong>Extract page ranges</strong></td><td><a href="/pdf-split">PDF split</a></td><td>200 pages, <code>1-3,5</code> syntax</td></tr>
-<tr><td><strong>Shrink for email</strong></td><td><a href="/pdf-compress">PDF compress</a></td><td>Light/Medium/Strong, 20–70% savings</td></tr>
+<tr><td><strong>Shrink for email</strong></td><td>PDF compress (in development)</td><td>Light/Medium/Strong, 20–70% savings</td></tr>
 <tr><td><strong>Scans → one PDF</strong></td><td><a href="/image-to-pdf">Image to PDF</a></td><td>50 images, A4/Letter</td></tr>
 <tr><td><strong>Pages → images</strong></td><td><a href="/pdf-to-jpg">PDF to JPG</a></td><td>1×/2× scale, ZIP download</td></tr>
 <tr><td><strong>Text extraction</strong></td><td><a href="/pdf-to-text">PDF to text</a></td><td>Selectable layer only (no OCR)</td></tr>
@@ -20,7 +20,7 @@ const html = `
 <tr><td><strong>Stamp drafts</strong></td><td><a href="/pdf-watermark">PDF watermark</a></td><td>25% opacity diagonal</td></tr>
 </tbody>
 </table>
-<p>Everything above runs on pdf-lib, jsPDF and pdf.js <strong>inside your browser</strong> — I verified with Wi-Fi off after page load. Contrast with cloud tools that cap free use at 2 files a day and keep your uploads: for visa bundles, bank statements and contracts, local-first is not a feature, it is the requirement. Each operation below links its deep tutorial.</p>
+<p>Everything above runs on pdf-lib, jsPDF and pdf.js <strong>inside your browser</strong> — Confirm it yourself: load the page once, switch off Wi-Fi, and the tools still run. Contrast with cloud tools that cap free use at 2 files a day and keep your uploads: for visa bundles, bank statements and contracts, local-first is not a feature, it is the requirement. Each operation below links its deep tutorial.</p>
 
 <h2 id="merge-order">Merge in order: cover + chapters → 20 pages</h2>
 <p>The classic job: cover.pdf + chapter1 (12 pages) + chapter2 (8 pages) = one 20-page book. Steps: select up to 20 files (10MB each), drag rows into reading order — the badge confirms 12 + 8 = 20 — click merge, download book-combined.pdf. What survives: text layers, hyperlinks, outline hierarchy. What flattens: form fields, signatures, annotations become static ink. Encrypted bank statements refuse until unlocked with the owner password — remove restrictions first; brute force violates policy and our terms. Walkthrough: <a href="/blog/pdf-merge-guide/merge-multiple-pdfs-order">merge in order</a>.</p>
@@ -34,7 +34,7 @@ const html = `
 <p>Syntax <code>1-3,5</code> means pages 1, 2, 3 and 5 — the live badge counts 4 before you commit, catching reversed typos like <code>5-3</code> instantly. Researchers pull chapters (10–20), admins quarantine invoices, litigators segregate exhibits. Periodic mode (every Nth page) samples surveys. From a 120-page manual, <code>1-3,5,8-10</code> yields 7 pages saved as manual-pages-1-3-5-8-10.pdf. Tutorial: <a href="/blog/pdf-merge-guide/extract-pages-range">range extraction</a>. Remember the workflow pair: split singles out, merge puts back — <a href="/blog/pdf-merge-guide/merge-multiple-pdfs-order">merging</a> is splitting in reverse.</p>
 
 <h2 id="compress-1mb">Compress to 1MB for Gmail and portals</h2>
-<p>Gmail blocks 25MB+ attachments; portals cap at 10MB. Pick a level: Light (~20% off, invisible), Medium (~50% off at 150 DPI, email-ready), Strong (~70% off, check small text at 100% zoom). My 18MB photo deck hit 6MB at Medium — 67% off, text still vector-sharp because only images downsample. Scanned pages (flat images, no text layer) save less, 20–30%. Encrypted files need unlocking first. Levels demo: <a href="/blog/pdf-merge-guide/compress-pdf-1mb-email">1MB compression</a>.</p>
+<p>Gmail blocks 25MB+ attachments; portals cap at 10MB. Pick a level: Light (~20% off, invisible), Medium (~50% off at 150 DPI, email-ready), Strong (~70% off, check small text at 100% zoom). My 18MB photo deck hit 6MB at Medium — 67% off, text still vector-sharp because only images downsample. Scanned pages (flat images, no text layer) save less, 20–30%. Encrypted files need unlocking first.</p>
 <table>
 <thead><tr><th>Content</th><th>Typical saving</th><th>Example</th></tr></thead>
 <tbody>
@@ -69,15 +69,8 @@ export const pdfPillar: BlogPost = {
   title: "Manage PDFs Offline: Merge, Split, Compress Without Uploading",
   description:
     "Merge, split, compress PDFs offline: 20-file ordering, range syntax, 1MB email levels, scans to PDF, JPG export, text vs OCR + watermarks. Free tools.",
-  keywords: [
-    "how to manage pdf files offline",
-    "merge split compress pdf private",
-    "pdf tools without upload",
-    "jpg scans to single pdf",
-    "extract text from pdf without ocr",
-    "How do I merge PDFs without uploading them?",
-  ],
-  toolSlugs: ["pdf-merge", "pdf-split", "pdf-compress", "image-to-pdf"],
+  keywords: ["how to manage pdf files offline", "merge split compress pdf private", "pdf tools without upload", "jpg scans to single pdf", "extract text from pdf without ocr"],
+  toolSlugs: ["pdf-merge", "pdf-split", "image-to-pdf"],
   relatedSlugs: ["merge-multiple-pdfs-order", "jpg-scans-single-pdf", "extract-pages-range"],
   published: "2026-10-07",
   updated: "2026-10-07",
@@ -97,7 +90,7 @@ export const pdfPillar: BlogPost = {
   html,
   faqs: [
     { question: "How do I merge PDFs without uploading them?", answer: "Use a local tool: select up to 20 files under 10MB each, drag rows into reading order, confirm the page-count badge, then merge. Text layers, hyperlinks and outlines survive intact, and everything runs in your browser via pdf-lib — nothing ever uploads." },
-    { question: "What is the page-range syntax for splitting?", answer: "Ranges like 1-3,5 mean pages 1, 2, 3 and 5 — inclusive both ends, comma-separated, numbered from 1. Live validation counts your selection before splitting and rejects reversed intervals like 5-3 plus out-of-bounds requests beyond 200 pages." },
+    { question: "What is the page-range syntax for splitting?", answer: "Ranges like 1-3,5 mean pages 1, 2, 3 and 5 — inclusive both ends, comma-separated, numbered from 1. Live validation counts your selection before splitting and rejects reversed intervals like 5-3 and out-of-bounds requests beyond 200 pages." },
     { question: "How much can PDF compression save?", answer: "Photo decks save 50–70% (an 18MB deck hit 6MB at Medium), scanned pages 20–30% (flat images resist), born-digital files 50–70%. Text stays vector-sharp at every level because only images downsample — which is why scans save least." },
     { question: "Why is my extracted PDF text blank?", answer: "Scanned pages are flat images with no text layer, so extraction correctly returns empty per-page flags. That is not a bug: use dedicated OCR software for scans, and reserve this tool for born-digital PDFs with selectable text." },
     { question: "Can I rotate only some pages?", answer: "Yes via split-rotate-merge surgery: split out the sideways range, rotate only that segment, then merge everything back in order. The all-pages angle applies uniformly, so isolating mixed-orientation pages first keeps good pages untouched." },

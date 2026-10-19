@@ -5,10 +5,6 @@ import axe from "axe-core";
 import { getTool } from "@/lib/tools";
 import ToolPageShell from "@/components/ToolPageShell";
 
-vi.mock("@/components/AdSlotLazy", () => ({
-  default: () => null,
-}));
-
 vi.mock("next/link", () => ({
   default: ({ href, children, ...rest }: any) => (
     <a href={typeof href === "string" ? href : "#"} {...rest}>

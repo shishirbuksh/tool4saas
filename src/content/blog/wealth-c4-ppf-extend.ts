@@ -31,14 +31,7 @@ export const ppfExtend: BlogPost = {
   title: "PPF After 15 Years: Extend, Withdraw or Close?",
   description:
     "PPF maturity decisions: 15-year ₹40.7L math, 5-year extension blocks, partial withdrawal windows + EEE vs FD framing. Free comparator.",
-  keywords: [
-    "should you extend ppf after 15 years",
-    "ppf 1.5 lakh 15 years maturity",
-    "eee 80c lockin extension rules",
-    "ppf rate 7.1 fy 2026-27",
-    "ppf partial withdrawal rule",
-    "How much does ₹1.5L yearly become in 15 years?",
-  ],
+  keywords: ["should you extend ppf after 15 years", "ppf 1.5 lakh 15 years maturity", "eee 80c lockin extension rules", "ppf rate 7.1 fy 2026-27", "ppf partial withdrawal rule"],
   toolSlugs: ["ppf-calculator", "fd-calculator", "income-tax-calculator"],
   relatedSlugs: ["fd-quarterly-tds", "old-vs-new-regime-2026", "sip-5000-10-years"],
   published: "2026-10-07",

@@ -30,7 +30,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Word Counter FAQ",
   },
   business: {
-    body: "Send invoices, build resumes, and beat keyword filters with 13 business document generators that work fully in your browser. The invoice generator totals a 10-line $550 bill with logo and tax, then prints to crisp A4 PDF. The resume builder lays out 3 roles plus skills on one ATS-friendly page, while the checker scores it near 90 percent against a 300-word posting. For example, INV-2026-001 with $500 subtotal plus 10 percent tax totals $550 exactly. Each tool page answers common questions in its FAQ, with no sign-up or upload.",
+    body: "Send invoices, build resumes, and beat keyword filters with 13 business document generators that work fully in your browser. The invoice generator totals a 10-line $550 bill with logo and tax, then prints to crisp A4 PDF. The resume builder lays out 3 roles and skills on one ATS-friendly page, while the checker scores it near 90 percent against a 300-word posting. For example, INV-2026-001 with $500 subtotal and 10 percent tax totals $550 exactly. Each tool page answers common questions in its FAQ, with no sign-up or upload.",
     picks: [
       { slug: "invoice-generator", label: "Invoice Generator" },
       { slug: "resume-builder", label: "Resume Builder" },
@@ -50,7 +50,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "JSON Formatter FAQ",
   },
   converters: {
-    body: "Translate between units, currencies, and data formats with 13 offline converters in one click. The unit converter turns 100 km into 62.1 miles and 0°C into 32°F with exact factors. The currency converter tracks 150-plus currencies with live rates plus an offline fallback, so 100 USD to EUR works anywhere. The JSON-CSV tool maps a 1,000-row array to spreadsheet columns instantly. For example, 1 kg equals 2.205 lb and a 2-item JSON list becomes a 2-row sheet. Each tool page answers common questions in its FAQ, private by design.",
+    body: "Translate between units, currencies, and data formats with 13 offline converters in one click. The unit converter turns 100 km into 62.1 miles and 0°C into 32°F with exact factors. The currency converter tracks 150-plus currencies with live rates and an offline fallback, so 100 USD to EUR works anywhere. The JSON-CSV tool maps a 1,000-row array to spreadsheet columns instantly. For example, 1 kg equals 2.205 lb and a 2-item JSON list becomes a 2-row sheet. Each tool page answers common questions in its FAQ, private by design.",
     picks: [
       { slug: "unit-converter", label: "Unit Converter" },
       { slug: "currency-converter", label: "Currency Converter" },
@@ -60,7 +60,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Unit Converter FAQ",
   },
   generators: {
-    body: "Create passwords, IDs, and game randomness with 13 privacy-friendly generators powered by your browser crypto engine. The password generator builds 20-character logins with about 131 bits of entropy that resist brute force. The UUID tool mints 500 v4 IDs per batch for database seeding, while the dice roller totals 2d6 like 4 plus 6 equals 10. For example, 16 characters from 94 symbols give about 105 bits of protection. Each tool page answers common questions in its FAQ, with nothing uploaded ever.",
+    body: "Create passwords, IDs, and game randomness with 13 privacy-friendly generators powered by your browser crypto engine. The password generator builds 20-character logins with about 131 bits of entropy that resist brute force. The UUID tool mints 500 v4 IDs per batch for database seeding, while the dice roller totals 2d6 like 4 and 6 equals 10. For example, 16 characters from 94 symbols give about 105 bits of protection. Each tool page answers common questions in its FAQ, with nothing uploaded ever.",
     picks: [
       { slug: "password-generator", label: "Password Generator" },
       { slug: "uuid-generator", label: "UUID Generator" },
@@ -130,7 +130,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Meta Tag Generator FAQ",
   },
   time: {
-    body: "Master dates, zones, and focus with 8 free time and date utilities. The age calculator turns 1990-06-15 into 36 years plus weekday and a live birthday countdown. The timezone converter moves 3:00 PM New York into 4:00 AM next-day Tokyo with DST handled, while the Pomodoro timer structures 25-minute sprints with 5-minute breaks. Countdown links share live targets with friends and teams. For example, four rounds total 100 focus minutes before a long rest. Each tool page answers common questions in its FAQ, free and offline.",
+    body: "Master dates, zones, and focus with 8 free time and date utilities. The age calculator turns 1990-06-15 into 36 years and weekday and a live birthday countdown. The timezone converter moves 3:00 PM New York into 4:00 AM next-day Tokyo with DST handled, while the Pomodoro timer structures 25-minute sprints with 5-minute breaks. Countdown links share live targets with friends and teams. For example, four rounds total 100 focus minutes before a long rest. Each tool page answers common questions in its FAQ, free and offline.",
     picks: [
       { slug: "age-calculator", label: "Age Calculator" },
       { slug: "timezone-converter", label: "Timezone Converter" },
@@ -143,7 +143,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
 
 // Generic fallback intro (used only if a category id has no entry above).
 export const FALLBACK_INTRO: CategoryIntro = {
-  body: "Browse every tool in this collection below — each one runs in your browser with no sign-up, and most work fully offline with nothing uploaded. Open any card to get the interactive tool plus a 4-step guide, worked examples with real numbers, and a FAQ that answers edge cases. For example, calculator pages show exact inputs like $100,000 at 5 percent alongside expected outputs. Each tool page answers common questions in its FAQ, and our testing method is public for review.",
+  body: "Browse every tool in this collection below — each one runs in your browser with no sign-up, and most work fully offline with nothing uploaded. Open any card to get the interactive tool and a 4-step guide, worked examples with real numbers, and a FAQ that answers edge cases. For example, calculator pages show exact inputs like $100,000 at 5 percent alongside expected outputs. Each tool page answers common questions in its FAQ, and our testing method is public for review.",
   picks: [
     { slug: "word-counter", label: "Word Counter" },
     { slug: "json-formatter", label: "JSON Formatter" },
@@ -189,7 +189,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "Word Counter",
     },
     {
-      text: "Begin with Word Counter, Case Converter, and Text Diff for the most common jobs. Paste 2,000 words to see reading time near 10 minutes plus keyword hits, then convert headings and diff two drafts word by word. Each page shows a 4-step how-to with edge cases and examples.",
+      text: "Begin with Word Counter, Case Converter, and Text Diff for the most common jobs. Paste 2,000 words to see reading time near 10 minutes and keyword hits, then convert headings and diff two drafts word by word. Each page shows a 4-step how-to with edge cases and examples.",
       linkSlug: "case-converter",
       linkLabel: "Case Converter",
     },
@@ -211,12 +211,12 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   business: [
     {
-      text: "They are essentially 13 free business document generators that run fully in your browser with no signup. The Invoice Generator totals a 10-line $550 bill with logo and tax, while Resume Builder fits 3 roles plus skills on one ATS-friendly page. Files never upload, and most work offline.",
+      text: "They are essentially 13 free business document generators that run fully in your browser with no signup. The Invoice Generator totals a 10-line $550 bill with logo and tax, while Resume Builder fits 3 roles and skills on one ATS-friendly page. Files never upload, and most work offline.",
       linkSlug: "invoice-generator",
       linkLabel: "Invoice Generator",
     },
     {
-      text: "Kick off with Invoice Generator, Resume Builder, and ATS Resume Checker for hiring and billing jobs. Try INV-2026-001 with $500 subtotal plus 10 percent tax totaling $550 exactly, then score that resume near 90 percent against a 300-word posting. Each card below opens the free tool instantly.",
+      text: "Kick off with Invoice Generator, Resume Builder, and ATS Resume Checker for hiring and billing jobs. Try INV-2026-001 with $500 subtotal and 10 percent tax totaling $550 exactly, then score that resume near 90 percent against a 300-word posting. Each card below opens the free tool instantly.",
       linkSlug: "resume-builder",
       linkLabel: "Resume Builder",
     },
@@ -231,7 +231,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "Invoice Generator",
     },
     {
-      text: "Start with each tool FAQ for formatting and tax edge cases — begin with Invoice Generator FAQ showing INV-2026-001 at $500 plus 10 percent equals $550. You will see 3-role resume layouts and 90-percent matching tips. Check our testing methodology and contact page for corrections or requests.",
+      text: "Start with each tool FAQ for formatting and tax edge cases — begin with Invoice Generator FAQ showing INV-2026-001 at $500 and 10 percent equals $550. You will see 3-role resume layouts and 90-percent matching tips. Check our testing methodology and contact page for corrections or requests.",
       linkSlug: "invoice-generator",
       linkLabel: "Invoice Generator",
     },
@@ -243,7 +243,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "JSON Formatter",
     },
     {
-      text: "Start debugging with JSON Formatter, Regex Tester, and JWT Decoder for everyday code chores. Format a 10,000-line payload in a blink, test digit patterns against sample logs, then decode expiry claims instantly. Each page includes a 4-step guide plus minification that cuts bytes by roughly 20 percent.",
+      text: "Start debugging with JSON Formatter, Regex Tester, and JWT Decoder for everyday code chores. Format a 10,000-line payload in a blink, test digit patterns against sample logs, then decode expiry claims instantly. Each page includes a 4-step guide and minification that cuts bytes by roughly 20 percent.",
       linkSlug: "regex-tester",
       linkLabel: "Regex Tester",
     },
@@ -258,7 +258,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "JSON Formatter",
     },
     {
-      text: "Dive into each tool FAQ for syntax edge cases — open JSON Formatter FAQ for fixing a missing comma at 1:18 in 500 KB files. You will find regex digit examples and JWT expiry checks plus 10,000-line performance notes. See our testing methodology and contact page for tool requests.",
+      text: "Dive into each tool FAQ for syntax edge cases — open JSON Formatter FAQ for fixing a missing comma at 1:18 in 500 KB files. You will find regex digit examples and JWT expiry checks and 10,000-line performance notes. See our testing methodology and contact page for tool requests.",
       linkSlug: "json-formatter",
       linkLabel: "JSON Formatter",
     },
@@ -270,12 +270,12 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "Unit Converter",
     },
     {
-      text: "Try first Unit Converter, Currency Converter, and JSON-CSV Converter for everyday swaps. Convert 100 USD to EUR with live rates plus offline fallback, map a 1,000-row array to columns instantly, and turn 1 kg into 2.205 lb. Each card below runs free with worked examples.",
+      text: "Try first Unit Converter, Currency Converter, and JSON-CSV Converter for everyday swaps. Convert 100 USD to EUR with live rates and offline fallback, map a 1,000-row array to columns instantly, and turn 1 kg into 2.205 lb. Each card below runs free with worked examples.",
       linkSlug: "currency-converter",
       linkLabel: "Currency Converter",
     },
     {
-      text: "Definitely — all conversion tools are free with no account or watermark and run locally. JSON-CSV Converter maps a 1,000-row array plus a 2-item list into a 2-row sheet without uploading data. Only currency live rates need internet, clearly noted. Your 100 km to 62.1 miles stays private.",
+      text: "Definitely — all conversion tools are free with no account or watermark and run locally. JSON-CSV Converter maps a 1,000-row array and a 2-item list into a 2-row sheet without uploading data. Only currency live rates need internet, clearly noted. Your 100 km to 62.1 miles stays private.",
       linkSlug: "json-csv",
       linkLabel: "JSON-CSV Converter",
     },
@@ -297,12 +297,12 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "Password Generator",
     },
     {
-      text: "Lead with Password Generator, UUID Generator, and Dice Roller for logins, seeding, and play. Mint 500 v4 IDs for databases, roll 2d6 like 4 plus 6 equals 10, then build 16 characters from 94 symbols for about 105 bits. Each page shows entropy notes and offline use.",
+      text: "Lead with Password Generator, UUID Generator, and Dice Roller for logins, seeding, and play. Mint 500 v4 IDs for databases, roll 2d6 like 4 and 6 equals 10, then build 16 characters from 94 symbols for about 105 bits. Each page shows entropy notes and offline use.",
       linkSlug: "uuid-generator",
       linkLabel: "UUID Generator",
     },
     {
-      text: "Completely — every generator is free with no account and runs 100 percent locally via crypto randomness. Dice Roller totals 2d6 like 4 plus 6 equals 10 on your device, so results stay private. No internet is needed after load, and 20-character passwords with 131 bits never leave.",
+      text: "Completely — every generator is free with no account and runs 100 percent locally via crypto randomness. Dice Roller totals 2d6 like 4 and 6 equals 10 on your device, so results stay private. No internet is needed after load, and 20-character passwords with 131 bits never leave.",
       linkSlug: "dice-roller",
       linkLabel: "Dice Roller",
     },
@@ -324,7 +324,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "QR Code Generator",
     },
     {
-      text: "Open with QR Code Generator, Image Compressor, and Color Contrast Checker for shipping designs. Shrink a 2 MB photo for the web, verify indigo on white against accessibility ratios, then encode long URLs cleanly. Each page shows one-click copy like #6366F1 plus resizing guidance.",
+      text: "Open with QR Code Generator, Image Compressor, and Color Contrast Checker for shipping designs. Shrink a 2 MB photo for the web, verify indigo on white against accessibility ratios, then encode long URLs cleanly. Each page shows one-click copy like #6366F1 and resizing guidance.",
       linkSlug: "image-compressor",
       linkLabel: "Image Compressor",
     },
@@ -339,7 +339,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "QR Code Generator",
     },
     {
-      text: "Browse each tool FAQ for export and accessibility tips — try QR Code Generator FAQ for encoding long URLs into scannable squares. You will find 2 MB compression guidance and indigo-on-white ratio checks plus #6366F1 copying. See our testing methodology and contact page for ideas.",
+      text: "Browse each tool FAQ for export and accessibility tips — try QR Code Generator FAQ for encoding long URLs into scannable squares. You will find 2 MB compression guidance and indigo-on-white ratio checks and #6366F1 copying. See our testing methodology and contact page for ideas.",
       linkSlug: "qr-code-generator",
       linkLabel: "QR Code Generator",
     },
@@ -481,7 +481,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   time: [
     {
-      text: "You can think of them as 8 free time and date utilities with no signup. The Age Calculator turns 1990-06-15 into 36 years plus weekday and a live birthday countdown, while Timezone Converter moves 3:00 PM New York to 4:00 AM next-day Tokyo with DST. Focus timers need no install.",
+      text: "You can think of them as 8 free time and date utilities with no signup. The Age Calculator turns 1990-06-15 into 36 years and weekday and a live birthday countdown, while Timezone Converter moves 3:00 PM New York to 4:00 AM next-day Tokyo with DST. Focus timers need no install.",
       linkSlug: "age-calculator",
       linkLabel: "Age Calculator",
     },
@@ -515,7 +515,7 @@ export const FALLBACK_FAQ_CONTENT: CategoryFaqItem[] = [
     linkLabel: "Word Counter",
   },
   {
-    text: "Begin with Word Counter, JSON Formatter, and Mortgage Calculator for common jobs. Each page shows a 4-step how-to plus worked numbers like $100,000 at 5 percent alongside expected outputs. Open any card below to run the tool free in your browser today with guides.",
+    text: "Begin with Word Counter, JSON Formatter, and Mortgage Calculator for common jobs. Each page shows a 4-step how-to and worked numbers like $100,000 at 5 percent alongside expected outputs. Open any card below to run the tool free in your browser today with guides.",
     linkSlug: "json-formatter",
     linkLabel: "JSON Formatter",
   },

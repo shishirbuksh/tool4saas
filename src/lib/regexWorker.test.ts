@@ -33,7 +33,7 @@ describe("regexWorker – heuristic catastrophic detection", () => {
   });
 
   it("detects 4-digit quantifier via conservative check", () => {
-    // According spec: large quantifiers >1000 flagged, plus 4-digit check also flags 1000+.
+    // According spec: large quantifiers >1000 flagged and 4-digit check also flags 1000+.
     // We'll test that 999 is safe but 1000 is flagged.
     expect(isPotentiallyCatastrophic("a{999}")).toBe(false);
     expect(isPotentiallyCatastrophic("a{1000}")).toBe(true);

@@ -15,7 +15,7 @@ const html = `
 </ul>
 
 <h2 id="viewbox">The viewBox: touch it and the logo breaks</h2>
-<p><code>viewBox="0 0 200 60"</code> defines the coordinate system everything scales from. Delete it and the SVG renders at unpredictable sizes; alter it and aspect ratios skew. Rules: never remove viewBox, never change its numbers unless you understand the transform, always pair with explicit <code>width</code>/<code>height</code> or CSS sizing. The #1 SVG bug I review is a “responsive” logo with viewBox stripped — perfect on the designer's screen, collapsed to 0×150px in production. Validate after every optimization: render at 16px (favicon), 48px (header mobile), and 200px (footer) before committing.</p>
+<p><code>viewBox="0 0 200 60"</code> defines the coordinate system everything scales from. Delete it and the SVG renders at unpredictable sizes; alter it and aspect ratios skew. Rules: never remove viewBox, never change its numbers unless you understand the transform, always pair with explicit <code>width</code>/<code>height</code> or CSS sizing. The most common SVG bug is a “responsive” logo with viewBox stripped — perfect on the designer's screen, collapsed to 0×150px in production. Validate after every optimization: render at 16px (favicon), 48px (header mobile), and 200px (footer) before committing.</p>
 
 <h2 id="svg-vs-png">SVG vs PNG: logo delivery rules</h2>
 <table>
@@ -41,14 +41,7 @@ export const imageSvg: BlogPost = {
   title: "Optimize SVG Logos Without Breaking Them",
   description:
     "Optimize SVG logos safely: what to strip, the untouchable viewBox, SVG vs PNG rules + 16px/200px/dark validation. Free optimizer + favicon tool.",
-  keywords: [
-    "how to optimize svg for web",
-    "svg file too large slow site",
-    "svg vs png logo",
-    "remove svg metadata safely",
-    "svg to png for favicon",
-    "How much can SVG optimization save?",
-  ],
+  keywords: ["how to optimize svg for web", "svg file too large slow site", "svg vs png logo", "remove svg metadata safely", "svg to png for favicon"],
   toolSlugs: ["svg-optimizer", "favicon-generator", "image-format-converter"],
   relatedSlugs: ["png-vs-jpg-vs-webp", "resize-image-exact-pixels", "image-seo-size-alt"],
   published: "2026-10-07",
@@ -66,6 +59,6 @@ export const imageSvg: BlogPost = {
     { question: "Can I delete the viewBox?", answer: "No — it defines the coordinate system everything scales from, like viewBox 0 0 200 60. Removing it collapses scaling unpredictably, often to 0×150px in production, while altering numbers skews aspects. Keep viewBox, control size with width/height or CSS, then validate at 16px, 48px and 200px." },
     { question: "SVG or PNG for my logo?", answer: "SVG for geometric logos on web with infinite scaling, tiny files under about 50KB and dark-mode CSS variants. PNG/WebP for email signatures, social avatars and legacy systems without SVG upload. Photographic content should never be SVG — embedded base64 rasters bloat past 200KB without scalability." },
     { question: "How do I make favicons from SVG?", answer: "Optimize the master first, then generate 16/32/180/192/512 sizes with the favicon generator. Test the 16px tab render and simplify paths if details vanish, check 200px headers for thin strokes, and keep the unoptimized master archived for future brand color changes. Bump thin strokes to 2px minimum and verify dark-mode backgrounds." },
-    { question: "Why is my SVG file huge?", answer: "Usually embedded raster images, font subsets, or hidden layers. Three embedded rasters plus a full font subset once bloated a logo to 1.8MB, while editor metadata alone adds 30–50%. Inspect the markup: base64 blobs mean it should have been JPG/WebP, and hidden off-canvas drafts may leak confidential content." },
+    { question: "Why is my SVG file huge?", answer: "Usually embedded raster images, font subsets, or hidden layers. Three embedded rasters and a full font subset once bloated a logo to 1.8MB, while editor metadata alone adds 30–50%. Inspect the markup: base64 blobs mean it should have been JPG/WebP, and hidden off-canvas drafts may leak confidential content." },
   ],
 };

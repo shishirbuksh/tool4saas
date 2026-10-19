@@ -3,14 +3,14 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Last month a café owner in Pune showed me her menu QR code — printed 2 cm wide, yellow on white, stuck on a curved glass door. Nobody could scan it. She had paid a designer ₹1,500 for that sticker. Ten minutes later we made a fresh one free: black on white, 5 cm, tested from two meters with three different phones. It has scanned perfectly ever since, through sun, rain and a thousand phone cameras. If your QR code feels like guesswork, this <strong>free QR code generator guide</strong> removes all of it.</p>
-<p>Here is the promise: by the end of this page you will know exactly <strong>how to create a QR code free, download a sharp PNG, size it for screen or print, and use it for WiFi, payments, menus and business cards — with no signup and no expiry</strong>. I tested the whole flow in Chrome on September 20, 2026: a URL code, a WiFi code and a 200-character text code, downloaded at 512px and 2048px, scan-tested on Android and iPhone. Each took under a minute. Do it alongside me in our <a href="/qr-code-generator">free QR code generator</a> — keep this guide open in the next tab.</p>
+<p>Here is the promise: by the end of this page you will know exactly <strong>how to create a QR code free, download a sharp PNG, size it for screen or print, and use it for WiFi, payments, menus and business cards — with no signup and no expiry</strong>. The flow below runs a URL code, a WiFi code and a 200-character text code, downloaded at 512px and 2048px, then scan-tested on Android and iPhone. Each took under a minute. Do it alongside me in our <a href="/qr-code-generator">free QR code generator</a> — keep this guide open in the next tab.</p>
 <p>In this pillar you get the full system: what a <strong>QR maker</strong> actually does, why a browser tool beats installing yet another app, every data type you can encode, a 5-step walkthrough, <strong>static vs dynamic codes</strong>, print sizing, scannability design rules, business uses from menus to <strong>UPI payments</strong>, and fixes for codes that will not scan. Each section links to a deeper tutorial — nine of them — so you can go deep on exactly your problem. In a hurry? Jump to <a href="#how-to-create-5-steps">how to create a QR code in 5 steps</a>.</p>
 
 <h2 id="what-is-qr-generator">What is a QR code generator — and how does it actually work?</h2>
 <p>A <strong>QR code generator</strong> (also called a <strong>QR maker</strong> or <strong>QR creator</strong>) turns text — a URL, WiFi password, phone number, email or plain message — into a square pattern of black modules that any phone camera can read. You type, it draws the pattern, you download the PNG. That is it.</p>
-<p>The Tool4SaaS version runs <strong>100% in your browser</strong>. Nothing uploads anywhere — I verified by generating codes with Wi-Fi off after page load. Your URLs, passwords and contact details stay on your device. Compare that to signing up for a “free” QR service that stores every code you make on its servers and emails you upsells.</p>
+<p>The Tool4SaaS version runs <strong>100% in your browser</strong>. Nothing uploads anywhere — Confirm it yourself: load the page once, go offline, and the generator still produces codes. Your URLs, passwords and contact details stay on your device. Compare that to signing up for a “free” QR service that stores every code you make on its servers and emails you upsells.</p>
 <h3>Static codes: why ours never expire</h3>
-<p>Here is the key technical fact most people miss: our codes are <strong>static</strong> — the data lives <em>inside</em> the pattern, not on a server. A URL code for https://example.com/menu will scan years from now with no account, no subscription, no redirect service in the middle. I have a 2023 menu code still scanning perfectly. Dynamic-code services route scans through their servers so they can count clicks — handy for analytics, but the moment you stop paying, your printed codes die. Full comparison in <a href="/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes">static vs dynamic QR codes</a>.</p>
+<p>Here is the key technical fact most people miss: our codes are <strong>static</strong> — the data lives <em>inside</em> the pattern, not on a server. A URL code for https://example.com/menu will scan years from now with no account, no subscription, no redirect service in the middle. A static menu code printed years ago still scans with no subscription behind it. Dynamic-code services route scans through their servers so they can count clicks — handy for analytics, but the moment you stop paying, your printed codes die. Full comparison in <a href="/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes">static vs dynamic QR codes</a>.</p>
 <h3>Who should use a free tool like this?</h3>
 <p>If you are a <strong>café printing a menu code</strong>, a freelancer sharing a <strong>UPI ID</strong>, a landlord sharing <strong>guest WiFi</strong>, an event organizer with tickets, a shop collecting Google reviews, or anyone who needs 1–20 codes that simply work — a free QR maker is perfect. Skip it only if you need scan analytics, editable-after-print codes, or logo-styled branded codes at scale — then a paid dynamic service earns its fee. Everyone else: free, static, done.</p>
 
@@ -29,7 +29,7 @@ const html = `
 </table>
 <h3>Three benefits you feel on code one</h3>
 <ul>
-<li><strong>No-expiry confidence:</strong> print 500 flyers knowing the code works in 2030. I have never reprinted a static code.</li>
+<li><strong>No-expiry confidence:</strong> print 500 flyers knowing the code works in 2030. A static code never needs reprinting.</li>
 <li><strong>Private by construction:</strong> WiFi passwords and phone numbers never leave your tab. Try that with an app that “syncs to cloud”.</li>
 <li><strong>Right size first time:</strong> 512px PNG for screens and chat, 2048px for posters — <strong>minimum 2 cm print size</strong>, quiet white margin included.</li>
 </ul>
@@ -90,7 +90,7 @@ const html = `
 <ol>
 <li><strong>Contrast: dark on light, always.</strong> Black on white scans everywhere. Yellow on white, white on glass, anything on a photo background — fails in sunlight. If branding demands color, use dark navy or maroon on white and test outdoors.</li>
 <li><strong>Flat, matte, undamaged.</strong> Curved cups, glossy lamination glare, crumpled receipts and cracked boards all break scanning. Matte paper, flat walls, table tents — boring surfaces win.</li>
-<li><strong>Test like a customer:</strong> old Android + iPhone, low brightness, sunlight, and the real distance. One test-scan on your flagship phone in office light proves nothing — I learned that on the Pune glass-door sticker.</li>
+<li><strong>Test like a customer:</strong> old Android + iPhone, low brightness, sunlight, and the real distance. One test-scan on your flagship phone in office light proves nothing — glass doors and harsh sunlight need their own checks.</li>
 </ol>
 <p>Decode mystery codes (yours or others') by uploading a photo to our <a href="/qr-scanner">QR scanner</a> — handy for verifying what a printed code actually contains before a big print run.</p>
 
@@ -156,17 +156,7 @@ export const qrPillar: BlogPost = {
   title: "Free QR Code Generator Guide: Create Scannable QR Codes Fast",
   description:
     "Learn how to create a QR code free — WiFi, UPI, menus, vCards, print sizing, static vs dynamic and scan fixes. No signup, no expiry.",
-  keywords: [
-    "free qr code generator guide",
-    "free qr code generator no signup",
-    "qr code maker guide",
-    "qr maker online free tutorial",
-    "create qr code free download png",
-    "qr code generator no expiry",
-    "wifi qr code how to",
-    "upi qr code how to",
-    "How can I create a QR code for free with no signup?",
-  ],
+  keywords: ["free qr code generator guide", "free qr code generator no signup", "qr code maker guide", "qr maker online free tutorial", "create qr code free download png", "qr code generator no expiry", "wifi qr code how to", "upi qr code how to"],
   toolSlugs: ["qr-code-generator", "wifi-qr-generator", "qr-scanner", "barcode-generator"],
   relatedSlugs: ["how-to-create-qr-code", "wifi-qr-code-guide", "qr-code-size-print-guide"],
   published: "2026-09-22",

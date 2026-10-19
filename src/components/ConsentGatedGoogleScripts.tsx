@@ -10,8 +10,8 @@ const KEY = "t4s-consent-v1";
 const EXPIRY_MS = 365 * 24 * 60 * 60 * 1000;
 // AdSense crawler/review exception: automated approval bots never click the
 // banner (empty localStorage), so without this they would report "no ad code
-// found". Script load alone renders nothing — AdSlot push stays hard-gated
-// on explicit consent, so no pre-consent impression can occur.
+// found". Loading the Auto Ads loader renders nothing on its own; Auto Ads
+// still honour the consent signals above, so no pre-consent ad can serve.
 const CRAWLER_RE = /Mediapartners-Google|AdsBot-Google/i;
 
 type Grant = "granted" | "denied" | null;
@@ -67,7 +67,7 @@ export default function ConsentGatedGoogleScripts() {
   }, []);
 
   if (!mounted) return null;
-  // Re-read on every consent tick (mirrors AdSlot consentTick pattern).
+  // Re-read on every consent tick (consent may change after the banner).
   void tick;
   const { ad, analytics } = readGrants();
   const gaOk = analytics === "granted";

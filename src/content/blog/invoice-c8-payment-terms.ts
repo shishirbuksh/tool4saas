@@ -31,14 +31,14 @@ const html = `
 <p>Subject: <strong>INV-2026-001 overdue — please confirm payment date</strong><br/>Body: “Following up on INV-2026-001 ($550, due Sept 29, 7 days overdue). Please confirm the payment date so I can plan. Late terms (2%/mo) apply after the 14th. Thanks!” Still warm, now specific.</p>
 
 <h2 id="late-fee-wording">Late-fee wording that is firm but professional</h2>
-<p>Print this on every invoice: “<strong>Payment due Oct 1, 2026 (Net 15). 2% per month applies after due date. Work pauses on retainers 14+ days overdue.</strong>” Enforce rarely, print always — the line itself halves delays. For retainers, add “paused work” explicitly; I have paused twice in 6 years and both clients paid within 24 hours. Full doc-type flow in <a href="/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt">invoice vs quotation vs receipt</a>; numbering hygiene in <a href="/blog/invoice-generator-guide/invoice-numbering">numbering guide</a>.</p>
+<p>Print this on every invoice: “<strong>Payment due Oct 1, 2026 (Net 15). 2% per month applies after due date. Work pauses on retainers 14+ days overdue.</strong>” Enforce rarely, print always — the line itself halves delays. For retainers, add “paused work” explicitly; The clause works because paused work costs the client more than the invoice. Full doc-type flow in <a href="/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt">invoice vs quotation vs receipt</a>; numbering hygiene in <a href="/blog/invoice-generator-guide/invoice-numbering">numbering guide</a>.</p>
 <ul>
 <li><strong>India:</strong> UPI + bank both printed; WhatsApp nudge with PDF works, email stays the record.</li>
 <li><strong>US/UK:</strong> ACH/bank or Stripe links; morning sends in client timezone; VAT-registered UK clients get VAT-split PDFs.</li>
 <li><strong>Never:</strong> threaten on first nudge, add surprise fees, or CC the CEO on day 3. Escalate warmth-first.</li>
 </ul>
 <h2 id="retainer-terms">Retainer and milestone terms (recurring money)</h2>
-<p>One-off invoice terms fail retainers — recurring money needs recurring rules. Print these on every retainer invoice: billing day (1st of month), due in 7 days, pause clause (“work pauses 14+ days overdue and resumes on payment”), and rate-lock period (“Rs 30,000/month locked 6 months, revises April”). Milestone projects need a payment schedule table inside the quote itself: 30% advance, 40% on beta, 30% on launch — each milestone invoiced separately referencing QUO-2026-014 and prior receipts. The pause clause is the entire game: I have paused twice in 6 years and both clients paid within 24 hours, because paused work costs them more than the invoice. Without it, retainers drift into 60-day arrears while you keep delivering — the most expensive sentence you will ever omit.</p>
+<p>One-off invoice terms fail retainers — recurring money needs recurring rules. Print these on every retainer invoice: billing day (1st of month), due in 7 days, pause clause (“work pauses 14+ days overdue and resumes on payment”), and rate-lock period (“Rs 30,000/month locked 6 months, revises April”). Milestone projects need a payment schedule table inside the quote itself: 30% advance, 40% on beta, 30% on launch — each milestone invoiced separately referencing QUO-2026-014 and prior receipts. The pause clause is the entire game: Paused work costs the client more than the invoice, so the clause gets honored quickly. Without it, retainers drift into 60-day arrears while you keep delivering — the most expensive sentence you will ever omit.</p>
 <div class="cta-box"><strong>Put it on paper now:</strong> add Net 15 + calendar date + UPI/bank in the <a href="/invoice-generator">free invoice generator</a>, then send with the subject formula. System overview: <a href="/blog/invoice-generator-guide">pillar guide</a>.</div>
 `;
 
@@ -49,14 +49,7 @@ export const invoicePaymentTerms: BlogPost = {
   title: "Invoice Payment Terms + Follow-Up Scripts That Get You Paid Faster",
   description:
     "Invoice payment terms examples (Net 7/15/30, advances, late fees) + 3 copy-paste reminder emails. Polite scripts that cut payment time in half.",
-  keywords: [
-    "invoice payment terms examples",
-    "how to politely ask client for payment",
-    "invoice due upon receipt meaning",
-    "late payment fee wording on invoice",
-    "payment reminder email invoice",
-    "What are the best invoice payment terms?",
-  ],
+  keywords: ["invoice payment terms examples", "how to politely ask client for payment", "invoice due upon receipt meaning", "late payment fee wording on invoice", "payment reminder email invoice"],
   toolSlugs: ["invoice-generator", "receipt-generator", "quotation-generator"],
   relatedSlugs: ["how-to-create-invoice-online", "freelancer-invoice-guide", "invoice-numbering"],
   published: "2026-09-14",
@@ -70,10 +63,10 @@ export const invoicePaymentTerms: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What are the best invoice payment terms?", answer: "Use Net 15 with calendar due date like due Oct 1, 2026 for most clients, Net 7 for retainers billed day one, 50% advance above ₹25k/$500, and due-on-receipt for small gigs under ₹10k. Always print method such as UPI with bank/IFSC or Stripe plus a 2% late line, because the printed line itself halves delays." },
+    { question: "What are the best invoice payment terms?", answer: "Use Net 15 with calendar due date like due Oct 1, 2026 for most clients, Net 7 for retainers billed day one, 50% advance above ₹25k/$500, and due-on-receipt for small gigs under ₹10k. Always print method such as UPI with bank/IFSC or Stripe and a 2% late line, because the printed line itself halves delays." },
     { question: "What does due upon receipt mean?", answer: "It means pay immediately on receiving the invoice, used for small or walk-in jobs under ₹10k. Pair it with the payment method printed on the PDF like UPI name@upi with bank HDFC XXXX1234 and IFSC, so immediate can actually happen. If they must ask how to pay, you lose 5 days of waiting." },
     { question: "How do I politely ask for payment?", answer: "Send day-3 nudge asking if anything is held up on INV-2026-001 for $550 due Sept 29 and re-attach invoice-acme-001.pdf, then day-7 note asking for a payment date with overdue stated. Keep warm tone with numbers, invoice number and total in the subject. About 60% of late bills clear within 48 hours of this one." },
-    { question: "Should I charge a late fee?", answer: "Print 2% per month on every invoice with wording like payment due Oct 1, 2026 Net 15 and work pauses on retainers 14-plus days overdue; enforce selectively. The printed line itself halves delays. For retainers add the pause clause — I have paused twice in 6 years and both clients paid within 24 hours." },
-    { question: "When should I send invoices for fastest payment?", answer: "Send Tuesday–Thursday mornings in the client timezone with number plus total plus due date in the subject like Invoice INV-2026-001 — $550 due Sept 29. Test showed Due soon paid in 23 days versus Due Oct 1, 2026 Net 15 paid in 6 days. Avoid Monday pile-ups and Friday disappearances when invoices die over weekends." },
+    { question: "Should I charge a late fee?", answer: "Print 2% per month on every invoice with wording like payment due Oct 1, 2026 Net 15 and work pauses on retainers 14-plus days overdue; enforce selectively. The printed line itself halves delays. For retainers add the pause clause — The clause works because paused work costs the client more than the invoice." },
+    { question: "When should I send invoices for fastest payment?", answer: "Send Tuesday–Thursday mornings in the client timezone with number and total and due date in the subject like Invoice INV-2026-001 — $550 due Sept 29. Test showed Due soon paid in 23 days versus Due Oct 1, 2026 Net 15 paid in 6 days. Avoid Monday pile-ups and Friday disappearances when invoices die over weekends." },
   ],
 };

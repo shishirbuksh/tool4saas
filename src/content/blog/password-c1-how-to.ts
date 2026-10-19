@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>My old “system” was one base word plus site-specific suffixes — until a forum breach handed attackers the pattern and two of my accounts fell in a week. Rebuilding with real randomness took an afternoon and has held for years. This is <strong>how to create a strong password</strong> in 5 steps: the 16-character rule, settings, uniqueness, storage and 2FA — each step tested in September 2026 with our local tools.</p>
+<p>My old “system” was one base word and site-specific suffixes — until a forum breach handed attackers the pattern and two of my accounts fell in a week. Rebuilding with real randomness took an afternoon and has held for years. This is <strong>how to create a strong password</strong> in 5 steps: the 16-character rule, settings, uniqueness, storage and 2FA — each step tested in September 2026 with our local tools.</p>
 <p>Part of the <a href="/blog/password-generator-guide">password generator guide</a> — the pillar covers the system, this is the hands-on walkthrough. Open the <a href="/password-generator">free password generator</a> in the next tab. No signup, offline after load.</p>
 
 <h2 id="five-steps">Create one in 5 steps (~3 minutes)</h2>
@@ -39,13 +39,7 @@ export const passwordHowTo: BlogPost = {
   title: "How to Create a Strong Password: The 16-Character Rule (2026)",
   description:
     "Create a strong password in 5 steps: 16+ length, full pools, uniqueness, manager storage + 2FA. Tested local flow, no signup.",
-  keywords: [
-    "how to create strong password",
-    "how to make password with symbols",
-    "create unique password each account",
-    "strong password steps",
-    "How long should a strong password be?",
-  ],
+  keywords: ["how to create strong password", "how to make password with symbols", "create unique password each account", "strong password steps"],
   toolSlugs: ["password-generator", "random-passphrase", "password-strength"],
   relatedSlugs: ["what-makes-password-strong", "how-to-remember-passwords", "password-strength-tester"],
   published: "2026-09-25",

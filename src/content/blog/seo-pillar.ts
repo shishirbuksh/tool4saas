@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>A blogger pasted her draft into eleven different checkers and got eleven different verdicts — 62 here, 84 there, “critical missing H1” from a page that had one. She nearly rewrote a good post to satisfy a bad tool. The truth I have learned auditing hundreds of pages: <strong>on-page SEO is eleven checks, not one score</strong>, and any single number without the checklist behind it is theater. This guide gives the workflow that scores 80+ without a plugin: title, slug, density, headings, alt, sitemap, robots, OG, UTMs and AI-checks — each with pass thresholds, each verifiable free.</p>
+<p>A blogger pasted her draft into eleven different checkers and got eleven different verdicts — 62 here, 84 there, “critical missing H1” from a page that had one. She nearly rewrote a good post to satisfy a bad tool. The truth after auditing hundreds of pages: <strong>on-page SEO is eleven checks, not one score</strong>, and any single number without the checklist behind it is theater. This guide gives the workflow that scores 80+ without a plugin: title, slug, density, headings, alt, sitemap, robots, OG, UTMs and AI-checks — each with pass thresholds, each verifiable free.</p>
 <p>Here is the promise: you will run the same <strong>11-check workflow</strong> professionals use, understand what each check measures (and what it ignores), and publish posts that score 80+ before they ship. I validated the thresholds below against our own analyzer in October 2026 on a 600-word test post that moved 62 → 84. Work alongside me starting at our <a href="/seo-analyzer">free SEO analyzer</a> — keep this guide open in the next tab.</p>
 <p>Part of the <a href="/blog">blog guides</a>. Score drafts in <a href="/seo-analyzer">SEO analyzer</a>; preview snippets in <a href="/serp-preview">SERP preview</a>; craft tags in <a href="/meta-tag-generator">meta tag generator</a>.</p>
 
@@ -53,14 +53,7 @@ export const seoPillar: BlogPost = {
   title: "Score 80+ On-Page SEO Without a Plugin: 11 Checks",
   description:
     "On-page SEO without plugins: weighted 11-check workflow, density truth, pixel-based titles, crawl plumbing, social cards + honest AI checks. Free analyzer.",
-  keywords: [
-    "how to score 80 on page seo without plugin",
-    "11 checks title slug density headings alt",
-    "600 words 1-2 percent density",
-    "rankmath vs yoast audit free",
-    "core web vitals vs on page",
-    "What keyword density should I target?",
-  ],
+  keywords: ["how to score 80 on page seo without plugin", "11 checks title slug density headings alt", "600 words 1-2 percent density", "rankmath vs yoast audit free", "core web vitals vs on page"],
   toolSlugs: ["seo-analyzer", "meta-tag-generator", "serp-preview", "sitemap-generator"],
   relatedSlugs: ["fix-score-60-to-80", "title-meta-length-2026", "split-large-sitemap"],
   published: "2026-10-07",

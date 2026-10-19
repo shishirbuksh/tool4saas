@@ -4,6 +4,7 @@ import path from "node:path";
 import { toolMetadata, homeMetadata, staticPageMetadata } from "./metadata";
 import { tools, getTool } from "./tools";
 import { siteConfig } from "./site";
+import { ES_PILOT_SLUGS, FR_PILOT_SLUGS } from "./i18n";
 
 const root = process.cwd();
 const base = siteConfig.url.replace(/\/$/, "");
@@ -65,6 +66,12 @@ describe("SEO metadata", () => {
     expect(canonical).toBe(base);
   });
 
+  it("EN home declares og:locale:alternate for every hub (es/fr)", () => {
+    const og = homeMetadata().openGraph as { locale?: string; alternateLocale?: string[] };
+    expect(og.locale).toBe("en_US");
+    expect(og.alternateLocale).toEqual(["es_ES", "fr_FR"]);
+  });
+
   it("staticPageMetadata /contact canonical is base/contact", () => {
     const meta = staticPageMetadata({ title: "Contact Us", description: "x", path: "/contact" });
     expect((meta.alternates as { canonical: string }).canonical).toBe(`${base}/contact`);
@@ -96,4 +103,51 @@ describe("SEO metadata", () => {
     expect(urls.some((u) => u.endsWith("/pdf-compress"))).toBe(false);
     expect(urls.some((u) => u.endsWith("/word-counter"))).toBe(true);
   }, 20000);
+
+  it("never emits a /fr/blog sitemap URL (FR publishes no blog)", async () => {
+    const src = fs.readFileSync(path.join(root, "src", "app", "sitemap.ts"), "utf8");
+    expect(src).toContain("BLOG_PILOT_LOCALES");
+    const { default: sitemap } = await import("../app/sitemap");
+    const urls = (sitemap() as { url: string }[]).map((e) => e.url);
+    expect(
+      urls.some((u) => u.includes("/es/blog/qr-code-generator-guide/qr-code-size-print-guide"))
+    ).toBe(true);
+    expect(urls.some((u) => u.includes("/fr/blog/"))).toBe(false);
+  }, 20000);
+
+  it("EN toolMetadata declares og:locale:alternate for every pilot locale", () => {
+    const alts = (slug: string) =>
+      (toolMetadata(slug).openGraph as { alternateLocale?: string[] })?.alternateLocale;
+    // invoice-generator is a pilot in both es and fr.
+    expect(alts("invoice-generator")).toEqual(["es_ES", "fr_FR"]);
+    // ES-only pilot.
+    expect(alts("resume-builder")).toEqual(["es_ES"]);
+    // Non-pilot: field omitted.
+    expect(alts("fd-calculator")).toBeUndefined();
+  });
+
+  it("locale tool pages keep og:locale:alternate in sync with pilot overlap", () => {
+    // Read the .tsx route files — locale metadata is authored inline there.
+    const read = (rel: string) =>
+      fs.readFileSync(path.join(root, "src", "app", rel), "utf8");
+    const altOf = (src: string) => {
+      const m = src.match(/alternateLocale:\s*\[([^\]]*)\]/);
+      return m ? m[1].split(",").map((s) => s.trim().replace(/"/g, "")).filter(Boolean) : [];
+    };
+    for (const slug of FR_PILOT_SLUGS) {
+      const alt = altOf(read(`(fr)/fr/${slug}/page.tsx`));
+      expect(alt, `FR ${slug} en`).toContain("en_US");
+      expect(alt, `FR ${slug} no self`).not.toContain("fr_FR");
+      if (ES_PILOT_SLUGS.has(slug)) expect(alt, `FR ${slug} should also offer es`).toContain("es_ES");
+    }
+    for (const slug of ES_PILOT_SLUGS) {
+      const alt = altOf(read(`(es)/es/${slug}/page.tsx`));
+      expect(alt, `ES ${slug} en`).toContain("en_US");
+      expect(alt, `ES ${slug} no self`).not.toContain("es_ES");
+      if (FR_PILOT_SLUGS.has(slug)) expect(alt, `ES ${slug} should also offer fr`).toContain("fr_FR");
+    }
+    // Hubs cross-reference each other.
+    expect(altOf(read("(es)/es/page.tsx"))).toEqual(["en_US", "fr_FR"]);
+    expect(altOf(read("(fr)/fr/page.tsx"))).toEqual(["en_US", "es_ES"]);
+  });
 });

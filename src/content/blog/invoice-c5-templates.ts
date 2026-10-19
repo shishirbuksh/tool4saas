@@ -54,13 +54,7 @@ export const invoiceTemplates: BlogPost = {
   title: "Free Invoice Template Guide: Word, Excel, PDF & Printable (2026)",
   description:
     "Free invoice template Word vs Excel vs PDF compared with tests. What every professional template must include + naming and sending tips.",
-  keywords: [
-    "free invoice template word excel pdf",
-    "printable blank invoice pdf",
-    "simple invoice format in excel india",
-    "professional invoice template free download",
-    "Which invoice template format is best?",
-  ],
+  keywords: ["free invoice template word excel pdf", "printable blank invoice pdf", "simple invoice format in excel india", "professional invoice template free download"],
   toolSlugs: ["invoice-generator", "receipt-generator", "quotation-generator"],
   relatedSlugs: ["how-to-create-invoice-online", "invoice-vs-quotation-vs-receipt", "invoice-numbering"],
   published: "2026-09-13",
@@ -75,9 +69,9 @@ export const invoiceTemplates: BlogPost = {
   html,
   faqs: [
     { question: "Which invoice template format is best?", answer: "Online PDF maker as default for 1–15 taxed invoices monthly with auto math and print-ready output, tested at 12 minutes versus 45 in Excel and 35 in Word. Use Excel or Sheets for heavy hourly math, Word only when procurement demands .docx, and never blank printable PDFs for client bills because forms look unprofessional." },
-    { question: "What must a professional invoice template include?", answer: "Include logo and business block, sequential INV-2026-001 with calendar due dates, bill-to with GSTIN for B2B India, itemized qty times rate lines, correct tax row like ₹20,000 plus 9% CGST plus 9% SGST for ₹23,600, bold total with currency like $550 USD, payment terms with UPI/bank/Stripe method, plus quote/PO reference and late-fee note." },
+    { question: "What must a professional invoice template include?", answer: "Include logo and business block, sequential INV-2026-001 with calendar due dates, bill-to with GSTIN for B2B India, itemized qty times rate lines, correct tax row like ₹20,000 and 9% CGST and 9% SGST for ₹23,600, bold total with currency like $550 USD, payment terms with UPI/bank/Stripe method and quote/PO reference and late-fee note." },
     { question: "Are free invoice templates really free?", answer: "The Tool4SaaS flow is free with no signup, no watermark and unlimited Print-to-PDF, including taxed invoices with live totals and logo. Many template sites gate PDF export behind plans or add watermarks, which is why I default to the online maker for taxed bills. After payment, issue a receipt like RCP-0231 to close the loop." },
-    { question: "How should I name invoice files?", answer: "Use invoice-acme-001.pdf style with type plus client plus number, never final-v2 or qr-final-v2 variants. Store in /Invoices/2026/ folders by year for audits. Email subject carries number plus total plus due date like Invoice INV-2026-001 — $550 due Sept 29, with a three-line body plus payment method." },
-    { question: "Do I need a different template for GST invoices?", answer: "Yes in fields, not necessarily file type. GST bills need buyer GSTIN, HSN/SAC codes, CGST/SGST versus IGST split like 9% plus 9% same-state, place of supply and total in words such as ₹23,600. Use the freelance GST generator for tax bills with auto splits; the general maker covers non-GST bills with the same layout." },
+    { question: "How should I name invoice files?", answer: "Use invoice-acme-001.pdf style with type and client and number, never final-v2 or qr-final-v2 variants. Store in /Invoices/2026/ folders by year for audits. Email subject carries number and total and due date like Invoice INV-2026-001 — $550 due Sept 29, with a three-line body and payment method." },
+    { question: "Do I need a different template for GST invoices?", answer: "Yes in fields, not necessarily file type. GST bills need buyer GSTIN, HSN/SAC codes, CGST/SGST versus IGST split like 9% and 9% same-state, place of supply and total in words such as ₹23,600. Use the freelance GST generator for tax bills with auto splits; the general maker covers non-GST bills with the same layout." },
   ],
 };

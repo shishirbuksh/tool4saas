@@ -7,7 +7,7 @@ const html = `
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 
 <h2 id="formula">The formula (and what each symbol means)</h2>
-<p><strong>EMI = P × r × (1+r)^n ÷ ((1+r)^n − 1).</strong> P = loan amount after down payment. r = monthly rate = annual ÷ 12 ÷ 100 (6% → 0.005). n = total months (30 years → 360). The (1+r)^n terms spread repayment so each fixed payment covers that month's interest plus a growing principal slice. Same formula Bankrate and NerdWallet run — verify it in any spreadsheet with =PMT().</p>
+<p><strong>EMI = P × r × (1+r)^n ÷ ((1+r)^n − 1).</strong> P = loan amount after down payment. r = monthly rate = annual ÷ 12 ÷ 100 (6% → 0.005). n = total months (30 years → 360). The (1+r)^n terms spread repayment so each fixed payment covers that month's interest and a growing principal slice. Same formula Bankrate and NerdWallet run — verify it in any spreadsheet with =PMT().</p>
 <ul>
 <li><strong>Beginners' trap:</strong> dividing the annual rate by 12 is an approximation lenders standardize; daily-accrual loans differ by cents, not dollars.</li>
 <li><strong>Down payment enters as P:</strong> $300,000 price − $60,000 down = P of $240,000. Never run the formula on the sticker price.</li>
@@ -29,7 +29,7 @@ const html = `
 <p>Trust but verify: paste =PMT(6%/12,360,240000) into any spreadsheet — it returns the same ~$1,439 (as a negative, by convention). Then add a row multiplying payment × term and subtracting principal: ~$278,000 interest should appear. If a lender's quote differs by more than a few dollars on identical inputs, the difference is fees, escrow or points bundled into their number — ask for the itemized split before signing anything. This 60-second check has caught “discounted rate” quotes that quietly included two points, and escrow-heavy estimates presented as P&I. Numbers first, signatures later — always.</p>
 
 <h2 id="beyond-pi">Beyond P&I: add PITI before deciding anything</h2>
-<p>The formula gives principal and interest only. Add ~1.1%/yr property tax (~$275/mo on $300k), ~$150 insurance, PMI of $100–300 under 20% down, plus HOA. My cousin's $1,439 quote became $1,940 real — run your number through the same stack or the “affordable” verdict is fiction. Full breakdown in the <a href="/blog/mortgage-calculator-guide">pillar PITI section</a>; down-payment strategy in <a href="/blog/mortgage-calculator-guide/down-payment-pmi-cost">down payment & PMI guide</a>; what amortization does to these figures in <a href="/blog/mortgage-calculator-guide/mortgage-amortization-schedule">amortization guide</a>.</p>
+<p>The formula gives principal and interest only. Add ~1.1%/yr property tax (~$275/mo on $300k), ~$150 insurance, PMI of $100–300 under 20% down and HOA. My cousin's $1,439 quote became $1,940 real — run your number through the same stack or the “affordable” verdict is fiction. Full breakdown in the <a href="/blog/mortgage-calculator-guide">pillar PITI section</a>; down-payment strategy in <a href="/blog/mortgage-calculator-guide/down-payment-pmi-cost">down payment & PMI guide</a>; what amortization does to these figures in <a href="/blog/mortgage-calculator-guide/mortgage-amortization-schedule">amortization guide</a>.</p>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 `;
 
@@ -40,13 +40,7 @@ export const mortgageHowTo: BlogPost = {
   title: "How to Calculate Mortgage Payment: Formula + Examples (2026)",
   description:
     "Calculate mortgage payment by hand: EMI formula, $240k worked example, rate sensitivity + PITI add-ons. Verify any calculator yourself.",
-  keywords: [
-    "how to calculate mortgage payment",
-    "mortgage payment formula with taxes",
-    "calculate principal and interest by hand",
-    "mortgage emi formula example",
-    "What is the formula for monthly mortgage payment?",
-  ],
+  keywords: ["how to calculate mortgage payment", "mortgage payment formula with taxes", "calculate principal and interest by hand", "mortgage emi formula example"],
   toolSlugs: ["mortgage-calculator", "loan-calculator", "home-affordability-calculator"],
   relatedSlugs: ["mortgage-amortization-schedule", "down-payment-pmi-cost", "15-vs-30-year-mortgage"],
   published: "2026-09-24",

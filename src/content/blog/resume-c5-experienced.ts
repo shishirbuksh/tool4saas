@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>After 5 years, your resume's job changes: nobody hires you for potential anymore — they buy <strong>shipped outcomes, scope and trajectory</strong>. Yet most experienced resumes read like elongated fresher ones: duty lists, no numbers, promotions buried. I reviewed a 7-year backend dev's resume that hid “led 6-engineer team, Rs 2 cr billing pipeline” on page two beneath tool lists. Moved up, quantified, tailored — 3 interview calls in 2 weeks. This is positioning for people with proof.</p>
+<p>After 5 years, your resume's job changes: nobody hires you for potential anymore — they buy <strong>shipped outcomes, scope and trajectory</strong>. Yet most experienced resumes read like elongated fresher ones: duty lists, no numbers, promotions buried. Consider a 7-year backend dev whose “led 6-engineer team, Rs 2 cr billing pipeline” line sat on page two beneath tool lists. Moving that line up, quantified and tailored, is what converts proof into interview calls. This is positioning for people with proof.</p>
 <p>Part of the <a href="/blog/resume-builder-guide">free resume builder guide</a>. Build in the <a href="/resume-builder">free resume builder</a>; verify keyword coverage in the <a href="/ats-resume-checker">ATS checker</a>.</p>
 
 <h2 id="positioning">Positioning: outcomes, scope, trajectory</h2>
@@ -42,14 +42,7 @@ export const resumeExperienced: BlogPost = {
   title: "Resume for Experienced Professionals: Positioning That Wins (2026)",
   description:
     "Experienced resume guide: outcome-scope-trajectory bullets, length rules, pivots, gaps + offer endgame. Free builder + ATS check included.",
-  keywords: [
-    "resume for experienced professionals",
-    "senior resume tips",
-    "resume after 5 years experience",
-    "career gap resume",
-    "resume career change",
-    "How long should an experienced resume be?",
-  ],
+  keywords: ["resume for experienced professionals", "senior resume tips", "resume after 5 years experience", "career gap resume", "resume career change"],
   toolSlugs: ["resume-builder", "ats-resume-checker", "offer-letter-generator"],
   relatedSlugs: ["how-to-make-resume", "offer-letter-guide", "ats-resume-guide"],
   published: "2026-09-23",

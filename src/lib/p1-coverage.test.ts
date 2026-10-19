@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { getStaggeredDay, getDateModifiedIso, SITE_PUBLISHED_ISO } from "./dates";
+import { getDateModifiedIso, getDatePublishedIso } from "./dates";
+import { TOOL_DATES, SITE_PUBLISHED } from "./edit-dates.generated";
 import { countWords, readingMinutesFor } from "./blog";
 import {
   BLOG_PILLARS,
@@ -35,23 +36,39 @@ import { validatePdfMagicBytes, MAX_PDF_PAGES } from "./validate";
 import { LITE_TOOLS, LITE_GROUPS, liteGetTool } from "./tools/catalog-lite";
 import { NOINDEX_SLUGS as LITE_NOINDEX } from "./tools/noindex";
 
-describe("dates – staggered invariant", () => {
-  it("staggered day is deterministic in 1..9", () => {
-    for (const t of tools) {
-      const d = getStaggeredDay(t.slug);
-      expect(d).toBeGreaterThanOrEqual(1);
-      expect(d).toBeLessThanOrEqual(9);
-      expect(getStaggeredDay(t.slug)).toBe(d);
+describe("dates – real git-derived dates", () => {
+  const entries = Object.values(TOOL_DATES);
+
+  it("generated module signs every tool with well-formed real dates", () => {
+    expect(SITE_PUBLISHED).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(entries.length).toBe(tools.length);
+    for (const d of entries) {
+      expect(d.published).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(d.modified >= d.published).toBe(true);
     }
   });
 
-  it("modified ISO matches 2026-09-0X and >= published", () => {
-    expect(SITE_PUBLISHED_ISO).toBe("2026-09-01");
+  it("every tool has a real ISO dateModified and published <= modified", () => {
     for (const t of tools) {
-      const iso = getDateModifiedIso(t.slug);
-      expect(iso).toMatch(/^2026-09-0[1-9]$/);
-      expect(iso >= SITE_PUBLISHED_ISO).toBe(true);
+      const modified = getDateModifiedIso(t.slug);
+      expect(modified, t.slug).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      const published = getDatePublishedIso(t.slug);
+      expect(published, t.slug).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(published <= modified, `${t.slug}: ${published} <= ${modified}`).toBe(true);
     }
+  });
+
+  it("dates are not confined to the fabricated Sept hash window", () => {
+    // The old scheme pinned every slug into 2026-09-01..09. Real git history
+    // contains genuine edit dates after that window (e.g. 2026-10-09).
+    const all = tools.map((t) => getDateModifiedIso(t.slug));
+    const outsideWindow = all.filter((d) => d > "2026-09-09").some(Boolean);
+    expect(outsideWindow).toBe(true);
+  });
+
+  it("unknown slugs fall back to site publish date, never invented", () => {
+    const mod = getDateModifiedIso("not-a-real-tool-xyz");
+    expect(getDatePublishedIso("not-a-real-tool-xyz")).toBe(mod);
   });
 });
 

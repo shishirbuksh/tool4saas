@@ -1,4 +1,5 @@
 import type { BlogPost, BlogPillarMeta } from "@/lib/blog";
+import { isNoindexCluster } from "@/lib/blog/noindex";
 import { invoicePillar } from "@/content/blog/invoice-pillar";
 import { invoiceHowToCreate } from "@/content/blog/invoice-c1-how-to-create";
 import { invoiceGstFormat } from "@/content/blog/invoice-c2-gst-format";
@@ -113,13 +114,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "The complete free invoice generator guide — what to include, GST rules, templates, numbering, payment terms and how to create a PDF invoice in minutes with no signup.",
     toolSlug: "invoice-generator",
-    keywords: [
-      "free invoice generator",
-      "invoice maker",
-      "create invoice online free",
-      "gst invoice format",
-      "freelancer invoice",
-    ],
+    keywords: ["free invoice generator", "invoice maker", "create invoice online free", "gst invoice format", "freelancer invoice"],
     updated: "2026-09-18",
   },
   {
@@ -129,13 +124,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "The complete free QR code generator guide — WiFi, UPI, menus, vCards, print sizing, static vs dynamic and scan fixes. No signup, no expiry.",
     toolSlug: "qr-code-generator",
-    keywords: [
-      "free qr code generator",
-      "qr code maker",
-      "wifi qr code",
-      "upi qr code",
-      "qr code size print",
-    ],
+    keywords: ["free qr code generator", "qr code maker", "wifi qr code", "upi qr code", "qr code size print"],
     updated: "2026-09-22",
   },
   {
@@ -145,13 +134,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "The complete free resume builder guide — sections, fresher vs experienced, ATS rules, India/US/UK formats, cover letters, offer letters + PDF export.",
     toolSlug: "resume-builder",
-    keywords: [
-      "free resume builder",
-      "resume maker",
-      "ats friendly resume",
-      "resume format india",
-      "fresher resume",
-    ],
+    keywords: ["free resume builder", "resume maker", "ats friendly resume", "resume format india", "fresher resume"],
     updated: "2026-09-23",
   },
   {
@@ -161,13 +144,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "The complete mortgage calculator guide — PITI, formula with $240k example, amortization, 15-vs-30, refinance, India EMI + rent-vs-buy. Free calculator.",
     toolSlug: "mortgage-calculator",
-    keywords: [
-      "mortgage calculator guide",
-      "home loan calculator guide",
-      "house payment estimator",
-      "piti vs principal and interest",
-      "home loan emi calculator india",
-    ],
+    keywords: ["mortgage calculator guide", "home loan calculator guide", "house payment estimator", "piti vs principal and interest", "home loan emi calculator india"],
     updated: "2026-09-24",
   },
   {
@@ -177,13 +154,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "Generate strong passwords free and offline: settings, entropy table, passphrases, manager + 2FA pairing, breach basics. No signup, nothing uploads.",
     toolSlug: "password-generator",
-    keywords: [
-      "how to generate strong password",
-      "password generator guide",
-      "offline password generator",
-      "passphrase vs password",
-      "password manager 2fa guide",
-    ],
+    keywords: ["how to generate strong password", "password generator guide", "offline password generator", "passphrase vs password", "password manager 2fa guide"],
     updated: "2026-09-25",
   },
   {
@@ -193,13 +164,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "Count words free with no signup: reading-time math, Flesch formulas, density without myths, length-by-intent + India limits. Local and private.",
     toolSlug: "word-counter",
-    keywords: [
-      "word counter guide",
-      "how to check word count",
-      "reading time calculator",
-      "flesch reading ease",
-      "keyword density checker",
-    ],
+    keywords: ["word counter guide", "how to check word count", "reading time calculator", "flesch reading ease", "keyword density checker"],
     updated: "2026-09-26",
   },
   {
@@ -209,13 +174,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "The complete image optimization guide — 80% quality rule, JPG vs PNG vs WebP, exact resize presets, 100KB portal method, EXIF privacy + image SEO.",
     toolSlug: "image-compressor",
-    keywords: [
-      "how to compress images for web",
-      "compress images without losing quality",
-      "jpg vs png vs webp",
-      "resize image exact pixels",
-      "remove exif before upload",
-    ],
+    keywords: ["how to compress images for web", "compress images without losing quality", "jpg vs png vs webp", "resize image exact pixels", "remove exif before upload"],
     updated: "2026-10-07",
   },
   {
@@ -225,13 +184,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "The complete PDF workflow guide — merge in order, range extraction, 1MB compression, scans to PDF, JPG export, text vs OCR, rotate + watermark.",
     toolSlug: "pdf-merge",
-    keywords: [
-      "how to manage pdf files offline",
-      "merge split compress pdf private",
-      "pdf tools without upload",
-      "jpg scans to single pdf",
-      "extract text from pdf without ocr",
-    ],
+    keywords: ["how to manage pdf files offline", "merge split compress pdf private", "pdf tools without upload", "jpg scans to single pdf", "extract text from pdf without ocr"],
     updated: "2026-10-07",
   },
   {
@@ -241,13 +194,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "The complete local debugging guide — JSON errors, Base64 modes, SHA-256 vs MD5, UUID seeding, regex flags, JWT expiry + URL encoding. No uploads.",
     toolSlug: "json-formatter",
-    keywords: [
-      "how to debug api json responses locally",
-      "json parse errors line column",
-      "base64 url safe vs standard",
-      "sha256 vs md5 which to use",
-      "jwt expiry check without trust",
-    ],
+    keywords: ["how to debug api json responses locally", "json parse errors line column", "jwt expiry check without trust"],
     updated: "2026-10-07",
   },
   {
@@ -257,13 +204,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "The complete on-page SEO workflow — 11 weighted checks, density truth, pixel titles, crawl plumbing, social cards + honest AI checks. Free analyzer.",
     toolSlug: "seo-analyzer",
-    keywords: [
-      "how to score 80 on page seo without plugin",
-      "11 checks title slug density headings alt",
-      "600 words 1-2 percent density",
-      "rankmath vs yoast audit free",
-      "core web vitals vs on page",
-    ],
+    keywords: ["how to score 80 on page seo without plugin", "11 checks title slug density headings alt", "600 words 1-2 percent density", "rankmath vs yoast audit free", "core web vitals vs on page"],
     updated: "2026-10-07",
   },
   {
@@ -273,13 +214,7 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     description:
       "The complete India wealth guide — SIP vs FD vs PPF numbers, compounding frequency, tax regimes, real returns, goal math + LTCG. Free calculators.",
     toolSlug: "sip-calculator",
-    keywords: [
-      "sip vs fd vs ppf which is better india 2026",
-      "sip vs lumpsum returns comparison",
-      "ppf vs fd tax free comparison",
-      "step-up sip vs flat sip",
-      "real vs nominal return after inflation",
-    ],
+    keywords: ["sip vs lumpsum returns comparison", "ppf vs fd tax free comparison", "step-up sip vs flat sip", "real vs nominal return after inflation"],
     updated: "2026-10-07",
   },
 ];
@@ -420,7 +355,9 @@ export function getAllBlogStaticParams(): { pillar: string; cluster?: string }[]
 }
 
 export function getRelatedPosts(post: BlogPost, limit = 3): BlogPost[] {
-  const siblings = getClustersForPillar(post.pillar).filter((p) => p.slug !== post.slug);
+  const siblings = getClustersForPillar(post.pillar).filter(
+    (p) => p.slug !== post.slug && !isNoindexCluster(post.pillar, p.slug)
+  );
   // Prefer explicitly related slugs first, then fill with the rest.
   const ordered = [
     ...siblings.filter((s) => post.relatedSlugs.includes(s.slug)),

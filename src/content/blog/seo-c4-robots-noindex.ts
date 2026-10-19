@@ -27,7 +27,7 @@ const html = `
 <p>Validate every ruleset in a tester before deploying — one misplaced wildcard has deindexed entire blogs. The 500KB robots cap rarely binds, but bloated files signal undisciplined crawling that sitemaps should instead organize (see <a href="/blog/seo-analyzer-guide/split-large-sitemap">sitemap splitting</a>).</p>
 
 <h2 id="cases">Three real cases (admin, staging, facets)</h2>
-<p><strong>Admin login indexed:</strong> remove the Disallow, add noindex, let Google recrawl, then re-evaluate — plus authentication, because login pages deserve locks, not hints. <strong>Staging clone indexed:</strong> noindex + password-protect staging permanently; relying on Disallow alone leaks titles. <strong>Faceted filters eating budget:</strong> Disallow parameter variants (<code>?color=</code>, <code>?sort=</code>), canonical clean versions, submit only canonicals in sitemaps. Bing vs Google diverge on edge directives — test both Search Console and Bing Webmaster before declaring victory.</p>
+<p><strong>Admin login indexed:</strong> remove the Disallow, add noindex, let Google recrawl, then re-evaluate — and authentication, because login pages deserve locks, not hints. <strong>Staging clone indexed:</strong> noindex + password-protect staging permanently; relying on Disallow alone leaks titles. <strong>Faceted filters eating budget:</strong> Disallow parameter variants (<code>?color=</code>, <code>?sort=</code>), canonical clean versions, submit only canonicals in sitemaps. Bing vs Google diverge on edge directives — test both Search Console and Bing Webmaster before declaring victory.</p>
 <blockquote class="tip">General guidance only. Robots.txt is a crawling courtesy with security-adjacent consequences — audit quarterly, never assume.</blockquote>
 `;
 
@@ -38,14 +38,7 @@ export const seoRobotsNoindex: BlogPost = {
   title: "Robots.txt vs Noindex: When to Use Each",
   description:
     "Robots.txt vs noindex bright line, longest-match Disallow rules + admin/staging/facet cases. Free rule builder and tester.",
-  keywords: [
-    "robots txt vs noindex when to use each",
-    "disallow admin login title-only",
-    "allow disallow longest match",
-    "crawl-delay 5 shared host",
-    "tester validation",
-    "Does robots.txt remove pages from Google?",
-  ],
+  keywords: ["robots txt vs noindex when to use each", "disallow admin login title-only", "allow disallow longest match", "crawl-delay 5 shared host", "tester validation"],
   toolSlugs: ["robots-txt-generator", "sitemap-generator", "seo-analyzer"],
   relatedSlugs: ["split-large-sitemap", "stale-og-image-fix", "fix-score-60-to-80"],
   published: "2026-10-07",

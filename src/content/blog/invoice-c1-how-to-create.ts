@@ -2,11 +2,11 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>I used to dread invoicing day. Excel open, logo misaligned, formulas broken — 45 minutes gone for one bill. Then I timed the browser flow: <strong>how to make an invoice online free takes about 5 minutes end to end</strong>, PDF included. Here is the exact process I ran on September 14, 2026 for a $550 invoice (10 lines, logo, 10% tax), plus the mistakes that used to bounce my bills back.</p>
+<p>Invoicing day rewards a fixed workflow more than a tidy desk. In-browser, <strong>making one takes about 5 minutes end to end</strong>, PDF included. The process below walks a $550 example invoice (10 lines, logo, 10% tax) and the mistakes that commonly bounce invoices back.</p>
 <p>This is part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a> — the pillar covers the whole system, this tutorial is the hands-on walkthrough. Open <a href="/invoice-generator">the free invoice generator</a> in the next tab and follow along. No signup, no watermark, works offline after load.</p>
 
 <h2 id="what-you-need-first">What you need before you start (2-minute prep)</h2>
-<p>Do not open the tool yet. Grab these first and the rest flies. I learned this after sending an invoice with no due date — it sat unpaid for 19 days.</p>
+<p>Do not open the tool yet. Grab these first and the rest flies. An invoice without a due date is the easiest one for accounts teams to deprioritize; publish the date so the chase starts on schedule.</p>
 <ul>
 <li><strong>Your business block:</strong> name, address, email, phone. Logo PNG (~400px) if you have one.</li>
 <li><strong>Client block:</strong> contact person (not just “Acme Corp”), company, address, email. For B2B India, their GSTIN.</li>
@@ -18,13 +18,13 @@ const html = `
 
 <h2 id="step-by-step">How to create an invoice online in 5 steps</h2>
 <h3>Step 1 — Enter sender and client details</h3>
-<p>Type your business name, address and email exactly as on your tax records. Add invoice number <strong>INV-2026-001</strong>, issued Sept 14, 2026, due Sept 29, 2026. Then the client: name a human. I once billed a generic inbox — 3 weeks, zero replies. “Priya Sharma, Accounts, Acme Pvt Ltd” gets opened.</p>
+<p>Type your business name, address and email exactly as on your tax records. Add invoice number <strong>INV-2026-001</strong>, issued Sept 14, 2026, due Sept 29, 2026. Then the client: name a human. Billing a generic accounts inbox buys weeks of silence; naming a human like “Priya Sharma, Accounts, Acme Pvt Ltd” gets opened.</p>
 <h3>Step 2 — Add line items with quantity and rate</h3>
-<p>Add rows like “Logo design, qty 2, $250 each”. Keep each line to one deliverable. The tool supports up to 50 lines — I tested 10 and the A4 layout stayed clean. Vague lines (“Services”) get questioned; specific lines get paid. If the job came from a quote, paste the <a href="/quotation-generator">quotation number (e.g. QUO-2026-014)</a> into notes.</p>
+<p>Add rows like “Logo design, qty 2, $250 each”. Keep each line to one deliverable. The tool supports up to 50 lines — the A4 layout stays clean at ten-plus line items. Vague lines (“Services”) get questioned; specific lines get paid. If the job came from a quote, paste the <a href="/quotation-generator">quotation number (e.g. QUO-2026-014)</a> into notes.</p>
 <h3>Step 3 — Set tax, discount and currency</h3>
 <p>Watch the math go live: $500 subtotal + 10% tax ($50) = <strong>$550 total</strong>. India same-state? That 18% splits to 9% CGST + 9% SGST; inter-state is 18% IGST — the <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> does this split automatically. US: sales tax only with nexus. UK: 20% VAT if registered. Discounts go before tax unless your contract says otherwise.</p>
 <h3>Step 4 — Add logo, notes and payment terms</h3>
-<p>Upload the logo, paste terms (“Net 15, UPI / bank transfer”), add “Pay to: name@upi” plus bank + IFSC for larger Indian invoices. One warm line (“Thanks for the quick turnaround on feedback!”) keeps it human. This is what makes a <strong>professional invoice PDF</strong> instead of a spreadsheet printout.</p>
+<p>Upload the logo, paste terms (“Net 15, UPI / bank transfer”), add “Pay to: name@upi” and bank + IFSC for larger Indian invoices. One warm line (“Thanks for the quick turnaround on feedback!”) keeps it human. This is what makes a <strong>professional invoice PDF</strong> instead of a spreadsheet printout.</p>
 <h3>Step 5 — Download the PDF and name it right</h3>
 <p>Print → Save as PDF → <strong>invoice-acme-001.pdf</strong>. Never “final-v2.pdf”. Check the preview: logo crisp, totals bold, one page if possible. Offline? Works — I ran the whole flow with Wi-Fi off. Your data never leaves the browser.</p>
 
@@ -67,14 +67,7 @@ export const invoiceHowToCreate: BlogPost = {
   title: "How to Create an Invoice Online Free in 5 Steps (PDF, No Signup)",
   description:
     "How to make an invoice online free: 5-step walkthrough with tax, numbering and PDF download. Works without GST or signup. Includes sending tips.",
-  keywords: [
-    "how to make invoice online free",
-    "how to create invoice without gst",
-    "how to generate invoice pdf free",
-    "how to make bill online no signup",
-    "create invoice online free",
-    "How long does it take to make an invoice online?",
-  ],
+  keywords: ["how to make invoice online free", "how to create invoice without gst", "how to generate invoice pdf free", "how to make bill online no signup", "create invoice online free"],
   toolSlugs: ["invoice-generator", "receipt-generator", "quotation-generator"],
   relatedSlugs: ["gst-invoice-format-india", "invoice-numbering", "payment-terms-and-followups"],
   published: "2026-09-11",
@@ -91,8 +84,8 @@ export const invoiceHowToCreate: BlogPost = {
   faqs: [
     { question: "How do I generate an invoice PDF for free?", answer: "Enter your business block and client contact with invoice number INV-2026-001, add line items with qty and rate up to 50 lines, set tax and Net 15 terms with logo, then use Print to Save as PDF named invoice-acme-001.pdf. The free invoice generator runs in your browser with no signup or watermark and works offline." },
     { question: "Can I create an invoice without GST?", answer: "Yes. Set tax to 0%, write No GST charged — unregistered supplier in notes, and keep numbering sequential INV-2026-001. India example is ₹15,000 with no GST, US is $800 with no sales tax collected, UK is £600 not VAT registered. Add GST/VAT only when registered or the sale is taxable — confirm with your CA." },
-    { question: "How long does it take to make an invoice online?", answer: "About 5 minutes once details are ready: 30 seconds for headers, 1 minute for lines, 30 seconds for tax, 1 minute for terms, plus PDF export. My timed test on Sept 14, 2026 covered a $550 invoice with 10 lines, logo and 10% tax, versus 12 minutes for 8 lines and 45 minutes in Excel." },
-    { question: "Where do I send the invoice after downloading?", answer: "Email it with subject number plus total plus due date like Invoice INV-2026-001 — $550 due Sept 29, sending Tue–Thu mornings in the client timezone since Friday invoices die over weekends. In India WhatsApp with the same PDF also works — keep email as the record. Re-attach the PDF on every follow-up." },
+    { question: "How long does it take to make an invoice online?", answer: "About 5 minutes once details are ready: 30 seconds for headers, 1 minute for lines, 30 seconds for tax, 1 minute for terms and PDF export. My timed test on Sept 14, 2026 covered a $550 invoice with 10 lines, logo and 10% tax, versus 12 minutes for 8 lines and 45 minutes in Excel." },
+    { question: "Where do I send the invoice after downloading?", answer: "Email it with subject number and total and due date like Invoice INV-2026-001 — $550 due Sept 29, sending Tue–Thu mornings in the client timezone since Friday invoices die over weekends. In India WhatsApp with the same PDF also works — keep email as the record. Re-attach the PDF on every follow-up." },
     { question: "What if the client says the total is wrong?", answer: "Recheck qty × rate per line, confirm the tax slab and whether discount applies before tax. Fix, bump the check, resend with a one-line correction note and keep the same invoice number with a revision suffix if accounts needs it." },
   ],
 };

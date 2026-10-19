@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>Two articles, same topic, same word count. One ranks with a rich thumbnail and clean snippet; the other shows a gray placeholder and truncated title. The difference was forty minutes of <strong>image SEO</strong>: sized files, descriptive alts, stable dimensions. This guide gives the full checklist — size budgets, alt formulas, dimension discipline and lazy-loading — plus how each item feeds both rankings and AI-search citations.</p>
+<p>Two articles, same topic, same word count. One ranks with a rich thumbnail and clean snippet; the other shows a gray placeholder and truncated title. The difference was forty minutes of <strong>image SEO</strong>: sized files, descriptive alts, stable dimensions. This guide gives the full checklist — size budgets, alt formulas, dimension discipline and lazy-loading — and how each item feeds both rankings and AI-search citations.</p>
 <p>Part of the <a href="/blog/image-compressor-guide">image optimization guide</a>. Hit budgets with the <a href="/image-compressor">image compressor</a>; score the page in the <a href="/seo-analyzer">SEO analyzer</a>. Cover sizing in <a href="/blog/image-compressor-guide/resize-image-exact-pixels">resize presets</a>.</p>
 
 <h2 id="budgets">Size budgets per slot (the numbers to hit)</h2>
@@ -35,14 +35,7 @@ export const imageSeo: BlogPost = {
   title: "Image SEO: Size, Alt Text and Dimensions",
   description:
     "Image SEO checklist: per-slot size budgets, 8-12 word alt formula, CLS-killing dimensions + lazy/srcset wiring. Free compressor + page scorer.",
-  keywords: [
-    "image seo size and alt guide",
-    "what image size for blog hero fast load",
-    "how to write alt text seo",
-    "lazy load vs compress",
-    "1200px hero lighthouse score",
-    "What image size is best for blog heroes?",
-  ],
+  keywords: ["image seo size and alt guide", "what image size for blog hero fast load", "how to write alt text seo", "lazy load vs compress", "1200px hero lighthouse score"],
   toolSlugs: ["image-compressor", "seo-analyzer", "image-resizer"],
   relatedSlugs: ["resize-image-exact-pixels", "png-vs-jpg-vs-webp", "strip-exif-before-upload"],
   published: "2026-10-07",
@@ -57,7 +50,7 @@ export const imageSeo: BlogPost = {
   html,
   faqs: [
     { question: "What image size is best for blog heroes?", answer: "1200×630 under 180KB in WebP 80%, which doubles as the OG share cover up to 300KB with absolute HTTPS URLs. It keeps the LCP element fast since every kilobyte delays paint. Audit with DevTools Network image filter, resize then compress over-budget files, and re-score with the SEO analyzer." },
-    { question: "How do I write SEO alt text?", answer: "Subject plus action plus distinguishing detail in 8–12 words under about 125 characters, like technician compressing a 4.2MB photo to 900KB on a laptop. Give every meaningful image alt, use empty alt for decoration, never stuff keywords, and prefer descriptive phrasing that AI search can cite." },
+    { question: "How do I write SEO alt text?", answer: "Subject and action and distinguishing detail in 8–12 words under about 125 characters, like technician compressing a 4.2MB photo to 900KB on a laptop. Give every meaningful image alt, use empty alt for decoration, never stuff keywords, and prefer descriptive phrasing that AI search can cite." },
     { question: "Should I lazy-load all images?", answer: "Everything below the fold, yes, using loading lazy with reserved placeholder space. Never lazy-load the hero or LCP image — that delays your most important paint and hurts scores. Export 400/800/1200 widths from the resizer, compress each variant, and wire responsive srcset so phones avoid desktop bytes." },
     { question: "How do images cause layout shift?", answer: "Missing dimensions let text reflow as images load, creating Cumulative Layout Shift, a ranking factor. Set explicit width and height like 1200×630 or aspect-ratio CSS so space reserves upfront. Our cards bake 280px intrinsic sizes, and Lighthouse targets CLS under 0.1 for stable layouts during loading for readers." },
     { question: "Do images affect AI search citations?", answer: "Descriptive alts and fast-loading figures get cited; generic filenames and heavy pages don't surface. The same forty-minute checklist — sized files, 8–12 word alts and stable dimensions — feeds both rankings and AI citations. Keep heroes under 180KB and verify share cards in the open graph preview." },

@@ -2,7 +2,9 @@
 // global-error has no router context — plain <a> is required here.
 /* eslint-disable @next/next/no-html-link-for-pages */
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+type Lang = "en" | "es" | "fr";
 
 export default function GlobalError({
   error,
@@ -11,12 +13,20 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  // No router context in global-error, so derive the locale from the URL.
+  const [lang, setLang] = useState<Lang>("en");
   useEffect(() => {
     console.error(error);
+    try {
+      const seg = window.location.pathname.split("/").filter(Boolean)[0];
+      if (seg === "es" || seg === "fr") setLang(seg);
+    } catch {
+      /* keep en */
+    }
   }, [error]);
 
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body style={{ fontFamily: "system-ui, sans-serif", margin: 0, padding: 48, textAlign: "center" }}>
         <h1 style={{ fontSize: "2rem", fontWeight: 800 }}>Something went wrong</h1>
         <p style={{ color: "#555" }}>

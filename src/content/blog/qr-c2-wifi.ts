@@ -10,7 +10,7 @@ const html = `
 
 <h2 id="step-by-step">Make yours in 4 steps</h2>
 <h3>Step 1 — Copy the SSID exactly</h3>
-<p>Capitals, spaces and punctuation must match byte-for-byte. “Cafe-Guest” and “cafe-guest” are different networks. Photograph the router sticker rather than typing from memory — I once spent 20 minutes debugging a code whose SSID had a trailing space.</p>
+<p>Capitals, spaces and punctuation must match byte-for-byte. “Cafe-Guest” and “cafe-guest” are different networks. Photograph the router sticker rather than typing from memory — An invisible trailing space in an SSID can stall scans for minutes without any clue — copy-paste the network name instead of typing it.</p>
 <h3>Step 2 — Set security type and password</h3>
 <p>Choose <strong>WPA/WPA2</strong> (most routers), WEP (old hardware) or No password (open guest networks). WPA passwords run 8–63 characters. Special characters like semicolons and colons break hand-written formats — the <a href="/wifi-qr-generator">WiFi tool escapes them automatically</a>, which is exactly why you should not hand-craft the string.</p>
 <h3>Step 3 — Flag hidden SSIDs if needed</h3>
@@ -29,7 +29,7 @@ const html = `
 </tbody>
 </table>
 <ul>
-<li><strong>Label it:</strong> “Scan to join Guest WiFi” plus the SSID in text. Guests trust labeled codes; bare squares get ignored.</li>
+<li><strong>Label it:</strong> “Scan to join Guest WiFi” and the SSID in text. Guests trust labeled codes; bare squares get ignored.</li>
 <li><strong>Separate guest network:</strong> never QR-share your main network with its admin panel and smart devices. Guest SSID with client isolation is the correct setup — ask your ISP if unsure.</li>
 <li><strong>Password changes:</strong> reprint the code the same day. Keep the PNG filename versioned (guest-wifi-2026-09.png) so old prints get binned.</li>
 </ul>
@@ -52,7 +52,7 @@ const html = `
 <li><strong>Ancient phone</strong> — pre-2018 cameras may need a scanner app; verify what the code contains with our <a href="/qr-scanner">QR scanner</a> first.</li>
 </ol>
 <h2 id="multi-network">Multi-network setups: home + office + events</h2>
-<p>One code per network, labeled by purpose — the system scales cleanly. <strong>Home:</strong> main SSID unprinted, plus a guest-SSID fridge card for visitors (rotate when tenants change). <strong>Office:</strong> staff network (password via IT onboarding, never QR-posted) plus a lobby guest code framed at reception with the day's password version noted. <strong>Events:</strong> per-day codes work best — “ conf-wifi-day1” printed on badges, day 2 rotated, which also expires hallway access automatically when the event ends. <strong>PGs/hostels:</strong> per-floor SSIDs keep support sane (“which floor?” answers itself). Common failure: one shared code photographed and forwarded beyond its audience — scope each code's network to what its audience should reach, per the <a href="#guest-network-security">security section above</a>, and version filenames (lobby-guest-sep2026.png) so old prints get binned on rotation.</p>
+<p>One code per network, labeled by purpose — the system scales cleanly. <strong>Home:</strong> main SSID unprinted and a guest-SSID fridge card for visitors (rotate when tenants change). <strong>Office:</strong> staff network (password via IT onboarding, never QR-posted) and a lobby guest code framed at reception with the day's password version noted. <strong>Events:</strong> per-day codes work best — “ conf-wifi-day1” printed on badges, day 2 rotated, which also expires hallway access automatically when the event ends. <strong>PGs/hostels:</strong> per-floor SSIDs keep support sane (“which floor?” answers itself). Common failure: one shared code photographed and forwarded beyond its audience — scope each code's network to what its audience should reach, per the <a href="#guest-network-security">security section above</a>, and version filenames (lobby-guest-sep2026.png) so old prints get binned on rotation.</p>
 <div class="cta-box"><strong>Make it now:</strong> open the <a href="/wifi-qr-generator">WiFi QR generator</a> — SSID, password, print, done in 2 minutes. Overview: <a href="/blog/qr-code-generator-guide">QR pillar guide</a> · Sizing math: <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">print guide</a>.</div>
 `;
 
@@ -63,14 +63,7 @@ export const qrWifi: BlogPost = {
   title: "WiFi QR Code: Share Guest WiFi With One Scan (2026)",
   description:
     "WiFi QR code guide: share guest WiFi with one scan. SSID tips, WPA/WEP, hidden networks, print sizes and join-failure fixes. Free generator.",
-  keywords: [
-    "share wifi password qr code guests",
-    "qr code for wifi password",
-    "share wifi with qr code",
-    "wifi qr code for guests",
-    "scan to join wifi",
-    "Does it work with hidden networks?",
-  ],
+  keywords: ["share wifi password qr code guests", "qr code for wifi password", "share wifi with qr code", "wifi qr code for guests", "scan to join wifi"],
   toolSlugs: ["wifi-qr-generator", "qr-code-generator", "qr-scanner"],
   relatedSlugs: ["how-to-create-qr-code", "qr-code-size-print-guide", "qr-code-not-scanning-fix"],
   published: "2026-09-22",
@@ -86,10 +79,10 @@ export const qrWifi: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How do I share my WiFi password with a QR code?", answer: "Enter the exact SSID with capitals and spaces plus password and security type usually WPA/WPA2 in the WiFi QR generator, then download guest-wifi.png and print 5–8 cm matte black on white for counter display. Frame it and test with one Android plus one iPhone. Guests scan with their camera and tap Join with no typing." },
+    { question: "How do I share my WiFi password with a QR code?", answer: "Enter the exact SSID with capitals and spaces and password and security type usually WPA/WPA2 in the WiFi QR generator, then download guest-wifi.png and print 5–8 cm matte black on white for counter display. Frame it and test with one Android and one iPhone. Guests scan with their camera and tap Join with no typing." },
     { question: "Does it work with hidden networks?", answer: "Yes. Toggle the hidden-SSID flag in the WiFi QR generator when generating for a non-broadcasting network. Without it, phones scan successfully yet fail to join — the most confusing failure mode. If a hidden code scans but will not join, recheck the flag first, then SSID exactness, security match, size and glare." },
     { question: "Is sharing WiFi via QR safe?", answer: "Share a dedicated guest SSID with client isolation, never your main network with NAS, printers and smart locks. Anyone photographing the sign joins forever, so keep private SSID unprinted and rotate guest passwords quarterly or per tenant. Reprint the framed code same day with versioned filenames like guest-wifi-2026-09.png whenever passwords change." },
-    { question: "What if the QR scans but won't join?", answer: "Check SSID exactness including capitals, spaces and trailing spaces by re-copying from the router settings page, plus hidden-network flag and WPA versus WEP security-type match. Then check print size and glare — enlarge to 8 cm matte on a flat surface and retest with a second phone at arm's length." },
+    { question: "What if the QR scans but won't join?", answer: "Check SSID exactness including capitals, spaces and trailing spaces by re-copying from the router settings page and hidden-network flag and WPA versus WEP security-type match. Then check print size and glare — enlarge to 8 cm matte on a flat surface and retest with a second phone at arm's length." },
     { question: "Do old phones support WiFi QR codes?", answer: "Cameras from roughly the last 6 years join guest networks natively with no app needed. Older pre-2018 phones with fixed-focus cameras may need a scanner app and cannot resolve dense codes. Test with a sparse short-URL code at 4 cm before blaming the print, and verify contents anytime with the free QR scanner." },
   ],
 };

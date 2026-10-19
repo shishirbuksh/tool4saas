@@ -1,5 +1,5 @@
 # Tool4SaaS (184 free tools across 12 categories + guides)
-> Updated: 2026-10-09 · visible count excludes 1 NOINDEX placeholder (pdf-compress, ships soon).
+> Updated: 2026-10-19 · visible count excludes 1 NOINDEX placeholder (pdf-compress, ships soon).
 
 > Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 184 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
 
@@ -200,7 +200,7 @@
 - [FD Calculator India](https://tool4saas.com/fd-calculator): FD maturity quarterly
 - [PPF Calculator India 7.1%](https://tool4saas.com/ppf-calculator): PPF 15-year maturity
 - [Debt Payoff Calculator](https://tool4saas.com/debt-payoff-calculator): Snowball vs avalanche
-- [Capital Gains Tax Calculator India](https://tool4saas.com/capital-gains-tax-india): LTCG STCG plus cess
+- [Capital Gains Tax Calculator India](https://tool4saas.com/capital-gains-tax-india): LTCG STCG and cess
 
 ## Health & Fitness
 - [Calorie Calculator](https://tool4saas.com/calorie-calculator): BMR, TDEE & macros

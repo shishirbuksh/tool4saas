@@ -2,6 +2,7 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import { VISIBLE_TOOL_COUNT, EXPECTED_CATEGORY_COUNT } from "@/lib/tools";
 
 // Trust bar (text only, zero JS) + on-this-page jump links (server anchors).
 export default function HomeNav() {
@@ -11,7 +12,7 @@ export default function HomeNav() {
       <Box sx={{ bgcolor: 'background.paper', borderTop: '1px solid', borderColor: 'divider', borderBottom: '1px solid', py: 2 }}>
         <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
           <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center', lineHeight: 1.7 }}>
-            185 free tools · 12 categories · most run offline · no sign-up · <Link href="/methodology">how we test</Link> · <Link href="/about">about us</Link>
+            {VISIBLE_TOOL_COUNT} free tools · {EXPECTED_CATEGORY_COUNT} categories · most run offline · no sign-up · <Link href="/methodology">how we test</Link> · <Link href="/about">about us</Link>
           </Typography>
         </Container>
       </Box>

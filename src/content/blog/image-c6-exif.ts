@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>A landlord posted a “flat for rent” photo straight from his phone. A stranger extracted the GPS coordinates, walked to the building, and knocked — while the flat sat empty awaiting tenants. The photo had done exactly what the landlord asked, plus one thing he never imagined: <strong>broadcasting his vacant property's location to the meter</strong>. Every phone photo embeds EXIF metadata — GPS, timestamps, device model. This guide shows what leaks, how to check in seconds, and how stripping works (plus the WhatsApp exception everyone misunderstands).</p>
+<p>A landlord posted a “flat for rent” photo straight from his phone. A stranger extracted the GPS coordinates, walked to the building, and knocked — while the flat sat empty awaiting tenants. The photo had done exactly what the landlord asked and one thing he never imagined: <strong>broadcasting his vacant property's location to the meter</strong>. Every phone photo embeds EXIF metadata — GPS, timestamps, device model. This guide shows what leaks, how to check in seconds, and how stripping works (plus the WhatsApp exception everyone misunderstands).</p>
 <p>Part of the <a href="/blog/image-compressor-guide">image optimization guide</a>. Inspect any photo in the <a href="/exif-viewer">EXIF viewer</a> (local FileReader — nothing uploads); strip by recompressing in the <a href="/image-compressor">image compressor</a>. Portal method in <a href="/blog/image-compressor-guide/compress-jpg-100kb-portal">100KB guide</a>.</p>
 
 <h2 id="what-leaks">What your photo leaks (GPS, timestamps, device)</h2>
@@ -35,14 +35,7 @@ export const imageExif: BlogPost = {
   title: "Strip EXIF Data Before Uploading Photos",
   description:
     "Photo EXIF leaks GPS, timestamps, device: 10-second local check method, WhatsApp stripping myth, recompress-to-strip workflow. Free private viewer.",
-  keywords: [
-    "how to remove exif data before uploading",
-    "what is exif gps location risk",
-    "view exif online private",
-    "does whatsapp strip exif",
-    "exif vs metadata",
-    "What is EXIF data and why remove it?",
-  ],
+  keywords: ["how to remove exif data before uploading", "what is exif gps location risk", "view exif online private", "does whatsapp strip exif", "exif vs metadata"],
   toolSlugs: ["exif-viewer", "image-compressor", "image-resizer"],
   relatedSlugs: ["compress-jpg-100kb-portal", "png-vs-jpg-vs-webp", "image-seo-size-alt"],
   published: "2026-10-07",

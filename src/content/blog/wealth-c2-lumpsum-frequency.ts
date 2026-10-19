@@ -32,14 +32,7 @@ export const lumpSumFreq: BlogPost = {
   title: "Lump Sum Compounding: Monthly vs Yearly Rests",
   description:
     "Compounding frequency with ₹50,000 worked table: monthly beats yearly by ₹3,036, rest formula + payout vs cumulative rules. Free calculator.",
-  keywords: [
-    "lump sum vs sip compounding frequency explained",
-    "monthly vs yearly rests extra 2084",
-    "50000 at 8 percent 10 years maturity",
-    "daily quarterly compounding difference",
-    "payout vs cumulative",
-    "Does compounding frequency really matter?",
-  ],
+  keywords: ["lump sum vs sip compounding frequency explained", "50000 at 8 percent 10 years maturity", "daily quarterly compounding difference", "payout vs cumulative"],
   toolSlugs: ["compound-interest-calculator", "fd-calculator", "sip-calculator"],
   relatedSlugs: ["sip-5000-10-years", "fd-quarterly-tds", "real-return-inflation"],
   published: "2026-10-07",
@@ -52,7 +45,7 @@ export const lumpSumFreq: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "Does compounding frequency really matter?", answer: "Yes, 50,000 at 8 percent for 10 years yields 1,07,946 with yearly rests versus 1,10,982 with monthly rests, or 3,036 from frequency alone. Frequency divides the rate into frequent credits through A equals P times one plus r over f to the f times t. Reproduce rows with the frequency switcher, then test your principal." },
+    { question: "Does compounding frequency really matter?", answer: "Yes, 50,000 at 8 percent for 10 years yields 1,07,946 with yearly rests versus 1,10,982 with monthly rests, or 3,036 from frequency alone. Frequency divides the rate into frequent credits through A equals P times one and r over f to the f times t. Reproduce rows with the frequency switcher, then test your principal." },
     { question: "What are quarterly rests in FDs?", answer: "Quarterly rests credit interest four times yearly, with each credit compounding afterward so interest earns interest sooner. A 7 percent cumulative FD therefore yields about 7.19 percent effective, while payout variants pay exactly 7 percent as cash flow. Most Indian FDs compound quarterly, so confirm cumulative versus payout and the rest in the sanction letter." },
     { question: "Payout or cumulative FD?", answer: "Choose payout FDs for income needs because interest credits to your account as monthly or quarterly cash flow without compounding. Choose cumulative FDs for growth because quarterly interest reinvests under the table above. Mixing them up silently forfeits about 0.2 percent yearly, so retirees needing income and accumulators building wealth should pick deliberately." },
     { question: "How do I compare two frequencies?", answer: "Use the frequency switcher on identical principal, rate and tenure to isolate frequency, such as 50,000 at 8 percent for 10 years across yearly, half-yearly, quarterly and monthly. Expect diminishing returns because doubling from yearly to half-yearly gains more than doubling again to quarterly. Do not overpay for daily rests that add only basis points." },

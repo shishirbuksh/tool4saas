@@ -31,6 +31,7 @@ import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import { CATEGORIES } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
 import { useThemeMode } from "@/components/ThemeProviderClient";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const DrawerDynamic = dynamic(() => import("@mui/material/Drawer"), {
   ssr: false,
@@ -240,6 +241,7 @@ export default function Header() {
             </MenuDynamic>
 
             <Box sx={{ pl: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+              <LanguageSwitcher />
               <ToolSearchDynamic sx={{ width: 280 }} />
               <IconButton 
                 onClick={toggle} 
@@ -319,6 +321,7 @@ export default function Header() {
           </IconButton>
         </Box>
         <ToolSearchDynamic sx={{ width: "100%", mb: 4 }} />
+        <LanguageSwitcher variant="drawer" onNavigate={() => setOpen(false)} />
         <Box component="nav" aria-label="Mobile">
           <List sx={{ px: 0 }}>
             <ListItem disablePadding sx={{ mb: 1 }}>

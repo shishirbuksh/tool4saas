@@ -4,17 +4,15 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import Skeleton from "@mui/material/Skeleton";
-import AdSlot from "@/components/AdSlotLazy";
-import { EXPECTED_TOOL_COUNT, type Category } from "@/lib/tools";
+import { VISIBLE_TOOL_COUNT, type Category } from "@/lib/tools";
 // Lite groups: full Tool objects (faq/howTo/guide bodies) must never reach
 // client props — they bloat the RSC payload + hydration parse on mobile.
 import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
 
 import PaginatedToolGrid from "@/components/PaginatedToolGrid";
 
-// Features grid + all-tools grid + mid-page ad.
+// Features grid + all-tools grid. Monetization is Auto Ads (page-level loader
+// in ConsentGatedGoogleScripts); no manual ad slots are rendered here.
 export default function HomeTools({ hubA, hubB }: { hubA?: Category; hubB?: Category }) {
   return (
     <>
@@ -72,7 +70,7 @@ export default function HomeTools({ hubA, hubB }: { hubA?: Category; hubB?: Cate
             Browse all free browser tools by category
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.125rem' }}>
-            Search or browse {EXPECTED_TOOL_COUNT} free utilities, makers, and generators. Most run locally. No paywalls, no limits.
+            Search or browse {VISIBLE_TOOL_COUNT} free utilities, makers, and generators. Most run locally. No paywalls, no limits.
           </Typography>
           {hubA && hubB && (
             <Typography variant="body2" color="text.secondary" sx={{ mt: 2, lineHeight: 1.7 }}>
@@ -83,17 +81,6 @@ export default function HomeTools({ hubA, hubB }: { hubA?: Category; hubB?: Cate
         </Box>
 
         <PaginatedToolGrid groups={liteToolsByCategory()} />
-      </Container>
-
-      {/* Mid-page Ad — after value, below fold, lazy, fixed reserve kills CLS */}
-      <Container maxWidth="xl" sx={{ pb: 6, px: { xs: 2, md: 4 } }}>
-        <Box sx={{ minHeight: { xs: 100, md: 250 }, contentVisibility: "auto", containIntrinsicSize: "auto 250px" }}>
-          <AdSlot
-            format="leaderboard"
-            slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_LEADERBOARD || ""}
-            label="Advertisement"
-          />
-        </Box>
       </Container>
     </>
   );

@@ -31,14 +31,7 @@ export const realReturn: BlogPost = {
   title: "Real vs Nominal Returns: Inflation-Adjusted Math",
   description:
     "Real returns explained: deflation formula, Rule of 72 table, personal-vs-CPI inflation + SIP verdicts in real terms. Free calculator.",
-  keywords: [
-    "how inflation shrinks sip returns real vs nominal",
-    "10000 in 10 years 3 percent inflation power",
-    "rule of 72 halve in 24 years",
-    "cpi vs personal inflation rent",
-    "nominal 12% minus 6% real",
-    "What is the difference between real and nominal returns?",
-  ],
+  keywords: ["how inflation shrinks sip returns real vs nominal", "10000 in 10 years 3 percent inflation power", "rule of 72 halve in 24 years", "cpi vs personal inflation rent", "nominal 12% minus 6% real"],
   toolSlugs: ["inflation-calculator", "sip-calculator", "retirement-calculator"],
   relatedSlugs: ["sip-5000-10-years", "lumpsum-compounding-frequency", "sip-1-crore-goal"],
   published: "2026-10-07",
@@ -51,7 +44,7 @@ export const realReturn: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What is the difference between real and nominal returns?", answer: "Nominal is headline growth while real subtracts inflation through one plus nominal divided by one plus inflation minus one. Twelve percent nominal at 6 percent inflation equals about 5.7 percent real, not 6 percent by subtraction. Use division when precision matters because the gap widens at higher rates, then deflate projections in the inflation calculator." },
+    { question: "What is the difference between real and nominal returns?", answer: "Nominal is headline growth while real subtracts inflation through one and nominal divided by one and inflation minus one. Twelve percent nominal at 6 percent inflation equals about 5.7 percent real, not 6 percent by subtraction. Use division when precision matters because the gap widens at higher rates, then deflate projections in the inflation calculator." },
     { question: "How does the Rule of 72 work?", answer: "Divide 72 by the rate for doubling or halving years, so 12 percent doubles in 6 years and 6 percent halves money in 12 years. The shortcut stays accurate for 4 to 12 percent but drifts at extremes. Use exact math past 15 percent and remember 3 percent halves money in 24 years." },
     { question: "Is CPI my inflation rate?", answer: "Rarely, because CPI averages baskets while your spending weights rent, education, healthcare and food in your city. Urban renters facing 8 to 10 percent hikes often live 3 points above headline CPI, while homeowners with EMIs live below it. Build a personal index from your top five expenses and compare against the 6 percent default." },
     { question: "How much will ₹10,000 be worth in 10 years?", answer: "About 5,540 of today's purchasing power at 6 percent inflation, calculated as 10,000 divided by 1.06 to the power 10. A 1 crore corpus over 20 years at 6 percent spends like 31 lakh, which is life-changing but different. Plan goals in real terms and run directions in the calculator for future value and nominal." },

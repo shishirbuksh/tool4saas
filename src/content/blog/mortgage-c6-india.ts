@@ -20,10 +20,10 @@ const html = `
 
 <h2 id="eligibility">Eligibility: CIBIL, FOIR, salary, age</h2>
 <ul>
-<li><strong>CIBIL 750+:</strong> qualifies for the lowest rate slabs banks publish — below 700 I have seen the same Rs 60L file quoted 0.4% higher or rejected outright. Check the score months before applying — disputes take time.</li>
+<li><strong>CIBIL 750+:</strong> qualifies for the lowest rate slabs banks publish — below 700 the same Rs 60L file can be quoted 0.4% higher or rejected outright. Check the score months before applying — disputes take time.</li>
 <li><strong>FOIR 50–60%:</strong> all EMIs (home + car + personal) must fit within roughly half of net monthly income. Rs 1L salary with Rs 20k car EMI leaves ~Rs 30–40k home-loan room.</li>
 <li><strong>Age + tenure:</strong> loans must typically close by retirement age — a 45-year-old gets ~15 years, raising EMI versus a 30-year-old's 25. Younger applicants borrow more for the same salary.</li>
-<li><strong>LTV caps:</strong> up to 90% under Rs 30L, ~80% above — the rest is down payment plus stamp/registration cash. Salaried applicants: 6 months' statements, Form 16, clean banking conduct.</li>
+<li><strong>LTV caps:</strong> up to 90% under Rs 30L, ~80% above — the rest is down payment and stamp/registration cash. Salaried applicants: 6 months' statements, Form 16, clean banking conduct.</li>
 </ul>
 <h3>Raise eligibility before applying</h3>
 <p>Clear small personal loans (FOIR freed rupee-for-rupee), take the longest comfortable tenure then prepay (lower EMI qualifies more), add a co-applicant spouse (clubbed income), and wait out CIBIL dips rather than applying into rejection — hard inquiries stack. Verify with the <a href="/home-loan-eligibility-india">eligibility tool</a>.</p>
@@ -43,14 +43,7 @@ export const mortgageIndia: BlogPost = {
   title: "Home Loan EMI & Eligibility India: CIBIL, FOIR, Prepayment (2026)",
   description:
     "India home loan guide: EMI math in lakh/crore, CIBIL 750 + FOIR eligibility, raising limits + prepayment superpower. Free EMI + eligibility tools.",
-  keywords: [
-    "home loan eligibility cibil foir salary explained india",
-    "home loan emi calculator india",
-    "cibil score home loan 750",
-    "foir home loan meaning",
-    "home loan prepayment india",
-    "What is the EMI for a Rs 60 lakh home loan?",
-  ],
+  keywords: ["home loan eligibility cibil foir salary explained india", "home loan emi calculator india", "cibil score home loan 750", "foir home loan meaning", "home loan prepayment india"],
   toolSlugs: ["emi-calculator", "home-loan-eligibility-india", "mortgage-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "mortgage-overpayment-extra-payment", "how-much-house-can-i-afford"],
   published: "2026-09-24",

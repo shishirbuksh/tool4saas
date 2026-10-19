@@ -39,6 +39,8 @@ const warnings = [];
 const slugs = new Set();
 // Verbatim duplicate FAQ-answer detection: normalized answer -> { sample, slugs }
 const answerIndex = new Map();
+// 8-word n-gram index across tool answers for canned-template detection
+const gramIndex = new Map();
 toolBlocks.forEach((block) => {
   const slug = (block.match(/^([^"]+)"/) || [])[1];
   if (!slug) {
@@ -70,6 +72,15 @@ toolBlocks.forEach((block) => {
     if (norm.length < 20) continue; // skip trivially short answers to reduce noise
     if (!answerIndex.has(norm)) answerIndex.set(norm, { sample: a, slugs: new Set() });
     answerIndex.get(norm).slugs.add(slug);
+    // Collect 8-word n-grams for cross-tool template detection
+    const toks = norm.split(/[^a-z0-9']+/).filter((t) => t.length > 2);
+    if (toks.length >= 8) {
+      for (let i = 0; i + 8 <= toks.length; i++) {
+        const gram = toks.slice(i, i + 8).join(" ");
+        if (!gramIndex.has(gram)) gramIndex.set(gram, new Set());
+        gramIndex.get(gram).add(slug);
+      }
+    }
   }
   // Thin-content check (warn only): unique text <300 words or no guide.
   const hasGuide = /"?guide"?\s*:\s*\[/.test(block);
@@ -84,6 +95,17 @@ toolBlocks.forEach((block) => {
   if (!hasGuide || uniqueWords.size < 300) {
     warnings.push(`${slug}: thin content — unique words ${uniqueWords.size} (<300)${hasGuide ? "" : " and no guide"} (add 3-section guide / expand unique copy)`);
   }
+  // Machine-generated fingerprint vocabulary: fail on LLM-spin tells
+  for (const { re, label } of [
+    { re: /\bsans\b/, label: '"sans" machine-spin vocabulary' },
+    { re: /\bwholly\b/, label: '"wholly" machine-spin vocabulary' },
+    { re: /\bevaporat/, label: '"evaporate(s)" canned privacy phrasing' },
+    { re: /entirely entirely/, label: '"entirely entirely" replacement artifact' },
+    { re: / inside your browser tab/, label: 'canned "inside your browser tab" privacy template' },
+    { re: /(?<=[a-z,]) plus (?=[a-z])|,\s*plus\s+/, label: '"plus" used as conjunction (machine-spin tell)' },
+  ]) {
+    if (re.test(combined)) errors.push(`${slug}: ${label}`);
+  }
 });
 
 // Warn (do not fail) on verbatim duplicate FAQ answers shared across >5 tools.
@@ -93,6 +115,16 @@ for (const { sample, slugs: dupeSlugs } of answerIndex.values()) {
     warnings.push(`duplicate FAQ answer verbatim across ${dupeSlugs.size} tools (>5): "${preview}" in ${[...dupeSlugs].slice(0, 10).join(", ")}${dupeSlugs.size > 10 ? ", …" : ""}`);
   }
 }
+
+// Fail on canned templates: an 8-word n-gram shared by >=4 different tools
+// is a machine-spun template sentence pasted across the catalog.
+const gramErrors = [];
+for (const [gram, gramSlugs] of gramIndex.entries()) {
+  if (gramSlugs.size >= 4) {
+    gramErrors.push(`canned template n-gram in ${gramSlugs.size} tools: "${gram}" (${[...gramSlugs].slice(0, 6).join(", ")}${gramSlugs.size > 6 ? ", …" : ""})`);
+  }
+}
+errors.push(...gramErrors);
 
 // Check O(1) usage: ensure no tools.find remaining in src (except allowed) - cross-platform
 try {
@@ -141,7 +173,7 @@ if (warnings.length) {
 }
 
 // Also ensure toolsByCategoryCached is imported in key consumers
-const consumers = ["src/app/page.tsx", "src/components/Header.tsx", "src/app/category/[id]/page.tsx", "src/components/SiteJsonLd.tsx"];
+const consumers = ["src/app/(en)/page.tsx", "src/components/Header.tsx", "src/app/(en)/category/[id]/page.tsx", "src/components/SiteJsonLd.tsx"];
 consumers.forEach(p => {
   if (fs.existsSync(p)) {
     const c = fs.readFileSync(p, "utf8");

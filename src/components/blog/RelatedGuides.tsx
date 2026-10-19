@@ -303,7 +303,7 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   ],
   "pdf-compress": [
     { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
-    { href: "/blog/pdf-merge-guide/compress-pdf-1mb-email", title: "Compress PDF to 1MB for email" },
+    { href: "/blog/pdf-merge-guide/merge-multiple-pdfs-order", title: "Merge multiple PDFs in order" },
   ],
   "pdf-to-jpg": [
     { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },

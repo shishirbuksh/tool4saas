@@ -23,10 +23,10 @@ const html = `
 <h2 id="ladder">The ladder: hash vs HMAC vs AES (when to climb)</h2>
 <ul>
 <li><strong>Hash (SHA-256):</strong> fingerprinting downloads, cache keys, dedupe. Anyone can recompute — proves integrity against accidents, not attackers.</li>
-<li><strong>HMAC:</strong> hash plus secret key — proves the message came from a key holder. Webhooks, API signatures. Step up in the <a href="/hmac-generator">HMAC tool</a>.</li>
+<li><strong>HMAC:</strong> hash and secret key — proves the message came from a key holder. Webhooks, API signatures. Step up in the <a href="/hmac-generator">HMAC tool</a>.</li>
 <li><strong>AES encryption:</strong> reversible secrecy for stored/transmitted data. Passwords get bcrypt/argon2 instead (slow by design). Encrypt in the <a href="/aes-encryptor">AES tool</a>.</li>
 </ul>
-<p>Passwords are the classic misplacement: fast hashes (even SHA-256) fall to GPUs in hours; password hashing must be slow (bcrypt cost factors) plus salted per user. If your login table uses MD5/SHA, migrating to argon2 outranks every feature on the roadmap.</p>
+<p>Passwords are the classic misplacement: fast hashes (even SHA-256) fall to GPUs in hours; password hashing must be slow (bcrypt cost factors) and salted per user. If your login table uses MD5/SHA, migrating to argon2 outranks every feature on the roadmap.</p>
 <blockquote class="tip">General guidance only, not a security audit. Hash choices for regulated data need professional review — this page builds intuition, not compliance.</blockquote>
 `;
 
@@ -37,14 +37,7 @@ export const hashCompare: BlogPost = {
   title: "SHA-256 vs MD5: When to Use Which Hash",
   description:
     "SHA-256 vs MD5 with digest-length table, avalanche demos, hash-vs-HMAC-vs-AES ladder + password hashing warning. Free compare tool.",
-  keywords: [
-    "sha256 vs md5 when to use which hash",
-    "sha256 of hello",
-    "40 vs 64 vs 128 hex length",
-    "avalanche hallo change",
-    "hash vs hmac vs aes",
-    "When is MD5 acceptable?",
-  ],
+  keywords: ["sha256 of hello", "avalanche hallo change", "hash vs hmac vs aes"],
   toolSlugs: ["hash-generator", "hmac-generator", "aes-encryptor"],
   relatedSlugs: ["json-parse-errors", "base64-url-safe-vs-standard", "uuid-seed-test-database"],
   published: "2026-10-07",

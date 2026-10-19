@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>A salon in Bandra tripled its Google reviews with one change: a QR code on the bill folder. Not an app, not a marketing agency — a free static code and the line “Loved your visit? 10 seconds”. That is the <strong>QR code for small business</strong> playbook: tiny prints in the right places, each doing one job. Here are the six placements that actually pay, with sizes and wording I have seen work.</p>
+<p>A salon in Bandra tripled its Google reviews with one change: a QR code on the bill folder. Not an app, not a marketing agency — a free static code and the line “Loved your visit? 10 seconds”. That is the <strong>QR code for small business</strong> playbook: tiny prints in the right places, each doing one job. Here are the six placements that actually pay, with sizes and wording that work.</p>
 <p>Part of the <a href="/blog/qr-code-generator-guide">free QR code generator guide</a>. Make codes in the <a href="/qr-code-generator">free QR code generator</a>; guest WiFi via the <a href="/wifi-qr-generator">WiFi QR generator</a>; shelf labels needing checkout scanners via the <a href="/barcode-generator">barcode generator</a>.</p>
 
 <h2 id="six-placements">6 placements that pay for themselves</h2>
@@ -36,7 +36,7 @@ const html = `
 <li><strong>US/UK equivalents:</strong> same placements work with Venmo/Zelle or bank-transfer codes instead of UPI; review links work identically worldwide.</li>
 </ul>
 
-<h2 id="failures">4 business QR failures I have witnessed (avoid all four)</h2>
+<h2 id="failures">4 business QR failures to avoid</h2>
 <ol>
 <li><strong>The glass-door sticker:</strong> 2 cm, yellow on white, curved glass — triple failure from the pillar story. Fix was a matte frame beside the door, same code, zero redesign.</li>
 <li><strong>The rebrand orphan:</strong> salon printed 1,000 cards with a QR to instagram.com/oldname, then renamed the account. Codes pointed at a dead page for months. Lesson: point codes at pages you control (your site, which redirects), never at third-party handles.</li>
@@ -56,14 +56,7 @@ export const qrBusiness: BlogPost = {
   title: "QR Codes for Small Business: 6 Placements That Pay (2026)",
   description:
     "QR code for small business: menus, UPI payments, reviews, WiFi, packaging + real print costs. Static codes, zero subscription. Free generator.",
-  keywords: [
-    "qr code for small business",
-    "qr code for restaurant menu",
-    "qr code for google reviews",
-    "qr code for shop payments",
-    "business qr code ideas",
-    "How much does it cost to start?",
-  ],
+  keywords: ["qr code for small business", "qr code for restaurant menu", "qr code for google reviews", "qr code for shop payments", "business qr code ideas"],
   toolSlugs: ["qr-code-generator", "wifi-qr-generator", "barcode-generator"],
   relatedSlugs: ["upi-payment-qr-code-india", "wifi-qr-code-guide", "static-vs-dynamic-qr-codes"],
   published: "2026-09-22",
@@ -77,7 +70,7 @@ export const qrBusiness: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How can small businesses use QR codes?", answer: "Use menus on table tents with 2048px prints updated on the page, UPI payment at billing, review links on bill folders at the payment moment, guest WiFi framed at reception, how-to videos on packaging, plus feedback forms and vCards at events printed for halls. Each code does one job as a static print." },
+    { question: "How can small businesses use QR codes?", answer: "Use menus on table tents with 2048px prints updated on the page, UPI payment at billing, review links on bill folders at the payment moment, guest WiFi framed at reception, how-to videos on packaging and feedback forms and vCards at events printed for halls. Each code does one job as a static print." },
     { question: "How much does it cost to start?", answer: "Budget under ₹1,000 for a café starter set in one afternoon: 10 table tents at ₹300–500, acrylic payment standee at ₹150–300 and A4 reception frame at ₹250–400 from local printers. Static QR codes are unlimited and ₹0, never expiring. Bigger runs like 500 flyers cost ₹1,500–2,500 with a ₹30 one-copy test first." },
     { question: "How do I get more Google reviews with QR codes?", answer: "Print the review link on the bill folder with wording Loved your visit? 10 seconds and ask at the payment moment, not at the door. One Bandra salon went from about 5 to 15 reviews monthly by timing the ask. Position at payment beats design — customers decide in seconds with the folder in hand." },
     { question: "Should I use QR codes or barcodes on products?", answer: "Use QR for customer phone content like videos, manuals and offers, and barcodes for checkout scanners, shelf labels and inventory. They use different scanners for different jobs: QR speaks to customers, striped EAN speaks to billing systems. The QR versus barcode guide compares phones, lasers and checkout uses." },

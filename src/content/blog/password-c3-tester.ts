@@ -39,13 +39,7 @@ export const passwordTester: BlogPost = {
   title: "Password Strength Tester: Check Without Uploading (2026)",
   description:
     "Test password strength safely: local-only meters, zxcvbn scoring explained, score bands + attacker reading. Nothing leaves your browser.",
-  keywords: [
-    "password strength tester",
-    "zxcvbn score explained",
-    "offline password strength checker",
-    "test password without sending online",
-    "Is it safe to use online password strength checkers?",
-  ],
+  keywords: ["password strength tester", "zxcvbn score explained", "offline password strength checker", "test password without sending online"],
   toolSlugs: ["password-strength", "password-generator", "hash-generator"],
   relatedSlugs: ["what-makes-password-strong", "how-to-create-strong-password", "what-to-do-after-data-breach"],
   published: "2026-09-25",
@@ -62,7 +56,7 @@ export const passwordTester: BlogPost = {
     { question: "Is it safe to use online password strength checkers?", answer: "Only verified-local ones. Most upload keystrokes, lack privacy statements or POST plaintext on each keystroke. Check DevTools Network for zero requests with a dummy entry, or test similar patterns instead of real secrets. Ours runs fully in-browser, client-side and offline-capable, so nothing personal is ever at stake." },
     { question: "What is a good zxcvbn score?", answer: "3+ for important accounts (email, bank, manager); 4 ideal. Scores 0–1 mean regenerate immediately, 2 suits throwaways only, 3 survives offline attacks, 4 is infeasible. But uniqueness outranks score — a unique 3 beats a reused 4, so rotate reused sets first with managers today always." },
     { question: "Why does my complex password score low?", answer: "zxcvbn simulates attackers: dictionary words, patterns and substitutions (Tr0ub4dor-style) fall fast regardless of character classes. It checks 30+ languages, spatial qwerty patterns, repeats, sequences, dates and leet substitutions. Randomize the core, keep the length, and retest until guessable cores disappear completely for every important account today." },
-    { question: "Do meters replace breach checks?", answer: "No — different jobs. Meters judge guessability; breach checks judge exposure via k-anonymity prefixes, never full secrets. After any notice, follow the breach checklist order with breached plus reused first, MFA second and monitoring third, not just scores for complete safety across all your accounts today." },
+    { question: "Do meters replace breach checks?", answer: "No — different jobs. Meters judge guessability; breach checks judge exposure via k-anonymity prefixes, never full secrets. After any notice, follow the breach checklist order with breached and reused first, MFA second and monitoring third, not just scores for complete safety across all your accounts today." },
     { question: "Can the site see tested passwords?", answer: "Ours cannot — scoring is client-side with no network calls, verifiable in DevTools Network showing zero requests. Never assume this elsewhere; check privacy statements and analytics before typing real secrets. Proper breach checks use prefixes only, and fresh generator secrets carry nothing personal at stake." },
   ],
 };

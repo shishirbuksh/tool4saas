@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import HeroButtons from "@/components/HeroButtons";
 import { FAQS } from "@/content/home";
+import { VISIBLE_TOOL_COUNT } from "@/lib/tools";
 
 // What-is section (sits between the tools grid and the guides grids).
 export function HomeWhatIs() {
@@ -42,7 +43,7 @@ export function HomeWhatIs() {
           Most tools are local-first. That means your words, files, and photos stay on your own device. They are not sent to our servers. When you close the tab, your data is gone. Only 4 web tools need the net, like live money rates. Each page says so in plain words. See our <Link href="/privacy">privacy policy</Link> and <Link href="/methodology">methodology page</Link>.
         </Typography>
         <Typography color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
-          Try three top picks. The <Link href="/word-counter">word counter</Link> checks a 1,500-word essay and shows grade level plus read time. The <Link href="/loan-calculator">loan maker</Link> shows that a $100,000 loan at 5 percent for 30 years costs $536.82 a month. The <Link href="/qr-code-generator">QR generator</Link> makes a scan code for a shop menu in one click. Each utility is free, quick, and safe to try today.
+          Try three top picks. The <Link href="/word-counter">word counter</Link> checks a 1,500-word essay and shows grade level and read time. The <Link href="/loan-calculator">loan maker</Link> shows that a $100,000 loan at 5 percent for 30 years costs $536.82 a month. The <Link href="/qr-code-generator">QR generator</Link> makes a scan code for a shop menu in one click. Each utility is free, quick, and safe to try today.
         </Typography>
         <Box sx={{ p: 3, borderRadius: "12px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}>
           <Typography variant="h3" sx={{ fontSize: "1.125rem", fontWeight: 700, mb: 1 }}>
@@ -74,13 +75,13 @@ export function HomeClosing({ firstSlug }: { firstSlug: string }) {
             We build and test each utility in-house before it ships. We check outputs against known values. A $100,000 loan at 5 percent over 30 years equals $536.82 monthly. 70 kg at 175 cm reads a BMI of 22.9.
           </Typography>
           <Typography color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
-            Finance and health tools get extra review. We label estimates as estimates, never advice. Every tool ships with a 4-step how-to plus worked numbers. We check pages in Chrome, Edge, Firefox, and Safari. Read the full process on our <Link href="/methodology">methodology page</Link>.
+            Finance and health tools get extra review. We label estimates as estimates, never advice. Every tool ships with a 4-step how-to and worked numbers. Read the full process on our <Link href="/methodology">methodology page</Link>.
           </Typography>
           <Typography variant="h3" sx={{ fontSize: "1.25rem", fontWeight: 700, mb: 1 }}>
             Why local-first matters
           </Typography>
           <Typography color="text.secondary" sx={{ mb: 3, lineHeight: 1.8 }}>
-            Most of our 185 utilities run 100 percent locally in your browser. What you type or upload never leaves your device. Close the tab and your data is gone.
+            Most of our {VISIBLE_TOOL_COUNT} utilities run 100 percent locally in your browser. What you type or upload never leaves your device. Close the tab and your data is gone.
           </Typography>
           <Typography color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
             Four tools need the internet. The <Link href="/currency-converter">currency converter</Link> needs live rates. YouTube thumbnails, SSL check, and voice input need the net too. Each page says so first. See our <Link href="/privacy">privacy policy</Link> for plain details.

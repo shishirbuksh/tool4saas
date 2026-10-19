@@ -1,6 +1,12 @@
 import { siteConfig } from "@/lib/site";
 import { NOINDEX_SLUGS, tools } from "@/lib/tools";
+import { LOCALES } from "@/lib/i18n";
 
+// Site-wide WebSite entity. `inLanguage` is the PRIMARY language (English) and
+// stays constant on every URL: the same `@id` must not report three different
+// languages (that contradicted the entity graph). Translated pages declare
+// their own language on their per-page WebPage/WebApplication/BlogPosting node
+// and via hreflang; `availableLanguage` lists the whole site's locales.
 export default function SiteJsonLd() {
   const base = siteConfig.url.replace(/\/$/, "");
   const jsonLd = {
@@ -13,6 +19,7 @@ export default function SiteJsonLd() {
         url: base,
         description: siteConfig.description,
         inLanguage: "en",
+        availableLanguage: [...LOCALES],
         image: `${base}/og/home`,
         publisher: { "@id": `${base}#organization` },
       },

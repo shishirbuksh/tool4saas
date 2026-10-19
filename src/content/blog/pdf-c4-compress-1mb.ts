@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Gmail bounced it: 18MB, limit 25MB — technically under, practically blocked because the recipient's server capped at 10MB. The deck had to fly that night. Medium compression took it to 6MB in seconds, text still razor sharp, photos indistinguishable on screen. <strong>PDF compression is a level choice, not a button</strong>: Light, Medium and Strong trade bytes for fidelity differently per content type. This guide maps each level to email and portal scenarios with a zoom-to-verify protocol.</p>
-<p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Compress in <a href="/pdf-compress">PDF compress</a>; slim oversized sources first via <a href="/blog/pdf-merge-guide/merge-multiple-pdfs-order">merge planning</a>. Scanned-image limits in <a href="/blog/pdf-merge-guide/extract-text-without-ocr">text vs OCR</a>.</p>
+<p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Slim oversized sources first via <a href="/blog/pdf-merge-guide/merge-multiple-pdfs-order">merge planning</a>. Scanned-image limits in <a href="/blog/pdf-merge-guide/extract-text-without-ocr">text vs OCR</a>. (Our dedicated PDF compress tool is in development.)</p>
 
 <h2 id="levels">Light, Medium, Strong: pick by destination</h2>
 <table>
@@ -36,14 +36,7 @@ export const pdfCompress1mb: BlogPost = {
   title: "Compress PDF to 1MB for Email and Portals",
   description:
     "Compress PDFs for email: Light/Medium/Strong levels with tested savings, 100% zoom verification protocol + locked-file and scan limits. Free tool.",
-  keywords: [
-    "how to compress pdf to 1mb for email",
-    "18MB report to 6MB medium",
-    "150 dpi medium vs strong blur",
-    "shrink pdf for 10MB portal",
-    "compress without unlocking",
-    "Which compression level for email?",
-  ],
+  keywords: ["how to compress pdf to 1mb for email", "18MB report to 6MB medium", "shrink pdf for 10MB portal", "compress without unlocking"],
   toolSlugs: ["pdf-compress", "pdf-split", "pdf-merge"],
   relatedSlugs: ["merge-multiple-pdfs-order", "extract-pages-range", "jpg-scans-single-pdf"],
   published: "2026-10-07",

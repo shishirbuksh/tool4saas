@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import type { ReactNode } from "react";
-import { CATEGORIES, EXPECTED_TOOL_COUNT } from "@/lib/tools";
+import { CATEGORIES, VISIBLE_TOOL_COUNT } from "@/lib/tools";
 // Lite lookup: full Tool objects (guide bodies) must never enter the footer chunk.
 import { liteGetTool } from "@/lib/tools/catalog-lite";
 import { siteConfig } from "@/lib/site";
@@ -134,7 +134,7 @@ export default function Footer() {
                 </Typography>
               </Box>
               <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, maxWidth: 320 }}>
-                {EXPECTED_TOOL_COUNT} fast, local utilities for developers and creators. No sign-ups — most
+                {VISIBLE_TOOL_COUNT} fast, local utilities for developers and creators. No sign-ups — most
                 tools run in your browser (see <Link href="/privacy" className="footer-link" style={{ textDecoration: "underline" }}>/privacy</Link>).
               </Typography>
               <Button

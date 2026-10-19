@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>Duplicate INV-2026-001. Skipped 004. A “final” invoice numbered “3b”. I have seen all three — and each one triggered an accounts query that cost days. <strong>Invoice numbering</strong> looks trivial until money depends on it. Here is the GST-compliant way to format numbers, plus HSN placement and tax-field rules that keep Indian, US and UK bills clean.</p>
+<p>Duplicate INV-2026-001. Skipped 004. A “final” invoice numbered “3b”. All three are routine triggers for accounts queries that cost days. <strong>Invoice numbering</strong> looks trivial until money depends on it. Here is the GST-compliant way to format numbers and HSN placement and tax-field rules that keep Indian, US and UK bills clean.</p>
 <p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Build numbered bills in the <a href="/invoice-generator">free invoice generator</a> (general) or <a href="/freelance-gst-invoice-generator">freelance GST invoice generator</a> (auto tax split). Convert totals to words with the <a href="/number-to-words">number to words converter</a>.</p>
 
 <h2 id="format-rules">Numbering formats that pass audits (pick one, never change mid-year)</h2>
@@ -60,14 +60,7 @@ export const invoiceNumbering: BlogPost = {
   title: "Invoice Numbering: GST-Compliant Formats, HSN & Tax Fields (2026)",
   description:
     "Invoice numbering done right: sequential formats, GSTIN/HSN placement, CGST/SGST vs IGST fields + fixes for duplicates. Free generator walkthrough.",
-  keywords: [
-    "invoice number format",
-    "hsn code on invoice",
-    "how to do invoice numbering gst compliant",
-    "where to put gstin on bill",
-    "cgst sgst vs igst in invoice",
-    "Where do HSN/SAC codes go?",
-  ],
+  keywords: ["invoice number format", "hsn code on invoice", "how to do invoice numbering gst compliant", "where to put gstin on bill", "cgst sgst vs igst in invoice"],
   toolSlugs: ["invoice-generator", "freelance-gst-invoice-generator", "number-to-words"],
   relatedSlugs: ["how-to-create-invoice-online", "gst-invoice-format-india", "payment-terms-and-followups"],
   published: "2026-09-14",
@@ -86,6 +79,6 @@ export const invoiceNumbering: BlogPost = {
     { question: "Where does GSTIN go on the invoice?", answer: "Print supplier GSTIN like 27ABCDE1234F1Z5 top-right and buyer GSTIN in the bill-to block for B2B, with place-of-supply state code deciding CGST/SGST versus IGST. Copy-paste both numbers from the GST portal and never retype them. One wrong digit bounces at enterprise accounts and costs days of rework." },
     { question: "Where do HSN/SAC codes go?", answer: "Put them per line next to the description with HSN for goods and SAC for services like 9983 for design and 9984 for IT. Use 4 digits below ₹5 cr turnover and 6 digits above. Verify against the master and mirror your last accepted bill, because consistency beats creativity and missing codes trigger accounts queries." },
     { question: "How do I fix a duplicate invoice number?", answer: "Do not edit sent history. Issue credit note like CN-001 reversing the duplicate INV-2026-001 line, re-issue with the next sequential number, and send a one-line apology referencing both numbers. Log the void honestly in your sheet and confirm no duplicates during the last-Friday monthly check with receipts issued." },
-    { question: "Do US/UK invoices need the same fields?", answer: "Numbering is universal with sequential INV-2026-001. US adds sales-tax jurisdiction and rate like 8.5% NYC where nexus applies or notes no nexus, retaining 3–7 years for IRS. UK VAT invoices need VAT number plus net, VAT at 20% and gross split, retaining 6 years for HMRC. I keep separate yearly folders per country-client for audits." },
+    { question: "Do US/UK invoices need the same fields?", answer: "Numbering is universal with sequential INV-2026-001. US adds sales-tax jurisdiction and rate like 8.5% NYC where nexus applies or notes no nexus, retaining 3–7 years for IRS. UK VAT invoices need VAT number and net, VAT at 20% and gross split, retaining 6 years for HMRC. I keep separate yearly folders per country-client for audits." },
   ],
 };

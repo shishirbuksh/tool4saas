@@ -11,6 +11,7 @@ import {
   isPilotSlug,
   pilotUrl,
   qrSizePrintEs,
+  switcherTarget,
 } from "./i18n";
 import { toolMetadata } from "./metadata";
 import { siteConfig } from "./site";
@@ -194,4 +195,62 @@ describe("i18n pilot registry", () => {
     expect(urls).toContain(`${base}/es/blog/qr-code-generator-guide/qr-code-size-print-guide`);
     expect(urls.some((u) => u.endsWith("/es/blog/word-counter-guide/how-to-count-words-online"))).toBe(false);
   }, 20000);
+});
+
+describe("switcherTarget (navbar language switcher)", () => {
+  it("EN -> ES/FR uses direct pilot translations when they exist", () => {
+    expect(switcherTarget("/", "es")).toBe("/es");
+    expect(switcherTarget("/", "fr")).toBe("/fr");
+    expect(switcherTarget("/invoice-generator", "es")).toBe("/es/invoice-generator");
+    expect(switcherTarget("/invoice-generator", "fr")).toBe("/fr/invoice-generator");
+    // word-counter pilot exists in BOTH es and fr.
+    expect(switcherTarget("/word-counter", "es")).toBe("/es/word-counter");
+    expect(switcherTarget("/word-counter", "fr")).toBe("/fr/word-counter");
+  });
+
+  it("EN -> ES/FR falls back to the locale hub for untranslated pages", () => {
+    expect(switcherTarget("/fd-calculator", "es")).toBe("/es");
+    expect(switcherTarget("/fd-calculator", "fr")).toBe("/fr");
+    expect(switcherTarget("/blog", "es")).toBe("/es");
+    expect(switcherTarget("/blog/how-to-create-qr-code", "es")).toBe("/es");
+    expect(switcherTarget("/privacy", "fr")).toBe("/fr");
+  });
+
+  it("ES/FR -> EN strips the locale prefix and keeps the path", () => {
+    expect(switcherTarget("/es", "en")).toBe("/");
+    expect(switcherTarget("/es/", "en")).toBe("/");
+    expect(switcherTarget("/es/invoice-generator", "en")).toBe("/invoice-generator");
+    expect(switcherTarget("/fr/invoice-generator", "en")).toBe("/invoice-generator");
+    expect(switcherTarget("/es/blog/qr-code-generator-guide/qr-code-size-print-guide", "en")).toBe(
+      "/blog/qr-code-generator-guide/qr-code-size-print-guide"
+    );
+  });
+
+  it("ES -> FR and FR -> ES cross-switch via pilots or hubs", () => {
+    expect(switcherTarget("/es/invoice-generator", "fr")).toBe("/fr/invoice-generator");
+    expect(switcherTarget("/es/word-counter", "fr")).toBe("/fr/word-counter");
+    expect(switcherTarget("/fr/invoice-generator", "es")).toBe("/es/invoice-generator");
+    expect(switcherTarget("/es", "fr")).toBe("/fr");
+    expect(switcherTarget("/fr", "es")).toBe("/es");
+  });
+
+  it("ES page maps back through the ES blog pilot registry", () => {
+    expect(switcherTarget("/blog/qr-code-generator-guide/qr-code-size-print-guide", "es")).toBe(
+      "/es/blog/qr-code-generator-guide/qr-code-size-print-guide"
+    );
+    // Non-pilot blog: no ES equivalent -> hub.
+    expect(switcherTarget("/blog/invoice-generator-guide", "es")).toBe("/es");
+  });
+
+  it("never routes a blog path to a locale without a translated blog (no 404)", () => {
+    // FR has no blog pilots: EN blog -> FR hub, and ES blog -> FR hub.
+    expect(switcherTarget("/blog/qr-code-generator-guide/qr-code-size-print-guide", "fr")).toBe("/fr");
+    expect(switcherTarget("/es/blog/qr-code-generator-guide/qr-code-size-print-guide", "fr")).toBe("/fr");
+    // Any locale-prefixed blog path falls back to the target hub.
+    expect(switcherTarget("/es/blog/qr-code-generator-guide/qr-code-size-print-guide", "en")).toBe(
+      "/blog/qr-code-generator-guide/qr-code-size-print-guide"
+    );
+    // A tool not published in the target locale still falls back to the hub.
+    expect(switcherTarget("/es/resume-builder", "fr")).toBe("/fr");
+  });
 });

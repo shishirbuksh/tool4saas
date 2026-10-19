@@ -37,14 +37,7 @@ export const seoSplitSitemap: BlogPost = {
   title: "Split Large Sitemaps Search Console Accepts",
   description:
     "Split 120K catalogs into 50K/50MB sitemap files: index structure, honest changefreq/priority tiers + rejection fixes. Free generator.",
-  keywords: [
-    "how to split large sitemap for search console",
-    "split 120k catalog 50k chunks index",
-    "weekly vs monthly changefreq",
-    "0.8 bestsellers 0.3 archives",
-    "relative path reject fix",
-    "What are sitemap size limits?",
-  ],
+  keywords: ["how to split large sitemap for search console", "split 120k catalog 50k chunks index", "weekly vs monthly changefreq", "0.8 bestsellers 0.3 archives", "relative path reject fix"],
   toolSlugs: ["sitemap-generator", "robots-txt-generator", "seo-analyzer"],
   relatedSlugs: ["robots-vs-noindex", "fix-score-60-to-80", "utm-naming-governance"],
   published: "2026-10-07",
@@ -57,7 +50,7 @@ export const seoSplitSitemap: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "What are sitemap size limits?", answer: "Each sitemap file caps at 50,000 URLs or 50MB uncompressed, so catalogs must split into files listed in a sitemap index. A 120,000 catalog becomes 50K plus 50K plus 20K files submitted as one Search Console entry. Name segments like sitemap-products-1.xml, regenerate on catalog change, and paste up to 1,200 URLs per run." },
+    { question: "What are sitemap size limits?", answer: "Each sitemap file caps at 50,000 URLs or 50MB uncompressed, so catalogs must split into files listed in a sitemap index. A 120,000 catalog becomes 50K and 50K and 20K files submitted as one Search Console entry. Name segments like sitemap-products-1.xml, regenerate on catalog change, and paste up to 1,200 URLs per run." },
     { question: "What changefreq and priority should I use?", answer: "Use weekly with 0.8 priority for bestsellers, monthly with 0.5 to 0.6 for cluster pages, and yearly with 0.3 for archives and tags. Honest tiers focus crawler attention where revenue lives because priorities are hints, not orders. Marking everything 1.0 daily trains crawlers to ignore signals, so revisit tiers quarterly." },
     { question: "Why did Search Console reject my sitemap?", answer: "Search Console usually rejects for relative URLs, since every loc must be absolute HTTPS and one relative entry can fail the file. Other causes are malformed lastmod dates needing W3C format like 2026-10-07, wrong encoding without UTF-8 and escaped ampersands, or submitted URLs blocked by robots. Allow what you submit and validate encoding before resubmitting." },
     { question: "Do priorities control rankings?", answer: "No, priorities are crawl hints, not orders, so marking everything 1.0 daily trains crawlers to ignore your signals. Honest tiers focus attention where revenue lives, with bestsellers at 0.8 and archives at 0.3 to de-prioritize spend. If indexed versus submitted gaps grow, fix content quality or duplication, not XML, and revisit tiers quarterly." },

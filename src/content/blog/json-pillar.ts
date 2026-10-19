@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>A production API returned a 500KB JSON error blob at 2 AM, and the on-call engineer pasted it — credentials and all — into a random online formatter. The formatting worked. So did the credential leak, into a stranger's server logs. I have seen this movie too many times: <strong>debugging with tools that upload your secrets</strong>. This guide is the alternative: format JSON, decode Base64 and JWTs, test regex, hash and mint UUIDs — everything locally, nothing uploaded, secrets stay in your tab.</p>
+<p>A production API returned a 500KB JSON error blob at 2 AM, and the on-call engineer pasted it — credentials and all — into a random online formatter. The formatting worked. So did the credential leak, into a stranger's server logs. That story repeats with new names each season: <strong>debugging with tools that upload your secrets</strong>. This guide is the alternative: format JSON, decode Base64 and JWTs, test regex, hash and mint UUIDs — everything locally, nothing uploaded, secrets stay in your tab.</p>
 <p>Here is the promise: you will learn a <strong>local-first debugging workflow</strong> covering the seven operations developers repeat daily, with exact behaviors (trailing commas, padding, <code>exp</code> skew, bulk UUID counts) and the security boundaries that matter. I ran every example below in October 2026 against real payloads. Work alongside me starting at our <a href="/json-formatter">free JSON formatter</a>.</p>
 <p>Part of the <a href="/blog">blog guides</a>. Format in <a href="/json-formatter">JSON formatter</a>; decode in <a href="/base64-tool">Base64</a> and <a href="/jwt-decoder">JWT decoder</a>; test in <a href="/regex-tester">regex tester</a>.</p>
 
@@ -43,7 +43,7 @@ const html = `
 <p>Decoding shows claims; verification proves them — do both, in that order. Check <code>exp</code> against now (allow ~30s clock skew, sync NTP), confirm <code>aud</code> is your service and <code>iss</code> your IdP, and <strong>reject <code>alg:none</code> unconditionally</strong> — unsigned tokens must never authorize. <code>exp: 1717252800</code> two hours past means expired, full stop, regardless of a valid-looking signature from the wrong key. Paste into the <a href="/jwt-decoder">JWT decoder</a> (redact emails before screenshotting), convert timestamps in the <a href="/timestamp-converter">timestamp converter</a>. Expiry guide: <a href="/blog/json-formatter-guide/jwt-expiry-without-trust">JWT checks</a>.</p>
 
 <h2 id="url-encoding">Why <code>café</code> becomes <code>caf%C3%A9</code> (and spaces become <code>%20</code>)</h2>
-<p>URLs allow a small ASCII set; everything else percent-encodes as UTF-8 bytes — é is two bytes, hence <code>%C3%A9</code>. Spaces encode as <code>%20</code> in paths but <code>+</code> in form bodies (application/x-www-form-urlencoded) — the #1 encoding bug I review. Encode <code>&amp;</code>, <code>=</code> and <code>#</code> inside values or they split your query; never double-encode (<code>%2520</code>). URLs over ~2000 chars risk proxy truncation — POST the payload instead. Encode and parse safely with the <a href="/url-encoder">URL encoder</a> and <a href="/url-parser">URL parser</a>. Encoding guide: <a href="/blog/json-formatter-guide/url-encoding-spaces-symbols">URL encoding</a>.</p>
+<p>URLs allow a small ASCII set; everything else percent-encodes as UTF-8 bytes — é is two bytes, hence <code>%C3%A9</code>. Spaces encode as <code>%20</code> in paths but <code>+</code> in form bodies (application/x-www-form-urlencoded) — the most common encoding bug in form posts. Encode <code>&amp;</code>, <code>=</code> and <code>#</code> inside values or they split your query; never double-encode (<code>%2520</code>). URLs over ~2000 chars risk proxy truncation — POST the payload instead. Encode and parse safely with the <a href="/url-encoder">URL encoder</a> and <a href="/url-parser">URL parser</a>. Encoding guide: <a href="/blog/json-formatter-guide/url-encoding-spaces-symbols">URL encoding</a>.</p>
 <div class="cta-box"><strong>Try it now:</strong> paste a broken API reply into the <a href="/json-formatter">free JSON formatter — line errors, offline, nothing uploads</a> and fix it in seconds.</div>
 
 <h2 id="limits">Limits and honest notes</h2>
@@ -58,14 +58,7 @@ export const jsonPillar: BlogPost = {
   title: "Debug API Responses Locally: JSON, Base64, JWT, Regex Guide",
   description:
     "Debug APIs without uploading secrets: JSON errors at line:col, Base64 modes, SHA-256 vs MD5, UUID seeding, regex flags, JWT expiry + URL encoding. Free tools.",
-  keywords: [
-    "how to debug api json responses locally",
-    "json parse errors line column",
-    "base64 url safe vs standard",
-    "sha256 vs md5 which to use",
-    "jwt expiry check without trust",
-    "How do I debug a JSON API error locally?",
-  ],
+  keywords: ["how to debug api json responses locally", "json parse errors line column", "jwt expiry check without trust"],
   toolSlugs: ["json-formatter", "base64-tool", "jwt-decoder", "regex-tester"],
   relatedSlugs: ["json-parse-errors", "base64-url-safe-vs-standard", "jwt-expiry-without-trust"],
   published: "2026-10-07",
@@ -87,7 +80,7 @@ export const jsonPillar: BlogPost = {
     { question: "How do I debug a JSON API error locally?", answer: "Paste the payload into a local formatter for line:column errors — a missing comma at 1:18 beats staring at 10,000 lines. Fix trailing commas, quotes and comments, decode nested Base64/JWT layers one at a time, and verify token expiry and audience separately." },
     { question: "When should I use URL-safe Base64?", answer: "For tokens, query params, filenames and slugs, where it uses -_ without padding. Standard Base64 (+/ with =) belongs in MIME, email and data URLs. Mixing modes across a boundary is the classic midnight outage — standardize per side." },
     { question: "Is MD5 ever acceptable?", answer: "Only for legacy checksum compatibility, never for passwords or security. Use SHA-256 for integrity fingerprints, keyed HMAC for origin proof, and slow bcrypt/argon2 for password storage server-side." },
-    { question: "Does decoding a JWT verify it?", answer: "No. Decoding displays claims; your backend must verify the signature against IdP keys plus exp, aud and algorithm checks on every request. Reject alg:none unconditionally — unsigned tokens authorize nothing." },
+    { question: "Does decoding a JWT verify it?", answer: "No. Decoding displays claims; your backend must verify the signature against IdP keys and exp, aud and algorithm checks on every request. Reject alg:none unconditionally — unsigned tokens authorize nothing." },
     { question: "Why does my regex freeze the tab?", answer: "Catastrophic backtracking: nested quantifiers like (a+)+$ explode exponentially on non-matches. Prefer lazy quantifiers and explicit classes, anchor patterns, and test in runners that isolate execution in workers with timeouts." },
     { question: "Are my pasted secrets uploaded?", answer: "Not with local tools: everything runs in your tab and vanishes on close, with no retention policy to read. Verify any web tool yourself in DevTools Network — ours fires zero requests, even with Wi-Fi off after load." },
   ],

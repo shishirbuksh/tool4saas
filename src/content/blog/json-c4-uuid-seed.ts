@@ -37,14 +37,7 @@ export const uuidSeed: BlogPost = {
   title: "Seed Test Databases With UUIDs (No Collisions)",
   description:
     "Seed fixtures with bulk UUIDs: 122-bit collision math, 10,000-ID workflow + UUID vs random-string vs GUID rules. Free bulk generator.",
-  keywords: [
-    "how many uuids to seed test database without collisions",
-    "bulk uuid offline free",
-    "122 random bits rfc4122",
-    "guid vs uuid",
-    "database seeding 10000 ids",
-    "Can generated UUIDs collide?",
-  ],
+  keywords: ["how many uuids to seed test database without collisions", "bulk uuid offline free", "122 random bits rfc4122", "guid vs uuid", "database seeding 10000 ids"],
   toolSlugs: ["uuid-generator", "random-string", "hash-generator"],
   relatedSlugs: ["sha256-vs-md5-hashes", "json-parse-errors", "regex-flags-capture-groups"],
   published: "2026-10-07",

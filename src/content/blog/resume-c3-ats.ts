@@ -6,11 +6,11 @@ const html = `
 <p>Part of the <a href="/blog/resume-builder-guide">free resume builder guide</a>. Test any resume against any job post in the <a href="/ats-resume-checker">ATS resume checker</a> (up to ~15,000 characters each, fully local). Build parseable resumes in the <a href="/resume-builder">free resume builder</a>.</p>
 
 <h2 id="how-ats-reads">How ATS software reads your resume</h2>
-<p>I saw it on a Naukri autofill preview: the parser pulled sidebar skills into the wrong field. Here is what happened — it extracts raw text, splits it by headings, then matches JD terms against your words. What it drops, the recruiter never sees. Anything that confuses extraction — two columns (reading order scrambles), text boxes and tables (content skipped or misfiled), headers/footers (often ignored entirely), images and icons (unreadable), scanned PDFs (no text at all) — silently deletes your content from the match. I verified this by running a two-column resume through a checker: skills listed in the sidebar parsed at 40% field accuracy versus 100% in single column.</p>
+<p>I saw it on a Naukri autofill preview: the parser pulled sidebar skills into the wrong field. Here is what happened — it extracts raw text, splits it by headings, then matches JD terms against your words. What it drops, the recruiter never sees. Anything that confuses extraction — two columns (reading order scrambles), text boxes and tables (content skipped or misfiled), headers/footers (often ignored entirely), images and icons (unreadable), scanned PDFs (no text at all) — silently deletes your content from the match. Two-column layouts silently lose content: skills listed in the sidebar parse at far lower field accuracy than the same list in single column.</p>
 
 <h2 id="keyword-method">The keyword method: coverage without stuffing</h2>
 <ol>
-<li><strong>Paste both texts</strong> — your resume and the job description — into the <a href="/ats-resume-checker">ATS checker</a>. It extracts JD keywords (minus stopwords) and reports coverage plus the missing list (e.g. Docker, Jest).</li>
+<li><strong>Paste both texts</strong> — your resume and the job description — into the <a href="/ats-resume-checker">ATS checker</a>. It extracts JD keywords (minus stopwords) and reports coverage and the missing list (e.g. Docker, Jest).</li>
 <li><strong>Target 80%+ on shared keywords</strong> — add genuinely-true missing terms naturally: a bullet (“led CI/CD rollout”) beats a skills-dump line every time, for parsers and humans.</li>
 <li><strong>Mirror exact forms:</strong> if the JD says “CI/CD” and “Kubernetes”, write those — not just “pipelines” and “containers”. Parsers match strings, not meanings.</li>
 <li><strong>Never stuff:</strong> white-text keyword blocks and 40-skill dumps fail human review and increasingly get flagged. Natural placement only — every keyword in a bullet or skills line you can defend in interview.</li>
@@ -44,14 +44,7 @@ export const resumeAts: BlogPost = {
   title: "ATS-Friendly Resume: Beat Applicant Tracking Software (2026)",
   description:
     "ATS resume guide: how parsers read, keyword coverage method, 80% target + 5-minute pre-application loop. Free local ATS checker included.",
-  keywords: [
-    "ats friendly resume",
-    "how to make resume ats friendly",
-    "beat applicant tracking system",
-    "beat applicant tracking system keywords",
-    "resume parsing tips",
-    "How is an ATS match score calculated?",
-  ],
+  keywords: ["ats friendly resume", "how to make resume ats friendly", "beat applicant tracking system", "beat applicant tracking system keywords", "resume parsing tips"],
   toolSlugs: ["ats-resume-checker", "resume-builder", "cover-letter-builder"],
   relatedSlugs: ["how-to-make-resume", "resume-format-guide", "resume-mistakes"],
   published: "2026-09-23",
@@ -66,9 +59,9 @@ export const resumeAts: BlogPost = {
   html,
   faqs: [
     { question: "What is an ATS-friendly resume?", answer: "Single column, standard headings, common fonts, real-text PDF with no images or text boxes, and JD keywords placed naturally. Avoid two columns, tables, headers, footers and scanned PDFs that parsers drop. It parses at near-100% field accuracy so humans actually see your content, unlike Canva layouts scoring 31% versus 88%." },
-    { question: "How is an ATS match score calculated?", answer: "The checker extracts keywords from the job post (minus stopwords) and measures coverage in your resume via word-boundary matching, reporting a percentage plus the missing-term list like Docker or Jest. Paste both texts up to 15000 characters each; our tool runs fully locally so your contact details never upload." },
+    { question: "How is an ATS match score calculated?", answer: "The checker extracts keywords from the job post (minus stopwords) and measures coverage in your resume via word-boundary matching, reporting a percentage and the missing-term list like Docker or Jest. Paste both texts up to 15000 characters each; our tool runs fully locally so your contact details never upload." },
     { question: "What is a good ATS score?", answer: "Aim 80%+ coverage on shared keywords for the specific posting. Below that, add genuinely-true missing terms in bullets — never invent skills. A bullet like led CI/CD rollout beats a skills-dump line, and mirror exact forms like Kubernetes since parsers match strings, not meanings, for every term." },
-    { question: "Do I need a different resume per application?", answer: "One base plus 10-minute tailors: mirror each JD's repeated terms honestly, reorder bullets, re-check coverage above 80%. Check text reality by copying PDF into Notepad, then run the human 6-second skim for headline, current role and one metric. Full routine lives in the how-to-make-resume guide for every application." },
+    { question: "Do I need a different resume per application?", answer: "One base and 10-minute tailors: mirror each JD's repeated terms honestly, reorder bullets, re-check coverage above 80%. Check text reality by copying PDF into Notepad, then run the human 6-second skim for headline, current role and one metric. Full routine lives in the how-to-make-resume guide for every application." },
     { question: "Is pasting my resume into checkers safe?", answer: "Only if it runs locally. Random online checkers upload your contact details like phone and address to strangers. The Tool4SaaS ATS checker processes up to 15000 characters per side entirely in your browser, so your 400-word summary never leaves the tab during coverage checks before sending." },
   ],
 };

@@ -36,7 +36,7 @@ const html = `
 <h3>The hybrid I actually recommend</h3>
 <p>Use static codes for permanent fixtures (menu, WiFi, payment, reviews) and ONE dynamic code only for the campaign you truly measure. Most businesses I advise end up 90% static, 1–2 dynamic links — full analytics where it matters, zero subscription risk everywhere else. Short-URL hygiene for static codes in <a href="/blog/qr-code-generator-guide/how-to-create-qr-code">how to create a QR code</a>; density limits in <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">sizing guide</a>.</p>
 <h2 id="migration">Migration paths: switching later without disaster</h2>
-<p>Choices are not permanent if you plan the bridge. <strong>Static → dynamic:</strong> print new codes and phase out old prints; never reuse old placements assuming redirects — static patterns point where they point. Run both during transition (old menu code + new campaign code) and retire the old print run explicitly. <strong>Dynamic → static:</strong> the happy exit — point the redirect at its final URL for a grace quarter, then replace prints with static codes and cancel. I have seen a coaching institute do this cleanly: one admission season on dynamic for analytics, then permanent static codes the next year with lessons learned baked in. <strong>Vendor → vendor:</strong> the painful one — redirects live on the old vendor, so migration means reprinting everything. This is why the “vendor older than 3 years + quarterly redirect-map export” rule from the previous section exists. Your prints are only as permanent as your vendor's servers.</p>
+<p>Choices are not permanent if you plan the bridge. <strong>Static → dynamic:</strong> print new codes and phase out old prints; never reuse old placements assuming redirects — static patterns point where they point. Run both during transition (old menu code + new campaign code) and retire the old print run explicitly. <strong>Dynamic → static:</strong> the happy exit — point the redirect at its final URL for a grace quarter, then replace prints with static codes and cancel. A clean pattern for schools: one admission season on dynamic for analytics, then permanent static codes the next year with lessons learned baked in. <strong>Vendor → vendor:</strong> the painful one — redirects live on the old vendor, so migration means reprinting everything. This is why the “vendor older than 3 years + quarterly redirect-map export” rule from the previous section exists. Your prints are only as permanent as your vendor's servers.</p>
 <div class="cta-box"><strong>Default to static:</strong> make permanent codes free in the <a href="/qr-code-generator">free QR code generator</a> — buy dynamic only for what you measure. Overview: <a href="/blog/qr-code-generator-guide">pillar guide</a>.</div>
 `;
 
@@ -47,14 +47,7 @@ export const qrStaticDynamic: BlogPost = {
   title: "Static vs Dynamic QR Codes: Which to Choose (Honest Guide)",
   description:
     "Static vs dynamic QR codes compared: editing, analytics, expiry risk, privacy and cost. When free static wins and when paid dynamic earns it.",
-  keywords: [
-    "static vs dynamic qr codes",
-    "dynamic qr code free vs paid",
-    "do qr codes expire",
-    "editable qr code after printing",
-    "qr code scan analytics",
-    "Are dynamic QR codes worth paying for?",
-  ],
+  keywords: ["static vs dynamic qr codes", "dynamic qr code free vs paid", "do qr codes expire", "editable qr code after printing", "qr code scan analytics"],
   toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
   relatedSlugs: ["how-to-create-qr-code", "qr-code-for-business", "qr-code-vs-barcode"],
   published: "2026-09-22",

@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>Quote, invoice, receipt, purchase order — mix these up and accounts teams bounce your paperwork. I once sent a <strong>proforma invoice</strong> instead of a <strong>quotation</strong> and the client treated it as a bill. Awkward calls followed. This guide draws the lines clearly: what each document is, when to use it, and which free tool makes it — so the <strong>difference between invoice and bill</strong> never costs you a week again.</p>
+<p>Quote, invoice, receipt, purchase order — mix these up and accounts teams bounce your paperwork. Send a <strong>proforma invoice</strong> in place of a <strong>quotation</strong> and the client reads it as a bill; awkward calls follow. This guide draws the lines clearly: what each document is, when to use it, and which free tool makes it — so the <strong>difference between invoice and bill</strong> never costs you a week again.</p>
 <p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Tools: <a href="/invoice-generator">invoice generator</a> · <a href="/quotation-generator">quotation generator</a> · <a href="/receipt-generator">receipt generator</a> · <a href="/purchase-order-generator">purchase order generator</a>.</p>
 
 <h2 id="four-docs">The 4 documents side by side</h2>
@@ -40,7 +40,7 @@ const html = `
 </ul>
 
 <h2 id="edge-cases">Proforma, credit notes and recurring bills: the edge cases</h2>
-<p>Three documents confuse even experienced founders. Quick clarity: a <strong>proforma invoice</strong> is a polite advance request — “please pay 50% so we start” — and is <strong>not</strong> a tax invoice. Label it “PROFORMA — not a tax invoice” or accounts may book it wrong. I learned this when a client paid against my proforma and then asked “where is the GST invoice?” — two documents, one payment, messy reconciliation.</p>
+<p>Three documents confuse even experienced founders. Quick clarity: a <strong>proforma invoice</strong> is a polite advance request — “please pay 50% so we start” — and is <strong>not</strong> a tax invoice. Label it “PROFORMA — not a tax invoice” or accounts may book it wrong. A client can pay against the proforma and then ask where the GST invoice is — two documents, one payment, messy reconciliation.</p>
 <ul>
 <li><strong>Credit note (CN-001):</strong> reverses part or all of an issued invoice. “CN-001 reverses INV-2026-001 line 3 (duplicate design hours, ₹8,000)”. Never edit a sent invoice — credit-note it.</li>
 <li><strong>Recurring invoice:</strong> same retainer monthly (₹15,000 SEO, Sept 2026). Keep numbers sequential (INV-2026-008, 009, 010) and reference the retainer agreement each time.</li>
@@ -66,13 +66,7 @@ export const invoiceVsDocs: BlogPost = {
   title: "Invoice vs Quotation vs Receipt vs Purchase Order: Key Differences",
   description:
     "Invoice vs quotation vs receipt vs purchase order explained with a comparison table and quote-to-cash flow. Know when to send each + free tools.",
-  keywords: [
-    "invoice vs quotation vs receipt",
-    "difference between invoice and bill",
-    "what is purchase order vs invoice",
-    "when to use quotation vs proforma invoice",
-    "When do I send a quotation vs an invoice?",
-  ],
+  keywords: ["invoice vs quotation vs receipt", "difference between invoice and bill", "what is purchase order vs invoice", "when to use quotation vs proforma invoice"],
   toolSlugs: ["invoice-generator", "quotation-generator", "receipt-generator", "purchase-order-generator"],
   relatedSlugs: ["invoice-template-formats", "small-business-invoicing", "invoicing-mistakes-to-avoid"],
   published: "2026-09-13",
@@ -91,6 +85,6 @@ export const invoiceVsDocs: BlogPost = {
     { question: "When do I send a quotation vs an invoice?", answer: "Send quotation first like QUO-2026-014 with scope, ₹23,600 price, 15-day validity and 50% advance to propose price. Send invoice later like INV-2026-001 referencing the quote to request payment on delivery or milestone. Never treat a quote as payable or invoice from a quote number, because accounts will hold it." },
     { question: "What is a purchase order vs an invoice?", answer: "A purchase order like PO-1042 is the buyer authorizing work and telling you go ahead after accepting the quote. An invoice like INV-2026-001 is the seller requesting payment with pay now wording. Reference the PO number on your invoice so enterprise accounts clears it, because AP filters by PO and holds bills without it." },
     { question: "Do I send an invoice or receipt after payment?", answer: "Send receipt RCP-0231 confirming money received with seller, buyer, date, UPI or bank method, amount and paid invoice reference. A second invoice looks like a duplicate demand and can freeze accounts. Never send another invoice after payment — send the receipt same day as money arrives to close the loop." },
-    { question: "What is a proforma invoice?", answer: "A proforma is an advance request before work, for 50% upfront saying pay so we start. Label it PROFORMA — not a tax invoice or accounts may book it wrong. Convert to a tax invoice like INV-2026-001 on delivery. I learned this when a client paid the proforma and asked where the GST invoice was." },
+    { question: "What is a proforma invoice?", answer: "A proforma is an advance request before work, for 50% upfront saying pay so we start. Label it PROFORMA — not a tax invoice or accounts may book it wrong. Convert to a tax invoice like INV-2026-001 on delivery. A client can pay against a proforma first and then ask where the GST invoice is; convert promptly and keep input credits claimable." },
   ],
 };

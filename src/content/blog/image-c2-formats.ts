@@ -15,7 +15,7 @@ const html = `
 </ol>
 
 <h2 id="transparency-trap">The transparency trap (checkerboard means danger)</h2>
-<p>That gray checkerboard in your editor is not a background — it is the <em>absence</em> of one. Export to JPG and the converter must invent pixels: usually white, sometimes black, occasionally a mood. Transparent logos on dark website sections turn into white boxes — the #1 format embarrassment I review. Rules: checkered areas + JPG = damage; checkered areas + PNG/WebP = safe. If a platform demands JPG (some portals do), composite onto white yourself first so you control the result instead of discovering it. Test conversions in the <a href="/image-format-converter">format converter</a> with the checkerboard preview on.</p>
+<p>That gray checkerboard in your editor is not a background — it is the <em>absence</em> of one. Export to JPG and the converter must invent pixels: usually white, sometimes black, occasionally a mood. Transparent logos on dark website sections turn into white boxes — the classic format embarrassment. Rules: checkered areas + JPG = damage; checkered areas + PNG/WebP = safe. If a platform demands JPG (some portals do), composite onto white yourself first so you control the result instead of discovering it. Test conversions in the <a href="/image-format-converter">format converter</a> with the checkerboard preview on.</p>
 
 <h2 id="photo-tests">Photo tests: same image, four formats</h2>
 <p>I ran one 4.2MB phone photo through every pipeline at visually-lossless settings:</p>
@@ -42,14 +42,7 @@ export const imageFormats: BlogPost = {
   title: "PNG vs JPG vs WebP: Which Format to Use",
   description:
     "PNG vs JPG vs WebP decision tree with tested sizes, the transparency trap explained, photo format tests + logo and AVIF guidance. Free converter.",
-  keywords: [
-    "png vs jpg vs webp for website",
-    "should logo be png or webp",
-    "photo png to jpg size difference",
-    "does webp keep transparency",
-    "avif vs webp 2026",
-    "Should my logo be PNG or WebP?",
-  ],
+  keywords: ["png vs jpg vs webp for website", "should logo be png or webp", "photo png to jpg size difference", "does webp keep transparency"],
   toolSlugs: ["image-format-converter", "image-compressor", "image-resizer"],
   relatedSlugs: ["compress-jpg-100kb-portal", "resize-image-exact-pixels", "optimize-svg-logos"],
   published: "2026-10-07",

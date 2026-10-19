@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>Staging worked, production rejected every token. Diffing the two JWTs showed identical structure — except <code>exp</code>: staging tokens lived 24 hours, production 15 minutes, and the reviewer's clock ran 4 minutes slow. Three lessons in one outage: <strong>decode shows claims, expiry decides, and clocks lie</strong>. This guide teaches checking <code>exp/iat</code>, audience, and the <code>alg:none</code> kill-switch — decoding plus verification, in that order, without ever trusting a token you only read.</p>
+<p>Staging worked, production rejected every token. Diffing the two JWTs showed identical structure — except <code>exp</code>: staging tokens lived 24 hours, production 15 minutes, and the reviewer's clock ran 4 minutes slow. Three lessons in one outage: <strong>decode shows claims, expiry decides, and clocks lie</strong>. This guide teaches checking <code>exp/iat</code>, audience, and the <code>alg:none</code> kill-switch — decoding and verification, in that order, without ever trusting a token you only read.</p>
 <p>Part of the <a href="/blog/json-formatter-guide">developer toolkit guide</a>. Inspect in the <a href="/jwt-decoder">JWT decoder</a> (redact before screenshots); convert epochs in the <a href="/timestamp-converter">timestamp converter</a>.</p>
 
 <h2 id="claims">Read claims: <code>exp</code>, <code>iat</code>, <code>aud</code>, <code>iss</code></h2>
@@ -38,14 +38,7 @@ export const jwtExpiry: BlogPost = {
   title: "Check JWT Expiry Without Trusting the Token",
   description:
     "JWT expiry checks: exp/iat/aud/iss table, alg:none kill rule + decode-vs-verify discipline with redaction habits. Free local decoder.",
-  keywords: [
-    "how to check jwt expiry without verifying signature",
-    "exp 1717252800 expired 2h",
-    "alg none reject",
-    "aud vs iss mismatch staging",
-    "decode vs verify",
-    "How do I check if a JWT is expired?",
-  ],
+  keywords: ["how to check jwt expiry without verifying signature", "exp 1717252800 expired 2h", "alg none reject", "aud vs iss mismatch staging", "decode vs verify"],
   toolSlugs: ["jwt-decoder", "timestamp-converter", "base64-tool"],
   relatedSlugs: ["base64-url-safe-vs-standard", "json-parse-errors", "regex-flags-capture-groups"],
   published: "2026-10-07",
@@ -60,7 +53,7 @@ export const jwtExpiry: BlogPost = {
   faqs: [
     { question: "How do I check if a JWT is expired?", answer: "Decode and compare exp epoch seconds like 1717252800 against now, allowing about 30 seconds clock skew with NTP synced. Past exp means dead with no exceptions regardless of signature appearance. Convert inscrutable integers in the timestamp converter to reveal expired-two-hours-ago status, then diff staging versus production lifetimes." },
     { question: "Should I accept alg:none tokens?", answer: "Never in production since unsigned tokens with alg none verify against nothing and enable trivial forgery in seconds. Reject unconditionally, pin expected algorithms server-side, and fetch signing keys only from the IdP published JWKS over HTTPS. If a decoder shows none on production tokens, treat it as an incident." },
-    { question: "Does decoding a JWT verify it?", answer: "No, since decoding only displays claims while backend signature verification against IdP keys authorizes. Client-safe decoding catches 80% of integration bugs like wrong environment, stale tokens and clock skew. Every request still needs algorithm allowlists plus expiry, audience and issuer enforcement without caching verdicts for secure authentication workflows." },
+    { question: "Does decoding a JWT verify it?", answer: "No, since decoding only displays claims while backend signature verification against IdP keys authorizes. Client-safe decoding catches 80% of integration bugs like wrong environment, stale tokens and clock skew. Every request still needs algorithm allowlists and expiry, audience and issuer enforcement without caching verdicts for secure authentication workflows." },
     { question: "Why do tokens work in staging but fail in production?", answer: "Usually different lifetimes like 24 hours versus 15 minutes, mismatched audiences, or clock skew up to four minutes. Diff decoded claims side by side before touching code, checking exp, aud and iss character-for-character. Sync NTP on all parties rather than widening tolerances beyond 30 seconds." },
     { question: "Can I share JWT screenshots for debugging?", answer: "Only redacted since tokens in screenshots, tickets and logs leak sessions immediately. Redact signature segments, rotate any exposed token immediately, and verify audience and issuer visually before sharing. Remember decoding never authorizes — only backend verification against IdP keys with algorithm checks permits access for safe debugging practices." },
   ],

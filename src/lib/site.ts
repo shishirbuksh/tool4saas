@@ -1,5 +1,7 @@
 // Fail-closed poison-domain blocklist: never let placeholder/example domains
 // leak into canonicals/sitemap/JSON-LD. Any match falls back to localhost.
+import { VISIBLE_TOOL_COUNT } from "@/lib/tools";
+
 const POISON_HOST_TOKENS = ["your-domain", "placeholder", "example."];
 function isPoisonHostname(hostname: string): boolean {
   const h = hostname.toLowerCase();
@@ -12,9 +14,8 @@ function isPoisonHostname(hostname: string): boolean {
 
 export const siteConfig = {
   name: "Tool4SaaS",
-  title: "185 Free Online Tools – No Signup (2026) | Tool4SaaS",
-  description:
-    "185 free online tools: invoice generator, QR, resume builder, word counter. No signup, 100% private in your browser — try free now.",
+  title: `${VISIBLE_TOOL_COUNT} Free Online Tools – No Signup (2026) | Tool4SaaS`,
+  description: `${VISIBLE_TOOL_COUNT} free online tools: invoice generator, QR, resume builder, word counter. No signup, 100% private in your browser — try free now.`,
   keywords: [
     "free online tools",
     "invoice generator",
@@ -54,6 +55,20 @@ export const siteConfig = {
     if (!raw) return "";
     if (!/^ca-pub-\d{16}$/.test(raw)) {
       console.warn(`NEXT_PUBLIC_ADSENSE_CLIENT is invalid "${raw}" — expected format ca-pub-XXXXXXXXXXXXXXXX`);
+      return "";
+    }
+    return raw;
+  })(),
+  // Google Funding Choices (TCF v2.2) message id — the path segment after /i/
+  // in the Google-provided snippet (e.g. "pub-6310719489589992").
+  // Opt-in by design: render the FC script ONLY once the message actually
+  // exists in the AdSense/Ad Manager account, otherwise the request 404s and
+  // adds render-blocking latency for no benefit. Empty => FC disabled.
+  fundingChoicesId: (() => {
+    const raw = (process.env.NEXT_PUBLIC_FUNDING_CHOICES_ID || "").trim();
+    if (!raw) return "";
+    if (!/^pub-\d{16}$/.test(raw)) {
+      console.warn(`NEXT_PUBLIC_FUNDING_CHOICES_ID is invalid "${raw}" — expected format pub-XXXXXXXXXXXXXXXX`);
       return "";
     }
     return raw;

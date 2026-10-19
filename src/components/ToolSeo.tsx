@@ -6,10 +6,10 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { getCategory, type Tool } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
-import { getDateModifiedIso, SITE_PUBLISHED_ISO } from "@/lib/dates";
+import { getDateModifiedIso, getDatePublishedIso } from "@/lib/dates";
 import type { Locale } from "@/lib/i18n";
 
-// Staggered dateModified per-tool (Sept 1-9) — see src/lib/dates.ts
+// Real dates per-tool from git history — see src/lib/dates.ts
 // (shared with ToolPageShell visible <time> and sitemap lastmod).
 
 export default function ToolSeo({ tool, locale = "en" }: { tool: Tool; locale?: Locale }) {
@@ -19,7 +19,7 @@ export default function ToolSeo({ tool, locale = "en" }: { tool: Tool; locale?: 
   const catUrl = cat ? `${base}/category/${cat.id}` : undefined;
   const inLanguage: Locale = locale;
 
-  const datePublished = SITE_PUBLISHED_ISO;
+  const datePublished = getDatePublishedIso(tool.slug);
   const dateModified = getDateModifiedIso(tool.slug);
 
   // Validate JSON-LD inputs: drop malformed/empty entries so FAQPage always

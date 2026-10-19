@@ -91,6 +91,32 @@ export function pilotUrl(locale: Locale, slug: string): string {
   return locale === DEFAULT_LOCALE ? `/${slug}` : `/${locale}/${slug}`;
 }
 
+// Hreflang alternates for a pilot slug. Single source producing a FULLY
+// reciprocal set: EN + every locale that genuinely has a page for this slug
+// + x-default -> EN. Replaces hand-maintained `languages: {...}` maps in
+// locale pages that drifted (some FR pages shipped without the ES alternate,
+// voiding the whole hreflang cluster for that URL).
+export function hreflangLanguages(base: string, slug: string): Record<string, string> {
+  const locales = [DEFAULT_LOCALE, ...getPilotLocales(slug)] as Locale[];
+  const out: Record<string, string> = {};
+  for (const loc of locales) out[loc] = `${base}${pilotUrl(loc, slug)}`;
+  out["x-default"] = `${base}${pilotUrl(DEFAULT_LOCALE, slug)}`;
+  return out;
+}
+
+// Hreflang alternates for locale hub pages (/es, /fr): EN hub + sibling
+// hubs + x-default -> EN so the cluster stays mutual from every direction.
+// URLs are emitted WITHOUT a trailing slash to match the canonical form
+// (home canonical is `base`, hubs are `base/<locale>`), avoiding a canonical/
+// hreflang mismatch that previously pointed at `base/`.
+export function hreflangHubLanguages(base: string, locale: Locale): Record<string, string> {
+  const out: Record<string, string> = { en: base, "x-default": base };
+  for (const loc of NON_DEFAULT_LOCALES) if (HUB_LOCALES.includes(loc)) out[loc] = `${base}/${loc}`;
+  // The page being rendered must be present in its own alternate set.
+  if (!out[locale]) out[locale] = `${base}/${locale}`;
+  return out;
+}
+
 // Human labels for the visible locale switcher (ToolPageShell).
 export const LOCALE_LABEL: Record<Locale, string> = {
   en: "English version",
@@ -98,12 +124,22 @@ export const LOCALE_LABEL: Record<Locale, string> = {
   fr: "version française",
 };
 
+// Endonym labels (the language's own name) for the navbar language menu.
+export const LOCALE_NAME: Record<Locale, string> = {
+  en: "English",
+  es: "Español",
+  fr: "Français",
+};
+
+// Open Graph locale codes (og:locale / og:locale:alternate use language_TERRITORY).
+export const OG_LOCALE: Record<Locale, string> = {
+  en: "en_US",
+  es: "es_ES",
+  fr: "fr_FR",
+};
+
 export function isEsPilotSlug(slug: string): boolean {
   return ES_PILOT_SLUGS.has(slug);
-}
-
-export function esUrlForSlug(slug: string): string {
-  return `/es/${slug}`;
 }
 
 // Native ES keyword research (not translated): primary "generador de facturas
@@ -632,12 +668,54 @@ export const plagiarismCheckerEs: Tool = {
 // and sibling links fall back to EN URLs (exist) instead of 404s.
 export const ES_BLOG_PILOTS = new Set<string>(["qr-code-generator-guide/qr-code-size-print-guide"]);
 
+// Locales that publish ANY translated blog pilot. Sitemap + switcher route blog
+// alternates through this list (not NON_DEFAULT_LOCALES) so a locale that has
+// no blog content — FR today — never gets a /<locale>/blog/... URL that 404s.
+export const BLOG_PILOT_LOCALES: readonly Locale[] = ["es"];
+
 export function isEsBlogPilot(pillar: string, slug: string): boolean {
   return ES_BLOG_PILOTS.has(`${pillar}/${slug}`);
 }
 
-export function esBlogUrlFor(pillar: string, slug: string): string {
-  return `/es/blog/${pillar}/${slug}`;
+// True when `locale` publishes this exact blog cluster (translated alternate).
+export function hasBlogPilot(locale: Locale, pillar: string, slug: string): boolean {
+  return BLOG_PILOT_LOCALES.includes(locale) && isEsBlogPilot(pillar, slug);
+}
+
+// Navbar language switcher mapping. Given the current pathname and the target
+// locale, return the best available equivalent URL:
+//   - direct translation (tool slug in the target's pilot set, or a blog pilot
+//     the target publishes) when it exists,
+//   - otherwise the target locale's hub (/es, /fr),
+//   - switching back to EN strips the locale prefix (EN is at the root).
+// Pure function so the switcher stays a thin client component and the
+// mapping is unit-testable.
+export function switcherTarget(pathname: string, target: Locale): string {
+  const p = pathname.replace(/\/+$/, "") || "/";
+  const pilotSet = pilotSlugsForLocale(target);
+  const m = p.match(/^\/(es|fr)(?:\/(.+))?$/);
+  const cur = m ? (m[1] as Locale) : DEFAULT_LOCALE;
+  if (cur === target) return p; // already on target
+  if (target === DEFAULT_LOCALE) return m ? (m[2] ? `/${m[2]}` : "/") : p;
+  // Target is a non-default locale: find a path below EN the target publishes.
+  let rest: string | null = null;
+  if (m) {
+    // Currently in another non-default locale: carry the path only when the
+    // target genuinely publishes the same tool. Blogs are locale-specific, so
+    // any blog path falls through to the hub rather than a 404.
+    const curRest = m[2] ?? null;
+    if (curRest && !curRest.startsWith("blog/") && pilotSet.has(curRest)) rest = curRest;
+  } else {
+    const segs = p.split("/").filter(Boolean);
+    if (segs[0] === "blog" && hasBlogPilot(target, segs[1] ?? "", segs[2] ?? "")) {
+      rest = `blog/${segs[1]}/${segs[2]}`;
+    } else if (segs[0] && pilotSet.has(segs[0])) {
+      rest = segs[0];
+    }
+  }
+  if (!rest) return `/${target}`;
+  if (rest.startsWith("blog/")) return `/${target}/blog/${rest.split("/").slice(1).join("/")}`;
+  return pilotSet.has(rest) ? `/${target}/${rest}` : `/${target}`;
 }
 
 const qrSizePrintEsHtml = `

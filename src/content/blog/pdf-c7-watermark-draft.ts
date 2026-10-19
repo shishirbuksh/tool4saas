@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>I once received a contract draft with no watermark — forwarded twice, it reached a client who assumed it was final. Awkward calls followed. A diagonal <strong>DRAFT at 25% opacity</strong> would have prevented the entire incident for zero cost. Watermarks are status communication baked into pixels: draft, confidential, sample, do-not-copy. This guide covers wording, opacity math, placement strategy and the readability line you must not cross.</p>
+<p>An unwatermarked draft forwarded around can reach a client who assumes it is final; a light watermark prevents exactly that. Awkward calls followed. A diagonal <strong>DRAFT at 25% opacity</strong> would have prevented the entire incident for zero cost. Watermarks are status communication baked into pixels: draft, confidential, sample, do-not-copy. This guide covers wording, opacity math, placement strategy and the readability line you must not cross.</p>
 <p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Stamp in <a href="/pdf-watermark">PDF watermark</a>; prepare the file with <a href="/pdf-merge">PDF merge</a> first if needed.</p>
 
 <h2 id="wording">Wording: DRAFT, CONFIDENTIAL, SAMPLE, DO NOT COPY</h2>
@@ -41,16 +41,9 @@ export const pdfWatermarkDraft: BlogPost = {
   title: "Add DRAFT Watermark to PDF Without Blocking Text",
   description:
     "Watermark PDFs readably: DRAFT/CONFIDENTIAL wording, 25% opacity recipe, placement matrix + what watermarks can't protect. Free stamper.",
-  keywords: [
-    "how to add draft watermark to pdf",
-    "diagonal vs corner watermark",
-    "25 percent opacity readable",
-    "watermark vs stamp",
-    "remove watermark keep original",
-    "What opacity keeps watermarks readable?",
-  ],
+  keywords: ["how to add draft watermark to pdf", "diagonal vs corner watermark", "25 percent opacity readable", "watermark vs stamp", "remove watermark keep original"],
   toolSlugs: ["pdf-watermark", "pdf-merge", "pdf-split"],
-  relatedSlugs: ["merge-multiple-pdfs-order", "compress-pdf-1mb-email", "fix-sideways-scans"],
+  relatedSlugs: ["merge-multiple-pdfs-order", "extract-pages-range", "fix-sideways-scans"],
   published: "2026-10-07",
   updated: "2026-10-07",
   readingMinutes: readingMinutesFor(html),

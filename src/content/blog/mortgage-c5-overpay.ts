@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>An extra $200 a month on a $240,000 loan cuts roughly 7 years and saves tens of thousands in interest. No refinance paperwork, no appraisal, no closing costs — just principal paid early, skipping interest on all remaining months. <strong>Mortgage overpayment</strong> is one of the highest-certainty uses of spare cash (illustrative — always compare against higher-rate debt first), and this guide shows exactly how much different amounts save, plus the UK 10% rule and prepayment traps.</p>
+<p>An extra $200 a month on a $240,000 loan cuts roughly 7 years and saves tens of thousands in interest. No refinance paperwork, no appraisal, no closing costs — just principal paid early, skipping interest on all remaining months. <strong>Mortgage overpayment</strong> is one of the highest-certainty uses of spare cash (illustrative — always compare against higher-rate debt first), and this guide shows exactly how much different amounts save and the UK 10% rule and prepayment traps.</p>
 <p>Part of the <a href="/blog/mortgage-calculator-guide">mortgage calculator guide</a>. Model your extra payments in the <a href="/mortgage-overpayment-calculator">overpayment calculator</a>; compare against refinancing in the <a href="/refinance-calculator">refinance calculator</a>.</p>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 
@@ -29,7 +29,7 @@ const html = `
 </ul>
 
 <h2 id="lump-vs-monthly">Lump sums vs monthly: which saves more?</h2>
-<p>A $6,000 yearly bonus applied once beats $500/month dripped — slightly. Lump money kills principal 11 months earlier on average, skipping nearly a year of interest on that chunk. But dripped monthly wins behaviorally: autopay survives, “I'll prepay at bonus time” often evaporates into vacations. The practical ranking: automated monthly first (the habit), lump bonuses second (the accelerator), windfalls third (tax refunds, RSU vests — straight to principal unless higher-rate debt exists). On the $240k example, $500/month plus one $5,000 yearly lump approaches ~15 years off combined. Model your exact mix in the <a href="/mortgage-overpayment-calculator">overpayment calculator</a> — then automate the monthly part this week.</p>
+<p>A $6,000 yearly bonus applied once beats $500/month dripped — slightly. Lump money kills principal 11 months earlier on average, skipping nearly a year of interest on that chunk. But dripped monthly wins behaviorally: autopay survives, “I'll prepay at bonus time” often evaporates into vacations. The practical ranking: automated monthly first (the habit), lump bonuses second (the accelerator), windfalls third (tax refunds, RSU vests — straight to principal unless higher-rate debt exists). On the $240k example, $500/month and one $5,000 yearly lump approaches ~15 years off combined. Model your exact mix in the <a href="/mortgage-overpayment-calculator">overpayment calculator</a> — then automate the monthly part this week.</p>
 
 <h2 id="auto">Automate it or lose it (the biweekly trick)</h2>
 <p>Willpower fails; autopay does not. Splitting the monthly payment in half and paying biweekly creates one extra full payment yearly (26 halves = 13 months) — ~4 years saved with zero budgeting pain. Annual-bonus lump sums work the same way: one $5,000 yearly extra on the example loan saves roughly 3+ years. Set the automation the week the mortgage starts; lifestyle fills every unallocated dollar within months. Refinancing instead? Break-even decides — <a href="/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage">refinance guide</a>.</p>
@@ -45,13 +45,7 @@ export const mortgageOverpay: BlogPost = {
   title: "Extra Mortgage Payments: Interest Saved & 10% Rules (2026)",
   description:
     "Mortgage overpayment math: $100/$200/$500 extra savings, biweekly trick, UK 10% rule + prepayment traps. Free overpayment calculator.",
-  keywords: [
-    "extra mortgage payment save interest biweekly",
-    "extra mortgage payment save interest",
-    "biweekly vs monthly mortgage",
-    "uk overpayment 10 percent rule",
-    "Can I overpay without penalty in the UK?",
-  ],
+  keywords: ["extra mortgage payment save interest biweekly", "extra mortgage payment save interest", "biweekly vs monthly mortgage", "uk overpayment 10 percent rule"],
   toolSlugs: ["mortgage-overpayment-calculator", "refinance-calculator", "mortgage-calculator"],
   relatedSlugs: ["mortgage-amortization-schedule", "should-i-refinance-my-mortgage", "15-vs-30-year-mortgage"],
   published: "2026-09-24",

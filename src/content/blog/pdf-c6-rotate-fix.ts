@@ -25,9 +25,9 @@ const html = `
 <li><strong>Split</strong> the sideways range (e.g. pages 5–8) out at <a href="/pdf-split">PDF split</a> using <code>5-8</code> syntax from <a href="/blog/pdf-merge-guide/extract-pages-range">range extraction</a>.</li>
 <li><strong>Rotate</strong> only that 4-page segment to upright — the 116 good pages stay untouched.</li>
 <li><strong>Merge</strong> original-part + fixed segment + remainder back in order at <a href="/pdf-merge">PDF merge</a>.</li>
-<li><strong>Verify</strong> by sampling first, middle and final pages plus running heads continuity.</li>
+<li><strong>Verify</strong> by sampling first, middle and final pages and running heads continuity.</li>
 </ol>
-<p>This three-tool round-trip is the canonical answer to “rotate only specific pages” — uniform tools plus range surgery cover every orientation case without exceptions.</p>
+<p>This three-tool round-trip is the canonical answer to “rotate only specific pages” — uniform tools and range surgery cover every orientation case without exceptions.</p>
 <blockquote class="tip">General guidance only. For archival scans, keep a pre-rotation master — rotation metadata varies subtly across viewers.</blockquote>
 `;
 
@@ -38,16 +38,9 @@ export const pdfRotateFix: BlogPost = {
   title: "Fix Sideways Scans: Rotate PDF Pages Upright",
   description:
     "Fix sideways PDF scans: diagnose flatbed vs flag vs mixed causes, one-click uniform rotation + split-rotate-merge surgery. Free local tools.",
-  keywords: [
-    "why scans come out sideways and how to fix",
-    "sideways flatbed scan upright",
-    "rotate all pages 90 degrees",
-    "mixed orientation split-rotate-merge",
-    "orientation flag vs encode",
-    "Why are my scans sideways?",
-  ],
+  keywords: ["why scans come out sideways and how to fix", "sideways flatbed scan upright", "rotate all pages 90 degrees", "mixed orientation split-rotate-merge", "orientation flag vs encode"],
   toolSlugs: ["pdf-rotate", "pdf-split", "pdf-merge"],
-  relatedSlugs: ["extract-pages-range", "merge-multiple-pdfs-order", "compress-pdf-1mb-email"],
+  relatedSlugs: ["extract-pages-range", "merge-multiple-pdfs-order", "fix-sideways-scans"],
   published: "2026-10-07",
   updated: "2026-10-07",
   readingMinutes: readingMinutesFor(html),
@@ -60,7 +53,7 @@ export const pdfRotateFix: BlogPost = {
   faqs: [
     { question: "Why are my scans sideways?", answer: "Flatbed orientation, phone rotation flags, or mixed bundles cause it. All pages sideways means flatbed feed needing one 90° rotation, while correct-on-phone but sideways-on-desktop means embedded flag issues. Only some pages sideways signals a mixed bundle requiring split-rotate-merge surgery with range extraction for reliable diagnosis before fixing." },
     { question: "How do I rotate all PDF pages at once?", answer: "Pick 90, 180 or 270 degrees and apply to all pages at once. Use 90° clockwise for portrait flatbed output, 180° for upside-down imports and 270° for counter-clockwise skews. Preview the first thumbnail upright with headers reading correctly, then save as scan-upright.pdf for distribution after verifying all forty pages." },
-    { question: "Can I rotate only some pages?", answer: "Yes via surgery: split out the sideways range like 5–8 with PDF split, rotate only that four-page segment upright, then merge original parts and fixed segments back in order. The good pages stay untouched, and final verification samples first, middle and final pages plus running heads." },
+    { question: "Can I rotate only some pages?", answer: "Yes via surgery: split out the sideways range like 5–8 with PDF split, rotate only that four-page segment upright, then merge original parts and fixed segments back in order. The good pages stay untouched, and final verification samples first, middle and final pages and running heads." },
     { question: "Why does my PDF look fine on phone but sideways on desktop?", answer: "Embedded orientation flag versus encoded pixels causes disagreement. Phones honor the flag for preview while desktops show encoded pixels sideways. Normalize with an explicit rotate-and-save so all viewers agree permanently. When in doubt, rotate a copy and compare thumbnails side by side first before committing the original file." },
     { question: "Will rotation harm my document?", answer: "Text stays selectable while annotation anchors may drift slightly, which is acceptable for reading copies. Retain masters for archival distributions since rotation metadata varies subtly across viewers. For mixed bundles, the split-rotate-merge round-trip keeps 116 good pages untouched while fixing only the sideways segment for dependable long-term preservation." },
   ],

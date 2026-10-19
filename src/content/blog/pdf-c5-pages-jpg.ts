@@ -31,16 +31,9 @@ export const pdfPagesJpg: BlogPost = {
   title: "Convert PDF Pages to High-Quality JPG Images",
   description:
     "PDF to JPG at 1x vs 2x scale: DPI table, JPEG 85% vs PNG rules, phone batch limits + ZIP delivery. Free local renderer, no upload.",
-  keywords: [
-    "how to convert pdf pages to high quality jpg",
-    "pdf to jpg 2x vs 1x 96 dpi",
-    "brochure 6 pages to zip",
-    "jpeg 85% vs png diagrams",
-    "pdf to image no upload",
-    "What scale for PDF to JPG?",
-  ],
+  keywords: ["how to convert pdf pages to high quality jpg", "brochure 6 pages to zip", "pdf to image no upload"],
   toolSlugs: ["pdf-to-jpg", "pdf-split", "image-to-pdf"],
-  relatedSlugs: ["extract-pages-range", "compress-pdf-1mb-email", "extract-text-without-ocr"],
+  relatedSlugs: ["extract-pages-range", "extract-text-without-ocr", "fix-sideways-scans"],
   published: "2026-10-07",
   updated: "2026-10-07",
   readingMinutes: readingMinutesFor(html),

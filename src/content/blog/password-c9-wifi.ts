@@ -35,13 +35,7 @@ export const passwordWifi: BlogPost = {
   title: "Strong Wi-Fi & Router Passwords: Practical Setup (2026)",
   description:
     "Wi-Fi + router passwords done right: admin vs PSK, WPA3 settings, guest network, IoT isolation. 15-minute once-only setup.",
-  keywords: [
-    "how to create strong wifi password",
-    "router admin password length",
-    "wpa3 password generator offline",
-    "guest wifi network setup",
-    "What is a strong Wi-Fi password?",
-  ],
+  keywords: ["how to create strong wifi password", "router admin password length", "wpa3 password generator offline", "guest wifi network setup"],
   toolSlugs: ["password-generator", "random-string", "password-strength"],
   relatedSlugs: ["how-to-create-strong-password", "random-password-ideas", "2fa-vs-passkeys"],
   published: "2026-09-25",

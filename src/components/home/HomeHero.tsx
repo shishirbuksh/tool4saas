@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import HeroButtons from "@/components/HeroButtons";
-import { EXPECTED_TOOL_COUNT, EXPECTED_CATEGORY_COUNT } from "@/lib/tools";
+import { VISIBLE_TOOL_COUNT, EXPECTED_CATEGORY_COUNT } from "@/lib/tools";
 
 const QUICK_LINKS = [
   { slug: "invoice-generator", label: "Invoice" },
@@ -81,15 +81,15 @@ export default function HomeHero({ firstSlug }: { firstSlug: string }) {
               maxWidth: 560,
             }}
           >
-            Use 185 free online tools with no signup and no cost. Format JSON, compress images, and create QR codes in seconds. Your files stay on your device. See our <Link href="/privacy">privacy policy</Link>.
+            Use {VISIBLE_TOOL_COUNT} free online tools with no signup and no cost. Format JSON, compress images, and create QR codes in seconds. Your files stay on your device. See our <Link href="/privacy">privacy policy</Link>.
           </Typography>
           <Typography
             variant="body2"
             data-numeric
             sx={{ color: "text.secondary", fontWeight: 600, fontVariantNumeric: "tabular-nums" }}
-            aria-label={`${EXPECTED_TOOL_COUNT} free tools across ${EXPECTED_CATEGORY_COUNT} categories`}
+            aria-label={`${VISIBLE_TOOL_COUNT} free tools across ${EXPECTED_CATEGORY_COUNT} categories`}
           >
-            {EXPECTED_TOOL_COUNT} free tools · {EXPECTED_CATEGORY_COUNT} categories · no sign-up
+            {VISIBLE_TOOL_COUNT} free tools · {EXPECTED_CATEGORY_COUNT} categories · no sign-up
           </Typography>
           <Box sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}>
             <HeroButtons firstSlug={firstSlug} />
@@ -113,7 +113,7 @@ export default function HomeHero({ firstSlug }: { firstSlug: string }) {
                 {EXPECTED_CATEGORY_COUNT} categories
               </Typography>
               <Typography variant="body1" data-numeric sx={{ fontWeight: 800, letterSpacing: "-0.02em", fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }, fontVariantNumeric: "tabular-nums" }}>
-                {EXPECTED_TOOL_COUNT}+ tools
+                {VISIBLE_TOOL_COUNT}+ tools
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Free utilities, makers, and generators. Most run offline in your browser.

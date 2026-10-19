@@ -3,7 +3,6 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import AdSlot from "@/components/AdSlotLazy";
 import ToolSeo from "@/components/ToolSeo";
 import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import RelatedTools from "@/components/RelatedTools";
@@ -11,7 +10,7 @@ import RelatedGuides from "@/components/blog/RelatedGuides";
 import { getCategory, NOINDEX_SLUGS, tools, type Tool } from "@/lib/tools";
 import { getYMYLType } from "@/lib/ymyl";
 import { siteConfig } from "@/lib/site";
-import { getStaggeredDay } from "@/lib/dates";
+import { getDateModifiedIso, formatIsoHuman } from "@/lib/dates";
 import { isPilotSlug, getPilotLocales, LOCALE_LABEL, type Locale } from "@/lib/i18n";
 
 // Lead-in + link labels for the visible locale switcher, keyed by shell locale.
@@ -29,25 +28,17 @@ function switcherHref(toolSlug: string, target: Locale): string {
   return target === "en" ? `/${toolSlug}` : `/${target}/${toolSlug}`;
 }
 
-// Staggered dateModified per-tool (Sept 1-9) — see src/lib/dates.ts
+// Real dateModified per-tool derived from git history — see src/lib/dates.ts
 // (shared with ToolSeo JSON-LD and sitemap lastmod).
-
-const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-function getStaggeredDate(slug: string): { iso: string; display: string } {
-  const day = getStaggeredDay(slug);
-  const iso = `2026-09-${String(day).padStart(2, "0")}`;
-  const display = `${MONTH_NAMES[8]} ${day}, 2026`;
-  return { iso, display };
-}
 
 export default function ToolPageShell({ tool, children, locale = "en" }: { tool: Tool; children: React.ReactNode; locale?: Locale }) {
   const cat = getCategory(tool.category);
-  // dateModified uses the same staggered Sept 1-9 slug hash as ToolSeo's
-  // dateModified (published 2026-09-01), so the visible <time> date always
-  // equals the JSON-LD dateModified. Never clamp to a single date.
+  // dateModified comes from real git history of the tool's data file
+  // (src/lib/edit-dates.generated.ts), so the visible <time> date always
+  // equals the JSON-LD dateModified and the sitemap lastmod.
   const seeAlso = tools.filter((t) => t.category === tool.category && t.slug !== tool.slug && !NOINDEX_SLUGS.has(t.slug)).slice(0, 2);
-  const { iso: dateModifiedIso, display: dateModifiedDisplay } = getStaggeredDate(tool.slug);
+  const dateModifiedIso = getDateModifiedIso(tool.slug);
+  const dateModifiedDisplay = formatIsoHuman(dateModifiedIso);
   // Central YMYL injection (single source: src/lib/ymyl.ts). Covers finance +
   // health categories plus 10 calculators/business overrides. Tools must not
   // import YMYLDisclaimer directly.
@@ -149,15 +140,7 @@ export default function ToolPageShell({ tool, children, locale = "en" }: { tool:
           </Typography>
         )}
       </Box>
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "minmax(0, 1fr)", lg: "minmax(0, 800px) 300px" },
-          justifyContent: "center",
-          gap: { xs: 4, md: 6 },
-          alignItems: "start",
-        }}
-      >
+      <Box sx={{ maxWidth: 860, mx: "auto" }}>
         <Box sx={{ width: "100%", minWidth: 0, overflowX: "auto" }}>
           {ymylType && (
             <Box sx={{ mb: 2 }}>
@@ -190,13 +173,6 @@ export default function ToolPageShell({ tool, children, locale = "en" }: { tool:
           </Box>
           {children}
         </Box>
-        <Box sx={{ minHeight: { xs: 250, lg: 280 } }}>
-          <AdSlot
-            format="rectangle"
-            slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_RECTANGLE || ""}
-            label="Advertisement"
-          />
-        </Box>
       </Box>
       <RelatedTools slug={tool.slug} />
       <RelatedGuides slug={tool.slug} />
@@ -212,21 +188,21 @@ export default function ToolPageShell({ tool, children, locale = "en" }: { tool:
           {locale === "es" ? (
             <>
               Revisado por <Box component="span" translate="no" sx={{ display: "inline" }}>{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
-              Probado en Chrome, Edge, Firefox y Safari. Cada herramienta funciona en tu navegador. Última actualización:{" "}
+              Última actualización:{" "}
               <time dateTime={dateModifiedIso}>{dateModifiedDisplay}</time>.{" "}
               Ver <Link href="/author">autores</Link>, <Link href="/methodology">metodología</Link> o <Link href="/contact">contacto</Link>.
             </>
           ) : locale === "fr" ? (
             <>
               Relu par <Box component="span" translate="no" sx={{ display: "inline" }}>{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
-              Testé sur Chrome, Edge, Firefox et Safari. Chaque outil fonctionne dans votre navigateur. Dernière mise à jour :{" "}
+              Dernière mise à jour :{" "}
               <time dateTime={dateModifiedIso}>{dateModifiedDisplay}</time>.{" "}
               Voir <Link href="/author">auteurs</Link>, <Link href="/methodology">méthodologie</Link> ou <Link href="/contact">contact</Link>.
             </>
           ) : (
             <>
               Reviewed by the <Box component="span" translate="no" sx={{ display: "inline" }}>{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
-              Tested in-house on Chrome, Edge, Firefox, and Safari. Every tool runs locally in your browser. Last updated:{" "}
+              Last updated:{" "}
               <time dateTime={dateModifiedIso}>{dateModifiedDisplay}</time>.{" "}
               {/* Both /author and /methodology exist (glob check) — prefer /author first */}
               See <Link href="/author">our authors</Link>, <Link href="/methodology">methodology</Link> or <Link href="/contact">contact us</Link>.

@@ -99,23 +99,23 @@ function walkSrc(dir, out) {
 }
 
 // ---------------------------------------------------------------------------
-// 2. AdSense client + slots — regex checks across .env.example and .env
-//    Missing in .env => WARN (hosting env may inject it). Invalid => FAIL.
+// 2. AdSense client (regex) + Funding Choices (opt-in)
+//    Missing client in .env => WARN (hosting env may inject it). Invalid => FAIL.
+//    Monetization is Auto Ads (page-level loader) — no manual slot IDs.
 // ---------------------------------------------------------------------------
 const CLIENT_RE = /^ca-pub-\d{16}$/;
-const SLOT_RE = /^\d{10}$/;
-const SLOT_VARS = [
-  "NEXT_PUBLIC_ADSENSE_SLOT_LEADERBOARD",
-  "NEXT_PUBLIC_ADSENSE_SLOT_RECTANGLE",
-  "NEXT_PUBLIC_ADSENSE_SLOT_INARTICLE",
-];
+const FC_RE = /^pub-\d{16}$/;
 
 const exampleText = readRel(".env.example");
 const envText = readRel(".env");
 const exampleEnv = parseEnvText(exampleText);
 const dotEnv = parseEnvText(envText);
 
-function checkClient(sourceName, map, missingStatus) {
+function downgradeForExample(status, isExample) {
+  return isExample && status === "FAIL" ? "WARN" : status;
+}
+
+function checkClient(sourceName, map, missingStatus, isExample = false) {
   const val = (map.get("NEXT_PUBLIC_ADSENSE_CLIENT") ?? "").trim();
   if (!val) {
     add(
@@ -129,66 +129,78 @@ function checkClient(sourceName, map, missingStatus) {
   if (!CLIENT_RE.test(val)) {
     add(
       `AdSense client (${sourceName})`,
-      "FAIL",
-      `must match ca-pub- + 16 digits, got "${val.slice(0, 40)}"`
+      downgradeForExample("FAIL", isExample),
+      `must match ca-pub- + 16 digits, got "${val.slice(0, 40)}"`,
+      !isExample
     );
   } else if (/^ca-pub-0+$/.test(val)) {
-    add(`AdSense client (${sourceName})`, "FAIL", `placeholder all-zeros: "${val}"`);
+    add(`AdSense client (${sourceName})`, downgradeForExample("FAIL", isExample), `placeholder all-zeros: "${val}"`, !isExample);
   } else {
     add(`AdSense client (${sourceName})`, "PASS", `"${val}"`);
   }
 }
 
-function checkSlots(sourceName, map, missingStatus) {
-  const parts = [];
-  let hasFail = false;
-  let hasMissing = false;
-  for (const key of SLOT_VARS) {
-    const val = (map.get(key) ?? "").trim();
-    const shortKey = key.replace("NEXT_PUBLIC_ADSENSE_SLOT_", "");
-    if (!val) {
-      hasMissing = true;
-      parts.push(`${shortKey}=<missing>`);
-    } else if (!SLOT_RE.test(val)) {
-      hasFail = true;
-      parts.push(`${shortKey}="${val.slice(0, 20)}" invalid (want 10 digits)`);
-    } else if (/^0+$/.test(val)) {
-      hasFail = true;
-      parts.push(`${shortKey}="${val}" placeholder`);
-    } else {
-      parts.push(`${shortKey}="${val}" ok`);
-    }
-  }
-  const detail = parts.join("; ");
-  if (hasFail) {
-    add(`Ad slots 10-digit (${sourceName})`, "FAIL", detail);
-  } else if (hasMissing) {
-    add(`Ad slots 10-digit (${sourceName})`, missingStatus, detail, missingStatus === "FAIL");
-  } else {
-    add(`Ad slots 10-digit (${sourceName})`, "PASS", detail);
-  }
-}
-
 if (exampleText == null) {
   add("AdSense client (.env.example)", "FAIL", ".env.example missing");
-  add("Ad slots 10-digit (.env.example)", "FAIL", ".env.example missing");
 } else {
-  checkClient(".env.example", exampleEnv, "FAIL");
-  checkSlots(".env.example", exampleEnv, "FAIL");
+  // .env.example is documentation, never deployed — placeholders are expected
+  // there. Downgrade to FAIL so only live config (.env / ads.txt) can FAIL.
+  checkClient(".env.example", exampleEnv, "WARN", true);
+  // Funding Choices id must be documented (opt-in) but is allowed to be empty.
+  add(
+    "Funding Choices documented (.env.example)",
+    exampleEnv.has("NEXT_PUBLIC_FUNDING_CHOICES_ID") ? "PASS" : "WARN",
+    exampleEnv.has("NEXT_PUBLIC_FUNDING_CHOICES_ID")
+      ? "NEXT_PUBLIC_FUNDING_CHOICES_ID documented (empty = FC off)"
+      : "add NEXT_PUBLIC_FUNDING_CHOICES_ID to .env.example",
+    false
+  );
 }
 if (envText == null) {
   add("AdSense client (.env)", "WARN", ".env missing (local only?)", false);
-  add("Ad slots 10-digit (.env)", "WARN", ".env missing (local only?)", false);
 } else {
   checkClient(".env", dotEnv, "WARN");
-  checkSlots(".env", dotEnv, "WARN");
+  // If a live FC id is present, it must be well-formed.
+  const fcVal = (dotEnv.get("NEXT_PUBLIC_FUNDING_CHOICES_ID") ?? "").trim();
+  if (fcVal) {
+    add(
+      "Funding Choices id (.env)",
+      FC_RE.test(fcVal) ? "PASS" : "WARN",
+      FC_RE.test(fcVal) ? `"${fcVal}"` : `"${fcVal.slice(0, 40)}" invalid (want pub- + 16 digits)`,
+      false
+    );
+  }
+}
+
+// 2b. Funding Choices wired into the shared root document (conditional).
+{
+  const layout = readRel("src/components/RootDocument.tsx");
+  const wired =
+    !!layout &&
+    layout.includes("fundingChoicesId") &&
+    layout.includes("fundingchoicesmessages.google.com");
+  add(
+    "Funding Choices wired (RootDocument)",
+    wired ? "PASS" : "FAIL",
+    wired
+      ? "FC script rendered from NEXT_PUBLIC_FUNDING_CHOICES_ID (off when unset)"
+      : "RootDocument.tsx does not render the Funding Choices script"
+  );
+  // 2c. Auto Ads loader: AdSenseScript must be the page-level tag (client param).
+  const ads = readRel("src/components/AdSenseScript.tsx");
+  const autoAds = !!ads && ads.includes("adsbygoogle.js?client=");
+  add(
+    "Auto Ads loader (AdSenseScript)",
+    autoAds ? "PASS" : "FAIL",
+    autoAds ? "page-level adsbygoogle.js?client= loader present" : "AdSenseScript.tsx loader missing"
+  );
 }
 
 // ---------------------------------------------------------------------------
 // 3. Contact / Author / Methodology pages exist
 // ---------------------------------------------------------------------------
 for (const p of ["contact", "author", "methodology"]) {
-  const rel = `src/app/${p}/page.tsx`;
+  const rel = `src/app/(en)/${p}/page.tsx`;
   if (existsRel(rel)) {
     add(`page /${p} exists`, "PASS", rel);
   } else {
@@ -228,9 +240,9 @@ for (const p of ["contact", "author", "methodology"]) {
 // 5. pdf-compress noindex + excluded from sitemap
 // ---------------------------------------------------------------------------
 {
-  const page = readRel("src/app/pdf-compress/page.tsx");
+  const page = readRel("src/app/(en)/pdf-compress/page.tsx");
   if (page == null) {
-    add("pdf-compress noindex", "FAIL", "src/app/pdf-compress/page.tsx missing");
+    add("pdf-compress noindex", "FAIL", "src/app/(en)/pdf-compress/page.tsx missing");
   } else if (/index\s*:\s*false/.test(page)) {
     add("pdf-compress noindex", "PASS", "robots.index=false in page metadata");
   } else {
@@ -257,9 +269,9 @@ for (const p of ["contact", "author", "methodology"]) {
 // 6. Layout consent-default denied + wait_for_update
 // ---------------------------------------------------------------------------
 {
-  const layout = readRel("src/app/layout.tsx");
+  const layout = readRel("src/components/RootDocument.tsx");
   if (layout == null) {
-    add("layout consent-default", "FAIL", "src/app/layout.tsx missing");
+    add("layout consent-default", "FAIL", "src/components/RootDocument.tsx missing");
   } else {
     const hasDefault =
       layout.includes("consent-default") || /consent['"]\s*,\s*['"]default['"]/.test(layout);
@@ -454,7 +466,7 @@ for (const p of ["contact", "author", "methodology"]) {
 // 11. Metadata title logic present
 // ---------------------------------------------------------------------------
 {
-  const layout = readRel("src/app/layout.tsx");
+  const layout = readRel("src/components/RootDocument.tsx");
   const meta = readRel("src/lib/metadata.ts");
   const layoutOk =
     !!layout && layout.includes("template") && layout.includes("%s") && layout.includes("default");

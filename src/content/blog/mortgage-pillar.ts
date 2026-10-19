@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>My cousin budgeted $1,450 a month for her first home — the principal-and-interest number the listing agent quoted. Her actual first bill: $1,940. Property tax, insurance and PMI added nearly $500 nobody had walked her through. She could afford it, but the surprise stung for months. If your home math still says “principal plus interest and done”, this <strong>mortgage calculator guide</strong> closes the gap before a lender has to.</p>
+<p>My cousin budgeted $1,450 a month for her first home — the principal-and-interest number the listing agent quoted. Her actual first bill: $1,940. Property tax, insurance and PMI added nearly $500 nobody had walked her through. She could afford it, but the surprise stung for months. If your home math still says “principal and interest and done”, this <strong>mortgage calculator guide</strong> closes the gap before a lender has to.</p>
 <p>Here is the promise: by the end of this page you will know exactly <strong>how mortgage payments are calculated, what PITI and PMI add on top, how amortization front-loads interest, and when 15-year terms, overpayments or refinancing change the math — with illustrative numbers worked by hand</strong>. I ran every example below through our <a href="/mortgage-calculator">free mortgage calculator</a> in September 2026 (no signup, private in-browser). Open it in the next tab and follow along.</p>
 <p>Rates and examples as of Sept 2026, illustrative only — not a lender offer. Excludes taxes, insurance, PMI, HOA, fees and ARM resets unless stated.</p>
 <p>In this pillar: what a <strong>home loan calculator</strong> does, the 4 inputs that matter, the full PITI breakdown, the exact formula with a $240,000 worked example, amortization schedules, <strong>15-vs-30-year math</strong>, affordability rules, down payment and PMI, refinance break-even, overpayments, <strong>India EMI mode</strong>, and rent-vs-buy. Each section links to a deeper tutorial — nine of them. In a hurry? Jump to <a href="#formula-example">the formula + $240k example</a>.</p>
@@ -10,7 +10,7 @@ const html = `
 
 <h2 id="what-is-calculator">What is a mortgage calculator — and what does it actually compute?</h2>
 <p>A <strong>mortgage calculator</strong> (also called a <strong>home loan calculator</strong>, <strong>house payment estimator</strong> or <strong>mortgage payment calculator</strong>) turns four inputs — loan amount, annual rate, tenure and down payment — into your monthly payment, lifetime interest and payoff date. You type, it amortizes, you compare scenarios. That is it.</p>
-<p>The Tool4SaaS version runs <strong>100% in your browser</strong> with no signup: principal, rate and tenure in, EMI plus a yearly amortization table out, with CSV export for side-by-side rate comparisons. Your loan figures never leave the tab — I verified with the network off after page load. Compare that to bank calculators demanding ZIP codes, credit ranges and phone numbers before showing a single number.</p>
+<p>The Tool4SaaS version runs <strong>100% in your browser</strong> with no signup: principal, rate and tenure in, EMI and a yearly amortization table out, with CSV export for side-by-side rate comparisons. Your loan figures never leave the tab — Confirm it yourself: load the page once, go offline, and the calculators still work. Compare that to bank calculators demanding ZIP codes, credit ranges and phone numbers before showing a single number.</p>
 <h3>The 4 inputs that matter (and the ones people skip)</h3>
 <ul>
 <li><strong>Home price minus down payment = loan amount (P).</strong> A $300,000 home with $60,000 down means P = $240,000. Every extra down-payment dollar cuts interest twice: smaller loan, and no PMI past 20%.</li>
@@ -20,7 +20,7 @@ const html = `
 </ul>
 
 <h2 id="piti-breakdown">PITI: the real monthly payment (principal is only the start)</h2>
-<p>Lenders quote principal and interest. Homeowners pay <strong>PITI — principal, interest, property tax and insurance</strong> — plus PMI and HOA where they apply. My cousin's $490 gap is textbook: on a $300,000 home, ~1.1%/year property tax adds ~$275/month, insurance ~$150, and PMI under 20% down adds $100–300 more. Budget the full stack or the “affordable” payment is fiction.</p>
+<p>Lenders quote principal and interest. Homeowners pay <strong>PITI — principal, interest, property tax and insurance</strong> — and PMI and HOA where they apply. My cousin's $490 gap is textbook: on a $300,000 home, ~1.1%/year property tax adds ~$275/month, insurance ~$150, and PMI under 20% down adds $100–300 more. Budget the full stack or the “affordable” payment is fiction.</p>
 <table>
 <thead><tr><th>Component</th><th>Typical size</th><th>Notes</th></tr></thead>
 <tbody>
@@ -67,7 +67,7 @@ const html = `
 <p><strong>Fixed-rate</strong> locks one rate for the whole term — payment never moves, planning is trivial, and you win big if rates rise. <strong>Adjustable-rate (ARM)</strong> offers a lower teaser (5/1, 7/1: fixed years, then yearly adjusts with caps) — cheaper if you sell or refinance before reset, dangerous if you stay and rates climb. The honest test: will you certainly move, sell or refinance before the fixed period ends? Military movers and 5-year planners can profit from ARMs; “maybe we'll stay” families should pay the fixed premium. Never plan a decade off a teaser schedule — our calculator and every schedule in this silo assume fixed rates. Hybrid middle ground: fixed loan now, <a href="/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage">refinance</a> if rates fall, <a href="/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment">overpay</a> if they do not.</p>
 
 <h2 id="preapproval">Preapproval vs prequalification (and how to shop lenders)</h2>
-<p><strong>Prequalification</strong> is a 10-minute estimate from self-reported numbers — useful for browsing, worthless as proof. <strong>Preapproval</strong> is underwritten verification (income, assets, credit pull) with a max amount letter sellers take seriously. Get preapproved before touring: it sets the real ceiling from <a href="/blog/mortgage-calculator-guide/how-much-house-can-i-afford">affordability math</a>, and sellers in competitive markets bin non-preapproved offers unread. Then shop: three Loan Estimates on the same day (rates move daily), compare APR plus closing line by line — not monthly payment alone, which lenders can shrink with points and longer terms. Multiple mortgage pulls within ~2 weeks count as one inquiry for scoring; spread shopping across months dings you repeatedly. Lock the winner's rate in writing.</p>
+<p><strong>Prequalification</strong> is a 10-minute estimate from self-reported numbers — useful for browsing, worthless as proof. <strong>Preapproval</strong> is underwritten verification (income, assets, credit pull) with a max amount letter sellers take seriously. Get preapproved before touring: it sets the real ceiling from <a href="/blog/mortgage-calculator-guide/how-much-house-can-i-afford">affordability math</a>, and sellers in competitive markets bin non-preapproved offers unread. Then shop: three Loan Estimates on the same day (rates move daily), compare APR and closing line by line — not monthly payment alone, which lenders can shrink with points and longer terms. Multiple mortgage pulls within ~2 weeks count as one inquiry for scoring; spread shopping across months dings you repeatedly. Lock the winner's rate in writing.</p>
 
 <h2 id="first-time">First-time buyer programs worth checking</h2>
 <ul>
@@ -75,25 +75,25 @@ const html = `
 <li><strong>FHA loans:</strong> 3.5% down with lenient credit floors; MIP rules differ from PMI (often permanent for the loan's life) — price that before celebrating the low entry.</li>
 <li><strong>VA/USDA:</strong> zero-down for eligible veterans and rural buyers — the cheapest entry in American housing for those who qualify.</li>
 <li><strong>State + employer assistance:</strong> grants, forgivable seconds, employer relocation sums — stackable with the above; search your state's housing finance agency before assuming 20% is mandatory.</li>
-<li><strong>India parallel:</strong> PMAY-linked interest subsidies for eligible first homes plus state stamp-duty rebates — check current scheme windows with your bank/HFC alongside <a href="/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india">India EMI guide</a>.</li>
+<li><strong>India parallel:</strong> PMAY-linked interest subsidies for eligible first homes and state stamp-duty rebates — check current scheme windows with your bank/HFC alongside <a href="/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india">India EMI guide</a>.</li>
 </ul>
 
 <h2 id="points">Points: buying down the rate (when it pays)</h2>
-<p>Lenders sell <strong>discount points</strong>: pay ~1% of the loan upfront per point to cut the rate ~0.25%. On $240,000, one $2,400 point might save ~$35/month — break-even near 5–6 years, same division as refinancing. Points pay when you stay long, have spare cash after down payment plus reserves, and itemize the deduction benefit with your tax advisor. Points lose when you move, refinance or overpay aggressively inside the window — all three shorten the loan below break-even. Builder/lender “free point” promos are just price negotiations wearing costumes: compare the no-points APR from a second lender before celebrating. Model both versions in the <a href="/mortgage-calculator">calculator</a> at each rate; the cheaper lifetime total wins regardless of packaging.</p>
+<p>Lenders sell <strong>discount points</strong>: pay ~1% of the loan upfront per point to cut the rate ~0.25%. On $240,000, one $2,400 point might save ~$35/month — break-even near 5–6 years, same division as refinancing. Points pay when you stay long, have spare cash after down payment and reserves, and itemize the deduction benefit with your tax advisor. Points lose when you move, refinance or overpay aggressively inside the window — all three shorten the loan below break-even. Builder/lender “free point” promos are just price negotiations wearing costumes: compare the no-points APR from a second lender before celebrating. Model both versions in the <a href="/mortgage-calculator">calculator</a> at each rate; the cheaper lifetime total wins regardless of packaging.</p>
 
 <h2 id="glossary">Glossary: 12 terms in plain English</h2>
 <ul>
 <li><strong>Principal:</strong> amount borrowed (P). <strong>Interest:</strong> rent on that money. <strong>EMI/P&I:</strong> fixed monthly P+I payment.</li>
 <li><strong>PITI:</strong> P&I + tax + insurance. <strong>PMI/MIP:</strong> lender-protection insurance under ~20% down.</li>
 <li><strong>DTI:</strong> debts ÷ gross income; 28/36 gates. <strong>LTV:</strong> loan ÷ value; decides PMI and rate tiers.</li>
-<li><strong>APR:</strong> rate plus fees annualized — compare APRs, not note rates, across lenders.</li>
+<li><strong>APR:</strong> rate and fees annualized — compare APRs, not note rates, across lenders.</li>
 <li><strong>Amortization:</strong> the payoff schedule; interest-heavy early. <strong>Equity:</strong> value minus balance — your ownership slice.</li>
 <li><strong>Escrow:</strong> lender-held tax/insurance prepayments. <strong>Closing costs:</strong> 2–6% one-time fees at signing.</li>
 <li><strong>FOIR (India):</strong> all EMIs within ~50–60% of income. <strong>CIBIL:</strong> credit score; 750+ qualifies for the lowest rate slabs banks publish.</li>
 </ul>
 
 <h2 id="timeline">Offer to keys: the 30–60 day timeline</h2>
-<p>Knowing the sequence prevents panic at every stage. <strong>Days 1–3:</strong> offer accepted, earnest money deposited, formal application filed — rate lock starts here. <strong>Days 3–10:</strong> Loan Estimate arrives (compare once more), appraisal ordered, inspections done; inspection findings renegotiate price or credits now, never after contingencies expire. <strong>Days 10–30:</strong> underwriting verifies everything — do not open credit cards, finance furniture or change jobs; I have seen a sofa loan kill a closing. <strong>Days 30–45:</strong> conditional approval → conditions cleared (pay stubs, explanation letters) → clear to close. <strong>Closing day:</strong> review the Closing Disclosure against the Loan Estimate (tolerances are legally capped), wire funds via verified instructions (wire fraud is real — call the title company at a known number), sign, get keys. Delays cluster at appraisal gaps and underwriting document loops — respond to lender requests within hours, not days.</p>
+<p>Knowing the sequence prevents panic at every stage. <strong>Days 1–3:</strong> offer accepted, earnest money deposited, formal application filed — rate lock starts here. <strong>Days 3–10:</strong> Loan Estimate arrives (compare once more), appraisal ordered, inspections done; inspection findings renegotiate price or credits now, never after contingencies expire. <strong>Days 10–30:</strong> underwriting verifies everything — do not open credit cards, finance furniture or change jobs; a furniture loan booked the same month has cost closings. <strong>Days 30–45:</strong> conditional approval → conditions cleared (pay stubs, explanation letters) → clear to close. <strong>Closing day:</strong> review the Closing Disclosure against the Loan Estimate (tolerances are legally capped), wire funds via verified instructions (wire fraud is real — call the title company at a known number), sign, get keys. Delays cluster at appraisal gaps and underwriting document loops — respond to lender requests within hours, not days.</p>
 
 <h2 id="rent-buy">Rent vs buy: break-even math, not slogans</h2>
 <p>“Rent is throwing money away” ignores interest, tax, maintenance (~1%/yr), insurance, closing costs (2–6%) and the opportunity cost of the down payment invested. The honest test: total 5–7 year cost of owning (PITI + maintenance + closing, minus principal repaid and appreciation) versus renting + investing the difference. High rates, short stays and hot rental markets favor renting; long stays and fixed payments favor buying. Worked break-even in <a href="/blog/mortgage-calculator-guide/rent-vs-buy-house">rent-vs-buy guide</a>.</p>
@@ -103,7 +103,7 @@ const html = `
 <li><strong>Compute your 28/36 ceilings</strong> from real pay stubs and debts — that budget is your search filter (<a href="/blog/mortgage-calculator-guide/how-much-house-can-i-afford">affordability guide</a>).</li>
 <li><strong>Check credit early:</strong> CIBIL/credit reports months ahead leave room for disputes; last-minute surprises cost rate tiers.</li>
 <li><strong>Separate the funds:</strong> down payment, closing (2–6%), and emergency reserves in three mental buckets — never let one raid the others.</li>
-<li><strong>Book one advisor conversation</strong> before offers: a licensed mortgage advisor plus your tax advisor, 30 minutes each, beats 30 hours of forum reading.</li>
+<li><strong>Book one advisor conversation</strong> before offers: a licensed mortgage advisor and your tax advisor, 30 minutes each, beats 30 hours of forum reading.</li>
 </ol>
 <blockquote class="tip">For informational purposes only — not financial advice. Estimates may vary; consult a qualified financial advisor for decisions. See <a href="/terms">/terms</a>.</blockquote>
 `;
@@ -135,15 +135,7 @@ export const mortgagePillar: BlogPost = {
   title: "Mortgage Calculator Guide: Payments, PMI & Amortization",
   description:
     "Learn how mortgage payments work — PITI, formula with $240k example, amortization, 15-vs-30, refinance, India EMI + rent-vs-buy. Free calculator.",
-  keywords: [
-    "mortgage calculator guide",
-    "how does mortgage payment calculator work",
-    "piti vs principal and interest",
-    "mortgage calculator first-time buyers pmi",
-    "home loan calculator guide",
-    "house payment estimator",
-    "How is a monthly mortgage payment calculated?",
-  ],
+  keywords: ["mortgage calculator guide", "how does mortgage payment calculator work", "piti vs principal and interest", "mortgage calculator first-time buyers pmi", "home loan calculator guide", "house payment estimator"],
   toolSlugs: ["mortgage-calculator", "home-affordability-calculator", "refinance-calculator", "mortgage-overpayment-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "how-much-house-can-i-afford", "15-vs-30-year-mortgage"],
   published: "2026-09-24",
@@ -160,7 +152,7 @@ export const mortgagePillar: BlogPost = {
     {
       question: "What is PITI in a mortgage payment?",
       answer:
-        "Principal, interest, property tax and insurance — plus PMI under 20% down and HOA dues where applicable. Lenders quote principal and interest only, but homeowners pay the full stack, often hundreds more monthly; budget on PITI, never P&I alone.",
+        "Principal, interest, property tax and insurance — and PMI under 20% down and HOA dues where applicable. Lenders quote principal and interest only, but homeowners pay the full stack, often hundreds more monthly; budget on PITI, never P&I alone.",
     },
     {
       question: "Why is my early mortgage payment mostly interest?",

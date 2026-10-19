@@ -2,11 +2,11 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>I used to think QR codes needed an app, an account, and ten minutes. Then I timed the browser flow: <strong>how to create a QR code free takes about 60 seconds</strong> — type, size, download, scan-tested. Here is the exact process I ran on September 20, 2026 for a menu URL, a WiFi network and a 200-character event note, plus the content-formatting details that decide whether phones open the right app.</p>
+<p>QR codes need none of the old ceremony — no app, no account, no ten-minute setup. The browser flow: <strong>how to create a QR code free takes about 60 seconds</strong> — type, size, download, scan-tested. Here is the exact process I ran on September 20, 2026 for a menu URL, a WiFi network and a 200-character event note and the content-formatting details that decide whether phones open the right app.</p>
 <p>This is part of the <a href="/blog/qr-code-generator-guide">free QR code generator guide</a> — the pillar covers the whole system, this tutorial is the hands-on walkthrough. Open <a href="/qr-code-generator">the free QR code generator</a> in the next tab and follow along. No signup, no watermark, works offline after load, codes never expire.</p>
 
 <h2 id="what-you-need-first">What you need before you start (1-minute prep)</h2>
-<p>Do not open the tool yet. Decide two things and the rest is mechanical. I learned this after generating a gorgeous code for a 340-character tracking URL that no budget phone could read.</p>
+<p>Do not open the tool yet. Decide two things and the rest is mechanical. Dense payloads are the enemy: a 340-character tracking URL produces a code no budget phone camera reliably reads.</p>
 <ul>
 <li><strong>The exact content:</strong> final URL (short beats long), exact text, phone with country code, or email with subject. Shorter content = sparser pattern = easier scanning.</li>
 <li><strong>Where it will be scanned:</strong> phone screen and chat (512px), printed handout (512px), poster or storefront (2048px). Distance decides size — full math in <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">QR code size and print guide</a>.</li>
@@ -67,14 +67,7 @@ export const qrHowToCreate: BlogPost = {
   title: "How to Create a QR Code Free in 60 Seconds (PNG, No Signup)",
   description:
     "How to make a QR code free: 5-step walkthrough with sizing, content formats and test-scan routine. Static codes that never expire. No signup.",
-  keywords: [
-    "how to create qr code free",
-    "how to make qr code online",
-    "generate qr code png free",
-    "create qr code for link free",
-    "qr code maker no signup",
-    "Which size should I download?",
-  ],
+  keywords: ["how to create qr code free", "how to make qr code online", "generate qr code png free", "create qr code for link free", "qr code maker no signup"],
   toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
   relatedSlugs: ["qr-code-size-print-guide", "qr-code-not-scanning-fix", "wifi-qr-code-guide"],
   published: "2026-09-22",
@@ -93,6 +86,6 @@ export const qrHowToCreate: BlogPost = {
     { question: "Which size should I download?", answer: "Pick 512px PNG for websites, WhatsApp, slides, social posts and small prints up to about 5 cm. Pick 2048px for posters, flyers, menus and anything scanned beyond arm's length or over 1 meter. Never upscale a small file because stretched edges blur — regenerate at the bigger size in 30 seconds." },
     { question: "Why does content length matter?", answer: "Longer text makes a denser module pattern needing larger prints to scan reliably. A short URL under about 60 characters scans at 2 cm with a sparse forgiving grid, while a 200-character payload needs 3–4 cm and a 340-character tracking URL becomes an unscannable brick. Shorten URLs before encoding for print codes." },
     { question: "PNG or JPG for QR codes?", answer: "Use PNG always for the master file like qr-menu-512.png because it is lossless, so black-white module edges stay razor sharp and print-safe. JPG recompression blurs edges and causes scan failures, especially after multiple re-saves or WhatsApp forwarding. Avoid re-saving as JPG and keep PNG end to end for printing." },
-    { question: "How do I know my code works before printing?", answer: "Scan the screen preview with your phone, then print one copy and scan from the real viewing distance and lighting with two different phones such as old Android plus iPhone. Test sunlight, shade, low brightness and office light. One flagship in office light proves nothing — only then print in bulk." },
+    { question: "How do I know my code works before printing?", answer: "Scan the screen preview with your phone, then print one copy and scan from the real viewing distance and lighting with two different phones such as old Android and iPhone. Test sunlight, shade, low brightness and office light. One flagship in office light proves nothing — only then print in bulk." },
   ],
 };

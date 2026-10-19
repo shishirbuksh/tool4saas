@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import { getTool } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
-import { getPilotLocales } from "@/lib/i18n";
+import { getPilotLocales, hreflangLanguages, hreflangHubLanguages, HUB_LOCALES, OG_LOCALE } from "@/lib/i18n";
 
-function pilotLanguages(url: string, slug: string): Record<string, string> {
-  // Bidirectional hreflang for pilot slugs only (EN root <-> /<locale>/slug).
-  // Non-pilot tools keep {en, x-default} to avoid pointing at 404s.
-  // Generalized over getPilotLocales so new locales plug in via i18n.ts only.
-  const base = siteConfig.url.replace(/\/$/, "");
-  const langs: Record<string, string> = { en: url, "x-default": url };
-  for (const loc of getPilotLocales(slug)) {
-    langs[loc as string] = `${base}/${loc}/${slug}`;
-  }
-  return langs;
+// OG locale alternates for a slug: every pilot locale that is NOT the default.
+// Keeps og:locale:alternate consistent with the hreflang set (previously EN
+// tool pages declared none, and locale pages drifted file by file).
+function ogAlternateLocales(slug: string): string[] {
+  return getPilotLocales(slug).map((loc) => OG_LOCALE[loc]);
+}
+
+// EN home advertises the published locale hubs (es/fr) as og:locale:alternate,
+// mirroring the hreflang cluster it now declares.
+function homeAlternateLocales(): string[] {
+  return HUB_LOCALES.map((loc) => OG_LOCALE[loc]);
 }
 
 export function toolMetadata(slug: string): Metadata {
@@ -77,7 +78,7 @@ export function toolMetadata(slug: string): Metadata {
     authors: [{ name: siteConfig.author }],
     alternates: {
       canonical: url,
-      languages: pilotLanguages(url, slug),
+      languages: hreflangLanguages(base, slug),
     },
     robots: {
       index: true,
@@ -93,6 +94,7 @@ export function toolMetadata(slug: string): Metadata {
     openGraph: {
       type: "website",
       locale: siteConfig.locale,
+      ...(ogAlternateLocales(slug).length ? { alternateLocale: ogAlternateLocales(slug) } : {}),
       url,
       siteName: siteConfig.name,
       title: fullTitle,
@@ -114,7 +116,9 @@ export function homeMetadata(): Metadata {
   return {
     alternates: {
       canonical: base,
-      languages: { en: base, "x-default": base },
+      // EN home now advertises every hub (es/fr) so the hub hreflang cluster is
+      // mutually reciprocal (previously home declared only en + x-default).
+      languages: hreflangHubLanguages(base, "en"),
     },
     robots: {
       index: true,
@@ -132,6 +136,7 @@ export function homeMetadata(): Metadata {
     openGraph: {
       type: "website",
       locale: siteConfig.locale,
+      alternateLocale: homeAlternateLocales(),
       url: base,
       siteName: siteConfig.name,
       title: siteConfig.title,

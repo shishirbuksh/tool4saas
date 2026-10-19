@@ -31,14 +31,7 @@ export const seoGeoChecklist: BlogPost = {
   title: "GEO Checklist: Get Cited by AI Search in 2026",
   description:
     "GEO checklist for AI citations: answer-first passages, verifiable numbers, llms.txt + schema plumbing + authority signals. Free analyzer.",
-  keywords: [
-    "how to get cited ai search geo checklist",
-    "answer first passages 40-60 words",
-    "llms.txt faq schema discoverability",
-    "ai overviews outside top 10 cite",
-    "freshness dates ai citations 2026?",
-    "How do I get cited by AI Overviews?",
-  ],
+  keywords: ["how to get cited ai search geo checklist", "answer first passages 40-60 words", "llms.txt faq schema discoverability", "ai overviews outside top 10 cite"],
   toolSlugs: ["seo-analyzer", "faq-schema-generator", "plagiarism-checker"],
   relatedSlugs: ["fix-score-60-to-80", "ai-content-false-positives", "title-meta-length-2026"],
   published: "2026-10-07",

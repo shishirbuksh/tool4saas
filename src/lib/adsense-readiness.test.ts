@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+﻿import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -9,23 +9,23 @@ const exists = (rel: string) => fs.existsSync(path.join(root, rel));
 
 describe("adsense readiness (static)", () => {
   it("contact page exists and exposes the contact email via mailto", () => {
-    const rel = path.join("src", "app", "contact", "page.tsx");
+    const rel = path.join("src", "app", "(en)", "contact", "page.tsx");
     expect(exists(rel), rel).toBe(true);
     const src = read(rel);
     // Page renders the configured contact email via siteConfig (env-overridable),
-    // so assert the reference plus a mailto link rather than a literal address.
+    // so assert the reference and a mailto link rather than a literal address.
     expect(src).toContain("siteConfig.email");
     expect(src).toContain("mailto");
   });
 
   it("author page exists (E-E-A-T signal)", () => {
-    const rel = path.join("src", "app", "author", "page.tsx");
+    const rel = path.join("src", "app", "(en)", "author", "page.tsx");
     expect(exists(rel), rel).toBe(true);
     expect(read(rel).length).toBeGreaterThan(0);
   });
 
   it("methodology page exists (warn-only if missing)", () => {
-    const rel = path.join("src", "app", "methodology", "page.tsx");
+    const rel = path.join("src", "app", "(en)", "methodology", "page.tsx");
     if (!exists(rel)) {
       console.warn(`[adsense-readiness] missing ${rel}: methodology page recommended for E-E-A-T`);
       return;
@@ -37,12 +37,12 @@ describe("adsense readiness (static)", () => {
     const src = read(path.join("src", "components", "Footer.tsx"));
     expect(src).toContain("/contact");
     expect(src).toContain("/author");
-    expect(exists(path.join("src", "app", "author", "page.tsx"))).toBe(true);
+    expect(exists(path.join("src", "app", "(en)", "author", "page.tsx"))).toBe(true);
     expect(read(path.join("src", "app", "sitemap.ts"))).toContain("/author");
   });
 
   it("layout sets consent default denied with wait_for_update", () => {
-    const src = read(path.join("src", "app", "layout.tsx"));
+    const src = read(path.join("src", "components", "RootDocument.tsx"));
     expect(src).toContain("wait_for_update");
     expect(src).toContain("consent', 'default'");
     expect(src).toContain("ad_storage: 'denied'");
@@ -50,7 +50,7 @@ describe("adsense readiness (static)", () => {
   });
 
   it("layout has no unconditional Google fetch (gated loader only)", () => {
-    const src = read(path.join("src", "app", "layout.tsx"));
+    const src = read(path.join("src", "components", "RootDocument.tsx"));
     expect(src).not.toContain("googletagmanager.com/gtag/js");
     expect(src).not.toContain("pagead2.googlesyndication.com");
     expect(src).toContain("ConsentGatedGoogleScripts");
@@ -84,11 +84,22 @@ describe("adsense readiness (static)", () => {
     expect(src).toContain("globalPrivacyControl");
   });
 
-  it("AdSlot validates 10-digit slots, gates on consent, labels ads", () => {
-    const src = read(path.join("src", "components", "AdSlot.tsx"));
-    expect(src).toContain("\\d{10}");
-    expect(src).toContain("t4s:consent-updated");
-    expect(src).toContain("Advertisement");
+  it("AdSense uses the Auto Ads page-level loader (no manual slots)", () => {
+    const script = read(path.join("src", "components", "AdSenseScript.tsx"));
+    expect(script).toContain("adsbygoogle.js?client=");
+    expect(script).toContain("return null");
+    // Manual ad units were removed in favor of Auto Ads.
+    expect(exists(path.join("src", "components", "AdSlot.tsx"))).toBe(false);
+  });
+
+  it("Funding Choices is wired + env-gated (off until an id is set)", () => {
+    const root = read(path.join("src", "components", "RootDocument.tsx"));
+    expect(root).toContain("fundingChoicesId");
+    expect(root).toContain("fundingchoicesmessages.google.com");
+    const site = read(path.join("src", "lib", "site.ts"));
+    expect(site).toContain("NEXT_PUBLIC_FUNDING_CHOICES_ID");
+    expect(site).toContain("pub-\\d{16}");
+    expect(read(path.join(".env.example"))).toContain("NEXT_PUBLIC_FUNDING_CHOICES_ID");
   });
 
   it("YMYLDisclaimer is centrally injected by ToolPageShell (no manual imports)", () => {
@@ -98,7 +109,7 @@ describe("adsense readiness (static)", () => {
     const shell = read(path.join("src", "components", "ToolPageShell.tsx"));
     expect(shell).toContain("YMYLDisclaimer");
     expect(shell).toContain("getYMYLType");
-    // The mapping covers finance + health categories plus overrides.
+    // The mapping covers finance + health categories and overrides.
     const map = read(path.join("src", "lib", "ymyl.ts"));
     expect(map).toContain('"finance"');
     expect(map).toContain('"health"');
@@ -125,11 +136,9 @@ describe("adsense readiness (static)", () => {
     // that script (npm run adsense:check) is the ID gate before review submission.
   });
 
-  it("AdSense IDs fail closed on placeholders (no fake client/slot reaches markup)", () => {
+  it("AdSense IDs fail closed on placeholders (no fake client/FC id reaches markup)", () => {
     const site = read(path.join("src", "lib", "site.ts"));
     expect(site).toContain("ca-pub-\\d{16}");
-    const slot = read(path.join("src", "components", "AdSlot.tsx"));
-    expect(slot).toContain("return null");
     const script = read(path.join("src", "components", "AdSenseScript.tsx"));
     expect(script).toContain("return null");
   });

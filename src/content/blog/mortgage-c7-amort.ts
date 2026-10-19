@@ -32,7 +32,7 @@ const html = `
 <ol>
 <li><strong>PMI exit (~20% equity):</strong> on 10%-down loans, extra early principal can pull PMI cancellation years forward — often worth more than the interest saved. Strategy in <a href="/blog/mortgage-calculator-guide/down-payment-pmi-cost">down payment & PMI guide</a>.</li>
 <li><strong>The flip (~year 12–15):</strong> payments turn principal-majority. Overpayments after the flip earn less — front-load extra cash early.</li>
-<li><strong>Break-even vs refinance:</strong> compare remaining interest on your schedule against a new loan's total cost plus closing — method in <a href="/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage">refinance guide</a>.</li>
+<li><strong>Break-even vs refinance:</strong> compare remaining interest on your schedule against a new loan's total cost and closing — method in <a href="/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage">refinance guide</a>.</li>
 </ol>
 <p>Rates and examples as of Sept 2026, illustrative only — not a lender offer. Excludes taxes, insurance, PMI, HOA, fees and ARM resets.</p>
 <h2 id="arm-warning">ARM schedules: why teaser tables lie</h2>
@@ -47,13 +47,7 @@ export const mortgageAmort: BlogPost = {
   title: "Mortgage Amortization Schedule: How Payments Split (2026)",
   description:
     "Amortization schedule explained: monthly principal/interest split, reading it strategically + 3 milestones (PMI exit, flip, refinance). Free calculator.",
-  keywords: [
-    "mortgage amortization schedule",
-    "how amortization front-loads interest",
-    "principal vs interest over time",
-    "amortization table explained",
-    "Why is my early mortgage payment mostly interest?",
-  ],
+  keywords: ["mortgage amortization schedule", "how amortization front-loads interest", "principal vs interest over time", "amortization table explained"],
   toolSlugs: ["mortgage-calculator", "mortgage-overpayment-calculator", "refinance-calculator"],
   relatedSlugs: ["how-to-calculate-mortgage-payment", "mortgage-overpayment-extra-payment", "down-payment-pmi-cost"],
   published: "2026-09-24",
@@ -68,10 +62,10 @@ export const mortgageAmort: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "Why is my early mortgage payment mostly interest?", answer: "Each payment covers that month's interest on the full remaining balance first. Month one on $240,000 at 6% is ~$1,200 interest plus ~$239 principal; year one totals ~$14,300 interest with ~$3,000 principal. Early balances are large so interest dominates; as principal falls the split flips toward principal around year 12–15." },
+    { question: "Why is my early mortgage payment mostly interest?", answer: "Each payment covers that month's interest on the full remaining balance first. Month one on $240,000 at 6% is ~$1,200 interest and ~$239 principal; year one totals ~$14,300 interest with ~$3,000 principal. Early balances are large so interest dominates; as principal falls the split flips toward principal around year 12–15." },
     { question: "How do I read an amortization schedule?", answer: "Track principal vs interest by year (overpay timing before year 15), remaining balance vs value (PMI exit at 20% equity), cumulative interest (refinance comparison) and the final row (payoff date). Download CSV yearly tables, chart cumulative interest curves, and remember ARM resets rewrite future rows completely for planning." },
     { question: "When do payments become mostly principal?", answer: "Roughly year 12–15 of a 30-year fixed loan, when payments turn principal-majority. Extra payments before the flip earn the most lifetime-interest savings, so front-load cash early. As a rule, in year N roughly (30−N)/30 of payment still goes to interest; overpayments after flipping earn noticeably less." },
     { question: "Does extra payment change the schedule?", answer: "Yes — principal-only extras compress all future rows: less interest each month after, earlier payoff. One $10,000 lump at month 12 deletes ~30 payments and pulls payoff over a year closer. Year-one dollars outweigh year-20 dollars ~5× saved. Model exact compressions in the overpayment calculator with automation today." },
-    { question: "Is this amortization advice?", answer: "No — illustrative education as of Sept 2026 for fixed-rate P&I, excluding taxes, insurance, PMI, HOA, fees and ARM resets. ARM resets rewrite future rows, so never plan ten years from teaser schedules. Generate yearly tables plus CSV exports, then consult a qualified advisor; see /terms." },
+    { question: "Is this amortization advice?", answer: "No — illustrative education as of Sept 2026 for fixed-rate P&I, excluding taxes, insurance, PMI, HOA, fees and ARM resets. ARM resets rewrite future rows, so never plan ten years from teaser schedules. Generate yearly tables and CSV exports, then consult a qualified advisor; see /terms." },
   ],
 };

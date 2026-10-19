@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>₹5,000 a month sounds small until compounding multiplies it 19×: at 12% for 10 years, ₹6 lakh invested becomes ~₹11.5L. Stretch to 15 years and it nears ₹25L; to 20, past ₹49L. <strong>Time plus rate plus discipline — the three levers of every SIP projection</strong>. This guide runs the exact numbers for 10/15/20 years, adds the 10% step-up trick salaried investors swear by, and contrasts SIP with same-money lump sums so you pick deliberately.</p>
+<p>₹5,000 a month sounds small until compounding multiplies it 19×: at 12% for 10 years, ₹6 lakh invested becomes ~₹11.5L. Stretch to 15 years and it nears ₹25L; to 20, past ₹49L. <strong>Time and rate and discipline — the three levers of every SIP projection</strong>. This guide runs the exact numbers for 10/15/20 years, adds the 10% step-up trick salaried investors swear by, and contrasts SIP with same-money lump sums so you pick deliberately.</p>
 <p>Part of the <a href="/blog/sip-calculator-guide">India wealth &amp; tax guide</a>. Model it live in the <a href="/sip-calculator">SIP calculator</a> (₹5k/10y/12% preset + step-up toggle); compare lump sums in <a href="/compound-interest-calculator">compound interest</a>.</p>
 
 <h2 id="ten-fifteen-twenty">10, 15, 20 years at 12%: the patience table</h2>
@@ -31,14 +31,7 @@ export const sipGrowth: BlogPost = {
   title: "₹5,000 SIP in 10/15/20 Years at 12% (With Step-Up)",
   description:
     "₹5,000 SIP projections: 10/15/20-year table, 10% step-up boost past ₹17L + lump-sum comparison. Free calculator with presets.",
-  keywords: [
-    "how much will 5000 sip grow in 10 years",
-    "5000 sip 12 percent 15 years maturity",
-    "step-up 10 percent yearly extra lakhs",
-    "sip vs lumpsum same 6 lakh",
-    "nav expense ratio why projection differs",
-    "What does a 10% step-up add?",
-  ],
+  keywords: ["how much will 5000 sip grow in 10 years", "5000 sip 12 percent 15 years maturity", "step-up 10 percent yearly extra lakhs", "nav expense ratio why projection differs"],
   toolSlugs: ["sip-calculator", "compound-interest-calculator", "retirement-calculator"],
   relatedSlugs: ["lumpsum-compounding-frequency", "sip-1-crore-goal", "real-return-inflation"],
   published: "2026-10-07",

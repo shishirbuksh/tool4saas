@@ -24,7 +24,7 @@ const html = `
 <li><strong>Deadline yourself:</strong> 30 days to full manager adoption. Bridge routines calcify into permanent bad habits without a date — schedule the migration Sundays.</li>
 </ul>
 <h2 id="recovery-design">Design recovery before you need it (the forgotten half)</h2>
-<p>Every memorization plan needs a forgetting plan. For each master secret, record: sealed paper copy location (safe, trusted person — never photographed), MFA recovery codes alongside it, and the service's account-recovery path tested once (actually run a test recovery on a secondary account to learn the flow). Review yearly: paper still sealed and locatable, codes current after MFA changes, trusted person still trusted. The nightmare scenario — lost master plus lost codes — is unrecoverable by design; fifteen minutes of recovery design today prevents it permanently. Treat recovery artifacts with master-level secrecy: anyone holding them holds everything.</p>
+<p>Every memorization plan needs a forgetting plan. For each master secret, record: sealed paper copy location (safe, trusted person — never photographed), MFA recovery codes alongside it, and the service's account-recovery path tested once (actually run a test recovery on a secondary account to learn the flow). Review yearly: paper still sealed and locatable, codes current after MFA changes, trusted person still trusted. The nightmare scenario — lost master and lost codes — is unrecoverable by design; fifteen minutes of recovery design today prevents it permanently. Treat recovery artifacts with master-level secrecy: anyone holding them holds everything.</p>
 <blockquote class="tip">General information only, not security advice. Generate offline, store in a manager, enable MFA on email/bank. If you lose your master password it cannot be recovered by us.</blockquote>
 `;
 
@@ -35,13 +35,7 @@ export const passwordRemember: BlogPost = {
   title: "How to Remember Passwords Without Reusing Them (2026)",
   description:
     "Remember passwords safely: two-secret system, story method for passphrases + no-manager bridge routine. Memorize 2, generate the rest.",
-  keywords: [
-    "how to remember passwords",
-    "remember master password safely",
-    "memorize passphrase story method",
-    "passwords without password manager",
-    "How many passwords should I memorize?",
-  ],
+  keywords: ["how to remember passwords", "remember master password safely", "memorize passphrase story method", "passwords without password manager"],
   toolSlugs: ["random-passphrase", "password-generator", "password-strength"],
   relatedSlugs: ["passphrase-vs-password", "how-to-create-strong-password", "2fa-vs-passkeys"],
   published: "2026-09-25",
@@ -59,6 +53,6 @@ export const passwordRemember: BlogPost = {
     { question: "How do I memorize a random passphrase?", answer: "Build one absurd mental movie linking the words, like a candle on a violet tractor launching past seven moons, rehearse at 1 hour, 1 day, 1 week, and type it 20 times in setup week. Rehearse the movie, not the list; bizarre images persist for years while boring ones fade quickly." },
     { question: "Is writing passwords on paper OK?", answer: "As a temporary bridge: a home-kept notebook beats reuse while adopting a manager. Never photograph or carry it routinely. Priority-migrate email, bank, UPI-linked and work logins first, then finish fully within 30 days on scheduled Sundays before bridge routines calcify permanently for complete safety always." },
     { question: "Are browser-saved passwords enough?", answer: "No as sole storage — convenient but tied to phishable accounts attackers target. Use a dedicated manager; browsers are a convenience layer, not the vault. Never rely on plaintext phone notes or encrypted Word docs with guessable passwords, which fail exactly when phishing succeeds today." },
-    { question: "What if I forget my master password?", answer: "No tool can recover it — that's the security model. Keep a sealed paper backup with a trusted person or safe, plus offline MFA recovery codes, before you need them. Review yearly that paper stays sealed, codes stay current after changes, and recovery paths were tested once successfully." },
+    { question: "What if I forget my master password?", answer: "No tool can recover it — that's the security model. Keep a sealed paper backup with a trusted person or safe and offline MFA recovery codes, before you need them. Review yearly that paper stays sealed, codes stay current after changes, and recovery paths were tested once successfully." },
   ],
 };

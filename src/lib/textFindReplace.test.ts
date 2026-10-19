@@ -45,7 +45,7 @@ describe("TextFindReplaceTool – findReplaceNonRegex O(n) parts+join", () => {
     const dur = performance.now() - start;
     expect(dur).toBeLessThan(1000);
     // large is "abcabc..." truncated to 1M; every 3 chars is abc -> replaced with X
-    // For 1M chars, there are floor(1M/3) = 333333 full abc -> X, plus remainder "a"
+    // For 1M chars, there are floor(1M/3) = 333333 full abc -> X and remainder "a"
     expect(result.includes("X")).toBe(true);
     expect(result.length).toBeLessThan(1_000_000);
   });

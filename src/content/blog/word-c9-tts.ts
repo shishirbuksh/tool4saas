@@ -46,7 +46,7 @@ const html = `
 <p>Listening is not just editing — it is the cheapest retention upgrade available. The loop I recommend to students:</p>
 <ol>
 <li><strong>Summarize first:</strong> compress the chapter with the <a href="/blog/word-counter-guide/how-to-summarize-text-fast">summarize method</a> to one page — listening to 40 pages invites zoning out; listening to one dense page invites focus.</li>
-<li><strong>Listen actively once:</strong> audio at 1.25× during a commute or walk, no gomuks — dual coding (reading plus hearing) beats re-reading for retention in every trial I have run on my own notes.</li>
+<li><strong>Listen actively once:</strong> audio at 1.25× during a commute or walk, no gomuks — dual coding (reading and hearing) beats re-reading for retention in reading pairs of every length.</li>
 <li><strong>Recall aloud:</strong> pause and restate each section from memory before replaying — retrieval practice, not replay count, drives the grade. Time the recall with the <a href="/blog/word-counter-guide/typing-speed-test-practice-tips">typing routine</a> cadence: short, timed, daily.</li>
 <li><strong>Measure density:</strong> check the summary's <a href="/blog/word-counter-guide/keyword-density-seo-check">keyword density</a> — overloaded terms signal a summary that lists instead of explains; rewrite, then re-listen.</li>
 </ol>
@@ -71,13 +71,7 @@ export const wordTts: BlogPost = {
   title: "Proofread by Listening: Text-to-Speech Workflow",
   description:
     "Proofread with text-to-speech: 10-minute listening workflow, what ears catch that eyes skip + study and accessibility wins. Free TTS tool.",
-  keywords: [
-    "text to speech proofreading",
-    "listen to article catch errors",
-    "tts study notes",
-    "proofread by listening",
-    "Does listening really catch more errors?",
-  ],
+  keywords: ["text to speech proofreading", "listen to article catch errors", "tts study notes", "proofread by listening"],
   toolSlugs: ["text-to-speech", "readability-checker", "word-counter"],
   relatedSlugs: ["grammar-check-before-publish", "how-to-summarize-text-fast", "flesch-reading-ease-score-explained"],
   published: "2026-09-26",
@@ -96,7 +90,7 @@ export const wordTts: BlogPost = {
     { question: "Does listening really catch more errors?", answer: "Yes for specific classes like doubled words such as the the, missing small words, wrong-word typos like form versus from, and rhythm breaks from stacked long sentences. Ears process language sequentially and cannot skim, while eyes skip through prediction. That difference makes one listening pass the highest-ROI editing step most writers skip." },
     { question: "What speed should I proof-listen at?", answer: "Use 1x speed first for error detection with the clearest neural voice, since natural pace exposes missing words, doubles and rhythm breaks. Use 1.25x on the second pass for flow because pacing problems surface at speed. Faster speeds skip the detail this method exists to catch, so save presets for one-click proof-listening." },
     { question: "Should I fix errors while listening?", answer: "No, mark timestamps or line numbers and keep listening without fixing live. Stopping breaks the flow state that catches structural issues like abrupt topic jumps and tense drift. Batch fixes afterward in one pass, then re-listen to changed sections only because full replays waste the method efficiency." },
-    { question: "Can TTS help studying?", answer: "Yes, audio summaries enable commute revision through dual coding where reading plus hearing beats re-reading for retention. Summarize the chapter to one dense page first, since listening to 40 pages invites zoning out. Listen actively once at 1.25x, recall each section aloud from memory, then replay for gaps." },
+    { question: "Can TTS help studying?", answer: "Yes, audio summaries enable commute revision through dual coding where reading and hearing beats re-reading for retention. Summarize the chapter to one dense page first, since listening to 40 pages invites zoning out. Listen actively once at 1.25x, recall each section aloud from memory, then replay for gaps." },
     { question: "Is TTS proofing an accessibility win?", answer: "Yes, hearing your post approximates screen-reader and low-vision experiences, surfacing confusing structures before they exclude readers. If a sentence confuses you at 1x, it confuses assistive tech twice over. Non-native writers also gain an accent-neutral second opinion, while scripts that sound clean at 1x read clean on mic." },
   ],
 };

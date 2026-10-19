@@ -8,6 +8,9 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
   },
   experimental: {
+    // Multiple root layouts (app/(en|es|fr)) have no single layout to compose a
+    // global 404 from → use app/global-not-found.tsx for unmatched URLs.
+    globalNotFound: true,
     optimizePackageImports: [
       "@mui/material",
       "@mui/icons-material",

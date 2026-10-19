@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>Two identical resumes. One with a tailored cover letter got the interview; the identical one without did not. Same hiring manager, same week — she told me the letter answered her one doubt (“can he write to clients?”) in 30 seconds. A <strong>cover letter</strong> is not a resume repeat; it is a 250-word argument for one specific role. Here is the structure that wins shortlists, plus tone choices for startups vs enterprises.</p>
+<p>Two identical resumes. One with a tailored cover letter got the interview; the identical one without did not. Same hiring manager, same week — she told me the letter answered her one doubt (“can he write to clients?”) in 30 seconds. A <strong>cover letter</strong> is not a resume repeat; it is a 250-word argument for one specific role. Here is the structure that wins shortlists and tone choices for startups vs enterprises.</p>
 <p>Part of the <a href="/blog/resume-builder-guide">free resume builder guide</a>. Build tailored letters fast in the <a href="/cover-letter-builder">cover letter builder</a> (professional, enthusiastic, concise tones). Base resume: <a href="/resume-builder">free resume builder</a>.</p>
 
 <h2 id="structure">The 4-paragraph structure (250–350 words)</h2>
@@ -47,14 +47,7 @@ export const resumeCoverLetter: BlogPost = {
   title: "Cover Letter Guide: 4-Paragraph Format That Wins Shortlists (2026)",
   description:
     "Cover letter format: 250–350 word structure, professional vs enthusiastic vs concise tones + 3 killers to avoid. Free builder with tone options.",
-  keywords: [
-    "cover letter format",
-    "how to write cover letter",
-    "cover letter for job application",
-    "cover letter tone professional",
-    "short cover letter sample",
-    "How long should a cover letter be?",
-  ],
+  keywords: ["cover letter format", "how to write cover letter", "cover letter for job application", "cover letter tone professional", "short cover letter sample"],
   toolSlugs: ["cover-letter-builder", "resume-builder", "ats-resume-checker"],
   relatedSlugs: ["how-to-make-resume", "fresher-resume-guide", "offer-letter-guide"],
   published: "2026-09-23",

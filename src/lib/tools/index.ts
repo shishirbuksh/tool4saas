@@ -7,7 +7,8 @@ export type { Category, Tool } from "./types";
 export { CATEGORIES } from "./categories";
 // NOINDEX single source lives in ./noindex (tiny, client-safe); re-exported
 // here so existing "@/lib/tools" importers keep working unchanged.
-export { NOINDEX_SLUGS } from "./noindex";
+import { NOINDEX_SLUGS } from "./noindex";
+export { NOINDEX_SLUGS };
 
 import type { Category, Tool } from "./types";
 import { CATEGORIES } from "./categories";
@@ -75,6 +76,10 @@ export const toolsByCategoryCached = () => groups;
 // Validation: tools.length must match expected – preserves count and sitemap
 export const EXPECTED_TOOL_COUNT = 185;
 export const EXPECTED_CATEGORY_COUNT = 12;
+// User-facing count = registry minus noindexed tools (the single source for the
+// "184 tools" copy in Hero/Nav/Editorial/Footer/site metadata). Never hardcode
+// 184 or write `EXPECTED_TOOL_COUNT - 1` again.
+export const VISIBLE_TOOL_COUNT = tools.length - NOINDEX_SLUGS.size;
 if (tools.length !== EXPECTED_TOOL_COUNT) {
   throw new Error(`[tools] length mismatch: expected ${EXPECTED_TOOL_COUNT}, got ${tools.length} (check src/lib/tools/data/*.ts)`);
 }

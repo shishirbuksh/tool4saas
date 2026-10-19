@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>“No experience, no job; no job, no experience.” Every fresher hits this wall — and most resumes make it worse by apologizing for it: empty experience sections, objective paragraphs begging for a chance. Flip the frame: recruiters hiring freshers buy <strong>proof of work and trainability</strong>, not tenure. I have helped a dozen juniors rewrite this way; the pattern below turns final-year projects into interview calls.</p>
+<p>“No experience, no job; no job, no experience.” Every fresher hits this wall — and most resumes make it worse by apologizing for it: empty experience sections, objective paragraphs begging for a chance. Flip the frame: recruiters hiring freshers buy <strong>proof of work and trainability</strong>, not tenure. The frame below turns final-year projects into interview calls.</p>
 <p>Part of the <a href="/blog/resume-builder-guide">free resume builder guide</a>. Build yours in the <a href="/resume-builder">free resume builder</a>; check parsing in the <a href="/ats-resume-checker">ATS checker</a>.</p>
 
 <h2 id="frame">The fresher frame: projects are your experience</h2>
@@ -48,14 +48,7 @@ export const resumeFresher: BlogPost = {
   title: "Fresher Resume Guide: Get Interviews With Zero Experience (2026)",
   description:
     "Resume for freshers: project-led structure, section order, 90-day proof plan + cover letter multiplier. Free builder + ATS check included.",
-  keywords: [
-    "resume for freshers",
-    "fresher resume format",
-    "resume with no experience",
-    "fresher resume sample india",
-    "first job resume tips",
-    "Should freshers write one page?",
-  ],
+  keywords: ["resume for freshers", "fresher resume format", "resume with no experience", "fresher resume sample india", "first job resume tips"],
   toolSlugs: ["resume-builder", "ats-resume-checker", "cover-letter-builder"],
   relatedSlugs: ["how-to-make-resume", "ats-resume-guide", "cover-letter-guide"],
   published: "2026-09-23",

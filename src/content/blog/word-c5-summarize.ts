@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>A 40-page report lands Friday; the brief is due Monday. Reading everything costs the weekend — but deciding from nothing costs the grade. <strong>Summarizing text</strong> is the middle skill: extractive compression that keeps decisions sound. This guide teaches the manual method that works with any tool (including ours), plus the summarize-vs-paraphrase line students cross at their peril.</p>
+<p>A 40-page report lands Friday; the brief is due Monday. Reading everything costs the weekend — but deciding from nothing costs the grade. <strong>Summarizing text</strong> is the middle skill: extractive compression that keeps decisions sound. This guide teaches the manual method that works with any tool (including ours) and the summarize-vs-paraphrase line students cross at their peril.</p>
 <p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Compress long text in the <a href="/text-summarizer">summarizer tool</a> (length control, local); polish wording with the <a href="/grammar-checker">grammar checker</a>. For length targets see <a href="/blog/word-counter-guide/ideal-blog-post-length-seo">ideal post length</a>, and for study loops <a href="/blog/word-counter-guide/text-to-speech-proofreading-use">listen-to-recall</a>.</p>
 
 <h2 id="method">The extractive method (5 steps, any text)</h2>
@@ -70,13 +70,7 @@ export const wordSummarize: BlogPost = {
   title: "How to Summarize Text Fast: Extractive Method",
   description:
     "Summarize any text with the 5-step extractive method: length control, privacy-first tools + summarize-vs-paraphrase rules. Students + bloggers.",
-  keywords: [
-    "how to summarize text",
-    "summarize article own words",
-    "summarize vs paraphrase",
-    "extractive summarizer method",
-    "How do I summarize a long article quickly?",
-  ],
+  keywords: ["how to summarize text", "summarize article own words", "summarize vs paraphrase", "extractive summarizer method"],
   toolSlugs: ["text-summarizer", "grammar-checker", "word-counter"],
   relatedSlugs: ["grammar-check-before-publish", "how-to-count-words-online", "ideal-blog-post-length-seo"],
   published: "2026-09-26",
@@ -97,6 +91,6 @@ export const wordSummarize: BlogPost = {
     { question: "What is extractive summarization?", answer: "Extractive summarization selects and compresses the source own key sentences rather than generating new text. Every line traces to a page, nothing is invented, and our tool runs locally with length control so sensitive reports never upload. It suits reports, contracts and cited work, unlike abstractive rewrites that hallucinate figures and retain uploads." },
     { question: "Summarize vs paraphrase — what's the difference?", answer: "Summarizing compresses main points into shorter form, while paraphrasing restates ideas at similar length in your sentences. Quoting uses exact marked words, and all three need citations. Only common knowledge of established facts needs no citation, so students must cite both summaries and paraphrases to avoid plagiarism." },
     { question: "Is using a summarizer cheating for students?", answer: "As a study aid that produces notes you understand and then recall, no, but as submitted work, yes. Summaries inform decisions while citations defend them, so cite every source and add critique for literature reviews. Check institutional AI and plagiarism policies first because summarizing inherits the same citation rule as paraphrasing." },
-    { question: "How long should a summary be?", answer: "Make executive briefs about 5 percent, as 40 pages to 2 pages with decision plus 3 numbers. Make study notes about 20 percent for retention and literature reviews about 10 percent plus critique. Match length to the decision the summary serves and verify in the word counter, since a 900-word one-page brief is two pages." },
+    { question: "How long should a summary be?", answer: "Make executive briefs about 5 percent, as 40 pages to 2 pages with decision and 3 numbers. Make study notes about 20 percent for retention and literature reviews about 10 percent and critique. Match length to the decision the summary serves and verify in the word counter, since a 900-word one-page brief is two pages." },
   ],
 };

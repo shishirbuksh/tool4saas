@@ -37,7 +37,7 @@ const html = `
 <p>A real before/after from my files: a 600-word draft scored FRE 38 (college difficult). Diagnosis: 28-word average sentences, “utilize/facilitate” abstractions, three nominalizations per paragraph. Fixes applied mechanically — split 11 sentences, swapped 9 abstractions for plain verbs (“use”, “help”, “decide”), broke 4 walls into 2–3 line paragraphs. Result: FRE 67, grade 8.4, zero ideas changed, reading time identical — in my files, most drafts gain 15–25 points in one mechanical pass, though results vary by starting point. The lesson writers resist: difficulty almost never lives in the ideas; it lives in sentence length and Latinate habit. Run your own draft through the <a href="/readability-checker">checker</a>, apply the three mechanical fixes, and re-score — most posts gain 15–25 points in one pass.</p>
 
 <h2 id="keyword-workflow">Keyword workflow for bloggers (no myths)</h2>
-<p>Counts meet keywords in the brief stage: list the query plus 5–8 related terms from PAA and autosuggest, assign each to a planned heading, then draft with the map beside you — coverage planned, not stuffed. During editing, run density once: terms missing entirely flag thin sections (add a paragraph answering them); terms above ~4% flag repetition (rewrite with synonyms). After publishing, Search Console queries reveal the terms you actually won — fold winners into headings and add paragraphs for near-miss queries. This loop (plan → draft → diagnose → expand) is the entire “SEO content” discipline; tools measure, judgment decides. Full method in <a href="/blog/word-counter-guide/keyword-density-seo-check">density guide</a>.</p>
+<p>Counts meet keywords in the brief stage: list the query and 5–8 related terms from PAA and autosuggest, assign each to a planned heading, then draft with the map beside you — coverage planned, not stuffed. During editing, run density once: terms missing entirely flag thin sections (add a paragraph answering them); terms above ~4% flag repetition (rewrite with synonyms). After publishing, Search Console queries reveal the terms you actually won — fold winners into headings and add paragraphs for near-miss queries. This loop (plan → draft → diagnose → expand) is the entire “SEO content” discipline; tools measure, judgment decides. Full method in <a href="/blog/word-counter-guide/keyword-density-seo-check">density guide</a>.</p>
 
 <h2 id="student-planner">Student essay planner (counts as scaffolding)</h2>
 <p>Word limits are structural tools, not enemies. For a 1,500-word essay: thesis + roadmap 150, three arguments at 350 each (claim, evidence, analysis), counterargument 150, conclusion 100 — planned before drafting, verified after. Running short at 1,100? The gap names the missing work (usually evidence or counterargument), not a padding assignment. Running over at 1,900? Cut adverbs, throat-clearing intros and repeated examples — never the counterargument, which examiners reward most. Verify in-tool at each milestone (outline, draft, final); counts at milestones catch structural drift while correction is cheap. Citation formats (APA/MLA) exclude reference lists from most counts — confirm with your institution's rubric, not this guide.</p>
@@ -46,7 +46,7 @@ const html = `
 <p>Every quarter, export your sitemap URLs with word counts and Search Console clicks: under-500-word posts with zero clicks are rewrite-or-merge candidates; 2,000+ word posts with high bounce need readability surgery (grade check + split passages), not more words; thin category/tag pages get noindexed or beefed up. One blogger I advised merged 11 thin posts into 3 guides and tripled that cluster's traffic in 4 months — consolidation beats creation when archives bloat. Log decisions per URL (keep/merge/rewrite/noindex) and re-audit next quarter; compounding archives need gardening, not just planting.</p>
 
 <h2 id="newsletter-book">Newsletters, books and scripts (other count worlds)</h2>
-<p>Blog rules do not transfer everywhere. <strong>Newsletters:</strong> 150–400 words main essay plus curated links — inbox attention is thinner than search intent; subject lines ~50 characters for mobile. <strong>Books:</strong> 70,000–100,000 words trade nonfiction; track per-chapter counts against outline targets weekly or manuscripts drift. <strong>Video/podcast scripts:</strong> ~150 spoken words per minute — a 10-minute video needs ~1,500 script words, and teleprompter pacing differs from silent reading. <strong>Academic abstracts:</strong> 150–300 hard caps where every word carries admission weight. Same counter, different targets — set the surface's numbers before drafting, per the limits table habit from <a href="#character-count">character counts below</a>.</p>
+<p>Blog rules do not transfer everywhere. <strong>Newsletters:</strong> 150–400 words main essay and curated links — inbox attention is thinner than search intent; subject lines ~50 characters for mobile. <strong>Books:</strong> 70,000–100,000 words trade nonfiction; track per-chapter counts against outline targets weekly or manuscripts drift. <strong>Video/podcast scripts:</strong> ~150 spoken words per minute — a 10-minute video needs ~1,500 script words, and teleprompter pacing differs from silent reading. <strong>Academic abstracts:</strong> 150–300 hard caps where every word carries admission weight. Same counter, different targets — set the surface's numbers before drafting, per the limits table habit from <a href="#character-count">character counts below</a>.</p>
 
 <h2 id="workflow-map">The workflow: count → readability → density → publish</h2>
 <ul>
@@ -131,14 +131,7 @@ export const wordPillar: BlogPost = {
   title: "Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup",
   description:
     "Count words free with no signup: reading-time math, Flesch formulas, density without myths, length-by-intent + India limits. Local and private.",
-  keywords: [
-    "word counter guide",
-    "how to check word count blog seo",
-    "word count vs character count",
-    "word count readability seo",
-    "free word count tools students",
-    "How do I count words in my text for free?",
-  ],
+  keywords: ["word counter guide", "how to check word count blog seo", "word count vs character count", "word count readability seo", "free word count tools students"],
   toolSlugs: ["word-counter", "readability-checker", "keyword-density", "text-summarizer"],
   relatedSlugs: ["how-to-count-words-online", "ideal-blog-post-length-seo", "flesch-reading-ease-score-explained"],
   published: "2026-09-26",
@@ -150,7 +143,7 @@ export const wordPillar: BlogPost = {
     {
       question: "How do I count words in my text for free?",
       answer:
-        "Paste into the free word counter — words, characters, sentences, paragraphs and reading time appear instantly, computed locally in your browser with Unicode-aware rules. No signup, nothing uploads, and the same paste simultaneously shows Flesch score plus keyword hits.",
+        "Paste into the free word counter — words, characters, sentences, paragraphs and reading time appear instantly, computed locally in your browser with Unicode-aware rules. No signup, nothing uploads, and the same paste simultaneously shows Flesch score and keyword hits.",
     },
     {
       question: "Does word count affect Google rankings?",

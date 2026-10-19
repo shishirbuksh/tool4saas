@@ -5,11 +5,6 @@ import { getTool } from "@/lib/tools";
 import { getEsTool, getFrTool } from "@/lib/i18n";
 import ToolPageShell from "@/components/ToolPageShell";
 
-// AdSlot is client-lazy + consent-gated; stub it so shell tests stay hermetic.
-vi.mock("@/components/AdSlotLazy", () => ({
-  default: () => null,
-}));
-
 // next/link without router context: render a plain anchor.
 vi.mock("next/link", () => ({
   default: ({ href, children, ...rest }: any) => (

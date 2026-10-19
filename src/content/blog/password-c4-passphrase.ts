@@ -40,13 +40,7 @@ export const passwordPassphrase: BlogPost = {
   title: "Passphrase vs Password: When 5 Words Beat 12 Characters (2026)",
   description:
     "Passphrase vs password compared: EFF word math, when to use each, Diceware by hand. Memorable masters + random stored secrets.",
-  keywords: [
-    "passphrase vs password",
-    "are 4 random words safer",
-    "correct horse battery staple entropy",
-    "eff passphrase words",
-    "Is a passphrase stronger than a password?",
-  ],
+  keywords: ["passphrase vs password", "are 4 random words safer", "correct horse battery staple entropy", "eff passphrase words"],
   toolSlugs: ["random-passphrase", "password-generator", "password-strength"],
   relatedSlugs: ["how-to-remember-passwords", "what-makes-password-strong", "how-to-create-strong-password"],
   published: "2026-09-25",

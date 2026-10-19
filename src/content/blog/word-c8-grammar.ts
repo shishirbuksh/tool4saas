@@ -41,7 +41,7 @@ const html = `
 <tr><td><strong>Then/than</strong></td><td>“Better then…”</td><td>Time vs comparison check</td></tr>
 </tbody>
 </table>
-<p>No comparison with paid tools here and no affiliate picks — this checklist plus our free checker covers student and blogger needs; professionals add human editors for books and legal copy. Not academic advice; follow institutional style guides where they exist.</p>
+<p>No comparison with paid tools here and no affiliate picks — this checklist and our free checker covers student and blogger needs; professionals add human editors for books and legal copy. Not academic advice; follow institutional style guides where they exist.</p>
 
 <h2 id="sentence-surgery">Sentence-level surgery (the 3 biggest wins)</h2>
 <ul>
@@ -69,13 +69,7 @@ export const wordGrammar: BlogPost = {
   title: "Grammar Check Before You Publish: Self-Editing Checklist",
   description:
     "Pre-publish grammar checklist: 15-minute routine, top 7 blogger errors with fixes + what automation misses. Free checker included.",
-  keywords: [
-    "grammar check essay blog",
-    "proofread blog post checklist",
-    "common grammar mistakes bloggers",
-    "self-editing checklist",
-    "How do I proofread my own blog post?",
-  ],
+  keywords: ["grammar check essay blog", "proofread blog post checklist", "common grammar mistakes bloggers", "self-editing checklist"],
   toolSlugs: ["grammar-checker", "readability-checker", "word-counter"],
   relatedSlugs: ["text-to-speech-proofreading-use", "flesch-reading-ease-score-explained", "how-to-summarize-text-fast"],
   published: "2026-09-26",
@@ -92,7 +86,7 @@ export const wordGrammar: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How do I proofread my own blog post?", answer: "Run an automated pass in the grammar checker, then a readability pass for FRE 60 plus and grade 8 or below with 25-plus-word splits. Add a read-aloud or TTS pass, verify every number, name, date and link, then check citations and headline-match. This fifteen-minute routine per post catches wrong-word errors and tone issues automation skips." },
+    { question: "How do I proofread my own blog post?", answer: "Run an automated pass in the grammar checker, then a readability pass for FRE 60 and and grade 8 or below with 25-plus-word splits. Add a read-aloud or TTS pass, verify every number, name, date and link, then check citations and headline-match. This fifteen-minute routine per post catches wrong-word errors and tone issues automation skips." },
     { question: "What do grammar checkers miss?", answer: "Checkers miss wrong-word errors like their versus there, dangling modifiers, unclear antecedents, tone problems and all factual errors. Automation nails spelling typos, subject-verb agreement and comma placement in seconds. Humans must handle meaning, truth and headline-body promise mismatch, so work the checklist after the tool." },
     { question: "How much passive voice is OK?", answer: "Up to about 10 percent per Yoast guideline works as a ceiling, not a zero target. One passive per paragraph adds texture while ten in a row cause anesthesia. Science, history and formal contexts legitimately need more agentless constructions, so flip mistakes-were-made styles into actors except where formality genuinely requires passives." },
     { question: "Should students use grammar checkers?", answer: "Yes as learning aids when each flag is reviewed to learn the underlying rule rather than blind-accepted. Tools misread style as error, so interrogate the remaining 10 percent after accepting most flags. Check institutional policies on AI writing assistance first and follow mandated style guides where they exist." },

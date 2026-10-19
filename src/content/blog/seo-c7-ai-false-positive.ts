@@ -20,7 +20,7 @@ const html = `
 <ul>
 <li><strong>Under ~150 words:</strong> do not test — detectors misfire on terse human prose routinely. No verdict is valid here.</li>
 <li><strong>150–400 words:</strong> indicative only; corroborate with process evidence (drafts, edit history) before any conclusion.</li>
-<li><strong>400+ words:</strong> patterns stabilize; burstiness variance plus n-gram runs become meaningful — still evidence, not proof.</li>
+<li><strong>400+ words:</strong> patterns stabilize; burstiness variance and n-gram runs become meaningful — still evidence, not proof.</li>
 <li><strong>On flags:</strong> rewrite passages for variance (sentence lengths, transitions, concrete detail) rather than re-rolling through paraphrasers — adversarial laundering degrades quality while teaching nothing.</li>
 </ul>
 <p>Editors: pair detection with the <a href="/plagiarism-checker">plagiarism checker</a> (originality is the checkable claim) and publish the workflow, not just the verdict. A 96% uniqueness score with visible burstiness beats any single detector number.</p>
@@ -37,14 +37,7 @@ export const seoAiFalsePositive: BlogPost = {
   title: "Check AI Content Without False Positives",
   description:
     "AI detection without false accusations: burstiness + 5-gram signals, 400-word reliability floor, rewrite protocol + never-gate rule. Evidence-first tool.",
-  keywords: [
-    "how to check ai content without false positives",
-    "burstiness variance 18 words",
-    "150 vs 50 words unreliable",
-    "95 vs 70 percent rewrite flag",
-    "5 gram sliding window",
-    "Why did a detector flag my human writing?",
-  ],
+  keywords: ["how to check ai content without false positives", "burstiness variance 18 words", "5 gram sliding window"],
   toolSlugs: ["ai-detector", "plagiarism-checker", "faq-schema-generator"],
   relatedSlugs: ["fix-score-60-to-80", "title-meta-length-2026", "utm-naming-governance"],
   published: "2026-10-07",
@@ -59,7 +52,7 @@ export const seoAiFalsePositive: BlogPost = {
   faqs: [
     { question: "Why did a detector flag my human writing?", answer: "Terse human prose scores as artificial because detectors measure statistical regularity and short texts have no room to be irregular. A 50-word sample can return 95 percent on paragraphs typed at midnight, while articles sail through at 12 percent because length buys variance. Test 400 words, inspect variance, and corroborate with drafts before conclusion." },
     { question: "What do AI detectors actually measure?", answer: "Detectors measure burstiness from varied 4 to 28-word sentences versus uniform 18-word runs, perplexity from surprising versus predictable word choices, and 5-gram overlap echoing training data. Prefer tools showing these three numbers with a sliding 5-gram window over black-box percentages. Quotes, boilerplate and technical writing false-flag because predictable patterns look artificial." },
-    { question: "How long should text be for reliable detection?", answer: "Use 400 plus words for stable patterns where burstiness variance and n-gram runs become meaningful, though still evidence not proof. Treat 150 to 400 words as indicative only and corroborate with process evidence like drafts and edit history. Under about 150 words do not test because detectors misfire routinely and no verdict is valid there." },
+    { question: "How long should text be for reliable detection?", answer: "Use 400 and words for stable patterns where burstiness variance and n-gram runs become meaningful, though still evidence not proof. Treat 150 to 400 words as indicative only and corroborate with process evidence like drafts and edit history. Under about 150 words do not test because detectors misfire routinely and no verdict is valid there." },
     { question: "How do I reduce AI-flags on my writing?", answer: "Vary sentence lengths, add concrete detail and transitions, and keep your voice to restore burstiness across passages. Rewrite flagged passages for variance rather than re-rolling through paraphrasers, since adversarial laundering degrades quality while teaching nothing. Pair detection with the plagiarism checker and publish workflow evidence, since 96 percent uniqueness with visible variance beats detector numbers." },
     { question: "Can schools or employers rely on detectors?", answer: "No, detector output must not decide academic, hiring or moderation outcomes alone because false-positive rates on non-native writing run multiples higher. Simpler constructions pattern-match as AI-like, creating discrimination risk stacked on accuracy risk. Require drafts, vivas, revision trails and human review, and give accused individuals evidence rather than a percentage." },
   ],

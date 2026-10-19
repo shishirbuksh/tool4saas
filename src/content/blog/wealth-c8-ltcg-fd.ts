@@ -37,14 +37,7 @@ export const ltcgFd: BlogPost = {
   title: "Equity LTCG vs FD Tax: Post-Tax Keep Rates",
   description:
     "Equity LTCG 12.5% vs FD slab tax: holding-period table, ₹1.25L exemption harvesting, cess + horizon-based keep rates. Free tax tool.",
-  keywords: [
-    "how equity ltcg tax compares to fd tax india",
-    "equity gains tax holding 1 year",
-    "ltcg vs stcg fifo",
-    "debt vs equity tax after 2026",
-    "capital gains vs interest slab",
-    "Is FD interest taxed more than equity gains?",
-  ],
+  keywords: ["how equity ltcg tax compares to fd tax india", "equity gains tax holding 1 year", "ltcg vs stcg fifo", "capital gains vs interest slab"],
   toolSlugs: ["capital-gains-tax-india", "fd-calculator", "income-tax-calculator"],
   relatedSlugs: ["old-vs-new-regime-2026", "fd-quarterly-tds", "sip-1-crore-goal"],
   published: "2026-10-07",
@@ -57,8 +50,8 @@ export const ltcgFd: BlogPost = {
   ],
   html,
   faqs: [
-    { question: "How is equity LTCG taxed in India?", answer: "Listed equity held over 12 months pays 12.5 percent above a 1.25 lakh annual exemption, plus 4 percent cess on computed tax. Holdings under 12 months pay 20 percent as short-term gains. Harvest gains annually up to the exemption line to reset cost basis, track exemption used across the year, and verify debt classifications separately." },
-    { question: "Is FD interest taxed more than equity gains?", answer: "Usually yes for upper slabs because 2 lakh FD interest at 30 percent costs about 62,400 including cess, while equivalent equity LTCG costs about 9,750 after exemption. Equity exempts 1.25 lakh yearly, leaving 75,000 taxable at 12.5 percent plus cess. That 6.5-times gap shows India taxes how you earn more than how much you earn." },
+    { question: "How is equity LTCG taxed in India?", answer: "Listed equity held over 12 months pays 12.5 percent above a 1.25 lakh annual exemption and 4 percent cess on computed tax. Holdings under 12 months pay 20 percent as short-term gains. Harvest gains annually up to the exemption line to reset cost basis, track exemption used across the year, and verify debt classifications separately." },
+    { question: "Is FD interest taxed more than equity gains?", answer: "Usually yes for upper slabs because 2 lakh FD interest at 30 percent costs about 62,400 including cess, while equivalent equity LTCG costs about 9,750 after exemption. Equity exempts 1.25 lakh yearly, leaving 75,000 taxable at 12.5 percent and cess. That 6.5-times gap shows India taxes how you earn more than how much you earn." },
     { question: "What is FIFO in capital gains?", answer: "First-in-first-out ordering decides which units sell first and therefore which holding period and rate apply on partial sales. Book profits partially across financial years to split gains under the 1.25 lakh annual exemption repeatedly. That harvesting resets basis legally and compounds tax-free slices instead of bunching gains in one year." },
     { question: "Should short horizons still use equity?", answer: "Rarely, because 1-year equity short-term gains at 20 percent often net below FD certainty after tax and volatility. FD interest taxed at slab still wins net for brief horizons where compounding has little time. Match instrument to horizon rather than headlines, reserving equity for horizons past 3 years where keep-rates dominate." },
     { question: "Do gold and property follow equity rules?", answer: "No, gold and property turn long-term after 24 months with 12.5 percent LTCG and no indexation, while short-term gains follow slab rates. Illiquidity and transaction costs often dominate the tax story beyond headline rates. Model all-in costs, revisit budgets yearly for exemption and holding changes, and pair with regime planning for your slab." },
