@@ -1,153 +1,136 @@
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import HeroButtons from "@/components/HeroButtons";
-import { VISIBLE_TOOL_COUNT, EXPECTED_CATEGORY_COUNT } from "@/lib/tools";
+import ToolSearch from "@/components/ToolSearch";
+import { VISIBLE_TOOL_COUNT } from "@/lib/tools";
 
 const QUICK_LINKS = [
   { slug: "invoice-generator", label: "Invoice" },
-  { slug: "qr-code-generator", label: "QR Code" },
-  { slug: "word-counter", label: "Word Counter" },
+  { slug: "qr-code-generator", label: "QR code" },
+  { slug: "word-counter", label: "Word counter" },
+  { slug: "json-formatter", label: "JSON formatter" },
+  { slug: "pdf-merge", label: "PDF merge" },
 ];
 
-// Hero — H1 exact-match primary keyword, simple English.
-export default function HomeHero({ firstSlug }: { firstSlug: string }) {
+// Hero — one keyword-led H1, one search field, five quick links.
+export default function HomeHero() {
   return (
     <Box
       component="section"
-      className="cinematic-hero"
+      aria-label="Free online tools"
       sx={{
-        py: { xs: 8, md: 10 },
         position: "relative",
-        overflow: "hidden"
+        overflow: "hidden",
+        borderBottom: "1px solid",
+        borderColor: "divider",
+        pt: { xs: 7, md: 11 },
+        pb: { xs: 8, md: 12 },
+        backgroundImage:
+          "radial-gradient(900px 380px at 50% -8%, rgba(17,17,17,0.05), transparent 72%)",
+        'html[data-theme="dark"] &': {
+          backgroundImage:
+            "radial-gradient(900px 380px at 50% -8%, rgba(255,255,255,0.06), transparent 72%)",
+        },
       }}
     >
-      <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1, px: { xs: 2, md: 4 } }}>
-        <Grid container spacing={{ xs: 4, lg: 6 }} sx={{ alignItems: "center" }}>
-          <Grid size={{ xs: 12, lg: 7 }}>
+      <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 } }}>
         <Stack
-          spacing={4}
-          sx={{
-            alignItems: "flex-start",
-            textAlign: "left",
-            maxWidth: 640,
-          }}
+          spacing={{ xs: 2.5, md: 3 }}
+          sx={{ alignItems: "center", textAlign: "center", maxWidth: 780, mx: "auto" }}
         >
           <Typography
             variant="body2"
             sx={{
               letterSpacing: "0.08em",
               fontWeight: 700,
-              textTransform: "none",
-              color: "primary.main",
+              color: "text.secondary",
               border: "1px solid",
               borderColor: "divider",
               px: 2,
               py: 0.75,
               borderRadius: "999px",
               bgcolor: "background.paper",
-              boxShadow:
-                "0 0 0 1px rgba(0,0,0,0.06), 0 1px 2px rgba(34,29,29,0.05)",
             }}
           >
-            Most tools run local — no sign-ups.
+            {VISIBLE_TOOL_COUNT} free tools · no sign-up · local-first
           </Typography>
+
           <Typography
             variant="h1"
             sx={{
+              fontSize: "clamp(2.4rem, 1.6rem + 2.4vw, 4rem)",
               lineHeight: 1.05,
               letterSpacing: "-0.04em",
-              textWrap: "balance",
-              fontSize: 'clamp(2.5rem, 1.6rem + 2.2vw, 4.25rem)',
               fontWeight: 800,
-              color: "text.primary"
+              textWrap: "balance",
             }}
           >
-            Free Online Tools – No Sign-Up, Right in Your Browser
+            Free online tools, right in your browser
           </Typography>
+
           <Typography
             variant="body1"
             className="speakable-hero-summary"
             sx={{
-              fontWeight: 400,
               color: "text.secondary",
+              fontSize: { xs: "1.0625rem", md: "1.1875rem" },
               lineHeight: 1.6,
-              letterSpacing: "-0.015em",
               textWrap: "pretty",
-              fontSize: { xs: '1.125rem', md: '1.25rem' },
-              maxWidth: 560,
+              maxWidth: 640,
             }}
           >
-            Use {VISIBLE_TOOL_COUNT} free online tools with no signup and no cost. Format JSON, compress images, and create QR codes in seconds. Your files stay on your device. See our <Link href="/privacy">privacy policy</Link>.
+            Format JSON, merge PDFs, compress images, or make an invoice in seconds. No
+            account, no uploads — most tools run entirely on your device.
           </Typography>
-          <Typography
-            variant="body2"
-            data-numeric
-            sx={{ color: "text.secondary", fontWeight: 600, fontVariantNumeric: "tabular-nums" }}
-            aria-label={`${VISIBLE_TOOL_COUNT} free tools across ${EXPECTED_CATEGORY_COUNT} categories`}
-          >
-            {VISIBLE_TOOL_COUNT} free tools · {EXPECTED_CATEGORY_COUNT} categories · no sign-up
-          </Typography>
-          <Box sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}>
-            <HeroButtons firstSlug={firstSlug} />
+
+          <Box sx={{ width: "100%", maxWidth: 620, pt: { xs: 0.5, md: 1 } }}>
+            <ToolSearch
+              variant="hero"
+              placeholder={`Search ${VISIBLE_TOOL_COUNT} tools — invoice, JSON, QR code…`}
+            />
           </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 1,
+              justifyContent: "center",
+              pt: 0.5,
+            }}
+          >
+            {QUICK_LINKS.map((q) => (
+              <Link key={q.slug} href={`/${q.slug}`} style={{ textDecoration: "none" }}>
+                <Box
+                  sx={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    minHeight: 44,
+                    px: 2,
+                    borderRadius: 999,
+                    border: "1px solid",
+                    borderColor: "divider",
+                    bgcolor: "background.paper",
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    color: "text.primary",
+                    transition: "border-color 150ms ease, transform 150ms ease",
+                    "&:hover": { borderColor: "text.primary", transform: "translateY(-1px)" },
+                  }}
+                >
+                  {q.label}
+                </Box>
+              </Link>
+            ))}
+          </Box>
+
+          <Typography variant="body2" color="text.secondary" sx={{ pt: 0.5 }}>
+            No sign-up · Files stay on your device · Free, no limits ·{" "}
+            <Link href="#tools">Browse all {VISIBLE_TOOL_COUNT} tools</Link>
+          </Typography>
         </Stack>
-          </Grid>
-          <Grid size={{ xs: 12, lg: 5 }} sx={{ display: { xs: "none", lg: "flex" }, justifyContent: "flex-end" }}>
-            <Box
-              className="glass"
-              aria-label="Tool4SaaS at a glance"
-              sx={{
-                width: "100%",
-                borderRadius: "16px",
-                p: 4,
-                display: "flex",
-                flexDirection: "column",
-                gap: 2,
-              }}
-            >
-              <Typography variant="body2" sx={{ letterSpacing: "0.08em", fontWeight: 700 }}>
-                {EXPECTED_CATEGORY_COUNT} categories
-              </Typography>
-              <Typography variant="body1" data-numeric sx={{ fontWeight: 800, letterSpacing: "-0.02em", fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }, fontVariantNumeric: "tabular-nums" }}>
-                {VISIBLE_TOOL_COUNT}+ tools
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Free utilities, makers, and generators. Most run offline in your browser.
-              </Typography>
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, pt: 1 }}>
-                {QUICK_LINKS.map((q) => (
-                  <Link
-                    key={q.slug}
-                    href={`/${q.slug}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <Box
-                      sx={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        minHeight: 44,
-                        padding: "0 16px",
-                        borderRadius: 999,
-                        border: "1px solid",
-                        borderColor: "divider",
-                        fontWeight: 600,
-                        fontSize: "0.875rem",
-                        color: "text.primary",
-                        bgcolor: "background.paper",
-                      }}
-                    >
-                      {q.label} →
-                    </Box>
-                  </Link>
-                ))}
-              </Box>
-            </Box>
-          </Grid>
-        </Grid>
       </Container>
     </Box>
   );

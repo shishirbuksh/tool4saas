@@ -177,7 +177,11 @@ const consumers = ["src/app/(en)/page.tsx", "src/components/Header.tsx", "src/ap
 consumers.forEach(p => {
   if (fs.existsSync(p)) {
     const c = fs.readFileSync(p, "utf8");
-    if (!c.includes("toolsByCategoryCached") && !c.includes("toolsByCategory")) {
+    if (
+      !c.includes("toolsByCategoryCached") &&
+      !c.includes("toolsByCategory") &&
+      !c.includes("liteToolsByCategory")
+    ) {
       console.warn(`validate-tools: ${p} does not import toolsByCategoryCached`);
     }
   }

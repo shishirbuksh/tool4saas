@@ -149,11 +149,11 @@ const ICONS: Record<IconName, React.ComponentType<{ sx?: SxProps }>> = {
   PictureAsPdf: PictureAsPdfIcon,
 };
 
-function Icon({ name }: { name: IconName }) {
+function Icon({ name, size = 34 }: { name: IconName; size?: number }) {
   const Cmp = ICONS[name] ?? ICONS.BuildOutlined;
-  // IconFallback retained as 34px CLS guard (unknown-icon / future lazy paths).
+  // IconFallback retained as a fixed-size CLS guard (unknown-icon / future lazy paths).
   if (!Cmp) return <IconFallback />;
-  return <Cmp sx={{ fontSize: 34 }} />;
+  return <Cmp sx={{ fontSize: size }} />;
 }
 
 const CATEGORY_TINTS: Record<string, { bg: string; fg: string }> = {
@@ -173,7 +173,7 @@ const CATEGORY_TINTS: Record<string, { bg: string; fg: string }> = {
 
 const DEFAULT_TINT = { bg: "#F5F5F5", fg: "#111111" };
 
-export default function ToolCard({ tool }: { tool: LiteTool }) {
+export default function ToolCard({ tool, dense = false }: { tool: LiteTool; dense?: boolean }) {
   const tint = CATEGORY_TINTS[tool.category] ?? DEFAULT_TINT;
   return (
     <Card
@@ -184,7 +184,7 @@ export default function ToolCard({ tool }: { tool: LiteTool }) {
         // static imports (shared chunks) and card navigation uses Next <Link> prefetch.
         // No rel="prefetch" — Next.js <Link> prefetches in-viewport routes by default.
         contentVisibility: "auto",
-        containIntrinsicSize: "0 280px",
+        containIntrinsicSize: dense ? "0 115px" : "0 280px",
         transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), box-shadow 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms cubic-bezier(0.16,1,0.3,1)",
         "&:hover": {
           // --motion-hover-lift: -2px + scale(1.01) spring (theme token — not -6px)
@@ -216,12 +216,12 @@ export default function ToolCard({ tool }: { tool: LiteTool }) {
           },
         }}
       >
-        <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
+        <CardContent sx={{ p: dense ? 1.5 : { xs: 2, sm: 3 } }}>
           <Box
             aria-hidden="true"
             sx={{
-              width: 56,
-              height: 56,
+              width: dense ? 36 : 56,
+              height: dense ? 36 : 56,
               borderRadius: "12px",
               display: "flex",
               alignItems: "center",
@@ -231,21 +231,31 @@ export default function ToolCard({ tool }: { tool: LiteTool }) {
               border: "1px solid rgba(0,0,0,0.08)",
               boxShadow: "0 0 0 1px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)",
               "& > *": { color: tint.fg },
-              mb: { xs: 1.5, sm: 2 },
+              'html[data-theme="dark"] &': {
+                bgcolor: "rgba(255,255,255,0.06)",
+                borderColor: "rgba(255,255,255,0.1)",
+                boxShadow: "none",
+                "& > *": { color: "#EDEDED" },
+              },
+              mb: dense ? 1 : { xs: 1.5, sm: 2 },
             }}
           >
-            <Icon name={tool.icon} />
+            <Icon name={tool.icon} size={dense ? 22 : 34} />
           </Box>
           <Typography
             component="h3"
             variant="h5"
             sx={{
-              mb: 1,
-              fontSize: { xs: "1.25rem", sm: "1.5rem" },
+              mb: dense ? 0.25 : 1,
+              fontSize: dense ? { xs: "0.875rem", sm: "0.9375rem" } : { xs: "1.25rem", sm: "1.5rem" },
               lineHeight: 1.3,
               letterSpacing: "-0.015em",
-              fontWeight: 600,
+              fontWeight: dense ? 600 : 600,
               textWrap: "balance",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
             }}
           >
             {tool.title}
@@ -259,8 +269,8 @@ export default function ToolCard({ tool }: { tool: LiteTool }) {
               letterSpacing: "-0.015em",
               textWrap: "pretty",
               fontVariantNumeric: "tabular-nums",
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
+              display: dense ? { xs: "none", sm: "-webkit-box" } : "-webkit-box",
+              WebkitLineClamp: dense ? 1 : 2,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
             }}

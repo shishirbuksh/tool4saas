@@ -26,10 +26,6 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
     { href: "/blog/resume-builder-guide/offer-letter-guide", title: "Offer letter: CTC math, clauses & negotiation" },
   ],
-  "us-paycheck-calculator": [
-    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
-    { href: "/blog/resume-builder-guide/offer-letter-guide", title: "Offer letter: CTC math, clauses & negotiation" },
-  ],
   // ---- Calculators & billing-adjacent tools ----
   "gst-calculator": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },

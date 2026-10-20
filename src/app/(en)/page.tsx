@@ -1,36 +1,36 @@
 import Box from "@mui/material/Box";
 import { HomeToolsItemList, HomeFaqJsonLd, HomeBlogItemList, HomeWebPageJsonLd } from "@/components/SiteJsonLd";
 import HomeHero from "@/components/home/HomeHero";
-import HomeNav from "@/components/home/HomeNav";
 import HomePopular from "@/components/home/HomePopular";
+import HomeCategories from "@/components/home/HomeCategories";
 import HomeTools from "@/components/home/HomeTools";
+import HomeTrust from "@/components/home/HomeTrust";
 import HomeGuides from "@/components/home/HomeGuides";
-import { HomeWhatIs, HomeClosing } from "@/components/home/HomeEditorial";
-import { tools, toolsByCategoryCached } from "@/lib/tools";
+import HomeFaq from "@/components/home/HomeFaq";
+import HomeClosing from "@/components/home/HomeClosing";
 import { homeMetadata } from "@/lib/metadata";
+import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
 import { FAQS } from "@/content/home";
 
 export const metadata = homeMetadata();
 export { FAQS };
 
 export default function HomePage() {
-  const hubGroups = toolsByCategoryCached();
-  const hubA = hubGroups[0]?.category;
-  const hubB = hubGroups[1]?.category;
-  const firstSlug = tools[0].slug;
+  const groups = liteToolsByCategory();
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', overflowX: 'clip' }}>
       <HomeWebPageJsonLd />
       <HomeToolsItemList />
       <HomeFaqJsonLd faqs={FAQS} />
       <HomeBlogItemList />
-      <HomeHero firstSlug={firstSlug} />
-      <HomeNav />
-      <HomePopular hubGroups={hubGroups} />
-      <HomeTools hubA={hubA} hubB={hubB} />
-      <HomeWhatIs />
+      <HomeHero />
+      <HomePopular />
+      <HomeCategories />
+      <HomeTools groups={groups} />
+      <HomeTrust />
       <HomeGuides />
-      <HomeClosing firstSlug={firstSlug} />
+      <HomeFaq />
+      <HomeClosing />
     </Box>
   );
 }

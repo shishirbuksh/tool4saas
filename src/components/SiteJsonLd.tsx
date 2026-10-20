@@ -1,5 +1,7 @@
 import { siteConfig } from "@/lib/site";
-import { NOINDEX_SLUGS, tools } from "@/lib/tools";
+import { NOINDEX_SLUGS } from "@/lib/tools";
+import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
+import { HOME_LATEST_GUIDES, HOME_POPULAR_GUIDES } from "@/content/home";
 import { LOCALES } from "@/lib/i18n";
 
 // Site-wide WebSite entity. `inLanguage` is the PRIMARY language (English) and
@@ -68,12 +70,13 @@ export function HomeWebPageJsonLd() {
     "@type": "WebPage",
     "@id": `${base}/#webpage`,
     url: `${base}/`,
-    name: "Free Online Tools – No Sign-Up, Right in Your Browser",
+    name: "Free online tools, right in your browser",
+    description: siteConfig.description,
     isPartOf: { "@id": `${base}#website` },
     about: { "@id": `${base}#organization` },
     author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
     inLanguage: "en",
-    dateModified: "2026-10-01",
+    dateModified: "2026-10-20",
     speakableSpecification: {
       "@type": "SpeakableSpecification",
       cssSelector: [".speakable-hero-summary", ".speakable-faq-answer"],
@@ -87,15 +90,19 @@ export function HomeWebPageJsonLd() {
   );
 }
 
-// Homepage ItemList — MUST match SSR-visible grid (PaginatedToolGrid renders
-// INITIAL_VISIBLE=12 cards in initial HTML; rest load on scroll). Emitting all
-// 184 tools while only 12 are visible mismatches content, so list the first 12
-// SSR-visible tools only. Full crawl coverage lives in sitemap.xml.
+// Homepage ItemList — MUST match the SSR-visible grid (ToolExplorer renders 12
+// cards of the "All" view in the initial HTML; the rest load via "Show more").
+// Emitting all tools while only 12 are visible mismatches content, so list the
+// first 12 in the same category order the explorer renders. Full crawl coverage
+// lives in sitemap.xml.
 export function HomeToolsItemList() {
   const base = siteConfig.url.replace(/\/$/, "");
   // Exclude NOINDEX_SLUGS (e.g. pdf-compress placeholder) so the ItemList
   // matches the sitemap + visible homepage grid; slice to SSR-visible 12.
-  const visibleTools = tools.filter((t) => !NOINDEX_SLUGS.has(t.slug)).slice(0, 12);
+  const visibleTools = liteToolsByCategory()
+    .flatMap((g) => g.tools)
+    .filter((t) => !NOINDEX_SLUGS.has(t.slug))
+    .slice(0, 12);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -175,26 +182,18 @@ export function HomeFaqJsonLd({ faqs: faqsProp }: { faqs?: { q: string; a: strin
 }
 
 // Recent + Popular posts ItemLists — homepage only, distinct @ids from #tools.
-// Recent mirrors visible Recent posts section (6 pillars, newest first).
-// Popular mirrors visible Popular posts section (6 evergreen clusters).
+// Both mirrors are derived from the same content arrays the visible cards use,
+// so the schema can never drift from the page.
 export function HomeBlogItemList() {
   const base = siteConfig.url.replace(/\/$/, "");
-  const recent = [
-    { name: "Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup", url: `${base}/blog/word-counter-guide` },
-    { name: "How to Generate a Strong Password (Free Offline Tool)", url: `${base}/blog/password-generator-guide` },
-    { name: "Mortgage Calculator Guide: Payments, PMI & Amortization", url: `${base}/blog/mortgage-calculator-guide` },
-    { name: "Free Resume Builder Guide: Build a Job-Winning Resume Fast", url: `${base}/blog/resume-builder-guide` },
-    { name: "Free QR Code Generator Guide: Create Scannable QR Codes Fast", url: `${base}/blog/qr-code-generator-guide` },
-    { name: "Free Invoice Generator Guide: Create Professional Invoices Fast", url: `${base}/blog/invoice-generator-guide` },
-  ];
-  const popular = [
-    { name: "ATS-Friendly Resume: Beat Applicant Tracking Software (2026)", url: `${base}/blog/resume-builder-guide/ats-resume-guide` },
-    { name: "UPI QR Code for Payments: Setup, Counter Tips & Safety (India)", url: `${base}/blog/qr-code-generator-guide/upi-payment-qr-code-india` },
-    { name: "Static vs Dynamic QR Codes: Which to Choose (Honest Guide)", url: `${base}/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes` },
-    { name: "Home Loan EMI & Eligibility India: CIBIL, FOIR, Prepayment (2026)", url: `${base}/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india` },
-    { name: "GST Invoice Format India: Mandatory Fields, HSN & Sample (2026)", url: `${base}/blog/invoice-generator-guide/gst-invoice-format-india` },
-    { name: "How to Count Words Online Free (No Signup)", url: `${base}/blog/word-counter-guide/how-to-count-words-online` },
-  ];
+  const recent = HOME_LATEST_GUIDES.map((g) => ({
+    name: g.title,
+    url: `${base}${g.href}`,
+  }));
+  const popular = HOME_POPULAR_GUIDES.map((g) => ({
+    name: g.title,
+    url: `${base}${g.href}`,
+  }));
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [

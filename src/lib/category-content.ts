@@ -1,6 +1,6 @@
 // Category editorial copy (extracted from src/app/category/[id]/page.tsx).
 // Single source for AdSense content-depth intros + per-category FAQ bodies.
-// Counts here must match src/lib/tools/data/*.ts slug counts (130 tools total).
+// Counts here must match src/lib/tools/data/*.ts slug counts (128 tools total).
 
 export type CategoryIntro = {
   body: string;
@@ -30,7 +30,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Word Counter FAQ",
   },
   business: {
-    body: "Send invoices, build resumes, and beat keyword filters with 13 business document generators that work fully in your browser. The invoice generator totals a 10-line $550 bill with logo and tax, then prints to crisp A4 PDF. The resume builder lays out 3 roles and skills on one ATS-friendly page, while the checker scores it near 90 percent against a 300-word posting. For example, INV-2026-001 with $500 subtotal and 10 percent tax totals $550 exactly. Each tool page answers common questions in its FAQ, with no sign-up or upload.",
+    body: "Send invoices, build resumes, and beat keyword filters with 7 business document generators that work fully in your browser. The invoice generator totals a 10-line $550 bill with logo and tax, then prints to crisp A4 PDF. The resume builder lays out 3 roles and skills on one ATS-friendly page, while the checker scores it near 90 percent against a 300-word posting. For example, INV-2026-001 with $500 subtotal and 10 percent tax totals $550 exactly. Each tool page answers common questions in its FAQ, with no sign-up or upload.",
     picks: [
       { slug: "invoice-generator", label: "Invoice Generator" },
       { slug: "resume-builder", label: "Resume Builder" },
@@ -40,7 +40,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Invoice Generator FAQ",
   },
   developer: {
-    body: "Debug APIs, patterns, and tokens with 24 developer utilities that run 100 percent locally, so secrets never leave your device. The JSON formatter pretty-prints a 500 KB response and points to exact line-column errors like a missing comma at 1:18. The regex tester highlights matches for digit patterns across sample logs, while the JWT decoder exposes expiry claims instantly. For example, formatting a 10,000-line payload takes a blink, and minifying cuts bytes by roughly 20 percent. Each tool page answers common questions in its FAQ, free and offline.",
+    body: "Debug APIs, patterns, and tokens with 22 developer utilities that run 100 percent locally, so secrets never leave your device. The JSON formatter pretty-prints a 500 KB response and points to exact line-column errors like a missing comma at 1:18. The regex tester highlights matches for digit patterns across sample logs, while the JWT decoder exposes expiry claims instantly. For example, formatting a 10,000-line payload takes a blink, and minifying cuts bytes by roughly 20 percent. Each tool page answers common questions in its FAQ, free and offline.",
     picks: [
       { slug: "json-formatter", label: "JSON Formatter" },
       { slug: "regex-tester", label: "Regex Tester" },
@@ -70,7 +70,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Password Generator FAQ",
   },
   "images-design": {
-    body: "Design faster with 14 free utilities for codes, images, and color that run offline in your browser. The QR generator encodes long URLs into crisp scannable squares, while the image editor compresses, resizes, crops and frames a 2 MB photo for the web without visible loss. The contrast checker verifies pairs like indigo on white against accessibility ratios before you ship. For example, a #6366F1 swatch copies in one click and resizes cleanly to any layout. Each tool page answers common questions in its FAQ, with no sign-up needed.",
+    body: "Design faster with 13 free utilities for codes, images, and color that run offline in your browser. The QR generator encodes long URLs into crisp scannable squares, while the image editor compresses, resizes, crops and frames a 2 MB photo for the web without visible loss. The contrast checker verifies pairs like indigo on white against accessibility ratios before you ship. For example, a #6366F1 swatch copies in one click and resizes cleanly to any layout. Each tool page answers common questions in its FAQ, with no sign-up needed.",
     picks: [
       { slug: "qr-code-generator", label: "QR Code Generator" },
       { slug: "image-compressor", label: "Image Editor" },
@@ -89,7 +89,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Image to PDF FAQ",
   },
   calculators: {
-    body: "Answer everyday percent, loan, and body questions with 13 free calculators that work offline. The percentage tool turns 45 out of 60 into 75 percent in one step, while the loan calculator splits a $100,000 loan at 5 percent over 30 years into $536.82 monthly. The BMI checker converts 70 kg at 175 cm into 22.9 with clear ranges. For example, a 20 percent tip on $85 is $17 exactly. Each tool page answers common questions in its FAQ, with no sign-up or limits.",
+    body: "Answer everyday percent, loan, and body questions with 11 free calculators that work offline. The percentage tool turns 45 out of 60 into 75 percent in one step, while the loan calculator splits a $100,000 loan at 5 percent over 30 years into $536.82 monthly. The BMI checker converts 70 kg at 175 cm into 22.9 with clear ranges. For example, a 20 percent tip on $85 is $17 exactly. Each tool page answers common questions in its FAQ, with no sign-up or limits.",
     picks: [
       { slug: "percentage-calculator", label: "Percentage Calculator" },
       { slug: "emi-calculator", label: "Loan & EMI Calculator" },
@@ -159,7 +159,7 @@ export function introForCategory(id: string): CategoryIntro {
 // Hub pages rendered "PDF Tools | Tool4SaaS" (21ch) — too thin for SERPs.
 export const CATEGORY_SEO_TITLES: Record<string, string> = {
   "text-documents": "Text Tools: Count Words, Convert Case Free",
-  business: "Invoice, Resume & Quotes – 13 Free Tools",
+  business: "Invoice, Resume & Quotes – 7 Free Tools",
   developer: "Developer Tools: JSON, Base64, Regex Free",
   converters: "Converters: Units, Currency, JSON-CSV Free",
   generators: "Generators: Passwords, UUIDs, Random Free",
@@ -182,7 +182,7 @@ export function seoTitleForCategory(id: string, fallbackLabel: string): string {
 export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   "text-documents": [
     {
-      text: "Think of them as 19 free browser utilities for drafting and polishing writing with no signup. The Word Counter tracks a 1,500-word essay or 280-character post live, while Case Converter fixes 500 lines at once. Most run offline after load, so drafts never leave your device.",
+      text: "Think of them as 13 free browser utilities for drafting and polishing writing with no signup. The Word Counter tracks a 1,500-word essay or 280-character post live, while Case Converter fixes 500 lines at once. Most run offline after load, so drafts never leave your device.",
       linkSlug: "word-counter",
       linkLabel: "Word Counter",
     },
@@ -209,7 +209,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   business: [
     {
-      text: "They are essentially 13 free business document generators that run fully in your browser with no signup. The Invoice Generator totals a 10-line $550 bill with logo and tax, while Resume Builder fits 3 roles and skills on one ATS-friendly page. Files never upload, and most work offline.",
+      text: "They are essentially 7 free business document generators that run fully in your browser with no signup. The Invoice Generator totals a 10-line $550 bill with logo and tax, while Resume Builder fits 3 roles and skills on one ATS-friendly page. Files never upload, and most work offline.",
       linkSlug: "invoice-generator",
       linkLabel: "Invoice Generator",
     },
@@ -236,7 +236,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   developer: [
     {
-      text: "In practice, they are 24 free developer utilities that run 100 percent locally so secrets never leave your device. The JSON Formatter pretty-prints a 500 KB response and flags a missing comma at 1:18, while Regex Tester highlights digit matches across logs. Most work offline after first load.",
+      text: "In practice, they are 22 free developer utilities that run 100 percent locally so secrets never leave your device. The JSON Formatter pretty-prints a 500 KB response and flags a missing comma at 1:18, while Regex Tester highlights digit matches across logs. Most work offline after first load.",
       linkSlug: "json-formatter",
       linkLabel: "JSON Formatter",
     },
@@ -317,7 +317,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   "images-design": [
     {
-      text: "Picture them as 14 free utilities for codes, images, and color that run offline with no signup. The QR Code Generator encodes long URLs into crisp scannable squares, while the Image Editor compresses, resizes, crops and frames a 2 MB photo without visible loss. Color tools copy a #6366F1 swatch in one click.",
+      text: "Picture them as 13 free utilities for codes, images, and color that run offline with no signup. The QR Code Generator encodes long URLs into crisp scannable squares, while the Image Editor compresses, resizes, crops and frames a 2 MB photo without visible loss. Color tools copy a #6366F1 swatch in one click.",
       linkSlug: "qr-code-generator",
       linkLabel: "QR Code Generator",
     },
@@ -371,7 +371,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   calculators: [
     {
-      text: "In short, they are 13 free calculators for everyday percent, loan, and body questions with no signup. The Percentage Calculator turns 45 out of 60 into 75 percent, while Loan Calculator splits $100,000 at 5 percent into $536.82 monthly. Most run offline after load.",
+      text: "In short, they are 11 free calculators for everyday percent, loan, and body questions with no signup. The Percentage Calculator turns 45 out of 60 into 75 percent, while Loan Calculator splits $100,000 at 5 percent into $536.82 monthly. Most run offline after load.",
       linkSlug: "percentage-calculator",
       linkLabel: "Percentage Calculator",
     },

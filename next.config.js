@@ -112,6 +112,10 @@ const nextConfig = {
       { source: "/body-fat-calculator", destination: "/bmi-calculator", permanent: true },
       // Consolidation: macro splitting now lives inside /calorie-calculator.
       { source: "/macro-calculator", destination: "/calorie-calculator", permanent: true },
+      // Consolidation: ovulation tracking now lives inside /period-calculator.
+      { source: "/ovulation-calculator", destination: "/period-calculator", permanent: true },
+      // Consolidation: US paycheck withholding now lives inside /salary-calculator.
+      { source: "/us-paycheck-calculator", destination: "/salary-calculator", permanent: true },
     ];
   },
   async headers() {

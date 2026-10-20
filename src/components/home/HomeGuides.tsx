@@ -3,26 +3,81 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import { POPULAR_GUIDES, RECENT_GUIDES, type Guide } from "@/content/home";
+import {
+  HOME_LATEST_GUIDES,
+  HOME_POPULAR_GUIDES,
+  type Guide,
+} from "@/content/home";
 
 function GuideGrid({ guides }: { guides: Guide[] }) {
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={{ xs: 1.5, md: 2 }}>
       {guides.map((g) => (
         <Grid size={{ xs: 12, sm: 6, md: 4 }} key={g.href}>
-          <Box sx={{ p: 3, borderRadius: "16px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper", height: "100%", contentVisibility: "auto", containIntrinsicSize: "auto 300px" }}>
-            <Typography variant="body2" sx={{ fontWeight: 700, color: "primary.main", mb: 1, fontSize: '0.75rem', letterSpacing: "0.06em" }}>
+          <Box
+            sx={{
+              p: { xs: 2, md: 2.5 },
+              borderRadius: "16px",
+              border: "1px solid",
+              borderColor: "divider",
+              bgcolor: "background.paper",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              contentVisibility: "auto",
+              containIntrinsicSize: "auto 200px",
+              transition: "border-color 200ms ease, transform 200ms ease",
+              "&:hover": { borderColor: "rgba(0,0,0,0.16)", transform: "translateY(-2px)" },
+              'html[data-theme="dark"] &:hover': { borderColor: "rgba(255,255,255,0.2)" },
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                fontWeight: 700,
+                color: "text.secondary",
+                mb: 0.75,
+                fontSize: "0.6875rem",
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+              }}
+            >
               {g.label} · <time dateTime={g.date}>{g.date}</time>
             </Typography>
-            <Link href={g.href} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <Typography variant="h3" sx={{ fontSize: '1.125rem', fontWeight: 700, mb: 1, lineHeight: 1.4 }}>
+            <Link href={g.href} style={{ textDecoration: "none", color: "inherit" }}>
+              <Typography
+                component="h4"
+                sx={{
+                  fontSize: { xs: "1.0625rem", md: "1.125rem" },
+                  fontWeight: 700,
+                  lineHeight: 1.35,
+                  letterSpacing: "-0.015em",
+                  mb: 0.75,
+                  textWrap: "balance",
+                }}
+              >
                 {g.title}
               </Typography>
             </Link>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.6 }}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{
+                lineHeight: 1.55,
+                mb: 1.5,
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }}
+            >
               {g.desc}
             </Typography>
-            <Link href={g.href} aria-label={`Read guide: ${g.title}`} style={{ fontWeight: 700, fontSize: '0.875rem' }}>
+            <Link
+              href={g.href}
+              aria-label={`Read guide: ${g.title}`}
+              style={{ fontWeight: 600, fontSize: "0.8125rem", marginTop: "auto" }}
+            >
               Read guide →
             </Link>
           </Box>
@@ -32,51 +87,69 @@ function GuideGrid({ guides }: { guides: Guide[] }) {
   );
 }
 
-// Popular + recent post grids.
+// Popular + recent guides merged into one compact section.
 export default function HomeGuides() {
   return (
-    <>
-      {/* Popular Posts — evergreen high-intent clusters */}
-      <Container maxWidth="xl" sx={{ pb: { xs: 4, md: 6 }, px: { xs: 2, md: 4 } }}>
-        <Box component="section" id="popular-posts" aria-label="Popular posts" sx={{ scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 600px" }}>
-          <Box sx={{ textAlign: 'center', mb: 4, maxWidth: 700, mx: 'auto' }}>
-            <Typography variant="body2" sx={{ letterSpacing: "0.08em", fontWeight: 700, color: "primary.main", mb: 1 }}>
-              Popular — most-read tutorials
+    <Box
+      component="section"
+      id="guides"
+      aria-label="Guides and tutorials"
+      sx={{ py: { xs: 7, md: 10 }, scrollMarginTop: 100 }}
+    >
+      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            gap: 2,
+            mb: { xs: 3, md: 4 },
+            flexWrap: "wrap",
+          }}
+        >
+          <Box sx={{ maxWidth: 620 }}>
+            <Typography
+              variant="h2"
+              sx={{
+                fontSize: { xs: "1.75rem", md: "2.25rem" },
+                fontWeight: 700,
+                letterSpacing: "-0.025em",
+                mb: 0.5,
+              }}
+            >
+              Guides and tutorials
             </Typography>
-            <Typography variant="h2" sx={{ fontWeight: 700, letterSpacing: "-0.025em", fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', mb: 1 }}>
-              Popular posts readers love
-            </Typography>
-            <Typography variant="body1" color="text.secondary">
-              Evergreen winners for jobs, QR payments, home loans, GST and word count.
+            <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9375rem", md: "1rem" } }}>
+              Practical walkthroughs. Each guide links back to a free tool.
             </Typography>
           </Box>
-          <GuideGrid guides={POPULAR_GUIDES} />
+          <Link href="/blog" style={{ fontWeight: 600, fontSize: "0.875rem" }}>
+            All guides →
+          </Link>
         </Box>
-      </Container>
 
-      {/* Recent Posts — 6 pillars sorted by updated date (newest first) */}
-      <Container maxWidth="xl" sx={{ pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 } }}>
-        <Box component="section" id="recent-posts" aria-label="Recent posts" sx={{ scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 600px" }}>
-          <span id="guides" style={{ scrollMarginTop: 100 }} aria-hidden="true" />
-          <Box sx={{ textAlign: 'center', mb: 4, maxWidth: 700, mx: 'auto' }}>
-            <Typography variant="body2" sx={{ letterSpacing: "0.08em", fontWeight: 700, color: "primary.main", mb: 1 }}>
-              Fresh — latest guides
-            </Typography>
-            <Typography variant="h2" sx={{ fontWeight: 700, letterSpacing: "-0.025em", fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', mb: 1 }}>
-              Recent posts and tutorials
-            </Typography>
-            <Typography variant="body1" color="text.secondary">
-              Newest pillar guides first. Each guide links back to its free tool.
-            </Typography>
-          </Box>
-          <GuideGrid guides={RECENT_GUIDES} />
-          <Box sx={{ textAlign: 'center', mt: 4 }}>
-            <Link href="/blog" aria-label="View all blog guides" style={{ fontWeight: 700 }}>
-              View all guides →
-            </Link>
-          </Box>
+        <Box id="popular-posts" sx={{ mb: { xs: 4, md: 5 }, scrollMarginTop: 100 }}>
+          <Typography
+            component="h3"
+            variant="overline"
+            sx={{ display: "block", color: "text.secondary", mb: 1.5, fontWeight: 700 }}
+          >
+            Most read
+          </Typography>
+          <GuideGrid guides={HOME_POPULAR_GUIDES} />
+        </Box>
+
+        <Box id="recent-posts" sx={{ scrollMarginTop: 100 }}>
+          <Typography
+            component="h3"
+            variant="overline"
+            sx={{ display: "block", color: "text.secondary", mb: 1.5, fontWeight: 700 }}
+          >
+            Latest
+          </Typography>
+          <GuideGrid guides={HOME_LATEST_GUIDES} />
         </Box>
       </Container>
-    </>
+    </Box>
   );
 }

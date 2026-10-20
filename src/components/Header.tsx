@@ -61,10 +61,8 @@ export default function Header() {
       elevation={0}
       color="inherit"
       sx={{
-        background: "transparent",
-        backgroundColor: "color-mix(in srgb, var(--mui-palette-background-default) 68%, transparent)",
-        backdropFilter: "blur(20px) saturate(180%)",
-        WebkitBackdropFilter: "blur(20px) saturate(180%)",
+        backgroundColor: "background.default",
+        borderRadius: 0,
         borderBottom: "1px solid",
         borderColor: "divider",
         boxShadow:
@@ -121,20 +119,102 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <Box component="nav" aria-label="Primary" sx={{ display: { xs: "none", md: "flex" } }}>
-            <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
+            <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
               <Button
                 component={LinkWrapper}
-                href="/"
+                href="/#tools"
                 disableElevation
                 color={pathname === "/" ? "primary" : "inherit"}
-                aria-current={pathname === "/" ? "page" : undefined}
-                sx={{ 
+                sx={{
                   fontWeight: pathname === "/" ? 600 : 500,
-                  px: 2,
+                  px: 1.5,
                   minHeight: 44,
                 }}
               >
-                Home
+                Tools
+              </Button>
+
+              <Button
+                id="categories-button"
+                aria-haspopup="menu"
+                aria-expanded={catAnchor?.id === "categories"}
+                aria-controls="categories-menu"
+                onClick={(e) => setCatAnchor({ el: e.currentTarget, id: "categories" })}
+                endIcon={<ArrowDropDownIcon aria-hidden="true" />}
+                disableElevation
+                color={pathname.startsWith("/category") ? "primary" : "inherit"}
+                sx={{
+                  fontWeight: pathname.startsWith("/category") ? 600 : 500,
+                  px: 1.5,
+                  minHeight: 44,
+                }}
+              >
+                Categories
+              </Button>
+              <MenuDynamic
+                id="categories-menu"
+                aria-labelledby="categories-button"
+                anchorEl={catAnchor?.el ?? null}
+                open={catAnchor?.id === "categories"}
+                onClose={() => setCatAnchor(null)}
+                disableScrollLock
+                elevation={4}
+                slotProps={{
+                  paper: {
+                    sx: {
+                      mt: 1,
+                      width: 460,
+                      maxWidth: "calc(100vw - 32px)",
+                      border: '1px solid',
+                      borderColor: 'divider',
+                      borderRadius: '12px',
+                      backgroundColor: "background.paper",
+                      boxShadow: "0 1px 2px rgba(0,0,0,0.03), 0 12px 32px rgba(0,0,0,0.08)",
+                      'html[data-theme="dark"] &': {
+                        boxShadow: "0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.5)",
+                      },
+                    }
+                  },
+                  list: {
+                    sx: {
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr",
+                      gap: 0.5,
+                      p: 1,
+                    },
+                  },
+                }}
+              >
+                {grouped.map((g) => (
+                  <MenuItem
+                    key={g.category.id}
+                    component={LinkWrapper}
+                    href={`/category/${g.category.id}`}
+                    onClick={() => setCatAnchor(null)}
+                    selected={pathname === `/category/${g.category.id}`}
+                    aria-current={pathname === `/category/${g.category.id}` ? "page" : undefined}
+                    sx={{ minHeight: 44, px: 2, borderRadius: "8px" }}
+                  >
+                    <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                      {g.category.label}
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </MenuDynamic>
+
+              <Button
+                component={LinkWrapper}
+                href="/blog"
+                disableElevation
+                color={pathname.startsWith("/blog") ? "primary" : "inherit"}
+                aria-current={pathname.startsWith("/blog") ? "page" : undefined}
+                sx={{
+                  fontWeight: pathname.startsWith("/blog") ? 600 : 500,
+                  px: 1.5,
+                  minHeight: 44,
+                }}
+              >
+                Guides
               </Button>
               <Button
                 component={LinkWrapper}
@@ -144,7 +224,7 @@ export default function Header() {
                 aria-current={pathname === "/about" ? "page" : undefined}
                 sx={{
                   fontWeight: pathname === "/about" ? 600 : 500,
-                  px: 2,
+                  px: 1.5,
                   minHeight: 44,
                 }}
               >
@@ -158,107 +238,34 @@ export default function Header() {
                 aria-current={pathname === "/contact" ? "page" : undefined}
                 sx={{
                   fontWeight: pathname === "/contact" ? 600 : 500,
-                  px: 2,
+                  px: 1.5,
                   minHeight: 44,
                 }}
               >
                 Contact
               </Button>
-              <Button
-                component={LinkWrapper}
-                href="/blog"
-                disableElevation
-                color={pathname.startsWith("/blog") ? "primary" : "inherit"}
-                aria-current={pathname.startsWith("/blog") ? "page" : undefined}
-                sx={{
-                  fontWeight: pathname.startsWith("/blog") ? 600 : 500,
-                  px: 2,
-                  minHeight: 44,
-                }}
-              >
-                Blog
-              </Button>
-            
-            <Button
-              id="categories-button"
-              aria-haspopup="menu"
-              aria-expanded={catAnchor?.id === "categories"}
-              aria-controls="categories-menu"
-              onClick={(e) => setCatAnchor({ el: e.currentTarget, id: "categories" })}
-              endIcon={<ArrowDropDownIcon aria-hidden="true" />}
-              disableElevation
-              color={pathname.startsWith("/category") ? "primary" : "inherit"}
-              sx={{ 
-                fontWeight: pathname.startsWith("/category") ? 600 : 500,
-                px: 2,
-                minHeight: 44,
-              }}
-            >
-              Categories
-            </Button>
-            <MenuDynamic
-              id="categories-menu"
-              aria-labelledby="categories-button"
-              anchorEl={catAnchor?.el ?? null}
-              open={catAnchor?.id === "categories"}
-              onClose={() => setCatAnchor(null)}
-              elevation={4}
-              slotProps={{
-                paper: {
-                  sx: {
-                    mt: 1,
-                    minWidth: 200,
-                    border: '1px solid',
-                    borderColor: 'divider',
-                    borderRadius: '12px',
-                    backgroundColor: "color-mix(in srgb, var(--mui-palette-background-paper) 68%, transparent)",
-                    backdropFilter: "blur(20px) saturate(180%)",
-                    WebkitBackdropFilter: "blur(20px) saturate(180%)",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.03), 0 8px 24px rgba(0,0,0,0.04)",
-                    'html[data-theme="dark"] &': {
-                      boxShadow:
-                        "inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.4)",
-                    },
-                  }
-                }
-              }}
-            >
-              {grouped.map((g) => (
-                <MenuItem
-                  key={g.category.id}
-                  component={LinkWrapper}
-                  href={`/category/${g.category.id}`}
-                  onClick={() => setCatAnchor(null)}
-                  selected={pathname === `/category/${g.category.id}`}
-                  aria-current={pathname === `/category/${g.category.id}` ? "page" : undefined}
-                  sx={{ py: 1.5, px: 2.5, minHeight: 44 }}
-                >
-                  <Typography variant="body2" sx={{ fontWeight: 500 }}>
-                    {g.category.label}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </MenuDynamic>
 
-            <Box sx={{ pl: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
-              <LanguageSwitcher />
-              <ToolSearchDynamic sx={{ width: 280 }} />
-              <IconButton 
-                onClick={toggle} 
-                aria-label={mode === "light" ? "Switch to dark mode" : "Switch to light mode"} 
-                sx={{ 
-                  width: 44,
-                  height: 44,
-                  color: mode === "light" ? "text.secondary" : "warning.main",
-                  bgcolor: mode === "light" ? "transparent" : "rgba(255,183,77,0.1)",
-                  "&:hover": { bgcolor: "action.hover" }
-                }}
-              >
-                {mode === "light" ? <Brightness4Icon fontSize="small" aria-hidden="true" /> : <Brightness7Icon fontSize="small" aria-hidden="true" />}
-              </IconButton>
-            </Box>
-          </Stack>
-        </Box>
+              <Box sx={{ pl: 1.5, display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                <LanguageSwitcher />
+                <ToolSearchDynamic sx={{ width: 220 }} />
+                <IconButton
+                  onClick={toggle}
+                  aria-label={mode === "light" ? "Switch to dark mode" : "Switch to light mode"}
+                  sx={{
+                    width: 44,
+                    height: 44,
+                    color: "text.primary",
+                    bgcolor: mode === "light" ? "transparent" : "rgba(255,255,255,0.06)",
+                    "&:hover": {
+                      bgcolor: mode === "light" ? "action.hover" : "rgba(255,255,255,0.1)",
+                    },
+                  }}
+                >
+                  {mode === "light" ? <Brightness4Icon fontSize="small" aria-hidden="true" /> : <Brightness7Icon fontSize="small" aria-hidden="true" />}
+                </IconButton>
+              </Box>
+            </Stack>
+          </Box>
 
           {/* Mobile Nav Toggle */}
           <Stack direction="row" spacing={1} sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
@@ -324,60 +331,80 @@ export default function Header() {
         <LanguageSwitcher variant="drawer" onNavigate={() => setOpen(false)} />
         <Box component="nav" aria-label="Mobile">
           <List sx={{ px: 0 }}>
-            <ListItem disablePadding sx={{ mb: 1 }}>
-              <ListItemButton 
-                component={LinkWrapper} 
-                href="/" 
-                onClick={() => setOpen(false)} 
-                selected={pathname === "/"}
-                aria-current={pathname === "/" ? "page" : undefined}
-                sx={{ minHeight: 44 }}
-              >
-                <ListItemText primary={<Typography sx={{ fontWeight: pathname === "/" ? 600 : 500 }}>Home</Typography>} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding sx={{ mb: 1 }}>
-              <ListItemButton
-                component={LinkWrapper}
-                href="/about"
-                onClick={() => setOpen(false)}
-                selected={pathname === "/about"}
-                aria-current={pathname === "/about" ? "page" : undefined}
-                sx={{ minHeight: 44 }}
-              >
-                <ListItemText primary={<Typography sx={{ fontWeight: pathname === "/about" ? 600 : 500 }}>About</Typography>} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding sx={{ mb: 1 }}>
-              <ListItemButton
-                component={LinkWrapper}
-                href="/contact"
-                onClick={() => setOpen(false)}
-                selected={pathname === "/contact"}
-                aria-current={pathname === "/contact" ? "page" : undefined}
-                sx={{ minHeight: 44 }}
-              >
-                <ListItemText primary={<Typography sx={{ fontWeight: pathname === "/contact" ? 600 : 500 }}>Contact</Typography>} />
-              </ListItemButton>
-            </ListItem>
-            <Typography variant="overline" color="text.secondary" sx={{ display: 'block', mt: 3, mb: 1, px: 2, fontWeight: 700 }}>
-              Categories
-            </Typography>
-            {grouped.map((g) => (
-              <ListItem disablePadding key={g.category.id} sx={{ mb: 0.5 }}>
-                <ListItemButton 
-                  component={LinkWrapper} 
-                  href={`/category/${g.category.id}`} 
-                  onClick={() => setOpen(false)}
-                  selected={pathname === `/category/${g.category.id}`}
-                  aria-current={pathname === `/category/${g.category.id}` ? "page" : undefined}
-                  sx={{ minHeight: 44 }}
-                >
-                  <ListItemText primary={<Typography sx={{ fontWeight: pathname === `/category/${g.category.id}` ? 600 : 500 }}>{g.category.label}</Typography>} />
-                </ListItemButton>
-              </ListItem>
-            ))}
+            {[
+              { label: "Home", href: "/" },
+              { label: "All tools", href: "/#tools" },
+              { label: "Guides", href: "/blog" },
+              { label: "About", href: "/about" },
+              { label: "Contact", href: "/contact" },
+            ].map((l) => {
+              const isActive = pathname === l.href;
+              return (
+                <ListItem disablePadding key={l.href} sx={{ mb: 0.5 }}>
+                  <ListItemButton
+                    component={LinkWrapper}
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    selected={isActive}
+                    aria-current={isActive ? "page" : undefined}
+                    sx={{ minHeight: 44, borderRadius: "8px" }}
+                  >
+                    <ListItemText
+                      primary={
+                        <Typography sx={{ fontWeight: isActive ? 600 : 500 }}>
+                          {l.label}
+                        </Typography>
+                      }
+                    />
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
           </List>
+
+          <Typography
+            variant="overline"
+            color="text.secondary"
+            sx={{ display: "block", mt: 3, mb: 1, px: 1, fontWeight: 700 }}
+          >
+            Categories
+          </Typography>
+          <Box
+            component="ul"
+            sx={{
+              listStyle: "none",
+              m: 0,
+              p: 0,
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: 0.5,
+            }}
+          >
+            {grouped.map((g) => {
+              const href = `/category/${g.category.id}`;
+              const isActive = pathname === href;
+              return (
+                <ListItem disablePadding key={g.category.id}>
+                  <ListItemButton
+                    component={LinkWrapper}
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    selected={isActive}
+                    aria-current={isActive ? "page" : undefined}
+                    sx={{ minHeight: 44, borderRadius: "8px", px: 1.5 }}
+                  >
+                    <ListItemText
+                      primary={
+                        <Typography sx={{ fontWeight: isActive ? 600 : 500, fontSize: "0.875rem" }}>
+                          {g.category.label}
+                        </Typography>
+                      }
+                    />
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
+          </Box>
         </Box>
         <Box
           component="nav"
@@ -386,10 +413,9 @@ export default function Header() {
         >
           <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", rowGap: 0.5 }}>
             {[
-              { label: "About", href: "/about" },
               { label: "Privacy", href: "/privacy" },
               { label: "Terms", href: "/terms" },
-              { label: "Contact", href: "/contact" },
+              { label: "llms.txt", href: "/llms.txt" },
             ].map((l) => (
               <Button
                 key={l.href}

@@ -90,6 +90,7 @@ export default function LanguageSwitcher({
         anchorEl={anchor}
         open={Boolean(anchor)}
         onClose={() => setAnchor(null)}
+        disableScrollLock
         elevation={4}
         slotProps={{
           paper: {
@@ -99,9 +100,7 @@ export default function LanguageSwitcher({
               border: "1px solid",
               borderColor: "divider",
               borderRadius: "12px",
-              backgroundColor: "color-mix(in srgb, var(--mui-palette-background-paper) 68%, transparent)",
-              backdropFilter: "blur(20px) saturate(180%)",
-              WebkitBackdropFilter: "blur(20px) saturate(180%)",
+              backgroundColor: "background.paper",
             },
           },
         }}

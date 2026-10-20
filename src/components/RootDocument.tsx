@@ -165,7 +165,6 @@ export default function RootDocument({ locale = "en", children }: { locale?: Loc
           `}
         </Script>
         <ConsentGatedGoogleScripts />
-        <CookieConsentLazy />
         <a href="#main" className="skip-link">
           {SKIP_LABEL[locale]}
         </a>
@@ -176,6 +175,7 @@ export default function RootDocument({ locale = "en", children }: { locale?: Loc
               <main id="main">{children}</main>
               <Footer />
             </Box>
+            <CookieConsentLazy />
           </ThemeProviderClient>
         </AppRouterCacheProvider>
         <SiteJsonLd />

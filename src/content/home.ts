@@ -1,8 +1,6 @@
-// Homepage content data (extracted from src/app/page.tsx).
-// Server-safe: data only, no JSX/MUI. Single source for the homepage grids.
-// NOTE: SiteJsonLd keeps a hardcoded mirror of the guide lists for its
-// ItemList output (HomeBlogItemList) — update both together to keep
-// visible-grid vs JSON-LD parity.
+// Homepage content data.
+// Server-safe: data only, no JSX/MUI. Single source for the homepage grids,
+// FAQ copy, and the JSON-LD mirrors in src/components/SiteJsonLd.tsx.
 
 export type PopularSlug = { slug: string; benefit: string };
 
@@ -119,6 +117,46 @@ export const POPULAR_GUIDES: Guide[] = [
   },
 ];
 
+// Homepage shows a compact 3 + 3 selection. Keep these arrays as the single
+// source for both the visible cards and the ItemList JSON-LD.
+export const HOME_POPULAR_GUIDES: Guide[] = [
+  POPULAR_GUIDES[0],
+  POPULAR_GUIDES[1],
+  POPULAR_GUIDES[4],
+];
+
+export const HOME_LATEST_GUIDES: Guide[] = [
+  RECENT_GUIDES[0],
+  RECENT_GUIDES[1],
+  RECENT_GUIDES[2],
+];
+
+export type TrustItem = {
+  title: string;
+  body: string;
+  href?: string;
+  linkLabel?: string;
+};
+
+export const TRUST_ITEMS: TrustItem[] = [
+  {
+    title: "Runs in your browser",
+    body: "Most tools process text and files on your device. Nothing is uploaded.",
+    href: "/privacy",
+    linkLabel: "Privacy policy",
+  },
+  {
+    title: "No account, no paywall",
+    body: "Open a tool and finish the job. No sign-up, no daily limits.",
+  },
+  {
+    title: "Tested before it ships",
+    body: "Outputs are checked against known values by our editorial team.",
+    href: "/methodology",
+    linkLabel: "How we test",
+  },
+];
+
 export const FAQS: Faq[] = [
   {
     q: "What is Tool4SaaS?",
@@ -126,7 +164,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: "Is Tool4SaaS free?",
-      a: "Yes. Every tool is free to use with no cost and no paywall. You can open any tool, maker, or generator as often as you like each day.",
+    a: "Yes. Every tool is free to use with no cost and no paywall. You can open any tool, maker, or generator as often as you like each day.",
   },
   {
     q: "Do I need to sign up?",

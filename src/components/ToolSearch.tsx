@@ -17,11 +17,18 @@ const indexedTools: IndexedTool[] = LITE_TOOLS.map((t) => ({
   haystack: [t.title, t.short, t.description, t.slug, ...(t.keywords ?? [])].join(" ").toLowerCase(),
 }));
 
-export default function ToolSearch({ sx }: { sx?: SxProps }) {
+type ToolSearchProps = {
+  sx?: SxProps;
+  variant?: "header" | "hero";
+  placeholder?: string;
+};
+
+export default function ToolSearch({ sx, variant = "header", placeholder }: ToolSearchProps) {
   const router = useRouter();
   const [value, setValue] = useState<LiteTool | null>(null);
   const [inputValue, setInputValue] = useState("");
   const deferredInput = useDeferredValue(inputValue);
+  const isHero = variant === "hero";
   const filtered = useMemo(() => {
     const q = deferredInput.trim().toLowerCase();
     if (!q) return [];
@@ -45,14 +52,23 @@ export default function ToolSearch({ sx }: { sx?: SxProps }) {
       getOptionLabel={(o) => o.title}
       filterOptions={(x) => x}
       noOptionsText="No tools found"
-      size="small"
-      sx={{ width: { xs: "100%", md: 280 }, minWidth: 0, "& .MuiInputBase-root": { minHeight: 44 }, ...sx }}
+      size={isHero ? "medium" : "small"}
+      sx={{
+        width: isHero ? "100%" : { xs: "100%", md: 280 },
+        minWidth: 0,
+        "& .MuiInputBase-root": {
+          minHeight: isHero ? 56 : 44,
+          fontSize: isHero ? "1rem" : undefined,
+          bgcolor: isHero ? "background.paper" : undefined,
+          boxShadow: isHero ? "var(--shadow-md)" : undefined,
+        },
+        ...sx,
+      }}
       slotProps={{ popper: { sx: { zIndex: 1400 } } }}
       renderInput={({ InputLabelProps: _InputLabelProps, InputProps, ...params }: any) => (
         <TextField
           {...params}
-          label="Search tools"
-          placeholder="Search tools…"
+          placeholder={placeholder ?? "Search tools…"}
           slotProps={{
             input: {
               ...(params.slotProps?.input ?? InputProps),

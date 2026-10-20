@@ -1,6 +1,6 @@
 # Consolidation Map — tool4saas
 
-Status: **in progress** — rows 1–25 applied (185 → 130 tools). Evidence measured on `2b33f01`.
+Status: **in progress** — rows 1–27 applied (185 → 128 tools). Evidence measured on `2b33f01`.
 
 ## Why (root cause in one line)
 
@@ -67,8 +67,8 @@ Measured signals:
 | 23 | `date-calculator` (hub "Date, Countdown & Duration") | countdown-timer, work-days-calculator, time-duration-calculator | −3 | ✅ done |
 | 24 | `bmi-calculator` (hub "BMI, Ideal Weight & Body Fat") | ideal-weight-calculator, body-fat-calculator | −2 | ✅ done |
 | 25 | `calorie-calculator` (hub "Calorie & Macro") | macro-calculator | −1 | ✅ done |
-| 26 | `period-calculator` | ovulation-calculator | −1 |
-| 27 | `salary-calculator` | us-paycheck-calculator | −1 |
+| 26 | `period-calculator` (hub "Period & Ovulation") | ovulation-calculator | −1 | ✅ done |
+| 27 | `salary-calculator` (hub "Salary & US Paycheck") | us-paycheck-calculator | −1 | ✅ done |
 | 28 | `image-format-converter` | svg-to-png-converter | −1 |
 
 **Tier A total: −60 tools absorbed** (all 60 verified present, no canonical/absorbed overlap).

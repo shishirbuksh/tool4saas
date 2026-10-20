@@ -73,8 +73,8 @@ for (const m of catalogText.matchAll(/slug: "([^"]+)"[\s\S]*?category: "([^"]+)"
   slugToCategory.set(m[1], m[2]);
 }
 const errors = [];
-if (slugToCategory.size !== 130) {
-  errors.push(`catalog-lite parsed ${slugToCategory.size} slugs, expected 130 — run generate-catalog-lite.mjs first`);
+if (slugToCategory.size !== 128) {
+  errors.push(`catalog-lite parsed ${slugToCategory.size} slugs, expected 128 — run generate-catalog-lite.mjs first`);
 }
 
 const toolDates = {};

@@ -14,8 +14,8 @@ function isPoisonHostname(hostname: string): boolean {
 
 export const siteConfig = {
   name: "Tool4SaaS",
-  title: `${VISIBLE_TOOL_COUNT} Free Online Tools – No Signup (2026) | Tool4SaaS`,
-  description: `${VISIBLE_TOOL_COUNT} free online tools: invoice generator, QR, resume builder, word counter. No signup, 100% private in your browser — try free now.`,
+  title: `${VISIBLE_TOOL_COUNT} Free Online Tools – No Signup, No Uploads | Tool4SaaS`,
+  description: `${VISIBLE_TOOL_COUNT} free browser tools for invoices, QR codes, resumes, PDFs, images and money. No signup, no uploads — most run privately on your device.`,
   keywords: [
     "free online tools",
     "invoice generator",

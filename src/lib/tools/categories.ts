@@ -11,13 +11,13 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "business",
     label: "Business & Writing",
     description:
-      "Create invoices, resumes, quotations and receipts instantly in your browser with 13 free business document generators.",
+      "Create invoices, resumes, quotations and receipts instantly in your browser with 7 free business document generators.",
   },
   {
     id: "developer",
     label: "Developer Tools",
     description:
-      "Encode Base64, hash, format JSON and SQL, test regex and validate code with 30 free developer utilities that run locally.",
+      "Encode Base64, hash, format JSON and SQL, test regex and validate code with 22 free developer utilities that run locally.",
   },
   {
     id: "converters",
@@ -35,32 +35,32 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "images-design",
     label: "Images & Design",
     description:
-      "Generate QR codes, compress, resize, crop and frame images, extract colors and build gradients with 14 free design tools offline.",
+      "Generate QR codes, compress, resize, crop and frame images, extract colors and build gradients with 13 free design tools offline.",
   },
   {
     id: "pdf",
     label: "PDF Tools",
     description:
-      "Merge, split, compress and convert PDFs and images to PDF securely in your browser with 5 free offline PDF utilities.",
-    // NOTE: 5 tools (image-to-pdf, pdf-merge, pdf-compress, pdf-to-jpg, pdf-to-text) — split/rotate/watermark are views inside pdf-merge; kept lean to preserve client-only bundle size.
+      "Merge, split, compress and convert PDFs and images to PDF securely in your browser with 4 free offline PDF utilities.",
+    // NOTE: 5 registered tools (image-to-pdf, pdf-merge, pdf-compress, pdf-to-jpg, pdf-to-text) - pdf-compress is noindexed; split/rotate/watermark are views inside pdf-merge, kept lean to preserve client-only bundle size.
   },
   {
     id: "calculators",
     label: "Calculators",
     description:
-      "Calculate percentages, loans, grades, discounts and BMI instantly with 16 free everyday calculators that work offline.",
+      "Calculate percentages, loans, grades, discounts and BMI instantly with 11 free everyday calculators that work offline.",
   },
   {
     id: "finance",
     label: "Finance & Money",
     description:
-      "Mortgage, SIP, salary and tax calculators for planning — 24 free tools, informational only, not financial advice.",
+      "Mortgage, SIP, salary and tax calculators for planning - 20 free tools, informational only, not financial advice.",
   },
   {
     id: "health",
     label: "Health & Fitness",
     description:
-      "Calorie, BMI and macro calculators for informational purposes only — not medical advice, consult a professional.",
+      "Calorie, BMI and macro calculators for informational purposes only - not medical advice, consult a professional.",
   },
   {
     id: "seo",

@@ -1,103 +1,71 @@
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import { getTool, toolsByCategoryCached } from "@/lib/tools";
+import ToolCard from "@/components/ToolCard";
+import { liteGetTool } from "@/lib/tools/catalog-lite";
 import { POPULAR_SLUGS } from "@/content/home";
 
-type HubGroups = ReturnType<typeof toolsByCategoryCached>;
+const popular = POPULAR_SLUGS.map((p) => liteGetTool(p.slug)).filter(
+  (t): t is NonNullable<typeof t> => Boolean(t)
+);
 
-// Popular pills + categories teaser.
-export default function HomePopular({ hubGroups }: { hubGroups: HubGroups }) {
+// Most-used tools — compact cards instead of a pill list.
+export default function HomePopular() {
   return (
-    <>
-      {/* Popular Tools — 8 pills, SSR links */}
-      <Box component="section" id="popular" aria-label="Popular tools" sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider', py: { xs: 4, md: 6 }, scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 200px" }}>
-        <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 }, textAlign: 'center' }}>
-          <Typography variant="h2" sx={{ fontWeight: 700, letterSpacing: "-0.025em", fontSize: 'clamp(1.4rem, 3vw, 2rem)', mb: 1 }}>
-            Popular free online tools, no sign-up needed
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-            8 most-used free tools for code, money, text, and daily jobs.
-          </Typography>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, justifyContent: 'center' }}>
-            {POPULAR_SLUGS.map((p) => {
-              const t = getTool(p.slug);
-              const label = t?.title ?? p.slug;
-              return (
-                <Link
-                  key={p.slug}
-                  href={`/${p.slug}`}
-                  aria-label={`${label} — ${p.benefit}`}
-                  data-track="popular-pill"
-                  data-slug={p.slug}
-                  style={{ textDecoration: 'none' }}
-                >
-                  <Box
-                    sx={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      minHeight: 44,
-                      padding: '0 20px',
-                      borderRadius: 999,
-                      border: '1px solid',
-                      borderColor: 'divider',
-                      fontWeight: 600,
-                      fontSize: '0.95rem',
-                      color: 'text.primary',
-                    }}
-                  >
-                    {label}
-                  </Box>
-                </Link>
-              );
-            })}
+    <Box
+      component="section"
+      id="popular"
+      aria-label="Popular tools"
+      sx={{
+        bgcolor: "background.paper",
+        borderBottom: "1px solid",
+        borderColor: "divider",
+        py: { xs: 7, md: 10 },
+        scrollMarginTop: 100,
+      }}
+    >
+      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            gap: 2,
+            mb: { xs: 3, md: 4 },
+            flexWrap: "wrap",
+          }}
+        >
+          <Box sx={{ maxWidth: 640 }}>
+            <Typography
+              variant="h2"
+              sx={{
+                fontSize: { xs: "1.75rem", md: "2.25rem" },
+                fontWeight: 700,
+                letterSpacing: "-0.025em",
+                mb: 0.5,
+              }}
+            >
+              Popular free online tools
+            </Typography>
+            <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9375rem", md: "1rem" } }}>
+              The eight tools people open most. No sign-up for any of them.
+            </Typography>
           </Box>
-        </Container>
-      </Box>
+          <Link href="#tools" style={{ fontWeight: 600, fontSize: "0.875rem" }}>
+            See all tools →
+          </Link>
+        </Box>
 
-      {/* Categories teaser — pill scroll, no H3s, no descs (dedup) */}
-      <Box component="nav" id="categories" aria-label="Tool categories" sx={{ bgcolor: 'background.default', borderBottom: '1px solid', borderColor: 'divider', py: 3, scrollMarginTop: 100, contentVisibility: "auto", containIntrinsicSize: "auto 120px" }}>
-        <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
-          <Typography variant="h2" sx={{ fontWeight: 700, letterSpacing: "-0.025em", fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', textAlign: 'center', mb: 2 }}>
-            Browse 12 free tool categories (no sign-up)
-          </Typography>
-          {/* Desktop: wrapped centered grid (all 12 visible, no cut-off).
-              Mobile: snap scroll with hidden scrollbar + edge fade. */}
-          <Box
-            component="ul"
-            sx={{
-              display: 'flex',
-              gap: 1,
-              listStyle: 'none',
-              m: 0,
-              p: 0,
-              pb: { xs: 1, md: 0 },
-              flexWrap: { xs: 'nowrap', md: 'wrap' },
-              overflowX: { xs: 'auto', md: 'visible' },
-              justifyContent: { xs: 'flex-start', md: 'center' },
-              scrollSnapType: { xs: 'x mandatory', md: 'none' },
-              scrollbarWidth: { xs: 'none', md: 'auto' },
-              '&::-webkit-scrollbar': { display: { xs: 'none', md: 'block' } },
-              maskImage: { xs: 'linear-gradient(to right, black 94%, transparent)', md: 'none' },
-              WebkitMaskImage: { xs: 'linear-gradient(to right, black 94%, transparent)', md: 'none' },
-            }}
-          >
-            {hubGroups.map((g) => {
-              const visible = g.tools.filter((t) => t.slug !== "pdf-compress").length;
-              return (
-                <Box component="li" key={g.category.id} sx={{ flex: { xs: '0 0 auto', md: '0 1 auto' }, scrollSnapAlign: { xs: 'start', md: 'none' } }}>
-                  <Link href={`/category/${g.category.id}`} aria-label={`View all ${visible} ${g.category.label} tools`} style={{ textDecoration: 'none' }}>
-                    <Box sx={{ display: 'inline-flex', alignItems: 'center', minHeight: 44, padding: '0 16px', borderRadius: 999, border: '1px solid', borderColor: 'divider', fontWeight: 600, fontSize: '0.875rem', color: 'text.primary', bgcolor: 'background.paper', whiteSpace: 'nowrap' }}>
-                      {g.category.label} — {visible}
-                    </Box>
-                  </Link>
-                </Box>
-              );
-            })}
-          </Box>
-        </Container>
-      </Box>
-    </>
+        <Grid container spacing={{ xs: 1.5, md: 2 }}>
+          {popular.map((tool) => (
+            <Grid size={{ xs: 6, sm: 6, md: 3 }} key={tool.slug}>
+              <ToolCard tool={tool} dense />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 }
