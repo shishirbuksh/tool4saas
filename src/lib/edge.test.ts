@@ -246,9 +246,9 @@ describe("edge – toolsByCategory sum 123", () => {
   it("sum of grouped tools equals 123 and tools.length", () => {
     const groups = toolsByCategory();
     const sum = groups.reduce((s, g) => s + g.tools.length, 0);
-    expect(sum).toBeGreaterThanOrEqual(153);
+    expect(sum).toBeGreaterThanOrEqual(130);
     expect(sum).toBe(tools.length);
-    expect(tools.length).toBeGreaterThanOrEqual(153);
+    expect(tools.length).toBeGreaterThanOrEqual(130);
   });
 });
 

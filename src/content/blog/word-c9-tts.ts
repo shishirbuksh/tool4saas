@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>I proofread silently three times and still shipped “the the” in a headline. Then I listened to the draft once — the doubled word jumped out in seconds. Ears process language sequentially and cannot skim; eyes skip. <strong>Proofreading by listening</strong> with text-to-speech is the highest-ROI editing pass nobody does. Here is the workflow for blogs, essays and study notes.</p>
-<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Listen in the <a href="/text-to-speech">TTS tool</a> (local, free); measure drafts in the <a href="/word-counter">word counter</a>; score in the <a href="/readability-checker">readability checker</a>. For length targets see <a href="/blog/word-counter-guide/ideal-blog-post-length-seo">ideal post length</a>, and for pre-publish checks <a href="/blog/word-counter-guide/grammar-check-before-publish">grammar check before publish</a>.</p>
+<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Listen in the <a href="/text-to-speech">TTS tool</a> (local, free); measure drafts in the <a href="/word-counter">word counter</a>; score in the <a href="/word-counter">readability checker</a>. For length targets see <a href="/blog/word-counter-guide/ideal-blog-post-length-seo">ideal post length</a>, and for pre-publish checks <a href="/blog/word-counter-guide/grammar-check-before-publish">grammar check before publish</a>.</p>
 
 <h2 id="workflow">The listening workflow (10 minutes)</h2>
 <ol>
@@ -27,7 +27,7 @@ const html = `
 <tr><td><strong>Tense drift</strong></td><td>“walks… walked” in one paragraph</td><td>Paragraph-level inconsistency survives line edits</td></tr>
 </tbody>
 </table>
-<p>Run the numbers first: paste the draft in the <a href="/word-counter">word counter</a> to confirm length (a <a href="/blog/word-counter-guide/ideal-blog-post-length-seo">1,500-word post is ~10 minutes</a> of audio), then score flow in the <a href="/readability-checker">readability checker</a> — long-sentence clusters the checker flags are exactly the passages that drag aloud (see <a href="/blog/word-counter-guide/flesch-reading-ease-score-explained">Flesch explained</a>).</p>
+<p>Run the numbers first: paste the draft in the <a href="/word-counter">word counter</a> to confirm length (a <a href="/blog/word-counter-guide/ideal-blog-post-length-seo">1,500-word post is ~10 minutes</a> of audio), then score flow in the <a href="/word-counter">readability checker</a> — long-sentence clusters the checker flags are exactly the passages that drag aloud (see <a href="/blog/word-counter-guide/flesch-reading-ease-score-explained">Flesch explained</a>).</p>
 
 <h2 id="setup-per-goal">Rate, pitch and voice setup per goal</h2>
 <p>One preset does not fit all. Configure for the job:</p>
@@ -72,7 +72,7 @@ export const wordTts: BlogPost = {
   description:
     "Proofread with text-to-speech: 10-minute listening workflow, what ears catch that eyes skip + study and accessibility wins. Free TTS tool.",
   keywords: ["text to speech proofreading", "listen to article catch errors", "tts study notes", "proofread by listening"],
-  toolSlugs: ["text-to-speech", "readability-checker", "word-counter"],
+  toolSlugs: ["text-to-speech", "word-counter"],
   relatedSlugs: ["grammar-check-before-publish", "how-to-summarize-text-fast", "flesch-reading-ease-score-explained"],
   published: "2026-09-26",
   updated: "2026-09-26",

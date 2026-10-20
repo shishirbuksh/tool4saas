@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>“Just MD5 it, it's only a checksum.” Six months later that checksum guarded password resets. <strong>Hash choice is a security decision wearing a utility costume</strong>: MD5 for legacy manifests, SHA-256 for integrity, bcrypt for passwords — and the wrong pick fails silently for years. This guide gives digest lengths that identify algorithms on sight, the avalanche intuition, and the hash-vs-HMAC-vs-encryption ladder, with <code>hello</code> worked through every level.</p>
-<p>Part of the <a href="/blog/json-formatter-guide">developer toolkit guide</a>. Compare in the <a href="/hash-generator">hash generator</a>; step up keyed hashing in <a href="/hmac-generator">HMAC</a>; encrypt secrets with <a href="/aes-encryptor">AES</a>.</p>
+<p>Part of the <a href="/blog/json-formatter-guide">developer toolkit guide</a>. Compare in the <a href="/hash-generator">hash generator</a>; step up keyed hashing in <a href="/hash-generator">HMAC</a>; encrypt secrets with <a href="/aes-encryptor">AES</a>.</p>
 
 <h2 id="lengths">Digest lengths identify algorithms on sight</h2>
 <table>
@@ -23,7 +23,7 @@ const html = `
 <h2 id="ladder">The ladder: hash vs HMAC vs AES (when to climb)</h2>
 <ul>
 <li><strong>Hash (SHA-256):</strong> fingerprinting downloads, cache keys, dedupe. Anyone can recompute — proves integrity against accidents, not attackers.</li>
-<li><strong>HMAC:</strong> hash and secret key — proves the message came from a key holder. Webhooks, API signatures. Step up in the <a href="/hmac-generator">HMAC tool</a>.</li>
+<li><strong>HMAC:</strong> hash and secret key — proves the message came from a key holder. Webhooks, API signatures. Step up in the <a href="/hash-generator">HMAC tool</a>.</li>
 <li><strong>AES encryption:</strong> reversible secrecy for stored/transmitted data. Passwords get bcrypt/argon2 instead (slow by design). Encrypt in the <a href="/aes-encryptor">AES tool</a>.</li>
 </ul>
 <p>Passwords are the classic misplacement: fast hashes (even SHA-256) fall to GPUs in hours; password hashing must be slow (bcrypt cost factors) and salted per user. If your login table uses MD5/SHA, migrating to argon2 outranks every feature on the roadmap.</p>
@@ -38,7 +38,7 @@ export const hashCompare: BlogPost = {
   description:
     "SHA-256 vs MD5 with digest-length table, avalanche demos, hash-vs-HMAC-vs-AES ladder + password hashing warning. Free compare tool.",
   keywords: ["sha256 of hello", "avalanche hallo change", "hash vs hmac vs aes"],
-  toolSlugs: ["hash-generator", "hmac-generator", "aes-encryptor"],
+  toolSlugs: ["hash-generator", "aes-encryptor"],
   relatedSlugs: ["json-parse-errors", "base64-url-safe-vs-standard", "uuid-seed-test-database"],
   published: "2026-10-07",
   updated: "2026-10-07",

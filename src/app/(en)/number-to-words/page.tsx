@@ -1,5 +1,5 @@
 import ToolPageShell from "@/components/ToolPageShell";
-import NumberToWordsTool from "@/components/tools/NumberToWordsTool";
+import EncoderStudioTool from "@/components/tools/EncoderStudioTool";
 import { getTool } from "@/lib/tools";
 import { toolMetadata } from "@/lib/metadata";
 
@@ -11,7 +11,7 @@ export const metadata = toolMetadata(slug);
 export default function Page() {
   return (
     <ToolPageShell tool={tool}>
-      <NumberToWordsTool />
+      <EncoderStudioTool />
     </ToolPageShell>
   );
 }

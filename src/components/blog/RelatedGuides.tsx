@@ -30,10 +30,6 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
     { href: "/blog/resume-builder-guide/offer-letter-guide", title: "Offer letter: CTC math, clauses & negotiation" },
   ],
-  "payslip-generator": [
-    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
-    { href: "/blog/resume-builder-guide/offer-letter-guide", title: "Offer letter: CTC math, clauses & negotiation" },
-  ],
   // ---- Calculators & billing-adjacent tools ----
   "gst-calculator": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
@@ -60,10 +56,6 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
     { href: "/blog/invoice-generator-guide/freelancer-invoice-guide", title: "Freelancer invoice guide: get paid on time" },
   ],
-  "rent-receipt-generator": [
-    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
-    { href: "/blog/invoice-generator-guide/payment-terms-and-followups", title: "Payment terms + follow-up scripts" },
-  ],
   // ---- Invoice family ----
   "invoice-generator": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
@@ -74,22 +66,15 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/invoice-generator-guide/gst-invoice-format-india", title: "GST invoice format India: fields, HSN & sample" },
     { href: "/blog/invoice-generator-guide/freelancer-invoice-guide", title: "Freelancer invoice guide: get paid on time" },
   ],
-  "quotation-generator": [
+  "document-generator": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
     { href: "/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt", title: "Invoice vs quotation vs receipt vs purchase order" },
     { href: "/blog/invoice-generator-guide/small-business-invoicing", title: "Small business invoicing without paid software" },
     { href: "/blog/invoice-generator-guide/invoice-template-formats", title: "Free invoice templates: Word, Excel & PDF formats" },
-  ],
-  "receipt-generator": [
-    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
-    { href: "/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt", title: "Invoice vs quotation vs receipt vs purchase order" },
     { href: "/blog/invoice-generator-guide/payment-terms-and-followups", title: "Payment terms + follow-up scripts" },
-    { href: "/blog/invoice-generator-guide/invoice-template-formats", title: "Free invoice templates: Word, Excel & PDF formats" },
-  ],
-  "purchase-order-generator": [
-    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
-    { href: "/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt", title: "Invoice vs quotation vs receipt vs purchase order" },
-    { href: "/blog/invoice-generator-guide/small-business-invoicing", title: "Small business invoicing without paid software" },
+    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
+    { href: "/blog/resume-builder-guide/offer-letter-guide", title: "Offer letter: CTC math, clauses & negotiation" },
+    { href: "/blog/resume-builder-guide/experienced-resume-guide", title: "Resume for experienced professionals" },
   ],
   // ---- QR family ----
   "qr-code-generator": [
@@ -99,12 +84,8 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes", title: "Static vs dynamic QR codes: which to choose" },
     { href: "/blog/qr-code-generator-guide/upi-payment-qr-code-india", title: "UPI QR code for payments: setup & safety (India)" },
     { href: "/blog/qr-code-generator-guide/vcard-contact-qr-code", title: "vCard QR code: digital business card in 5 seconds" },
-  ],
-  "wifi-qr-generator": [
-    { href: "/blog/qr-code-generator-guide", title: "Free QR Code Generator Guide (pillar)" },
     { href: "/blog/qr-code-generator-guide/wifi-qr-code-guide", title: "WiFi QR code: share guest WiFi with one scan" },
     { href: "/blog/qr-code-generator-guide/qr-code-not-scanning-fix", title: "QR code not scanning? 5 causes & fixes" },
-    { href: "/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes", title: "Static vs dynamic QR codes: which to choose" },
   ],
   "qr-scanner": [
     { href: "/blog/qr-code-generator-guide", title: "Free QR Code Generator Guide (pillar)" },
@@ -137,11 +118,6 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/resume-builder-guide/cover-letter-guide", title: "Cover letter: 4-paragraph format that wins" },
     { href: "/blog/resume-builder-guide/fresher-resume-guide", title: "Fresher resume guide: zero experience" },
     { href: "/blog/resume-builder-guide/resume-vs-cv", title: "Resume vs CV vs biodata: differences & when to use each" },
-  ],
-  "offer-letter-generator": [
-    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
-    { href: "/blog/resume-builder-guide/offer-letter-guide", title: "Offer letter: CTC math, clauses & negotiation" },
-    { href: "/blog/resume-builder-guide/experienced-resume-guide", title: "Resume for experienced professionals" },
   ],
   "mortgage-calculator": [
     { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
@@ -208,16 +184,8 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/word-counter-guide/how-to-count-words-online", title: "How to count words online free (no signup)" },
     { href: "/blog/word-counter-guide/ideal-blog-post-length-seo", title: "How long should a blog post be?" },
     { href: "/blog/word-counter-guide/flesch-reading-ease-score-explained", title: "Flesch Reading Ease: formula and bands" },
-  ],
-  "readability-checker": [
-    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
-    { href: "/blog/word-counter-guide/flesch-reading-ease-score-explained", title: "Flesch Reading Ease: formula and bands" },
-    { href: "/blog/word-counter-guide/grammar-check-before-publish", title: "Grammar check before you publish" },
-  ],
-  "keyword-density": [
-    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
     { href: "/blog/word-counter-guide/keyword-density-seo-check", title: "Keyword density: check and fix stuffing" },
-    { href: "/blog/word-counter-guide/ideal-blog-post-length-seo", title: "How long should a blog post be?" },
+    { href: "/blog/word-counter-guide/grammar-check-before-publish", title: "Grammar check before you publish" },
   ],
   "text-summarizer": [
     { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
@@ -244,7 +212,7 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/word-counter-guide/text-to-speech-proofreading-use", title: "Proofread by listening: TTS workflow" },
     { href: "/blog/word-counter-guide/grammar-check-before-publish", title: "Grammar check before you publish" },
   ],
-  "case-converter": [
+  "text-tools": [
     { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
     { href: "/blog/word-counter-guide/how-to-count-words-online", title: "How to count words online free (no signup)" },
   ],
@@ -335,6 +303,7 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
     { href: "/blog/seo-analyzer-guide/title-meta-length-2026", title: "Title and meta lengths that avoid truncation" },
     { href: "/blog/seo-analyzer-guide/fix-score-60-to-80", title: "Fix SEO score from 60 to 80" },
+    { href: "/blog/seo-analyzer-guide/stale-og-image-fix", title: "Fix stale LinkedIn and social preview images" },
   ],
   "sitemap-generator": [
     { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
@@ -351,10 +320,6 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
   "faq-schema-generator": [
     { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
     { href: "/blog/seo-analyzer-guide/ai-content-false-positives", title: "Check AI content without false positives" },
-  ],
-  "open-graph-preview": [
-    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
-    { href: "/blog/seo-analyzer-guide/stale-og-image-fix", title: "Fix stale LinkedIn and social preview images" },
   ],
   "ai-detector": [
     { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },

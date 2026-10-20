@@ -98,7 +98,7 @@ export default function OfferLetterGeneratorTool() {
         y += 6;
       }
       doc.setFontSize(8);
-      doc.text("Made with Tool4SaaS — Free, private, no signup — tool4saas.com/offer-letter-generator", 15, 290);
+      doc.text("Made with Tool4SaaS — Free, private, no signup — tool4saas.com/document-generator", 15, 290);
       doc.save("offer-letter.pdf");
     } catch (e) {
       alert(e instanceof Error ? e.message : "PDF export failed. Try Print instead.");

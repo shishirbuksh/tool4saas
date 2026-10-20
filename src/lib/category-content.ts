@@ -1,6 +1,6 @@
 // Category editorial copy (extracted from src/app/category/[id]/page.tsx).
 // Single source for AdSense content-depth intros + per-category FAQ bodies.
-// Counts here must match src/lib/tools/data/*.ts slug counts (155 tools total).
+// Counts here must match src/lib/tools/data/*.ts slug counts (130 tools total).
 
 export type CategoryIntro = {
   body: string;
@@ -20,10 +20,10 @@ export type CategoryFaqItem = {
 // of the short catalogue description (which stays in metadata + JSON-LD).
 export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
   "text-documents": {
-    body: "Draft, clean, and compare everyday writing with 19 browser-based utilities that never upload your text. Start with the word counter to hit targets like a 1,500-word essay or a 280-character post, then fix headings with the case converter across 500 lines at once. The text diff highlights every changed word between two drafts, catching edits a quick skim misses. For example, paste 2,000 words to see reading time near 10 minutes alongside keyword hits. Each tool page answers common questions in its FAQ and everything runs offline after load.",
+    body: "Draft, clean, and compare everyday writing with 13 browser-based utilities that never upload your text. Start with the word counter to hit targets like a 1,500-word essay or a 280-character post, then fix headings with the case converter across 500 lines at once. The text diff highlights every changed word between two drafts, catching edits a quick skim misses. For example, paste 2,000 words to see reading time near 10 minutes alongside keyword hits. Each tool page answers common questions in its FAQ and everything runs offline after load.",
     picks: [
       { slug: "word-counter", label: "Word Counter" },
-      { slug: "case-converter", label: "Case Converter" },
+      { slug: "text-tools", label: "Text Tools" },
       { slug: "text-diff", label: "Text Diff" },
     ],
     faqSlug: "word-counter",
@@ -50,7 +50,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "JSON Formatter FAQ",
   },
   converters: {
-    body: "Translate between units, currencies, and data formats with 13 offline converters in one click. The unit converter turns 100 km into 62.1 miles and 0°C into 32°F with exact factors. The currency converter tracks 150-plus currencies with live rates and an offline fallback, so 100 USD to EUR works anywhere. The JSON-CSV tool maps a 1,000-row array to spreadsheet columns instantly. For example, 1 kg equals 2.205 lb and a 2-item JSON list becomes a 2-row sheet. Each tool page answers common questions in its FAQ, private by design.",
+    body: "Translate between units, currencies, and data formats with 10 offline converters in one click. The unit converter turns 100 km into 62.1 miles and 0°C into 32°F with exact factors. The currency converter tracks 150-plus currencies with live rates and an offline fallback, so 100 USD to EUR works anywhere. The JSON-CSV tool maps a 1,000-row array to spreadsheet columns instantly. For example, 1 kg equals 2.205 lb and a 2-item JSON list becomes a 2-row sheet. Each tool page answers common questions in its FAQ, private by design.",
     picks: [
       { slug: "unit-converter", label: "Unit Converter" },
       { slug: "currency-converter", label: "Currency Converter" },
@@ -109,30 +109,29 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Mortgage Calculator FAQ",
   },
   health: {
-    body: "Estimate calories, macros, and body metrics with informational calculators that never replace medical advice — consult a professional for decisions. The calorie tool targets intake from weight, height, age, and activity, like roughly 2,200 kcal for an active 70 kg adult. The macro splitter divides that into protein, carbs, and fat grams, while body-fat trends track change over weeks. For example, 70 kg at 175 cm gives a BMI of 22.9. Each tool page answers common questions in its FAQ, private and offline.",
+    body: "Estimate calories, macros, and body metrics with informational calculators that never replace medical advice — consult a professional for decisions. The calorie tool targets intake from weight, height, age, and activity, like roughly 2,200 kcal for an active 70 kg adult. The macro splitter divides that into protein, carbs, and fat grams, while body-metric trends track change over weeks. For example, 70 kg at 175 cm gives a BMI of 22.9. Each tool page answers common questions in its FAQ, private and offline.",
     picks: [
       { slug: "calorie-calculator", label: "Calorie Calculator" },
-      { slug: "macro-calculator", label: "Macro Calculator" },
-      { slug: "body-fat-calculator", label: "Body Fat Calculator" },
+      { slug: "bmi-calculator", label: "BMI Calculator" },
     ],
     faqSlug: "calorie-calculator",
     faqLabel: "Calorie Calculator FAQ",
   },
   seo: {
-    body: "Ship search-ready pages with 8 free SEO and marketing utilities that run offline. The meta tag generator drafts titles near 60 characters with descriptions that lift click-through, while the Open Graph preview shows exactly how links unfurl on social. The sitemap builder maps hundreds of URLs for clean crawling. UTM tagging keeps campaign data clean across channels. For example, preview a 155-character description before publishing to avoid truncation. Each tool page answers common questions in its FAQ, with no sign-up or watermark.",
+    body: "Ship search-ready pages with 7 free SEO and marketing utilities that run offline. The meta tag generator drafts titles near 60 characters with descriptions that lift click-through, while the SERP and Open Graph preview shows exactly how links unfurl in search and on social. The sitemap builder maps hundreds of URLs for clean crawling. UTM tagging keeps campaign data clean across channels. For example, preview a 155-character description before publishing to avoid truncation. Each tool page answers common questions in its FAQ, with no sign-up or watermark.",
     picks: [
       { slug: "meta-tag-generator", label: "Meta Tag Generator" },
-      { slug: "open-graph-preview", label: "Open Graph Preview" },
+      { slug: "serp-preview", label: "SERP & Open Graph Preview" },
       { slug: "sitemap-generator", label: "Sitemap Generator" },
     ],
     faqSlug: "meta-tag-generator",
     faqLabel: "Meta Tag Generator FAQ",
   },
   time: {
-    body: "Master dates, zones, and focus with 8 free time and date utilities. The age calculator turns 1990-06-15 into 36 years and weekday and a live birthday countdown. The timezone converter moves 3:00 PM New York into 4:00 AM next-day Tokyo with DST handled, while the Pomodoro timer structures 25-minute sprints with 5-minute breaks. Countdown links share live targets with friends and teams. For example, four rounds total 100 focus minutes before a long rest. Each tool page answers common questions in its FAQ, free and offline.",
+    body: "Master dates, zones, and focus with 6 free time and date utilities. The age calculator turns 1990-06-15 into 36 years and weekday and a live birthday countdown. The timezone converter moves 3:00 PM New York into 4:00 AM next-day Tokyo with DST handled, while the Pomodoro timer structures 25-minute sprints with 5-minute breaks. Countdown links share live targets with friends and teams. For example, four rounds total 100 focus minutes before a long rest. Each tool page answers common questions in its FAQ, free and offline.",
     picks: [
       { slug: "age-calculator", label: "Age Calculator" },
-      { slug: "timezone-converter", label: "Timezone Converter" },
+      { slug: "timezone-converter", label: "Timezone & World Clock Converter" },
       { slug: "pomodoro-timer", label: "Pomodoro Timer" },
     ],
     faqSlug: "age-calculator",
@@ -188,9 +187,9 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "Word Counter",
     },
     {
-      text: "Begin with Word Counter, Case Converter, and Text Diff for the most common jobs. Paste 2,000 words to see reading time near 10 minutes and keyword hits, then convert headings and diff two drafts word by word. Each page shows a 4-step how-to with edge cases and examples.",
-      linkSlug: "case-converter",
-      linkLabel: "Case Converter",
+      text: "Begin with Word Counter, Text Tools, and Text Diff for the most common jobs. Paste 2,000 words to see reading time near 10 minutes and keyword hits, then convert headings and diff two drafts word by word. Each page shows a 4-step how-to with edge cases and examples.",
+      linkSlug: "text-tools",
+      linkLabel: "Text Tools",
     },
     {
       text: "Absolutely — every writing tool here is free with no account, watermark, or upload. Text Diff compares two drafts locally in your browser, so sensitive copy stays on your device. Only live features need internet, and each page labels that plainly. You can clean 500 lines or check 2,000 words privately.",
@@ -264,7 +263,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   converters: [
     {
-      text: "At their core, they are 13 free offline converters for units, currencies, and data formats with no signup. The Unit Converter turns 100 km into 62.1 miles and 0°C into 32°F with exact factors, while Currency Converter tracks 150-plus currencies. Everything calculates locally after load.",
+      text: "At their core, they are 10 free offline converters for units, currencies, and data formats with no signup. The Unit Converter turns 100 km into 62.1 miles and 0°C into 32°F with exact factors, while Currency Converter tracks 150-plus currencies. Everything calculates locally after load.",
       linkSlug: "unit-converter",
       linkLabel: "Unit Converter",
     },
@@ -431,14 +430,14 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
       linkLabel: "Calorie Calculator",
     },
     {
-      text: "Check first Calorie Calculator, Macro Calculator, and Body Fat Calculator for everyday wellness estimates. Target about 2,200 kcal for an active 70 kg adult, split it into protein, carbs, and fat grams, then track body-fat trends over weeks. Each page explains ranges and professional-consult reminders.",
-      linkSlug: "macro-calculator",
-      linkLabel: "Macro Calculator",
+      text: "Check first the Calorie & Macro Calculator and BMI Calculator for everyday wellness estimates. Target about 2,200 kcal for an active 70 kg adult, split it into protein, carbs, and fat grams, then track body-composition trends over weeks. Each page explains ranges and professional-consult reminders.",
+      linkSlug: "calorie-calculator",
+      linkLabel: "Calorie Calculator",
     },
     {
-      text: "Yes, with care — all health tools are free with no signup and calculate locally so data stays private. Body Fat Calculator tracks change over weeks on your device without uploading weight history. Only articles need internet. Remember 70 kg at 175 cm gives BMI 22.9, still just an estimate.",
-      linkSlug: "body-fat-calculator",
-      linkLabel: "Body Fat Calculator",
+      text: "Yes, with care — all health tools are free with no signup and calculate locally so data stays private. The BMI Calculator tracks change over weeks on your device without uploading weight history. Only articles need internet. Remember 70 kg at 175 cm gives BMI 22.9, still just an estimate.",
+      linkSlug: "bmi-calculator",
+      linkLabel: "BMI Calculator",
     },
     {
       text: "To keep data private, open Calorie Calculator once while online and leave the tab open. Most health math then runs offline locally, so 70 kg at 175 cm still yields BMI 22.9 and 2,200 kcal targets still show. Closing the tab erases entries. No install is needed; consult professionals for decisions.",
@@ -453,14 +452,14 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   seo: [
     {
-      text: "For most teams, they are 8 free SEO and marketing utilities that run offline with no signup. The Meta Tag Generator drafts titles near 60 characters with descriptions that lift clicks, while Open Graph Preview shows social unfurls. Sitemap Builder maps hundreds of URLs for clean crawling.",
+      text: "For most teams, they are 7 free SEO and marketing utilities that run offline with no signup. The Meta Tag Generator drafts titles near 60 characters with descriptions that lift clicks, while SERP & Open Graph Preview shows search and social unfurls. Sitemap Builder maps hundreds of URLs for clean crawling.",
       linkSlug: "meta-tag-generator",
       linkLabel: "Meta Tag Generator",
     },
     {
-      text: "Audit first Meta Tag Generator, Open Graph Preview, and Sitemap Generator before publishing. Draft a 60-character title, preview a 155-character description to avoid truncation, then map hundreds of URLs for crawlers. Add UTM tagging to keep campaign data clean across every channel.",
-      linkSlug: "open-graph-preview",
-      linkLabel: "Open Graph Preview",
+      text: "Audit first Meta Tag Generator, SERP & Open Graph Preview, and Sitemap Generator before publishing. Draft a 60-character title, preview a 155-character description to avoid truncation, then map hundreds of URLs for crawlers. Add UTM tagging to keep campaign data clean across every channel.",
+      linkSlug: "serp-preview",
+      linkLabel: "SERP & Open Graph Preview",
     },
     {
       text: "Yes — every SEO tool is free with no account or watermark and runs 100 percent locally. Sitemap Generator maps hundreds of URLs on your device without uploading drafts, so titles stay private. Only preview fetches need internet, labeled plainly. Your 60-character titles and 155-character descriptions remain yours.",
@@ -480,14 +479,14 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   time: [
     {
-      text: "You can think of them as 8 free time and date utilities with no signup. The Age Calculator turns 1990-06-15 into 36 years and weekday and a live birthday countdown, while Timezone Converter moves 3:00 PM New York to 4:00 AM next-day Tokyo with DST. Focus timers need no install.",
+      text: "You can think of them as 6 free time and date utilities with no signup. The Age Calculator turns 1990-06-15 into 36 years and weekday and a live birthday countdown, while Timezone Converter moves 3:00 PM New York to 4:00 AM next-day Tokyo with DST. Focus timers need no install.",
       linkSlug: "age-calculator",
       linkLabel: "Age Calculator",
     },
     {
-      text: "Plan first Age Calculator, Timezone Converter, and Pomodoro Timer for dates, zones, and focus. Convert 3:00 PM New York to 4:00 AM Tokyo next day, turn 1990-06-15 into 36 years, then run 25-minute sprints with 5-minute breaks. Four rounds total 100 focus minutes before a long rest.",
+      text: "Plan first Age Calculator, Timezone & World Clock Converter, and Pomodoro Timer for dates, zones, and focus. Convert 3:00 PM New York to 4:00 AM Tokyo next day, turn 1990-06-15 into 36 years, then run 25-minute sprints with 5-minute breaks. Four rounds total 100 focus minutes before a long rest.",
       linkSlug: "timezone-converter",
-      linkLabel: "Timezone Converter",
+      linkLabel: "Timezone & World Clock Converter",
     },
     {
       text: "Yep, they are fully free with no account and run locally in your browser. Pomodoro Timer structures 25-minute sprints with 5-minute breaks on your device, so focus logs stay private. Only shareable countdown links need internet. Your 1990-06-15 age math and Tokyo conversions never upload.",

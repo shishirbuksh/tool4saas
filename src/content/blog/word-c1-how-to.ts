@@ -9,7 +9,7 @@ const html = `
 <h3>Step 1 — Get the text out</h3>
 <p>Docs/Web/CMS: select all, copy. PDF: select text if real-text (scanned-image PDFs need OCR first — counts read zero otherwise). Phone photos of printouts: share-to-text or retype short passages; never estimate by eye — eyeball counts run visibly short, so verify in-tool).</p>
 <h3>Step 2 — Paste and read</h3>
-<p>Paste into the <a href="/word-counter">counter</a>: words, characters with/without spaces, sentences, paragraphs, reading time appear live. For case cleanup first (UPPERCASE drafts, title mishaps), run the <a href="/case-converter">case converter</a> — counts stay identical, readability jumps.</p>
+<p>Paste into the <a href="/word-counter">counter</a>: words, characters with/without spaces, sentences, paragraphs, reading time appear live. For case cleanup first (UPPERCASE drafts, title mishaps), run the <a href="/text-tools">case converter</a> — counts stay identical, readability jumps.</p>
 <h3>Step 3 — Interpret, don't idolize</h3>
 <p>Compare against your target (assignment cap, SEO brief, abstract limit) with 10% buffer — then stop counting and start editing. Counts guide revision scope; they never grade quality.</p>
 
@@ -45,7 +45,7 @@ export const wordHowTo: BlogPost = {
   description:
     "Count words from Docs, Word, web or PDF in 3 steps: paste-and-read flow, per-source tricks + why tools disagree. Free local counter.",
   keywords: ["how to count words online", "how to check character count", "count words without word", "word count pdf text"],
-  toolSlugs: ["word-counter", "case-converter", "readability-checker"],
+  toolSlugs: ["word-counter", "text-tools"],
   relatedSlugs: ["ideal-blog-post-length-seo", "flesch-reading-ease-score-explained", "keyword-density-seo-check"],
   published: "2026-09-26",
   updated: "2026-09-26",

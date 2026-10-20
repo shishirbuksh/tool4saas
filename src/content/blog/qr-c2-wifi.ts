@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Guests asking “what's the WiFi password?” twenty times a day is a tax on every café, office and Airbnb. A framed <strong>WiFi QR code</strong> ends it: one scan, phone joins, no spelling “Correct-Horse-9” aloud. I set one up for a friend's salon in September 2026 — SSID with a space, 12-character password, printed 8 cm square at the counter. First-week result: zero password questions, three customers complimented it.</p>
-<p>Part of the <a href="/blog/qr-code-generator-guide">free QR code generator guide</a>. Build yours in the <a href="/wifi-qr-generator">WiFi QR generator</a> (handles WPA/WEP, hidden SSIDs and special-character escaping automatically). General codes: <a href="/qr-code-generator">free QR code generator</a>.</p>
+<p>Part of the <a href="/blog/qr-code-generator-guide">free QR code generator guide</a>. Build yours in the <a href="/qr-code-generator">WiFi QR generator</a> (handles WPA/WEP, hidden SSIDs and special-character escaping automatically). General codes: <a href="/qr-code-generator">free QR code generator</a>.</p>
 
 <h2 id="how-it-works">How WiFi QR codes work (30-second explainer)</h2>
 <p>The code encodes a short string with your network name (SSID), password and security type. Modern Android and iPhone cameras parse it and offer a “Join network” button — no app needed. Older phones may need a scanner app; anything from the last ~6 years works natively. The code is <strong>static and never expires</strong> — change the router password and you reprint once. That is the only maintenance, ever.</p>
@@ -12,7 +12,7 @@ const html = `
 <h3>Step 1 — Copy the SSID exactly</h3>
 <p>Capitals, spaces and punctuation must match byte-for-byte. “Cafe-Guest” and “cafe-guest” are different networks. Photograph the router sticker rather than typing from memory — An invisible trailing space in an SSID can stall scans for minutes without any clue — copy-paste the network name instead of typing it.</p>
 <h3>Step 2 — Set security type and password</h3>
-<p>Choose <strong>WPA/WPA2</strong> (most routers), WEP (old hardware) or No password (open guest networks). WPA passwords run 8–63 characters. Special characters like semicolons and colons break hand-written formats — the <a href="/wifi-qr-generator">WiFi tool escapes them automatically</a>, which is exactly why you should not hand-craft the string.</p>
+<p>Choose <strong>WPA/WPA2</strong> (most routers), WEP (old hardware) or No password (open guest networks). WPA passwords run 8–63 characters. Special characters like semicolons and colons break hand-written formats — the <a href="/qr-code-generator">WiFi tool escapes them automatically</a>, which is exactly why you should not hand-craft the string.</p>
 <h3>Step 3 — Flag hidden SSIDs if needed</h3>
 <p>If your network does not broadcast its name, toggle the hidden-network flag. Without it, phones scan successfully yet fail to join — the most confusing failure mode, and the first thing to check when “the QR doesn't work”.</p>
 <h3>Step 4 — Download, print and place</h3>
@@ -46,14 +46,14 @@ const html = `
 <h2 id="troubleshooting">When it will not join: checklist</h2>
 <ol>
 <li><strong>SSID mismatch</strong> — recheck capitals, spaces, trailing spaces. Re-copy from router settings page.</li>
-<li><strong>Hidden network, flag off</strong> — toggle hidden SSID in the <a href="/wifi-qr-generator">generator</a> and reprint.</li>
+<li><strong>Hidden network, flag off</strong> — toggle hidden SSID in the <a href="/qr-code-generator">generator</a> and reprint.</li>
 <li><strong>Wrong security type</strong> — WPA code on a WEP router fails. Match the router's actual setting.</li>
 <li><strong>Too small / glossy glare</strong> — enlarge to 8 cm, matte finish, flat surface. Full diagnosis in <a href="/blog/qr-code-generator-guide/qr-code-not-scanning-fix">QR not scanning fixes</a>.</li>
 <li><strong>Ancient phone</strong> — pre-2018 cameras may need a scanner app; verify what the code contains with our <a href="/qr-scanner">QR scanner</a> first.</li>
 </ol>
 <h2 id="multi-network">Multi-network setups: home + office + events</h2>
 <p>One code per network, labeled by purpose — the system scales cleanly. <strong>Home:</strong> main SSID unprinted and a guest-SSID fridge card for visitors (rotate when tenants change). <strong>Office:</strong> staff network (password via IT onboarding, never QR-posted) and a lobby guest code framed at reception with the day's password version noted. <strong>Events:</strong> per-day codes work best — “ conf-wifi-day1” printed on badges, day 2 rotated, which also expires hallway access automatically when the event ends. <strong>PGs/hostels:</strong> per-floor SSIDs keep support sane (“which floor?” answers itself). Common failure: one shared code photographed and forwarded beyond its audience — scope each code's network to what its audience should reach, per the <a href="#guest-network-security">security section above</a>, and version filenames (lobby-guest-sep2026.png) so old prints get binned on rotation.</p>
-<div class="cta-box"><strong>Make it now:</strong> open the <a href="/wifi-qr-generator">WiFi QR generator</a> — SSID, password, print, done in 2 minutes. Overview: <a href="/blog/qr-code-generator-guide">QR pillar guide</a> · Sizing math: <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">print guide</a>.</div>
+<div class="cta-box"><strong>Make it now:</strong> open the <a href="/qr-code-generator">WiFi QR generator</a> — SSID, password, print, done in 2 minutes. Overview: <a href="/blog/qr-code-generator-guide">QR pillar guide</a> · Sizing math: <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">print guide</a>.</div>
 `;
 
 export const qrWifi: BlogPost = {
@@ -64,7 +64,7 @@ export const qrWifi: BlogPost = {
   description:
     "WiFi QR code guide: share guest WiFi with one scan. SSID tips, WPA/WEP, hidden networks, print sizes and join-failure fixes. Free generator.",
   keywords: ["share wifi password qr code guests", "qr code for wifi password", "share wifi with qr code", "wifi qr code for guests", "scan to join wifi"],
-  toolSlugs: ["wifi-qr-generator", "qr-code-generator", "qr-scanner"],
+  toolSlugs: ["qr-code-generator", "qr-scanner"],
   relatedSlugs: ["how-to-create-qr-code", "qr-code-size-print-guide", "qr-code-not-scanning-fix"],
   published: "2026-09-22",
   updated: "2026-09-22",

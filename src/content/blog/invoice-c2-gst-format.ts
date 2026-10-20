@@ -53,7 +53,7 @@ const html = `
 <ul>
 <li>File name: <strong>gst-invoice-011-zeta.pdf</strong>. Subject: “GST Invoice INV-GST-011 — ₹23,600 due Sept 29”.</li>
 <li>Made with: <a href="/invoice-generator">freelance GST invoice generator</a> → Print to PDF. Verify with <a href="/invoice-generator">free invoice generator</a> for non-GST bills.</li>
-<li>After payment: issue a <a href="/receipt-generator">payment receipt</a> referencing INV-GST-011.</li>
+<li>After payment: issue a <a href="/document-generator">payment receipt</a> referencing INV-GST-011.</li>
 </ul>
 
 <h2 id="common-rejections">5 rejection reasons (and the 10-minute fix)</h2>

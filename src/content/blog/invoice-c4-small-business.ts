@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Running a 6-person studio, I pay ₹1,999/mo for accounting — and still make quick bills in the free tool. Why? Because <strong>small business invoicing</strong> is 80% speed and 20% software. If you send under 20 invoices a month, you do not need a subscription. You need a numbering system, two templates (quote + invoice), and a 10-minute weekly routine. Here is the setup I recommend to every founder who asks.</p>
-<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Core tools: <a href="/invoice-generator">free invoice generator</a>, <a href="/quotation-generator">quotation generator</a>, <a href="/receipt-generator">receipt generator</a>, <a href="/purchase-order-generator">purchase order generator</a>.</p>
+<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Core tools: <a href="/invoice-generator">free invoice generator</a>, <a href="/document-generator">quotation generator</a>, <a href="/document-generator">receipt generator</a>, <a href="/document-generator">purchase order generator</a>.</p>
 
 <h2 id="setup-stack">The lean invoicing stack (₹0, 30-minute setup)</h2>
 <ul>
@@ -16,19 +16,19 @@ const html = `
 
 <h2 id="quote-to-cash">Quote-to-cash workflow that prevents disputes</h2>
 <ol>
-<li><strong>Quote (day 0):</strong> send <a href="/quotation-generator">quotation</a> with scope, price, validity (15 days), 50% advance term.</li>
+<li><strong>Quote (day 0):</strong> send <a href="/document-generator">quotation</a> with scope, price, validity (15 days), 50% advance term.</li>
 <li><strong>Advance invoice (day 1):</strong> 50% of QUO-2026-014, Net 7. Start work on receipt, not on promise.</li>
 <li><strong>Delivery + final invoice:</strong> reference quote + advance paid, balance due Net 15.</li>
-<li><strong>Receipt on payment:</strong> issue <a href="/receipt-generator">payment receipt</a> same day. Clients reorder from businesses that close loops.</li>
+<li><strong>Receipt on payment:</strong> issue <a href="/document-generator">payment receipt</a> same day. Clients reorder from businesses that close loops.</li>
 <li><strong>Friday 10-minute review:</strong> unpaid list, nudge day-3 and day-7 overdue. Templates in <a href="/blog/invoice-generator-guide/payment-terms-and-followups">payment terms guide</a>.</li>
 </ol>
 <table>
 <thead><tr><th>Stage</th><th>Document</th><th>Number example</th><th>Tool</th></tr></thead>
 <tbody>
-<tr><td><strong>Offer</strong></td><td>Quotation</td><td>QUO-2026-014</td><td><a href="/quotation-generator">Quotation generator</a></td></tr>
-<tr><td><strong>Order</strong></td><td>Purchase order (from buyer)</td><td>PO-1042</td><td><a href="/purchase-order-generator">PO generator</a></td></tr>
+<tr><td><strong>Offer</strong></td><td>Quotation</td><td>QUO-2026-014</td><td><a href="/document-generator">Quotation generator</a></td></tr>
+<tr><td><strong>Order</strong></td><td>Purchase order (from buyer)</td><td>PO-1042</td><td><a href="/document-generator">PO generator</a></td></tr>
 <tr><td><strong>Bill</strong></td><td>Tax invoice</td><td>INV-2026-001</td><td><a href="/invoice-generator">Invoice generator</a></td></tr>
-<tr><td><strong>Proof</strong></td><td>Receipt</td><td>RCP-0231</td><td><a href="/receipt-generator">Receipt generator</a></td></tr>
+<tr><td><strong>Proof</strong></td><td>Receipt</td><td>RCP-0231</td><td><a href="/document-generator">Receipt generator</a></td></tr>
 </tbody>
 </table>
 
@@ -47,12 +47,12 @@ const html = `
 <li><strong>Upgrade:</strong> 30+ invoices/mo, multi-state GST with e-invoicing, staff payroll, or clients demanding portal uploads. Then Zoho Books / QuickBooks pays for itself.</li>
 <li><strong>Never:</strong> pay just for “professional templates”. The free PDF already looks professional — Layout complaints from clients are rare once the free PDF ships as-generated.</li>
 </ul>
-<div class="cta-box"><strong>Set it up today:</strong> make QUO-2026-014 in the <a href="/quotation-generator">quotation generator</a>, convert to INV-2026-001 in the <a href="/invoice-generator">free invoice generator</a>, and read <a href="/blog/invoice-generator-guide">the pillar</a> for the full checklist.</div>
+<div class="cta-box"><strong>Set it up today:</strong> make QUO-2026-014 in the <a href="/document-generator">quotation generator</a>, convert to INV-2026-001 in the <a href="/invoice-generator">free invoice generator</a>, and read <a href="/blog/invoice-generator-guide">the pillar</a> for the full checklist.</div>
 
 <h2 id="templates-pack">Two templates that cover ninety percent of work</h2>
-<p>Maintain one quotation template QUO-2026-014 with scope, price, 15-day validity and 50% advance terms, and one tax-invoice template INV-2026-001 referencing the approved quote and advance paid. Both share identical numbering logic, tax presets, and payments blocks with UPI and bank details so clients learn one layout. The <a href="https://www.irs.gov/businesses/small-businesses-self-employed/recordkeeping">IRS recordkeeping basics</a> and your local equivalents agree on essentials: sequential numbers, dates, line items, taxes, and totals retained for years. Generate both in the <a href="/quotation-generator">quotation generator</a> and <a href="/invoice-generator">invoice generator</a>, storing PDFs as INV-2026-001-client.pdf by year. Twins beat a dozen clever variants nobody can find during audits.</p>
+<p>Maintain one quotation template QUO-2026-014 with scope, price, 15-day validity and 50% advance terms, and one tax-invoice template INV-2026-001 referencing the approved quote and advance paid. Both share identical numbering logic, tax presets, and payments blocks with UPI and bank details so clients learn one layout. The <a href="https://www.irs.gov/businesses/small-businesses-self-employed/recordkeeping">IRS recordkeeping basics</a> and your local equivalents agree on essentials: sequential numbers, dates, line items, taxes, and totals retained for years. Generate both in the <a href="/document-generator">quotation generator</a> and <a href="/invoice-generator">invoice generator</a>, storing PDFs as INV-2026-001-client.pdf by year. Twins beat a dozen clever variants nobody can find during audits.</p>
 <h2 id="late-proof">Late-payment proofs that collect without burning bridges</h2>
-<p>Most overdue bills clear within 48 hours of one polite nudge with the PDF re-attached, so systematize follow-ups before threatening penalties. Day-3 template restates total, due date and payment details warmly; day-7 adds a calendar due date and late-fee disclosure from your terms; day-14 offers a call to resolve disputes. The <a href="https://www.gov.uk/invoicing-and-taking-payment-from-customers">UK invoicing payment rules</a> illustrate statutory interest options where applicable — adapt to your jurisdiction with CA guidance. Send Tuesday through Thursday mornings with totals in subjects, log every touch on one ledger line, and issue <a href="/receipt-generator">receipts</a> same-day when paid. Clients reorder from firms that close loops gracefully.</p>
+<p>Most overdue bills clear within 48 hours of one polite nudge with the PDF re-attached, so systematize follow-ups before threatening penalties. Day-3 template restates total, due date and payment details warmly; day-7 adds a calendar due date and late-fee disclosure from your terms; day-14 offers a call to resolve disputes. The <a href="https://www.gov.uk/invoicing-and-taking-payment-from-customers">UK invoicing payment rules</a> illustrate statutory interest options where applicable — adapt to your jurisdiction with CA guidance. Send Tuesday through Thursday mornings with totals in subjects, log every touch on one ledger line, and issue <a href="/document-generator">receipts</a> same-day when paid. Clients reorder from firms that close loops gracefully.</p>
 <h2 id="year-end">Year-end pack your accountant will love</h2>
 <p>Close each fiscal year with a folder containing every invoice, credit note, receipt and purchase order matched by number, a one-page summary of sent, paid, and written-off totals, and tax preset documentation showing GST, VAT, or sales-tax logic applied. Reconcile bank deposits against invoice numbers monthly so December holds no surprises. Retain records six years for UK VAT and per local statutes elsewhere — separate personal and business folders from day one. Your CA handles filing; this pack makes their review billable hours shrink while audit queries resolve in minutes instead of weeks.</p>
 
@@ -70,7 +70,7 @@ export const invoiceSmallBusiness: BlogPost = {
   description:
     "Small business invoicing setup with ₹0 tools: numbering, quote-to-cash flow, GST/VAT basics and a 10-min weekly routine. Free generators included.",
   keywords: ["small business invoice generator", "invoicing for startups free tool", "small business billing software free alternative", "how small business send professional invoices"],
-  toolSlugs: ["invoice-generator", "quotation-generator", "receipt-generator", "purchase-order-generator"],
+  toolSlugs: ["invoice-generator", "document-generator"],
   relatedSlugs: ["freelancer-invoice-guide", "invoice-vs-quotation-vs-receipt", "invoicing-mistakes-to-avoid"],
   published: "2026-09-12",
   updated: "2026-09-28",

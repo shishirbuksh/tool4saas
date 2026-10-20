@@ -6,7 +6,7 @@ import { readingMinutesFor } from "@/lib/blog";
 // EN stays at root (/invoice-generator). Pilots live at /<locale>/<slug>.
 // Full [locale]/ migration (dynamic <html lang>, per-locale sitemaps, translated
 // slugs) is Phase 2; this file proves the hreflang + sitemap + native-keyword
-// pattern on winners before multiplying 155xN.
+// pattern on winners before multiplying 130xN.
 export const LOCALES = ["en", "es", "fr"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";
@@ -213,7 +213,7 @@ export const invoiceGeneratorEs: Tool = {
   guide: [
     {
       heading: "Qué es una factura profesional",
-      body: "Una factura profesional identifica vendedor y comprador, número correlativo, fecha, líneas, IVA y total con vencimiento. Un autónomo con 3 diseños a 250 € muestra 750 € base más 21% (157,50 €) para 907,50 €, mientras un taller con 20 tazas a 40 € muestra 800 € antes de impuestos. Nuestro generador monta este diseño en local con tu logo, 50 líneas y PDF A4 nítido. Añade NIF y numeración INV-2026-001 para evitar duplicados. Límite: formato, no contabilidad ni asesoría. Prepara presupuestos en /quotation-generator. Ver /terms.",
+      body: "Una factura profesional identifica vendedor y comprador, número correlativo, fecha, líneas, IVA y total con vencimiento. Un autónomo con 3 diseños a 250 € muestra 750 € base más 21% (157,50 €) para 907,50 €, mientras un taller con 20 tazas a 40 € muestra 800 € antes de impuestos. Nuestro generador monta este diseño en local con tu logo, 50 líneas y PDF A4 nítido. Añade NIF y numeración INV-2026-001 para evitar duplicados. Límite: formato, no contabilidad ni asesoría. Prepara presupuestos en /document-generator. Ver /terms.",
     },
     {
       heading: "Cómo se calculan los totales",
@@ -221,7 +221,7 @@ export const invoiceGeneratorEs: Tool = {
     },
     {
       heading: "Ejemplo resuelto y límites",
-      body: "Crea INV-2026-001 con base 500 €, IVA 21% (105 €) y total 605 €, imprime a factura-acme-001.pdf y envíala. Segundo caso: 750 € base al 21% = 907,50 €. Guarda copia firmada y controla vencimientos. No valida requisitos AEAT ni sustituye a tu asesor; revisa tipos reducido (10%) y superreducido (4%) según producto. Para presupuestos previos usa /quotation-generator.",
+      body: "Crea INV-2026-001 con base 500 €, IVA 21% (105 €) y total 605 €, imprime a factura-acme-001.pdf y envíala. Segundo caso: 750 € base al 21% = 907,50 €. Guarda copia firmada y controla vencimientos. No valida requisitos AEAT ni sustituye a tu asesor; revisa tipos reducido (10%) y superreducido (4%) según producto. Para presupuestos previos usa /document-generator.",
     },
   ],
 };
@@ -297,7 +297,7 @@ export const qrCodeGeneratorEs: Tool = {
   guide: [
     {
       heading: "Qué hace el generador QR",
-      body: "Convierte URLs, texto, emails, teléfonos, UPI y vCard en códigos escaneables en tu navegador. Ejemplo: codifica https://example.com/menu, UPI shop@upi por 199 Rs o vCard con nombre y móvil +34 600 123 456 en segundos. Vista previa instantánea, 512px para pantallas o 2048px para impresión, descarga PNG sin cuenta ni caducidad. Los patrones guardan datos en el código, así impresos escanean siempre y nada se sube. Límite: códigos estáticos en negro sobre blanco, sin logos ni analítica; para claves WiFi usa /wifi-qr-generator.",
+      body: "Convierte URLs, texto, emails, teléfonos, UPI y vCard en códigos escaneables en tu navegador. Ejemplo: codifica https://example.com/menu, UPI shop@upi por 199 Rs o vCard con nombre y móvil +34 600 123 456 en segundos. Vista previa instantánea, 512px para pantallas o 2048px para impresión, descarga PNG sin cuenta ni caducidad. Los patrones guardan datos en el código, así impresos escanean siempre y nada se sube. Límite: códigos estáticos en negro sobre blanco, sin logos ni analítica; para claves WiFi usa /qr-code-generator.",
     },
     {
       heading: "Cómo funcionan tamaño y densidad",
@@ -305,7 +305,7 @@ export const qrCodeGeneratorEs: Tool = {
     },
     {
       heading: "Ejemplo resuelto y límites",
-      body: "Codifica https://example.com/menu, descarga 512px para web y 2048px para cartel, imprime a 5 cm y 20 cm y escanea a 50 cm y 2 m. Segundo caso: vCard con 5 campos (~150 caracteres) necesita mínimo 2,5 cm en tarjeta. Archiva el PNG maestro; cada re-guardado JPG ablanda bordes. No incluye logos, colores ni seguimiento; para credenciales con escape usa /wifi-qr-generator.",
+      body: "Codifica https://example.com/menu, descarga 512px para web y 2048px para cartel, imprime a 5 cm y 20 cm y escanea a 50 cm y 2 m. Segundo caso: vCard con 5 campos (~150 caracteres) necesita mínimo 2,5 cm en tarjeta. Archiva el PNG maestro; cada re-guardado JPG ablanda bordes. No incluye logos, colores ni seguimiento; para credenciales con escape usa /qr-code-generator.",
     },
   ],
 };
@@ -790,7 +790,7 @@ export const qrSizePrintEs: BlogPost = {
     "resolucion qr cartel",
     "512 o 2048 png?",
   ],
-  toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
+  toolSlugs: ["qr-code-generator", "qr-scanner"],
   relatedSlugs: ["how-to-create-qr-code", "qr-code-not-scanning-fix", "vcard-contact-qr-code"],
   published: "2026-09-22",
   updated: "2026-09-22",
@@ -884,7 +884,7 @@ export const invoiceGeneratorFr: Tool = {
   guide: [
     {
       heading: "Ce qu'est une facture professionnelle",
-      body: "Une facture professionnelle identifie vendeur et acheteur, numéro continu, date, lignes, TVA et total avec échéance. Un indépendant avec 3 designs à 250 € montre 750 € HT plus 20 % (150 €) soit 900 € TTC, tandis qu'un atelier avec 20 mugs à 40 € montre 800 € avant taxes. Notre générateur monte cette mise en page en local avec votre logo, 50 lignes et un PDF A4 net. Ajoutez SIRET et numérotation INV-2026-001 pour éviter les doublons. Limite : mise en forme, ni comptabilité ni conseil juridique. Préparez des devis avec /quotation-generator. Voir /terms.",
+      body: "Une facture professionnelle identifie vendeur et acheteur, numéro continu, date, lignes, TVA et total avec échéance. Un indépendant avec 3 designs à 250 € montre 750 € HT plus 20 % (150 €) soit 900 € TTC, tandis qu'un atelier avec 20 mugs à 40 € montre 800 € avant taxes. Notre générateur monte cette mise en page en local avec votre logo, 50 lignes et un PDF A4 net. Ajoutez SIRET et numérotation INV-2026-001 pour éviter les doublons. Limite : mise en forme, ni comptabilité ni conseil juridique. Préparez des devis avec /document-generator. Voir /terms.",
     },
     {
       heading: "Comment les totaux sont calculés",
@@ -892,7 +892,7 @@ export const invoiceGeneratorFr: Tool = {
     },
     {
       heading: "Exemple chiffré et limites",
-      body: "Créez INV-2026-001 avec base 500 €, TVA 20 % (100 €) et total 600 €, imprimez en facture-acme-001.pdf et envoyez-la. Second cas : 750 € HT à 20 % = 900 € TTC. Gardez une copie signée et suivez les échéances. Ne valide ni les mentions légales ni votre expert-comptable ; vérifiez taux réduit (10 %) et super-réduit (5,5 %) selon produit. Pour des devis préalables utilisez /quotation-generator.",
+      body: "Créez INV-2026-001 avec base 500 €, TVA 20 % (100 €) et total 600 €, imprimez en facture-acme-001.pdf et envoyez-la. Second cas : 750 € HT à 20 % = 900 € TTC. Gardez une copie signée et suivez les échéances. Ne valide ni les mentions légales ni votre expert-comptable ; vérifiez taux réduit (10 %) et super-réduit (5,5 %) selon produit. Pour des devis préalables utilisez /document-generator.",
     },
   ],
 };
@@ -972,11 +972,11 @@ export const wordCounterEs: Tool = {
     },
     {
       heading: "Cómo cuentan y miden el tiempo",
-      body: "Tokenización clara: el espacio delimita palabras, doble conteo con y sin huecos, punto (. ? !) delimita frases y líneas en blanco delimitan párrafos. Duración igual a palabras entre velocidad: 800 palabras a 200 PPM dan 4,0 minutos, a 238 PPM dan 3,4; manuscrito de 1.500 da 7,5 estudio contra 6,3 hojeo. Densidad igual a repeticiones entre tokens: 12 en 1.000 palabras igual a 1,2%, mientras 25 igual a 2,5% con riesgo de relleno. Flesch sobre 60 más nivel bajo 8 señalan prosa accesible; frases de 28 palabras hunden la nota. Guiones, 3,14, contracciones y CJK desafían divisores simples con dos por ciento de desvío. Pegados de 500KB o 100.000 palabras van fluidos en portátil y pueden trabarse en móviles viejos. Audita frases con /keyword-density. Ver /terms.",
+      body: "Tokenización clara: el espacio delimita palabras, doble conteo con y sin huecos, punto (. ? !) delimita frases y líneas en blanco delimitan párrafos. Duración igual a palabras entre velocidad: 800 palabras a 200 PPM dan 4,0 minutos, a 238 PPM dan 3,4; manuscrito de 1.500 da 7,5 estudio contra 6,3 hojeo. Densidad igual a repeticiones entre tokens: 12 en 1.000 palabras igual a 1,2%, mientras 25 igual a 2,5% con riesgo de relleno. Flesch sobre 60 más nivel bajo 8 señalan prosa accesible; frases de 28 palabras hunden la nota. Guiones, 3,14, contracciones y CJK desafían divisores simples con dos por ciento de desvío. Pegados de 500KB o 100.000 palabras van fluidos en portátil y pueden trabarse en móviles viejos. Audita frases en la pestaña de densidad. Ver /terms.",
     },
     {
       heading: "Ejemplo resuelto y límites",
-      body: "Pega 800 palabras, confirma 4,0 minutos a 200 PPM y Flesch cerca de 65, ajusta a 1.500 si la intención pide guía larga y copia el resumen. Segundo caso: hilos de 280 caracteres y metas de 155 antes de publicar. Límite: conteo heurístico con dos por ciento de variación frente a suites de escritorio; no sustituye el contador oficial de convocatorias. Para legibilidad usa /readability-checker y para densidad /keyword-density.",
+      body: "Pega 800 palabras, confirma 4,0 minutos a 200 PPM y Flesch cerca de 65, ajusta a 1.500 si la intención pide guía larga y copia el resumen. Segundo caso: hilos de 280 caracteres y metas de 155 antes de publicar. Límite: conteo heurístico con dos por ciento de variación frente a suites de escritorio; no sustituye el contador oficial de convocatorias. Para legibilidad y densidad usa las pestañas del contador.",
     },
   ],
 };
@@ -1742,7 +1742,7 @@ export const qrCodeGeneratorFr: Tool = {
   guide: [
     {
       heading: "Ce que fait le générateur QR",
-      body: "Convertit URLs, texte, emails, téléphones, UPI et vCard en codes scannables dans votre navigateur. Exemple : encodez https://example.com/menu, UPI shop@upi pour 199 Rs ou une vCard avec nom et mobile +33 6 12 34 56 78 en quelques secondes. Aperçu instantané, 512px pour les écrans ou 2048px pour l'impression, PNG sans compte ni expiration. Les motifs gardent les données dans le code, ainsi les imprimés scannent toujours et rien ne monte. Limite : codes statiques en noir sur blanc, sans logos ni analytique ; pour les clés WiFi utilisez /wifi-qr-generator.",
+      body: "Convertit URLs, texte, emails, téléphones, UPI et vCard en codes scannables dans votre navigateur. Exemple : encodez https://example.com/menu, UPI shop@upi pour 199 Rs ou une vCard avec nom et mobile +33 6 12 34 56 78 en quelques secondes. Aperçu instantané, 512px pour les écrans ou 2048px pour l'impression, PNG sans compte ni expiration. Les motifs gardent les données dans le code, ainsi les imprimés scannent toujours et rien ne monte. Limite : codes statiques en noir sur blanc, sans logos ni analytique ; pour les clés WiFi utilisez /qr-code-generator.",
     },
     {
       heading: "Comment tailles et densité marchent",
@@ -1750,7 +1750,7 @@ export const qrCodeGeneratorFr: Tool = {
     },
     {
       heading: "Exemple chiffré et limites",
-      body: "Encodez https://example.com/menu, téléchargez 512px pour le web et 2048px pour l'affiche, imprimez à 5 cm et 20 cm puis scannez à 50 cm et 2 m. Second cas : une vCard à 5 champs (~150 caractères) demande 2,5 cm minimum sur carte. Archivez le PNG maître ; chaque ré-enregistrement JPG adoucit les bords. Ni logos, ni couleurs, ni suivi ; pour les identifiants avec échappement utilisez /wifi-qr-generator.",
+      body: "Encodez https://example.com/menu, téléchargez 512px pour le web et 2048px pour l'affiche, imprimez à 5 cm et 20 cm puis scannez à 50 cm et 2 m. Second cas : une vCard à 5 champs (~150 caractères) demande 2,5 cm minimum sur carte. Archivez le PNG maître ; chaque ré-enregistrement JPG adoucit les bords. Ni logos, ni couleurs, ni suivi ; pour les identifiants avec échappement utilisez /qr-code-generator.",
     },
   ],
 };
@@ -1927,11 +1927,11 @@ export const wordCounterFr: Tool = {
     },
     {
       heading: "Comment comptage et temps marchent",
-      body: "Tokenisation claire : l'espace délimite les mots, double comptage avec et sans vides, le point (. ? !) délimite les phrases et les lignes blanches délimitent les paragraphes. Durée égale aux mots sur vitesse : 800 mots à 200 MPM donnent 4,0 minutes, à 238 MPM donnent 3,4 ; un manuscrit de 1 500 donne 7,5 étude contre 6,3 survol. Densité égale aux répétitions sur tokens : 12 dans 1 000 mots égalent 1,2 %, tandis que 25 égalent 2,5 % avec risque de remplissage. Flesch sur 60 plus niveau sous 8 signalent une prose accessible ; les phrases de 28 mots plombent la note. Traits d'union, 3,14, contractions et CJK défient les découpeurs simples avec deux pour cent d'écart. Les collés de 500 Ko ou 100 000 mots restent fluides sur portable mais peuvent coincer sur vieux mobiles. Auditez les tournures avec /keyword-density. Voir /terms.",
+      body: "Tokenisation claire : l'espace délimite les mots, double comptage avec et sans vides, le point (. ? !) délimite les phrases et les lignes blanches délimitent les paragraphes. Durée égale aux mots sur vitesse : 800 mots à 200 MPM donnent 4,0 minutes, à 238 MPM donnent 3,4 ; un manuscrit de 1 500 donne 7,5 étude contre 6,3 survol. Densité égale aux répétitions sur tokens : 12 dans 1 000 mots égalent 1,2 %, tandis que 25 égalent 2,5 % avec risque de remplissage. Flesch sur 60 plus niveau sous 8 signalent une prose accessible ; les phrases de 28 mots plombent la note. Traits d'union, 3,14, contractions et CJK défient les découpeurs simples avec deux pour cent d'écart. Les collés de 500 Ko ou 100 000 mots restent fluides sur portable mais peuvent coincer sur vieux mobiles. Auditez les tournures dans l'onglet densité. Voir /terms.",
     },
     {
       heading: "Exemple chiffré et limites",
-      body: "Collez 800 mots, confirmez 4,0 minutes à 200 MPM et Flesch près de 65, ajustez à 1 500 si l'intention demande un guide long et copiez le résumé. Second cas : des fils de 280 caractères et des métas de 155 avant de publier. Limite : comptage heuristique avec deux pour cent de variation face aux suites bureautiques ; ne remplace pas le compteur officiel des appels. Pour la lisibilité utilisez /readability-checker et pour la densité /keyword-density.",
+      body: "Collez 800 mots, confirmez 4,0 minutes à 200 MPM et Flesch près de 65, ajustez à 1 500 si l'intention demande un guide long et copiez le résumé. Second cas : des fils de 280 caractères et des métas de 155 avant de publier. Limite : comptage heuristique avec deux pour cent de variation face aux suites bureautiques ; ne remplace pas le compteur officiel des appels. Pour la lisibilité et la densité utilisez les onglets du compteur.",
     },
   ],
 };

@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>“There” for “their” in paragraph two. A client once forwarded my draft back with just that word highlighted — no comment needed. Spellcheckers catch typos; they miss wrong-word errors, tangled modifiers and tone-deaf phrasing. This <strong>grammar check before publishing</strong> is the self-editing checklist that catches what automation skips, in 15 minutes per post.</p>
-<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Run drafts through the <a href="/grammar-checker">grammar checker</a>, then readability in the <a href="/readability-checker">readability checker</a>. For flow scores see <a href="/blog/word-counter-guide/flesch-reading-ease-score-explained">Flesch explained</a>, and for audio proofing <a href="/blog/word-counter-guide/text-to-speech-proofreading-use">the listening workflow</a>.</p>
+<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Run drafts through the <a href="/grammar-checker">grammar checker</a>, then readability in the <a href="/word-counter">readability checker</a>. For flow scores see <a href="/blog/word-counter-guide/flesch-reading-ease-score-explained">Flesch explained</a>, and for audio proofing <a href="/blog/word-counter-guide/text-to-speech-proofreading-use">the listening workflow</a>.</p>
 
 <h2 id="checklist">The 15-minute pre-publish checklist</h2>
 <ol>
@@ -47,7 +47,7 @@ const html = `
 <ul>
 <li><strong>Kill nominalizations:</strong> “make a decision” → “decide”, “provide assistance” → “help”, “conduct an analysis” → “analyze”. Each cut saves 2–3 words and adds a verb with a pulse. A 1,500-word draft typically hides 30–50 of these — run a find for “-tion” endings and interrogate each.</li>
 <li><strong>Cap passives at ~10%:</strong> one passive per paragraph is texture; ten in a row is anesthesia. Flip agentless constructions (“mistakes were made”) into actors (“we mispriced the tier”) except where science or formality genuinely requires it.</li>
-<li><strong>Split 25+ word sentences:</strong> the <a href="/readability-checker">readability checker</a> flags them; your fix is a period, not a comma. Two 14-word sentences beat one 28-word maze for every audience including experts.</li>
+<li><strong>Split 25+ word sentences:</strong> the <a href="/word-counter">readability checker</a> flags them; your fix is a period, not a comma. Two 14-word sentences beat one 28-word maze for every audience including experts.</li>
 </ul>
 <p>After surgery, re-check <a href="/blog/word-counter-guide/keyword-density-seo-check">keyword density</a> — heavy cuts can thin target terms below useful levels, and heavy additions can stuff them.</p>
 
@@ -70,7 +70,7 @@ export const wordGrammar: BlogPost = {
   description:
     "Pre-publish grammar checklist: 15-minute routine, top 7 blogger errors with fixes + what automation misses. Free checker included.",
   keywords: ["grammar check essay blog", "proofread blog post checklist", "common grammar mistakes bloggers", "self-editing checklist"],
-  toolSlugs: ["grammar-checker", "readability-checker", "word-counter"],
+  toolSlugs: ["grammar-checker", "word-counter"],
   relatedSlugs: ["text-to-speech-proofreading-use", "flesch-reading-ease-score-explained", "how-to-summarize-text-fast"],
   published: "2026-09-26",
   updated: "2026-09-26",

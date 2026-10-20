@@ -33,7 +33,7 @@ export const regexFlags: BlogPost = {
   description:
     "Regex g/i/m/s flags with examples, named vs numbered groups, backreferences + catastrophic-pattern defense in isolated workers. Free tester.",
   keywords: ["how to test regex capture groups with flags", "d+ finds 42", "named groups year month", "greedy dot star backtracking", "120KB log 4000 lines"],
-  toolSlugs: ["regex-tester", "json-formatter", "text-find-replace"],
+  toolSlugs: ["regex-tester", "json-formatter", "text-tools"],
   relatedSlugs: ["json-parse-errors", "base64-url-safe-vs-standard", "jwt-expiry-without-trust"],
   published: "2026-10-07",
   updated: "2026-10-07",

@@ -91,7 +91,7 @@ export default function RentReceiptTool() {
         y += 6;
       }
       doc.setFontSize(8);
-      doc.text("Made with Tool4SaaS — tool4saas.com/rent-receipt-generator", 15, 290);
+      doc.text("Made with Tool4SaaS — tool4saas.com/document-generator", 15, 290);
       doc.save("rent-receipt.pdf");
     } catch (e) {
       alert(e instanceof Error ? e.message : "PDF export failed. Try Print instead.");

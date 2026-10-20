@@ -127,7 +127,7 @@ export default function StopwatchTool() {
         <Typography variant="body2" color="text.secondary" sx={{ textAlign: "center" }}>
           Need focus cycles or event countdowns? Try the{" "}
           <Link href="/pomodoro-timer">Pomodoro timer</Link> or{" "}
-          <Link href="/countdown-timer">Countdown timer</Link>.
+          <Link href="/date-calculator">Countdown timer</Link>.
         </Typography>
       </Stack>
     </ToolPaper>

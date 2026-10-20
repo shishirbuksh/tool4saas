@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>New brand, new logo, new OG image — shared on LinkedIn: old logo, old title, three weeks stale. The page was perfect; <strong>the cache was not</strong>. Social networks snapshot link previews on first share and re-fetch on their own schedule (read: eventually). This guide covers correct OG markup once, then the per-network refetch rituals and <code>?v=2</code> cache-busting that forces fresh scrapes today.</p>
-<p>Part of the <a href="/blog/seo-analyzer-guide">SEO publishing guide</a>. Mock renders in the <a href="/open-graph-preview">open graph preview</a>; compress oversized images via <a href="/blog/image-compressor-guide/png-vs-jpg-vs-webp">format conversion</a>.</p>
+<p>Part of the <a href="/blog/seo-analyzer-guide">SEO publishing guide</a>. Mock renders in the <a href="/serp-preview">open graph preview</a>; compress oversized images via <a href="/blog/image-compressor-guide/png-vs-jpg-vs-webp">format conversion</a>.</p>
 
 <h2 id="correct-markup">Correct markup first (1200×630, absolute, under 8MB)</h2>
 <table>
@@ -24,7 +24,7 @@ const html = `
 <li><strong>X/Twitter:</strong> Card Validator → preview; summary vs large-image mismatches usually mean the tag changed without a re-scrape.</li>
 <li><strong>Slack/Discord:</strong> append a fresh query string per share during testing; their caches are short but opaque.</li>
 </ul>
-<p>Version your share art deliberately (<code>launch-v2.jpg</code>) rather than overwriting filenames — immutable assets and new URLs beat cache-invalidation waits every time. Verify all four renders in the <a href="/open-graph-preview">preview mock</a> before announcing.</p>
+<p>Version your share art deliberately (<code>launch-v2.jpg</code>) rather than overwriting filenames — immutable assets and new URLs beat cache-invalidation waits every time. Verify all four renders in the <a href="/serp-preview">preview mock</a> before announcing.</p>
 
 <h2 id="hotlink-focal">Hotlink blocks and focal discipline</h2>
 <p>If previews show gray boxes, check hosting first: referrer policies and hotlink protection starve scrapers that fetch without browser credentials. Move art to the same domain as the page. Then enforce focal discipline: single subject, centered, high contrast at 120px thumbnail size — the LinkedIn feed compresses your 1200px art to a phone-screen stamp, and fine print becomes gray noise. Compress 12MB PNG masters before serving (see <a href="/blog/image-compressor-guide/png-vs-jpg-vs-webp">format guide</a>); scrapers time out on heavy files and fall back to nothing.</p>
@@ -39,7 +39,7 @@ export const seoStaleOg: BlogPost = {
   description:
     "Fix stale OG images: correct 1200x630 markup, per-network refetch rituals, ?v=2 cache-busting + hotlink and focal rules. Free preview mock.",
   keywords: ["why linkedin shows stale og image and how to fix", "1200x630 under 8MB absolute https", "facebook vs x large vs summary", "hotlink referrer blocked blank", "post inspector refetch"],
-  toolSlugs: ["open-graph-preview", "image-format-converter", "meta-tag-generator"],
+  toolSlugs: ["serp-preview", "image-format-converter", "meta-tag-generator"],
   relatedSlugs: ["title-meta-length-2026", "robots-vs-noindex", "utm-naming-governance"],
   published: "2026-10-07",
   updated: "2026-10-07",

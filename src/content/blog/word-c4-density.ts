@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>A 1,000-word post mentioning its keyword 47 times (4.7%) reads like a robot wrote it — because the writer optimized for a number instead of a reader. Google's stance is explicit: there is <strong>no ideal keyword density</strong>, and stuffing violates spam policies. So what is density good for? Diagnostics. This guide shows <strong>how to check keyword density</strong>, read the readout, and fix stuffing without chasing mythical percentages.</p>
-<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Analyze any draft in the <a href="/keyword-density">density tool</a> (1–4 word phrases, stop-word filtering, local only); count in the <a href="/word-counter">word counter</a>.</p>
+<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Analyze any draft in the <a href="/word-counter">density tool</a> (1–4 word phrases, stop-word filtering, local only); count in the <a href="/word-counter">word counter</a>.</p>
 
 <h2 id="how-check">How to check density (the right way)</h2>
 <ol>
@@ -42,7 +42,7 @@ export const wordDensity: BlogPost = {
   description:
     "Keyword density without myths: how to check, read 1–4 word phrases, fix stuffing patterns + why ideal-% died. Free local analyzer.",
   keywords: ["keyword density checker", "good keyword density", "avoid keyword stuffing", "check keyword density free"],
-  toolSlugs: ["keyword-density", "word-counter", "readability-checker"],
+  toolSlugs: ["word-counter"],
   relatedSlugs: ["flesch-reading-ease-score-explained", "ideal-blog-post-length-seo", "how-to-count-words-online"],
   published: "2026-09-26",
   updated: "2026-09-26",

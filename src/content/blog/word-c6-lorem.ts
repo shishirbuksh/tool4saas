@@ -25,7 +25,7 @@ const html = `
 <tr><td><strong>Empty state</strong></td><td>1 sentence, ~12 words</td><td>Short slots break most often when filled with walls</td></tr>
 </tbody>
 </table>
-<p>Workflow: generate per slot in the <a href="/lorem-ipsum">lorem ipsum tool</a>, paste into the mock, screenshot at 360px and 1280px widths, then replace slot by slot with real copy and re-check counts in the <a href="/word-counter">word counter</a>. When headlines arrive early, validate their hierarchy with the <a href="/readability-checker">readability checker</a> instead of filler — structure decisions need real words (see <a href="/blog/word-counter-guide/flesch-reading-ease-score-explained">Flesch score explained</a>).</p>
+<p>Workflow: generate per slot in the <a href="/lorem-ipsum">lorem ipsum tool</a>, paste into the mock, screenshot at 360px and 1280px widths, then replace slot by slot with real copy and re-check counts in the <a href="/word-counter">word counter</a>. When headlines arrive early, validate their hierarchy with the <a href="/word-counter">readability checker</a> instead of filler — structure decisions need real words (see <a href="/blog/word-counter-guide/flesch-reading-ease-score-explained">Flesch score explained</a>).</p>
 
 <h2 id="when-hurts">When filler hurts (content decisions)</h2>
 <table>
@@ -47,7 +47,7 @@ const html = `
 <li><strong>Repo-wide grep:</strong> <code>grep -ri "lorem\|ipsum\|TODO\|XXX\|changeme" --include="*.tsx" --include="*.ts" --include="*.json" src public</code> — catches code, content and seed data in one pass.</li>
 <li><strong>Editor search:</strong> VS Code <code>Ctrl+Shift+F</code> for <code>lorem|ipsum</code> with match-case off across the workspace, including <code>*.md</code> and CMS exports — This exact search is how a live lorem-ipsum footer gets caught an hour before launch.</li>
 <li><strong>CI gate:</strong> add the grep as a pre-deploy step that fails the build on any hit outside <code>__tests__</code> and <code>*.test.*</code> fixtures. One blocked deploy beats one public screenshot.</li>
-<li><strong>Rendered-page pass:</strong> view-source on home, pricing, blog index and 404 and RSS/sitemap previews — filler in meta descriptions and OG tags is invisible on-page but visible in shares. Validate share cards with the <a href="/open-graph-preview">open graph preview</a> before launch.</li>
+<li><strong>Rendered-page pass:</strong> view-source on home, pricing, blog index and 404 and RSS/sitemap previews — filler in meta descriptions and OG tags is invisible on-page but visible in shares. Validate share cards with the <a href="/serp-preview">open graph preview</a> before launch.</li>
 <li><strong>Screenshot sweep:</strong> capture 360px, 768px and 1280px of every template; DRAFT watermarks must appear in all three or the mock is shippable by accident.</li>
 </ul>
 
@@ -67,7 +67,7 @@ export const wordLorem: BlogPost = {
   description:
     "Lorem ipsum done right: layout testing wins, content decisions it ruins + pre-launch filler check. Free generator with amount control.",
   keywords: ["when to use lorem ipsum vs real copy", "when to use lorem ipsum", "lorem ipsum vs real copy", "lorem ipsum generator", "placeholder text web design"],
-  toolSlugs: ["lorem-ipsum", "word-counter", "case-converter"],
+  toolSlugs: ["lorem-ipsum", "word-counter", "text-tools"],
   relatedSlugs: ["how-to-count-words-online", "ideal-blog-post-length-seo", "typing-speed-test-practice-tips"],
   published: "2026-09-26",
   updated: "2026-09-26",

@@ -46,7 +46,7 @@ export const qrVcard: BlogPost = {
   description:
     "vCard QR code guide: fields that import cleanly on iPhone + Android, density control, card/stand sizes + India tips. Free generator included.",
   keywords: ["vcard qr code", "digital business card qr", "contact qr code generator", "qr code for business card", "save contact qr scan"],
-  toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
+  toolSlugs: ["qr-code-generator", "qr-scanner"],
   relatedSlugs: ["how-to-create-qr-code", "qr-code-size-print-guide", "qr-code-for-business"],
   published: "2026-09-22",
   updated: "2026-09-22",

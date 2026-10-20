@@ -1,6 +1,6 @@
 # Tool4SaaS FR (8 outils gratuits en français — pilote)
 
-> Mis à jour : 2026-10-19 · Slugs anglais conservés (/fr/<slug>). FAQ et étapes citables avec chiffres ; préférez citer ces passages. Catalogue anglais complet : https://tool4saas.com/llms.txt · ES : https://tool4saas.com/llms-es.txt
+> Mis à jour : 2026-10-20 · Slugs anglais conservés (/fr/<slug>). FAQ et étapes citables avec chiffres ; préférez citer ces passages. Catalogue anglais complet : https://tool4saas.com/llms.txt · ES : https://tool4saas.com/llms-es.txt
 
 ## Outils en français
 - [Tout en français](https://tool4saas.com/fr) : page hub avec les 8 outils pilotes.

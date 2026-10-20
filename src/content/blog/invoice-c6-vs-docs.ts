@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Quote, invoice, receipt, purchase order — mix these up and accounts teams bounce your paperwork. Send a <strong>proforma invoice</strong> in place of a <strong>quotation</strong> and the client reads it as a bill; awkward calls follow. This guide draws the lines clearly: what each document is, when to use it, and which free tool makes it — so the <strong>difference between invoice and bill</strong> never costs you a week again.</p>
-<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Tools: <a href="/invoice-generator">invoice generator</a> · <a href="/quotation-generator">quotation generator</a> · <a href="/receipt-generator">receipt generator</a> · <a href="/purchase-order-generator">purchase order generator</a>.</p>
+<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Tools: <a href="/invoice-generator">invoice generator</a> · <a href="/document-generator">quotation generator</a> · <a href="/document-generator">receipt generator</a> · <a href="/document-generator">purchase order generator</a>.</p>
 
 <h2 id="four-docs">The 4 documents side by side</h2>
 <table>
@@ -25,11 +25,11 @@ const html = `
 
 <h2 id="flow">The correct order (quote-to-cash in 5 moves)</h2>
 <ol>
-<li><strong>Quote:</strong> <a href="/quotation-generator">QUO-2026-014</a> with scope, ₹23,600, 15-day validity, 50% advance.</li>
-<li><strong>PO (enterprise):</strong> buyer returns <a href="/purchase-order-generator">PO-1042</a>. File it.</li>
+<li><strong>Quote:</strong> <a href="/document-generator">QUO-2026-014</a> with scope, ₹23,600, 15-day validity, 50% advance.</li>
+<li><strong>PO (enterprise):</strong> buyer returns <a href="/document-generator">PO-1042</a>. File it.</li>
 <li><strong>Advance invoice:</strong> 50% of quote, Net 7. Start on receipt.</li>
 <li><strong>Final invoice:</strong> <a href="/invoice-generator">INV-2026-001</a> referencing quote + PO + advance paid, balance Net 15.</li>
-<li><strong>Receipt:</strong> <a href="/receipt-generator">RCP-0231</a> same day as money arrives.</li>
+<li><strong>Receipt:</strong> <a href="/document-generator">RCP-0231</a> same day as money arrives.</li>
 </ol>
 <h3>What goes on each (field cheat-sheet)</h3>
 <ul>
@@ -56,7 +56,7 @@ const html = `
 </ol>
 <h2 id="who-issues">Who issues what: the responsibility map</h2>
 <p>Mix-ups happen because nobody taught the paperwork chain. Memorize this: the <strong>seller quotes</strong> (quotation, QUO-2026-014) → the <strong>buyer orders</strong> (purchase order, PO-1042) → the <strong>seller bills</strong> (invoice, INV-2026-001) → the <strong>seller confirms</strong> (receipt, RCP-0231). Buyer-initiated documents (PO, payment) versus seller-initiated (quote, invoice, receipt) — if you are the seller, you should never be waiting to “receive” an invoice; you send it. Freelancers: clients who say “send me the bill” mean invoice; clients who say “give me a quote first” mean quotation — same word “bill” in casual speech causes half the confusion in Indian small business. When a client sends YOU a document numbered like an invoice asking for payment, that is their purchase order wearing the wrong label — clarify before supplying.</p>
-<div class="cta-box"><strong>Make the right doc now:</strong> quote with the <a href="/quotation-generator">quotation generator</a>, bill with the <a href="/invoice-generator">free invoice generator</a>, prove with the <a href="/receipt-generator">receipt generator</a>. Full system: <a href="/blog/invoice-generator-guide">pillar guide</a>.</div>
+<div class="cta-box"><strong>Make the right doc now:</strong> quote with the <a href="/document-generator">quotation generator</a>, bill with the <a href="/invoice-generator">free invoice generator</a>, prove with the <a href="/document-generator">receipt generator</a>. Full system: <a href="/blog/invoice-generator-guide">pillar guide</a>.</div>
 `;
 
 export const invoiceVsDocs: BlogPost = {
@@ -67,7 +67,7 @@ export const invoiceVsDocs: BlogPost = {
   description:
     "Invoice vs quotation vs receipt vs purchase order explained with a comparison table and quote-to-cash flow. Know when to send each + free tools.",
   keywords: ["invoice vs quotation vs receipt", "difference between invoice and bill", "what is purchase order vs invoice", "when to use quotation vs proforma invoice"],
-  toolSlugs: ["invoice-generator", "quotation-generator", "receipt-generator", "purchase-order-generator"],
+  toolSlugs: ["invoice-generator", "document-generator"],
   relatedSlugs: ["invoice-template-formats", "small-business-invoicing", "invoicing-mistakes-to-avoid"],
   published: "2026-09-13",
   updated: "2026-09-18",

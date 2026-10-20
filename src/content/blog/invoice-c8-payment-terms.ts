@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>“Due soon” got me paid in 23 days. “Due Oct 1, 2026 (Net 15)” got me paid in 6. Same client, same work — different words on the invoice. <strong>Invoice payment terms</strong> are not legal wallpaper; they are the highest-ROI lines on the page. Here are the terms, due-date formats and reminder scripts I use to get paid 2× faster without sounding rude.</p>
-<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Print terms from the <a href="/invoice-generator">free invoice generator</a>; close paid bills with a <a href="/receipt-generator">receipt</a>; start jobs with a <a href="/quotation-generator">quotation</a>.</p>
+<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Print terms from the <a href="/invoice-generator">free invoice generator</a>; close paid bills with a <a href="/document-generator">receipt</a>; start jobs with a <a href="/document-generator">quotation</a>.</p>
 
 <h2 id="terms-that-work">Payment terms that actually work (copy these)</h2>
 <table>
@@ -50,7 +50,7 @@ export const invoicePaymentTerms: BlogPost = {
   description:
     "Invoice payment terms examples (Net 7/15/30, advances, late fees) + 3 copy-paste reminder emails. Polite scripts that cut payment time in half.",
   keywords: ["invoice payment terms examples", "how to politely ask client for payment", "invoice due upon receipt meaning", "late payment fee wording on invoice", "payment reminder email invoice"],
-  toolSlugs: ["invoice-generator", "receipt-generator", "quotation-generator"],
+  toolSlugs: ["invoice-generator", "document-generator"],
   relatedSlugs: ["how-to-create-invoice-online", "freelancer-invoice-guide", "invoice-numbering"],
   published: "2026-09-14",
   updated: "2026-09-18",

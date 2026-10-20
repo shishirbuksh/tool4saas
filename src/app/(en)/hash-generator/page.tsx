@@ -1,5 +1,5 @@
 ﻿import ToolPageShell from "@/components/ToolPageShell";
-import HashGeneratorTool from "@/components/tools/HashGeneratorTool";
+import HashStudioTool from "@/components/tools/HashStudioTool";
 import { getTool } from "@/lib/tools";
 import { toolMetadata } from "@/lib/metadata";
 
@@ -11,7 +11,7 @@ export const metadata = toolMetadata(slug);
 export default function Page() {
   return (
     <ToolPageShell tool={tool}>
-      <HashGeneratorTool />
+      <HashStudioTool />
     </ToolPageShell>
   );
 }

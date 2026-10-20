@@ -10,7 +10,7 @@ const html = `
 <ul>
 <li><strong>The exact content:</strong> final URL (short beats long), exact text, phone with country code, or email with subject. Shorter content = sparser pattern = easier scanning.</li>
 <li><strong>Where it will be scanned:</strong> phone screen and chat (512px), printed handout (512px), poster or storefront (2048px). Distance decides size — full math in <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">QR code size and print guide</a>.</li>
-<li><strong>WiFi or payment?</strong> Those need special formatting — use the <a href="/wifi-qr-generator">WiFi QR generator</a> for networks and see <a href="/blog/qr-code-generator-guide/upi-payment-qr-code-india">UPI payment QR guide</a> for payee strings. Plain-text hacks fail silently.</li>
+<li><strong>WiFi or payment?</strong> Those need special formatting — use the <a href="/qr-code-generator">WiFi QR generator</a> for networks and see <a href="/blog/qr-code-generator-guide/upi-payment-qr-code-india">UPI payment QR guide</a> for payee strings. Plain-text hacks fail silently.</li>
 </ul>
 <blockquote class="tip"><strong>Reader story (Mumbai tutor):</strong> she keeps a sticky note with her short course URL + UPI ID on the monitor. New code per batch takes 40 seconds. Boring system, zero failed prints in a year.</blockquote>
 
@@ -34,7 +34,7 @@ const html = `
 <tr><td><strong>Call a number</strong></td><td>Number with country code, e.g. +91 98765 43210</td><td>Opens dialer</td></tr>
 <tr><td><strong>Send an email</strong></td><td>Address + subject line</td><td>Opens compose prefilled</td></tr>
 <tr><td><strong>Show text</strong></td><td>Plain text, keep under ~200 chars</td><td>Displays note</td></tr>
-<tr><td><strong>Join WiFi</strong></td><td>Use the <a href="/wifi-qr-generator">WiFi tool</a> (SSID exact)</td><td>Joins network</td></tr>
+<tr><td><strong>Join WiFi</strong></td><td>Use the <a href="/qr-code-generator">WiFi tool</a> (SSID exact)</td><td>Joins network</td></tr>
 <tr><td><strong>Share contact</strong></td><td>vCard fields</td><td>Offers save-contact</td></tr>
 </tbody>
 </table>
@@ -68,7 +68,7 @@ export const qrHowToCreate: BlogPost = {
   description:
     "How to make a QR code free: 5-step walkthrough with sizing, content formats and test-scan routine. Static codes that never expire. No signup.",
   keywords: ["how to create qr code free", "how to make qr code online", "generate qr code png free", "create qr code for link free", "qr code maker no signup"],
-  toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
+  toolSlugs: ["qr-code-generator", "qr-scanner"],
   relatedSlugs: ["qr-code-size-print-guide", "qr-code-not-scanning-fix", "wifi-qr-code-guide"],
   published: "2026-09-22",
   updated: "2026-09-22",

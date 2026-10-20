@@ -20,7 +20,7 @@ const html = `
 <h3>Step 1 — Enter sender and client details</h3>
 <p>Type your business name, address and email exactly as on your tax records. Add invoice number <strong>INV-2026-001</strong>, issued Sept 14, 2026, due Sept 29, 2026. Then the client: name a human. Billing a generic accounts inbox buys weeks of silence; naming a human like “Priya Sharma, Accounts, Acme Pvt Ltd” gets opened.</p>
 <h3>Step 2 — Add line items with quantity and rate</h3>
-<p>Add rows like “Logo design, qty 2, $250 each”. Keep each line to one deliverable. The tool supports up to 50 lines — the A4 layout stays clean at ten-plus line items. Vague lines (“Services”) get questioned; specific lines get paid. If the job came from a quote, paste the <a href="/quotation-generator">quotation number (e.g. QUO-2026-014)</a> into notes.</p>
+<p>Add rows like “Logo design, qty 2, $250 each”. Keep each line to one deliverable. The tool supports up to 50 lines — the A4 layout stays clean at ten-plus line items. Vague lines (“Services”) get questioned; specific lines get paid. If the job came from a quote, paste the <a href="/document-generator">quotation number (e.g. QUO-2026-014)</a> into notes.</p>
 <h3>Step 3 — Set tax, discount and currency</h3>
 <p>Watch the math go live: $500 subtotal + 10% tax ($50) = <strong>$550 total</strong>. India same-state? That 18% splits to 9% CGST + 9% SGST; inter-state is 18% IGST — the <a href="/invoice-generator">freelance GST invoice generator</a> does this split automatically. US: sales tax only with nexus. UK: 20% VAT if registered. Discounts go before tax unless your contract says otherwise.</p>
 <h3>Step 4 — Add logo, notes and payment terms</h3>
@@ -47,7 +47,7 @@ const html = `
 <li><strong>Body = 3 lines:</strong> what, how much, how to pay. Attach the PDF, offer one contact for questions.</li>
 <li><strong>WhatsApp works in India:</strong> same PDF + one-line message. Keep the email as backup for records.</li>
 </ul>
-<p>After they pay, close the loop with a <a href="/receipt-generator">payment receipt</a> — two clicks, big goodwill. Full email templates and the day-3/day-7 nudge sequence live in <a href="/blog/invoice-generator-guide/payment-terms-and-followups">payment terms and reminders</a>.</p>
+<p>After they pay, close the loop with a <a href="/document-generator">payment receipt</a> — two clicks, big goodwill. Full email templates and the day-3/day-7 nudge sequence live in <a href="/blog/invoice-generator-guide/payment-terms-and-followups">payment terms and reminders</a>.</p>
 
 <h2 id="fix-bounced">If your invoice bounced back, check these 5 things</h2>
 <ol>
@@ -68,7 +68,7 @@ export const invoiceHowToCreate: BlogPost = {
   description:
     "How to make an invoice online free: 5-step walkthrough with tax, numbering and PDF download. Works without GST or signup. Includes sending tips.",
   keywords: ["how to make invoice online free", "how to create invoice without gst", "how to generate invoice pdf free", "how to make bill online no signup", "create invoice online free"],
-  toolSlugs: ["invoice-generator", "receipt-generator", "quotation-generator"],
+  toolSlugs: ["invoice-generator", "document-generator"],
   relatedSlugs: ["gst-invoice-format-india", "invoice-numbering", "payment-terms-and-followups"],
   published: "2026-09-11",
   updated: "2026-09-18",

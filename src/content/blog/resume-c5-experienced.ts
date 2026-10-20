@@ -28,7 +28,7 @@ const html = `
 <ul>
 <li><strong>Career pivots:</strong> hybrid format — skills snapshot of the target domain up top, then honest timeline. Bridge bullets translate (“support escalations → incident leadership”) per project, not claims. One pivot story per resume, told in the summary.</li>
 <li><strong>Gaps:</strong> one line, no apology (“Career break 2023–24: family care; freelance billing APIs”). Consulting, courses or care — named beats blank. Never stretch dates to hide gaps; background checks end offers.</li>
-<li><strong>The offer letter:</strong> senior hires negotiate CTC structure, not just totals — fixed vs variable, joining bonus, probation and notice terms. Generate clean letters with the <a href="/offer-letter-generator">offer letter generator</a> and learn every clause in <a href="/blog/resume-builder-guide/offer-letter-guide">offer letter guide</a>. Your resume got the interview; the offer letter protects the joining.</li>
+<li><strong>The offer letter:</strong> senior hires negotiate CTC structure, not just totals — fixed vs variable, joining bonus, probation and notice terms. Generate clean letters with the <a href="/document-generator">offer letter generator</a> and learn every clause in <a href="/blog/resume-builder-guide/offer-letter-guide">offer letter guide</a>. Your resume got the interview; the offer letter protects the joining.</li>
 </ul>
 <h2 id="staff-principal">Staff/principal resumes: scope becomes the product</h2>
 <p>Beyond ~8 years, hiring managers buy organizational leverage, not output. Your bullets shift from “shipped X” to “multiplied teams that shipped X”: org design, technical strategy, incident command, mentoring ladders. Quantify differently — teams led, budget owned, systems with 99.9%+ SLOs, cost programs (Rs 50L infra savings reads louder than any feature). Publications, talks and open-source stewardship move from extras to core proof. And the narrative tightens to one arc: growing scope every 2–3 years. Flat scope at year ten worries readers more than any gap — show the expanding arena or explain the deep-specialist choice explicitly in the summary. Offer-stage leverage peaks here too: competing offers, joining bonuses and notice buyouts all negotiate harder with documented scope, per <a href="/blog/resume-builder-guide/offer-letter-guide">offer guide</a>.</p>
@@ -43,7 +43,7 @@ export const resumeExperienced: BlogPost = {
   description:
     "Experienced resume guide: outcome-scope-trajectory bullets, length rules, pivots, gaps + offer endgame. Free builder + ATS check included.",
   keywords: ["resume for experienced professionals", "senior resume tips", "resume after 5 years experience", "career gap resume", "resume career change"],
-  toolSlugs: ["resume-builder", "ats-resume-checker", "offer-letter-generator"],
+  toolSlugs: ["resume-builder", "ats-resume-checker", "document-generator"],
   relatedSlugs: ["how-to-make-resume", "offer-letter-guide", "ats-resume-guide"],
   published: "2026-09-23",
   updated: "2026-09-23",

@@ -1,9 +1,9 @@
 import ToolPageShell from "@/components/ToolPageShell";
-import TextReverserTool from "@/components/tools/TextReverserTool";
+import TextStudioTool from "@/components/tools/TextStudioTool";
 import { getTool } from "@/lib/tools";
 import { toolMetadata } from "@/lib/metadata";
 
-const slug = "text-reverser";
+const slug = "text-tools";
 const tool = getTool(slug)!;
 
 export const metadata = toolMetadata(slug);
@@ -11,7 +11,7 @@ export const metadata = toolMetadata(slug);
 export default function Page() {
   return (
     <ToolPageShell tool={tool}>
-      <TextReverserTool />
+      <TextStudioTool />
     </ToolPageShell>
   );
 }

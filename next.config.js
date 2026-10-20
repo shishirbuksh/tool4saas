@@ -73,6 +73,45 @@ const nextConfig = {
       { source: "/image-border", destination: "/image-compressor", permanent: true },
       // Consolidation: GST invoice generation now lives as a view inside /invoice-generator.
       { source: "/freelance-gst-invoice-generator", destination: "/invoice-generator", permanent: true },
+      // Consolidation: quotation, PO, receipt, rent receipt, payslip and offer letter now live in /document-generator.
+      { source: "/quotation-generator", destination: "/document-generator", permanent: true },
+      { source: "/purchase-order-generator", destination: "/document-generator", permanent: true },
+      { source: "/receipt-generator", destination: "/document-generator", permanent: true },
+      { source: "/rent-receipt-generator", destination: "/document-generator", permanent: true },
+      { source: "/payslip-generator", destination: "/document-generator", permanent: true },
+      { source: "/offer-letter-generator", destination: "/document-generator", permanent: true },
+      // Consolidation: WiFi QR generation now lives as a view inside /qr-code-generator.
+      { source: "/wifi-qr-generator", destination: "/qr-code-generator", permanent: true },
+      // Consolidation: HMAC hashing now lives as a view inside /hash-generator.
+      { source: "/hmac-generator", destination: "/hash-generator", permanent: true },
+      // Consolidation: text cleaning, case, reverse, list and find/replace now live inside /text-tools.
+      { source: "/text-reverser", destination: "/text-tools", permanent: true },
+      { source: "/case-converter", destination: "/text-tools", permanent: true },
+      { source: "/text-cleaner", destination: "/text-tools", permanent: true },
+      { source: "/text-list", destination: "/text-tools", permanent: true },
+      { source: "/text-find-replace", destination: "/text-tools", permanent: true },
+      // Consolidation: keyword density and readability now live inside /word-counter.
+      { source: "/keyword-density", destination: "/word-counter", permanent: true },
+      { source: "/readability-checker", destination: "/word-counter", permanent: true },
+      // Consolidation: Roman numerals, ASCII codes and base conversion now live inside /number-to-words.
+      { source: "/roman-numeral", destination: "/number-to-words", permanent: true },
+      { source: "/ascii-converter", destination: "/number-to-words", permanent: true },
+      { source: "/base-converter", destination: "/number-to-words", permanent: true },
+      // Consolidation: file size conversion now lives as a view inside /unit-converter.
+      { source: "/file-size-converter", destination: "/unit-converter", permanent: true },
+      // Consolidation: Open Graph preview now lives as a view inside /serp-preview.
+      { source: "/open-graph-preview", destination: "/serp-preview", permanent: true },
+      // Consolidation: live city clocks now live as a view inside /timezone-converter.
+      { source: "/world-clock", destination: "/timezone-converter", permanent: true },
+      // Consolidation: countdown, work days and duration now live inside /date-calculator.
+      { source: "/countdown-timer", destination: "/date-calculator", permanent: true },
+      { source: "/work-days-calculator", destination: "/date-calculator", permanent: true },
+      { source: "/time-duration-calculator", destination: "/date-calculator", permanent: true },
+      // Consolidation: ideal weight and body fat now live inside /bmi-calculator.
+      { source: "/ideal-weight-calculator", destination: "/bmi-calculator", permanent: true },
+      { source: "/body-fat-calculator", destination: "/bmi-calculator", permanent: true },
+      // Consolidation: macro splitting now lives inside /calorie-calculator.
+      { source: "/macro-calculator", destination: "/calorie-calculator", permanent: true },
     ];
   },
   async headers() {

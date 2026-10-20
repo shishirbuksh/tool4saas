@@ -19,7 +19,7 @@ const html = `
 <li><strong>Header:</strong> your name/studio, email, phone, UPI ID. Logo if you have one.</li>
 <li><strong>Numbers:</strong> INV-2026-014, issued + due dates. Due date always a calendar date, never just “Net 15”.</li>
 <li><strong>Client:</strong> human + company + email. B2B India: their GSTIN.</li>
-<li><strong>Scope lines:</strong> deliverable, period, qty, rate. Reference the <a href="/quotation-generator">quote (QUO-2026-014)</a> or contract clause.</li>
+<li><strong>Scope lines:</strong> deliverable, period, qty, rate. Reference the <a href="/document-generator">quote (QUO-2026-014)</a> or contract clause.</li>
 <li><strong>Money math:</strong> subtotal, discount (if any), tax (GST/VAT or 0% + note), <strong>bold total with currency</strong>.</li>
 <li><strong>How to pay:</strong> UPI + Razorpay or bank with IFSC (India — half my sub-₹25,000 bills arrive via UPI within 48 hours), Stripe or bank transfer (US/UK). One primary method printed, one backup.</li>
 <li><strong>Terms + warmth:</strong> late fee (“2%/month after due”) and “Thanks — loved working on the launch!”</li>
@@ -51,7 +51,7 @@ const html = `
 <li><strong>Day 3 overdue:</strong> “Quick nudge — INV-2026-014 (₹23,600) was due Sept 29. Anything accounts needs from me? Re-attached.”</li>
 <li><strong>Day 7 overdue:</strong> “Following up on INV-2026-014. Please confirm payment date so I can plan. Thanks!”</li>
 </ul>
-<p>More templates and the psychology behind them in <a href="/blog/invoice-generator-guide/payment-terms-and-followups">payment terms and reminders</a>. After payment, send a <a href="/receipt-generator">receipt</a> — it doubles repeat business in my experience.</p>
+<p>More templates and the psychology behind them in <a href="/blog/invoice-generator-guide/payment-terms-and-followups">payment terms and reminders</a>. After payment, send a <a href="/document-generator">receipt</a> — it doubles repeat business in my experience.</p>
 
 <h2 id="checklist-before-send">60-second checklist before you hit send</h2>
 <ol>

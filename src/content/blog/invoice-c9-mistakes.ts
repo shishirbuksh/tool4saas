@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Nearly every invoicing mistake on this list (wrong tax, vague lines, no due date, wrong recipient) costs 5 to 20 days. A 12-point checklist on my last 11 bills in Sept 2026 — 9 cleared first time versus 5 of 11 before. Run it on your next bill before you hit send.</p>
-<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Fix bills in the <a href="/invoice-generator">free invoice generator</a>; verify headcount math with the <a href="/payslip-generator">payslip generator</a> if you run staff.</p>
+<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Fix bills in the <a href="/invoice-generator">free invoice generator</a>; verify headcount math with the <a href="/document-generator">payslip generator</a> if you run staff.</p>
 
 <h2 id="the-12">12 invoicing mistakes that delay payment (with fixes)</h2>
 <ol>
@@ -18,7 +18,7 @@ const html = `
 <li><strong>Sending Friday evening.</strong> Dies over the weekend. Fix: Tue–Thu mornings, client timezone.</li>
 <li><strong>“Final-v2.pdf” filenames.</strong> Looks chaotic in AP systems. Fix: invoice-acme-001.pdf, always.</li>
 <li><strong>No follow-up sequence.</strong> Silence never collects. Fix: day-3 nudge + day-7 date-ask with re-attached PDF.</li>
-<li><strong>Invoicing before acceptance.</strong> Billing unapproved work invites disputes. Fix: quote first (<a href="/quotation-generator">QUO-2026-014</a>), advance, then invoice on sign-off.</li>
+<li><strong>Invoicing before acceptance.</strong> Billing unapproved work invites disputes. Fix: quote first (<a href="/document-generator">QUO-2026-014</a>), advance, then invoice on sign-off.</li>
 </ol>
 
 <h2 id="real-fix">Real example: fixing a bounced ₹23,600 invoice in 10 minutes</h2>
@@ -39,7 +39,7 @@ const html = `
 </table>
 <ul>
 <li><strong>My pre-send ritual:</strong> read the PDF once as the accounts clerk — confused anywhere? Fix it before sending, not after bouncing.</li>
-<li><strong>After payment:</strong> same-day <a href="/receipt-generator">receipt (RCP-0231)</a>. The habit that brings repeat work.</li>
+<li><strong>After payment:</strong> same-day <a href="/document-generator">receipt (RCP-0231)</a>. The habit that brings repeat work.</li>
 <li><strong>New to this?</strong> Start with <a href="/blog/invoice-generator-guide/how-to-create-invoice-online">how to create an invoice online</a>, then the <a href="/blog/invoice-generator-guide">pillar checklist</a>.</li>
 </ul>
 <h2 id="sector-patterns">Sector patterns: who makes which mistake</h2>
@@ -55,7 +55,7 @@ export const invoiceMistakes: BlogPost = {
   description:
     "12 invoicing mistakes that delay payment — vague lines, wrong tax, no due date — with 10-minute fixes and a 60-second pre-send checklist.",
   keywords: ["professional invoice tips", "invoicing mistakes", "why client not paying invoice", "how to make invoice look professional", "invoice checklist before sending"],
-  toolSlugs: ["invoice-generator", "quotation-generator", "receipt-generator"],
+  toolSlugs: ["invoice-generator", "document-generator"],
   relatedSlugs: ["payment-terms-and-followups", "invoice-numbering", "small-business-invoicing"],
   published: "2026-09-15",
   updated: "2026-09-18",

@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>Two drafts, same topic. One scores 72 (“Fairly Easy”), the other 38 (“Difficult, college”). Same facts — different sentence lengths and word choices. The <strong>Flesch Reading Ease score</strong> quantifies that gap with 1948-vintage math that still powers Yoast, Hemingway-adjacent tools and plain-language laws. Here is the exact formula, the bands, and how to lift a score without dumbing ideas down.</p>
-<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Score drafts in the <a href="/readability-checker">readability checker</a>; count basics in the <a href="/word-counter">word counter</a>.</p>
+<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Score drafts in the <a href="/word-counter">readability checker</a>; count basics in the <a href="/word-counter">word counter</a>.</p>
 
 <h2 id="formula">The formula + bands (exact)</h2>
 <p><strong>206.835 − 1.015×(words ÷ sentences) − 84.6×(syllables ÷ words).</strong> Higher = easier. Bands: 90–100 Very Easy (5th), 80–90 Easy (6th), 70–80 Fairly Easy (7th), 60–70 Standard (8th–9th), 50–60 Fairly Difficult (10th–12th), 30–50 Difficult (college), 0–30 Very Difficult (graduate). Scores can exceed 100 (toddlers' books) or go negative (legal disclaimers). Sibling metric — <strong>Flesch-Kincaid Grade: 0.39×(W/S) + 11.8×(Syl/W) − 15.59</strong> — states US grade level directly; general audiences target grade ≤8.</p>
@@ -26,7 +26,7 @@ const html = `
 </ul>
 
 <h2 id="combo">Pair with density (readability + SEO in one paste)</h2>
-<p>Readability serves humans; density diagnostics serve search. Run both: FRE 60+ with grade ≤8 and topical terms present naturally (no stuffing — there is no ideal %). Our competitors silo these checks; one paste showing score + top terms + stuffing alert beats two tabs. Method in <a href="/blog/word-counter-guide/keyword-density-seo-check">density guide</a>; tools: <a href="/readability-checker">checker</a> + <a href="/keyword-density">density</a>. Honest caveat: formulas ignore tone and expertise — test with real readers, and no score promises rankings.</p>
+<p>Readability serves humans; density diagnostics serve search. Run both: FRE 60+ with grade ≤8 and topical terms present naturally (no stuffing — there is no ideal %). Our competitors silo these checks; one paste showing score + top terms + stuffing alert beats two tabs. Method in <a href="/blog/word-counter-guide/keyword-density-seo-check">density guide</a>; tools: <a href="/word-counter">checker</a> + <a href="/word-counter">density</a>. Honest caveat: formulas ignore tone and expertise — test with real readers, and no score promises rankings.</p>
 <h2 id="grade-targets">Grade targets by audience (stop aiming blindly)</h2>
 <p>Different readers need different grades, and mismatches cost comprehension: general web content grade 6–8, B2B professional 9–11, academic/legal 12+ (appropriately difficult), children's content grade 3–5, ESL audiences one grade below native equivalent. Healthcare and finance face plain-language regulations in several jurisdictions — grade 8 ceilings with legal review, not vibes. Measure per-section, not just per-article: introductions can run easier (grade 6) to onboard, methodology sections harder (grade 11) where precision demands it. The checker reports both FRE and grade — use FRE for quick comparison, grade for audience targeting, and reader feedback over both.</p>
 <blockquote class="tip">General writing guidance only. Test with real readers; formulas ignore tone and expertise. SEO outcomes vary — no count, score or density promises rankings.</blockquote>
@@ -40,7 +40,7 @@ export const wordFlesch: BlogPost = {
   description:
     "Flesch Reading Ease: exact formula, bands, grade equivalent + how to raise scores without dumbing down. Pair with density checks.",
   keywords: ["flesch reading ease score", "flesch kincaid score good", "improve readability score", "reading ease formula bands"],
-  toolSlugs: ["readability-checker", "word-counter", "keyword-density"],
+  toolSlugs: ["word-counter"],
   relatedSlugs: ["keyword-density-seo-check", "how-to-count-words-online", "ideal-blog-post-length-seo"],
   published: "2026-09-26",
   updated: "2026-09-26",

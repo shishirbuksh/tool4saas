@@ -103,7 +103,7 @@ const html = `
 <p>Resume vs CV vs biodata confusion? Settled in <a href="/blog/resume-builder-guide/resume-vs-cv">resume vs CV guide</a>. Format deep-dive with samples in <a href="/blog/resume-builder-guide/resume-format-guide">resume format guide</a>.</p>
 
 <h2 id="cover-offer">Cover letters and offer letters: the bookends</h2>
-<p>Your application has two bookends. The <strong>cover letter</strong> (3–4 paragraphs, 250–350 words) argues fit for one specific role — build tailored ones fast in the <a href="/cover-letter-builder">cover letter builder</a> with tone options; full method in <a href="/blog/resume-builder-guide/cover-letter-guide">cover letter guide</a>. The <strong>offer letter</strong> arrives at the end: role, CTC breakup, joining date, probation and notice terms — generate clean ones with the <a href="/offer-letter-generator">offer letter generator</a>; know what every clause means via <a href="/blog/resume-builder-guide/offer-letter-guide">offer letter guide</a>. Resume gets the interview; cover letter wins the shortlist; offer letter protects the joining.</p>
+<p>Your application has two bookends. The <strong>cover letter</strong> (3–4 paragraphs, 250–350 words) argues fit for one specific role — build tailored ones fast in the <a href="/cover-letter-builder">cover letter builder</a> with tone options; full method in <a href="/blog/resume-builder-guide/cover-letter-guide">cover letter guide</a>. The <strong>offer letter</strong> arrives at the end: role, CTC breakup, joining date, probation and notice terms — generate clean ones with the <a href="/document-generator">offer letter generator</a>; know what every clause means via <a href="/blog/resume-builder-guide/offer-letter-guide">offer letter guide</a>. Resume gets the interview; cover letter wins the shortlist; offer letter protects the joining.</p>
 
 <h2 id="linkedin-portfolio">LinkedIn and portfolio: the backup your resume needs</h2>
 <p>Recruiters who like your resume do one thing next: search your name. What they find decides whether the interview gets scheduled. A LinkedIn profile mirroring the resume (same titles, same dates — mismatches kill trust instantly) and one proof link per claim turns a good application into an obvious shortlist. Developers: GitHub with pinned repos matching the resume's projects. Designers: portfolio with 3 case studies, problem → process → outcome. Writers: 5 best pieces, not 50. Hiring managers skip interviews over dead portfolio links — click every link on your resume quarterly like a recruiter would.</p>
@@ -158,7 +158,7 @@ export const resumePillar: BlogPost = {
   description:
     "Learn how to build an ATS-friendly resume free — sections, fresher vs experienced, formats for India/US/UK, cover letters + PDF export. No signup.",
   keywords: ["free resume builder guide", "free resume builder no signup", "resume maker guide", "online resume maker free pdf", "resume creator free download", "ats friendly resume guide", "resume format india guide", "fresher resume guide"],
-  toolSlugs: ["resume-builder", "ats-resume-checker", "cover-letter-builder", "offer-letter-generator"],
+  toolSlugs: ["resume-builder", "ats-resume-checker", "cover-letter-builder", "document-generator"],
   relatedSlugs: ["how-to-make-resume", "ats-resume-guide", "resume-format-guide"],
   published: "2026-09-23",
   updated: "2026-09-23",

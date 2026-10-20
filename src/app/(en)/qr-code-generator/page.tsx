@@ -1,5 +1,5 @@
 ﻿import ToolPageShell from "@/components/ToolPageShell";
-import QrCodeTool from "@/components/tools/QrCodeTool";
+import QrStudioTool from "@/components/tools/QrStudioTool";
 import { getTool } from "@/lib/tools";
 import { toolMetadata } from "@/lib/metadata";
 
@@ -11,7 +11,7 @@ export const metadata = toolMetadata(slug);
 export default function Page() {
   return (
     <ToolPageShell tool={tool}>
-      <QrCodeTool />
+      <QrStudioTool />
     </ToolPageShell>
   );
 }

@@ -1,6 +1,6 @@
 # Consolidation Map — tool4saas
 
-Status: **in progress** — rows 1–13 applied (185 → 155 tools). Evidence measured on `2b33f01`.
+Status: **in progress** — rows 1–25 applied (185 → 130 tools). Evidence measured on `2b33f01`.
 
 ## Why (root cause in one line)
 
@@ -55,18 +55,18 @@ Measured signals:
 | 11 | `pdf-merge` (hub "PDF Organizer") | pdf-split, pdf-rotate, pdf-watermark | −3 | ✅ done |
 | 12 | `image-compressor` (hub "Image Editor") | image-resizer, image-cropper, image-border | −3 | ✅ done |
 | 13 | `invoice-generator` (hub "Invoice Studio") | freelance-gst-invoice-generator | −1 | ✅ done |
-| 14 | `document-generator` **(new)** | quotation-generator, purchase-order-generator, receipt-generator, rent-receipt-generator, payslip-generator, offer-letter-generator | −5 |
-| 15 | `qr-code-generator` | wifi-qr-generator | −1 |
-| 16 | `hash-generator` | hmac-generator | −1 |
-| 17 | `text-tools` **(new)** | text-reverser, case-converter, text-cleaner, text-list, text-find-replace | −4 |
-| 18 | `word-counter` | keyword-density, readability-checker | −2 |
-| 19 | `number-to-words` (hub "Encoder") | roman-numeral, ascii-converter, base-converter | −3 |
-| 20 | `unit-converter` | file-size-converter | −1 |
-| 21 | `serp-preview` | open-graph-preview | −1 |
-| 22 | `timezone-converter` | world-clock | −1 |
-| 23 | `date-calculator` | countdown-timer, work-days-calculator, time-duration-calculator | −3 |
-| 24 | `bmi-calculator` (hub "Body Metrics") | ideal-weight-calculator, body-fat-calculator | −2 |
-| 25 | `calorie-calculator` | macro-calculator | −1 |
+| 14 | `document-generator` **(new)** (hub "Document Generator") | quotation-generator, purchase-order-generator, receipt-generator, rent-receipt-generator, payslip-generator, offer-letter-generator | −5 | ✅ done |
+| 15 | `qr-code-generator` (hub "QR Code Generator") | wifi-qr-generator | −1 | ✅ done |
+| 16 | `hash-generator` (hub "Hash & HMAC") | hmac-generator | −1 | ✅ done |
+| 17 | `text-tools` (hub "Text Tools") | text-reverser, case-converter, text-cleaner, text-list, text-find-replace | −4 | ✅ done |
+| 18 | `word-counter` (hub "Word Counter & Analysis") | keyword-density, readability-checker | −2 | ✅ done |
+| 19 | `number-to-words` (hub "Encoder") | roman-numeral, ascii-converter, base-converter | −3 | ✅ done |
+| 20 | `unit-converter` (hub "Unit & File Size Converter") | file-size-converter | −1 | ✅ done |
+| 21 | `serp-preview` (hub "SERP & Open Graph") | open-graph-preview | −1 | ✅ done |
+| 22 | `timezone-converter` (hub "Timezone & World Clock") | world-clock | −1 | ✅ done |
+| 23 | `date-calculator` (hub "Date, Countdown & Duration") | countdown-timer, work-days-calculator, time-duration-calculator | −3 | ✅ done |
+| 24 | `bmi-calculator` (hub "BMI, Ideal Weight & Body Fat") | ideal-weight-calculator, body-fat-calculator | −2 | ✅ done |
+| 25 | `calorie-calculator` (hub "Calorie & Macro") | macro-calculator | −1 | ✅ done |
 | 26 | `period-calculator` | ovulation-calculator | −1 |
 | 27 | `salary-calculator` | us-paycheck-calculator | −1 |
 | 28 | `image-format-converter` | svg-to-png-converter | −1 |

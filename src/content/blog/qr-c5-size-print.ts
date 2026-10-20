@@ -62,7 +62,7 @@ export const qrSizePrint: BlogPost = {
   description:
     "QR print size chart: 2cm cards, 3-5cm tents, 10-20cm posters. Distance-divided-by-10 rule, 512 vs 2048px, matte tips — tested 2026.",
   keywords: ["qr code size for print", "minimum qr code size", "qr code print size cm", "how big should qr code be", "qr code resolution for poster"],
-  toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
+  toolSlugs: ["qr-code-generator", "qr-scanner"],
   relatedSlugs: ["how-to-create-qr-code", "qr-code-not-scanning-fix", "vcard-contact-qr-code"],
   published: "2026-09-22",
   updated: "2026-09-22",

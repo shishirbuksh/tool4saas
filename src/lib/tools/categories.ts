@@ -5,7 +5,7 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "text-documents",
     label: "Text & Documents",
     description:
-      "Count words, convert case, clean text and compare documents with 19 free browser-based writing utilities for everyday editing.",
+      "Count words, convert case, clean text and compare documents with 13 free browser-based writing utilities for everyday editing.",
   },
   {
     id: "business",
@@ -23,7 +23,7 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "converters",
     label: "Converters",
     description:
-      "Convert units, currencies, YAML, JSON, CSV and number systems instantly with 13 free offline converters in one click.",
+      "Convert units, currencies, YAML, JSON, CSV and number systems instantly with 10 free offline converters in one click.",
   },
   {
     id: "generators",
@@ -66,12 +66,12 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "seo",
     label: "SEO & Marketing",
     description:
-      "Generate meta tags, sitemaps, robots.txt and SERP previews to rank higher with 8 free SEO and marketing utilities offline.",
+      "Generate meta tags, sitemaps, robots.txt and SERP previews to rank higher with 7 free SEO and marketing utilities offline.",
   },
   {
     id: "time",
     label: "Time & Date",
     description:
-      "Calculate age, workdays, timezones and durations with clocks, timers and converters in 8 free time and date utilities.",
+      "Calculate age, workdays, timezones and durations with clocks, timers and converters in 6 free time and date utilities.",
   },
 ]) as Category[];

@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>“Should I pay for dynamic QR codes?” A coaching institute asked me before printing 2,000 admission flyers. My answer: no — and the ₹8,000/year they saved bought better paper. But a real-estate client running 40 listings with changing prices? Yes, dynamic paid for itself in month one. <strong>Static vs dynamic QR codes</strong> is the highest-stakes QR decision because it is nearly irreversible after printing. Here is the honest breakdown.</p>
-<p>Part of the <a href="/blog/qr-code-generator-guide">free QR code generator guide</a>. Our tools make static codes: <a href="/qr-code-generator">free QR code generator</a>, <a href="/wifi-qr-generator">WiFi QR generator</a>. Verify any code with the <a href="/qr-scanner">QR scanner</a>.</p>
+<p>Part of the <a href="/blog/qr-code-generator-guide">free QR code generator guide</a>. Our tools make static codes: <a href="/qr-code-generator">free QR code generator</a>, <a href="/qr-code-generator">WiFi QR generator</a>. Verify any code with the <a href="/qr-scanner">QR scanner</a>.</p>
 
 <h2 id="core-difference">The core difference in one paragraph</h2>
 <p><strong>Static codes embed the destination directly</strong> — the URL, text or WiFi string lives inside the pattern. Nothing to expire, nothing to bill. <strong>Dynamic codes embed a redirect link</strong> owned by the service — scans hit their server, get counted, then forward to wherever you currently point. That middleman enables edits and analytics, and it is exactly what you rent: stop paying, the redirect dies, and every printed code goes dead with it.</p>
@@ -48,7 +48,7 @@ export const qrStaticDynamic: BlogPost = {
   description:
     "Static vs dynamic QR codes compared: editing, analytics, expiry risk, privacy and cost. When free static wins and when paid dynamic earns it.",
   keywords: ["static vs dynamic qr codes", "dynamic qr code free vs paid", "do qr codes expire", "editable qr code after printing", "qr code scan analytics"],
-  toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
+  toolSlugs: ["qr-code-generator", "qr-scanner"],
   relatedSlugs: ["how-to-create-qr-code", "qr-code-for-business", "qr-code-vs-barcode"],
   published: "2026-09-22",
   updated: "2026-09-22",

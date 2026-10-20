@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>“Send me the bill in Word” — I hear this weekly. Here is my honest answer after testing all four: <strong>free invoice templates in Word, Excel and PDF</strong> all work, but only one saves you real time. This guide compares them row by row, shows what a good template must contain, and explains why I now default to the online PDF maker for anything with tax math.</p>
-<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Skip downloads entirely with the <a href="/invoice-generator">free invoice generator</a> — or issue a <a href="/receipt-generator">receipt</a> after payment.</p>
+<p>Part of the <a href="/blog/invoice-generator-guide">free invoice generator guide</a>. Skip downloads entirely with the <a href="/invoice-generator">free invoice generator</a> — or issue a <a href="/document-generator">receipt</a> after payment.</p>
 
 <h2 id="comparison">Word vs Excel vs PDF vs Google Docs (tested table)</h2>
 <table>
@@ -39,7 +39,7 @@ const html = `
 <li><strong>Freelancer, 1–10 bills/mo → online PDF maker.</strong> <a href="/invoice-generator">Make it free</a>, download, send. Done.</li>
 <li><strong>Agency with hourly tables → Sheets for math, maker for output.</strong> Calculate in Sheets, retype 5 lines into the maker for the client PDF. 3 extra minutes, 10× more professional.</li>
 <li><strong>Enterprise client demanding .docx → Word.</strong> Rare, but some procurement teams insist. Keep math triple-checked.</li>
-<li><strong>After payment → receipt, not another invoice.</strong> Use the <a href="/receipt-generator">receipt generator</a> (RCP-0231) to close the loop.</li>
+<li><strong>After payment → receipt, not another invoice.</strong> Use the <a href="/document-generator">receipt generator</a> (RCP-0231) to close the loop.</li>
 </ul>
 
 <h2 id="naming-sending">Naming, saving and sending templates</h2>
@@ -55,7 +55,7 @@ export const invoiceTemplates: BlogPost = {
   description:
     "Free invoice template Word vs Excel vs PDF compared with tests. What every professional template must include + naming and sending tips.",
   keywords: ["free invoice template word excel pdf", "printable blank invoice pdf", "simple invoice format in excel india", "professional invoice template free download"],
-  toolSlugs: ["invoice-generator", "receipt-generator", "quotation-generator"],
+  toolSlugs: ["invoice-generator", "document-generator"],
   relatedSlugs: ["how-to-create-invoice-online", "invoice-vs-quotation-vs-receipt", "invoice-numbering"],
   published: "2026-09-13",
   updated: "2026-09-18",

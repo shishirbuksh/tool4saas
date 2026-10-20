@@ -77,7 +77,7 @@ export default function PayslipGeneratorTool() {
         y += 6;
       }
       doc.setFontSize(8);
-      doc.text("Made with Tool4SaaS — Free, private, no signup — tool4saas.com/payslip-generator", 15, 290);
+      doc.text("Made with Tool4SaaS — Free, private, no signup — tool4saas.com/document-generator", 15, 290);
       doc.save(`payslip-${month || "month"}.pdf`);
     } catch (e) {
       alert(e instanceof Error ? e.message : "PDF export failed. Try Print instead.");

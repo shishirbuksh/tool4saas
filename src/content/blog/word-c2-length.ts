@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>“Make it 2,000 words” — the most common and most wrong SEO brief ever written. Length follows intent: a definition answered in 400 words outranks a 3,000-word wander that never answers. Still, patterns exist across thousands of ranking pages. This is <strong>how long a blog post should be</strong>: intent-first ranges, what earns length, and the padding traps that sink wordy posts.</p>
-<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Measure drafts in the <a href="/word-counter">free word counter</a>; check topical health in the <a href="/keyword-density">density tool</a>.</p>
+<p>Part of the <a href="/blog/word-counter-guide">word counter guide</a>. Measure drafts in the <a href="/word-counter">free word counter</a>; check topical health in the <a href="/word-counter">density tool</a>.</p>
 
 <h2 id="ranges">Length ranges by intent (heuristics, not requirements)</h2>
 <table>
@@ -26,7 +26,7 @@ const html = `
 </ul>
 
 <h2 id="pillar-howto">Pillar vs how-to: different length jobs</h2>
-<p>Pillars earn links by mapping a topic (broad, 2,500+, hub of clusters); how-tos earn ranks by solving one task (1,500–2,500, steps first). Our own silos follow this: each 2,500-word pillar anchors 9 focused clusters. New blogs should publish one pillar and 3–5 clusters minimum before expecting topical authority — single orphans rarely move. Track depth with counts and readability (grade ≤8 general) via the <a href="/readability-checker">readability checker</a>.</p>
+<p>Pillars earn links by mapping a topic (broad, 2,500+, hub of clusters); how-tos earn ranks by solving one task (1,500–2,500, steps first). Our own silos follow this: each 2,500-word pillar anchors 9 focused clusters. New blogs should publish one pillar and 3–5 clusters minimum before expecting topical authority — single orphans rarely move. Track depth with counts and readability (grade ≤8 general) via the <a href="/word-counter">readability checker</a>.</p>
 <h2 id="update-strategy">Updating old posts: length decisions that compound</h2>
 <p>Posts decay: stats age, screenshots rot, competitors out-cover you. Quarterly, sort published posts by impressions-without-clicks (Search Console) — prime expansion candidates. Update playbook: add the missing sub-section competitors cover (+300–600 words of real coverage, never padding), refresh every number and screenshot, re-verify readability, and update the date honestly (republish notes beat silent date changes for trust). In one case I advised, merging 11 thin posts into 3 guides tripled that cluster's traffic in 4 months — single case, not typical, but maintenance compounds exactly like creation, and counts tell you which posts deserve the effort.</p>
 <blockquote class="tip">General writing guidance only. Test with real readers; formulas ignore tone and expertise. SEO outcomes vary — no count, score or density promises rankings.</blockquote>
@@ -40,7 +40,7 @@ export const wordLength: BlogPost = {
   description:
     "Blog post length by intent: ranges that work, what earns words vs padding + pillar-vs-how-to jobs. No rank guarantees, just method.",
   keywords: ["ideal blog post length", "how many words blog seo", "pillar page vs how-to length", "blog word count padding"],
-  toolSlugs: ["word-counter", "keyword-density", "readability-checker"],
+  toolSlugs: ["word-counter"],
   relatedSlugs: ["how-to-count-words-online", "keyword-density-seo-check", "flesch-reading-ease-score-explained"],
   published: "2026-09-26",
   updated: "2026-09-26",

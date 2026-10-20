@@ -30,8 +30,8 @@ describe("ymyl – central mapping", () => {
     expect(getYMYLType({ slug: "qr-code-generator", category: "images-design" })).toBeNull();
   });
 
-  it("every finance/health tool gets a banner (38 total with overrides)", () => {
+  it("every finance/health tool gets a banner (35 total with overrides)", () => {
     const covered = tools.filter((t) => getYMYLType(t) !== null);
-    expect(covered.length).toBe(38);
+    expect(covered.length).toBe(35);
   });
 });

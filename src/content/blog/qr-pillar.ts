@@ -41,7 +41,7 @@ const html = `
 <ol>
 <li><strong>Website URL</strong> — https://example.com/menu. Most common; test that it opens the mobile page, not desktop.</li>
 <li><strong>Plain text</strong> — up to ~200 characters scan reliably (event details, serial numbers, short instructions).</li>
-<li><strong>WiFi credentials</strong> — SSID + password + WPA/WEP; phones join on scan. Use the <a href="/wifi-qr-generator">WiFi QR generator</a> so special characters get escaped. Deep guide: <a href="/blog/qr-code-generator-guide/wifi-qr-code-guide">WiFi QR code guide</a>.</li>
+<li><strong>WiFi credentials</strong> — SSID + password + WPA/WEP; phones join on scan. Use the <a href="/qr-code-generator">WiFi QR generator</a> so special characters get escaped. Deep guide: <a href="/blog/qr-code-generator-guide/wifi-qr-code-guide">WiFi QR code guide</a>.</li>
 <li><strong>Phone number</strong> — opens the dialer with the number filled (e.g. +91 98765 43210 for a delivery helpline).</li>
 <li><strong>Email</strong> — opens compose with address prefilled; add subject for feedback codes (“Feedback — Sept visit”).</li>
 <li><strong>Contact card (vCard)</strong> — name, phone, email in one scan for business cards. See <a href="/blog/qr-code-generator-guide/vcard-contact-qr-code">vCard QR guide</a>.</li>
@@ -52,7 +52,7 @@ const html = `
 <h2 id="how-to-create-5-steps">How to create a QR code in 5 steps with Tool4SaaS (tested walkthrough)</h2>
 <p>Here is the exact flow I ran on September 20, 2026 in Chrome — URL, WiFi and text codes, both sizes, scan-tested. Follow along in <a href="/qr-code-generator">the free QR code generator</a>.</p>
 <h3>Step 1 — Enter the content to encode (15 seconds)</h3>
-<p>Type or paste the URL, text, phone or email. Keep URLs short — https://example.com/menu scans faster than a 200-character tracking link because shorter text makes a sparser, easier-to-read pattern. For WiFi, switch to the <a href="/wifi-qr-generator">WiFi QR generator</a> and enter SSID exactly (capitals and spaces matter).</p>
+<p>Type or paste the URL, text, phone or email. Keep URLs short — https://example.com/menu scans faster than a 200-character tracking link because shorter text makes a sparser, easier-to-read pattern. For WiFi, switch to the <a href="/qr-code-generator">WiFi QR generator</a> and enter SSID exactly (capitals and spaces matter).</p>
 <h3>Step 2 — Choose export size: 512px or 2048px (5 seconds)</h3>
 <p><strong>512px</strong> for websites, chat, slides and social posts. <strong>2048px</strong> for posters, flyers, storefronts and anything scanned beyond arm's length. Rule of thumb I use: if the viewing distance exceeds 1 meter, go 2048px. Sizing math lives in <a href="/blog/qr-code-generator-guide/qr-code-size-print-guide">QR code size and print guide</a>.</p>
 <h3>Step 3 — Preview and eyeball the density (10 seconds)</h3>
@@ -99,7 +99,7 @@ const html = `
 <li><strong>Restaurants & cafés:</strong> menu URL on table tents (2048px, matte). Update the <em>page</em>, never reprint — static code, editable destination page.</li>
 <li><strong>UPI payments (India):</strong> payment string with payee ID + amount at the counter. Two-tap checkout, no terminal rent — setup only, confirm fees and limits with your bank per <a href="/blog/qr-code-generator-guide/upi-payment-qr-code-india">UPI payment QR guide</a>.</li>
 <li><strong>Review collection:</strong> Google review link on the bill folder. “Loved your visit? 10 seconds” next to the code tripled one salon's reviews — their words, not mine, tracked over three months.</li>
-<li><strong>Guest WiFi:</strong> framed SSID code at reception via the <a href="/wifi-qr-generator">WiFi QR generator</a>. Details in <a href="/blog/qr-code-generator-guide/wifi-qr-code-guide">WiFi QR guide</a>.</li>
+<li><strong>Guest WiFi:</strong> framed SSID code at reception via the <a href="/qr-code-generator">WiFi QR generator</a>. Details in <a href="/blog/qr-code-generator-guide/wifi-qr-code-guide">WiFi QR guide</a>.</li>
 <li><strong>Events:</strong> ticket codes, session feedback, vCard speaker cards (<a href="/blog/qr-code-generator-guide/vcard-contact-qr-code">vCard guide</a>). Print 2048px; halls mean distance.</li>
 <li><strong>Retail & products:</strong> serials and how-to videos on packaging. Need bars for checkout scanners instead? That is a <a href="/barcode-generator">barcode generator</a> job — barcodes vs squares in <a href="/blog/qr-code-generator-guide/qr-code-vs-barcode">QR code vs barcode</a>.</li>
 </ul>
@@ -130,7 +130,7 @@ const html = `
 <li><strong>Low contrast / busy background</strong> — reprint black on white with quiet zone.</li>
 <li><strong>Glare, curve or damage</strong> — matte reprint on a flat surface.</li>
 <li><strong>Blurry JPG or upscaled small PNG</strong> — regenerate at 2048px PNG.</li>
-<li><strong>Wrong content format</strong> — WiFi string with unescaped semicolons fails silently; use the <a href="/wifi-qr-generator">WiFi tool</a>.</li>
+<li><strong>Wrong content format</strong> — WiFi string with unescaped semicolons fails silently; use the <a href="/qr-code-generator">WiFi tool</a>.</li>
 </ol>
 <p>Step-by-step diagnosis with phone-specific tips in <a href="/blog/qr-code-generator-guide/qr-code-not-scanning-fix">QR code not scanning fixes</a>. To read back what any code contains, run it through the <a href="/qr-scanner">QR scanner</a>.</p>
 `;
@@ -157,7 +157,7 @@ export const qrPillar: BlogPost = {
   description:
     "Learn how to create a QR code free — WiFi, UPI, menus, vCards, print sizing, static vs dynamic and scan fixes. No signup, no expiry.",
   keywords: ["free qr code generator guide", "free qr code generator no signup", "qr code maker guide", "qr maker online free tutorial", "create qr code free download png", "qr code generator no expiry", "wifi qr code how to", "upi qr code how to"],
-  toolSlugs: ["qr-code-generator", "wifi-qr-generator", "qr-scanner", "barcode-generator"],
+  toolSlugs: ["qr-code-generator", "qr-scanner", "barcode-generator"],
   relatedSlugs: ["how-to-create-qr-code", "wifi-qr-code-guide", "qr-code-size-print-guide"],
   published: "2026-09-22",
   updated: "2026-09-22",

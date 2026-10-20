@@ -56,7 +56,7 @@ const html = `
 <li><strong>Tax rate and amount</strong> — GST 18% / VAT 20% / Sales tax 8.5%, e.g. $50. Name the tax. Details in <a href="/blog/invoice-generator-guide/gst-invoice-format-india">GST invoice format India</a>.</li>
 <li><strong>Grand total + currency</strong> — big and unmissable, e.g. <strong>$550 USD</strong> or <strong>₹52,500</strong>.</li>
 <li><strong>Payment terms</strong> — Net 7 / Net 15 / Due on receipt + accepted modes (UPI, bank transfer, Razorpay, Stripe). Full wording in <a href="/blog/invoice-generator-guide/payment-terms-and-followups">payment terms guide</a>.</li>
-<li><strong>PO or quote reference</strong> — link the <a href="/quotation-generator">quotation</a> or <a href="/purchase-order-generator">purchase order</a> number (e.g. QUO-2026-014) so accounts clears you fast.</li>
+<li><strong>PO or quote reference</strong> — link the <a href="/document-generator">quotation</a> or <a href="/document-generator">purchase order</a> number (e.g. QUO-2026-014) so accounts clears you fast.</li>
 <li><strong>Notes: late fee + thank-you</strong> — “2% per month after due date” and one warm line. Polite but firm.</li>
 </ol>
 <blockquote class="tip"><strong>Pro tip from a reader in Pune:</strong> add your UPI ID as a one-line “Pay to: name@upi” and a 7-day due date in the email subject. She cut average payment time from 19 days to 6. Small fields, huge difference.</blockquote>
@@ -96,7 +96,7 @@ const html = `
 </tbody>
 </table>
 <h3>Everyday vs advance vs corrections</h3>
-<p><strong>Everyday:</strong> standard and tax invoices — 90% of what you send. <strong>Advance and recurring:</strong> proforma and retainers — get terms in writing first (use a <a href="/quotation-generator">quotation generator</a>). <strong>Corrections and tax:</strong> credit notes and export docs — keep them numbered separately. Confused between similar documents? Read <a href="/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt">invoice vs quotation vs receipt vs purchase order</a>.</p>
+<p><strong>Everyday:</strong> standard and tax invoices — 90% of what you send. <strong>Advance and recurring:</strong> proforma and retainers — get terms in writing first (use a <a href="/document-generator">quotation generator</a>). <strong>Corrections and tax:</strong> credit notes and export docs — keep them numbered separately. Confused between similar documents? Read <a href="/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt">invoice vs quotation vs receipt vs purchase order</a>.</p>
 
 <h2 id="templates-which-format">Free invoice templates: which format is right for you?</h2>
 <p>Search “<strong>free invoice template Word Excel PDF</strong>” and you drown in downloads. Here is the honest breakdown from someone who has tried all four.</p>
@@ -106,7 +106,7 @@ const html = `
 <li><strong>Excel / Sheets:</strong> great math, ugly output. Fine if you already live in spreadsheets.</li>
 <li><strong>Printable blank PDF:</strong> only for hand-filled field work. Avoid for client-facing bills.</li>
 </ul>
-<p>A good template — whatever the format — must have: logo slot, sequential numbering, itemized lines, tax row, bold total, payment terms and contact. Missing any of those? Skip it. Deep comparison with downloads logic in <a href="/blog/invoice-generator-guide/invoice-template-formats">invoice template Word, Excel, PDF guide</a> and when to issue a <a href="/receipt-generator">payment receipt</a> after you are paid.</p>
+<p>A good template — whatever the format — must have: logo slot, sequential numbering, itemized lines, tax row, bold total, payment terms and contact. Missing any of those? Skip it. Deep comparison with downloads logic in <a href="/blog/invoice-generator-guide/invoice-template-formats">invoice template Word, Excel, PDF guide</a> and when to issue a <a href="/document-generator">payment receipt</a> after you are paid.</p>
 
 <h2 id="tax-gst-legal">Tax, GST and legal requirements: what is actually mandatory?</h2>
 <p>Worth paying for advice here? For the invoice itself — no. For your filing — yes, talk to a CA. What follows is the field-level truth for getting the document right, not filing advice.</p>
@@ -129,11 +129,11 @@ const html = `
 <li><strong>Send Tuesday–Thursday mornings</strong> in the client time zone. Monday inboxes bury you; Friday invoices die over weekends.</li>
 <li><strong>Put total + due date in the subject.</strong> Attach the PDF named INV-2026-001-acme.pdf — never “final-final-v2.pdf”.</li>
 <li><strong>Use Net 15, not Net 30</strong> for new clients. Shorter terms get paid faster with zero pushback in my experience.</li>
-<li><strong>Ask for 30–50% advance</strong> on projects above ₹25,000 / $500. Send a <a href="/quotation-generator">quote</a> first, then the advance invoice.</li>
+<li><strong>Ask for 30–50% advance</strong> on projects above ₹25,000 / $500. Send a <a href="/document-generator">quote</a> first, then the advance invoice.</li>
 <li><strong>Follow up on day 3 and day 7</strong> after due date — polite, one line, re-attached PDF. Templates in <a href="/blog/invoice-generator-guide/payment-terms-and-followups">payment terms and reminders</a>.</li>
 </ul>
 <h3>Email formula that works</h3>
-<p>Subject first, then 3 lines: what, how much, by when — and how to pay. “Hi Priya — invoice INV-2026-001 for ₹23,600 due Oct 1. UPI: name@upi. PDF attached, let me know if accounts needs anything else. Thanks!” Warm, specific, done. After payment, close the loop with a <a href="/receipt-generator">payment receipt</a> — clients remember that professionalism.</p>
+<p>Subject first, then 3 lines: what, how much, by when — and how to pay. “Hi Priya — invoice INV-2026-001 for ₹23,600 due Oct 1. UPI: name@upi. PDF attached, let me know if accounts needs anything else. Thanks!” Warm, specific, done. After payment, close the loop with a <a href="/document-generator">payment receipt</a> — clients remember that professionalism.</p>
 
 <h2 id="mistakes-delay-payment">7 invoicing mistakes that delay payment (I made 4 of these)</h2>
 <ol>
@@ -168,7 +168,7 @@ export const invoicePillar: BlogPost = {
   description:
     "Create a professional invoice free: 12-point checklist, 5-step PDF walkthrough, GST rules, templates and numbering tips.",
   keywords: ["free invoice generator guide", "free invoice generator online no signup", "invoice maker guide", "create invoice online free tutorial", "online invoice generator free download pdf", "free professional invoice generator india", "invoice template guide", "gst invoice format guide"],
-  toolSlugs: ["invoice-generator", "quotation-generator", "receipt-generator"],
+  toolSlugs: ["invoice-generator", "document-generator"],
   relatedSlugs: ["how-to-create-invoice-online", "gst-invoice-format-india", "freelancer-invoice-guide"],
   published: "2026-09-10",
   updated: "2026-09-18",

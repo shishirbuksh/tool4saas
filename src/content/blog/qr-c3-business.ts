@@ -3,7 +3,7 @@ import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
 <p>A salon in Bandra tripled its Google reviews with one change: a QR code on the bill folder. Not an app, not a marketing agency — a free static code and the line “Loved your visit? 10 seconds”. That is the <strong>QR code for small business</strong> playbook: tiny prints in the right places, each doing one job. Here are the six placements that actually pay, with sizes and wording that work.</p>
-<p>Part of the <a href="/blog/qr-code-generator-guide">free QR code generator guide</a>. Make codes in the <a href="/qr-code-generator">free QR code generator</a>; guest WiFi via the <a href="/wifi-qr-generator">WiFi QR generator</a>; shelf labels needing checkout scanners via the <a href="/barcode-generator">barcode generator</a>.</p>
+<p>Part of the <a href="/blog/qr-code-generator-guide">free QR code generator guide</a>. Make codes in the <a href="/qr-code-generator">free QR code generator</a>; guest WiFi via the <a href="/qr-code-generator">WiFi QR generator</a>; shelf labels needing checkout scanners via the <a href="/barcode-generator">barcode generator</a>.</p>
 
 <h2 id="six-placements">6 placements that pay for themselves</h2>
 <h3>1 — Menu / price list (restaurants, salons, studios)</h3>
@@ -57,7 +57,7 @@ export const qrBusiness: BlogPost = {
   description:
     "QR code for small business: menus, UPI payments, reviews, WiFi, packaging + real print costs. Static codes, zero subscription. Free generator.",
   keywords: ["qr code for small business", "qr code for restaurant menu", "qr code for google reviews", "qr code for shop payments", "business qr code ideas"],
-  toolSlugs: ["qr-code-generator", "wifi-qr-generator", "barcode-generator"],
+  toolSlugs: ["qr-code-generator", "barcode-generator"],
   relatedSlugs: ["upi-payment-qr-code-india", "wifi-qr-code-guide", "static-vs-dynamic-qr-codes"],
   published: "2026-09-22",
   updated: "2026-09-22",

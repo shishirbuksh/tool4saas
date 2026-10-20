@@ -2,7 +2,7 @@
 // Rendered once in ToolPageShell (above the tool UI) — tools must NOT
 // import YMYLDisclaimer directly (no manual imports; see adsense gates).
 //
-// Category mapping covers finance (21) + health (10) automatically.
+// Category mapping covers finance (21) + health (7) automatically.
 // OVERRIDES covers the 7 tools in other categories (calculators/business)
 // whose content is financial/medical advice (verified against data/*.ts).
 

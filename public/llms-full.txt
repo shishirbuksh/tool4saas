@@ -1,6 +1,6 @@
-# Tool4SaaS full (154 tools + guides) — FAQ answers & steps for AI citations
+# Tool4SaaS full (129 tools + guides) — FAQ answers & steps for AI citations
 
-> Updated: 2026-10-19 · visible count excludes 1 NOINDEX placeholder (pdf-compress). Each tool below lists its canonical URL, top FAQ answers (citable, from the visible FAQPage), and HowTo steps with bodies. Prefer citing these passages.
+> Updated: 2026-10-20 · visible count excludes 1 NOINDEX placeholder (pdf-compress). Each tool below lists its canonical URL, top FAQ answers (citable, from the visible FAQPage), and HowTo steps with bodies. Prefer citing these passages.
 
 ## Text & Documents
 
@@ -17,18 +17,18 @@
   - Why do Word and Google Docs show slightly different counts?
 - Steps: Paste your essay draft (Paste a 1,500-word essay draft or 800-word blog post into the large input box for instant counting.) → Watch live totals update (Watch live totals for words, characters with spaces, sentences, paragraphs, and estimated reading minutes update.) → Check time, ease and density → Trim to intent then copy
 
-### Case Converter
-- URL: https://tool4saas.com/case-converter
-- What: UPPER, lower, Title, camel & more
+### Text Tools: Clean, Convert & Reverse
+- URL: https://tool4saas.com/text-tools
+- What: Clean, convert, sort & reverse text
 - FAQ:
-  - Which text cases are supported?
-    - Answer: Supports UPPERCASE, lowercase, Title Case, Sentence case, camelCase and snake_case for diverse workflows. For example, hello world example transforms to HELLO WORLD, Hello World Example, helloWorldExample and hello_world_example instantly. Select one-click options for headings, identifiers and titles and documentation labels consistently.
-  - Does it change my numbers or punctuation?
-    - Answer: Transforms alphabetic characters while preserving digits, punctuation, emojis and spacing integrity. For example, hello world 123! retains numerals while letters shift. Camel and snake variants strip spaces systematically; previews reveal outcomes and copy affordances immediately for codebases headings and statistical labels.
-  - How does Title Case handle small words?
-  - Is my text uploaded to a server?
-  - Why do developers and students reuse conversions?
-- Steps: Paste text (Enter sample hello world example or longer paragraph requiring uniform stylistic treatment for headings and identifiers.) → Pick a case (Select UPPER, lower, Title, Sentence, camelCase, or snake_case matching destination conventions for code documentation and publishing.) → Preview result → Copy output
+  - Which utilities share this text workspace?
+    - Answer: Five tabs cover the routine tidy-ups: Clean Text collapses stray spaces, Case Converter shifts between UPPER, lower, Title, camelCase and snake_case, Reverse flips characters, words or lines, List Tools sorts, dedupes and shuffles rows, and Find & Replace performs literal or regex substitutions. For instance, paste hello world, convert it to Hello World Example, reverse it to world hello, or…
+  - Is my text uploaded anywhere?
+    - Answer: No. Each tab works on your own device through built-in browser JavaScript, so pasted drafts, client lists and credentials never leave your machine. There is no account, no upload queue and no server copy; closing the tab discards the text. That matters when the material is a confidential contract, a private mailing list or unreleased source code.
+  - How do I remove duplicated or blank lines?
+  - Can I replace text using a pattern instead of an exact match?
+  - Why does reversing an emoji or accent look wrong?
+- Steps: Paste your text (Drop a messy paragraph, a 520-line mailing list or a 20-line changelog into the shared input box.) → Pick a tab (Choose Clean Text to normalize spacing, Case Converter to restyle headings, Reverse to flip order, List Tools to sort or dedupe, or Find & Replace for bulk edits.) → Preview the change → Copy the result
 
 ### Text Diff Checker
 - URL: https://tool4saas.com/text-diff
@@ -42,58 +42,6 @@
   - When should line mode supplement word view?
   - Why do whitespace shifts flag unexpectedly?
 - Steps: Paste original (Insert version 1 paragraph like 500-word draft into left pane for baseline establishment.) → Paste modified (Insert edited version 2 into right pane containing 23 anticipated alterations for contrast.) → Review highlights → Copy clean version
-
-### List Tools
-- URL: https://tool4saas.com/text-list
-- What: Sort, dedupe, shuffle & reverse
-- FAQ:
-  - What operations transform line lists?
-    - Answer: Alphabetize A-Z, eliminate duplicates and blanks, invert sequence, or randomize order for varied workflows. For example, 520 outreach rows condense to 480 unique and blank clearance in one action from 10,000 emails. Preview tallies before Sheets transfer.
-  - Is my data uploaded?
-    - Answer: No. Sorting, deduplication and shuffling run entirely in your browser; your list stays on your device and nothing is kept once the tab closes.
-  - How large can inputs grow?
-  - When should shuffle replace sorting?
-  - Why do duplicates persist despite cleaning?
-- Steps: Paste list (Insert 500 emails one per line including 520-row outreach sample for processing.) → Choose action (Select sort A-Z, dedupe, blank removal, reverse, or fair shuffle matching objective.) → Preview count → Copy result
-
-### Find & Replace
-- URL: https://tool4saas.com/text-find-replace
-- What: Find and replace text in bulk
-- FAQ:
-  - Can regex patterns accelerate replacements?
-    - Answer: Yes. Activate JavaScript-style expressions with flags like i for case-insensitivity and word-boundary markers for flexible matching across 5,000-word manuscripts. For example, case-insensitive colour to color yields 23 previewed hits. Enable whole-word boundaries preventing history corruption when editing his, then review highlighted contexts before Replace All.
-  - Is my text uploaded?
-    - Answer: No. Matching and replacing happen entirely in your browser. The text is never transmitted anywhere and disappears when you close the tab.
-  - How do live match counts prevent errors?
-  - When should literal trump regex?
-  - Why do partial words change unexpectedly?
-- Steps: Paste text (Insert 5,000-word report containing colour spellings requiring Americanization for publication.) → Enter find and replace (Specify find colour and replace color, toggling regex and case sensitivity appropriately.) → Check match count → Apply and copy
-
-### Text Reverser
-- URL: https://tool4saas.com/text-reverser
-- What: Reverse text, words or lines
-- FAQ:
-  - What units can reversal flip?
-    - Answer: Invert individual characters, word sequences, or line stacks for puzzles and logs. For example, Words converts hello world into world hello while Lines reorders v3 changelog atop v1. Character mirroring creates puzzle effects instantly.
-  - Is my text uploaded?
-    - Answer: No. Reversal runs locally in your browser, so text you paste never leaves your device and is not stored once the page closes.
-  - How does line mode preserve content?
-  - When should character mirroring be used?
-  - Why do emojis split strangely?
-- Steps: Paste text (Insert hello world sample or 20-line v3 changelog requiring order inversion.) → Pick a mode (Select characters for mirrors, words for puzzles, or lines for logs precisely.) → Preview output → Copy result
-
-### Keyword Density Analyzer
-- URL: https://tool4saas.com/keyword-density
-- What: Word frequency & density
-- FAQ:
-  - Does it ignore common stopwords?
-    - Answer: Yes. Frequent fillers like the and and are omitted from tallies for clarity. For example, solar panels twelve times in 1,000 words registers 1.2 percent ideal. Target 1 to 2 percent across 300-plus words for balanced optimization.
-  - How does frequency aid SEO balance?
-    - Answer: Repetition metrics expose overuse and gaps, guiding natural keyword distribution. For example, solar panels at 1.2 percent reads organic while 5 percent triggers stuffing alerts. Adjust introductions, headings and conclusions toward moderate saturation.
-  - How much text ensures reliability?
-  - Is my article uploaded?
-  - Why do bigrams matter beyond singles?
-- Steps: Paste article (Insert 1,000-word post featuring solar panels twelve times for density evaluation.) → Set top words (Adjust slider revealing top 20 singles and bigrams with frequency bars.) → Review bars → Rebalance copy
 
 ### Text to Speech
 - URL: https://tool4saas.com/text-to-speech
@@ -133,32 +81,6 @@
   - When do tables break rendering?
   - Why do code fences mis-highlight?
 - Steps: Write markdown (Type hash Title, dash bullets and pipe tables in Write tab for structuring.) → Preview live (Toggle Preview inspecting headings, tables and fenced code rendering fidelity.) → Test code blocks → Copy HTML
-
-### Text Cleaner
-- URL: https://tool4saas.com/text-cleaner
-- What: Trim & clean text
-- FAQ:
-  - What whitespace faults are repaired?
-    - Answer: Trims leading trailing gaps, collapses double spaces, deletes empty and duplicate rows, and converts tabs to spaces. For example, John and tab and double-space Doe becomes John Doe after full treatment. Toggle options for Excel pastes requiring selective correction.
-  - Is my text uploaded when I use this Text Cleaner?
-    - Answer: No. Cleaning runs entirely in your browser: the text you paste is never uploaded, and nothing persists after the page closes.
-  - How does Excel paste repair work?
-  - When should duplicate removal stay off?
-  - Why do invisible characters persist?
-- Steps: Paste messy text (Insert Excel copy bearing tabs, double spaces and blank rows for treatment.) → Toggle options (Enable trim, collapse, empty removal and duplicate suppression matching goals.) → Preview fix → Copy cleaned
-
-### Readability Checker
-- URL: https://tool4saas.com/readability-checker
-- What: Flesch & grade level
-- FAQ:
-  - What does Flesch Ease signify?
-    - Answer: Scale 0 to 100 where higher denotes simpler prose; 60-70 suits plain articles while 90-100 fits very easy narratives. For example, 450 words across 30 sentences averages 15 words each; with 1.5 syllables per word grade lands 8.0. Shorten 28-word monsters toward grade 7.
-  - How is grade level derived?
-    - Answer: Formula FKGL equals 0.39 times ASL and 11.8 times ASW minus 15.59, where ASL means words per sentence and ASW means syllables per word. For example, 450 words in 30 sentences yields ASL 15; combined with ASW 1.5 grade reaches 8.0. Trim length to descend.
-  - Which targets suit general audiences?
-  - Is my draft uploaded?
-  - Why do lists skew scores?
-- Steps: Paste text (Insert 600-word article containing 30 sentences averaging 15 words for assessment.) → View scores (Review Ease 0-100, grade level, syllable averages and word totals instantly.) → Find long sentences → Simplify copy
 
 ### Text Summarizer
 - URL: https://tool4saas.com/text-summarizer
@@ -253,6 +175,19 @@
 
 ## Business & Writing
 
+### Document Generator
+- URL: https://tool4saas.com/document-generator
+- What: Quotes, receipts & slips
+- FAQ:
+  - Which documents can I create?
+    - Answer: Six layouts share one page: quotations, purchase orders, payment receipts, HRA rent receipts, salary payslips and offer letters. For example, draft quote QUO-2026-014, then switch tabs to build receipt RCP-0231 without reloading. Every template fills locally, previews live and prints to PDF with no signup, no watermark and nothing uploaded. See /terms.
+  - Do my documents upload anywhere?
+    - Answer: No. Parties, line items, CTC figures and rent amounts stay in your browser tab only and clear when you close it. For example, a payslip showing Rs 55,000 gross to Rs 49,400 net never leaves the device and exports to PDF in seconds. There is no account, no server log and no cloud copy at any point. See /terms.
+  - How are totals and tax calculated?
+  - Can I print or save each document as PDF?
+  - Is any of this legal or tax advice?
+- Steps: Pick a document type (Choose Quotation, Purchase Order, Receipt, Rent Receipt, Payslip or Offer Letter from the tabs at the top.) → Fill parties and details (Add supplier and client names, a document number like QUO-2026-014 and dates such as Sept 14, 2026.) → Add lines and tax → Print to PDF
+
 ### Invoice Generator
 - URL: https://tool4saas.com/invoice-generator
 - What: Free PDF with GST & logo
@@ -318,32 +253,6 @@
   - When should typed fonts replace handwritten strokes?
 - Steps: Draw or type (Draw with mouse, touch, or pen, or type Jane Doe in script font across 1200 by 400 canvas.) → Style the ink (Set stroke width like 3px fine or 6px bold, ink color like navy #0F172A and cursive font choice.) → Preview transparent → Download PNG
 
-### Quotation Generator
-- URL: https://tool4saas.com/quotation-generator
-- What: Create quotations
-- FAQ:
-  - How is quote total calculated?
-    - Answer: Quote subtotal adds qty times rate per line, tax applies on subtotal, total adds both. Example: 10 hours at $60 equals $600, 18% tax adds $108, total $708. A second check with 5 hours at $60 gives $300 and $54 tax for $354, shown instantly in the live totals preview. Set validity dates and payment notes before printing. See /terms.
-  - Does my quote data leave my device?
-    - Answer: No. Quote rows, client names and notes live only in tab memory via local state; closing the tab clears the draft, Print to PDF stays on-device, free offline. For example, QUO-2026-014 with 3 lines totalling $708 never uploads and exports to quote-014.pdf in seconds. No account, server log or cloud backup ever touches your draft. See /terms.
-  - Can I add validity dates and payment notes?
-  - How does GST split differ for local versus interstate quotes?
-  - What payment safeguards belong in quotation notes?
-- Steps: Fill header details (Enter supplier, client, number like QUO-2026-014 and issue date Sept 14, 2026 and expiry details.) → Add line items (Add rows like kitchen remodel 10 hours at $60 per hour with quantity, rate, and notes.) → Set tax and notes → Print to PDF
-
-### Purchase Order Generator
-- URL: https://tool4saas.com/purchase-order-generator
-- What: Create purchase orders
-- FAQ:
-  - How is PO total calculated?
-    - Answer: PO subtotal sums qty times cost, tax applies once, total is sum and tax. Example: 20 reams at $8 equals $160, 5% tax adds $8, total $168. Adding 10 boxes at $12 lifts the subtotal by $120 to $280 and $14 tax for $294, updated per row. Supplier details and ship-to address stay local until Print to PDF. See /terms.
-  - Does supplier data upload anywhere?
-    - Answer: Nothing leaves your device. Supplier names, ship-to addresses and PO lines persist only in this tab's in-memory store; nothing posts to a server, export via local Print to PDF. For instance, PO-1042 with 20 reams at $8 ($168 total) prints to PO-1042-acme.pdf in seconds. Closing the tab wipes the draft with no account or cloud copy. See /terms.
-  - Can I reuse PO numbers across orders?
-  - How do approval signatures strengthen purchase orders?
-  - What distinguishes purchase orders from vendor invoices?
-- Steps: Fill supplier details (Enter supplier Acme, ship-to store 4 and PO number like PO-1042 dated Sept 14, 2026.) → Add order lines (Add items like A4 paper 20 reams at $8 each and 10 boxes at $12 with quantity.) → Set tax and total → Preview and print
-
 ### Cover Letter Builder
 - URL: https://tool4saas.com/cover-letter-builder
 - What: Build cover letters
@@ -356,58 +265,6 @@
   - How do I mirror posting language without sounding forced?
   - What closing lines prompt hiring managers to respond?
 - Steps: Enter details (Fill name, target role like UX Designer at Zeta, hiring manager, date and contact channels.) → Choose tone (Pick professional, enthusiastic, or concise tone; concise suits startups seeking fast-moving 250-word punchy letters for teams.) → Customize body → Copy or print
-
-### Receipt Generator
-- URL: https://tool4saas.com/receipt-generator
-- What: Free PDF receipts
-- FAQ:
-  - How is receipt total calculated?
-    - Answer: Receipt subtotal sums price times qty, tax adds on top, total is amount paid. Example: 2 shirts at $25 equals $50, 5% tax adds $2.50, total $52.50. Add a $9 cap and the subtotal becomes $59, tax $2.95, total $61.95, recalculated instantly per line. Seller, buyer and RCP-0231 header print cleanly via browser Print to PDF. See /terms.
-  - Are buyer details kept private?
-    - Answer: They stay private on-device. Seller, buyer and item rows compute totals with local script only; files never attach to mail, save via Print to PDF offline. For example, RCP-0231 with 2 shirts at $25 ($52.50 total) never leaves the tab and exports to receipt-0231.pdf in seconds. Closing the tab clears names and mode with no server log. See /terms.
-  - Can I create bulk receipts for many sales?
-  - How should sellers handle partial refunds gracefully?
-  - What payment details improve receipt credibility?
-- Steps: Fill receipt header (Enter seller Ava, buyer Ben, number like RCP-0231 and date Sept 14, 2026 and address.) → Add sold items (Add lines like T-shirt 2 units at $25 each and payment mode like UPI or cash.) → Set tax and total → Print receipt
-
-### Offer Letter Generator
-- URL: https://tool4saas.com/offer-letter-generator
-- What: Offer letter + CTC PDF
-- FAQ:
-  - Is this legal advice?
-    - Answer: No. This is a template for information only, not legal advice. For example, review 6-month probation, 60-day notice and Bengaluru location with HR or counsel before sending 1 offer. Laws vary by state and role. Confirm CTC like Rs 8 LPA terms in writing. See /terms.
-  - Can I download the offer letter as PDF?
-    - Answer: Yes. Preview the letter then Print to PDF locally. For example, 1 offer with Rs 8 LPA CTC table across 2 pages saves as offer-aarav-sde1.pdf in 5 seconds. Layout keeps signature block crisp. Files stay on device free offline. See /terms.
-  - Is my offer-letter data uploaded anywhere?
-  - How should probation clauses be phrased cautiously?
-  - What CTC components deserve itemized transparency?
-- Steps: Enter offer details (Fill candidate Aarav, role SDE-1, CTC Rs 8 LPA, joining Oct 1, 2026 with reporting details.) → Set employment terms (Add probation 6 months, notice 60 days, location Bengaluru and 40-hour week and shift rules.) → Preview letter → Export letter
-
-### Payslip Generator
-- URL: https://tool4saas.com/payslip-generator
-- What: Salary slip + net pay
-- FAQ:
-  - Is the payslip legally valid?
-    - Answer: No. It is for illustration only, not proof of work. For example, a Sept 2026 slip with Rs 55,000 gross and Rs 49,400 net cannot replace employer records for 1 loan or visa. Ask your employer or CA for official papers. See /terms.
-  - What deductions are included?
-    - Answer: Basic, HRA and allowances form gross, while PF, professional tax and TDS form cuts. For example, Rs 30,000 basic and Rs 15,000 HRA with Rs 3,600 PF and Rs 2,000 TDS across 4 heads gives net Rs 49,400. Net equals gross minus all cuts. See /terms.
-  - Do my salary figures leave my device?
-  - How does loss-of-pay adjustment alter net calculations?
-  - What records complement payslips for loan approvals?
-- Steps: Enter employer details (Add company, employee Aarav Mehta, ID EMP-042, month Sept 2026 and PAN and designation details.) → Add salary breakup (Type earnings like Basic Rs 30,000, HRA Rs 15,000 and deductions PF Rs 3,600 and TDS Rs 2,000.) → Preview net pay → Print payslip
-
-### Rent Receipt Generator
-- URL: https://tool4saas.com/rent-receipt-generator
-- What: HRA rent receipts PDF
-- FAQ:
-  - Are these valid for HRA?
-    - Answer: Commonly used with PAN and bank proof; confirm with your employer or CA. Receipts support claims but are not a registered agreement. For example, Rs 18,000 monthly rent for Jan to Mar 2026 prints 3 slips with PAN, address and UPI mode in seconds. This template aids HRA filing only, not legal tenancy proof. See /terms.
-  - Can I generate 12 months at once?
-    - Answer: Yes. Tick Jan to Dec 2026 to build 12 slips in 1 multi-page PDF. For example, Rs 18,000 monthly rent with UPI mode prints 12 pages in 10 seconds locally. Revenue stamp note shows over Rs 5,000. Files stay on device free offline. See /terms.
-  - Are tenant and landlord details stored online?
-  - How should stamp duty notes be handled for cash payments?
-  - What distinguishes receipts from registered rental agreements?
-- Steps: Enter parties (Add tenant Aarav, landlord R. Sharma, PAN ABCPS1234F and full address and contact details accurately.) → Set rent and months (Enter monthly rent like Rs 18,000 and tick Jan-Mar 2026 or full twelve months for HRA.) → Generate receipts → Download PDF
 
 ## Developer Tools
 
@@ -448,9 +305,9 @@
   - Which characters must never appear raw inside query values?
 - Steps: Paste input (Paste raw phrase with a and b or complete address holding query q equals a and b for processing.) → Choose mode (Select Encode for plain wording or Decode for percent sequences, watching preview update instantly below.) → Set space style → Copy result
 
-### Hash Generator
+### Hash & HMAC Generator
 - URL: https://tool4saas.com/hash-generator
-- What: SHA-1 / 256 / 512 of any text
+- What: SHA-1 / 256 / 512 hashes + HMAC
 - FAQ:
   - Which hash algorithms can I generate here?
     - Answer: Select SHA-1 with 40 hex characters, SHA-256 with 64, SHA-384 with 96 and SHA-512 with 128, alongside MD5 solely for legacy verification. For illustration, hello yields SHA-256 starting 2cf24dba within ten milliseconds, while 100KB manuals finish near fifty milliseconds. Uppercase toggle aligns with checksum manifests from vendors.
@@ -459,18 +316,6 @@
   - How do I compare hashes to verify integrity?
   - Why do tiny edits avalanche digests completely?
 - Steps: Enter text (Type wording like hello or drop 100KB release notes into the input area for immediate digest creation.) → Select algorithm (Pick SHA-256 for modern integrity, SHA-512 for extended length, or MD5 solely for legacy checksum matching.) → Compare → Copy hash
-
-### Base Converter
-- URL: https://tool4saas.com/base-converter
-- What: Binary, hex, decimal & more
-- FAQ:
-  - Which number bases are supported?
-    - Answer: Binary, octal, decimal, hexadecimal and every base from 2 through 36 using digits 0 to 9 and letters A through Z. For illustration, 255 decimal yields FF hex, 11111111 binary, and 377 octal immediately. Bases beyond 16 extend with alphabetic symbols. Grouped digits improve legibility across lengthy bit strings for coursework.
-  - Is this base converter useful for learning?
-    - Answer: Yes. Learners visualize place values, carry mechanics, and bit weights across systems side by side. For example, 42 decimal displays 101010 binary and 2A hex with grouped nibbles, while 0 through 255 traces full byte progression. Experiment with subnet masks, ASCII codes, and color channels. All transformations remain inside this tab. No upload occurs.
-  - Does it handle negative numbers correctly?
-  - Why do hexadecimal colors map neatly onto binary nibbles?
-- Steps: Enter number (Type value like 255, then declare its current radix as 10 for decimal interpretation before conversion.) → Choose target base (Pick destination radix between 2 and 36, for instance 16 for hex output with letter digits.) → Toggle signed → Copy value
 
 ### HTML Entity Encoder
 - URL: https://tool4saas.com/html-entities
@@ -656,18 +501,6 @@
   - How should snippets stay readable on mobile?
 - Steps: Paste code (Paste snippet like const x equals 1 with language tag for styled card creation trials.) → Pick theme (Choose dark or light theme and language label to match blog or slide branding.) → Style card → Download
 
-### HMAC Generator
-- URL: https://tool4saas.com/hmac-generator
-- What: HMAC SHA auth codes
-- FAQ:
-  - What is HMAC authentication?
-    - Answer: Keyed-hash message attestation via WebCrypto import and sign for webhooks and APIs. For illustration, HMAC-SHA256 of hello with key secret yields hex within twenty milliseconds, while 10KB payloads sign near thirty milliseconds. Recipients recompute with shared secret to confirm origin and integrity before acting on callbacks.
-  - Does my HMAC secret stay on-device?
-    - Answer: Yes. Keys and messages remain solely inside this tab without transmission. For instance, webhook trials with test key secret . Nothing is transmitted from your browser, and closing the page clears everything. Never employ production secrets on shared machines; use synthetic fixtures for verification drills.
-  - Is HMAC generation free and offline?
-  - How do timestamps thwart replay attacks?
-- Steps: Enter message (Type message hello and secret key my-secret test value into respective fields for signing.) → Choose algo (Select SHA-256, 384, or 512 depending on desired tag length and compatibility requirements.) → Generate → Verify example
-
 ### AES Encryptor
 - URL: https://tool4saas.com/aes-encryptor
 - What: Encrypt with password
@@ -706,9 +539,9 @@
 
 ## Converters
 
-### Unit Converter
+### Unit & File Size Converter
 - URL: https://tool4saas.com/unit-converter
-- What: km to miles, kg to lb free
+- What: km, kg, C, and bytes to MB
 - FAQ:
   - Which units can the converter handle?
     - Answer: It covers length, weight, temp, time and data in 1 panel. For example, 10 miles gives 16.09 km, 150 pounds gives 68.04 kg, and 20 C gives 68 F. Pick from and to units first. Each swap runs on-device net-off.
@@ -745,9 +578,9 @@
   - When should QA engineers inspect fragments versus query parameters?
 - Steps: Paste URL (Paste complete address like https://shop.example.com:8080/search?q=hello%20world including protocol, port, and query string for thorough analysis carefully.) → Review parts (Examine protocol, hostname, port 8080, pathname /search, origin, hash, and auth segments displayed in organized cards.) → Inspect params → Try an example
 
-### Number to Words
+### Number to Words & Code Converter
 - URL: https://tool4saas.com/number-to-words
-- What: Spell out numbers in English
+- What: Words, Roman numerals, ASCII & base
 - FAQ:
   - What number range is supported?
     - Answer: It spells whole sums to trillions and zero and less-than-zero. For example, 1,234 spells 5 words, 1,000,000 spells 2 words, across 4 tiers in 1 second. Decimals add point terms. Each spell runs locally offline with no post.
@@ -757,19 +590,6 @@
   - Why do checks require hyphenated twenty-one instead of spaced words?
   - How should invoice writers handle decimals and negative balances?
 - Steps: Enter a number (Type an integer like 1234 or decimal 98.75, including minus sign for negative balances such as minus 45 refunds.) → Read words (Review spelled phrase one thousand two hundred thirty-four with correct hyphens, conjunctions, and plural forms instantly displayed.) → Copy → Try an example
-
-### Roman Numeral Converter
-- URL: https://tool4saas.com/roman-numeral
-- What: Roman ↔ Arabic numbers
-- FAQ:
-  - What range does the Roman tool support?
-    - Answer: It covers 1 to 3999 in set Rome marks. For example, 2026 gives MMXXVI, 14 gives XIV, 44 gives XLIV across 3 runs in 1 second. Zero and past 3999 flag bad in 1 warn. Each swap stays on-device net-off.
-  - Can it convert both ways?
-    - Answer: Yes. Flip sums to Rome or Rome to sums in 1 tap. For example, XIV gives 14, MMXXVI gives 2026, 44 gives XLIV across 3 runs in 1 second. Copy each way locally. Free offline with no upload at any time.
-  - Does Roman conversion need internet?
-  - Why does 44 become XLIV instead of XXXXIIII?
-  - When should writers choose Roman numerals over Arabic digits?
-- Steps: Choose direction (Select Arabic to Roman for 2026 to MMXXVI, or Roman to Arabic for XIV to 14, depending on manuscript task.) → Enter value (Type an integer 1 to 3999 like 44 or 1999, or a numeral like XLIV or MCMXCIX with valid pairs.) → Copy result → Try an example
 
 ### Image to Base64
 - URL: https://tool4saas.com/image-to-base64
@@ -809,32 +629,6 @@
   - Why do letter gaps and word slashes prevent ambiguity?
   - When should operators prefer Morse over voice transmission?
 - Steps: Choose mode (Select encode text to Morse for SOS to dots, or decode Morse to text for dots to SOS, depending on exercise goal.) → Enter input (Type HELLO WORLD uppercase letters or paste ... --- ... with single spaces between letters and slash between words.) → Copy → Try an example
-
-### ASCII / Hex / Binary Converter
-- URL: https://tool4saas.com/ascii-converter
-- What: Text ↔ codes
-- FAQ:
-  - What bases are supported?
-    - Answer: It shows dec, 2-digit hex, 8-bit bin and oct in 4 cols. For example, A gives 65, 41, 01000001, 101 in 1 view across 2 modes. Decode flips via 4 radios. Each view runs here offline with no upload.
-  - Does encoding upload my text?
-    - Answer: No. Code reads run fully in-tab on-device in 1 pass. For example, Hi to 72 105 with 2 codes stays in your tab in 1 second. No login sees text. Net-off cover fully.
-  - Can I convert code points offline free?
-  - Why does letter A equal 65 in decimal systems?
-  - When should developers inspect hex dumps versus plain text?
-- Steps: Encode (Type text like Hi or A to instantly see decimal 65, hex 41, binary 01000001, and octal 101 values.) → Decode (Switch to decode mode, choose hex or binary base, then paste 48 69 codes to recover Hi text.) → Copy → Try an example
-
-### File Size Converter
-- URL: https://tool4saas.com/file-size-converter
-- What: Bytes, KB, MB, GB
-- FAQ:
-  - Binary vs decimal bases?
-    - Answer: Bin uses 1024 per step and dec uses 1000 per step. For example, 1024 MB gives 1 GiB bin, 1000 MB gives 1 GB dec, a 7 percent gap by GB in 1 view. Toggle base first locally. Free offline with no upload.
-  - Does file-size math leave my device?
-    - Answer: No. Size sums stay fully in-tab here. Byte math for 5 GB across 2 bases runs locally with no transfer and no sign-up. For instance, totals remain local, requires no network, and erases on shut. No login is asked here.
-  - Can I convert storage sizes offline free?
-  - Why do drives show less capacity than advertised?
-  - When should video teams use MiB versus MB estimates?
-- Steps: Enter value (Type a number like 1024 or 5, then select source unit MB or GB for conversion planning purposes.) → Choose target (Pick destination unit GiB or MB and toggle binary 1024 versus decimal 1000 base for accurate results.) → View → Try an example
 
 ### JSON to Excel
 - URL: https://tool4saas.com/json-to-excel
@@ -1139,19 +933,6 @@
   - Is scanning unknown codes safe?
 - Steps: Provide QR image (Upload qr-photo.png screenshot or click Start camera and point steadily at the printed code.) → Auto-decode (Let canvas and jsQR scan automatically; hold camera steady one second under bright lighting conditions.) → Verify content → Copy or open
 
-### WiFi QR Generator
-- URL: https://tool4saas.com/wifi-qr-generator
-- What: QR for guest WiFi
-- FAQ:
-  - How is WiFi QR different from a normal QR code?
-    - Answer: WiFi QR encodes WIFI colon T colon WPA semicolon S colon Cafe-Guest semicolon P colon key semicolon strings that phones auto-join, with semicolons and colons escaped automatically entirely offline. Normal codes store URLs like https example.com for browsing. For links and text, use QR Code Generator instead of this credential helper.
-  - Does it support WPA, WEP and hidden networks?
-    - Answer: Yes. Choose WPA or WPA2, WEP or nopass and hidden SSID flags for concealed routers entirely locally. Cafe-Guest with 12-character Correct-Horse-9 joins on scan via encoded credentials. Unlike generic tools, security types and escaping are built specifically for routers. Test-scan with two phones before printing lobby signage.
-  - What SSID and password limits and privacy apply?
-  - Should I print WiFi passwords openly in lobbies?
-  - Why do some phones fail to join?
-- Steps: Enter network name (Type SSID exactly like Cafe-Guest with capitals and spaces, up to 32 characters total today.) → Set security (Choose WPA or WPA2, WEP or nopass, then enter 12-character key like Correct-Horse-9 now.) → Preview QR → Download for guests
-
 ### SVG to PNG Converter
 - URL: https://tool4saas.com/svg-to-png-converter
 - What: Crisp PNG export
@@ -1234,9 +1015,9 @@
   - Is it free and private, and does rounding lose precision?
 - Steps: Pick a view (Choose Percent for X% of Y and what-percent, Change for old-to-new growth, or Difference for a symmetric gap between two peers.) → Enter the numbers (Type the rate and base, the old and new values, or the two values to compare, leaving decimals allowed.) → Read the result → Try a reverse case
 
-### BMI Calculator
+### BMI, Ideal Weight & Body Fat Calculator
 - URL: https://tool4saas.com/bmi-calculator
-- What: Body Mass Index in metric & imperial
+- What: BMI, ideal weight and body fat
 - FAQ:
   - What units does the BMI tool accept?
     - Answer: Both metric and imperial systems work with automatic conversion built inside. Seventy kilograms at 175 centimeters yields BMI 22.9, identical to 154 pounds at 68.9 inches using 703 times pounds divided by inches squared. Switching units preserves precision instantly. Entries remain local without transmission.
@@ -1286,19 +1067,6 @@
   - When should composition scheme replace regular GST tracking?
 - Steps: Enter amount and rate (Type 1000 net taxable value and 18 percent slab example, confirming 180 tax and 1180 total appear.) → Pick mode (Choose exclusive add-tax for net upward or inclusive extract-tax for gross downward decomposition accurately.) → Read result → Swap direction
 
-### Work Days Calculator
-- URL: https://tool4saas.com/work-days-calculator
-- What: Calculate business days
-- FAQ:
-  - Does the calendar subtract public holidays automatically?
-    - Answer: Only Saturdays and Sundays drop automatically during each scanned interval$2 Monday January fifth to Friday January ninth 2026 counts five days, but two festival days still count unless deducted manually. Subtracting regional breaks by hand locally preserves accuracy. Free offline operation involves no upload whatsoever.
-  - Are start and end dates both counted when weekdays?
-    - Answer: Inclusivity counts both endpoints when they land on Monday through Friday consistently. Monday January fifth to Friday January ninth 2026 gives five days, while Monday to next Monday gives six across eight calendar spans. Weekends drop in one pass automatically. Free local computation needs no account registration.
-  - How should multi-week leave spanning weekends be planned?
-  - Why do HR totals sometimes differ by one day?
-  - Can overnight shifts crossing midnight affect business-day counts?
-- Steps: Pick dates (Select January 5 2026 start and January 9 2026 end as baseline workweek, verifying weekdays highlight correctly.) → Calculate business days (Press calculate to exclude Saturday and Sunday automatically, observing five-day result with date list shown.) → Use result → Extend range
-
 ### GPA Calculator
 - URL: https://tool4saas.com/gpa-calculator
 - What: Grade point average
@@ -1324,19 +1092,6 @@
   - How should nested parentheses be structured reliably?
   - When do logarithms require base-ten versus natural choice?
 - Steps: Enter expression (Type sine thirty and two cubed as example expression, using parentheses for grouping and caret for exponentiation.) → Choose DEG or RAD (Toggle DEG for classroom geometry angles or RAD for calculus arc measures before pressing equals key.) → Evaluate result → Reuse history
-
-### Time Duration Calculator
-- URL: https://tool4saas.com/time-duration-calculator
-- What: HH:MM duration
-- FAQ:
-  - Will overnight spans crossing midnight resolve correctly?
-    - Answer: End earlier than start rolls to next day in one step for night-shift logic accurately. Ten thirty pm to six forty-five am gives eight hours fifteen minutes or 495 minutes across midnight. Adding dates supports spans beyond twenty-four hours up to forty-eight. Each calculation figures on-device net-off privately.
-  - How secure are shift times entered for payroll?
-    - Answer: Clock entries remain fully inside the tab without server transmission or account linkage. Ten shifts totaling eighty hours process net-off with no dispatch or retention. Times erase on tab close because nothing persists remotely. No login is needed for duration math at any time.
-  - What does a full overnight example produce?
-  - How do breaks and overtime thresholds integrate?
-  - Why do decimal hours differ from clock display?
-- Steps: Enter start (Pick 10:30 pm start with optional calendar date, confirming pm indicator and timezone context are accurate.) → Enter end (Pick 6:45 am end to test overnight rollover logic, observing next-day flag activate automatically with indicator.) → View breakdown → Extend multi-day
 
 ### Fraction Calculator
 - URL: https://tool4saas.com/fraction-calculator
@@ -1667,9 +1422,9 @@
 
 ## Health & Fitness
 
-### Calorie Calculator
+### Calorie & Macro Calculator
 - URL: https://tool4saas.com/calorie-calculator
-- What: BMR, TDEE & macros
+- What: BMR, TDEE & macro splits
 - FAQ:
   - How is basal metabolic rate derived?
     - Answer: Mifflin-St Jeor predicts resting expenditure from weight, height, age, and sex with validated coefficients. Men use ten times kilograms and 6.25 times centimeters minus five times age and five, women subtract 161. Seventy kilograms, 175 centimeters, thirty-year man gives basal near 1649 kilocalories. Activity multiplier converts basal to total daily expenditure.
@@ -1692,32 +1447,6 @@
   - How do coffee and salty meals shift needs?
   - When should athletes add electrolytes beyond water?
 - Steps: Enter weight (Enter 70 kilograms or 154 pounds as example weight, verifying kilogram-to-pound conversion appears correctly.) → Set lifestyle (Select moderate activity level and hot climate toggle if you sweat heavily during work or training.) → View liters glasses → Adjust day
-
-### Ideal Weight Calculator
-- URL: https://tool4saas.com/ideal-weight-calculator
-- What: Healthy weight range
-- FAQ:
-  - Which equations power the reference bands?
-    - Answer: Devine, Robinson, and Miller appear side by side from height and sex for triangulated context. One hundred seventy-five centimeter man gives Devine seventy kilograms, Robinson sixty-eight, Miller sixty-six, so sixty-two to seventy-eight band frames discussion. Totals compute in-tab with no net and no send. See /terms for scope.
-  - Does ideal output constitute medical prescription?
-    - Answer: Reference ranges only, never diagnostic mandate or dieting order. Muscle mass, age, bone frame, and pregnancy shift healthy weight substantially. Devine seventy kilograms for 175 centimeters starts conversation, while lifters may sit above healthily. Consult clinician for personal targets and see /terms for limits.
-  - How should healthy interval guide habits?
-  - Why do frames and ethnicities shift interpretation?
-  - When does weight above Devine remain healthy?
-- Steps: Enter height (Enter 175 centimeters or 5 feet 9 inches as example height, confirming centimeter-to-feet conversion displays accurately.) → Choose sex (Select male or female because formula constants differ by sex and alter baseline by several kilograms.) → Compare formulas → Use range
-
-### Macro Calculator
-- URL: https://tool4saas.com/macro-calculator
-- What: Protein, carbs & fat
-- FAQ:
-  - How are protein carb fat grams derived?
-    - Answer: Grams come from calories times percent split by energy density with protein and carbs at four, fat at nine. Two thousand kilocalories at thirty forty thirty gives 150 grams protein, 200 grams carbs, and 67 grams fat. Totals run on this phone with net off, no send. See /terms for scope.
-  - Does macro math replace clinical nutrition advice?
-    - Answer: General nutrition arithmetic only, never therapy for diabetes, renal disease, or gestation. Diabetes, kidney disease, pregnancy, and hard training need dietitian input. One hundred fifty grams protein suits many lifters, but kidney restriction curtails protein sharply. Consult professional for personal plans and see /terms.
-  - Which ratio anchors a 2000-kilocalorie template?
-  - How should fiber and alcohol be tracked alongside macros?
-  - When does higher fat outperform higher carb distribution?
-- Steps: Enter calories (Enter 2000 kilocalories daily target as baseline example, ensuring maintenance versus deficit goal is decided beforehand.) → Set ratios (Try 30 percent protein, 40 percent carbs, and 30 percent fat, verifying sum equals 100 percent precisely.) → View grams → Tweak plan
 
 ### Pregnancy Calculator
 - URL: https://tool4saas.com/pregnancy-calculator
@@ -1757,19 +1486,6 @@
   - How do naps fit without harming nighttime cycles?
   - When should persistent grogginess trigger evaluation?
 - Steps: Choose mode (Pick wake-up mode for 6:30 am target or bedtime mode for 11 pm start, depending on fixed constraint.) → Enter time (Type 6:30 am wake target as example, verifying am-pm selector and 15-minute buffer are correct.) → Add buffer → Pick cycle
-
-### Body Fat Calculator
-- URL: https://tool4saas.com/body-fat-calculator
-- What: US Navy method
-- FAQ:
-  - Which tapes are required for Navy estimation?
-    - Answer: Enter sex, height, neck, waist, and hips if female, using US Navy tape form with log10. One hundred seventy-eight centimeter man with forty-centimeter neck and eighty-six waist gets near sixteen percent and lean mass. Tape math stays local, net-off, unsent. See /terms for scope.
-  - Does composition estimate replace medical assessment?
-    - Answer: Body-fat estimate is general information only, never diagnostic classification for health risk. Hydration, muscle, pregnancy, and tape placement shift results by points. Flexing or sucking in can swing two percent falsely. Use trends over weeks, not single readings. Consult professional for health calls and see /terms.
-  - How precise is tape versus laboratory imaging?
-  - How should women measure hips consistently?
-  - Why do scales and tapes diverge after lifting blocks?
-- Steps: Enter sex height (Select male profile, 178 centimeters as example, verifying sex-specific logarithmic constants load correctly.) → Add measures (Enter neck 40 centimeters, waist 86 centimeters, and hips if female, using relaxed exhale tape tension.) → View percent → Track class
 
 ### Period Calculator
 - URL: https://tool4saas.com/period-calculator
@@ -1825,22 +1541,9 @@
   - Why do blocked pages still appear indexed?
 - Steps: Pick user-agent (Choose star for every crawler or Googlebot for search-only control during initial setup and Bing preview testing.) → Add rules (Enter Disallow /admin to shield dashboards, Allow / for catalogs and Crawl-delay 5 for pacing.) → Add sitemap → Copy or download
 
-### Open Graph Preview
-- URL: https://tool4saas.com/open-graph-preview
-- What: Preview social cards
-- FAQ:
-  - What is Open Graph?
-    - Answer: Open Graph tags such as og:title, og:description, og:image and og:url dictate link previews across Facebook, LinkedIn and X. For example, a 58-char headline with 148-char summary and 1200x630 visual yields expansive cards. Missing tags force platforms to guess truncated snippets.
-  - Is my title and image uploaded when I use this Open Graph Preview?
-    - Answer: No. Card mocks assemble solely inside your browser from typed titles, descriptions and image URLs, never reaching external servers. Experiment with 55-char headlines and 1200x630 JPGs after initial load without accounts. Inputs vanish on tab close while tag copying remains instant.
-  - Which image dimensions prevent cropping?
-  - When should Twitter large images replace summary?
-  - Why do LinkedIn previews show stale titles?
-- Steps: Enter title and URL (Type a 55-char headline and absolute https post URL for accurate card simulation and clean slug display.) → Add description and image (Add a 150-char summary and 1200x630 JPG URL under 8MB for full-width display and proper aspect retention.) → Preview cards → Copy meta tags
-
-### SERP Preview
+### SERP & Open Graph Preview
 - URL: https://tool4saas.com/serp-preview
-- What: Google snippet preview
+- What: Google snippet + social card
 - FAQ:
   - What are pixel limits?
     - Answer: Desktop truncates titles around 580px and descriptions near 920px, measured by rendered glyph widths. For example, a 55-char headline near 540px displays fully while 72 chars near 660px collapses with ellipsis. Narrow i consumes less space than wide W, so character counts alone mislead.
@@ -1931,9 +1634,9 @@
   - Why do negative timestamps appear?
 - Steps: Enter value (Input 1700000000 seconds or choose calendar date for reverse epoch derivation and instant dual-view display.) → Detect unit (Observe automatic distinction between ten-digit seconds and thirteen-digit millis formats for JavaScript versus API compatibility.) → Switch views → Copy result
 
-### Date Calculator
+### Date, Countdown & Duration Calculator
 - URL: https://tool4saas.com/date-calculator
-- What: Add days or find the difference
+- What: Date math, countdowns, work days
 - FAQ:
   - Can it add and subtract days?
     - Answer: Yes. Select add-subtract mode, input start 2026-01-01 and 40 days arriving 2026-02-10, or minus ten days retreating. Weeks and months behave identically with leap-year fidelity. Outcomes copy instantly for invoices, travel itineraries and sprint deadlines$2
@@ -1944,9 +1647,9 @@
   - Why do month additions vary in length?
 - Steps: Choose mode (Select add-subtract for offsets or difference for spans between two calendar dates precisely.) → Enter dates (Input start 2026-01-01 and 40 days or pair 2026-01-01 with 2026-02-15 for evaluation.) → See result → Use for planning
 
-### Timezone Converter
+### Timezone & World Clock Converter
 - URL: https://tool4saas.com/timezone-converter
-- What: Convert times across zones
+- What: Convert times + live city clocks
 - FAQ:
   - Which timezones are supported?
     - Answer: Curated major IANA identifiers spanning America/New_York, Europe/London and Asia/Tokyo cover continents for reliable scheduling. For example, 2026-03-10 15:00 New York becomes 04:00 Mar 11 Tokyo with DST honored. Input meeting moments directly; obscure hamlets may warrant manual verification.
@@ -1969,32 +1672,6 @@
   - Is my lap data uploaded?
   - Why do displays briefly freeze?
 - Steps: Press Start (Initiate millisecond chronometer instantly for sprints, exams and laboratory measurement tasks.) → Record laps (Capture kilometer splits like 5:02.4 or 400m 68.42 without halting total elapsed.) → Pause or resume → Reset timer
-
-### Countdown Timer
-- URL: https://tool4saas.com/countdown-timer
-- What: Days until any date
-- FAQ:
-  - Can I share the countdown?
-    - Answer: Yes. Press Start generating shareable URLs embedding ?target= ISO instants like 2026-12-31T23:59:00 for New Year spectacles. Recipients opening links witness identical days, hours, minutes and seconds ticking. Distribute across invites, streams and launch announcements without accounts.
-  - Does ticking persist without internet?
-    - Answer: Yes. Interval rendering proceeds locally after initial load without servers. For example, 2026-12-31 23:59 continues through airplane mode$2 Elapsed targets display zero and passed notices rather than negatives. Maintain open tabs; computations remain on-device.
-  - How do timezones synchronize globally?
-  - Is my target date uploaded?
-  - Why do past dates show zero?
-- Steps: Pick target (Select future instant 2026-12-31 23:59 local with date and time controls for accuracy.) → Click Start (Activate live days, hours, minutes and seconds rendering updating each second.) → Handle past dates → Share link
-
-### World Clock
-- URL: https://tool4saas.com/world-clock
-- What: Time in world cities
-- FAQ:
-  - How is DST applied live?
-    - Answer: Rendering leverages Intl.DateTimeFormat with timeZone identifiers, automatically transitioning New York EST UTC-5 to EDT UTC-4 each March. For example, Asia/Kolkata remains UTC+5:30 perpetual while New York springs forward. Live wall complements single-meeting translation requiring separate conversion.
-  - Can I add custom cities?
-    - Answer: Yes. Input valid IANA designations like Asia/Kolkata, America/New_York, or Europe/Paris validated instantly. For example, append three customs to five defaults assembling eight-city dashboards ticking each second. Misspellings flag immediately; copy affordances support invite creation.
-  - How frequently do clocks refresh?
-  - Is my city selection uploaded?
-  - Why do some zones never shift?
-- Steps: View defaults (Observe five major municipalities ticking live each second for overlap assessment.) → Add a zone (Type exact IANA Asia/Kolkata validated instantly for customized dashboard expansion.) → Compare DST → Copy time
 
 ### Pomodoro Timer
 - URL: https://tool4saas.com/pomodoro-timer

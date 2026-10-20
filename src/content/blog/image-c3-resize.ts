@@ -25,7 +25,7 @@ const html = `
 <tr><td><strong>Full-width banner</strong></td><td>1920 wide</td><td>WebP 80%, watch 300KB cap</td></tr>
 </tbody>
 </table>
-<p>Check the <a href="/open-graph-preview">open graph preview</a> after exporting covers — 1200×630 renders differently per network, and LinkedIn crops sides slightly.</p>
+<p>Check the <a href="/serp-preview">open graph preview</a> after exporting covers — 1200×630 renders differently per network, and LinkedIn crops sides slightly.</p>
 
 <h2 id="aspect">Aspect lock: the stretched-face epidemic</h2>
 <p>Unchecking “maintain proportions” to force 1080×1080 from a 4:3 photo stretches faces 33% wider — the most common resize embarrassment, and it reads as careless instantly. Rules: lock aspect always; if the slot demands a different ratio, <strong>crop first</strong> (see <a href="/blog/image-compressor-guide/crop-passport-photos">passport cropping</a>), never stretch. For responsive images, export 2–3 widths (400/800/1200) and let <code>srcset</code> serve each screen appropriately instead of one giant file for all.</p>

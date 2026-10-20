@@ -184,7 +184,7 @@ describe("metadata – unknown slug fallback", () => {
 
 describe("tools – single-source registries", () => {
   it("expected counts match catalogue", () => {
-    expect(EXPECTED_TOOL_COUNT).toBe(155);
+    expect(EXPECTED_TOOL_COUNT).toBe(130);
     expect(EXPECTED_CATEGORY_COUNT).toBe(12);
     expect(tools.length).toBe(EXPECTED_TOOL_COUNT);
     expect(CATEGORIES.length).toBe(EXPECTED_CATEGORY_COUNT);
@@ -231,8 +231,8 @@ describe("validate – PDF magic bytes + page cap", () => {  function mockPdf(na
 });
 
 describe("catalog-lite – client-safe projection parity", () => {
-  it("covers all 155 tools with title parity", () => {
-    expect(LITE_TOOLS.length).toBe(155);
+  it("covers all 130 tools with title parity", () => {
+    expect(LITE_TOOLS.length).toBe(130);
     expect(LITE_TOOLS.length).toBe(tools.length);
     for (const t of tools) {
       const lite = liteGetTool(t.slug);
@@ -246,7 +246,7 @@ describe("catalog-lite – client-safe projection parity", () => {
   it("groups mirror categories without guide bodies", () => {
     expect(LITE_GROUPS.length).toBe(12);
     const total = LITE_GROUPS.reduce((s, g) => s + g.tools.length, 0);
-    expect(total).toBe(155);
+    expect(total).toBe(130);
     const serialized = JSON.stringify(LITE_GROUPS);
     expect(serialized).not.toContain("howTo");
     expect(serialized).not.toContain("acceptedAnswer");

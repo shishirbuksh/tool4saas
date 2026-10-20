@@ -55,7 +55,7 @@ export const qrUpi: BlogPost = {
   description:
     "UPI QR code setup for shops: fixed vs open amount, counter lamination, fraud checks and verification routine. Static, free, no terminal rent.",
   keywords: ["upi qr code generator", "qr code for upi payment", "upi payment qr for shop", "gpay phonepe qr code shop", "upi qr safety tips"],
-  toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
+  toolSlugs: ["qr-code-generator", "qr-scanner"],
   relatedSlugs: ["qr-code-for-business", "how-to-create-qr-code", "qr-code-not-scanning-fix"],
   published: "2026-09-22",
   updated: "2026-09-22",

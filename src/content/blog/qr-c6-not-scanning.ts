@@ -15,7 +15,7 @@ const html = `
 <h3>4 — Blurry file: JPG mush or upscaled small PNG</h3>
 <p>Forwarded-ten-times JPGs and 512px files stretched to posters both smudge module edges. Fix: regenerate at <strong>2048px PNG</strong> and keep PNG masters archived. Upload the suspect image to the <a href="/qr-scanner">QR scanner</a> — if even clean decoding struggles, the file is the problem.</p>
 <h3>5 — Wrong content format (silent failures)</h3>
-<p>WiFi strings with unescaped semicolons, malformed vCards, URLs missing https://. The camera scans fine but the action fails — the most confusing case. Fix: rebuild with the right tool — <a href="/wifi-qr-generator">WiFi generator</a> for networks (auto-escaping), <a href="/blog/qr-code-generator-guide/vcard-contact-qr-code">vCard guide</a> for contacts, full URLs for links.</p>
+<p>WiFi strings with unescaped semicolons, malformed vCards, URLs missing https://. The camera scans fine but the action fails — the most confusing case. Fix: rebuild with the right tool — <a href="/qr-code-generator">WiFi generator</a> for networks (auto-escaping), <a href="/blog/qr-code-generator-guide/vcard-contact-qr-code">vCard guide</a> for contacts, full URLs for links.</p>
 
 <h2 id="phone-specific">Phone-specific checks (iPhone vs Android)</h2>
 <ul>
@@ -58,7 +58,7 @@ export const qrNotScanning: BlogPost = {
   description:
     "QR code not working? 5 causes in likelihood order: size, contrast, glare, blurry files, bad formatting + phone checks and reprint protocol.",
   keywords: ["qr code not scanning", "qr code not working", "why wont my qr code scan", "qr code scanning problems", "fix blurry qr code"],
-  toolSlugs: ["qr-code-generator", "qr-scanner", "wifi-qr-generator"],
+  toolSlugs: ["qr-code-generator", "qr-scanner"],
   relatedSlugs: ["qr-code-size-print-guide", "how-to-create-qr-code", "wifi-qr-code-guide"],
   published: "2026-09-22",
   updated: "2026-09-22",
