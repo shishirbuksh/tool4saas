@@ -35,7 +35,7 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "images-design",
     label: "Images & Design",
     description:
-      "Generate QR codes, compress, resize, crop and frame images, extract colors and build gradients with 13 free design tools offline.",
+          "Generate QR codes, compress, resize, crop and frame images, extract colors and build gradients with 12 free design tools offline.",
   },
   {
     id: "pdf",

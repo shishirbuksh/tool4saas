@@ -6,7 +6,7 @@ import { readingMinutesFor } from "@/lib/blog";
 // EN stays at root (/invoice-generator). Pilots live at /<locale>/<slug>.
 // Full [locale]/ migration (dynamic <html lang>, per-locale sitemaps, translated
 // slugs) is Phase 2; this file proves the hreflang + sitemap + native-keyword
-// pattern on winners before multiplying 128xN.
+// pattern on winners before multiplying 127xN.
 export const LOCALES = ["en", "es", "fr"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";

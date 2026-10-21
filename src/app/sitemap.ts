@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Priority tiers: hero money pages rank highest, long-tail utilities lower.
-  // Keeps crawl budget focused instead of flat 0.8 for all 128 tools.
+  // Keeps crawl budget focused instead of flat 0.8 for all 127 tools.
   // Hero set covers site-wide money pages (invoice, mortgage, pdf-merge,
   // image-compressor, qr, resume) plus finance heroes (emi, sip, compound,
   // fd, ppf) and word-counter. Tiers only — lastModified stays stable.
@@ -134,7 +134,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Pilot i18n (P1): subdirectory with English slugs kept (/<locale>/<slug>).
   // <html lang> is now correct per locale (root layouts), so only pilot slugs
-  // are listed — never multiply all 128 until EN CTR>=2%. Per-locale sitemaps
+  // are listed — never multiply all 127 until EN CTR>=2%. Per-locale sitemaps
   // and translated OG remain future work. Gated expansion, not day-one N locales.
   // Generalized: per-locale pilot sets + hub only where a landing exists,
   // so the sitemap never lists a page that does not exist.

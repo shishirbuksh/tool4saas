@@ -116,6 +116,8 @@ const nextConfig = {
       { source: "/ovulation-calculator", destination: "/period-calculator", permanent: true },
       // Consolidation: US paycheck withholding now lives inside /salary-calculator.
       { source: "/us-paycheck-calculator", destination: "/salary-calculator", permanent: true },
+      // Consolidation: SVG to PNG now lives inside /image-format-converter.
+      { source: "/svg-to-png-converter", destination: "/image-format-converter", permanent: true },
     ];
   },
   async headers() {

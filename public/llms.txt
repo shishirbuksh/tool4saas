@@ -1,10 +1,10 @@
-# Tool4SaaS (127 free tools across 12 categories + guides)
-> Updated: 2026-10-20 · visible count excludes 1 NOINDEX placeholder (pdf-compress, ships soon).
+# Tool4SaaS (126 free tools across 12 categories + guides)
+> Updated: 2026-10-21 · visible count excludes 1 NOINDEX placeholder (pdf-compress, ships soon).
 
-> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 127 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 126 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
 
 ## Overview
-- [Tool4SaaS](https://tool4saas.com/): Home page with all 127 free tools grouped by 12 categories.
+- [Tool4SaaS](https://tool4saas.com/): Home page with all 126 free tools grouped by 12 categories.
 - [About](https://tool4saas.com/about): What the site is and how it protects your privacy.
 - [Privacy Policy](https://tool4saas.com/privacy): How user data is handled (it stays in your browser).
 - [Terms](https://tool4saas.com/terms): Terms of use for all tools and guides.
@@ -18,7 +18,7 @@
 - [Developer Tools](https://tool4saas.com/category/developer): Encode Base64, hash, format JSON and SQL, test regex and validate code with 22 free developer utilities that run locally.
 - [Converters](https://tool4saas.com/category/converters): Convert units, currencies, YAML, JSON, CSV and number systems instantly with 10 free offline converters in one click.
 - [Generators](https://tool4saas.com/category/generators): Generate strong passwords and passphrases, random numbers, strings and UUIDs, coin flips, dice rolls, favicons and robots.txt with 8 free privacy-friendly generator tools.
-- [Images & Design](https://tool4saas.com/category/images-design): Generate QR codes, compress, resize, crop and frame images, extract colors and build gradients with 13 free design tools offline.
+- [Images & Design](https://tool4saas.com/category/images-design): Generate QR codes, compress, resize, crop and frame images, extract colors and build gradients with 12 free design tools offline.
 - [PDF Tools](https://tool4saas.com/category/pdf): Merge, split, compress and convert PDFs and images to PDF securely in your browser with 4 free offline PDF utilities.
 - [Calculators](https://tool4saas.com/category/calculators): Calculate percentages, loans, grades, discounts and BMI instantly with 11 free everyday calculators that work offline.
 - [Finance & Money](https://tool4saas.com/category/finance): Mortgage, SIP, salary and tax calculators for planning - 20 free tools, informational only, not financial advice.
@@ -103,13 +103,12 @@
 - [Color Contrast Checker](https://tool4saas.com/color-contrast): WCAG contrast for any two colors
 - [CSS Gradient & Effects Studio](https://tool4saas.com/gradient-generator): Gradients, shadows, radius & clip-path
 - [Favicon Generator](https://tool4saas.com/favicon-generator): Make a favicon from text or emoji
-- [Image Format Converter](https://tool4saas.com/image-format-converter): WebP, PNG, JPG, AVIF
+- [Image Format & SVG to PNG Converter](https://tool4saas.com/image-format-converter): WebP, PNG, JPG, AVIF, SVG
 - [SVG Optimizer](https://tool4saas.com/svg-optimizer): Shrink SVG files
 - [EXIF Viewer](https://tool4saas.com/exif-viewer): Read image metadata
 - [YouTube Thumbnail Downloader](https://tool4saas.com/youtube-thumbnail-downloader): Grab YT thumbnails
 - [Image Color Extractor](https://tool4saas.com/image-color-extractor): Extract 5 colors
 - [QR Scanner](https://tool4saas.com/qr-scanner): Scan QR from image
-- [SVG to PNG Converter](https://tool4saas.com/svg-to-png-converter): Crisp PNG export
 
 ## PDF Tools
 - [Image to PDF](https://tool4saas.com/image-to-pdf): Images → PDF

@@ -1,6 +1,6 @@
 # Consolidation Map — tool4saas
 
-Status: **in progress** — rows 1–27 applied (185 → 128 tools). Evidence measured on `2b33f01`.
+Status: **Tier A complete** — rows 1–28 applied (185 → 127 tools). Evidence measured on `2b33f01`.
 
 ## Why (root cause in one line)
 
@@ -69,7 +69,7 @@ Measured signals:
 | 25 | `calorie-calculator` (hub "Calorie & Macro") | macro-calculator | −1 | ✅ done |
 | 26 | `period-calculator` (hub "Period & Ovulation") | ovulation-calculator | −1 | ✅ done |
 | 27 | `salary-calculator` (hub "Salary & US Paycheck") | us-paycheck-calculator | −1 | ✅ done |
-| 28 | `image-format-converter` | svg-to-png-converter | −1 |
+| 28 | `image-format-converter` (hub "Image Formats & SVG to PNG") | svg-to-png-converter | −1 | ✅ done |
 
 **Tier A total: −60 tools absorbed** (all 60 verified present, no canonical/absorbed overlap).
 185 − 60 + **2 new hub routes** = **127 tools** (visible 184 → 126).

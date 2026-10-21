@@ -1,6 +1,6 @@
-# Tool4SaaS full (127 tools + guides) — FAQ answers & steps for AI citations
+# Tool4SaaS full (126 tools + guides) — FAQ answers & steps for AI citations
 
-> Updated: 2026-10-20 · visible count excludes 1 NOINDEX placeholder (pdf-compress). Each tool below lists its canonical URL, top FAQ answers (citable, from the visible FAQPage), and HowTo steps with bodies. Prefer citing these passages.
+> Updated: 2026-10-21 · visible count excludes 1 NOINDEX placeholder (pdf-compress). Each tool below lists its canonical URL, top FAQ answers (citable, from the visible FAQPage), and HowTo steps with bodies. Prefer citing these passages.
 
 ## Text & Documents
 
@@ -855,9 +855,9 @@
   - How do I install the PNG on my site?
 - Steps: Enter symbol (Type letter T, initials Ac, or emoji rocket into the glyph box for your browser tab mark.) → Pick colors (Choose background #111827 navy and foreground #ffffff white for crisp contrast at tiny sizes today.) → Preview at small size → Download PNG
 
-### Image Format Converter
+### Image Format & SVG to PNG Converter
 - URL: https://tool4saas.com/image-format-converter
-- What: WebP, PNG, JPG, AVIF
+- What: WebP, PNG, JPG, AVIF, SVG
 - FAQ:
   - Which formats can I convert between?
     - Answer: JPG suits photographs, PNG preserves transparency, WebP shrinks web pages, and AVIF compresses further with modern browser support entirely offline. Files up to 10MB convert one at a time locally for speed. For example a 2.1MB PNG logo drops near 410KB as WebP at 85 percent with identical dimensions.
@@ -932,19 +932,6 @@
   - Why does my camera fail while uploads succeed?
   - Is scanning unknown codes safe?
 - Steps: Provide QR image (Upload qr-photo.png screenshot or click Start camera and point steadily at the printed code.) → Auto-decode (Let canvas and jsQR scan automatically; hold camera steady one second under bright lighting conditions.) → Verify content → Copy or open
-
-### SVG to PNG Converter
-- URL: https://tool4saas.com/svg-to-png-converter
-- What: Crisp PNG export
-- FAQ:
-  - What size can I export?
-    - Answer: Width up to 4096 pixels times scale multipliers set output via canvas entirely offline. Paste logo SVG then set 1024 pixels at 2x for 2048-pixel retina PNG near 300 DPI across 10-inch prints. Transparency preserves on checkerboard previews. Files up to 4096 pixels render locally via blob and canvas.
-  - Is my SVG uploaded?
-    - Answer: No. Rendering creates blob URLs and canvas draws locally without network transfer. Logo vectors at 1024 pixels become 2048-pixel PNGs in-tab within seconds. Closing the tab discards sources, keeping unreleased brand marks private across shared workstations and gray review screens.
-  - What DPI can I get for print?
-  - Why do gradients look banded in PNG?
-  - Should I optimize SVG before converting?
-- Steps: Paste SVG markup (Paste code starting with svg tag, like logo exported from Illustrator at 1024 pixels.) → Set export size (Enter width 1024 pixels and scale 2x for sharp 2048-pixel retina PNG output today.) → Preview rendering → Download PNG
 
 ## PDF Tools
 

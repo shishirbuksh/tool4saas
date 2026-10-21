@@ -6,8 +6,8 @@ describe("tools validation", () => {
     const slugs = tools.map((t) => t.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
   });
-  it("has 128 tools (128-200 range)", () => {
-    expect(tools.length).toBeGreaterThanOrEqual(128);
+  it("has 127 tools (127-200 range)", () => {
+    expect(tools.length).toBeGreaterThanOrEqual(127);
     expect(tools.length).toBeLessThanOrEqual(200);
   });
   it("every tool category is in CATEGORIES", () => {

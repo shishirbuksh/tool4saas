@@ -215,8 +215,8 @@ describe("expand – tools unique slugs + getTool O(1)", () => {
     const slugs = tools.map((t) => t.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
   });
-  it("has 128-200 tools", () => {
-    expect(tools.length).toBeGreaterThanOrEqual(128);
+  it("has 127-200 tools", () => {
+    expect(tools.length).toBeGreaterThanOrEqual(127);
     expect(tools.length).toBeLessThanOrEqual(200);
   });
   it("getTool returns tool and undefined for missing", () => {

@@ -1,6 +1,6 @@
 // Category editorial copy (extracted from src/app/category/[id]/page.tsx).
 // Single source for AdSense content-depth intros + per-category FAQ bodies.
-// Counts here must match src/lib/tools/data/*.ts slug counts (128 tools total).
+// Counts here must match src/lib/tools/data/*.ts slug counts (127 tools total).
 
 export type CategoryIntro = {
   body: string;
@@ -70,7 +70,7 @@ export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
     faqLabel: "Password Generator FAQ",
   },
   "images-design": {
-    body: "Design faster with 13 free utilities for codes, images, and color that run offline in your browser. The QR generator encodes long URLs into crisp scannable squares, while the image editor compresses, resizes, crops and frames a 2 MB photo for the web without visible loss. The contrast checker verifies pairs like indigo on white against accessibility ratios before you ship. For example, a #6366F1 swatch copies in one click and resizes cleanly to any layout. Each tool page answers common questions in its FAQ, with no sign-up needed.",
+    body: "Design faster with 12 free utilities for codes, images, and color that run offline in your browser. The QR generator encodes long URLs into crisp scannable squares, while the image editor compresses, resizes, crops and frames a 2 MB photo for the web without visible loss. The contrast checker verifies pairs like indigo on white against accessibility ratios before you ship. For example, a #6366F1 swatch copies in one click and resizes cleanly to any layout. Each tool page answers common questions in its FAQ, with no sign-up needed.",
     picks: [
       { slug: "qr-code-generator", label: "QR Code Generator" },
       { slug: "image-compressor", label: "Image Editor" },
@@ -317,7 +317,7 @@ export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   ],
   "images-design": [
     {
-      text: "Picture them as 13 free utilities for codes, images, and color that run offline with no signup. The QR Code Generator encodes long URLs into crisp scannable squares, while the Image Editor compresses, resizes, crops and frames a 2 MB photo without visible loss. Color tools copy a #6366F1 swatch in one click.",
+      text: "Picture them as 12 free utilities for codes, images, and color that run offline with no signup. The QR Code Generator encodes long URLs into crisp scannable squares, while the Image Editor compresses, resizes, crops and frames a 2 MB photo without visible loss. Color tools copy a #6366F1 swatch in one click.",
       linkSlug: "qr-code-generator",
       linkLabel: "QR Code Generator",
     },

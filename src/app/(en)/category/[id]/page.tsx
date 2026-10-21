@@ -27,7 +27,7 @@ export async function generateMetadata({
   const canonical = `${base}/category/${id}`;
   const ogImage = `${base}/og/category-${id}`;
   // Enriched core (~40ch) instead of bare label (21-30ch rendered) — hub
-  // pages carry priority 0.7 above 128 tool links and need keyword signal.
+  // pages carry priority 0.7 above 127 tool links and need keyword signal.
   const seoTitle = seoTitleForCategory(id, category.label);
   return {
     title: seoTitle,
