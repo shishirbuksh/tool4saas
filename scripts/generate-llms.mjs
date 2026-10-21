@@ -49,6 +49,7 @@ function readIfExists(p) {
 // barrel src/lib/tools.ts is only a re-export shim — never rely on it alone.
 let content = "";
 const indexContent = readIfExists(REGISTRY_INDEX);
+const noindexContent = readIfExists(path.join(REGISTRY_DIR, "noindex.ts"));
 const categoriesContent = readIfExists(path.join(REGISTRY_DIR, "categories.ts"));
 const typesContent = readIfExists(path.join(REGISTRY_DIR, "types.ts"));
 const iconsContent = readIfExists(path.join(REGISTRY_DIR, "icons.ts"));
@@ -123,11 +124,12 @@ const tools = toolBlocks.map(block => {
 });
 
 const byCat = new Map();
-// Single source: src/lib/tools/index.ts NOINDEX_SLUGS (parsed live; mjs
-// can't import TS so mirror as fallback) so pdf-compress stays out of
-// llms.txt like the sitemap.
-let NOINDEX_SLUGS = new Set(["pdf-compress"]);
-const noindexMatch = (indexContent || "").match(/NOINDEX_SLUGS\s*=\s*new Set\(\[([^\]]*)\]\)/);
+// Single source: src/lib/tools/noindex.ts NOINDEX_SLUGS (parsed live; mjs
+// can't import TS so mirror as fallback). index.ts only re-exports the Set, so
+// read noindex.ts first — otherwise every slug after "pdf-compress" is missed
+// and noindexed pages leak into llms.txt / sitemap parity checks.
+let NOINDEX_SLUGS = new Set(["pdf-compress", "fancy-text-generator"]);
+const noindexMatch = (noindexContent || indexContent || "").match(/NOINDEX_SLUGS\s*=\s*new Set\(\[([^\]]*)\]\)/);
 if (noindexMatch) {
   const found = [...noindexMatch[1].matchAll(/"([^"]+)"/g)].map(m => m[1]);
   if (found.length) NOINDEX_SLUGS = new Set(found);
@@ -189,7 +191,7 @@ const esTools = parseI18nTools(esContent, ES_TOOL_CONSTS)
 // with the sitemap exclusion. Header links llms-full.txt for AI answer engines.
 // NOTE: localhost fallback above is intentional for dev — do not break it.
 let out = `# Tool4SaaS (${visibleTools.length} free tools across ${categories.length} categories + guides)
-> Updated: ${new Date().toISOString().slice(0, 10)} · visible count excludes 1 NOINDEX placeholder (pdf-compress, ships soon).
+> Updated: ${new Date().toISOString().slice(0, 10)} · visible count excludes ${NOINDEX_SLUGS.size} NOINDEX pages (${[...NOINDEX_SLUGS].join(", ")}).
 
 > Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. ${visibleTools.length} tools across ${categories.length} categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: ${siteUrl}/llms-full.txt
 

@@ -94,8 +94,10 @@ New routes needed: `document-generator`, `text-tools` (and optionally `css-gener
 ## Tier D — noindex / remove
 
 - `pdf-compress` — already NOINDEX (`src/lib/tools/noindex.ts`).
-- `fancy-text-generator` — 297 words (validator warning) → expand or noindex.
-- `plagiarism-checker`, `ai-detector` — client-heuristic accuracy → review for honesty risk.
+- `fancy-text-generator` — ✅ NOINDEX (295 words; route robots `noindex, follow`, excluded from
+  sitemap/llms/grids/related). Revisit only if it ships unique output.
+- `plagiarism-checker`, `ai-detector` — ✅ reviewed: copy is honest (local 5-gram only, no web
+  index; ~70% heuristic accuracy with human-review disclaimers). Keep indexable.
 - **All 23 locale tool pilots** — 1:1 EN clones → noindex (already decided in Phase 1:
   `LOCALE_TOOL_INDEXABLE`). Hubs + ES blog pilot stay indexable. Δ ≈ −23 indexable URLs.
 

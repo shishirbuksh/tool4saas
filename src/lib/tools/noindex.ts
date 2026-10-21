@@ -8,4 +8,6 @@
 //   Its route sets robots index:false; do NOT link it from indexable surfaces.
 // - To noindex a future thin/duplicate tool: add its slug to this Set only —
 //   every consumer above picks it up automatically. Never duplicate the Set.
-export const NOINDEX_SLUGS = new Set(["pdf-compress"]);
+// - "fancy-text-generator" is thin (~297 words, validator warning) and overlaps
+//   the Unicode-text intent of the text-tools hub; keep it out of the index.
+export const NOINDEX_SLUGS = new Set(["pdf-compress", "fancy-text-generator"]);

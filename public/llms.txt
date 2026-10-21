@@ -1,10 +1,10 @@
-# Tool4SaaS (126 free tools across 12 categories + guides)
-> Updated: 2026-10-21 · visible count excludes 1 NOINDEX placeholder (pdf-compress, ships soon).
+# Tool4SaaS (125 free tools across 12 categories + guides)
+> Updated: 2026-10-21 · visible count excludes 2 NOINDEX pages (pdf-compress, fancy-text-generator).
 
-> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 126 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 125 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
 
 ## Overview
-- [Tool4SaaS](https://tool4saas.com/): Home page with all 126 free tools grouped by 12 categories.
+- [Tool4SaaS](https://tool4saas.com/): Home page with all 125 free tools grouped by 12 categories.
 - [About](https://tool4saas.com/about): What the site is and how it protects your privacy.
 - [Privacy Policy](https://tool4saas.com/privacy): How user data is handled (it stays in your browser).
 - [Terms](https://tool4saas.com/terms): Terms of use for all tools and guides.
@@ -39,7 +39,6 @@
 - [Plagiarism Checker](https://tool4saas.com/plagiarism-checker): 800 words 96% unique free
 - [Typing Speed Test](https://tool4saas.com/typing-speed-test): 62 WPM free 60-sec test
 - [Speech to Text](https://tool4saas.com/speech-to-text): Free voice typing
-- [Fancy Text Generator](https://tool4saas.com/fancy-text-generator): Bold, script & bubble
 
 ## Business & Writing
 - [Document Generator](https://tool4saas.com/document-generator): Quotes, receipts & slips
