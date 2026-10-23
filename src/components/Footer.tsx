@@ -43,6 +43,12 @@ const COMPANY = [
   { href: "/contact", label: "Contact Us" },
 ];
 
+const LANGUAGES = [
+  { href: "/", label: "English", hrefLang: "en" },
+  { href: "/es", label: "Español", hrefLang: "es" },
+  { href: "/fr", label: "Français", hrefLang: "fr" },
+];
+
 const linkStyle = {
   display: "inline-flex",
   alignItems: "center",
@@ -131,6 +137,36 @@ export default function Footer() {
               >
                 {siteConfig.email}
               </Button>
+              <Box
+                component="nav"
+                aria-label="Languages"
+                sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 1.5 }}
+              >
+                <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 600 }}>
+                  Languages:
+                </Typography>
+                {LANGUAGES.map((l) => (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    hrefLang={l.hrefLang}
+                    lang={l.hrefLang}
+                    className="footer-link"
+                    style={linkStyle}
+                  >
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "text.secondary",
+                        "&:hover": { color: "primary.main" },
+                        transition: "color 150ms ease",
+                      }}
+                    >
+                      {l.label}
+                    </Typography>
+                  </Link>
+                ))}
+              </Box>
             </Stack>
           </Grid>
 

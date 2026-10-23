@@ -32,7 +32,7 @@ const html = `
 <blockquote class="tip">General information only, not security advice. Generate offline, store in a manager, enable MFA on email/bank. If you lose your master password it cannot be recovered by us.</blockquote>
 
 <h2 id="entropy-math">Entropy math: why length beats cleverness every time</h2>
-<p>Password strength is math, not mystery. Each random character multiplies possibilities: a 12-character full-chaos draw (upper, lower, digits, symbols) holds roughly 78 bits of entropy, while a 20-character draw exceeds 130 bits — a gap attackers cannot bridge with hardware. By contrast, clever substitutions like P at ssw0rd add barely 2 bits because guessing rules try them first. The <a href="https://www.nist.gov/itl/smallbusinesscyber/guidance-topic-passwords">NIST password guidance</a> emphasizes length and uniqueness over complexity rituals for exactly this reason. Table comparing families makes it concrete:</p>
+<p>Password strength is math, not mystery. Each random character multiplies possibilities: a 12-character full-chaos draw (upper, lower, digits, symbols) holds roughly 78 bits of entropy, while a 20-character draw exceeds 130 bits — a gap attackers cannot bridge with hardware. By contrast, clever substitutions like P at ssw0rd add barely 2 bits because guessing rules try them first. The <a href="https://pages.nist.gov/800-63-4/sp800-63b.html">NIST password guidance</a> emphasizes length and uniqueness over complexity rituals for exactly this reason. Table comparing families makes it concrete:</p>
 <table>
 <thead><tr><th>Family (example structure)</th><th>Length</th><th>Entropy approx</th><th>Best for</th></tr></thead>
 <tbody>

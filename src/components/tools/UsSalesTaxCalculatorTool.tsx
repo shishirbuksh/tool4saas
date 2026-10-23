@@ -16,7 +16,7 @@ import ToolPaper from "@/components/ToolPaper";
 
 const STATE_PRESETS = [
   { value: "CA", label: "California (CA) – 7.25%", rate: 7.25 },
-  { value: "NY", label: "New York (NY) – 8.875%", rate: 8.875 },
+  { value: "NY", label: "New York City (NYC) – 8.875%", rate: 8.875 },
   { value: "TX", label: "Texas (TX) – 6.25%", rate: 6.25 },
   { value: "FL", label: "Florida (FL) – 6%", rate: 6 },
   { value: "WA", label: "Washington (WA) – 10.35%", rate: 10.35 },

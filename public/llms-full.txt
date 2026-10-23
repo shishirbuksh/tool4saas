@@ -32,16 +32,16 @@
 
 ### Text Diff Checker
 - URL: https://tool4saas.com/text-diff
-- What: Compare two texts side by side
+- What: Compare two texts word by word
 - FAQ:
   - What does the diff checker compare?
     - Answer: Contrasts two pasted passages token by token, marking insertions green and deletions red for rapid revision audits. For example, version 1 versus version 2 of 500-word features reveals 23 edits instantly. Breaks and punctuation remain visible aiding editorial precision.
   - Is my text stored?
     - Answer: No. The comparison happens entirely in your browser: both drafts stay on your machine, are never uploaded, and are discarded as soon as you close the page.
   - Can it handle code and large pastes?
-  - When should line mode supplement word view?
+  - How should I read moved paragraphs?
   - Why do whitespace shifts flag unexpectedly?
-- Steps: Paste original (Insert version 1 paragraph like 500-word draft into left pane for baseline establishment.) → Paste modified (Insert edited version 2 into right pane containing 23 anticipated alterations for contrast.) → Review highlights → Copy clean version
+- Steps: Paste original (Paste version 1, such as a 500-word draft, into the Original text field.) → Paste modified (Paste the edited version into the Changed text field.) → Review highlights → Copy clean version
 
 ### Text to Speech
 - URL: https://tool4saas.com/text-to-speech
@@ -73,14 +73,14 @@
 - URL: https://tool4saas.com/markdown-editor
 - What: Write & preview markdown
 - FAQ:
-  - What markdown syntax is covered?
-    - Answer: Headings, emphasis, inline code, fenced blocks, links, blockquotes, lists and tables address 95 percent needs. For example, hash Title, dash bullets, pipe tables and js fences render split-pane and export HTML for READMEs.
-  - Is my text stored?
-    - Answer: No. Everything happens in your browser: the Markdown you draft, the tables you build, and the HTML you export stay on your machine, and nothing remains after the page closes.
-  - How does HTML transfer to blogs?
-  - When do tables break rendering?
-  - Why do code fences mis-highlight?
-- Steps: Write markdown (Type hash Title, dash bullets and pipe tables in Write tab for structuring.) → Preview live (Toggle Preview inspecting headings, tables and fenced code rendering fidelity.) → Test code blocks → Copy HTML
+  - Which Markdown syntax is supported?
+    - Answer: Headings, bold, italic, inline code, links, unordered lists, blockquotes and fenced code blocks. Tables, ordered lists, images, footnotes, task lists, strikethrough and raw HTML are not parsed. A fence renders as plain escaped code, even when it starts with js or bash.
+  - Is there a split-pane preview?
+    - Answer: No. The page has Write and Preview tabs. The preview updates from the current draft when you switch tabs, but you cannot see both panes side by side. Copy HTML places the generated markup on the clipboard.
+  - Does the editor highlight code?
+  - What happens to raw HTML and links?
+  - What is the input limit?
+- Steps: Write markdown (Use the Write tab for headings, emphasis, links, unordered lists, blockquotes and fenced code. Do not rely on table syntax.) → Switch to preview (Open the Preview tab to inspect the generated headings, lists, links, quotes and code blocks. The panes are separate tabs.) → Test code blocks → Copy HTML
 
 ### Text Summarizer
 - URL: https://tool4saas.com/text-summarizer
@@ -309,9 +309,9 @@
 - What: Encode & decode HTML entities
 - FAQ:
   - Why should I encode HTML entities?
-    - Answer: Encoding displays angle brackets, ampersands and quotes as inert text rather than live markup, blocking accidental rendering and XSS vectors. For illustration, a div holding Hi and bye becomes lt div gt sequences that browsers show literally. A 20KB snippet with 300 tags converts within a second, letting bloggers share code safely.
+    - Answer: Encoding turns &, < and > into character references so markup displays as text instead of being parsed. For example, a div holding Hi and bye becomes entity text that a browser shows literally. It does not escape quotation marks, so this is not a complete XSS defense; sanitize untrusted HTML with a dedicated library.
   - Can I decode entities back to text?
-    - Answer: Yes. Conversion works bidirectionally inside this tab, so amp restores ampersand while lt restores angle brackets exactly. For instance, a 500-row table decodes instantly for editing, then re-encodes for publishing. No external transmission happens. All processing stays inside this tab. No upload occurs.
+    - Answer: Yes. Decoding runs inside this tab, so &amp; restores an ampersand and &lt; restores an angle bracket. Named, decimal and hexadecimal references are accepted, while an unknown entity stays literal in the output. No upload occurs.
   - Which entity formats are supported?
   - How do entities differ from full sanitization libraries?
 - Steps: Paste input (Paste raw markup like div with Hi and bye, or paste entity sequences such as amp lt for reverse decoding.) → Choose mode (Select Encode to turn markup into entities, or Decode to restore entities into readable characters instantly.) → Check output → Copy output
@@ -345,12 +345,12 @@
 - What: File extension ↔ MIME
 - FAQ:
   - What can I search by extension or MIME?
-    - Answer: Query either direction using dot json style extensions or slash forms like image png. For illustration, dot png returns image png, while application pdf returns dot pdf. Over 200 web, image, font, audio, video and office mappings respond immediately, letting engineers set Content-Type headers without registry spelunking across documentation.
+    - Answer: Query either direction using a dotted extension such as .json or a full type such as image/png. For example, .png returns image/png, while application/pdf returns .pdf. The built-in table covers 44 common web, image, font, audio, video and office types, enough for routine Content-Type checks without leaving the page.
   - Is this a complete MIME list?
-    - Answer: It spans mainstream web, image, font, audio, video and office families with practical header hints. For instance, html, css, js, png, webp, woff2 and docx resolve with usage notes, while exotic laboratory formats defer to IANA guidance. All lookups execute inside this tab. No upload occurs. Coverage favors deployment needs over archival completeness.
+    - Answer: It covers 44 mainstream web, image, font, audio, video and office extensions. For instance, html, css, js, png, webp, woff2 and docx resolve directly, but the table is not a complete IANA registry and does not include usage notes. All lookups execute inside this tab with no upload; consult IANA for exotic formats.
   - What if my extension is missing?
   - How do MIME sniffs create security hazards?
-- Steps: Enter value (Type suffix like dot png or full label like image png into the search field for lookup.) → Read result (Review matched pair with typical header usage and server configuration hints displayed alongside instantly.) → Check header use → Copy
+- Steps: Enter value (Type suffix like dot png or full label like image png into the search field for lookup.) → Read result (Review the matched extension and MIME type pair displayed immediately below the field.) → Check header use → Copy
 
 ### Credit Card Validator
 - URL: https://tool4saas.com/credit-card-validator
@@ -378,12 +378,12 @@
 
 ### Code Formatter & Minifier
 - URL: https://tool4saas.com/code-minifier
-- What: Format & minify HTML, CSS & JS
+- What: Format HTML, minify CSS & JS
 - FAQ:
   - Which languages can I format and minify?
-    - Answer: HTML, CSS and JavaScript. The HTML view indents nested tags and keeps inline spans joined; the CSS view expands rules by braces and semicolons and can minify back; the JS view restores two-space indentation and minifies with strings and comments guarded. Paste a 12.4KB stylesheet and Minify typically lands near 8.1KB.
+    - Answer: HTML, CSS and JavaScript can be formatted, but only CSS and JavaScript can be minified. The HTML view indents nested tags and keeps inline spans joined; the CSS view expands rules and previews them live; the JS view restores two-space indentation and compacts code up to 500KB. Minification strips comments and collapses whitespace, so keep a readable original.
   - Is my code uploaded when formatting or minifying?
-    - Answer: No. Every view runs in your browser, so a 500KB bundle never leaves the device, and closing the tab discards the pasted source. Keep an original copy regardless: compact output is hard to edit by hand and drops the comments you may want to restore later.
+    - Answer: No. Every view runs in your browser, JavaScript input is capped at 500KB, and closing the tab discards the pasted source. Keep an original copy regardless: compact output is hard to edit by hand and drops the comments you may want to restore later.
   - How much smaller will my minified code get?
   - What is the difference between format and minify?
   - Does the CSS preview really apply my styles?
@@ -407,9 +407,9 @@
 - What: Format & validate XML
 - FAQ:
   - Does the XML formatter validate?
-    - Answer: Yes. It employs DOMParser and parsererror reporting with line details for malformed markup. For illustration, an unclosed note tag flags line 2 column 10 immediately. A 500KB feed holding 5000 nodes formats within a second, exposing nesting faults for feeds, sitemaps and configuration files.
+    - Answer: Yes, for well-formedness only. It uses the browser DOMParser and shows a generic invalid-XML message when parsing fails, without line or column details or schema validation. Inputs above 500 KB are rejected, so split very large feeds before formatting.
   - Can it minify XML for transport?
-    - Answer: Yes. Shrink mode collapses inter-tag gaps into one tight line while preserving text and attributes. For instance, 12KB pretty drops to 8KB minified, saving thirty-three percent. All processing executes inside this tab. No upload occurs. Employ minified output for sitemaps and syndication before submission.
+    - Answer: Yes. Minify removes whitespace between tags, producing a compact line while preserving text and attributes. The exact saving depends on how much indentation the source contains, and all processing stays in this tab with no upload. Test the compact output in the target feed reader or sitemap validator before publishing.
   - Does it handle namespaces and sitemaps?
   - How does XML differ from JSON for feeds?
 - Steps: Paste XML (Paste markup such as note wrapping to Ada into the input area for validation trials.) → Format (Press Format for indented hierarchy or Minify for compact single-line transport output instantly.) → Fix errors → Copy
@@ -516,13 +516,14 @@
 - URL: https://tool4saas.com/ai-token-counter
 - What: Tokens + API cost
 - FAQ:
-  - How accurate is the token count?
-    - Answer: Heuristic near four characters per token with code uplift; regard as estimate rather than exact tiktoken. For illustration, 400 characters approximate 100 tokens, while 2000 words approach 2600 tokens. Confirm billing inside provider dashboards before budgeting. Handy for prompt sizing and context window planning across drafts.
-  - Which AI models are priced?
-    - Answer: Editable table covers GPT, Claude Sonnet and Gemini input rates per million tokens. For instance, five dollars per million at 10k tokens costs near five cents. Refresh table when vendors revise pricing quarterly. A 50000-token chapter estimates instantly, guiding model selection for budget-conscious teams.
-  - Does my prompt stay private?
-  - How should writers trim prompts to slash costs?
-- Steps: Paste text (Paste prompt or 500-word article draft into the input area for token estimation trials.) → Check tokens (Review characters, words and estimated tokens with heuristic notes displayed instantly below panel.) → Estimate cost → Compare models
+  - How accurate is the estimate?
+    - Answer: The tool divides character count by four, adds 15% when it detects code-like symbols or keywords, and rounds up. It is not tiktoken or a provider tokenizer. Four hundred ASCII characters usually estimate at 100 tokens; non-Latin text, emoji and code can differ substantially. Confirm billing in the provider dashboard.
+  - Which models and prices are included?
+    - Answer: GPT-4o at $2.50 per million input tokens, Claude Sonnet at $3.00 and Gemini Flash at $0.35. Every price is editable, so replace it with the current rate from your provider. Selecting a model changes the prominent cost card; the table shows all three costs.
+  - Does it count output tokens?
+  - Is my prompt uploaded?
+  - How should I reduce prompt cost?
+- Steps: Paste text (Paste the prompt, article draft or code sample into the input area. Input stops at 500,000 characters.) → Read counts (Review characters, words and estimated tokens. The token figure uses four characters per token with a code boost.) → Set prices → Compare models
 
 ## Converters
 
@@ -583,26 +584,26 @@
 - What: Encode & decode image data URLs
 - FAQ:
   - Are my images uploaded anywhere?
-    - Answer: No. Files read via local code and turn to text on-device. For example, a 2 MB PNG with 2000 px width never leaves your tab in 3 seconds. Close the tab to clear 1 file. Free offline with full privacy at all times.
+    - Answer: No. Files are read locally and turned into text on-device. For example, a 2 MB PNG stays in your tab. Encoding accepts files up to 10 MB, and closing the tab clears the selected file.
   - Can I decode a Base64 image?
-    - Answer: Yes. Paste 1 data URL to preview art in 1 second. For example, data:image/png;base64,iVBOR with 100 chars shows art across 2 modes locally. No upload or account is used. Copy or save views free offline.
+    - Answer: Yes. Paste a complete data URL to preview the image. The decoder accepts JPEG, PNG, WebP, GIF, SVG, BMP, AVIF and ICO data URLs up to 15 million characters, and no upload or account is used.
   - Does encoding work offline for free?
   - Why does Base64 output grow roughly 33 percent larger?
   - When should developers embed images versus linking files?
-- Steps: Choose image (Select PNG, JPEG, SVG, or WebP file under 2 MB, for example a 100 KB logo, via picker for local encoding.) → Or paste data URL (Switch to decode tab and paste data:image/png;base64,iVBOR string around 100 characters to reconstruct preview image accurately.) → Copy or preview → Try an example
+- Steps: Choose image (Select a PNG, JPEG, WebP, GIF or SVG file up to 10 MB, for example a 100 KB logo, for local encoding.) → Or paste data URL (Switch to the decode tab and paste a complete data:image/...;base64,... string to preview the image.) → Copy or preview → Try an example
 
 ### CSV Viewer
 - URL: https://tool4saas.com/csv-viewer
 - What: View, sort & filter CSV
 - FAQ:
   - Does it handle quoted commas?
-    - Answer: Yes. It parses set quote rules with 2-pass checks on-device. For example, a, b in quotes and c splits to 2 cols, while 5,000 rows sort in 2 seconds. Quotes pair per RFC 4180. Free offline with no upload at any time.
+    - Answer: Yes. Quoted fields may contain commas and line breaks, and doubled quotes inside a quoted field become one literal quote. For example, a quoted address with a comma stays in one cell, while an unquoted comma splits columns. Parsing runs on-device with no upload, and the input is capped at 500,000 characters.
   - Can I sort and filter rows?
-    - Answer: Yes. Tap heads to sort A-Z or high-low in 1 click. For example, ages 36 and 29 flip order across 2 taps, while find narrows 5,000 rows to 20 hits. All runs local free offline with no upload.
+    - Answer: Yes. Click a column header to sort ascending or descending, and type in the filter box to narrow rows. Numeric columns sort numerically, so 29 comes before 36, while text columns sort lexically. Filtering and sorting run locally, and the table shows the first 100 matching rows.
   - Does viewing upload my spreadsheet?
   - Why do quoted commas prevent column misalignment?
   - When should analysts sort numerically versus lexically?
-- Steps: Paste CSV (Paste header name,age,city and rows Ada,36,Lagos and Bob,29,Nairobi, or upload 5000-row export file locally for review.) → View table (Inspect sortable grid with 3 columns and type-aware alignment, confirming age 29 sorts before 36 numerically correctly.) → Filter and copy → Try an example
+- Steps: Paste CSV (Paste header name,age,city and rows Ada,36,Lagos and Bob,29,Nairobi into the input area.) → View table (Inspect sortable grid with 3 columns and type-aware alignment, confirming age 29 sorts before 36 numerically correctly.) → Filter and copy → Try an example
 
 ### Morse Code Translator
 - URL: https://tool4saas.com/morse-translator
@@ -689,13 +690,13 @@
 - What: Turn titles into URL slugs
 - FAQ:
   - What is a URL slug and why does it matter?
-    - Answer: A slug is the URL-friendly part of a web address, like my-blog-post from My Blog Post. For example, Hello World becomes hello-world, lowercased with hyphens. Clean slugs boost SEO clicks, readability, and sharing versus long query strings with numbers daily.
+    - Answer: A slug is the URL-friendly part of a web address, such as my-blog-post from My Blog Post. For example, Hello World becomes hello-world, lowercased with hyphens. Readable slugs help people and search engines understand a page, but the slug alone does not guarantee rankings.
   - How do I generate many slugs in bulk?
-    - Answer: Paste a list of titles and convert up to 200 lines at once with auto-lowercasing. For example, drop 10 titles like 10 Best Coffee Shops in 2026 and get 10-best-coffee-shops-in-2026 instantly. Bulk mode trims spaces, strips symbols, and keeps output ready for WordPress pasting.
-  - Which separators and bulk limits are supported?
+    - Answer: Paste a list of titles, one per line, and the tool converts every non-empty line in one pass. For example, 10 Best Coffee Shops in 2026 becomes 10-best-coffee-shops-in-2026. Bulk mode lowercases, strips punctuation, collapses separators, and keeps the output ready for WordPress or a route table.
+  - Which separators are supported?
   - Why do hyphens outperform underscores for Google rankings?
   - When should editors shorten slugs below 60 characters?
-- Steps: Paste titles (Paste one title or list, for example 10 Best Coffee Shops in 2026, up to 200 lines for bulk processing.) → Choose separator (Select hyphen for SEO like best-coffee-shops or underscore for legacy code keys and identifiers carefully.) → Generate in bulk → Copy slugs
+- Steps: Paste titles (Paste one title or a list, for example 10 Best Coffee Shops in 2026, with one title per line.) → Choose separator (Select hyphen for SEO like best-coffee-shops or underscore for legacy code keys and identifiers carefully.) → Generate in bulk → Copy slugs
 
 ### Random Number, String & UUID Generator
 - URL: https://tool4saas.com/random-number
@@ -808,13 +809,13 @@
 - What: WCAG contrast for any two colors
 - FAQ:
   - What standard does this use?
-    - Answer: WCAG 2.1 relative luminance contrast ratio with AA and AAA badges for normal and large text entirely offline. Dark #1a1a1a on #ffffff scores 12.6 to 1 and passes AAA, while medium gray #767676 on white reaches 4.54 to 1 and passes AA. Light #999999 stalls near 2.85 to 1 and fails. All luminance arithmetic remains local in your tab.
-  - Does it check large text too?
-    - Answer: Yes. Normal text needs 4.5 to 1 for AA and 7 to 1 for AAA, while large text above 18pt or 14pt bold needs 3 to 1 for AA and 4.5 to 1 for AAA. Navy #1e3a5f on mist #f8fafc passes both tiers comfortably. Orange #ff5733 on white fails body copy yet may pass oversized headlines, so test each size…
-  - What ratio do I need to pass WCAG AA?
-  - Why does my brand orange fail on white?
-  - How do I fix a failing button without redesigning?
-- Steps: Pick foreground (Choose text color like #1a1a1a charcoal or #595959 medium gray using pickers for body copy testing.) → Pick background (Select background such as #ffffff pure white or #f5f0e8 warm paper behind the text page.) → Read the ratio → Fix failures
+    - Answer: WCAG 2.1 relative luminance ratio from 1:1 to 21:1. Dark #1a1a1a on white #ffffff is 17.40:1 and passes AAA normal. Medium #767676 on white is 4.54:1 and passes AA normal. Light #999999 is 2.85:1 and fails body text. The arithmetic runs locally.
+  - Which pass badges appear?
+    - Answer: Three badges: AA normal at 4.5:1, AA large at 3:1, and AAA normal at 7:1. There is no separate AAA large badge, so compare the ratio manually against 4.5:1 when you need AAA for large text. Large text means 18pt regular or 14pt bold.
+  - Does it check large text?
+  - Why does brand orange fail on white?
+  - What does the checker not cover?
+- Steps: Pick foreground (Enter a six-digit text hex such as #1a1a1a or #595959, or use the foreground color picker.) → Pick background (Enter the surface hex such as #ffffff or #f5f0e8, or choose it with the background picker.) → Read the ratio → Fix failures
 
 ### CSS Gradient & Effects Studio
 - URL: https://tool4saas.com/gradient-generator
@@ -1013,7 +1014,7 @@
   - Should I tip on pre-tax or post-tax totals?
   - How does rounding affect each diner share?
   - What distinguishes 18 percent from 20 percent generosity?
-- Steps: Enter bill (Type 84.50 dollars pre-tax restaurant subtotal as baseline example, excluding service fees and discount coupons initially.) → Set tip and people (Choose 18 percent gratuity rate and 3 diners, toggling pre-tax base to keep generosity comparison consistent.) → Read totals → Adjust generosity
+- Steps: Enter bill (Type 84.50 as the amount you want the tip applied to, excluding service charges you do not want tipped.) → Set tip and people (Move the 0–30 percent slider to 18 and enter 3 diners. The percentage applies to the bill field exactly as entered.) → Read totals → Adjust generosity
 
 ### Discount Calculator
 - URL: https://tool4saas.com/discount-calculator
@@ -1110,14 +1111,14 @@
 - URL: https://tool4saas.com/us-sales-tax-calculator
 - What: State tax + total
 - FAQ:
-  - Which state presets simplify checkout estimation?
-    - Answer: Presets cover California, New York, Texas, Florida, Washington and more in one list. California 7.25 percent on one hundred dollars gives 107.25 before municipal adds in one second. Rates shift often, so verify at register and use custom override locally free offline.
-  - Does the estimator constitute formal tax guidance?
-    - Answer: Mathematical aid only for planning, not professional tax advice for filing. County and city adds can lift one-hundred-dollar base past 107.25 in two steps. Rules vary by ZIP and product class. Consulting a professional and reviewing /terms before filing remains prudent.
-  - Why does register total exceed state-base projection?
-  - How do exemptions and shipping alter taxable subtotal?
-  - When should destination versus origin sourcing be checked?
-- Steps: Enter subtotal (Type 100 dollars pre-tax purchase amount example, excluding shipping and exempt groceries from taxable base initially.) → Pick rate (Choose California 7.25 percent preset or type custom 8.5 percent to reflect combined county and city.) → View total → Compare states
+  - Which state rates are preset?
+    - Answer: Five presets: California 7.25%, New York City 8.875%, Texas 6.25%, Florida 6% and Washington 10.35%. For any other state, county or city combination, choose Custom and type the combined rate. Presets are starting points, not a ZIP lookup.
+  - Does it look up my local rate?
+    - Answer: No. There is no address or ZIP lookup. The result depends only on the subtotal and the single rate selected. Check the state tax authority or your register for the combined rate that applies to the ship-to location and product.
+  - Why does the register total differ?
+  - How do exemptions and shipping work?
+  - Is this tax advice?
+- Steps: Enter subtotal (Type 100 as the taxable amount. Subtract exempt groceries or other untaxed items before entering the figure.) → Pick rate (Choose the California 7.25% preset, or select Custom and enter a combined 8.5% rate for county and city layers.) → View total → Compare states
 
 ## Finance & Money
 
@@ -1677,6 +1678,8 @@
 - [Compress JPG to 200KB Without Visible Quality Loss](https://tool4saas.com/blog/image-compressor-guide/compress-jpg-200kb) (updated 2026-10-23)
 - [Instagram Image Size 2026: Resize Without Cropping](https://tool4saas.com/blog/image-compressor-guide/instagram-image-resize) (updated 2026-10-23)
 - [JPG to PNG: Convert Without Losing Quality](https://tool4saas.com/blog/image-compressor-guide/jpg-to-png) (updated 2026-10-23)
+- [Image to Base64: Data URLs in Practice](https://tool4saas.com/blog/image-compressor-guide/image-to-base64-data-url) (updated 2026-10-23)
+- [WCAG Contrast Checker: Pass AA and AAA](https://tool4saas.com/blog/image-compressor-guide/wcag-contrast-check) (updated 2026-10-23)
 - [PNG vs JPG vs WebP: Which Format to Use](https://tool4saas.com/blog/image-compressor-guide/png-vs-jpg-vs-webp) (updated 2026-10-19)
 - [Resize Images to Exact Pixels Without Blur](https://tool4saas.com/blog/image-compressor-guide/resize-image-exact-pixels) (updated 2026-10-20)
 - [PNG to WebP Without Losing Transparency](https://tool4saas.com/blog/image-compressor-guide/png-to-webp-transparency) (updated 2026-10-19)
@@ -1701,6 +1704,13 @@
 - [Free Invoice Generator Guide: Create Professional Invoices in Minutes](https://tool4saas.com/blog/invoice-generator-guide): Pillar guide. (updated 2026-10-20)
 - [Why JSON.parse Fails: Trailing Commas and Quotes](https://tool4saas.com/blog/json-formatter-guide/json-parse-errors) (updated 2026-10-19)
 - [Cron Expression Guide: 5 Fields and Next Runs](https://tool4saas.com/blog/json-formatter-guide/cron-expression-guide) (updated 2026-10-23)
+- [Format XML for Sitemaps, Feeds and Configs](https://tool4saas.com/blog/json-formatter-guide/format-xml-sitemaps-feeds) (updated 2026-10-23)
+- [HTML Entities: Encode and Decode Without Breaking Markup](https://tool4saas.com/blog/json-formatter-guide/html-entities-encode-decode) (updated 2026-10-23)
+- [URL Slugs: Rules for Readable, Stable Links](https://tool4saas.com/blog/json-formatter-guide/url-slug-rules) (updated 2026-10-23)
+- [MIME Types: What Content-Type Actually Controls](https://tool4saas.com/blog/json-formatter-guide/mime-type-content-type) (updated 2026-10-23)
+- [Inspect a CSV File Before You Import It](https://tool4saas.com/blog/json-formatter-guide/inspect-csv-before-import) (updated 2026-10-23)
+- [Minify CSS and JavaScript Without a Build Step](https://tool4saas.com/blog/json-formatter-guide/minify-css-js-safely) (updated 2026-10-23)
+- [Estimate AI Token Cost Before Sending a Prompt](https://tool4saas.com/blog/json-formatter-guide/estimate-ai-token-cost) (updated 2026-10-23)
 - [Base64 URL-Safe vs Standard: Padding and Modes](https://tool4saas.com/blog/json-formatter-guide/base64-url-safe-vs-standard) (updated 2026-10-19)
 - [SHA-256 vs MD5: When to Use Which Hash](https://tool4saas.com/blog/json-formatter-guide/sha256-vs-md5-hashes) (updated 2026-10-20)
 - [Seed Test Databases With UUIDs: Math and Workflow](https://tool4saas.com/blog/json-formatter-guide/uuid-seed-test-database) (updated 2026-10-23)
@@ -1742,6 +1752,7 @@
 - [Merge PDFs on iPhone Without an App](https://tool4saas.com/blog/pdf-merge-guide/merge-pdfs-on-iphone) (updated 2026-10-23)
 - [Manage PDFs Locally: Merge, Split, Rotate, Watermark and Convert](https://tool4saas.com/blog/pdf-merge-guide): Pillar guide. (updated 2026-10-23)
 - [How to Calculate Percent of a Number (With Examples)](https://tool4saas.com/blog/percentage-calculator-guide/percent-of-a-number) (updated 2026-10-23)
+- [Sales Tax on a Price: Formula and Examples](https://tool4saas.com/blog/percentage-calculator-guide/sales-tax-on-a-price) (updated 2026-10-23)
 - [Percentage Increase and Decrease: Formula & Examples](https://tool4saas.com/blog/percentage-calculator-guide/percentage-increase-decrease) (updated 2026-10-23)
 - [Discount Calculator: Sale Price and Savings Explained](https://tool4saas.com/blog/percentage-calculator-guide/discount-and-sale-price) (updated 2026-10-23)
 - [Markup vs Margin: Formula, Examples & Pricing](https://tool4saas.com/blog/percentage-calculator-guide/markup-vs-margin) (updated 2026-10-23)
@@ -1749,6 +1760,7 @@
 - [Reverse Percentage: Find the Original Price or Number](https://tool4saas.com/blog/percentage-calculator-guide/reverse-percentage) (updated 2026-10-23)
 - [Percentage Error Formula: Measure Accuracy Correctly](https://tool4saas.com/blog/percentage-calculator-guide/percentage-error) (updated 2026-10-23)
 - [Percentage Points vs Percent: Avoid the Classic Mistake](https://tool4saas.com/blog/percentage-calculator-guide/percentage-points-vs-percent) (updated 2026-10-23)
+- [Tip Calculator: How to Split a Bill Fairly](https://tool4saas.com/blog/percentage-calculator-guide/tip-calculator-bill-split) (updated 2026-10-23)
 - [Percentage Calculator Guide: Formulas, Discounts & Real-Life Uses](https://tool4saas.com/blog/percentage-calculator-guide): Pillar guide. (updated 2026-10-23)
 - [How to Create a QR Code Free in 60 Seconds (PNG, No Signup)](https://tool4saas.com/blog/qr-code-generator-guide/how-to-create-qr-code) (updated 2026-10-20)
 - [Google Review QR Code: Get More Reviews](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-google-reviews) (updated 2026-10-23)
@@ -1798,6 +1810,7 @@
 - [Signature for Exam Forms: 20-50KB and 140x60 Rules](https://tool4saas.com/blog/signature-maker-guide/signature-for-exam-forms) (updated 2026-10-23)
 - [Signature Maker Guide: Draw, Type & Download a Transparent PNG](https://tool4saas.com/blog/signature-maker-guide): Pillar guide. (updated 2026-10-23)
 - [₹5,000 SIP for 10, 15 and 20 Years at 12%](https://tool4saas.com/blog/sip-calculator-guide/sip-5000-10-years) (updated 2026-10-23)
+- [Monthly vs Yearly Compounding: The Real Gap](https://tool4saas.com/blog/sip-calculator-guide/monthly-vs-yearly-compounding) (updated 2026-10-23)
 - [Lump Sum Compounding: Annual vs Monthly Rests](https://tool4saas.com/blog/sip-calculator-guide/lumpsum-compounding-frequency) (updated 2026-10-23)
 - [FD Interest, TDS and Quarterly Compounding (2026)](https://tool4saas.com/blog/sip-calculator-guide/fd-quarterly-tds) (updated 2026-10-23)
 - [PPF After 15 Years: Extend, Withdraw or Close](https://tool4saas.com/blog/sip-calculator-guide/ppf-extend-15-years) (updated 2026-10-23)
@@ -1810,6 +1823,8 @@
 - [How to Count Words Online Free (No Signup)](https://tool4saas.com/blog/word-counter-guide/how-to-count-words-online) (updated 2026-10-20)
 - [Twitter/X Character Counter: What Actually Counts](https://tool4saas.com/blog/word-counter-guide/twitter-character-counter) (updated 2026-10-23)
 - [Pages per 1,000 Words: Formatting and Examples](https://tool4saas.com/blog/word-counter-guide/pages-per-1000-words) (updated 2026-10-23)
+- [Compare Two Texts Word by Word](https://tool4saas.com/blog/word-counter-guide/compare-two-texts-word-diff) (updated 2026-10-23)
+- [Markdown Preview: Check Formatting Before Publishing](https://tool4saas.com/blog/word-counter-guide/markdown-preview-before-publishing) (updated 2026-10-23)
 - [How Long Should a Blog Post Be? Intent, Coverage and Limits](https://tool4saas.com/blog/word-counter-guide/ideal-blog-post-length-seo) (updated 2026-10-20)
 - [Flesch Reading Ease Score Explained: Formula and Bands](https://tool4saas.com/blog/word-counter-guide/flesch-reading-ease-score-explained) (updated 2026-10-20)
 - [Keyword Density Explained: How to Check and Fix Stuffing](https://tool4saas.com/blog/word-counter-guide/keyword-density-seo-check) (updated 2026-10-20)

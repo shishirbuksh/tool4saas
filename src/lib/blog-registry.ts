@@ -183,6 +183,20 @@ import { seoCanonical } from "@/content/blog/seo-c10-canonical-tags";
 import { seoInternalLinking } from "@/content/blog/seo-c11-internal-linking";
 import { wordTwitterCounter } from "@/content/blog/word-c10-twitter-counter";
 import { wordPagesPer1000 } from "@/content/blog/word-c11-pages-per-1000";
+import { xmlFormatter } from "@/content/blog/json-c11-xml-formatter";
+import { htmlEntities } from "@/content/blog/json-c12-html-entities";
+import { slugGenerator } from "@/content/blog/json-c13-slug-generator";
+import { mimeType } from "@/content/blog/json-c14-mime-type";
+import { csvViewer } from "@/content/blog/json-c15-csv-viewer";
+import { codeMinifier } from "@/content/blog/json-c16-code-minifier";
+import { textDiff } from "@/content/blog/word-c12-text-diff";
+import { imageToBase64 } from "@/content/blog/image-c13-image-to-base64";
+import { compoundingFrequency } from "@/content/blog/wealth-c10-compounding-frequency";
+import { tipBillSplit } from "@/content/blog/percentage-c9-tip-split";
+import { salesTaxPrice } from "@/content/blog/percentage-c10-sales-tax";
+import { markdownPreview } from "@/content/blog/word-c13-markdown-preview";
+import { wcagContrast } from "@/content/blog/image-c14-color-contrast";
+import { aiTokenCost } from "@/content/blog/json-c17-ai-token-cost";
 
 export const BLOG_PILLARS: BlogPillarMeta[] = [
   {
@@ -543,6 +557,20 @@ export const ALL_POSTS: BlogPost[] = [
   seoInternalLinking,
   wordTwitterCounter,
   wordPagesPer1000,
+  xmlFormatter,
+  htmlEntities,
+  slugGenerator,
+  mimeType,
+  csvViewer,
+  codeMinifier,
+  textDiff,
+  imageToBase64,
+  compoundingFrequency,
+  tipBillSplit,
+  salesTaxPrice,
+  markdownPreview,
+  wcagContrast,
+  aiTokenCost,
 ];
 
 export function getPillarMeta(pillar: string): BlogPillarMeta | undefined {

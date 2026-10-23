@@ -29,7 +29,7 @@
 ## Text & Documents
 - [Word Counter](https://tool4saas.com/word-counter): Count words, characters & reading time
 - [Text Tools: Clean, Convert & Reverse](https://tool4saas.com/text-tools): Clean, convert, sort & reverse text
-- [Text Diff Checker](https://tool4saas.com/text-diff): Compare two texts side by side
+- [Text Diff Checker](https://tool4saas.com/text-diff): Compare two texts word by word
 - [Text to Speech](https://tool4saas.com/text-to-speech): Listen to your text aloud
 - [Email Extractor](https://tool4saas.com/email-extractor): Pull emails from any text
 - [Markdown Editor](https://tool4saas.com/markdown-editor): Write & preview markdown
@@ -60,7 +60,7 @@
 - [MIME Type Lookup](https://tool4saas.com/mime-type-lookup): File extension ↔ MIME
 - [Credit Card Validator](https://tool4saas.com/credit-card-validator): Free Luhn test – 4111 safe
 - [Password Strength Checker](https://tool4saas.com/password-strength): Rate your password
-- [Code Formatter & Minifier](https://tool4saas.com/code-minifier): Format & minify HTML, CSS & JS
+- [Code Formatter & Minifier](https://tool4saas.com/code-minifier): Format HTML, minify CSS & JS
 - [Screen Resolution](https://tool4saas.com/screen-resolution): Detect screen metrics
 - [XML Formatter](https://tool4saas.com/xml-formatter): Format & validate XML
 - [Cron Parser](https://tool4saas.com/cron-parser): Explain cron expressions
@@ -217,6 +217,8 @@
 - [Compress JPG to 200KB Without Visible Quality Loss](https://tool4saas.com/blog/image-compressor-guide/compress-jpg-200kb) (updated 2026-10-23)
 - [Instagram Image Size 2026: Resize Without Cropping](https://tool4saas.com/blog/image-compressor-guide/instagram-image-resize) (updated 2026-10-23)
 - [JPG to PNG: Convert Without Losing Quality](https://tool4saas.com/blog/image-compressor-guide/jpg-to-png) (updated 2026-10-23)
+- [Image to Base64: Data URLs in Practice](https://tool4saas.com/blog/image-compressor-guide/image-to-base64-data-url) (updated 2026-10-23)
+- [WCAG Contrast Checker: Pass AA and AAA](https://tool4saas.com/blog/image-compressor-guide/wcag-contrast-check) (updated 2026-10-23)
 - [PNG vs JPG vs WebP: Which Format to Use](https://tool4saas.com/blog/image-compressor-guide/png-vs-jpg-vs-webp) (updated 2026-10-19)
 - [Resize Images to Exact Pixels Without Blur](https://tool4saas.com/blog/image-compressor-guide/resize-image-exact-pixels) (updated 2026-10-20)
 - [PNG to WebP Without Losing Transparency](https://tool4saas.com/blog/image-compressor-guide/png-to-webp-transparency) (updated 2026-10-19)
@@ -241,6 +243,13 @@
 - [Free Invoice Generator Guide: Create Professional Invoices in Minutes](https://tool4saas.com/blog/invoice-generator-guide): Pillar guide. (updated 2026-10-20)
 - [Why JSON.parse Fails: Trailing Commas and Quotes](https://tool4saas.com/blog/json-formatter-guide/json-parse-errors) (updated 2026-10-19)
 - [Cron Expression Guide: 5 Fields and Next Runs](https://tool4saas.com/blog/json-formatter-guide/cron-expression-guide) (updated 2026-10-23)
+- [Format XML for Sitemaps, Feeds and Configs](https://tool4saas.com/blog/json-formatter-guide/format-xml-sitemaps-feeds) (updated 2026-10-23)
+- [HTML Entities: Encode and Decode Without Breaking Markup](https://tool4saas.com/blog/json-formatter-guide/html-entities-encode-decode) (updated 2026-10-23)
+- [URL Slugs: Rules for Readable, Stable Links](https://tool4saas.com/blog/json-formatter-guide/url-slug-rules) (updated 2026-10-23)
+- [MIME Types: What Content-Type Actually Controls](https://tool4saas.com/blog/json-formatter-guide/mime-type-content-type) (updated 2026-10-23)
+- [Inspect a CSV File Before You Import It](https://tool4saas.com/blog/json-formatter-guide/inspect-csv-before-import) (updated 2026-10-23)
+- [Minify CSS and JavaScript Without a Build Step](https://tool4saas.com/blog/json-formatter-guide/minify-css-js-safely) (updated 2026-10-23)
+- [Estimate AI Token Cost Before Sending a Prompt](https://tool4saas.com/blog/json-formatter-guide/estimate-ai-token-cost) (updated 2026-10-23)
 - [Base64 URL-Safe vs Standard: Padding and Modes](https://tool4saas.com/blog/json-formatter-guide/base64-url-safe-vs-standard) (updated 2026-10-19)
 - [SHA-256 vs MD5: When to Use Which Hash](https://tool4saas.com/blog/json-formatter-guide/sha256-vs-md5-hashes) (updated 2026-10-20)
 - [Seed Test Databases With UUIDs: Math and Workflow](https://tool4saas.com/blog/json-formatter-guide/uuid-seed-test-database) (updated 2026-10-23)
@@ -282,6 +291,7 @@
 - [Merge PDFs on iPhone Without an App](https://tool4saas.com/blog/pdf-merge-guide/merge-pdfs-on-iphone) (updated 2026-10-23)
 - [Manage PDFs Locally: Merge, Split, Rotate, Watermark and Convert](https://tool4saas.com/blog/pdf-merge-guide): Pillar guide. (updated 2026-10-23)
 - [How to Calculate Percent of a Number (With Examples)](https://tool4saas.com/blog/percentage-calculator-guide/percent-of-a-number) (updated 2026-10-23)
+- [Sales Tax on a Price: Formula and Examples](https://tool4saas.com/blog/percentage-calculator-guide/sales-tax-on-a-price) (updated 2026-10-23)
 - [Percentage Increase and Decrease: Formula & Examples](https://tool4saas.com/blog/percentage-calculator-guide/percentage-increase-decrease) (updated 2026-10-23)
 - [Discount Calculator: Sale Price and Savings Explained](https://tool4saas.com/blog/percentage-calculator-guide/discount-and-sale-price) (updated 2026-10-23)
 - [Markup vs Margin: Formula, Examples & Pricing](https://tool4saas.com/blog/percentage-calculator-guide/markup-vs-margin) (updated 2026-10-23)
@@ -289,6 +299,7 @@
 - [Reverse Percentage: Find the Original Price or Number](https://tool4saas.com/blog/percentage-calculator-guide/reverse-percentage) (updated 2026-10-23)
 - [Percentage Error Formula: Measure Accuracy Correctly](https://tool4saas.com/blog/percentage-calculator-guide/percentage-error) (updated 2026-10-23)
 - [Percentage Points vs Percent: Avoid the Classic Mistake](https://tool4saas.com/blog/percentage-calculator-guide/percentage-points-vs-percent) (updated 2026-10-23)
+- [Tip Calculator: How to Split a Bill Fairly](https://tool4saas.com/blog/percentage-calculator-guide/tip-calculator-bill-split) (updated 2026-10-23)
 - [Percentage Calculator Guide: Formulas, Discounts & Real-Life Uses](https://tool4saas.com/blog/percentage-calculator-guide): Pillar guide. (updated 2026-10-23)
 - [How to Create a QR Code Free in 60 Seconds (PNG, No Signup)](https://tool4saas.com/blog/qr-code-generator-guide/how-to-create-qr-code) (updated 2026-10-20)
 - [Google Review QR Code: Get More Reviews](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-google-reviews) (updated 2026-10-23)
@@ -338,6 +349,7 @@
 - [Signature for Exam Forms: 20-50KB and 140x60 Rules](https://tool4saas.com/blog/signature-maker-guide/signature-for-exam-forms) (updated 2026-10-23)
 - [Signature Maker Guide: Draw, Type & Download a Transparent PNG](https://tool4saas.com/blog/signature-maker-guide): Pillar guide. (updated 2026-10-23)
 - [₹5,000 SIP for 10, 15 and 20 Years at 12%](https://tool4saas.com/blog/sip-calculator-guide/sip-5000-10-years) (updated 2026-10-23)
+- [Monthly vs Yearly Compounding: The Real Gap](https://tool4saas.com/blog/sip-calculator-guide/monthly-vs-yearly-compounding) (updated 2026-10-23)
 - [Lump Sum Compounding: Annual vs Monthly Rests](https://tool4saas.com/blog/sip-calculator-guide/lumpsum-compounding-frequency) (updated 2026-10-23)
 - [FD Interest, TDS and Quarterly Compounding (2026)](https://tool4saas.com/blog/sip-calculator-guide/fd-quarterly-tds) (updated 2026-10-23)
 - [PPF After 15 Years: Extend, Withdraw or Close](https://tool4saas.com/blog/sip-calculator-guide/ppf-extend-15-years) (updated 2026-10-23)
@@ -350,6 +362,8 @@
 - [How to Count Words Online Free (No Signup)](https://tool4saas.com/blog/word-counter-guide/how-to-count-words-online) (updated 2026-10-20)
 - [Twitter/X Character Counter: What Actually Counts](https://tool4saas.com/blog/word-counter-guide/twitter-character-counter) (updated 2026-10-23)
 - [Pages per 1,000 Words: Formatting and Examples](https://tool4saas.com/blog/word-counter-guide/pages-per-1000-words) (updated 2026-10-23)
+- [Compare Two Texts Word by Word](https://tool4saas.com/blog/word-counter-guide/compare-two-texts-word-diff) (updated 2026-10-23)
+- [Markdown Preview: Check Formatting Before Publishing](https://tool4saas.com/blog/word-counter-guide/markdown-preview-before-publishing) (updated 2026-10-23)
 - [How Long Should a Blog Post Be? Intent, Coverage and Limits](https://tool4saas.com/blog/word-counter-guide/ideal-blog-post-length-seo) (updated 2026-10-20)
 - [Flesch Reading Ease Score Explained: Formula and Bands](https://tool4saas.com/blog/word-counter-guide/flesch-reading-ease-score-explained) (updated 2026-10-20)
 - [Keyword Density Explained: How to Check and Fix Stuffing](https://tool4saas.com/blog/word-counter-guide/keyword-density-seo-check) (updated 2026-10-20)

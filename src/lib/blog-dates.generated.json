@@ -209,6 +209,11 @@
     "modified": "2026-10-20",
     "source": "git"
   },
+  "image-compressor-guide/image-to-base64-data-url": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
+  },
   "image-compressor-guide/instagram-image-resize": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
@@ -243,6 +248,11 @@
     "published": "2026-10-07",
     "modified": "2026-10-19",
     "source": "git"
+  },
+  "image-compressor-guide/wcag-contrast-check": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
   },
   "invoice-generator-guide/credit-note-vs-debit-note": {
     "published": "2026-10-23",
@@ -319,10 +329,30 @@
     "modified": "2026-10-23",
     "source": "git"
   },
+  "json-formatter-guide/estimate-ai-token-cost": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
+  },
   "json-formatter-guide/format-sql-queries": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
     "source": "git"
+  },
+  "json-formatter-guide/format-xml-sitemaps-feeds": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
+  },
+  "json-formatter-guide/html-entities-encode-decode": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
+  },
+  "json-formatter-guide/inspect-csv-before-import": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
   },
   "json-formatter-guide/json-formatter-guide": {
     "published": "2026-10-07",
@@ -344,6 +374,16 @@
     "modified": "2026-10-19",
     "source": "git"
   },
+  "json-formatter-guide/mime-type-content-type": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
+  },
+  "json-formatter-guide/minify-css-js-safely": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
+  },
   "json-formatter-guide/regex-flags-capture-groups": {
     "published": "2026-10-07",
     "modified": "2026-10-20",
@@ -358,6 +398,11 @@
     "published": "2026-10-07",
     "modified": "2026-10-19",
     "source": "git"
+  },
+  "json-formatter-guide/url-slug-rules": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
   },
   "json-formatter-guide/uuid-seed-test-database": {
     "published": "2026-10-07",
@@ -568,6 +613,16 @@
     "published": "2026-10-23",
     "modified": "2026-10-23",
     "source": "git"
+  },
+  "percentage-calculator-guide/sales-tax-on-a-price": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
+  },
+  "percentage-calculator-guide/tip-calculator-bill-split": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
   },
   "qr-code-generator-guide/how-to-create-qr-code": {
     "published": "2026-09-22",
@@ -824,6 +879,11 @@
     "modified": "2026-10-23",
     "source": "git"
   },
+  "sip-calculator-guide/monthly-vs-yearly-compounding": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
+  },
   "sip-calculator-guide/old-vs-new-regime-2026": {
     "published": "2026-10-07",
     "modified": "2026-10-19",
@@ -853,6 +913,11 @@
     "published": "2026-10-07",
     "modified": "2026-10-19",
     "source": "git"
+  },
+  "word-counter-guide/compare-two-texts-word-diff": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
   },
   "word-counter-guide/flesch-reading-ease-score-explained": {
     "published": "2026-09-28",
@@ -888,6 +953,11 @@
     "published": "2026-09-28",
     "modified": "2026-10-20",
     "source": "git"
+  },
+  "word-counter-guide/markdown-preview-before-publishing": {
+    "published": "2026-10-23",
+    "modified": "2026-10-23",
+    "source": "content-fallback"
   },
   "word-counter-guide/pages-per-1000-words": {
     "published": "2026-10-23",

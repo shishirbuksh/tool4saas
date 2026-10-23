@@ -106,10 +106,10 @@ describe("blog-registry – mesh integrity", () => {
       "invoice-generator-guide": 12,
       "qr-code-generator-guide": 12,
       "resume-builder-guide": 12,
-      "image-compressor-guide": 12,
+      "image-compressor-guide": 14,
       "mortgage-calculator-guide": 9,
       "password-generator-guide": 9,
-      "word-counter-guide": 11,
+      "word-counter-guide": 13,
     };
     for (const [pillar, count] of Object.entries(expected)) {
       expect(getClustersForPillar(pillar).length, pillar).toBe(count);
