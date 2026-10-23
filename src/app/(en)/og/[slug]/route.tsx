@@ -2,27 +2,11 @@ import { ImageResponse } from "next/og";
 import { getTool, getCategory } from "@/lib/tools";
 import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
 import { siteConfig } from "@/lib/site";
+import { ogSanitizeTitle, ogSanitizeDesc } from "@/lib/og-text";
 
 export const runtime = "edge";
 export const contentType = "image/png";
 export const size = { width: 1200, height: 630 };
-
-function sanitize(text: string): string {
-  return text
-    .replace(/[—–]/g, "-")
-    .replace(/[‘’]/g, "'")
-    .replace(/[“”]/g, '"')
-    .replace(/…/g, "...")
-    .trim();
-}
-
-function sanitizeTitle(text: string): string {
-  return Array.from(sanitize(text)).slice(0, 80).join("");
-}
-
-function sanitizeDesc(text: string): string {
-  return Array.from(sanitize(text)).slice(0, 180).join("");
-}
 
 // Curated share cards for static pages (mirrors staticPageMetadata titles).
 const STATIC_PAGES: Record<string, { title: string; desc: string }> = {
@@ -33,6 +17,7 @@ const STATIC_PAGES: Record<string, { title: string; desc: string }> = {
   author: { title: "Tool4SaaS Editorial Team", desc: "In-house reviewers testing every tool across browsers." },
   methodology: { title: "How We Test Tools", desc: "Golden values, boundary tests and browser matrix." },
   blog: { title: "Tool4SaaS Blog Guides", desc: "Tested walkthroughs for invoices, QR, resumes and more." },
+  guides: { title: "All Guides & Tutorials", desc: "Every pillar guide and tutorial, indexed by topic." },
 };
 
 export async function GET(
@@ -56,20 +41,20 @@ export async function GET(
     badge = "No signup · Local-first";
   } else if (slug.startsWith("static-")) {
     const page = STATIC_PAGES[slug.slice("static-".length)];
-    title = sanitizeTitle(page ? page.title : siteConfig.name);
-    desc = sanitizeDesc(page ? page.desc : siteConfig.description);
+    title = ogSanitizeTitle(page ? page.title : siteConfig.name);
+    desc = ogSanitizeDesc(page ? page.desc : siteConfig.description);
     badge = siteConfig.name;
   } else if (slug.startsWith("category-")) {
     const category = getCategory(slug.slice("category-".length));
-    title = sanitizeTitle(category ? category.label : siteConfig.name);
-    desc = sanitizeDesc(category ? category.description : siteConfig.description);
-    badge = sanitizeTitle(category ? siteConfig.name : "Free Online Tools");
+    title = ogSanitizeTitle(category ? category.label : siteConfig.name);
+    desc = ogSanitizeDesc(category ? category.description : siteConfig.description);
+    badge = ogSanitizeTitle(category ? siteConfig.name : "Free Online Tools");
   } else {
     const tool = getTool(slug);
-    title = sanitizeTitle(tool ? tool.title : siteConfig.name);
-    desc = sanitizeDesc(tool ? tool.description : siteConfig.description);
+    title = ogSanitizeTitle(tool ? tool.title : siteConfig.name);
+    desc = ogSanitizeDesc(tool ? tool.description : siteConfig.description);
     badge = tool
-      ? sanitizeTitle(getCategory(tool.category)?.label ?? "Free Tools")
+      ? ogSanitizeTitle(getCategory(tool.category)?.label ?? "Free Tools")
       : "Free Online Tools";
   }
 

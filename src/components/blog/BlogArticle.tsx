@@ -21,6 +21,8 @@ import {
   getBlogPostDatePublishedIso,
 } from "@/lib/dates";
 import EmbeddedTool from "@/components/blog/EmbeddedTool";
+import BlogSources from "@/components/blog/BlogSources";
+import { getGuideCitationUrls } from "@/lib/blog-sources";
 
 function canonicalFor(post: BlogPost, locale: Locale = "en"): string {
   const base = siteConfig.url.replace(/\/$/, "");
@@ -29,16 +31,24 @@ function canonicalFor(post: BlogPost, locale: Locale = "en"): string {
   return `${base}${prefix}/blog/${post.pillar}/${post.slug}`;
 }
 
+// Per-post OG card rendered by /og/blog/[...parts] from the same registry the
+// page renders, so the share image title/description always match the article.
+function blogOgImage(post: BlogPost): string {
+  const base = siteConfig.url.replace(/\/$/, "");
+  return post.kind === "pillar"
+    ? `${base}/og/blog/${post.pillar}`
+    : `${base}/og/blog/${post.pillar}/${post.slug}`;
+}
+
 export function blogMetadataFor(post: BlogPost, locale: Locale = "en") {
   const canonical = canonicalFor(post, locale);
   const base = siteConfig.url.replace(/\/$/, "");
   const enCanonical = canonicalFor(post, "en");
   const publishedIso = getBlogPostDatePublishedIso(post.pillar, post.slug, post.published);
   const modifiedIso = getBlogPostDateModifiedIso(post.pillar, post.slug, post.updated);
-  // Per-post OG: prefer the funnel tool's /og/<slug> image so shares show
-  // the tool, not the generic home card. Falls back to /og/home only when
-  // the post has no toolSlugs.
-  const ogImage = post.toolSlugs[0] ? `${base}/og/${post.toolSlugs[0]}` : `${base}/og/home`;
+  // Per-post OG: the article's own card from /og/blog/[...parts], so shares
+  // show the guide title instead of reusing the funnel tool's card.
+  const ogImage = blogOgImage(post);
   const fullTitle = blogMetaTitle(post.title, post.seoTitle);
   // Bidirectional hreflang for ES blog pilots (EN <-> /es/blog/...).
   // Non-pilot posts keep {en, x-default} to avoid pointing at 404s.
@@ -119,7 +129,7 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
   const howToSteps = Array.isArray(post.toc)
     ? post.toc.filter((t) => t.level === 2)
     : [];
-  const ogImage = post.toolSlugs[0] ? `${base}/og/${post.toolSlugs[0]}` : `${base}/og/home`;
+  const ogImage = blogOgImage(post);
   const pillarMeta = getPillarMeta(post.pillar);
   // ES pilot has no translated pillar page yet: pillar crumb falls back to the
   // EN pillar URL (exists) instead of a 404 /es/blog/<pillar>.
@@ -138,10 +148,10 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
           { "@type": "ListItem", position: 3, name: pillarMeta?.title ?? post.pillar, item: pillarUrl },
           { "@type": "ListItem", position: 4, name: post.title, item: canonical },
         ];
+  const citations = getGuideCitationUrls(post.pillar);
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
+    "@graph": [      {
         "@type": "BlogPosting",
         "@id": `${canonical}#article`,
         headline: post.title,
@@ -174,6 +184,7 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
         ...(post.keywords.length ? { keywords: post.keywords.join(", ") } : {}),
         wordCount: post.html ? post.html.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length : undefined,
         timeRequired: `PT${Math.max(3, post.readingMinutes)}M`,
+        ...(citations.length ? { citation: citations } : {}),
       },
       { "@type": "BreadcrumbList", itemListElement: crumbs },
       ...(validFaqs.length
@@ -353,6 +364,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
         {/* Body */}
         <Box color="text.primary">
           <article className="blog-body" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <BlogSources pillar={post.pillar} />
           {secondaryTools.length > 0 && (
             <Box sx={{ mt: 4, p: 3, borderRadius: "12px", bgcolor: "action.hover", border: "1px solid", borderColor: "divider" }}>
               <Typography variant="h2" sx={{ fontSize: "1.1rem", fontWeight: 700, mb: 1 }}>
@@ -376,7 +388,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
               {validFaqs.map((f, i) => (
                 <Accordion key={i} elevation={0} sx={{ border: "1px solid", borderColor: "divider", "&:before": { display: "none" }, mb: 1 }}>
                   <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography component="h3" sx={{ fontWeight: 600, fontSize: "1rem" }}>
+                    <Typography component="span" sx={{ fontWeight: 600, fontSize: "1rem" }}>
                       {f.question}
                     </Typography>
                   </AccordionSummary>

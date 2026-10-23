@@ -57,9 +57,14 @@ export default function BlogIndexPage() {
       <Typography variant="h1" sx={{ fontSize: { xs: "2.2rem", md: "3rem" }, fontWeight: 800, mb: 2 }}>
         Guides that actually show the clicks
       </Typography>
-      <Typography color="text.secondary" sx={{ maxWidth: 720, mb: 6, fontSize: "1.1rem", lineHeight: 1.7 }}>
+      <Typography color="text.secondary" sx={{ maxWidth: 720, mb: 2, fontSize: "1.1rem", lineHeight: 1.7 }}>
         Every tool gets one <strong>pillar guide</strong> + <strong>8–10 hands-on tutorials</strong> in a silo.
         No fluff — we open the tool in Chrome, time it, and tell you where it breaks. Start with our first silo below.
+      </Typography>
+      <Typography sx={{ mb: 6 }}>
+        <Link href="/guides" style={{ fontWeight: 700 }}>
+          Browse all {BLOG_PILLARS.reduce((n, p) => n + getClustersForPillar(p.pillar).filter((c) => !isNoindexCluster(c.pillar, c.slug)).length + (getPillarPost(p.pillar) ? 1 : 0), 0)} guides in one index →
+        </Link>
       </Typography>
       <Grid container spacing={3}>
         {BLOG_PILLARS.map((p) => {
@@ -102,6 +107,10 @@ export default function BlogIndexPage() {
           <strong>How silos work here:</strong> the pillar ranks for the broad topic (e.g. free invoice generator guide),
           each tutorial ranks for one long-tail query (e.g. GST invoice format India), and all of them funnel to the free
           tool page. New silos (QR codes, resume, JSON formatter…) follow the same template — one pillar, 8–10 clusters, deep internal linking.
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, mt: 2 }}>
+          <strong>Subscribe:</strong>{" "}
+          <a href="/rss.xml" style={{ fontWeight: 600 }}>RSS feed</a> — the newest 50 guides, no email required.
         </Typography>
       </Box>
     </Container>

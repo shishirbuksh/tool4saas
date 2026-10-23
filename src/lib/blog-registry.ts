@@ -357,7 +357,9 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
   },
 ];
 
-const ALL_POSTS: BlogPost[] = [
+// Single flat list of every registered post (pillars + clusters). Exported for
+// the RSS feed; page-level lookups still go through the typed helpers below.
+export const ALL_POSTS: BlogPost[] = [
   invoicePillar,
   invoiceHowToCreate,
   invoiceGstFormat,

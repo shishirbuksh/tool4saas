@@ -185,7 +185,7 @@ export default function ToolSeo({ tool, locale = "en" }: { tool: Tool; locale?: 
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography component="h3" sx={{ fontWeight: 600, fontSize: "1rem" }}>
+                <Typography component="span" sx={{ fontWeight: 600, fontSize: "1rem" }}>
                   {f.question}
                 </Typography>
               </AccordionSummary>

@@ -120,6 +120,7 @@ const pageFiles = {
   contact: "src/app/(en)/contact/page.tsx",
   author: "src/app/(en)/author/page.tsx",
   methodology: "src/app/(en)/methodology/page.tsx",
+  guides: "src/app/(en)/guides/page.tsx",
 };
 const pageDates = {};
 for (const [name, rel] of Object.entries(pageFiles)) {

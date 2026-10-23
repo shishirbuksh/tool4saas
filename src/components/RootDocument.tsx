@@ -155,6 +155,12 @@ export default function RootDocument({ locale = "en", children }: { locale?: Loc
             </Script>
           </>
         )}
+        {/* RSS autodiscovery lives outside Next's Metadata API so page-level
+            `alternates` overrides (blog posts set their own canonical/hreflang)
+            cannot drop it. EN-only: the feed carries English posts. */}
+        {locale === "en" && (
+          <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} Blog`} href="/rss.xml" />
+        )}
       </head>
       <body suppressHydrationWarning>
         <Script id="consent-default" strategy="beforeInteractive">

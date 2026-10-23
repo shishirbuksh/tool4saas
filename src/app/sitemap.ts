@@ -108,7 +108,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(`${BLOG_MODIFIED}T00:00:00.000Z`),
       changeFrequency: "weekly",
       priority: 0.7,
-      images: [`${base}/og/home`],
+      images: [`${base}/og/static-blog`],
+    },
+    {
+      url: `${base}/guides`,
+      lastModified: new Date(`${getPageModifiedIso("guides") ?? BLOG_MODIFIED}T00:00:00.000Z`),
+      changeFrequency: "weekly",
+      priority: 0.7,
+      images: [`${base}/og/static-guides`],
     },
   ];
   const blogPillars: MetadataRoute.Sitemap = BLOG_PILLARS.map((p) => ({
@@ -116,7 +123,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(`${getBlogPostDateModifiedIso(p.pillar, p.pillar, p.updated)}T00:00:00.000Z`),
     changeFrequency: "monthly",
     priority: 0.65,
-    images: [`${base}/og/${p.toolSlug}`],
+    images: [`${base}/og/blog/${p.pillar}`],
   }));
   const blogClusters: MetadataRoute.Sitemap = BLOG_PILLARS.flatMap((p) =>
     getClustersForPillar(p.pillar)
@@ -127,7 +134,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(`${getBlogPostDateModifiedIso(c.pillar, c.slug, c.updated)}T00:00:00.000Z`),
       changeFrequency: "monthly" as const,
       priority: 0.6,
-      images: [`${base}/og/${c.toolSlugs[0] ?? p.toolSlug}`],
+      images: [`${base}/og/blog/${c.pillar}/${c.slug}`],
       ...(isEsBlogPilot(c.pillar, c.slug) ? { alternates: alternates(blogPilotLanguages(base, c.pillar, c.slug)) } : {}),
     }))
   );
@@ -177,7 +184,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(`${cluster ? getBlogPostDateModifiedIso(cluster.pillar, cluster.slug, cluster.updated) : SITE_PUBLISHED_ISO}T00:00:00.000Z`),
         changeFrequency: "monthly" as const,
         priority: 0.6,
-        images: [`${base}/og/${cluster?.toolSlugs[0] ?? "qr-code-generator"}`],
+        images: [`${base}/og/blog/${pillar}/${slug}`],
         alternates: alternates(blogPilotLanguages(base, pillar, slug)),
       };
     }),

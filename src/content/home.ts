@@ -1,3 +1,6 @@
+import { getClusterPost } from "@/lib/blog-registry";
+import { getBlogPostDatePublishedIso } from "@/lib/dates";
+
 export type Guide = {
   title: string;
   desc: string;
@@ -8,29 +11,28 @@ export type Guide = {
 
 export type Faq = { q: string; a: string };
 
-export const HOME_GUIDES: Guide[] = [
-  {
-    title: "ATS-Friendly Resume: Beat Applicant Tracking Software (2026)",
-    desc: "How parsers read a resume, which keywords matter, and a five-minute pre-application check.",
-    label: "Resume Guide",
-    date: "2026-09-23",
-    href: "/blog/resume-builder-guide/ats-resume-guide",
-  },
-  {
-    title: "UPI QR Code for Payments: Setup, Counter Tips & Safety (India)",
-    desc: "Fixed versus open amounts, printing advice, and the fraud checks that matter.",
-    label: "QR Code Guide",
-    date: "2026-09-22",
-    href: "/blog/qr-code-generator-guide/upi-payment-qr-code-india",
-  },
-  {
-    title: "GST Invoice Format India: Mandatory Fields, HSN & Sample (2026)",
-    desc: "CGST/SGST versus IGST, GSTIN, HSN codes, and a freelancer invoice sample.",
-    label: "Invoice Guide",
-    date: "2026-09-18",
-    href: "/blog/invoice-generator-guide/gst-invoice-format-india",
-  },
+// Featured homepage cards are derived from the blog registry so the visible
+// title/description/date can never drift from the actual article. Order here
+// is the display order.
+const FEATURED_GUIDES: { pillar: string; slug: string; label: string }[] = [
+  { pillar: "resume-builder-guide", slug: "ats-resume-guide", label: "Resume Guide" },
+  { pillar: "qr-code-generator-guide", slug: "upi-payment-qr-code-india", label: "QR Code Guide" },
+  { pillar: "invoice-generator-guide", slug: "gst-invoice-format-india", label: "Invoice Guide" },
 ];
+
+export const HOME_GUIDES: Guide[] = FEATURED_GUIDES.flatMap((ref) => {
+  const post = getClusterPost(ref.pillar, ref.slug);
+  if (!post) return [];
+  return [
+    {
+      title: post.title,
+      desc: post.description,
+      label: ref.label,
+      date: getBlogPostDatePublishedIso(post.pillar, post.slug, post.published),
+      href: `/blog/${post.pillar}/${post.slug}`,
+    },
+  ];
+});
 
 export const FAQS: Faq[] = [
   {

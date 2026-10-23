@@ -29,6 +29,7 @@ const popular = popularSlugs
   .filter((t): t is NonNullable<typeof t> => Boolean(t));
 
 const GUIDES = [
+  { href: "/guides", label: "All Guides & Tutorials" },
   { href: "/blog/word-counter-guide", label: "Word Counter Guide" },
   { href: "/blog/invoice-generator-guide", label: "Invoice Generator Guide" },
   { href: "/blog/qr-code-generator-guide", label: "QR Code Generator Guide" },
