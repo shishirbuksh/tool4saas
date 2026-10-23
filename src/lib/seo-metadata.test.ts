@@ -104,6 +104,16 @@ describe("SEO metadata", () => {
     expect(urls.some((u) => u.endsWith("/word-counter"))).toBe(true);
   }, 20000);
 
+  it("noindex blog cluster is excluded from sitemap and llms.txt", async () => {
+    const { default: sitemap } = await import("../app/sitemap");
+    const urls = (sitemap() as { url: string }[]).map((e) => e.url);
+    expect(urls.some((u) => u.includes("/blog/pdf-merge-guide/compress-pdf-1mb-email"))).toBe(false);
+    expect(urls.some((u) => u.includes("/blog/percentage-calculator-guide/percent-of-a-number"))).toBe(true);
+    const llms = fs.readFileSync(path.join(root, "public", "llms.txt"), "utf8");
+    expect(llms).not.toContain("/blog/pdf-merge-guide/compress-pdf-1mb-email");
+    expect(llms).toContain("/blog/percentage-calculator-guide/percent-of-a-number");
+  }, 20000);
+
   it("never emits a /fr/blog sitemap URL (FR publishes no blog)", async () => {
     const src = fs.readFileSync(path.join(root, "src", "app", "sitemap.ts"), "utf8");
     expect(src).toContain("BLOG_PILOT_LOCALES");

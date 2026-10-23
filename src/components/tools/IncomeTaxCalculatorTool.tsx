@@ -24,14 +24,15 @@ const BRACKETS = [
   { limit: Infinity, rate: 0.24, label: "24% above $95,000" },
 ] as const;
 
-function calculateTax(taxable: number): number {
+function calculateTax(taxable: number, multiplier: number): number {
   let tax = 0;
   let prev = 0;
   for (const b of BRACKETS) {
     if (taxable <= prev) break;
-    const inBracket = Math.min(taxable, b.limit) - prev;
+    const limit = b.limit * multiplier;
+    const inBracket = Math.min(taxable, limit) - prev;
     if (inBracket > 0) tax += inBracket * b.rate;
-    prev = b.limit;
+    prev = limit;
   }
   return tax;
 }
@@ -57,7 +58,8 @@ export default function IncomeTaxCalculatorTool() {
 
     const ded = isFinite(d) && d >= 0 ? d : 0;
     const taxableVal = Math.max(0, g - ded);
-    const taxVal = calculateTax(taxableVal);
+    const multiplier = filingStatus === "married" ? 2 : 1;
+    const taxVal = calculateTax(taxableVal, multiplier);
     const netVal = g - taxVal;
     const eff = g > 0 ? (taxVal / g) * 100 : 0;
 
@@ -66,7 +68,7 @@ export default function IncomeTaxCalculatorTool() {
     }
 
     return { taxable: taxableVal, tax: taxVal, net: netVal, effectiveRate: eff };
-  }, [gross, deduction]);
+  }, [gross, deduction, filingStatus]);
 
   const field = (label: string, value: string, set: (v: string) => void) => (
     <TextField
@@ -110,8 +112,8 @@ export default function IncomeTaxCalculatorTool() {
         {field("Standard deduction", deduction, setDeduction)}
         <Box sx={{ flex: 1, display: "flex", alignItems: "center" }}>
           <Typography variant="caption" color="text.secondary">
-            Demo brackets: 10% to $11k · 12% to $44k · 22% to $95k · 24% above. Filing status does not
-            change demo brackets.
+            Demo brackets: 10% to $11k · 12% to $44k · 22% to $95k · 24% above. Married doubles the demo
+            thresholds.
           </Typography>
         </Box>
       </Stack>
@@ -171,8 +173,8 @@ export default function IncomeTaxCalculatorTool() {
       <Alert severity="warning">
         Disclaimer: This is a simplified demo estimate for informational purposes only and does not
         constitute tax or financial advice. It uses illustrative progressive brackets (10% up to $11k,
-        12% up to $44k, 22% up to $95k, 24% thereafter) and subtracts your standard deduction from gross
-        to get taxable income. Actual taxes depend on current law, filing status rules, credits,
+        12% up to $44k, 22% up to $95k, 24% thereafter), doubles the demo thresholds for married filing,
+        and subtracts your standard deduction from gross to get taxable income. Actual taxes depend on current law, credits,
         state/local taxes, and other factors. Consult a qualified professional.
       </Alert>
     </ToolPaper>

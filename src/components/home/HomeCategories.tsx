@@ -17,7 +17,8 @@ import TextSnippetIcon from "@mui/icons-material/TextSnippet";
 import TransformIcon from "@mui/icons-material/Transform";
 import type { SvgIconProps } from "@mui/material/SvgIcon";
 import type { ComponentType } from "react";
-import { CATEGORIES, NOINDEX_SLUGS } from "@/lib/tools";
+import { CATEGORIES } from "@/lib/tools/categories";
+import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
 
 const CATEGORY_ICONS: Record<string, ComponentType<SvgIconProps>> = {
@@ -82,7 +83,6 @@ export default function HomeCategories() {
               <Grid size={{ xs: 6, sm: 6, md: 4, lg: 3 }} key={category.id}>
                 <Link
                   href={`/category/${category.id}`}
-                  aria-label={`Browse ${category.label} — ${count} free tools`}
                   style={{ textDecoration: "none", color: "inherit", display: "block", height: "100%" }}
                 >
                   <Box

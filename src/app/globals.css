@@ -48,6 +48,15 @@ a {
 [data-theme="dark"] .footer-link:hover {
   color: #FFFFFF;
 }
+.footer-legal-button {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
 @media (prefers-contrast: more) {
   .footer-link { text-decoration: underline; }
 }

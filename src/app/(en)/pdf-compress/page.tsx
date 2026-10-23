@@ -7,7 +7,7 @@ const slug = "pdf-compress";
 const tool = getTool(slug)!;
 const baseMetadata = toolMetadata(slug);
 // TODO: implement real pdf-lib compression in PdfCompressTool; keep noindex until real.
-// Placeholder currently only validates file type/size and shows an install error.
+// Current beta validates the PDF header, size, and page count without recompressing.
 export const metadata: Metadata = {
   ...baseMetadata,
   robots: {

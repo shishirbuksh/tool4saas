@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getTool, getCategory } from "@/lib/tools";
+import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
 import { siteConfig } from "@/lib/site";
 
 export const runtime = "edge";
@@ -49,7 +50,11 @@ export async function GET(
   let title: string;
   let desc: string;
   let badge: string;
-  if (slug.startsWith("static-")) {
+  if (slug === "home") {
+    title = `${VISIBLE_TOOL_COUNT} free online tools, one browser tab`;
+    desc = "Invoices, PDFs, images, code and calculators. No signup; most tools run locally.";
+    badge = "No signup · Local-first";
+  } else if (slug.startsWith("static-")) {
     const page = STATIC_PAGES[slug.slice("static-".length)];
     title = sanitizeTitle(page ? page.title : siteConfig.name);
     desc = sanitizeDesc(page ? page.desc : siteConfig.description);

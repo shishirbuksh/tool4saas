@@ -14,6 +14,12 @@ import { isEsBlogPilot } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import { getPillarMeta, getRelatedPosts } from "@/lib/blog-registry";
 import type { BlogPost } from "@/lib/blog";
+import { blogMetaTitle } from "@/lib/seo-title";
+import {
+  formatIsoHuman,
+  getBlogPostDateModifiedIso,
+  getBlogPostDatePublishedIso,
+} from "@/lib/dates";
 import EmbeddedTool from "@/components/blog/EmbeddedTool";
 
 function canonicalFor(post: BlogPost, locale: Locale = "en"): string {
@@ -27,17 +33,13 @@ export function blogMetadataFor(post: BlogPost, locale: Locale = "en") {
   const canonical = canonicalFor(post, locale);
   const base = siteConfig.url.replace(/\/$/, "");
   const enCanonical = canonicalFor(post, "en");
+  const publishedIso = getBlogPostDatePublishedIso(post.pillar, post.slug, post.published);
+  const modifiedIso = getBlogPostDateModifiedIso(post.pillar, post.slug, post.updated);
   // Per-post OG: prefer the funnel tool's /og/<slug> image so shares show
   // the tool, not the generic home card. Falls back to /og/home only when
   // the post has no toolSlugs.
   const ogImage = post.toolSlugs[0] ? `${base}/og/${post.toolSlugs[0]}` : `${base}/og/home`;
-  let core = post.title;
-  if (core.length > 55) {
-    core = core.slice(0, 55).trimEnd();
-    const lastSpace = core.lastIndexOf(" ");
-    if (lastSpace > 35) core = core.slice(0, lastSpace);
-  }
-  const fullTitle = `${core} | Tool4SaaS`;
+  const fullTitle = blogMetaTitle(post.title, post.seoTitle);
   // Bidirectional hreflang for ES blog pilots (EN <-> /es/blog/...).
   // Non-pilot posts keep {en, x-default} to avoid pointing at 404s.
   const languages =
@@ -64,8 +66,8 @@ export function blogMetadataFor(post: BlogPost, locale: Locale = "en") {
       title: fullTitle,
       description: post.description,
       images: [{ url: ogImage, width: 1200, height: 630, alt: `${post.title} — ${siteConfig.name}` }],
-      publishedTime: post.published,
-      modifiedTime: post.updated,
+      publishedTime: publishedIso,
+      modifiedTime: modifiedIso,
       authors: [siteConfig.author],
     },
     twitter: {
@@ -92,6 +94,8 @@ export function validBlogFaqs(post: BlogPost) {
 export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: Locale }) {
   const base = siteConfig.url.replace(/\/$/, "");
   const canonical = canonicalFor(post, locale);
+  const publishedIso = getBlogPostDatePublishedIso(post.pillar, post.slug, post.published);
+  const modifiedIso = getBlogPostDateModifiedIso(post.pillar, post.slug, post.updated);
   // Filter malformed/empty FAQs so FAQPage always has Question +
   // acceptedAnswer Answer text (1:1 with visible copy below).
   const validFaqs = validBlogFaqs(post);
@@ -158,8 +162,8 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
             height: 512,
           },
         },
-        datePublished: post.published,
-        dateModified: post.updated,
+        datePublished: publishedIso,
+        dateModified: modifiedIso,
         mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
         // Voice/AEO hook: selectors below match visible classes
         // (.faq-passage on FAQ answers, .blog-answer-first on the lede).
@@ -222,6 +226,8 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
   const primaryTool = post.toolSlugs[0] ? getTool(post.toolSlugs[0]) : undefined;
   const secondaryTools = post.toolSlugs.slice(1).map((s) => getTool(s)).filter(Boolean);
   const validFaqs = validBlogFaqs(post);
+  const publishedIso = getBlogPostDatePublishedIso(post.pillar, post.slug, post.published);
+  const modifiedIso = getBlogPostDateModifiedIso(post.pillar, post.slug, post.updated);
   // ES pilot: primary CTA deep-links /es/<slug> with the native ES title/short
   // when a transcreation exists; siblings/secondary stay EN (exist only in EN).
   const esPrimaryTool = locale === "es" && post.toolSlugs[0] ? getEsTool(post.toolSlugs[0]) : undefined;
@@ -258,16 +264,16 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
             <>
               Por <Link href="/author" style={{ fontWeight: 600 }}>{siteConfig.author} Editorial Team</Link>
               {" · "}
-              <time dateTime={post.published}>Publicado {post.published}</time>
-              {" · Actualizado "}<time dateTime={post.updated}>{post.updated}</time>
+              <time dateTime={publishedIso}>Publicado {formatIsoHuman(publishedIso)}</time>
+              {" · Actualizado "}<time dateTime={modifiedIso}>{formatIsoHuman(modifiedIso)}</time>
               {" · "}{post.readingMinutes} min de lectura
             </>
           ) : (
             <>
               By <Link href="/author" style={{ fontWeight: 600 }}>{siteConfig.author} Editorial Team</Link>
               {" · "}
-              <time dateTime={post.published}>Published {post.published}</time>
-              {" · Updated "}<time dateTime={post.updated}>{post.updated}</time>
+              <time dateTime={publishedIso}>Published {formatIsoHuman(publishedIso)}</time>
+              {" · Updated "}<time dateTime={modifiedIso}>{formatIsoHuman(modifiedIso)}</time>
               {" · "}{post.readingMinutes} min read
             </>
           )}
@@ -318,7 +324,14 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
       )}
 
       {/* P0-2: working tool embedded in pillar guides (client-only, SSR stays lean) */}
-      {post.kind === "pillar" && <EmbeddedTool pillar={post.pillar} />}
+      {post.kind === "pillar" && primaryTool && (
+        <EmbeddedTool
+          pillar={post.pillar}
+          title={primaryTool.title}
+          short={primaryTool.short}
+          slug={primaryTool.slug}
+        />
+      )}
 
       <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "240px 1fr" }, gap: 4, alignItems: "start" }}>
         {/* TOC — after body on mobile (order 2) so answer-first H1+intro stays above fold; sticky sidebar on md+ */}

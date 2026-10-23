@@ -7,15 +7,7 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import type { SxProps } from "@mui/material";
-import { LITE_TOOLS, type LiteTool } from "@/lib/tools/catalog-lite";
-
-type IndexedTool = LiteTool & { haystack: string };
-// Lite catalogue only (no faq/howTo/guide bodies) — keeps the search chunk
-// lean; recall comes from title/short/description/slug/keywords.
-const indexedTools: IndexedTool[] = LITE_TOOLS.map((t) => ({
-  ...t,
-  haystack: [t.title, t.short, t.description, t.slug, ...(t.keywords ?? [])].join(" ").toLowerCase(),
-}));
+import { SEARCH_TOOLS, type SearchTool } from "@/lib/tools/search-index.generated";
 
 type ToolSearchProps = {
   sx?: SxProps;
@@ -25,18 +17,18 @@ type ToolSearchProps = {
 
 export default function ToolSearch({ sx, variant = "header", placeholder }: ToolSearchProps) {
   const router = useRouter();
-  const [value, setValue] = useState<LiteTool | null>(null);
+  const [value, setValue] = useState<SearchTool | null>(null);
   const [inputValue, setInputValue] = useState("");
   const deferredInput = useDeferredValue(inputValue);
   const isHero = variant === "hero";
   const filtered = useMemo(() => {
     const q = deferredInput.trim().toLowerCase();
     if (!q) return [];
-    return indexedTools.filter((o) => o.haystack.includes(q)).slice(0, 8);
+    return SEARCH_TOOLS.filter((o) => o.haystack.includes(q)).slice(0, 8);
   }, [deferredInput]);
 
   return (
-    <Autocomplete<LiteTool>
+    <Autocomplete<SearchTool>
       options={filtered}
       value={value}
       inputValue={inputValue}

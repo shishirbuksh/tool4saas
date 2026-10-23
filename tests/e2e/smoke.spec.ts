@@ -16,25 +16,58 @@ test("homepage exposes hero search, categories and all 12 hubs", async ({ page }
   const hero = page.getByRole("region", { name: "Free online tools" });
   await expect(hero.getByLabel("Search tools")).toBeVisible();
   await expect(
-    page.getByRole("heading", { level: 2, name: /popular free online tools/i })
+    page.getByRole("heading", { level: 2, name: "All 125 free tools" })
   ).toBeVisible();
   await expect(
     page.getByRole("navigation", { name: "Tool categories" }).getByRole("link")
   ).toHaveCount(12);
 });
 
-test("homepage tool explorer filters by category", async ({ page }) => {
+test("homepage directory server-renders every visible tool", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: /^Developer Tools/ }).click();
-  await expect(
-    page.getByRole("button", { name: /^Developer Tools/ })
-  ).toHaveAttribute("aria-pressed", "true");
-  await expect(
-    page
-      .getByRole("region", { name: "All tools" })
-      .getByRole("heading", { level: 3, name: "JSON Formatter" })
-  ).toBeVisible();
-  await expect(page.getByText("Showing 12 of 22 tools")).toBeVisible();
+  await expect(page.locator("#tools ul a")).toHaveCount(125);
+  await expect(page.locator('#tools a[href="/pdf-compress"]')).toHaveCount(0);
+  await expect(page.locator('#tools a[href="/fancy-text-generator"]')).toHaveCount(0);
+  await expect(page.locator('#tools a[href="/json-formatter"]')).toHaveCount(1);
+});
+
+test("tablet header uses the drawer without horizontal overflow", async ({ page }) => {
+  await page.setViewportSize({ width: 900, height: 1000 });
+  await page.goto("/");
+  await expect(page.getByRole("navigation", { name: "Primary" })).toBeHidden();
+  const menuButton = page.getByRole("button", { name: "Open navigation menu" });
+  await expect(menuButton).toBeVisible();
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth - document.documentElement.clientWidth
+  );
+  expect(overflow).toBe(0);
+  await menuButton.click();
+  const drawer = page.getByRole("dialog", { name: "Menu" });
+  await expect(drawer).toBeVisible();
+  await expect(drawer.getByLabel("Search tools")).toBeVisible();
+  const bannerOnTop = await page.evaluate(() => {
+    const banner = document.querySelector('[aria-label="Cookie consent"]');
+    if (!banner) return false;
+    const rect = banner.getBoundingClientRect();
+    const top = document.elementFromPoint(rect.left + 12, rect.top + 12);
+    return Boolean(top && banner.contains(top));
+  });
+  expect(bannerOnTop).toBe(false);
+});
+
+test("mobile directory uses two columns and stays within the viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const hero = page.getByRole("region", { name: "Free online tools" });
+  await expect(hero.getByLabel("Search tools")).toBeVisible();
+  const columns = await page.locator("#tools ul").first().evaluate((el) =>
+    getComputedStyle(el).gridTemplateColumns.split(" ").filter(Boolean).length
+  );
+  expect(columns).toBe(2);
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth - document.documentElement.clientWidth
+  );
+  expect(overflow).toBe(0);
 });
 
 test("mortgage-calculator shows the finance disclaimer", async ({ page }) => {

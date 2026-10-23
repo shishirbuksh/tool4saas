@@ -5,7 +5,15 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Link from "next/link";
-import { VISIBLE_TOOL_COUNT } from "@/lib/tools";
+import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
+import { HOME_MODIFIED } from "@/lib/edit-dates.generated";
+
+const lastUpdated = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+}).format(new Date(`${HOME_MODIFIED}T00:00:00Z`));
 
 // Short "What is Tool4SaaS" + final CTA.
 export default function HomeClosing() {
@@ -36,7 +44,7 @@ export default function HomeClosing() {
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
                 Reviewed by the Tool4SaaS Editorial Team · Last updated{" "}
-                <time dateTime="2026-10-20">October 20, 2026</time> ·{" "}
+                <time dateTime={HOME_MODIFIED}>{lastUpdated}</time> ·{" "}
                 <Link href="/author">Authors</Link> ·{" "}
                 <Link href="/methodology">How we test</Link> ·{" "}
                 <Link href="/contact">Contact us</Link>
@@ -81,8 +89,8 @@ export default function HomeClosing() {
                 Start with a tool, not a sign-up
               </Typography>
               <Typography color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                Open a tool, finish the job, and close the tab. No account, no uploads, no
-                limits.
+                Open a tool, finish the job, and close the tab. No account. Most tools
+                process files locally; live-data tools need an internet connection.
               </Typography>
               <Stack direction={{ xs: "column", sm: "row", lg: "column" }} spacing={1.5}>
                 <Button href="#tools" variant="contained" size="large">

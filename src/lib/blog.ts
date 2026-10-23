@@ -9,6 +9,8 @@ export type BlogPost = {
   kind: "pillar" | "cluster";
   /** H1 — single per page, distinct from meta title */
   title: string;
+  /** Optional 30-70 character meta title used when the H1 is too long. */
+  seoTitle?: string;
   description: string;
   keywords: string[];
   /** money tool pages this post funnels to, e.g. ["invoice-generator"] */

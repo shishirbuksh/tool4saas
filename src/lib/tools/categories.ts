@@ -5,7 +5,7 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "text-documents",
     label: "Text & Documents",
     description:
-      "Count words, convert case, clean text and compare documents with 13 free browser-based writing utilities for everyday editing.",
+      "Count words, convert case, clean text and compare documents with 12 free browser-based writing utilities for everyday editing.",
   },
   {
     id: "business",

@@ -25,7 +25,7 @@ import { healthTools } from "./data/health";
 import { seoTools } from "./data/seo";
 import { timeTools } from "./data/time";
 
-// Preserve original insertion order (127 tools) for stable sitemap/build output
+// Preserve original insertion order for stable sitemap/build output
 const _order: string[] = ["invoice-generator", "qr-code-generator", "resume-builder", "word-counter", "password-generator", "json-formatter", "text-tools", "image-compressor", "lorem-ipsum", "unit-converter", "age-calculator", "color-converter", "base64-tool", "url-encoder", "text-diff", "hash-generator", "slug-generator", "random-number", "percentage-calculator", "timestamp-converter", "html-entities", "regex-tester", "jwt-decoder", "json-csv", "date-calculator", "bmi-calculator", "tip-calculator", "color-contrast", "text-to-speech", "url-parser", "number-to-words", "image-to-base64", "gradient-generator", "email-extractor", "mime-type-lookup", "favicon-generator", "timezone-converter", "discount-calculator", "credit-card-validator", "password-strength", "stopwatch", "gst-calculator", "code-minifier", "coin-flip", "commission-calculator", "screen-resolution", "mortgage-calculator", "compound-interest-calculator", "image-format-converter", "markdown-editor", "xml-formatter", "cron-parser", "csv-viewer", "morse-translator", "svg-optimizer", "calorie-calculator", "salary-calculator", "profit-margin-calculator", "sitemap-generator", "robots-txt-generator", "water-intake-calculator", "exif-viewer", "barcode-generator", "pregnancy-calculator", "pomodoro-timer", "text-summarizer", "grammar-checker", "serp-preview", "income-tax-calculator", "gpa-calculator", "ats-resume-checker", "signature-maker", "youtube-thumbnail-downloader", "inflation-calculator", "sip-calculator", "image-color-extractor", "json-to-excel", "document-generator", "cover-letter-builder", "fake-data-generator", "qr-scanner", "zip-creator", "ai-detector", "plagiarism-checker", "ssl-checker", "image-to-pdf", "pdf-merge", "pdf-compress", "scientific-calculator", "utm-builder", "meta-tag-generator", "currency-converter", "sql-formatter", "sleep-cycle-calculator", "typing-speed-test", "business-name-generator", "retirement-calculator", "fraction-calculator", "faq-schema-generator", "subnet-calculator", "pdf-to-jpg", "chmod-calculator", "speech-to-text", "rent-vs-buy-calculator", "code-to-image", "freelance-rate-calculator", "aes-encryptor", "seo-analyzer", "home-affordability-calculator", "refinance-calculator", "grade-calculator", "period-calculator", "concrete-calculator", "fancy-text-generator", "one-rep-max-calculator", "otp-generator"];
 const _orderIndex = new Map<string, number>(_order.map((slug, i) => [slug, i]));
 
@@ -73,13 +73,16 @@ export const groups = Object.freeze(
 ) as { category: Category; tools: Tool[] }[];
 export const toolsByCategoryCached = () => groups;
 
-// Validation: tools.length must match expected – preserves count and sitemap
-export const EXPECTED_TOOL_COUNT = 127;
-export const EXPECTED_CATEGORY_COUNT = 12;
-// User-facing count = registry minus noindexed tools (the single source for the
-// tool count in Hero/Footer/site metadata). Never hardcode the visible count or
-// write `EXPECTED_TOOL_COUNT - 1` again.
-export const VISIBLE_TOOL_COUNT = tools.length - NOINDEX_SLUGS.size;
+// Validation: tools.length must match the generated registry count.
+// Client-safe counts live in ./counts so UI components never import this file.
+import { EXPECTED_CATEGORY_COUNT, EXPECTED_TOOL_COUNT } from "./counts";
+
+export {
+  EXPECTED_CATEGORY_COUNT,
+  EXPECTED_TOOL_COUNT,
+  VISIBLE_TOOL_COUNT,
+} from "./counts";
+
 if (tools.length !== EXPECTED_TOOL_COUNT) {
   throw new Error(`[tools] length mismatch: expected ${EXPECTED_TOOL_COUNT}, got ${tools.length} (check src/lib/tools/data/*.ts)`);
 }

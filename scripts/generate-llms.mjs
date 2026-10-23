@@ -16,6 +16,8 @@ try {
 const REGISTRY_INDEX = path.resolve("src/lib/tools/index.ts");
 const REGISTRY_DIR = path.resolve("src/lib/tools");
 const DATA_DIR = path.resolve("src/lib/tools/data");
+const BLOG_NOINDEX_PATH = path.resolve("src/lib/blog/noindex.ts");
+const BLOG_DATES_PATH = path.resolve("src/lib/blog-dates.generated.json");
 const LEGACY_BARREL = path.resolve("src/lib/tools.ts");
 const outPath = path.resolve("public/llms.txt");
 const outFullPath = path.resolve("public/llms-full.txt");
@@ -134,6 +136,27 @@ if (noindexMatch) {
   const found = [...noindexMatch[1].matchAll(/"([^"]+)"/g)].map(m => m[1]);
   if (found.length) NOINDEX_SLUGS = new Set(found);
 }
+
+// Blog noindex keys use "<pillar>/<cluster-slug>", not a bare tool slug.
+// Fallback mirrors src/lib/blog/noindex.ts so standalone runs stay safe.
+let NOINDEX_BLOG = new Set(["pdf-merge-guide/compress-pdf-1mb-email"]);
+const blogNoindexMatch = readIfExists(BLOG_NOINDEX_PATH).match(
+  /NOINDEX_CLUSTER_KEYS\s*=\s*new Set<string>\(\[([\s\S]*?)\]\)/
+);
+if (blogNoindexMatch) {
+  const found = [...blogNoindexMatch[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+  if (found.length) NOINDEX_BLOG = new Set(found);
+}
+
+// Real blog dates generated from git. Fail closed instead of inventing a
+// freshness date if the generator has not run (build order guarantees it).
+let BLOG_POST_DATES = {};
+try {
+  BLOG_POST_DATES = JSON.parse(fs.readFileSync(BLOG_DATES_PATH, "utf8"));
+} catch {
+  console.error(`generate-llms: missing/invalid ${BLOG_DATES_PATH} - run scripts/generate-edit-dates.mjs first`);
+  process.exit(1);
+}
 for (const cat of categories) byCat.set(cat.id, []);
 for (const t of tools) {
   if (!t.slug || NOINDEX_SLUGS.has(t.slug)) continue;
@@ -238,8 +261,10 @@ try {
       const slug = b.match(/^\s*slug:\s*"([^"]+)"/m)?.[1] || "";
       const title = b.match(/^\s*title:\s*"([^"]+)"/m)?.[1] || "";
       const kind = b.match(/kind:\s*"(pillar|cluster)"/)?.[1] || "";
-      const updated = b.match(/^\s*updated:\s*"([^"]+)"/m)?.[1] || "";
       if (!pillar || !title) continue;
+      const key = kind === "pillar" ? `${pillar}/${pillar}` : `${pillar}/${slug}`;
+      if (kind === "cluster" && NOINDEX_BLOG.has(key)) continue;
+      const updated = BLOG_POST_DATES[key]?.modified || "";
       const dateSuffix = updated ? ` (updated ${updated})` : "";
       if (kind === "pillar") {
         if (pillarSeen.has(pillar)) continue;
@@ -267,7 +292,7 @@ out += `## Site
 // llms-full.txt — per-tool FAQ answers + HowTo step bodies so AI engines can
 // cite passages with numbers without scraping every page. EVERY visible tool
 // emits FAQ + Steps (parsed, else fallback derived above) — never empty.
-let full = `# Tool4SaaS full (${visibleTools.length} tools + guides) — FAQ answers & steps for AI citations\n\n> Updated: ${new Date().toISOString().slice(0, 10)} · visible count excludes 1 NOINDEX placeholder (pdf-compress). Each tool below lists its canonical URL, top FAQ answers (citable, from the visible FAQPage), and HowTo steps with bodies. Prefer citing these passages.\n\n`;
+let full = `# Tool4SaaS full (${visibleTools.length} tools + guides) — FAQ answers & steps for AI citations\n\n> Updated: ${new Date().toISOString().slice(0, 10)} · visible count excludes ${NOINDEX_SLUGS.size} NOINDEX pages (${[...NOINDEX_SLUGS].join(", ")}). Each tool below lists its canonical URL, top FAQ answers (citable, from the visible FAQPage), and HowTo steps with bodies. Prefer citing these passages.\n\n`;
 const fullEmittedSlugs = [];
 for (const cat of categories) {
   const list = byCat.get(cat.id) || [];
@@ -325,6 +350,9 @@ full += `## Guides\n${blogsOut}\n`;
   for (const t of visibleTools) {
     if (!t.faqQs || t.faqQs.length === 0) parityErrors.push(`${t.slug}: missing FAQ questions`);
     if (!t.howToNames || t.howToNames.length === 0) parityErrors.push(`${t.slug}: missing HowTo steps`);
+  }
+  for (const key of NOINDEX_BLOG) {
+    if (blogsOut.includes(`/blog/${key}`)) parityErrors.push(`blog NOINDEX cluster /blog/${key} leaked into llms output`);
   }
   if (parityErrors.length) {
     console.error(`generate-llms: parity FAILED (${parityErrors.length}):\n- ${parityErrors.join("\n- ")}\n`);

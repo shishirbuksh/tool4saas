@@ -34,8 +34,6 @@ const US_FIRST_NAMES = [
   "Matthew", "Betty", "Anthony", "Margaret", "Mark", "Sandra",
 ];
 
-const FIRST_NAMES = US_FIRST_NAMES;
-
 const UK_FIRST_NAMES = [
   "Oliver", "Amelia", "George", "Isla", "Harry", "Poppy", "Jack", "Ava",
   "Jacob", "Lily", "Charlie", "Sophie", "Alfie", "Grace", "Freddie", "Evie",
@@ -56,8 +54,6 @@ const US_LAST_NAMES = [
   "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White",
   "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson",
 ];
-
-const LAST_NAMES = US_LAST_NAMES;
 
 const UK_LAST_NAMES = [
   "Smith", "Jones", "Taylor", "Davies", "Brown", "Wilson", "Evans", "Thomas",
@@ -85,8 +81,6 @@ const US_CITIES = [
   "San Francisco", "Charlotte", "Indianapolis", "Seattle", "Denver", "Boston",
 ];
 
-const CITIES = US_CITIES;
-
 const UK_CITIES = [
   "London", "Birmingham", "Manchester", "Leeds", "Glasgow", "Liverpool", "Bristol",
   "Sheffield", "Edinburgh", "Cardiff", "Newcastle", "Nottingham", "Leicester", "Coventry",
@@ -98,8 +92,6 @@ const IN_CITIES = [
   "Ahmedabad", "Jaipur", "Surat", "Lucknow", "Kanpur", "Nagpur", "Indore",
   "Bhopal", "Ludhiana", "Patna", "Vadodara", "Kochi", "Coimbatore",
 ];
-
-const COUNTRIES = ["USA", "Canada", "UK", "Australia", "Germany", "France", "Japan"];
 
 const COMPANIES = [
   "Acme Corp", "Globex Corporation", "Soylent Corp", "Initech", "Umbrella Corp",
@@ -201,10 +193,6 @@ function randomPostal(locale: Locale = "US"): string {
     return `${area}${d1} ${d2}${l1}${l2}`;
   }
   return String(10000 + getRandomInt(90000));
-}
-
-function randomZip(): string {
-  return randomPostal("US");
 }
 
 function randomEmail(name: string, domain?: string): string {

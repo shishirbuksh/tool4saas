@@ -101,16 +101,18 @@ describe("blog-registry – mesh integrity", () => {
     expect(BLOG_POST_COUNT).toBe(BLOG_PILLARS.length + clusters.length);
   });
 
-  it("legacy silos keep 9 clusters each", () => {
-    for (const pillar of [
-      "invoice-generator-guide",
-      "qr-code-generator-guide",
-      "resume-builder-guide",
-      "mortgage-calculator-guide",
-      "password-generator-guide",
-      "word-counter-guide",
-    ]) {
-      expect(getClustersForPillar(pillar).length).toBe(9);
+  it("legacy silos keep their expected cluster counts", () => {
+    const expected: Record<string, number> = {
+      "invoice-generator-guide": 12,
+      "qr-code-generator-guide": 12,
+      "resume-builder-guide": 12,
+      "image-compressor-guide": 12,
+      "mortgage-calculator-guide": 9,
+      "password-generator-guide": 9,
+      "word-counter-guide": 11,
+    };
+    for (const [pillar, count] of Object.entries(expected)) {
+      expect(getClustersForPillar(pillar).length, pillar).toBe(count);
     }
   });
 

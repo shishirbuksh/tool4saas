@@ -28,7 +28,7 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 // CATEGORIES only (tiny, no catalogue data) — keeps the global header chunk
 // lean on every page. Full tool objects must never enter client bundles here.
-import { CATEGORIES } from "@/lib/tools";
+import { CATEGORIES } from "@/lib/tools/categories";
 import { siteConfig } from "@/lib/site";
 import { useThemeMode } from "@/components/ThemeProviderClient";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -118,7 +118,7 @@ export default function Header() {
           </Box>
 
           {/* Desktop Nav */}
-          <Box component="nav" aria-label="Primary" sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box component="nav" aria-label="Primary" sx={{ display: { xs: "none", lg: "flex" } }}>
             <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
               <Button
                 component={LinkWrapper}
@@ -247,7 +247,9 @@ export default function Header() {
 
               <Box sx={{ pl: 1.5, display: 'flex', alignItems: 'center', gap: 0.5 }}>
                 <LanguageSwitcher />
-                <ToolSearchDynamic sx={{ width: 220 }} />
+                <Box sx={{ width: 208, height: 44, flexShrink: 0 }}>
+                  <ToolSearchDynamic sx={{ width: "100%" }} />
+                </Box>
                 <IconButton
                   onClick={toggle}
                   aria-label={mode === "light" ? "Switch to dark mode" : "Switch to light mode"}
@@ -268,7 +270,7 @@ export default function Header() {
           </Box>
 
           {/* Mobile Nav Toggle */}
-          <Stack direction="row" spacing={1} sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
+          <Stack direction="row" spacing={1} sx={{ display: { xs: "flex", lg: "none" }, alignItems: "center" }}>
             <IconButton 
               onClick={toggle} 
               aria-label={mode === "light" ? "Switch to dark mode" : "Switch to light mode"}
@@ -310,8 +312,7 @@ export default function Header() {
         anchor="right"
         open={open}
         onClose={() => setOpen(false)}
-        aria-label="Mobile navigation"
-        ModalProps={{ "aria-label": "Mobile navigation" }}
+        slotProps={{ paper: { "aria-labelledby": "mobile-navigation-title" } }}
         sx={{ '& .MuiDrawer-paper': { width: { xs: '100%', sm: 360 }, maxWidth: '100vw', boxSizing: 'border-box', p: 3, pt: 'max(24px, env(safe-area-inset-top))', pb: 'calc(24px + env(safe-area-inset-bottom))', pl: 'calc(24px + env(safe-area-inset-left))', pr: 'calc(24px + env(safe-area-inset-right))', overscrollBehavior: 'contain' } }}
       >
         <Box id="mobile-navigation-drawer" sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 4 }}>
@@ -319,7 +320,7 @@ export default function Header() {
             <Box sx={{ display: 'flex', p: 1, borderRadius: '12px', bgcolor: 'primary.main', color: 'primary.contrastText', boxShadow: '0 1px 2px rgba(34,29,29,0.08)' }}>
               <BuildOutlinedIcon fontSize="small" aria-hidden="true" />
             </Box>
-            <Typography component="span" sx={{ fontWeight: 800, fontFamily: "var(--font-display), serif" }}>
+            <Typography component="h2" id="mobile-navigation-title" sx={{ fontWeight: 800, fontFamily: "var(--font-display), serif", fontSize: "1.125rem", m: 0 }}>
               Menu
             </Typography>
           </Box>

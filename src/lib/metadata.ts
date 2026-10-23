@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTool } from "@/lib/tools";
 import { siteConfig } from "@/lib/site";
 import { getPilotLocales, hreflangLanguages, hreflangHubLanguages, HUB_LOCALES, OG_LOCALE } from "@/lib/i18n";
+import { toolMetaTitle } from "@/lib/seo-title";
 
 // OG locale alternates for a slug: every pilot locale that is NOT the default.
 // Keeps og:locale:alternate consistent with the hreflang set (previously EN
@@ -56,16 +57,9 @@ export function toolMetadata(slug: string): Metadata {
     };
   }
 
-  // SEO title depth: `${title} - ${short}` sliced to 55 chars + ` | Tool4SaaS`
-  // keeps 50-60 ideal, max ~67 (under 70 truncation limit). Description stays
-  // verbatim, canonical absolute, OG image /og/slug, robots max-snippet -1.
-  let core = `${tool.title} - ${tool.short}`;
-  if (core.length > 55) {
-    core = core.slice(0, 55).trimEnd();
-    const lastSpace = core.lastIndexOf(" ");
-    if (lastSpace > 35) core = core.slice(0, lastSpace);
-  }
-  const fullTitle = `${core} | Tool4SaaS`;
+  // SEO title: prefer a complete clause over a raw character cut. The helper
+  // keeps every title inside 30-70 characters and always retains the brand.
+  const fullTitle = toolMetaTitle(tool.title, tool.short, tool.seoTitle);
 
   return {
     // absolute: bypasses layout title.template (%s | Tool4SaaS) which would

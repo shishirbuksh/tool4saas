@@ -252,10 +252,10 @@ export default function CookieConsent() {
       role="region"
       aria-label="Cookie consent"
       aria-describedby="t4s-consent-desc"
-      sx={{ position: "fixed", left: 16, right: 16, bottom: "max(16px, env(safe-area-inset-bottom))", zIndex: 1500, display: "flex", justifyContent: "center", pointerEvents: "none" }}
+      sx={{ position: "fixed", left: 16, right: 16, bottom: "max(16px, env(safe-area-inset-bottom))", zIndex: (theme) => theme.zIndex.drawer - 10, display: "flex", justifyContent: "center", pointerEvents: "none" }}
     >
       <Paper elevation={0} sx={{ pointerEvents: "auto", maxWidth: 720, width: "100%", p: { xs: 2, sm: 3 }, border: "1px solid", borderColor: "divider", borderRadius: "12px" }}>
-        <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
+        <Typography component="p" variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
           Cookies and ads
         </Typography>
         <Typography id="t4s-consent-desc" variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.7 }}>

@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import ToolSearch from "@/components/ToolSearch";
-import { VISIBLE_TOOL_COUNT } from "@/lib/tools";
+import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
 
 const QUICK_LINKS = [
   { slug: "invoice-generator", label: "Invoice" },
@@ -82,7 +82,7 @@ export default function HomeHero() {
             }}
           >
             Format JSON, merge PDFs, compress images, or make an invoice in seconds. No
-            account, no uploads — most tools run entirely on your device.
+            account needed — most tools run entirely on your device.
           </Typography>
 
           <Box sx={{ width: "100%", maxWidth: 620, pt: { xs: 0.5, md: 1 } }}>
@@ -127,7 +127,7 @@ export default function HomeHero() {
           </Box>
 
           <Typography variant="body2" color="text.secondary" sx={{ pt: 0.5 }}>
-            No sign-up · Files stay on your device · Free, no limits ·{" "}
+            No sign-up · Local-first · Free to use ·{" "}
             <Link href="#tools">Browse all {VISIBLE_TOOL_COUNT} tools</Link>
           </Typography>
         </Stack>

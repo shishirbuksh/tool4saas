@@ -12,6 +12,7 @@
 import {
   TOOL_DATES,
   PAGE_DATES,
+  BLOG_POST_DATES,
   SITE_PUBLISHED,
 } from "./edit-dates.generated";
 
@@ -48,6 +49,24 @@ export function getDatePublishedIso(slug: string): string {
     return SITE_PUBLISHED_ISO;
   }
   return d.published;
+}
+
+// Real last-modified date for a blog post by "<pillar>/<slug>". Falls back to
+// the post's declared date (or site publish date) when git has no history,
+// such as an uncommitted draft in local development.
+export function getBlogPostDateModifiedIso(pillar: string, slug: string, fallback?: string): string {
+  const d = BLOG_POST_DATES[`${pillar}/${slug}`];
+  if (d && ISO_RE.test(d.modified)) return d.modified;
+  return fallback && ISO_RE.test(fallback) ? fallback : SITE_PUBLISHED_ISO;
+}
+
+// Real first-published date for a blog post. Never returns a date after the
+// last-modified date, which keeps JSON-LD and visible bylines consistent.
+export function getBlogPostDatePublishedIso(pillar: string, slug: string, fallback?: string): string {
+  const d = BLOG_POST_DATES[`${pillar}/${slug}`];
+  const modified = getBlogPostDateModifiedIso(pillar, slug, fallback);
+  if (d && ISO_RE.test(d.published) && d.published <= modified) return d.published;
+  return fallback && ISO_RE.test(fallback) && fallback <= modified ? fallback : modified;
 }
 
 // Real last-modified date for a static page by key (about, privacy, ...).

@@ -1,7 +1,8 @@
 import { siteConfig } from "@/lib/site";
-import { NOINDEX_SLUGS } from "@/lib/tools";
+import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
-import { HOME_LATEST_GUIDES, HOME_POPULAR_GUIDES } from "@/content/home";
+import { HOME_GUIDES } from "@/content/home";
+import { HOME_MODIFIED } from "@/lib/edit-dates.generated";
 import { LOCALES } from "@/lib/i18n";
 
 // Site-wide WebSite entity. `inLanguage` is the PRIMARY language (English) and
@@ -39,14 +40,6 @@ export default function SiteJsonLd() {
         },
         ...(siteConfig.sameAs.length ? { sameAs: siteConfig.sameAs } : {}),
       },
-      {
-        "@type": "ContactPage",
-        "@id": `${base}/contact#webpage`,
-        url: `${base}/contact`,
-        name: "Contact Us",
-        isPartOf: { "@id": `${base}#website` },
-        about: { "@id": `${base}#organization` },
-      },
     ],
   };
   return (
@@ -76,7 +69,7 @@ export function HomeWebPageJsonLd() {
     about: { "@id": `${base}#organization` },
     author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
     inLanguage: "en",
-    dateModified: "2026-10-20",
+    dateModified: HOME_MODIFIED,
     speakableSpecification: {
       "@type": "SpeakableSpecification",
       cssSelector: [".speakable-hero-summary", ".speakable-faq-answer"],
@@ -90,19 +83,13 @@ export function HomeWebPageJsonLd() {
   );
 }
 
-// Homepage ItemList — MUST match the SSR-visible grid (ToolExplorer renders 12
-// cards of the "All" view in the initial HTML; the rest load via "Show more").
-// Emitting all tools while only 12 are visible mismatches content, so list the
-// first 12 in the same category order the explorer renders. Full crawl coverage
-// lives in sitemap.xml.
+// Homepage ItemList — all 125 visible tools match the server-rendered directory
+// 1:1. NOINDEX tools stay out so schema, sitemap and page links agree.
 export function HomeToolsItemList() {
   const base = siteConfig.url.replace(/\/$/, "");
-  // Exclude NOINDEX_SLUGS (e.g. pdf-compress placeholder) so the ItemList
-  // matches the sitemap + visible homepage grid; slice to SSR-visible 12.
   const visibleTools = liteToolsByCategory()
     .flatMap((g) => g.tools)
-    .filter((t) => !NOINDEX_SLUGS.has(t.slug))
-    .slice(0, 12);
+    .filter((t) => !NOINDEX_SLUGS.has(t.slug));
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -125,44 +112,8 @@ export function HomeToolsItemList() {
 }
 
 // Homepage FAQ — must match visible FAQ copy 1:1 (no hidden answers).
-// Rendered on / only. Pass `faqs` from page.tsx FAQS to keep a single source
-// of truth; the inline default below is a fallback only. No AggregateRating/Review anywhere (spam risk).
-export function HomeFaqJsonLd({ faqs: faqsProp }: { faqs?: { q: string; a: string }[] } = {}) {
-  const fallback: { q: string; a: string }[] = [
-    {
-      q: "What is Tool4SaaS?",
-      a: "Tool4SaaS is a free set of web utilities that run in your browser. You can count words, make codes, format text, and plan money with ease. Most jobs run on your device, so they are fast and private.",
-    },
-    {
-      q: "Is Tool4SaaS free?",
-      a: "Yes. Every tool is free to use with no cost and no paywall. You can open any tool, maker, or generator as often as you like each day.",
-    },
-    {
-      q: "Do I need to sign up?",
-      a: "No. You do not need an account or signup to use any tool. Just open the page and start your job right away. There are no forms or passwords.",
-    },
-    {
-      q: "Is my data safe?",
-      a: "Yes. Most tools run local-first, so your text and files stay on your device. Only 4 tools need the internet for live facts: currency rates, YouTube thumbnails, SSL check, and voice input. See our privacy policy for details.",
-    },
-    {
-      q: "Which popular tools should I try first?",
-      a: "Top picks are invoice generator for client bills, QR code generator for menus and links, JSON formatter for code checks, word counter for essays, PDF merge for files, and mortgage calculator for home loans.",
-    },
-    {
-      q: "How are tools tested?",
-      a: "We build and test every tool in-house. We check outputs against known values, for example a $100,000 loan at 5 percent over 30 years equals $536.82 monthly. See our methodology page for the full process.",
-    },
-    {
-      q: "How do I use tools offline?",
-      a: "Open the tool once while online and keep the tab open. Most tools then work without internet because they run locally. Your files stay on your device always.",
-    },
-    {
-      q: "How do I request a new tool?",
-      a: "Send your idea through our contact page. Tell us the job to be done and what result you want to see. We review top requests each month and build free private tools first.",
-    },
-  ];
-  const faqs = faqsProp ?? fallback;
+// Rendered on / only. No AggregateRating/Review anywhere (spam risk).
+export function HomeFaqJsonLd({ faqs }: { faqs: { q: string; a: string }[] }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -181,47 +132,26 @@ export function HomeFaqJsonLd({ faqs: faqsProp }: { faqs?: { q: string; a: strin
   );
 }
 
-// Recent + Popular posts ItemLists — homepage only, distinct @ids from #tools.
-// Both mirrors are derived from the same content arrays the visible cards use,
-// so the schema can never drift from the page.
+// Guide ItemList — homepage only, distinct @id from #tools and derived from the
+// same three cards the page renders.
 export function HomeBlogItemList() {
   const base = siteConfig.url.replace(/\/$/, "");
-  const recent = HOME_LATEST_GUIDES.map((g) => ({
-    name: g.title,
-    url: `${base}${g.href}`,
-  }));
-  const popular = HOME_POPULAR_GUIDES.map((g) => ({
+  const guides = HOME_GUIDES.map((g) => ({
     name: g.title,
     url: `${base}${g.href}`,
   }));
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ItemList",
-        "@id": `${base}#recent-posts`,
-        name: "Recent posts",
-        numberOfItems: recent.length,
-        itemListElement: recent.map((t, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          item: t.url,
-          name: t.name,
-        })),
-      },
-      {
-        "@type": "ItemList",
-        "@id": `${base}#popular-posts`,
-        name: "Popular posts",
-        numberOfItems: popular.length,
-        itemListElement: popular.map((t, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          item: t.url,
-          name: t.name,
-        })),
-      },
-    ],
+    "@type": "ItemList",
+    "@id": `${base}#guides`,
+    name: "Guides and tutorials",
+    numberOfItems: guides.length,
+    itemListElement: guides.map((t, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: t.url,
+      name: t.name,
+    })),
   };
   return (
     <script

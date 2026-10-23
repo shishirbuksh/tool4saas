@@ -23,7 +23,9 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const OUT = path.join(ROOT, "src", "lib", "edit-dates.generated.ts");
+const BLOG_DATES_JSON_OUT = path.join(ROOT, "src", "lib", "blog-dates.generated.json");
 const DATA_DIR = path.join(ROOT, "src", "lib", "tools", "data");
+const BLOG_DIR = path.join(ROOT, "src", "content", "blog");
 
 const isoOf = (gitDate) => gitDate.trim().slice(0, 10);
 
@@ -72,9 +74,13 @@ const slugToCategory = new Map();
 for (const m of catalogText.matchAll(/slug: "([^"]+)"[\s\S]*?category: "([^"]+)"/g)) {
   slugToCategory.set(m[1], m[2]);
 }
+const countsText = fs.readFileSync(path.join(ROOT, "src", "lib", "tools", "counts.generated.ts"), "utf8");
+const expectedToolCount = Number(countsText.match(/TOTAL_TOOL_COUNT\s*=\s*(\d+)/)?.[1]);
 const errors = [];
-if (slugToCategory.size !== 127) {
-  errors.push(`catalog-lite parsed ${slugToCategory.size} slugs, expected 127 — run generate-catalog-lite.mjs first`);
+if (!expectedToolCount || slugToCategory.size !== expectedToolCount) {
+  errors.push(
+    `catalog-lite parsed ${slugToCategory.size} slugs, expected ${expectedToolCount || "?"} — run generate-catalog-lite.mjs first`
+  );
 }
 
 const toolDates = {};
@@ -125,21 +131,85 @@ for (const [name, rel] of Object.entries(pageFiles)) {
   pageDates[name] = { ...d, source: gitDates(rel) ? "git" : "mtime-fallback" };
 }
 
-const homeModified = gitDatesMulti([
+const homePaths = [
   "src/app/(en)/page.tsx",
   "src/components/home/HomeHero.tsx",
-  "src/components/home/HomeNav.tsx",
-  "src/components/home/HomePopular.tsx",
-  "src/components/home/HomeTools.tsx",
+  "src/components/home/HomeCategories.tsx",
+  "src/components/home/HomeDirectory.tsx",
+  "src/components/home/HomeDirectory.module.css",
   "src/components/home/HomeGuides.tsx",
-  "src/components/home/HomeEditorial.tsx",
-]) ?? mtimeFallback("src/app/(en)/page.tsx");
+  "src/components/home/HomeFaq.tsx",
+  "src/components/home/HomeClosing.tsx",
+  "src/content/home.ts",
+];
+const homeHasWorkingTreeChanges = (() => {
+  try {
+    const out = execFileSync("git", ["status", "--porcelain", "--", ...homePaths], {
+      cwd: ROOT,
+      encoding: "utf8",
+    }).trim();
+    return out.length > 0;
+  } catch {
+    return false;
+  }
+})();
+const homeModified = homeHasWorkingTreeChanges
+  ? new Date().toISOString().slice(0, 10)
+  : gitDatesMulti(homePaths) ?? mtimeFallback("src/app/(en)/page.tsx");
 if (!homeModified) errors.push("home: no date source");
 
-const blogModified = gitDatesMulti([
-  "src/app/(en)/blog/page.tsx",
-  "src/lib/blog-registry.ts",
-]) ?? mtimeFallback("src/app/(en)/blog/page.tsx");
+// ---------- blog posts (one content file per pillar/cluster) ----------
+// Each file is the real source for its rendered page. Git gives us the
+// honest first/last edit dates; uncommitted new files fall back to their
+// declared dates or file mtime, never a fabricated stagger.
+const blogPostDates = {};
+const blogContentPaths = [];
+if (fs.existsSync(BLOG_DIR)) {
+  const blogFiles = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".ts")).sort();
+  for (const f of blogFiles) {
+    const rel = `src/content/blog/${f}`;
+    const text = fs.readFileSync(path.join(ROOT, rel), "utf8");
+    const pillar = text.match(/pillar:\s*"([^"]+)"/)?.[1] || "";
+    const slug = text.match(/^\s*slug:\s*"([^"]+)"/m)?.[1] || "";
+    const kind = text.match(/kind:\s*"(pillar|cluster)"/)?.[1] || "";
+    const declaredPublished = text.match(/^\s*published:\s*"([^"]+)"/m)?.[1] || "";
+    const declaredUpdated = text.match(/^\s*updated:\s*"([^"]+)"/m)?.[1] || "";
+    if (!pillar || !slug || !kind) {
+      errors.push(`${rel}: cannot parse pillar/slug/kind`);
+      continue;
+    }
+    const key = `${pillar}/${slug}`;
+    if (blogPostDates[key]) {
+      errors.push(`${rel}: duplicate blog key ${key}`);
+      continue;
+    }
+    const d = gitDates(rel);
+    const mtime = mtimeFallback(rel);
+    const published = d?.published || declaredPublished || mtime;
+    const modified = d?.modified || declaredUpdated || mtime;
+    if (!published || !modified) {
+      errors.push(`${rel}: no date source`);
+      continue;
+    }
+    blogPostDates[key] = {
+      published: published > modified ? modified : published,
+      modified,
+      source: d ? "git" : "content-fallback",
+    };
+    blogContentPaths.push(rel);
+  }
+}
+if (Object.keys(blogPostDates).length === 0) {
+  errors.push("blog posts: no dates derived");
+}
+
+const blogIndexModified =
+  gitDatesMulti(["src/app/(en)/blog/page.tsx", "src/lib/blog-registry.ts"]) ??
+  mtimeFallback("src/app/(en)/blog/page.tsx");
+const blogModified = [blogIndexModified, ...Object.values(blogPostDates).map((d) => d.modified)]
+  .filter(Boolean)
+  .sort()
+  .pop();
 if (!blogModified) errors.push("blog index: no date source");
 
 const categoriesModified = {};
@@ -157,6 +227,10 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
+const sortedBlogDates = Object.fromEntries(
+  Object.entries(blogPostDates).sort(([a], [b]) => a.localeCompare(b))
+);
+
 const out = `// AUTO-GENERATED by scripts/generate-edit-dates.mjs — do not edit.
 // REAL dates derived from git history (see script header). Regenerated on
 // \`npm run validate\` / \`npm run build\`; committed so dev/vitest work
@@ -167,6 +241,8 @@ export const TOOL_DATES: Record<string, ContentDate> = ${JSON.stringify(toolDate
 
 export const PAGE_DATES: Record<string, ContentDate> = ${JSON.stringify(pageDates, null, 0).replaceAll('","', '", "')};
 
+export const BLOG_POST_DATES: Record<string, ContentDate> = ${JSON.stringify(sortedBlogDates, null, 0).replaceAll('","', '", "')};
+
 export const HOME_MODIFIED = "${homeModified}";
 export const BLOG_MODIFIED = "${blogModified}";
 export const CATEGORY_MODIFIED: Record<string, string> = ${JSON.stringify(categoriesModified).replaceAll('","', '", "')};
@@ -175,5 +251,8 @@ export const SITE_PUBLISHED_SOURCE = "git";
 `;
 
 fs.writeFileSync(OUT, out);
+fs.writeFileSync(BLOG_DATES_JSON_OUT, `${JSON.stringify(sortedBlogDates, null, 2)}\n`, "utf8");
 const counts = Object.keys(toolDates).length;
-console.log(`generate-edit-dates: wrote ${counts} tool dates + ${Object.keys(pageDates).length} page dates → src/lib/edit-dates.generated.ts`);
+console.log(
+  `generate-edit-dates: wrote ${counts} tool dates + ${Object.keys(pageDates).length} page dates + ${Object.keys(sortedBlogDates).length} blog dates -> src/lib/edit-dates.generated.ts`
+);

@@ -4,7 +4,7 @@ import WordCounterTool from "@/components/tools/WordCounterTool";
 import { siteConfig } from "@/lib/site";
 import { hreflangLanguages, wordCounterFr } from "@/lib/i18n";
 
-// FR pilot #4: /fr/word-counter (top hero: HomePopular + HERO_SLUGS 0.9).
+// FR pilot #4: /fr/word-counter (top hero: hero quick links + HERO_SLUGS 0.9).
 // English slug kept. SEO shell renders native FR; WordCounterTool UI stays
 // EN in V1. Canonical /fr/slug, hreflang FR<->EN (ES gains fr via the EN hub).
 // <html lang> is served server-side by the locale root layout.

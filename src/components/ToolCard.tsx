@@ -68,7 +68,7 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import type { SxProps } from "@mui/material";
-import type { IconName } from "@/lib/tools";
+import type { IconName } from "@/lib/tools/icons";
 import type { LiteTool } from "@/lib/tools/catalog-lite";
 
 // Static imports (tree-shaken via next.config optimizePackageImports for

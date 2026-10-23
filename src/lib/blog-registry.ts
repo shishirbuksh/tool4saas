@@ -105,6 +105,84 @@ import { realReturn } from "@/content/blog/wealth-c6-real-return";
 import { sipCrore } from "@/content/blog/wealth-c7-sip-crore";
 import { ltcgFd } from "@/content/blog/wealth-c8-ltcg-fd";
 import { wealthBudgetVerdict } from "@/content/blog/wealth-c9-budget-verdict";
+import { percentagePillar } from "@/content/blog/percentage-pillar";
+import { percentagePercentBasics } from "@/content/blog/percentage-c1-percent-basics";
+import { percentageIncreaseDecrease } from "@/content/blog/percentage-c2-increase-decrease";
+import { percentageDiscountSale } from "@/content/blog/percentage-c3-discount-sale-price";
+import { percentageMarkupMargin } from "@/content/blog/percentage-c4-markup-margin";
+import { percentageDifference } from "@/content/blog/percentage-c5-percentage-difference";
+import { percentageReverse } from "@/content/blog/percentage-c6-reverse-percentage";
+import { percentageError } from "@/content/blog/percentage-c7-percentage-error";
+import { percentagePoints } from "@/content/blog/percentage-c8-percentage-points";
+import { bmiPillar } from "@/content/blog/bmi-pillar";
+import { bmiHowItWorks } from "@/content/blog/bmi-c1-how-bmi-works";
+import { bmiWomen } from "@/content/blog/bmi-c2-bmi-women";
+import { bmiMen } from "@/content/blog/bmi-c3-bmi-men";
+import { bmiHealthyWeight } from "@/content/blog/bmi-c4-healthy-weight-range";
+import { bmiCalorieDeficit } from "@/content/blog/bmi-c5-calorie-deficit";
+import { bmiWaterIntake } from "@/content/blog/bmi-c6-water-intake";
+import { bmiAthletes } from "@/content/blog/bmi-c7-bmi-athletes";
+import { bmiChildren } from "@/content/blog/bmi-c8-bmi-children";
+import { agePillar } from "@/content/blog/age-pillar";
+import { ageExact } from "@/content/blog/age-c1-calculate-exact-age";
+import { ageDifference } from "@/content/blog/age-c2-age-difference";
+import { ageDateDifference } from "@/content/blog/age-c3-date-difference";
+import { ageTimezone } from "@/content/blog/age-c4-timezone-conversion";
+import { ageTimestamp } from "@/content/blog/age-c5-unix-timestamp";
+import { ageLeapYear } from "@/content/blog/age-c6-leap-year-birthdays";
+import { ageDateAddSubtract } from "@/content/blog/age-c7-date-add-subtract";
+import { ageInDays } from "@/content/blog/age-c8-age-in-days";
+import { invoiceProforma } from "@/content/blog/invoice-c10-proforma-invoice";
+import { invoiceCreditNote } from "@/content/blog/invoice-c11-credit-note";
+import { invoiceInternational } from "@/content/blog/invoice-c12-international";
+import { qrGoogleReviews } from "@/content/blog/qr-c10-google-reviews";
+import { qrRestaurantMenu } from "@/content/blog/qr-c11-restaurant-menu";
+import { qrGoogleForms } from "@/content/blog/qr-c12-google-forms";
+import { resumeSummaryExamples } from "@/content/blog/resume-c10-summary-examples";
+import { resumeSkillsSection } from "@/content/blog/resume-c11-skills-section";
+import { resumeCareerChange } from "@/content/blog/resume-c12-career-change";
+import { image20kb } from "@/content/blog/image-c9-20kb";
+import { image200kb } from "@/content/blog/image-c10-200kb";
+import { imageInstagramResize } from "@/content/blog/image-c11-instagram";
+import { signaturePillar } from "@/content/blog/signature-pillar";
+import { signatureCreate } from "@/content/blog/signature-c1-create";
+import { signatureTransparentPng } from "@/content/blog/signature-c2-transparent-png";
+import { signatureSize } from "@/content/blog/signature-c3-size";
+import { signatureDrawnVsTyped } from "@/content/blog/signature-c4-drawn-vs-typed";
+import { signatureSignPdf } from "@/content/blog/signature-c5-sign-pdf";
+import { signatureEmail } from "@/content/blog/signature-c6-email";
+import { signatureValidity } from "@/content/blog/signature-c7-validity";
+import { signatureExamForms } from "@/content/blog/signature-c8-exam-forms";
+import { debtPillar } from "@/content/blog/debt-pillar";
+import { debtSnowballAvalanche } from "@/content/blog/debt-c1-snowball-vs-avalanche";
+import { debtCreditCard } from "@/content/blog/debt-c2-credit-card";
+import { debtAvalanche } from "@/content/blog/debt-c3-avalanche";
+import { debtSnowball } from "@/content/blog/debt-c4-snowball";
+import { debtMinimumPayments } from "@/content/blog/debt-c5-minimum-payments";
+import { debtExtraPayments } from "@/content/blog/debt-c6-extra-payments";
+import { debtConsolidation } from "@/content/blog/debt-c7-consolidation";
+import { debtPayoffDate } from "@/content/blog/debt-c8-payoff-date";
+import { gradePillar } from "@/content/blog/grade-pillar";
+import { gradeWeighted } from "@/content/blog/grade-c1-weighted";
+import { gradeFinalNeeded } from "@/content/blog/grade-c2-final-needed";
+import { gradePercentageToGpa } from "@/content/blog/grade-c3-percentage-to-gpa";
+import { gradeGpaVsCgpa } from "@/content/blog/grade-c4-gpa-vs-cgpa";
+import { gradeSemesterGpa } from "@/content/blog/grade-c5-semester-gpa";
+import { gradeCumulativeGpa } from "@/content/blog/grade-c6-cumulative-gpa";
+import { gradeRaiseGpa } from "@/content/blog/grade-c7-raise-gpa";
+import { gradeWeightedUnweighted } from "@/content/blog/grade-c8-weighted-unweighted";
+import { imageJpgToPng } from "@/content/blog/image-c12-jpg-to-png";
+import { pdfMergeIphone } from "@/content/blog/pdf-c9-merge-iphone";
+import { pdfMergeAndroid } from "@/content/blog/pdf-c10-merge-android";
+import { pdfCombineImages } from "@/content/blog/pdf-c11-pdf-and-images";
+import { jsonToCsv } from "@/content/blog/json-c8-json-to-csv";
+import { sqlFormatter } from "@/content/blog/json-c9-sql-formatter";
+import { cronExpressions } from "@/content/blog/json-c10-cron-expressions";
+import { seoMetaDescriptions } from "@/content/blog/seo-c9-meta-descriptions";
+import { seoCanonical } from "@/content/blog/seo-c10-canonical-tags";
+import { seoInternalLinking } from "@/content/blog/seo-c11-internal-linking";
+import { wordTwitterCounter } from "@/content/blog/word-c10-twitter-counter";
+import { wordPagesPer1000 } from "@/content/blog/word-c11-pages-per-1000";
 
 export const BLOG_PILLARS: BlogPillarMeta[] = [
   {
@@ -217,6 +295,66 @@ export const BLOG_PILLARS: BlogPillarMeta[] = [
     keywords: ["sip vs lumpsum returns comparison", "ppf vs fd tax free comparison", "step-up sip vs flat sip", "real vs nominal return after inflation"],
     updated: "2026-10-07",
   },
+  {
+    pillar: "percentage-calculator-guide",
+    title: "Percentage Calculator Guide: Formulas, Discounts & Real-Life Uses",
+    shortLabel: "Percentage Guide",
+    description:
+      "The complete percentage guide - percent of a number, increase and decrease, discounts, markup vs margin, reverse percentages, error, and percentage points.",
+    toolSlug: "percentage-calculator",
+    keywords: ["percentage calculator guide", "how to calculate percentage", "percentage increase calculator", "discount calculator", "percentage points vs percent"],
+    updated: "2026-10-22",
+  },
+  {
+    pillar: "bmi-calculator-guide",
+    title: "BMI Calculator Guide: Healthy Weight, Calories & Water Needs",
+    shortLabel: "BMI Guide",
+    description:
+      "The complete BMI guide - formula and charts, women vs men, healthy weight range, calorie deficits, water intake, athletes, and BMI for children.",
+    toolSlug: "bmi-calculator",
+    keywords: ["bmi calculator guide", "how is bmi calculated", "healthy weight for height", "bmi for women", "bmi for men"],
+    updated: "2026-10-22",
+  },
+  {
+    pillar: "age-calculator-guide",
+    title: "Age Calculator Guide: Exact Age, Dates & Time Zones",
+    shortLabel: "Age Guide",
+    description:
+      "The complete age and date guide - exact age in years, months and days, date differences, time zones, Unix timestamps, leap years and date math.",
+    toolSlug: "age-calculator",
+    keywords: ["age calculator guide", "how to calculate age", "age difference calculator", "date difference calculator", "unix timestamp converter"],
+    updated: "2026-10-22",
+  },
+  {
+    pillar: "signature-maker-guide",
+    title: "Signature Maker Guide: Draw, Type & Download a Transparent PNG",
+    shortLabel: "Signature Guide",
+    description:
+      "Create a signature online: draw with mouse, touch or pen, type in cursive fonts, then export a transparent PNG for PDFs, forms and email.",
+    toolSlug: "signature-maker",
+    keywords: ["signature maker guide", "how to make a signature online", "transparent signature png", "draw signature online", "typed signature cursive font"],
+    updated: "2026-10-22",
+  },
+  {
+    pillar: "debt-payoff-guide",
+    title: "Debt Payoff Guide: Snowball vs Avalanche Methods",
+    shortLabel: "Debt Guide",
+    description:
+      "Compare snowball and avalanche debt payoff, see how minimums roll forward, and use two worked examples to plan your debt-free date.",
+    toolSlug: "debt-payoff-calculator",
+    keywords: ["debt payoff guide", "debt snowball vs avalanche", "how to pay off debt", "debt payoff calculator", "minimum payment rollover"],
+    updated: "2026-10-22",
+  },
+  {
+    pillar: "grade-calculator-guide",
+    title: "Grade Calculator Guide: Weighted Grades & Final Exam Score",
+    shortLabel: "Grade Guide",
+    description:
+      "Learn how weighted grades work, calculate your current average, and find the final exam score needed for your target, with checked examples.",
+    toolSlug: "grade-calculator",
+    keywords: ["grade calculator guide", "weighted grade calculator", "final exam grade needed", "how to calculate grades", "course grade formula"],
+    updated: "2026-10-22",
+  },
 ];
 
 const ALL_POSTS: BlogPost[] = [
@@ -325,6 +463,84 @@ const ALL_POSTS: BlogPost[] = [
   sipCrore,
   ltcgFd,
   wealthBudgetVerdict,
+  percentagePillar,
+  percentagePercentBasics,
+  percentageIncreaseDecrease,
+  percentageDiscountSale,
+  percentageMarkupMargin,
+  percentageDifference,
+  percentageReverse,
+  percentageError,
+  percentagePoints,
+  bmiPillar,
+  bmiHowItWorks,
+  bmiWomen,
+  bmiMen,
+  bmiHealthyWeight,
+  bmiCalorieDeficit,
+  bmiWaterIntake,
+  bmiAthletes,
+  bmiChildren,
+  agePillar,
+  ageExact,
+  ageDifference,
+  ageDateDifference,
+  ageTimezone,
+  ageTimestamp,
+  ageLeapYear,
+  ageDateAddSubtract,
+  ageInDays,
+  invoiceProforma,
+  invoiceCreditNote,
+  invoiceInternational,
+  qrGoogleReviews,
+  qrRestaurantMenu,
+  qrGoogleForms,
+  resumeSummaryExamples,
+  resumeSkillsSection,
+  resumeCareerChange,
+  image20kb,
+  image200kb,
+  imageInstagramResize,
+  signaturePillar,
+  signatureCreate,
+  signatureTransparentPng,
+  signatureSize,
+  signatureDrawnVsTyped,
+  signatureSignPdf,
+  signatureEmail,
+  signatureValidity,
+  signatureExamForms,
+  debtPillar,
+  debtSnowballAvalanche,
+  debtCreditCard,
+  debtAvalanche,
+  debtSnowball,
+  debtMinimumPayments,
+  debtExtraPayments,
+  debtConsolidation,
+  debtPayoffDate,
+  gradePillar,
+  gradeWeighted,
+  gradeFinalNeeded,
+  gradePercentageToGpa,
+  gradeGpaVsCgpa,
+  gradeSemesterGpa,
+  gradeCumulativeGpa,
+  gradeRaiseGpa,
+  gradeWeightedUnweighted,
+  imageJpgToPng,
+  pdfMergeIphone,
+  pdfMergeAndroid,
+  pdfCombineImages,
+  jsonToCsv,
+  sqlFormatter,
+  cronExpressions,
+  seoMetaDescriptions,
+  seoCanonical,
+  seoInternalLinking,
+  wordTwitterCounter,
+  wordPagesPer1000,
 ];
 
 export function getPillarMeta(pillar: string): BlogPillarMeta | undefined {

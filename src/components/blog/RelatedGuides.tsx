@@ -245,10 +245,6 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
     { href: "/blog/pdf-merge-guide/jpg-scans-single-pdf", title: "JPG scans to single PDF: A4 setup" },
   ],
-  "pdf-compress": [
-    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
-    { href: "/blog/pdf-merge-guide/merge-multiple-pdfs-order", title: "Merge multiple PDFs in order" },
-  ],
   "pdf-to-jpg": [
     { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
     { href: "/blog/pdf-merge-guide/pdf-pages-high-quality-jpg", title: "PDF pages to high-quality JPG" },

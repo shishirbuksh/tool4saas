@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { tools, CATEGORIES, NOINDEX_SLUGS } from "@/lib/tools";
 import { BLOG_PILLARS, getClustersForPillar } from "@/lib/blog-registry";
-import { getDateModifiedIso, getPageModifiedIso, HOME_MODIFIED, BLOG_MODIFIED, CATEGORY_MODIFIED, SITE_PUBLISHED_ISO } from "@/lib/dates";
+import { getBlogPostDateModifiedIso, getDateModifiedIso, getPageModifiedIso, HOME_MODIFIED, BLOG_MODIFIED, CATEGORY_MODIFIED, SITE_PUBLISHED_ISO } from "@/lib/dates";
 import { isNoindexCluster } from "@/lib/blog/noindex";
 import { BLOG_PILOT_LOCALES, ES_BLOG_PILOTS, getPilotLocales, hreflangHubLanguages, hreflangLanguages, HUB_LOCALES, isEsBlogPilot, NON_DEFAULT_LOCALES, pilotSlugsForLocale } from "@/lib/i18n";
 
@@ -113,7 +113,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   const blogPillars: MetadataRoute.Sitemap = BLOG_PILLARS.map((p) => ({
     url: `${base}/blog/${p.pillar}`,
-    lastModified: new Date(`${p.updated}T00:00:00.000Z`),
+    lastModified: new Date(`${getBlogPostDateModifiedIso(p.pillar, p.pillar, p.updated)}T00:00:00.000Z`),
     changeFrequency: "monthly",
     priority: 0.65,
     images: [`${base}/og/${p.toolSlug}`],
@@ -124,7 +124,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .filter((c) => !isNoindexCluster(c.pillar, c.slug))
       .map((c) => ({
       url: `${base}/blog/${c.pillar}/${c.slug}`,
-      lastModified: new Date(`${c.updated}T00:00:00.000Z`),
+      lastModified: new Date(`${getBlogPostDateModifiedIso(c.pillar, c.slug, c.updated)}T00:00:00.000Z`),
       changeFrequency: "monthly" as const,
       priority: 0.6,
       images: [`${base}/og/${c.toolSlugs[0] ?? p.toolSlug}`],
@@ -174,7 +174,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const cluster = clusters.find((c) => c.slug === slug);
       return {
         url: `${base}/${locale}/blog/${pillar}/${slug}`,
-        lastModified: new Date(`${cluster?.updated ?? "2026-09-22"}T00:00:00.000Z`),
+        lastModified: new Date(`${cluster ? getBlogPostDateModifiedIso(cluster.pillar, cluster.slug, cluster.updated) : SITE_PUBLISHED_ISO}T00:00:00.000Z`),
         changeFrequency: "monthly" as const,
         priority: 0.6,
         images: [`${base}/og/${cluster?.toolSlugs[0] ?? "qr-code-generator"}`],

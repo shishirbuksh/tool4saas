@@ -22,7 +22,7 @@ export const HUB_LOCALES: readonly Locale[] = ["es", "fr"];
 // the QR cluster (qr-size-print guide: 215 imp, 0 clicks), credit-card-validator
 // is GSC #3 (262 imp), unit-converter is GSC #5 (205 imp),
 // typing-speed-test is GSC #8 (150 imp), plagiarism-checker is GSC #9
-// (136 imp), word-counter is the top hero (HomePopular + HERO_SLUGS 0.9),
+// (136 imp), word-counter is the top hero (hero quick links + HERO_SLUGS 0.9),
 // mortgage-calculator is the top finance hero (HERO_SLUGS 0.9, YMYL),
 // resume-builder is the top business hero (HERO_SLUGS 0.9, pairs with invoice),
 // password-generator is the top security hero (generators + password pillar),

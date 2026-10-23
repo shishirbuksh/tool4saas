@@ -1,6 +1,6 @@
 // Fail-closed poison-domain blocklist: never let placeholder/example domains
 // leak into canonicals/sitemap/JSON-LD. Any match falls back to localhost.
-import { VISIBLE_TOOL_COUNT } from "@/lib/tools";
+import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
 
 const POISON_HOST_TOKENS = ["your-domain", "placeholder", "example."];
 function isPoisonHostname(hostname: string): boolean {
@@ -14,8 +14,8 @@ function isPoisonHostname(hostname: string): boolean {
 
 export const siteConfig = {
   name: "Tool4SaaS",
-  title: `${VISIBLE_TOOL_COUNT} Free Online Tools – No Signup, No Uploads | Tool4SaaS`,
-  description: `${VISIBLE_TOOL_COUNT} free browser tools for invoices, QR codes, resumes, PDFs, images and money. No signup, no uploads — most run privately on your device.`,
+  title: `${VISIBLE_TOOL_COUNT} Free Online Tools for Work, Money & Code | Tool4SaaS`,
+  description: `${VISIBLE_TOOL_COUNT} free browser tools for invoices, QR codes, resumes, PDFs, images, code and money. No signup; most run privately on your device.`,
   keywords: [
     "free online tools",
     "invoice generator",

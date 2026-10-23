@@ -11,6 +11,8 @@ export type Category = {
 export type Tool = {
   slug: string;
   title: string;
+  /** Optional 30-70 character meta title used when the catalogue title is long. */
+  seoTitle?: string;
   short: string;
   description: string;
   icon: IconName;

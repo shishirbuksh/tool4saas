@@ -1,14 +1,23 @@
 import { describe, it, expect } from "vitest";
-import { tools, CATEGORIES, ICON_NAMES } from "./tools";
+import { tools, CATEGORIES, ICON_NAMES, NOINDEX_SLUGS } from "./tools";
+import { EXPECTED_TOOL_COUNT, VISIBLE_TOOL_COUNT } from "./tools/counts";
+import { SEARCH_TOOLS } from "./tools/search-index.generated";
 
 describe("tools validation", () => {
   it("has unique slugs", () => {
     const slugs = tools.map((t) => t.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
   });
-  it("has 127 tools (127-200 range)", () => {
-    expect(tools.length).toBeGreaterThanOrEqual(127);
-    expect(tools.length).toBeLessThanOrEqual(200);
+  it("matches generated registry counts", () => {
+    expect(tools.length).toBe(EXPECTED_TOOL_COUNT);
+    expect(VISIBLE_TOOL_COUNT).toBe(tools.length - NOINDEX_SLUGS.size);
+  });
+  it("search index contains every visible tool and no NOINDEX tool", () => {
+    expect(SEARCH_TOOLS).toHaveLength(VISIBLE_TOOL_COUNT);
+    expect(new Set(SEARCH_TOOLS.map((t) => t.slug)).size).toBe(VISIBLE_TOOL_COUNT);
+    for (const slug of NOINDEX_SLUGS) {
+      expect(SEARCH_TOOLS.some((t) => t.slug === slug), slug).toBe(false);
+    }
   });
   it("every tool category is in CATEGORIES", () => {
     const cats = new Set(CATEGORIES.map((c) => c.id));

@@ -1,5 +1,3 @@
-"use client";
-
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -10,10 +8,12 @@ import Button from "@mui/material/Button";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import type { ReactNode } from "react";
-import { CATEGORIES, VISIBLE_TOOL_COUNT } from "@/lib/tools";
-// Lite lookup: full Tool objects (guide bodies) must never enter the footer chunk.
+import { CATEGORIES } from "@/lib/tools/categories";
+import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
+// Server-only lite lookup: full Tool objects never enter the footer bundle.
 import { liteGetTool } from "@/lib/tools/catalog-lite";
 import { siteConfig } from "@/lib/site";
+import FooterConsentActions from "@/components/FooterConsentActions";
 
 const popularSlugs = [
   "invoice-generator",
@@ -68,7 +68,7 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
 
 function ColumnHeading({ children }: { children: ReactNode }) {
   return (
-    <Typography component="h2" variant="subtitle1" sx={{ fontWeight: 700, mb: 1.5 }}>
+    <Typography component="p" variant="subtitle1" sx={{ fontWeight: 700, mb: 1.5 }}>
       {children}
     </Typography>
   );
@@ -76,43 +76,6 @@ function ColumnHeading({ children }: { children: ReactNode }) {
 
 export default function Footer() {
   const year = new Date().getFullYear();
-
-  const handleDoNotSell = () => {
-    // CCPA/CPRA opt-out: force denied (covers GPC/DNT intent), then open choices.
-    try {
-      const c = { ad_storage: "denied", analytics_storage: "denied", ts: Date.now() };
-      try {
-        localStorage.setItem("t4s-consent-v1", JSON.stringify(c));
-      } catch {
-        /* ignore storage failures */
-      }
-      try {
-        const w = window as unknown as {
-          gtag?: (...a: unknown[]) => void;
-          [key: string]: unknown;
-        };
-        if (typeof w.gtag === "function") {
-          w.gtag("consent", "update", {
-            ad_storage: "denied",
-            analytics_storage: "denied",
-            ad_user_data: "denied",
-            ad_personalization: "denied",
-          });
-        }
-        w["ga-disable-" + siteConfig.gaId] = true;
-      } catch {
-        /* ignore gtag failures */
-      }
-      try {
-        window.dispatchEvent(new CustomEvent("t4s:consent-updated", { detail: c }));
-      } catch {
-        /* ignore */
-      }
-    } catch {
-      /* ignore */
-    }
-    window.dispatchEvent(new Event("t4s:open-cookie-choices"));
-  };
 
   return (
     <Box
@@ -270,64 +233,7 @@ export default function Footer() {
             <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
               ·
             </Typography>
-            <Box component="li">
-              <button
-                type="button"
-                onClick={() => window.dispatchEvent(new Event("t4s:open-cookie-choices"))}
-                className="footer-link"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  minHeight: "44px",
-                  background: "none",
-                  border: "none",
-                  padding: 0,
-                  cursor: "pointer",
-                }}
-              >
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "text.secondary",
-                    "&:hover": { color: "primary.main" },
-                    transition: "color 150ms ease",
-                  }}
-                >
-                  Cookie choices
-                </Typography>
-              </button>
-            </Box>
-            <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
-              ·
-            </Typography>
-            <Box component="li">
-              <button
-                type="button"
-                onClick={handleDoNotSell}
-                className="footer-link"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  minHeight: "44px",
-                  background: "none",
-                  border: "none",
-                  padding: 0,
-                  cursor: "pointer",
-                  textAlign: "left",
-                }}
-              >
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "text.secondary",
-                    "&:hover": { color: "primary.main" },
-                    transition: "color 150ms ease",
-                  }}
-                >
-                  Do Not Sell or Share
-                </Typography>
-              </button>
-            </Box>
+            <FooterConsentActions />
             <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
               ·
             </Typography>

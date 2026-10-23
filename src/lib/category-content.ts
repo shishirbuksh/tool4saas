@@ -20,7 +20,7 @@ export type CategoryFaqItem = {
 // of the short catalogue description (which stays in metadata + JSON-LD).
 export const CATEGORY_INTROS: Record<string, CategoryIntro> = {
   "text-documents": {
-    body: "Draft, clean, and compare everyday writing with 13 browser-based utilities that never upload your text. Start with the word counter to hit targets like a 1,500-word essay or a 280-character post, then fix headings with the case converter across 500 lines at once. The text diff highlights every changed word between two drafts, catching edits a quick skim misses. For example, paste 2,000 words to see reading time near 10 minutes alongside keyword hits. Each tool page answers common questions in its FAQ and everything runs offline after load.",
+    body: "Draft, clean, and compare everyday writing with 12 browser-based utilities that never upload your text. Start with the word counter to hit targets like a 1,500-word essay or a 280-character post, then fix headings with the case converter across 500 lines at once. The text diff highlights every changed word between two drafts, catching edits a quick skim misses. For example, paste 2,000 words to see reading time near 10 minutes alongside keyword hits. Each tool page answers common questions in its FAQ and everything runs offline after load.",
     picks: [
       { slug: "word-counter", label: "Word Counter" },
       { slug: "text-tools", label: "Text Tools" },
@@ -182,7 +182,7 @@ export function seoTitleForCategory(id: string, fallbackLabel: string): string {
 export const CATEGORY_FAQ_CONTENT: Record<string, CategoryFaqItem[]> = {
   "text-documents": [
     {
-      text: "Think of them as 13 free browser utilities for drafting and polishing writing with no signup. The Word Counter tracks a 1,500-word essay or 280-character post live, while Case Converter fixes 500 lines at once. Most run offline after load, so drafts never leave your device.",
+      text: "Think of them as 12 free browser utilities for drafting and polishing writing with no signup. The Word Counter tracks a 1,500-word essay or 280-character post live, while Case Converter fixes 500 lines at once. Most run offline after load, so drafts never leave your device.",
       linkSlug: "word-counter",
       linkLabel: "Word Counter",
     },

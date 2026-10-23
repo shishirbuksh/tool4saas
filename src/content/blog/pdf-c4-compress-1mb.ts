@@ -2,57 +2,54 @@ import type { BlogPost } from "@/lib/blog";
 import { readingMinutesFor } from "@/lib/blog";
 
 const html = `
-<p>Gmail bounced it: 18MB, limit 25MB — technically under, practically blocked because the recipient's server capped at 10MB. The deck had to fly that night. Medium compression took it to 6MB in seconds, text still razor sharp, photos indistinguishable on screen. <strong>PDF compression is a level choice, not a button</strong>: Light, Medium and Strong trade bytes for fidelity differently per content type. This guide maps each level to email and portal scenarios with a zoom-to-verify protocol.</p>
-<p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Slim oversized sources first via <a href="/blog/pdf-merge-guide/merge-multiple-pdfs-order">merge planning</a>. Scanned-image limits in <a href="/blog/pdf-merge-guide/extract-text-without-ocr">text vs OCR</a>. (Our dedicated PDF compress tool is in development.)</p>
+<p>Gmail bounced it: an 18MB photo deck under the 25MB ceiling, but the recipient's corporate server capped at 10MB. The file had to fly that night, and there was no browser compressor to save it. The fixes were manual: re-export from the source, downsample the images, and send only the pages the recipient needed. <strong>PDF size reduction is a source problem, not a button</strong>, and this guide covers the workable methods and a verification protocol.</p>
+<p>Part of the <a href="/blog/pdf-merge-guide">PDF workflow guide</a>. Check a file's size and page count in the <a href="/pdf-compress">PDF file checker</a>, then trim pages with <a href="/blog/pdf-merge-guide/extract-pages-range">range extraction</a> before sending. Scans that need OCR instead are covered in <a href="/blog/pdf-merge-guide/extract-text-without-ocr">text vs OCR</a>.</p>
 
-<h2 id="levels">Light, Medium, Strong: pick by destination</h2>
+<h2 id="why-not">Why this site has no browser compressor yet</h2>
+<p>The route at <a href="/pdf-compress">pdf-compress</a> is a <strong>file checker</strong>. It confirms the <code>%PDF-</code> header, enforces the 10MB input limit, and reports the page count and byte size. It does not recompress images, subset fonts, strip metadata, or emit a smaller download. That is deliberate: reliable browser-side compression means decoding every embedded image, choosing new quality settings, rewriting cross-reference tables, and keeping signatures and forms intact. A careless rewrite can make a file larger or corrupt it, so the page ships as a validator and says so until a real engine exists.</p>
+
+<h2 id="methods">Methods that actually reduce PDF size</h2>
 <table>
-<thead><tr><th>Level</th><th>Saving</th><th>Image DPI</th><th>Use when</th></tr></thead>
+<thead><tr><th>Method</th><th>Typical gain</th><th>Best for</th></tr></thead>
 <tbody>
-<tr><td><strong>Light</strong></td><td>~20%</td><td>Near-original</td><td>Archival copies, print handouts</td></tr>
-<tr><td><strong>Medium</strong></td><td>~50%</td><td>~150 DPI</td><td>Email, uploads, portals</td></tr>
-<tr><td><strong>Strong</strong></td><td>~70%</td><td>Aggressive</td><td>Phone viewing, strict 1–5MB caps</td></tr>
+<tr><td><strong>Re-export with compressed images</strong></td><td>Large</td><td>Documents you control in the source app</td></tr>
+<tr><td><strong>Downscale images before embedding</strong></td><td>Large</td><td>Photo-heavy decks, scanned inserts</td></tr>
+<tr><td><strong>Print to PDF with a quality preset</strong></td><td>Moderate</td><td>Quick one-off reduction</td></tr>
+<tr><td><strong>Split and send only needed pages</strong></td><td>Variable</td><td>Portals that accept a chapter or form</td></tr>
 </tbody>
 </table>
-<p>My 18MB photo deck: Light → 14MB, Medium → 6MB, Strong → 3.4MB. Text stayed vector-sharp at every level (only images downsample) — which is why born-digital files compress so well and scanned pages (flat images, no text layer) save just 20–30%. My rule: Medium for everything unless a stakeholder names a different constraint.</p>
+<p>Start from the source file whenever possible. Word processors, presentation apps and design tools offer “reduce file size” or image-resolution presets during export, and those rewrite the document structure cleanly instead of guessing at an existing PDF. If the PDF was built from images, shrink those images first with an <a href="/blog/image-compressor-guide/compress-jpg-100kb-portal">image compression pass</a> and rebuild the document at a sensible resolution. Print-to-PDF at a lower quality setting works as a fallback for a file whose source is gone, but it rasterizes text and loses selectable content. When a portal only needs pages 3–9 of a report, do not compress anything: split out the range and send the smaller document.</p>
 
-<h2 id="verify">Verify at 100%: the zoom protocol</h2>
-<ol>
-<li><strong>Zoom a photo page to 100%</strong> and compare faces, gradients and fine lines against the original.</li>
-<li><strong>Zoom small text</strong> (footnotes, captions, axis labels) — the first casualty of Strong.</li>
-<li><strong>Check file size against the destination cap</strong> with margin: Gmail 25MB theoretical, 10MB practical for corporate servers; portals per their notice.</li>
-<li><strong>Keep the original archived</strong> — recompressing a compressed file compounds artifacts. Always compress from the master.</li>
-</ol>
-
-<h2 id="locked-scans">Locked files and scanned limits</h2>
-<p>Two hard stops: encrypted PDFs refuse compression until unlocked with the owner password (user passwords merely open viewing — remove restrictions properly), and image-only scans save little because there is no vector text to preserve. A 300-page set over 200 pages should split first (see <a href="/blog/pdf-merge-guide/extract-pages-range">range extraction</a>), compress parts, then rejoin. On phones, process under-50MB jobs per pass and keep the tab foreground — backgrounded tabs throttle workers.</p>
-<blockquote class="tip">General guidance only. For print production, never compress the press file — compress a distribution copy and archive the print master separately.</blockquote>
+<h2 id="verify">Verify at 100% and mind the real caps</h2>
+<p>Read the destination's actual limit before optimizing. Email attachments are often described as 25MB, yet many corporate servers reject anything over 10MB, and portals frequently cap at 5MB or less. Check the generated size in the checker or your file manager, keep a margin below the cap, and never recompress an already-compressed file: artifacts compound while savings shrink. Zoom photo pages and small text to 100% and compare against the original before sending.</p>
+<p>Two situations resist reduction. Encrypted files must be unlocked with the owner password in a trusted application before any tool can rewrite them; a user password only opens viewing. Image-only scans save less than born-digital files because there is no vector text to preserve, though downsampling the embedded images can still help. OCR adds a text layer and usually increases size rather than reducing it, so run OCR only when searchability matters more than bytes.</p>
+<blockquote class="tip">General guidance only. Keep the untouched master archived and compress a distribution copy, so a bad export never becomes your only version.</blockquote>
 `;
 
 export const pdfCompress1mb: BlogPost = {
   pillar: "pdf-merge-guide",
   slug: "compress-pdf-1mb-email",
   kind: "cluster",
-  title: "Compress PDF to 1MB for Email and Portals",
+  title: "Reduce PDF File Size Without a Browser Compressor",
   description:
-    "Compress PDFs for email: Light/Medium/Strong levels with tested savings, 100% zoom verification protocol + locked-file and scan limits. Free tool.",
-  keywords: ["how to compress pdf to 1mb for email", "18MB report to 6MB medium", "shrink pdf for 10MB portal", "compress without unlocking"],
+    "Reduce PDF size without a browser compressor: re-export, downsample source images, split pages and verify at 100%. Honest limits, no upload required.",
+  keywords: ["how to reduce pdf file size", "shrink pdf for email", "pdf too large to email", "reduce pdf size without adobe", "compress pdf offline alternative"],
   toolSlugs: ["pdf-compress", "pdf-merge"],
   relatedSlugs: ["merge-multiple-pdfs-order", "extract-pages-range", "jpg-scans-single-pdf"],
   published: "2026-10-07",
-  updated: "2026-10-07",
+  updated: "2026-10-22",
   readingMinutes: readingMinutesFor(html),
   toc: [
-    { id: "levels", text: "Compression levels", level: 2 },
-    { id: "verify", text: "Zoom verification", level: 2 },
-    { id: "locked-scans", text: "Locked files, scans", level: 2 },
+    { id: "why-not", text: "Why no compressor yet", level: 2 },
+    { id: "methods", text: "Methods that work", level: 2 },
+    { id: "verify", text: "Verify and mind caps", level: 2 },
   ],
   html,
   faqs: [
-    { question: "Which compression level for email?", answer: "Medium at about 50% off and 150 DPI, since an 18MB deck hits 6MB with sharp text. Use Light near 20% savings for archival copies and print handouts, Strong near 70% only for strict 1–5MB caps after zoom-checking. Default to Medium unless a stakeholder names a different constraint." },
-    { question: "Will compression blur my text?", answer: "No — text stays vector-sharp at every level since only images downsample. Light reached 14MB, Medium 6MB and Strong 3.4MB from 18MB without harming characters. Scanned pages are the exception as flat images with no text layer, saving only 20–30%, while born-digital files compress especially well." },
-    { question: "How do I check quality after compressing?", answer: "Zoom a photo page and small text like footnotes, captions and axis labels to 100%, comparing faces, gradients and fine lines against the original. Confirm size under the destination cap with margin, since Gmail allows 25MB theoretically but corporate servers often enforce 10MB. Always compress from the archived master." },
-    { question: "Why won't my PDF compress?", answer: "Usually owner-password encryption, since encrypted PDFs refuse compression until unlocked with proper credentials. User passwords merely open viewing without removing restrictions. Or it is already optimized, since recompressing compressed files compounds artifacts and yields little while risking quality so always compress from the archived master copy." },
-    { question: "Can I compress a 300-page PDF?", answer: "Split into under-200-page parts first with range extraction, compress each part, then rejoin the outputs. Large sets run better on laptops than phones, and phones should process under-50MB jobs per pass with the tab foreground since backgrounded tabs throttle workers significantly for reliable completion without crashes." },
+    { question: "Does this site compress PDFs?", answer: "No. The pdf-compress route is a file checker that validates the header, enforces the 10MB limit and reports page count and size. It does not rewrite images or produce a smaller file. Real compression happens in the source application, an image pre-pass, a print-to-PDF preset, or by sending fewer pages." },
+    { question: "What is the fastest way to shrink a PDF for email?", answer: "Re-export from the source with a compressed-image or reduced-resolution preset, because that rewrites the document cleanly. If the source is gone, downscale the embedded images or use print-to-PDF at a lower quality setting. Keep a margin below the destination cap, since corporate servers often reject files above 10MB even when Gmail allows 25MB." },
+    { question: "Can I just compress an already-compressed PDF again?", answer: "Not usefully. Recompressing compressed files compounds artifacts while savings shrink, and repeated lossy passes degrade photos and small text. Always work from the archived master, and check the result at 100% zoom before sending it anywhere important." },
+    { question: "Why does my scanned PDF stay large?", answer: "Scans store page images rather than vector text, so there is little structure to remove. Downsampling the embedded images can help, but gains are smaller than for born-digital files. Running OCR adds a text layer and usually increases size, so use it only when searchable text matters more than bytes." },
+    { question: "What about locked or encrypted PDFs?", answer: "They must be unlocked with the owner password in a trusted PDF application before any rewriting tool can work on them. A user password only opens the document for viewing; it does not remove the restriction that blocks changes. Once unlocked and re-saved, the normal reduction methods apply." },
   ],
 };

@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import TranslateIcon from "@mui/icons-material/Translate";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import MenuItem from "@mui/material/MenuItem";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -76,12 +77,12 @@ export default function LanguageSwitcher({
         aria-haspopup="menu"
         aria-expanded={Boolean(anchor)}
         aria-controls="locale-menu"
-        aria-label="Language"
+        aria-label={`${CODE[active]}, language: ${LOCALE_NAME[active]}`}
         onClick={(e) => setAnchor(e.currentTarget)}
         startIcon={<TranslateIcon aria-hidden="true" />}
         disableElevation
         color="inherit"
-        sx={{ px: 1.5, minHeight: 40, fontWeight: 700, fontSize: "0.8125rem", letterSpacing: "0.06em" }}
+        sx={{ px: 1.5, minHeight: 44, fontWeight: 700, fontSize: "0.8125rem", letterSpacing: "0.06em" }}
       >
         {CODE[active]}
       </Button>
@@ -106,20 +107,20 @@ export default function LanguageSwitcher({
         }}
       >
         {LOCALES.map((l) => (
-          <ListItemButton
+          <MenuItem
             key={l}
             component={MuiNextLink}
             href={switcherTarget(normalize, l)}
             onClick={() => setAnchor(null)}
             selected={l === active}
-            aria-current={l === active ? "true" : undefined}
+            aria-current={l === active ? "page" : undefined}
             sx={{ py: 1.5, px: 2.5, minHeight: 44 }}
           >
             <Typography variant="body2" sx={{ fontWeight: l === active ? 700 : 500 }}>
               {LOCALE_NAME[l]}
               {l === active ? " ✓" : ""}
             </Typography>
-          </ListItemButton>
+          </MenuItem>
         ))}
       </MenuDynamic>
     </Stack>

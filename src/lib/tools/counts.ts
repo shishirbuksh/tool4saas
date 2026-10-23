@@ -1,0 +1,6 @@
+import { NOINDEX_SLUGS } from "./noindex";
+import { TOTAL_CATEGORY_COUNT, TOTAL_TOOL_COUNT } from "./counts.generated";
+
+export const EXPECTED_TOOL_COUNT = TOTAL_TOOL_COUNT;
+export const EXPECTED_CATEGORY_COUNT = TOTAL_CATEGORY_COUNT;
+export const VISIBLE_TOOL_COUNT = TOTAL_TOOL_COUNT - NOINDEX_SLUGS.size;
