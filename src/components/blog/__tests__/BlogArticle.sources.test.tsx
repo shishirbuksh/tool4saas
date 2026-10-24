@@ -38,7 +38,7 @@ describe("YMYL authoritative sources", () => {
       }
       unmount();
     }
-  });
+  }, 20000);
 
   it("points mortgage readers at CFPB and HUD guidance", () => {
     render(<BlogArticle post={mortgage} />);

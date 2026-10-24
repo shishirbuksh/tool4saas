@@ -186,7 +186,7 @@ if (esContent) {
 // section never leak into the ES list (or vice versa) — scoping is by const
 // name allowlist, not by slug (slugs repeat across locales by design).
 const ES_TOOL_CONSTS = new Set(["invoiceGeneratorEs", "qrCodeGeneratorEs", "creditCardValidatorEs", "unitConverterEs", "typingSpeedEs", "plagiarismCheckerEs", "wordCounterEs", "mortgageCalculatorEs", "resumeBuilderEs", "passwordGeneratorEs", "imageCompressorEs", "pdfMergeEs", "jsonFormatterEs", "sipCalculatorEs", "emiCalculatorEs", "bmiCalculatorEs"]);
-const FR_TOOL_CONSTS = new Set(["invoiceGeneratorFr", "qrCodeGeneratorFr", "unitConverterFr", "wordCounterFr", "creditCardValidatorFr", "typingSpeedFr", "plagiarismCheckerFr", "mortgageCalculatorFr", "bmiCalculatorFr", "imageCompressorFr", "pdfMergeFr"]);
+const FR_TOOL_CONSTS = new Set(["invoiceGeneratorFr", "qrCodeGeneratorFr", "unitConverterFr", "wordCounterFr", "creditCardValidatorFr", "typingSpeedFr", "plagiarismCheckerFr", "mortgageCalculatorFr", "bmiCalculatorFr", "imageCompressorFr", "pdfMergeFr", "passwordGeneratorFr", "jsonFormatterFr"]);
 function parseI18nTools(esContent, constAllow) {
   const parts = (esContent || "").split(/export const (\w+)\s*:\s*Tool\s*=\s*\{/);
   const out = [];

@@ -69,6 +69,8 @@ export const FR_PILOT_SLUGS = new Set<string>([
   "bmi-calculator",
   "image-compressor",
   "pdf-merge",
+  "password-generator",
+  "json-formatter",
 ]);
 
 // Generic N-locale pilot registry. New locales add their set here without
@@ -1848,6 +1850,8 @@ export function getFrTool(slug: string): Tool | undefined {
   if (slug === "bmi-calculator") return bmiCalculatorFr;
   if (slug === "image-compressor") return imageCompressorFr;
   if (slug === "pdf-merge") return pdfMergeFr;
+  if (slug === "password-generator") return passwordGeneratorFr;
+  if (slug === "json-formatter") return jsonFormatterFr;
   return undefined;
 }
 
@@ -2574,6 +2578,148 @@ export const pdfMergeFr: Tool = {
     {
       heading: "Conseils pour des dossiers administratifs impeccables",
       body: "Avant de fusionner vos justificatifs pour une candidature ou un dossier bancaire, assurez-vous que toutes les pages sont orientées dans le bon sens et que le poids total reste sous les 10 Mo habituellement acceptés par les portails de téléversement et les messageries professionnelles.",
+    },
+  ],
+};
+
+export const passwordGeneratorFr: Tool = {
+  slug: "password-generator",
+  title: "Générateur de Mots de Passe",
+  short: "Mots de passe forts et sécurisés",
+  description:
+    "Générez des mots de passe ultra-sécurisés et aléatoires. Créez des clés de 16 caractères avec 105 bits d'entropie via Web Crypto, 100% gratuit et hors ligne.",
+  icon: "Key",
+  keywords: [
+    "générateur de mot de passe",
+    "mot de passe fort aléatoire",
+    "créer mot de passe sécurisé",
+    "mot de passe 16 caractères",
+    "combien de bits pour un mot de passe fort ?",
+    "générateur mot de passe gratuit",
+    "crypto getrandomvalues bits",
+    "gestionnaire mot de passe 2fa",
+    "mot de passe sans inscription",
+  ],
+  category: "generators",
+  faq: [
+    {
+      question: "Les mots de passe sont-ils réellement aléatoires ?",
+      answer:
+        "Oui. Ils sont générés directement par crypto.getRandomValues de votre navigateur, une source cryptographiquement sûre, et non par Math.random. Une clé de 16 caractères offre plus de 105 bits d'entropie pour résister aux attaques par force brute.",
+    },
+    {
+      question: "L'outil fonctionne-t-il hors ligne sans connexion ?",
+      answer:
+        "Oui. Tout le calcul s'effectue localement dans votre navigateur sans jamais envoyer de requête vers un serveur. Vous pouvez générer des clés en mode avion ou sans réseau.",
+    },
+    {
+      question: "Quelle longueur choisir pour sécuriser mes comptes ?",
+      answer:
+        "Nous recommandons au moins 16 caractères mêlant majuscules, minuscules, chiffres et symboles pour les comptes personnels, et 32 caractères pour les clés API et accès d'administration sensibles.",
+    },
+    {
+      question: "Mes mots de passe sont-ils enregistrés dans un historique ?",
+      answer:
+        "Non. Rien n'est enregistré ni mis en cache. Dès que vous fermez ou rechargez la page, les clés générées disparaissent définitivement de la mémoire vive.",
+    },
+  ],
+  howTo: [
+    {
+      name: "Définissez la longueur",
+      text: "Choisissez 16 caractères pour vos comptes en ligne ou 32 pour des clés API critiques.",
+    },
+    {
+      name: "Sélectionnez les caractères",
+      text: "Cochez majuscules, minuscules, chiffres et symboles pour maximiser la diversité entropique.",
+    },
+    {
+      name: "Générez les mots de passe",
+      text: "Cliquez sur Générer pour créer instantanément une série de mots de passe cryptographiquement sûrs.",
+    },
+    {
+      name: "Copiez et enregistrez",
+      text: "Copiez la clé choisie en un clic et collez-la directement dans votre gestionnaire de mots de passe.",
+    },
+  ],
+  guide: [
+    {
+      heading: "Qu'est-ce qu'un mot de passe réellement robuste ?",
+      body: "Un mot de passe robuste combine une longueur suffisante, un jeu de caractères varié et une unicité totale par service. Réutiliser une même combinaison facile à retenir expose l'ensemble de vos comptes au credential stuffing dès qu'une brèche survient sur un site tiers. Notre générateur local utilise l'API standard Web Crypto pour garantir un niveau d'aléa mathématique optimal sans compromis.",
+    },
+    {
+      heading: "Comprendre l'entropie et la force brute",
+      body: "L'entropie mesure le désordre et le niveau de difficulté mathématique pour casser une clé. Un mot de passe de 16 caractères issu d'un alphabet de 94 symboles offre 105 bits d'entropie, ce qui nécessiterait des millions d'années aux clusters de supercalculateurs les plus puissants pour le percer par force brute.",
+    },
+  ],
+};
+
+export const jsonFormatterFr: Tool = {
+  slug: "json-formatter",
+  title: "Formateur JSON en Ligne",
+  short: "Validez et formatez votre JSON",
+  description:
+    "Formatez, validez et minifiez vos données JSON avec coloration syntaxique et détection exacte des erreurs. Déboguez vos API en local sans aucun envoi serveur.",
+  icon: "DataObject",
+  keywords: [
+    "formateur json",
+    "valider json en ligne",
+    "formater json gratuit",
+    "coloration syntaxique json",
+    "comment corriger une erreur de syntaxe json ?",
+    "validateur json local",
+    "json parse indent 2 espaces",
+    "minifier json api",
+    "formateur json gratuit",
+  ],
+  category: "developer",
+  faq: [
+    {
+      question: "Mes données JSON sont-elles envoyées sur un serveur distant ?",
+      answer:
+        "Non. Le traitement s'effectue intégralement dans votre navigateur web via le moteur JavaScript local. Aucun octet de vos données ou de vos API ne transite sur le réseau.",
+    },
+    {
+      question: "L'outil prend-il en charge les fichiers JSON volumineux ?",
+      answer:
+        "Oui. Vous pouvez coller et inspecter des réponses de plusieurs mégaoctets et dizaines de milliers de lignes. Le pliage de nœuds permet de parcourir les objets complexes sans ralentissement.",
+    },
+    {
+      question: "Comment sont signalées les erreurs de syntaxe ?",
+      answer:
+        "Le parseur local identifie précisément le numéro de ligne et de colonne où survient l'anomalie (virgule manquante, guillemet orphelin, crochet non fermé) pour une correction immédiate.",
+    },
+    {
+      question: "Pourquoi minifier du JSON pour la production ?",
+      answer:
+        "La minification supprime les espaces et retours à la ligne superflus, réduisant la taille de la charge utile de 15 à 30 % pour accélérer les transferts réseau des API web.",
+    },
+  ],
+  howTo: [
+    {
+      name: "Collez votre JSON",
+      text: "Insérez votre code JSON brut, réponse d'API ou fichier de configuration dans la zone d'édition.",
+    },
+    {
+      name: "Choisissez le mode",
+      text: "Cliquez sur Formater pour indenter à 2 espaces ou Minifier pour compacter le payload.",
+    },
+    {
+      name: "Corrigez les anomalies",
+      text: "Consultez l'indicateur d'erreur indiquant la ligne et colonne exacte en cas de syntaxe invalide.",
+    },
+    {
+      name: "Copiez le résultat",
+      text: "Récupérez votre JSON formaté et prêt à l'emploi d'un simple clic pour vos tests ou documentation.",
+    },
+  ],
+  guide: [
+    {
+      heading: "Pourquoi un formateur JSON 100% local est indispensable",
+      body: "Déboguer des payloads d'API contenant des identifiants d'utilisateurs, des adresses e-mail ou des configurations d'infrastructure sur des outils tiers en ligne présente des risques de confidentialité majeurs. Notre solution traite chaque structure JSON uniquement en mémoire dans votre onglet actif.",
+    },
+    {
+      heading: "Détecter les pièges de syntaxe courants en JSON",
+      body: "Les erreurs les plus fréquentes incluent la virgule superflue en fin de tableau ou d'objet (trailing comma), l'emploi de guillemets simples au lieu de guillemets doubles stricts exigés par la spécification RFC 8259, et les caractères de contrôle non échappés.",
     },
   ],
 };

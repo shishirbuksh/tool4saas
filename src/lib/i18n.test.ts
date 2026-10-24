@@ -101,7 +101,9 @@ describe("i18n pilot registry", () => {
       expect(pilotUrl("fr", slug)).toBe(`/fr/${slug}`);
     }
     expect(getFrTool("typing-speed-test")).toBeDefined();
-    expect(getFrTool("password-generator")).toBeUndefined();
+    expect(getFrTool("password-generator")).toBeDefined();
+    expect(getFrTool("json-formatter")).toBeDefined();
+    expect(getFrTool("sip-calculator")).toBeUndefined();
     expect(getPilotLocales("invoice-generator")).toEqual(
       expect.arrayContaining(["es", "fr"]),
     );
@@ -136,11 +138,19 @@ describe("i18n pilot registry", () => {
       .languages;
     expect(mortLangs.es).toBe(`${base}/es/mortgage-calculator`);
     expect(mortLangs.fr).toBe(`${base}/fr/mortgage-calculator`);
-    // ES-only pilots serve es only (no FR content yet).
     const passLangs = (toolMetadata("password-generator").alternates as { languages: Record<string, string> })
       .languages;
     expect(passLangs.es).toBe(`${base}/es/password-generator`);
-    expect(passLangs.fr).toBeUndefined();
+    expect(passLangs.fr).toBe(`${base}/fr/password-generator`);
+    const jsonLangs = (toolMetadata("json-formatter").alternates as { languages: Record<string, string> })
+      .languages;
+    expect(jsonLangs.es).toBe(`${base}/es/json-formatter`);
+    expect(jsonLangs.fr).toBe(`${base}/fr/json-formatter`);
+    // ES-only pilots serve es only (no FR content yet).
+    const sipLangs = (toolMetadata("sip-calculator").alternates as { languages: Record<string, string> })
+      .languages;
+    expect(sipLangs.es).toBe(`${base}/es/sip-calculator`);
+    expect(sipLangs.fr).toBeUndefined();
   });
 
   it("sitemap includes every pilot /es URL and no non-pilot /es URLs", async () => {
@@ -157,7 +167,7 @@ describe("i18n pilot registry", () => {
     }
     expect(urls.some((u) => u.endsWith("/es/fd-calculator"))).toBe(false);
     // Per-locale pilot sets: no /fr page without FR content.
-    expect(urls.some((u) => u.endsWith("/fr/password-generator"))).toBe(false);
+    expect(urls.some((u) => u.endsWith("/fr/sip-calculator"))).toBe(false);
   }, 20000);
 
   it("ES blog pilot has valid SEO contracts and registry parity", async () => {
