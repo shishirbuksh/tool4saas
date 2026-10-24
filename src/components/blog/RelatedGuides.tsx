@@ -358,6 +358,97 @@ const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
     { href: "/blog/sip-calculator-guide/equity-ltcg-vs-fd-tax", title: "Equity LTCG vs FD tax" },
     { href: "/blog/sip-calculator-guide/budget-2026-verdict-salaried", title: "Budget 2026 verdict for salaried savers" },
   ],
+  // ---- Health & Wellness silo ----
+  "bmi-calculator": [
+    { href: "/blog/bmi-calculator-guide", title: "BMI Calculator Guide: Healthy Weight, Calories & Water Needs (pillar)" },
+    { href: "/blog/bmi-calculator-guide/how-bmi-is-calculated", title: "How BMI is calculated: metric and imperial formulas" },
+    { href: "/blog/bmi-calculator-guide/healthy-weight-range", title: "Healthy weight range for your height" },
+    { href: "/blog/bmi-calculator-guide/bmi-for-women", title: "BMI for women: body fat and distribution differences" },
+    { href: "/blog/bmi-calculator-guide/bmi-for-men", title: "BMI for men: muscle mass vs fat percentage" },
+  ],
+  "calorie-calculator": [
+    { href: "/blog/bmi-calculator-guide", title: "BMI Calculator Guide: Healthy Weight, Calories & Water Needs (pillar)" },
+    { href: "/blog/bmi-calculator-guide/calorie-deficit-for-weight-loss", title: "Calorie deficit math: BMR, TDEE and safe rates" },
+    { href: "/blog/bmi-calculator-guide/healthy-weight-range", title: "Healthy weight range for your height" },
+  ],
+  "water-intake-calculator": [
+    { href: "/blog/bmi-calculator-guide", title: "BMI Calculator Guide: Healthy Weight, Calories & Water Needs (pillar)" },
+    { href: "/blog/bmi-calculator-guide/daily-water-intake", title: "Daily water intake by weight, climate and activity" },
+  ],
+  // ---- Age & Date/Time arithmetic silo ----
+  "age-calculator": [
+    { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
+    { href: "/blog/age-calculator-guide/calculate-exact-age", title: "Calculate exact age: years, months, days and leap years" },
+    { href: "/blog/age-calculator-guide/age-difference", title: "Calculate age difference between two people" },
+    { href: "/blog/age-calculator-guide/age-in-days", title: "Convert age to total days, weeks and hours" },
+  ],
+  "date-calculator": [
+    { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
+    { href: "/blog/age-calculator-guide/date-difference", title: "Calculate days between two dates: elapsed vs dates touched" },
+    { href: "/blog/age-calculator-guide/date-add-subtract", title: "Add or subtract days, weeks, months and years" },
+    { href: "/blog/age-calculator-guide/leap-year-birthdays", title: "Leap year birthday math and February 29 rules" },
+  ],
+  "timezone-converter": [
+    { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
+    { href: "/blog/age-calculator-guide/timezone-conversion", title: "Time zone conversion: DST shifts and UTC offsets" },
+  ],
+  "timestamp-converter": [
+    { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
+    { href: "/blog/age-calculator-guide/unix-timestamp", title: "Unix timestamps: seconds vs milliseconds and ISO 8601" },
+  ],
+  // ---- Debt payoff silo ----
+  "debt-payoff-calculator": [
+    { href: "/blog/debt-payoff-guide", title: "Debt Payoff Guide: Snowball vs Avalanche Methods (pillar)" },
+    { href: "/blog/debt-payoff-guide/snowball-vs-avalanche", title: "Snowball vs avalanche: balances, rates and payoff compared" },
+    { href: "/blog/debt-payoff-guide/how-to-pay-off-credit-card-debt", title: "How to pay off credit card debt fast" },
+    { href: "/blog/debt-payoff-guide/minimum-payment-trap", title: "Credit card minimum payment trap: interest math" },
+    { href: "/blog/debt-payoff-guide/extra-payment-strategy", title: "Extra payments: how small additions slash payoff time" },
+  ],
+  // ---- Grade & GPA silo ----
+  "grade-calculator": [
+    { href: "/blog/grade-calculator-guide", title: "Grade Calculator Guide: Weighted Grades & Final Exam Score (pillar)" },
+    { href: "/blog/grade-calculator-guide/weighted-grade-calculation", title: "How to calculate weighted grades from syllabus percentages" },
+    { href: "/blog/grade-calculator-guide/final-exam-grade-needed", title: "What score do I need on the final exam?" },
+  ],
+  "gpa-calculator": [
+    { href: "/blog/grade-calculator-guide", title: "Grade Calculator Guide: Weighted Grades & Final Exam Score (pillar)" },
+    { href: "/blog/grade-calculator-guide/percentage-to-gpa", title: "Convert percentage to 4.0 GPA scale" },
+    { href: "/blog/grade-calculator-guide/gpa-vs-cgpa", title: "GPA vs CGPA: semester vs cumulative grade points" },
+    { href: "/blog/grade-calculator-guide/weighted-vs-unweighted-gpa", title: "Weighted vs unweighted GPA: AP, IB and honors points" },
+  ],
+  // ---- Digital Signature silo ----
+  "signature-maker": [
+    { href: "/blog/signature-maker-guide", title: "Signature Maker Guide: Draw, Type & Download Transparent PNG (pillar)" },
+    { href: "/blog/signature-maker-guide/transparent-signature-png", title: "How to create a transparent PNG signature" },
+    { href: "/blog/signature-maker-guide/drawn-vs-typed-signature", title: "Drawn vs typed signatures: when to use each" },
+    { href: "/blog/signature-maker-guide/signature-size-for-pdf", title: "Standard signature sizes for contracts, forms and email" },
+    { href: "/blog/signature-maker-guide/sign-pdf-without-printing", title: "How to place an image signature on a PDF contract" },
+  ],
+  // ---- Developer & Design extensions ----
+  "xml-formatter": [
+    { href: "/blog/json-formatter-guide", title: "Debug API Responses Locally: JSON, Base64, JWT Guide (pillar)" },
+    { href: "/blog/json-formatter-guide/format-xml-sitemaps-feeds", title: "Format XML sitemaps and RSS feeds cleanly" },
+  ],
+  "html-entities": [
+    { href: "/blog/json-formatter-guide", title: "Debug API Responses Locally: JSON, Base64, JWT Guide (pillar)" },
+    { href: "/blog/json-formatter-guide/html-entities-encode-decode", title: "HTML entities encode & decode: named vs numeric" },
+  ],
+  "text-diff": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide: Count Words, Reading Time & Readability (pillar)" },
+    { href: "/blog/word-counter-guide/compare-two-texts-word-diff", title: "Compare two text versions: word-by-word diff" },
+  ],
+  "markdown-editor": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide: Count Words, Reading Time & Readability (pillar)" },
+    { href: "/blog/word-counter-guide/markdown-preview-before-publishing", title: "Markdown preview and syntax checking before publishing" },
+  ],
+  "color-contrast": [
+    { href: "/blog/image-compressor-guide", title: "Compress Images for Web Without Losing Quality: 80% Guide (pillar)" },
+    { href: "/blog/image-compressor-guide/wcag-contrast-check", title: "WCAG color contrast ratios: AA vs AAA compliance" },
+  ],
+  "image-to-base64": [
+    { href: "/blog/image-compressor-guide", title: "Compress Images for Web Without Losing Quality: 80% Guide (pillar)" },
+    { href: "/blog/image-compressor-guide/image-to-base64-data-url", title: "Convert images to Base64 data URLs: when to inline" },
+  ],
 };
 
 export default function RelatedGuides({ slug }: { slug: string }) {
