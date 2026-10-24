@@ -7,6 +7,8 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 
 const DURATION_SEC = 60;
 
@@ -230,6 +232,15 @@ export default function TypingSpeedTestTool() {
             Finished! {wpm} WPM · {accuracy}% accuracy
           </Typography>
         )}
+
+        <Typography variant="caption" color="text.secondary" sx={{ display: "block", pt: 1 }}>
+          {finished
+            ? "Looking to increase your words per minute? Read our "
+            : "Benchmark your score: Learn standard WPM metrics and touch typing drills in our "}
+          <Link component={NextLink} href="/blog/word-counter-guide/typing-speed-test-practice-tips" underline="hover" color="primary">
+            typing speed guide & practice tips
+          </Link>.
+        </Typography>
       </Stack>
     </ToolPaper>
   );

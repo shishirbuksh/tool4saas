@@ -8,6 +8,8 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
 import Chip from "@mui/material/Chip";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 
 const STOPWORDS = new Set([
   "the",
@@ -401,7 +403,10 @@ export default function AtsResumeCheckerTool() {
           </Box>
         )}
         <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
-          Tip: ATS checks are keyword-based. Add missing terms only where you have truthful experience. Highlighting uses word-boundary matching, case-insensitive, after lowercasing.
+          Tip: ATS checks are keyword-based. Add missing terms only where you have truthful experience. For layout compliance, follow our{" "}
+          <Link component={NextLink} href="/blog/resume-builder-guide/ats-resume-guide" underline="hover" color="primary">
+            ATS-friendly resume formatting guide
+          </Link>.
         </Typography>
       </Box>
     </ToolPaper>

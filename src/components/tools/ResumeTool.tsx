@@ -10,6 +10,8 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import PrintIcon from "@mui/icons-material/Print";
@@ -75,6 +77,19 @@ export default function ResumeTool() {
         ))}
         <Button startIcon={<AddIcon />} onClick={() => setEdus((a) => [...a, edu()])}>Add education</Button>
       </ToolPaper>
+
+      <Box sx={{ my: 2, display: "flex", gap: 1, flexWrap: "wrap", alignItems: "center" }}>
+        <Typography variant="caption" color="text.secondary">
+          Writing tips: Ensure your resume clears automated screeners with our{" "}
+          <Link component={NextLink} href="/blog/resume-builder-guide/ats-resume-guide" underline="hover" color="primary">
+            ATS formatting checklist
+          </Link>{" "}
+          and avoid common disqualifiers in{" "}
+          <Link component={NextLink} href="/blog/resume-builder-guide/resume-mistakes" underline="hover" color="primary">
+            7 resume mistakes that cost interviews
+          </Link>.
+        </Typography>
+      </Box>
 
       {/* Printable resume */}
       {/* Note: Colors are intentionally hardcoded (light theme) for print fidelity. 

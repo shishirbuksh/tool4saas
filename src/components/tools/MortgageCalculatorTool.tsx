@@ -10,6 +10,8 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -110,6 +112,18 @@ export default function MortgageCalculatorTool() {
           <Typography color="text.secondary">Total interest</Typography>
           <Typography sx={{ fontWeight: 700 }}>{interest !== null && isFinite(interest) ? money(interest, currency) : "—"}</Typography>
         </Box>
+        {emi !== null && isFinite(emi) && (
+          <Typography variant="caption" color="text.secondary">
+            Planning a home purchase? Compare payoff timelines in our{" "}
+            <Link component={NextLink} href="/blog/mortgage-calculator-guide/15-vs-30-year-mortgage" underline="hover" color="primary">
+              15 vs 30-year mortgage breakdown
+            </Link>{" "}
+            or calculate budget limits with the{" "}
+            <Link component={NextLink} href="/blog/mortgage-calculator-guide/how-much-house-can-i-afford" underline="hover" color="primary">
+              28/36 rule affordability guide
+            </Link>.
+          </Typography>
+        )}
       </Stack>
       <Alert severity="info">For informational purposes only — not financial advice. See /terms</Alert>
     </ToolPaper>
