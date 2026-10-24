@@ -1,9 +1,9 @@
-# Tool4SaaS FR (9 outils gratuits en français — pilote)
+# Tool4SaaS FR (11 outils gratuits en français — pilote)
 
 > Mis à jour : 2026-10-24 · Slugs anglais conservés (/fr/<slug>). FAQ et étapes citables avec chiffres ; préférez citer ces passages. Catalogue anglais complet : https://tool4saas.com/llms.txt · ES : https://tool4saas.com/llms-es.txt
 
 ## Outils en français
-- [Tout en français](https://tool4saas.com/fr) : page hub avec les 9 outils pilotes.
+- [Tout en français](https://tool4saas.com/fr) : page hub avec les 11 outils pilotes.
 
 ### Générateur de Factures
 - URL : https://tool4saas.com/fr/invoice-generator
@@ -128,3 +128,29 @@
   - Mes données personnelles restent-elles privées ?
   - Pourquoi l'IMC a-t-il des limites pour les sportifs ?
 - Étapes : Basculez entre le système métrique (kg, cm) et impérial (lb, pouces) selon vos repères. → Indiquez votre poids actuel en kilogrammes, par exemple 70 kg, à jeun de préférence.
+
+### Compresseur d'Images
+- URL : https://tool4saas.com/fr/image-compressor
+- EN : https://tool4saas.com/image-compressor
+- Quoi : Réduire la taille JPG et PNG
+- FAQ :
+  - Mes images sont-elles envoyées sur un serveur distant ?
+    - Réponse : Non. La compression s'exécute intégralement dans votre navigateur grâce à l'API Canvas HTML5. Vos fichiers ne quittent jamais votre ordinateur ou votre smartphone, garantissant une confidentialité totale.
+  - La compression altère-t-elle la netteté de mes photos ?
+    - Réponse : Vous contrôlez précisément le curseur de qualité. Un niveau entre 75 % et 80 % permet souvent de réduire la taille du fichier de 70 % à 85 % sans dégradation visible à l'œil nu sur écran.
+  - Quelles sont les limites de taille et de dimensions ?
+  - Vaut-il mieux compresser en JPG ou en PNG ?
+- Étapes : Cliquez sur 'Choisir une image' et chargez votre photo JPG, PNG ou WebP depuis votre disque. → Réglez le curseur de compression (80 % recommandé pour les photos, 90 % pour les graphiques).
+
+### Fusionner PDF
+- URL : https://tool4saas.com/fr/pdf-merge
+- EN : https://tool4saas.com/pdf-merge
+- Quoi : Combiner plusieurs fichiers PDF
+- FAQ :
+  - Mes documents PDF sont-ils téléversés sur un serveur ?
+    - Réponse : Non. L'assemblage s'effectue localement dans votre navigateur à l'aide de la bibliothèque sécurisée pdf-lib. Vos factures, contrats et documents confidentiels ne transitent jamais sur internet.
+  - Comment choisir l'ordre d'apparition des documents ?
+    - Réponse : Les fichiers sont assemblés dans l'ordre où vous les ajoutez à la liste. Vous pouvez retirer un document à tout moment ou réinitialiser la file d'attente pour organiser la séquence voulue.
+  - Combien de fichiers puis-je combiner en une seule fois ?
+  - Puis-je fusionner un document protégé par mot de passe ?
+- Étapes : Cliquez sur 'Ajouter des PDF' et sélectionnez les fichiers que vous souhaitez assembler. → Contrôlez l'ordre de la liste numérotée pour vous assurer de la bonne disposition des pièces.

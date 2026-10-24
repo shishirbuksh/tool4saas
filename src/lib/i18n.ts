@@ -67,6 +67,8 @@ export const FR_PILOT_SLUGS = new Set<string>([
   "plagiarism-checker",
   "mortgage-calculator",
   "bmi-calculator",
+  "image-compressor",
+  "pdf-merge",
 ]);
 
 // Generic N-locale pilot registry. New locales add their set here without
@@ -1844,6 +1846,8 @@ export function getFrTool(slug: string): Tool | undefined {
   if (slug === "plagiarism-checker") return plagiarismCheckerFr;
   if (slug === "mortgage-calculator") return mortgageCalculatorFr;
   if (slug === "bmi-calculator") return bmiCalculatorFr;
+  if (slug === "image-compressor") return imageCompressorFr;
+  if (slug === "pdf-merge") return pdfMergeFr;
   return undefined;
 }
 
@@ -2422,6 +2426,154 @@ export const bmiCalculatorFr: Tool = {
     {
       heading: "Comprendre et utiliser son résultat",
       body: "Un indice situé entre 18,5 et 24,9 correspond à un risque statistique minimal. Pour optimiser sa forme, l'IMC doit être croisé avec le tour de taille, le niveau d'activité physique et la qualité de l'alimentation. Consultez un médecin avant d'entreprendre tout changement diététique important.",
+    },
+  ],
+};
+
+// Native FR keyword research (not translated): primary "compresseur d'image" +
+// réduire le poids / taille JPG/PNG intent. Density 1-1.8%, LSI (taille en Ko,
+// qualité 80%, compression sans perte, dimensions en pixels), long-tail FR PAA ("comment réduire le poids d'une image ?",
+// "quel format choisir entre JPG et PNG ?").
+export const imageCompressorFr: Tool = {
+  slug: "image-compressor",
+  title: "Compresseur d'Images",
+  short: "Réduire la taille JPG et PNG",
+  description:
+    "Compressez vos images JPG, PNG et WebP en ligne gratuitement sans perte visible de qualité. Réduisez le poids de vos photos pour le web. 100% privé hors ligne.",
+  icon: "Image",
+  keywords: [
+    "compresseur d'image",
+    "compresser une image",
+    "réduire taille photo",
+    "compresser jpg gratuit",
+    "compresser png sans perte",
+    "comment réduire le poids d'une image ?",
+    "optimiser image pour site web",
+    "compresseur image en ligne gratuit",
+  ],
+  category: "images-design",
+  faq: [
+    {
+      question: "Mes images sont-elles envoyées sur un serveur distant ?",
+      answer:
+        "Non. La compression s'exécute intégralement dans votre navigateur grâce à l'API Canvas HTML5. Vos fichiers ne quittent jamais votre ordinateur ou votre smartphone, garantissant une confidentialité totale.",
+    },
+    {
+      question: "La compression altère-t-elle la netteté de mes photos ?",
+      answer:
+        "Vous contrôlez précisément le curseur de qualité. Un niveau entre 75 % et 80 % permet souvent de réduire la taille du fichier de 70 % à 85 % sans dégradation visible à l'œil nu sur écran.",
+    },
+    {
+      question: "Quelles sont les limites de taille et de dimensions ?",
+      answer:
+        "L'outil accepte les fichiers JPG, PNG et WebP jusqu'à 10 Mo et 8 192 pixels de côté. Au-delà, l'image est automatiquement mise à l'échelle pour préserver la mémoire de votre appareil.",
+    },
+    {
+      question: "Vaut-il mieux compresser en JPG ou en PNG ?",
+      answer:
+        "Choisissez JPG pour les photographies, paysages et portraits où de légères variations de nuances restent invisibles. Préférez PNG pour les logos, schémas, captures d'écran et graphismes transparents.",
+    },
+  ],
+  howTo: [
+    {
+      name: "Sélectionnez votre image",
+      text: "Cliquez sur 'Choisir une image' et chargez votre photo JPG, PNG ou WebP depuis votre disque.",
+    },
+    {
+      name: "Ajustez la qualité",
+      text: "Réglez le curseur de compression (80 % recommandé pour les photos, 90 % pour les graphiques).",
+    },
+    {
+      name: "Définissez la largeur maximale",
+      text: "Indiquez si nécessaire une largeur maximale en pixels pour redimensionner les grands clichés.",
+    },
+    {
+      name: "Téléchargez le fichier optimisé",
+      text: "Cliquez sur 'Compresser l'image', prévisualisez le gain de poids et téléchargez le résultat.",
+    },
+  ],
+  guide: [
+    {
+      heading: "Comment fonctionne la compression d'image dans le navigateur",
+      body: "L'optimisation des images repose sur la quantification des données chromatiques et la réduction de la redondance visuelle. En éliminant les détails imperceptibles par l'œil humain et en nettoyant les métadonnées inutiles, vous allégez considérablement vos pages web tout en maintenant une présentation nette et professionnelle.",
+    },
+    {
+      heading: "Trouver l'équilibre idéal entre poids et qualité",
+      body: "Pour les sites internet et les pièces jointes d'e-mails, viser un poids inférieur à 200 Ko par photo est la norme idéale. Un curseur de qualité réglé à 80 % offre le compromis optimal entre rapidité de chargement et fidélité des couleurs, améliorant ainsi votre référencement Google et votre score Core Web Vitals.",
+    },
+  ],
+};
+
+// Native FR keyword research (not translated): primary "fusionner pdf" +
+// combiner plusieurs fichiers PDF intent. Density 1-1.8%, LSI (combiner,
+// assembler, ordre des pages, pdf-lib, privé hors ligne), long-tail FR PAA ("comment fusionner plusieurs fichiers pdf ?",
+// "peut-on fusionner des pdf gratuitement sans logiciel ?").
+export const pdfMergeFr: Tool = {
+  slug: "pdf-merge",
+  title: "Fusionner PDF",
+  short: "Combiner plusieurs fichiers PDF",
+  description:
+    "Fusionnez plusieurs fichiers PDF en un seul document gratuitement et facilement. Respectez l'ordre des pages, sans limite stricte ni inscription. 100% privé.",
+  icon: "PictureAsPdf",
+  keywords: [
+    "fusionner pdf",
+    "combiner des pdf",
+    "assembler pdf gratuit",
+    "unir pdf en ligne",
+    "comment fusionner plusieurs fichiers pdf ?",
+    "fusionner pdf sans logiciel",
+    "fusionner pdf sans limite",
+    "combiner pdf gratuit",
+  ],
+  category: "pdf",
+  faq: [
+    {
+      question: "Mes documents PDF sont-ils téléversés sur un serveur ?",
+      answer:
+        "Non. L'assemblage s'effectue localement dans votre navigateur à l'aide de la bibliothèque sécurisée pdf-lib. Vos factures, contrats et documents confidentiels ne transitent jamais sur internet.",
+    },
+    {
+      question: "Comment choisir l'ordre d'apparition des documents ?",
+      answer:
+        "Les fichiers sont assemblés dans l'ordre où vous les ajoutez à la liste. Vous pouvez retirer un document à tout moment ou réinitialiser la file d'attente pour organiser la séquence voulue.",
+    },
+    {
+      question: "Combien de fichiers puis-je combiner en une seule fois ?",
+      answer:
+        "Vous pouvez fusionner jusqu'à 20 fichiers PDF totalisant un maximum de 200 pages par opération, ce qui convient amplement pour les dossiers administratifs, comptables et candidatures.",
+    },
+    {
+      question: "Puis-je fusionner un document protégé par mot de passe ?",
+      answer:
+        "Les fichiers PDF chiffrés avec mot de passe d'ouverture ne peuvent pas être lus par les moteurs locaux sans déverrouillage préalable. Déverrouillez votre fichier avant de l'ajouter à la liste.",
+    },
+  ],
+  howTo: [
+    {
+      name: "Ajoutez vos documents PDF",
+      text: "Cliquez sur 'Ajouter des PDF' et sélectionnez les fichiers que vous souhaitez assembler.",
+    },
+    {
+      name: "Vérifiez la numérotation",
+      text: "Contrôlez l'ordre de la liste numérotée pour vous assurer de la bonne disposition des pièces.",
+    },
+    {
+      name: "Lancez la fusion",
+      text: "Cliquez sur le bouton 'Fusionner les PDF' pour générer votre document unique instantanément.",
+    },
+    {
+      name: "Enregistrez le PDF combiné",
+      text: "Téléchargez immédiatement votre fichier assemblé, vérifiez le nombre de pages et archivez.",
+    },
+  ],
+  guide: [
+    {
+      heading: "Pourquoi fusionner ses PDF directement dans le navigateur",
+      body: "La plupart des outils en ligne exigent d'envoyer vos pièces justificatives, bilans fiscaux ou pièces d'identité sur des serveurs tiers inconnus. Grâce aux technologies WebAssembly et JavaScript modernes, notre outil réalise l'intégralité du traitement dans la mémoire vive de votre propre machine, sans aucun risque de fuite de données.",
+    },
+    {
+      heading: "Conseils pour des dossiers administratifs impeccables",
+      body: "Avant de fusionner vos justificatifs pour une candidature ou un dossier bancaire, assurez-vous que toutes les pages sont orientées dans le bon sens et que le poids total reste sous les 10 Mo habituellement acceptés par les portails de téléversement et les messageries professionnelles.",
     },
   ],
 };
