@@ -2736,7 +2736,7 @@ export const resumeBuilderFr: Tool = {
   short: "CV professionnel en PDF gratuit",
   description:
     "Créez un CV clair compatible ATS avec expériences, formations et compétences. Prévisualisez et exportez en PDF gratuitement et sans inscription.",
-  icon: "Badge",
+  icon: "Description",
   keywords: [
     "créateur de cv",
     "faire un cv en ligne",
@@ -2807,7 +2807,7 @@ export const sipCalculatorFr: Tool = {
   short: "Projetez vos versements mensuels",
   description:
     "Calculez la valeur future de vos versements réguliers en fonds indiciels ou épargne. Projetez vos intérêts composés à 5, 10 ou 20 ans 100% hors ligne.",
-  icon: "TrendingUp",
+  icon: "AccountBalance",
   keywords: [
     "calculateur sip",
     "versement mensuel intérêts composés",
