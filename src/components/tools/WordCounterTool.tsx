@@ -6,6 +6,8 @@ import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import { WPM_READING, WPM_SPEAKING } from "@/lib/format";
@@ -125,6 +127,16 @@ export default function WordCounterTool() {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             ≈ {stats.readingTime} min to read · ≈ {stats.speakingTime} min to speak
+          </Typography>
+          <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+            Writing an essay or book? See our{" "}
+            <Link component={NextLink} href="/blog/word-counter-guide/pages-per-1000-words" underline="hover" color="primary">
+              words to pages chart
+            </Link>{" "}
+            or check your{" "}
+            <Link component={NextLink} href="/blog/word-counter-guide/flesch-reading-ease-score-explained" underline="hover" color="primary">
+              Flesch readability score
+            </Link>.
           </Typography>
         </Box>
         <Box sx={{ flex: 1 }}>

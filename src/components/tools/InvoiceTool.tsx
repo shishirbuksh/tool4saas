@@ -7,6 +7,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
@@ -85,6 +87,16 @@ export default function InvoiceTool() {
             <TextField label="Due date" type="date" fullWidth value={due} onChange={(e) => setDue(e.target.value)} slotProps={{ inputLabel: {  shrink: true  } }} />
           </Grid>
         </Grid>
+        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1.5 }}>
+          Need guidance on formats or terms? See our{" "}
+          <Link component={NextLink} href="/blog/invoice-generator-guide/invoice-numbering" underline="hover" color="primary">
+            invoice numbering guide
+          </Link>{" "}
+          and{" "}
+          <Link component={NextLink} href="/blog/invoice-generator-guide/payment-terms-and-followups" underline="hover" color="primary">
+            payment terms guide
+          </Link>.
+        </Typography>
       </ToolPaper>
 
       <ToolPaper>
