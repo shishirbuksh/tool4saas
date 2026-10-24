@@ -47,7 +47,7 @@ export default function ToolPageShell({ tool, children, locale = "en" }: { tool:
     <Container maxWidth="xl" sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 }, overflowX: "clip" }}>
       <Box sx={{ mb: { xs: 6, md: 8 }, maxWidth: 800, mx: "auto", textAlign: "center" }}>
         <Breadcrumbs sx={{ mb: 4, typography: 'body2', justifyContent: "center", display: "flex" }} aria-label="breadcrumb">
-          <Link href="/" style={{textDecoration: "none"}}>
+          <Link href={locale === "en" ? "/" : `/${locale}`} style={{textDecoration: "none"}}>
             <Box component="span" sx={{ color: "text.secondary", textDecoration: "none", '&:hover': { color: 'primary.main' } }}>
               {locale === "es" ? "Inicio" : locale === "fr" ? "Accueil" : "Home"}
             </Box>

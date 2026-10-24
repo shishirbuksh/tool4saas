@@ -45,8 +45,9 @@ export default function ToolSeo({ tool, locale = "en" }: { tool: Tool; locale?: 
     : [];
 
   // BreadcrumbList with guaranteed sequential positions 1..n.
+  const homeUrl = locale === "en" ? base : `${base}/${locale}`;
   const crumbItems: { name: string; item: string | undefined }[] = [
-    { name: locale === "es" ? "Inicio" : locale === "fr" ? "Accueil" : "Home", item: base },
+    { name: locale === "es" ? "Inicio" : locale === "fr" ? "Accueil" : "Home", item: homeUrl },
     ...(cat ? [{ name: cat.label, item: catUrl }] : []),
     { name: tool.title, item: url },
   ];

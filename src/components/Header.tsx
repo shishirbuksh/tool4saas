@@ -50,6 +50,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [catAnchor, setCatAnchor] = useState<null | { el: HTMLElement; id: string }>(null);
   const pathname = usePathname();
+  const homeHref = pathname?.startsWith("/es") ? "/es" : pathname?.startsWith("/fr") ? "/fr" : "/";
   // Same { category } shape as toolsByCategoryCached() groups so the menu,
   // noscript fallback and drawer below work unchanged — minus tool payloads.
   const grouped = CATEGORIES.map((category) => ({ category }));
@@ -81,7 +82,7 @@ export default function Header() {
           {/* Logo */}
           <Box
             component={LinkWrapper}
-            href="/"
+            href={homeHref}
             aria-label={`${siteConfig.name} home`}
             sx={{
               display: "flex",

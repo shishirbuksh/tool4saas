@@ -135,15 +135,16 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
   // EN pillar URL (exists) instead of a 404 /es/blog/<pillar>.
   const pillarUrl = `${base}/blog/${post.pillar}`;
   const homeName = locale === "es" ? "Inicio" : "Home";
+  const homeUrl = locale === "es" ? `${base}/es` : `${base}/`;
   const crumbs =
     post.kind === "pillar"
       ? [
-          { "@type": "ListItem", position: 1, name: homeName, item: `${base}/` },
+          { "@type": "ListItem", position: 1, name: homeName, item: homeUrl },
           { "@type": "ListItem", position: 2, name: "Blog", item: `${base}/blog` },
           { "@type": "ListItem", position: 3, name: post.title, item: canonical },
         ]
       : [
-          { "@type": "ListItem", position: 1, name: homeName, item: `${base}/` },
+          { "@type": "ListItem", position: 1, name: homeName, item: homeUrl },
           { "@type": "ListItem", position: 2, name: "Blog", item: `${base}/blog` },
           { "@type": "ListItem", position: 3, name: pillarMeta?.title ?? post.pillar, item: pillarUrl },
           { "@type": "ListItem", position: 4, name: post.title, item: canonical },
@@ -251,7 +252,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
     <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
       <BlogJsonLd post={post} locale={locale} />
       <Breadcrumbs sx={{ mb: 2 }} aria-label="breadcrumb">
-        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>{locale === "es" ? "Inicio" : "Home"}</Link>
+        <Link href={locale === "es" ? "/es" : "/"} style={{ color: "inherit", textDecoration: "none" }}>{locale === "es" ? "Inicio" : "Home"}</Link>
         <Link href="/blog" style={{ color: "inherit", textDecoration: "none" }}>Blog</Link>
         {post.kind === "cluster" && pillarMeta && (
           <Link href={`/blog/${post.pillar}`} style={{ color: "inherit", textDecoration: "none" }}>
