@@ -7,6 +7,7 @@ import ToolSeo from "@/components/ToolSeo";
 import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import RelatedTools from "@/components/RelatedTools";
 import RelatedGuides from "@/components/blog/RelatedGuides";
+import EmbedToolSnippet from "@/components/EmbedToolSnippet";
 import { getCategory, NOINDEX_SLUGS, tools, type Tool } from "@/lib/tools";
 import { getYMYLType } from "@/lib/ymyl";
 import { siteConfig } from "@/lib/site";
@@ -172,6 +173,7 @@ export default function ToolPageShell({ tool, children, locale = "en" }: { tool:
             </Typography>
           </Box>
           {children}
+          <EmbedToolSnippet slug={tool.slug} title={tool.title} locale={locale} />
         </Box>
       </Box>
       <RelatedTools slug={tool.slug} />
