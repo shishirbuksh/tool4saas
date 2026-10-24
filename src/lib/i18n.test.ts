@@ -103,7 +103,10 @@ describe("i18n pilot registry", () => {
     expect(getFrTool("typing-speed-test")).toBeDefined();
     expect(getFrTool("password-generator")).toBeDefined();
     expect(getFrTool("json-formatter")).toBeDefined();
-    expect(getFrTool("sip-calculator")).toBeUndefined();
+    expect(getFrTool("sip-calculator")).toBeDefined();
+    expect(getFrTool("emi-calculator")).toBeDefined();
+    expect(getFrTool("resume-builder")).toBeDefined();
+    expect(getFrTool("fd-calculator")).toBeUndefined();
     expect(getPilotLocales("invoice-generator")).toEqual(
       expect.arrayContaining(["es", "fr"]),
     );
@@ -146,11 +149,14 @@ describe("i18n pilot registry", () => {
       .languages;
     expect(jsonLangs.es).toBe(`${base}/es/json-formatter`);
     expect(jsonLangs.fr).toBe(`${base}/fr/json-formatter`);
-    // ES-only pilots serve es only (no FR content yet).
     const sipLangs = (toolMetadata("sip-calculator").alternates as { languages: Record<string, string> })
       .languages;
     expect(sipLangs.es).toBe(`${base}/es/sip-calculator`);
-    expect(sipLangs.fr).toBeUndefined();
+    expect(sipLangs.fr).toBe(`${base}/fr/sip-calculator`);
+    const plainLangs = (toolMetadata("fd-calculator").alternates as { languages: Record<string, string> })
+      .languages;
+    expect(plainLangs.es).toBeUndefined();
+    expect(plainLangs.fr).toBeUndefined();
   });
 
   it("sitemap includes every pilot /es URL and no non-pilot /es URLs", async () => {
@@ -167,7 +173,7 @@ describe("i18n pilot registry", () => {
     }
     expect(urls.some((u) => u.endsWith("/es/fd-calculator"))).toBe(false);
     // Per-locale pilot sets: no /fr page without FR content.
-    expect(urls.some((u) => u.endsWith("/fr/sip-calculator"))).toBe(false);
+    expect(urls.some((u) => u.endsWith("/fr/fd-calculator"))).toBe(false);
   }, 20000);
 
   it("ES blog pilot has valid SEO contracts and registry parity", async () => {
@@ -260,7 +266,9 @@ describe("switcherTarget (navbar language switcher)", () => {
     expect(switcherTarget("/es/blog/qr-code-generator-guide/qr-code-size-print-guide", "en")).toBe(
       "/blog/qr-code-generator-guide/qr-code-size-print-guide"
     );
+    // Direct pilot translation across locales.
+    expect(switcherTarget("/es/resume-builder", "fr")).toBe("/fr/resume-builder");
     // A tool not published in the target locale still falls back to the hub.
-    expect(switcherTarget("/es/resume-builder", "fr")).toBe("/fr");
+    expect(switcherTarget("/fd-calculator", "fr")).toBe("/fr");
   });
 });

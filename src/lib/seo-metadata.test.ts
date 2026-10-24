@@ -128,10 +128,9 @@ describe("SEO metadata", () => {
   it("EN toolMetadata declares og:locale:alternate for every pilot locale", () => {
     const alts = (slug: string) =>
       (toolMetadata(slug).openGraph as { alternateLocale?: string[] })?.alternateLocale;
-    // invoice-generator is a pilot in both es and fr.
+    // invoice-generator and resume-builder are pilots in both es and fr.
     expect(alts("invoice-generator")).toEqual(["es_ES", "fr_FR"]);
-    // ES-only pilot.
-    expect(alts("resume-builder")).toEqual(["es_ES"]);
+    expect(alts("resume-builder")).toEqual(["es_ES", "fr_FR"]);
     // Non-pilot: field omitted.
     expect(alts("fd-calculator")).toBeUndefined();
   });

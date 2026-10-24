@@ -71,6 +71,9 @@ export const FR_PILOT_SLUGS = new Set<string>([
   "pdf-merge",
   "password-generator",
   "json-formatter",
+  "resume-builder",
+  "sip-calculator",
+  "emi-calculator",
 ]);
 
 // Generic N-locale pilot registry. New locales add their set here without
@@ -1852,6 +1855,9 @@ export function getFrTool(slug: string): Tool | undefined {
   if (slug === "pdf-merge") return pdfMergeFr;
   if (slug === "password-generator") return passwordGeneratorFr;
   if (slug === "json-formatter") return jsonFormatterFr;
+  if (slug === "resume-builder") return resumeBuilderFr;
+  if (slug === "sip-calculator") return sipCalculatorFr;
+  if (slug === "emi-calculator") return emiCalculatorFr;
   return undefined;
 }
 
@@ -2720,6 +2726,217 @@ export const jsonFormatterFr: Tool = {
     {
       heading: "Détecter les pièges de syntaxe courants en JSON",
       body: "Les erreurs les plus fréquentes incluent la virgule superflue en fin de tableau ou d'objet (trailing comma), l'emploi de guillemets simples au lieu de guillemets doubles stricts exigés par la spécification RFC 8259, et les caractères de contrôle non échappés.",
+    },
+  ],
+};
+
+export const resumeBuilderFr: Tool = {
+  slug: "resume-builder",
+  title: "Créateur de CV en Ligne",
+  short: "CV professionnel en PDF gratuit",
+  description:
+    "Créez un CV clair compatible ATS avec expériences, formations et compétences. Prévisualisez et exportez en PDF gratuitement et sans inscription.",
+  icon: "Badge",
+  keywords: [
+    "créateur de cv",
+    "faire un cv en ligne",
+    "cv gratuit pdf",
+    "modèle de cv simple",
+    "comment faire un cv sans expérience ?",
+    "générateur de cv gratuit",
+    "cv compatible ats",
+    "télécharger cv pdf sans payer",
+    "créer cv rapide",
+  ],
+  category: "business",
+  faq: [
+    {
+      question: "Mes données personnelles sont-elles conservées ?",
+      answer:
+        "Non. Aucune donnée saisie n'est envoyée sur un serveur distant. Tout est traité localement dans la mémoire de votre navigateur et s'efface à la fermeture de l'onglet.",
+    },
+    {
+      question: "Le CV généré est-il compatible avec les logiciels ATS ?",
+      answer:
+        "Oui. La structure du document utilise une typographie propre et une mise en page à colonne unique standard, facilitant la lecture automatique par les robots de recrutement ATS.",
+    },
+    {
+      question: "Puis-je exporter mon CV au format PDF ?",
+      answer:
+        "Oui. Cliquez sur 'Imprimer / Télécharger en PDF' pour générer un fichier PDF prêt pour vos candidatures professionnelles, sans filigrane ni publicité.",
+    },
+    {
+      question: "Combien d'expériences professionnelles puis-je ajouter ?",
+      answer:
+        "Vous pouvez ajouter autant d'expériences et de formations que vous le souhaitez grâce aux boutons d'ajout dynamiques, puis réorganiser facilement vos sections.",
+    },
+  ],
+  howTo: [
+    {
+      name: "Renseignez vos coordonnées",
+      text: "Indiquez votre nom complet, titre professionnel, adresse e-mail, numéro de téléphone et ville.",
+    },
+    {
+      name: "Rédigez votre profil",
+      text: "Ajoutez une brève présentation synthétisant vos réalisations clés et votre valeur ajoutée.",
+    },
+    {
+      name: "Listez votre parcours",
+      text: "Ajoutez vos postes précédents, formations académiques et compétences techniques majeures.",
+    },
+    {
+      name: "Téléchargez votre PDF",
+      text: "Cliquez sur Imprimer / Télécharger en PDF pour sauvegarder votre CV immédiatement.",
+    },
+  ],
+  guide: [
+    {
+      heading: "Les règles d'un CV moderne et percutant",
+      body: "Un recruteur consacre en moyenne six à huit secondes à la première lecture d'un CV. Privilégiez des puces courtes chiffrées (par exemple, 'amélioration de 25% de la conversion') plutôt que de longs paragraphes descriptifs.",
+    },
+    {
+      heading: "Pourquoi éviter les formats complexes et multi-colonnes",
+      body: "Les modèles graphiques avec barres de compétences ou doubles colonnes désorientent fréquemment les logiciels d'analyse automatique ATS. Notre mise en page épurée maximise vos chances d'obtenir un entretien.",
+    },
+  ],
+};
+
+export const sipCalculatorFr: Tool = {
+  slug: "sip-calculator",
+  title: "Calculateur SIP Épargne",
+  short: "Projetez vos versements mensuels",
+  description:
+    "Calculez la valeur future de vos versements réguliers en fonds indiciels ou épargne. Projetez vos intérêts composés à 5, 10 ou 20 ans 100% hors ligne.",
+  icon: "TrendingUp",
+  keywords: [
+    "calculateur sip",
+    "versement mensuel intérêts composés",
+    "plan épargne programmé",
+    "calcul investissement régulier",
+    "combien rapporte un versement de 200 euros par mois ?",
+    "simulation épargne mensuelle",
+    "calculateur intérêts composés pea",
+    "projeter son capital",
+  ],
+  category: "finance",
+  faq: [
+    {
+      question: "Comment fonctionne l'investissement programmé (SIP) ?",
+      answer:
+        "Le principe consiste à investir un montant fixe à intervalles réguliers (mensuel). Cela permet de lisser le coût d'achat moyen (DCA) face aux fluctuations des marchés financiers.",
+    },
+    {
+      question: "Quelle formule calcule les intérêts composés ?",
+      answer:
+        "Le calcul utilise la formule des annuités composées : M = P * [((1 + i)^n - 1) / i] * (1 + i), où P est le versement périodique, i le taux mensuel et n le nombre de versements.",
+    },
+    {
+      question: "Mes calculs d'épargne restent-ils confidentiels ?",
+      answer:
+        "Oui. Toutes les projections financières s'exécutent sur votre machine. Aucun chiffre ni montant de patrimoine n'est collecté par notre plateforme.",
+    },
+    {
+      question: "Quel rendement annuel envisager pour ses simulations ?",
+      answer:
+        "Les indices boursiers mondiaux comme le MSCI World ou le S&P 500 ont historiquement délivré entre 6% et 8% par an en moyenne sur le long terme (hors inflation).",
+    },
+  ],
+  howTo: [
+    {
+      name: "Fixez votre épargne mensuelle",
+      text: "Indiquez la somme que vous pouvez investir confortablement chaque mois (ex. 200 € ou 500 €).",
+    },
+    {
+      name: "Définissez le rendement annuel",
+      text: "Indiquez un taux annuel réaliste selon votre profil de risque (ex. 7% en actions diversifiées).",
+    },
+    {
+      name: "Choisissez l'horizon de placement",
+      text: "Spécifiez la durée de votre investissement en années (ex. 10, 15 ou 20 ans).",
+    },
+    {
+      name: "Analysez le capital accumulé",
+      text: "Visualisez le total versé de votre poche comparé à la plus-value générée par les intérêts composés.",
+    },
+  ],
+  guide: [
+    {
+      heading: "La puissance des intérêts composés sur le long terme",
+      body: "Plus votre horizon est lointain, plus l'effet boule de neige des intérêts réinvestis devient déterminant. Au bout de vingt ans, les gains d'intérêts dépassent souvent le total des versements personnels cumulés.",
+    },
+    {
+      heading: "La régularité prime sur le timing de marché",
+      body: "Tenter d'anticiper les points bas de marché est notoirement contre-productif. L'investissement programmé automatique élimine l'impact émotionnel et bâtit un patrimoine robuste sans stress.",
+    },
+  ],
+};
+
+export const emiCalculatorFr: Tool = {
+  slug: "emi-calculator",
+  title: "Calculateur de Mensualité Prêt",
+  short: "Mensualité crédit et intérêts",
+  description:
+    "Calculez la mensualité exacte de votre crédit immobilier ou prêt personnel. Visualisez le total des intérêts et le tableau d'amortissement en local.",
+  icon: "AccountBalance",
+  keywords: [
+    "calculateur mensualité prêt",
+    "calculer mensualité crédit",
+    "tableau amortissement emprunt",
+    "calcul crédit immobilier",
+    "comment calculer la mensualité d'un prêt ?",
+    "simulation prêt bancaire",
+    "coût total crédit formule",
+    "mensualité et taux débiteur",
+  ],
+  category: "finance",
+  faq: [
+    {
+      question: "Comment est calculée la mensualité d'un crédit ?",
+      answer:
+        "La mensualité utilise la formule standard d'amortissement constant : E = [P * r * (1 + r)^n] / [(1 + r)^n - 1], où P est le capital emprunté, r le taux périodique et n le nombre de mensualités.",
+    },
+    {
+      question: "Puis-je exporter mon tableau d'amortissement ?",
+      answer:
+        "Oui. L'outil génère un tableau détaillé des premières échéances et vous permet d'exporter l'intégralité du calendrier d'amortissement au format CSV d'un simple clic.",
+    },
+    {
+      question: "Le coût de l'assurance emprunteur est-il inclus ?",
+      answer:
+        "Notre simulateur calcule l'échéance du capital et des intérêts débiteurs. Pour obtenir votre mensualité globale finale, pensez à ajouter la cotisation mensuelle d'assurance de votre banque.",
+    },
+    {
+      question: "Pourquoi effectuer des remboursements anticipés ?",
+      answer:
+        "Tout remboursement anticipé vient directement réduire le capital restant dû, ce qui diminue immédiatement les intérêts futurs et raccourcit la durée totale de votre prêt.",
+    },
+  ],
+  howTo: [
+    {
+      name: "Entrez le montant emprunté",
+      text: "Indiquez le capital net emprunté auprès de votre organisme financier.",
+    },
+    {
+      name: "Saisissez le taux d'intérêt",
+      text: "Indiquez le taux annuel débiteur nominal proposé par la banque (ex. 3,5%).",
+    },
+    {
+      name: "Précisez la durée",
+      text: "Indiquez la durée totale de remboursement en années (ex. 15, 20 ou 25 ans).",
+    },
+    {
+      name: "Consultez les résultats",
+      text: "Visualisez instantanément la mensualité, le coût total des intérêts et le tableau d'amortissement.",
+    },
+  ],
+  guide: [
+    {
+      heading: "Comprendre la répartition capital et intérêts",
+      body: "Durant les premières années d'un crédit amortissable, la part d'intérêts dans chaque mensualité est prépondérante. Au fil du temps, la part de capital remboursé augmente progressivement.",
+    },
+    {
+      heading: "Optimiser le coût total de son crédit",
+      body: "Même une variation de 0,2% sur votre taux nominal ou une réduction de deux ans de la durée d'emprunt peut vous faire économiser plusieurs milliers d'euros d'intérêts cumulés sur vingt ans.",
     },
   ],
 };

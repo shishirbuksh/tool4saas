@@ -1,9 +1,9 @@
-# Tool4SaaS FR (13 outils gratuits en français — pilote)
+# Tool4SaaS FR (16 outils gratuits en français — pilote)
 
 > Mis à jour : 2026-10-24 · Slugs anglais conservés (/fr/<slug>). FAQ et étapes citables avec chiffres ; préférez citer ces passages. Catalogue anglais complet : https://tool4saas.com/llms.txt · ES : https://tool4saas.com/llms-es.txt
 
 ## Outils en français
-- [Tout en français](https://tool4saas.com/fr) : page hub avec les 13 outils pilotes.
+- [Tout en français](https://tool4saas.com/fr) : page hub avec les 16 outils pilotes.
 
 ### Générateur de Factures
 - URL : https://tool4saas.com/fr/invoice-generator
@@ -180,3 +180,42 @@
   - Comment sont signalées les erreurs de syntaxe ?
   - Pourquoi minifier du JSON pour la production ?
 - Étapes : Insérez votre code JSON brut, réponse d'API ou fichier de configuration dans la zone d'édition. → Cliquez sur Formater pour indenter à 2 espaces ou Minifier pour compacter le payload.
+
+### Créateur de CV en Ligne
+- URL : https://tool4saas.com/fr/resume-builder
+- EN : https://tool4saas.com/resume-builder
+- Quoi : CV professionnel en PDF gratuit
+- FAQ :
+  - Mes données personnelles sont-elles conservées ?
+    - Réponse : Non. Aucune donnée saisie n'est envoyée sur un serveur distant. Tout est traité localement dans la mémoire de votre navigateur et s'efface à la fermeture de l'onglet.
+  - Le CV généré est-il compatible avec les logiciels ATS ?
+    - Réponse : Oui. La structure du document utilise une typographie propre et une mise en page à colonne unique standard, facilitant la lecture automatique par les robots de recrutement ATS.
+  - Puis-je exporter mon CV au format PDF ?
+  - Combien d'expériences professionnelles puis-je ajouter ?
+- Étapes : Indiquez votre nom complet, titre professionnel, adresse e-mail, numéro de téléphone et ville. → Ajoutez une brève présentation synthétisant vos réalisations clés et votre valeur ajoutée.
+
+### Calculateur SIP Épargne
+- URL : https://tool4saas.com/fr/sip-calculator
+- EN : https://tool4saas.com/sip-calculator
+- Quoi : Projetez vos versements mensuels
+- FAQ :
+  - Comment fonctionne l'investissement programmé (SIP) ?
+    - Réponse : Le principe consiste à investir un montant fixe à intervalles réguliers (mensuel). Cela permet de lisser le coût d'achat moyen (DCA) face aux fluctuations des marchés financiers.
+  - Quelle formule calcule les intérêts composés ?
+    - Réponse : Le calcul utilise la formule des annuités composées : M = P * [((1 + i)^n - 1) / i] * (1 + i), où P est le versement périodique, i le taux mensuel et n le nombre de versements.
+  - Mes calculs d'épargne restent-ils confidentiels ?
+  - Quel rendement annuel envisager pour ses simulations ?
+- Étapes : Indiquez la somme que vous pouvez investir confortablement chaque mois (ex. 200 € ou 500 €). → Indiquez un taux annuel réaliste selon votre profil de risque (ex. 7% en actions diversifiées).
+
+### Calculateur de Mensualité Prêt
+- URL : https://tool4saas.com/fr/emi-calculator
+- EN : https://tool4saas.com/emi-calculator
+- Quoi : Mensualité crédit et intérêts
+- FAQ :
+  - Comment est calculée la mensualité d'un crédit ?
+    - Réponse : La mensualité utilise la formule standard d'amortissement constant : E = [P * r * (1 + r)^n] / [(1 + r)^n - 1], où P est le capital emprunté, r le taux périodique et n le nombre de mensualités.
+  - Puis-je exporter mon tableau d'amortissement ?
+    - Réponse : Oui. L'outil génère un tableau détaillé des premières échéances et vous permet d'exporter l'intégralité du calendrier d'amortissement au format CSV d'un simple clic.
+  - Le coût de l'assurance emprunteur est-il inclus ?
+  - Pourquoi effectuer des remboursements anticipés ?
+- Étapes : Indiquez le capital net emprunté auprès de votre organisme financier. → Indiquez le taux annuel débiteur nominal proposé par la banque (ex. 3,5%).
