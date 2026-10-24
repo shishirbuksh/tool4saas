@@ -5,6 +5,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ToolPaper from "@/components/ToolPaper";
@@ -94,9 +96,21 @@ export default function BmiCalculatorTool() {
             {bmi !== null ? fmt(bmi) : "—"}
           </Typography>
           {bmi !== null && (
-            <Typography variant="subtitle1" sx={{ color, fontWeight: 700 }}>
-              {category}
-            </Typography>
+            <>
+              <Typography variant="subtitle1" sx={{ color, fontWeight: 700 }}>
+                {category}
+              </Typography>
+              <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+                Understand your numbers: Explore the{" "}
+                <Link component={NextLink} href="/blog/bmi-calculator-guide/healthy-weight-range" underline="hover" color="primary">
+                  healthy weight range chart
+                </Link>
+                {" "}or calculate a{" "}
+                <Link component={NextLink} href="/blog/bmi-calculator-guide/calorie-deficit-for-weight-loss" underline="hover" color="primary">
+                  safe calorie deficit
+                </Link>.
+              </Typography>
+            </>
           )}
         </Box>
     </ToolPaper>

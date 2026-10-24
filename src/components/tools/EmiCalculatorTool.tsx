@@ -5,6 +5,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import Alert from "@mui/material/Alert";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -134,6 +136,14 @@ export default function EmiCalculatorTool() {
             {result !== null && isFinite(result.interest) ? money(result.interest, currency) : "—"}
           </Typography>
         </Box>
+        {result !== null && isFinite(result.interest) && (
+          <Typography variant="caption" color="text.secondary">
+            Tip: Want to cut total interest? Learn how extra payments reduce your loan balance in our{" "}
+            <Link component={NextLink} href="/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment" underline="hover" color="primary">
+              mortgage overpayment guide
+            </Link>.
+          </Typography>
+        )}
       </Stack>
       {schedule.length > 0 && (
         <Stack spacing={1.5}>

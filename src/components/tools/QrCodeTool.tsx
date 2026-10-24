@@ -10,6 +10,8 @@ import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import DownloadIcon from "@mui/icons-material/Download";
 import dynamic from "next/dynamic";
 
@@ -167,6 +169,12 @@ export default function QrCodeTool() {
           <Button variant="contained" startIcon={<DownloadIcon />} onClick={download} disabled={!canGenerate}>
             Download PNG
           </Button>
+          <Typography variant="caption" color="text.secondary" sx={{ textAlign: "center", maxWidth: 260 }}>
+            Planning to print? Read our{" "}
+            <Link component={NextLink} href="/blog/qr-code-generator-guide/qr-code-size-print-guide" underline="hover" color="primary">
+              QR Code Sizing &amp; Print Guide
+            </Link>
+          </Typography>
         </Box>
       </Stack>
     </ToolPaper>

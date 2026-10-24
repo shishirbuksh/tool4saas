@@ -48,12 +48,14 @@ export const ES_PILOT_SLUGS = new Set<string>([
   "json-formatter",
   "sip-calculator",
   "emi-calculator",
+  "bmi-calculator",
 ]);
 
 // French pilots: invoice-generator (highest-ROI tool), qr-code-generator
 // (universal volume), unit-converter (everyday utility), word-counter (top
 // hero), credit-card-validator (trust/safety), typing-speed-test (skill test),
-// plagiarism-checker (integrity), mortgage-calculator (top finance hero, YMYL) —
+// plagiarism-checker (integrity), mortgage-calculator (top finance hero, YMYL),
+// bmi-calculator (health volume) —
 // steady FR expansion toward full coverage, one proven tool at a time.
 export const FR_PILOT_SLUGS = new Set<string>([
   "invoice-generator",
@@ -64,6 +66,7 @@ export const FR_PILOT_SLUGS = new Set<string>([
   "typing-speed-test",
   "plagiarism-checker",
   "mortgage-calculator",
+  "bmi-calculator",
 ]);
 
 // Generic N-locale pilot registry. New locales add their set here without
@@ -406,6 +409,7 @@ export function getEsTool(slug: string): Tool | undefined {
   if (slug === "json-formatter") return jsonFormatterEs;
   if (slug === "sip-calculator") return sipCalculatorEs;
   if (slug === "emi-calculator") return emiCalculatorEs;
+  if (slug === "bmi-calculator") return bmiCalculatorEs;
   return undefined;
 }
 
@@ -1671,6 +1675,80 @@ export const emiCalculatorEs: Tool = {
   ],
 };
 
+// Native ES keyword research (not translated): primary "calculadora imc" +
+// índice de masa corporal / peso ideal intent. Density 1-1.8%, LSI (peso ideal,
+// OMS, sobrepeso, delgadez, masa corporal), long-tail ES PAA ("¿cómo saber mi imc ideal?",
+// "¿cuál es el imc normal para mujer?").
+export const bmiCalculatorEs: Tool = {
+  slug: "bmi-calculator",
+  title: "Calculadora de IMC",
+  short: "Índice de masa corporal",
+  description:
+    "Calcula tu índice de masa corporal (IMC) y rango de peso saludable al instante. Fórmulas métrica e imperial para adultos, niños y deportistas. Privado y gratis.",
+  icon: "FitnessCenter",
+  keywords: [
+    "calculadora imc",
+    "índice de masa corporal",
+    "calcular imc mujer",
+    "calcular imc hombre",
+    "peso ideal según altura",
+    "¿cómo saber mi imc ideal?",
+    "tabla imc oms",
+    "calculadora imc gratis",
+  ],
+  category: "calculators",
+  faq: [
+    {
+      question: "¿Cómo se calcula el IMC en adultos?",
+      answer:
+        "El IMC divide el peso en kilogramos entre la altura en metros al cuadrado: IMC = kg / m². En sistema imperial se multiplica el peso en libras por 703 y se divide entre pulgadas al cuadrado. Por ejemplo, 70 kg con 1,75 m da un IMC de 22,9 en rango saludable.",
+    },
+    {
+      question: "¿Cuáles son los rangos de la OMS para el IMC?",
+      answer:
+        "La Organización Mundial de la Salud define cuatro categorías principales para adultos: bajo peso (menor a 18,5), peso normal (18,5 a 24,9), sobrepeso (25,0 a 29,9) y obesidad (30,0 o superior). Estos valores son una referencia poblacional orientativa.",
+    },
+    {
+      question: "¿Mis datos de peso y altura son privados?",
+      answer:
+        "Sí. Todos los cálculos se ejecutan completamente en tu navegador sin enviar datos a ningún servidor ni requerir registro. Al recargar o cerrar la pestaña, los valores se borran al instante.",
+    },
+    {
+      question: "¿Por qué el IMC puede fallar en personas musculosas?",
+      answer:
+        "El índice no distingue entre masa muscular, agua y grasa adiposa. Deportistas con alta musculatura pueden registrar un IMC superior a 25 sin tener exceso de grasa corporal, por lo que se recomienda medir también el perímetro de cintura.",
+    },
+  ],
+  howTo: [
+    {
+      name: "Elige las unidades",
+      text: "Selecciona el sistema métrico (kg, cm) o imperial (libras, pulgadas) según tu preferencia.",
+    },
+    {
+      name: "Introduce tu peso",
+      text: "Escribe tu peso actual, por ejemplo 70 kg o 154 libras, sin puntos ni comas de más.",
+    },
+    {
+      name: "Introduce tu altura",
+      text: "Indica tu estatura en centímetros (por ejemplo 175 cm) o en pulgadas totales.",
+    },
+    {
+      name: "Consulta tu resultado",
+      text: "Observa tu índice numérico y la categoría OMS correspondiente con código de color instantáneo.",
+    },
+  ],
+  guide: [
+    {
+      heading: "Qué mide el índice de masa corporal",
+      body: "El índice de masa corporal (IMC) es un estándar internacional ideado por Adolphe Quetelet y adoptado por la OMS para clasificar el estado nutricional de adultos. Relaciona el peso con la superficie corporal mediante una sencilla fórmula matemática. Aunque no mide directamente el porcentaje de grasa, proporciona una primera estimación rápida y no invasiva para la salud general.",
+    },
+    {
+      heading: "Cómo interpretar tu clasificación",
+      body: "Un valor entre 18,5 y 24,9 indica un peso normal asociado al menor riesgo de patologías cardiovasculares y metabólicas. Valores por debajo de 18,5 sugieren bajo peso, mientras que cifras entre 25 y 29,9 corresponden a sobrepeso. Cifras a partir de 30 entran en obesidad. En personas mayores, embarazadas o culturistas, los umbrales deben interpretarse con asesoramiento médico profesional.",
+    },
+  ],
+};
+
 // Native FR keyword research (not translated): primary "générateur qr" +
 // WiFi/vCard/512-vs-2048 intent. Density 1-1.8%, LSI (zone de silence, modules,
 // densité, 512px/2048px, distance/10), long-tail FR PAA ("comment créer un qr wifi ?",
@@ -1765,6 +1843,7 @@ export function getFrTool(slug: string): Tool | undefined {
   if (slug === "typing-speed-test") return typingSpeedFr;
   if (slug === "plagiarism-checker") return plagiarismCheckerFr;
   if (slug === "mortgage-calculator") return mortgageCalculatorFr;
+  if (slug === "bmi-calculator") return bmiCalculatorFr;
   return undefined;
 }
 
@@ -2269,6 +2348,80 @@ export const mortgageCalculatorFr: Tool = {
     {
       heading: "Exemple chiffré : 240 000 € à 3 %",
       body: "Posez 240 000 € à 3 % sur 30 ans, confirmez 1 012 € par mois, 124 000 € intérêts et 364 000 € totaux, exportez le CSV et comparez avec 15 ans (1 650 €, 57 000 € intérêts). Second cas : 2 % contre 3 % diffèrent d'environ 125 € mensuels sur même capital. Gardez l'offre ferme, revoyez TAEG contre TIN et Euribor plus marge si variable. Hors assurances obligatoires et impôts locaux ; votre banque clôt les chiffres. Pour démarrer plus tôt utilisez /mortgage-overpayment-calculator.",
+    },
+  ],
+};
+
+// Native FR keyword research (not translated): primary "calculateur imc" +
+// indice de masse corporelle / poids idéal intent. Density 1-1.8%, LSI (poids idéal,
+// OMS, surpoids, corpulence, masse corporelle), long-tail FR PAA ("comment calculer son imc ?",
+// "quel est l'imc idéal pour une femme ?").
+export const bmiCalculatorFr: Tool = {
+  slug: "bmi-calculator",
+  title: "Calculateur d'IMC",
+  short: "Indice de masse corporelle",
+  description:
+    "Calculez votre indice de masse corporelle (IMC) et votre poids idéal instantanément. Formules métrique et impériale pour adultes et sportifs. Privé et 100% gratuit.",
+  icon: "FitnessCenter",
+  keywords: [
+    "calculateur imc",
+    "calculer son imc",
+    "indice de masse corporelle",
+    "poids idéal selon taille",
+    "imc femme et homme",
+    "comment calculer son imc ?",
+    "tableau imc oms",
+    "calcul imc gratuit en ligne",
+  ],
+  category: "calculators",
+  faq: [
+    {
+      question: "Comment calculer son IMC chez l'adulte ?",
+      answer:
+        "L'IMC se calcule en divisant le poids en kilogrammes par la taille en mètres au carré : IMC = kg / m². Par exemple, 70 kg pour 1,75 m donne un IMC de 22,9, situé dans la fourchette normale de référence de l'OMS.",
+    },
+    {
+      question: "Quelles sont les tranches officielles de l'OMS ?",
+      answer:
+        "L'Organisation mondiale de la santé classe les adultes en quatre zones principales : insuffisance pondérale (moins de 18,5), corpulence normale (18,5 à 24,9), surpoids (25 à 29,9) et obésité (30 et plus).",
+    },
+    {
+      question: "Mes données personnelles restent-elles privées ?",
+      answer:
+        "Oui. Tous les calculs s'exécutent localement dans votre navigateur sans aucune transmission réseau ni compte utilisateur. Vos mensurations disparaissent dès la fermeture de la page.",
+    },
+    {
+      question: "Pourquoi l'IMC a-t-il des limites pour les sportifs ?",
+      answer:
+        "Le calcul ne fait pas la différence entre masse musculaire dense et graisse corporelle. Un athlète musclé peut dépasser 25 sans présenter d'excès adipeux, d'où l'importance de surveiller aussi le tour de taille.",
+    },
+  ],
+  howTo: [
+    {
+      name: "Choisissez le système d'unités",
+      text: "Basculez entre le système métrique (kg, cm) et impérial (lb, pouces) selon vos repères.",
+    },
+    {
+      name: "Renseignez votre poids",
+      text: "Indiquez votre poids actuel en kilogrammes, par exemple 70 kg, à jeun de préférence.",
+    },
+    {
+      name: "Renseignez votre taille",
+      text: "Indiquez votre taille en centimètres, par exemple 175 cm, mesurée sans chaussures.",
+    },
+    {
+      name: "Lisez votre score IMC",
+      text: "Découvrez votre score chiffré et votre statut OMS immédiat avec code couleur dynamique.",
+    },
+  ],
+  guide: [
+    {
+      heading: "À quoi sert l'indice de masse corporelle",
+      body: "Créé par le statisticien belge Adolphe Quetelet et standardisé par l'OMS, l'IMC sert d'outil de dépistage rapide du risque cardiovasculaire et métabolique à l'échelle de la population. Il fournit un repère utile sans remplacer un bilan médical complet incluant composition corporelle et tension artérielle.",
+    },
+    {
+      heading: "Comprendre et utiliser son résultat",
+      body: "Un indice situé entre 18,5 et 24,9 correspond à un risque statistique minimal. Pour optimiser sa forme, l'IMC doit être croisé avec le tour de taille, le niveau d'activité physique et la qualité de l'alimentation. Consultez un médecin avant d'entreprendre tout changement diététique important.",
     },
   ],
 };
