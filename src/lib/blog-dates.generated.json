@@ -201,7 +201,7 @@
   },
   "image-compressor-guide/image-compressor-guide": {
     "published": "2026-10-07",
-    "modified": "2026-10-20",
+    "modified": "2026-10-23",
     "source": "git"
   },
   "image-compressor-guide/image-seo-size-alt": {
@@ -212,7 +212,7 @@
   "image-compressor-guide/image-to-base64-data-url": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "image-compressor-guide/instagram-image-resize": {
     "published": "2026-10-23",
@@ -252,7 +252,7 @@
   "image-compressor-guide/wcag-contrast-check": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "invoice-generator-guide/credit-note-vs-debit-note": {
     "published": "2026-10-23",
@@ -332,7 +332,7 @@
   "json-formatter-guide/estimate-ai-token-cost": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "json-formatter-guide/format-sql-queries": {
     "published": "2026-10-23",
@@ -342,17 +342,17 @@
   "json-formatter-guide/format-xml-sitemaps-feeds": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "json-formatter-guide/html-entities-encode-decode": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "json-formatter-guide/inspect-csv-before-import": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "json-formatter-guide/json-formatter-guide": {
     "published": "2026-10-07",
@@ -377,12 +377,12 @@
   "json-formatter-guide/mime-type-content-type": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "json-formatter-guide/minify-css-js-safely": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "json-formatter-guide/regex-flags-capture-groups": {
     "published": "2026-10-07",
@@ -402,7 +402,7 @@
   "json-formatter-guide/url-slug-rules": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "json-formatter-guide/uuid-seed-test-database": {
     "published": "2026-10-07",
@@ -461,7 +461,7 @@
   },
   "password-generator-guide/2fa-vs-passkeys": {
     "published": "2026-09-28",
-    "modified": "2026-10-19",
+    "modified": "2026-10-23",
     "source": "git"
   },
   "password-generator-guide/how-to-create-strong-password": {
@@ -491,7 +491,7 @@
   },
   "password-generator-guide/random-password-ideas": {
     "published": "2026-09-28",
-    "modified": "2026-10-19",
+    "modified": "2026-10-23",
     "source": "git"
   },
   "password-generator-guide/what-makes-password-strong": {
@@ -617,12 +617,12 @@
   "percentage-calculator-guide/sales-tax-on-a-price": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "percentage-calculator-guide/tip-calculator-bill-split": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "qr-code-generator-guide/how-to-create-qr-code": {
     "published": "2026-09-22",
@@ -882,7 +882,7 @@
   "sip-calculator-guide/monthly-vs-yearly-compounding": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "sip-calculator-guide/old-vs-new-regime-2026": {
     "published": "2026-10-07",
@@ -917,7 +917,7 @@
   "word-counter-guide/compare-two-texts-word-diff": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "word-counter-guide/flesch-reading-ease-score-explained": {
     "published": "2026-09-28",
@@ -957,7 +957,7 @@
   "word-counter-guide/markdown-preview-before-publishing": {
     "published": "2026-10-23",
     "modified": "2026-10-23",
-    "source": "content-fallback"
+    "source": "git"
   },
   "word-counter-guide/pages-per-1000-words": {
     "published": "2026-10-23",
