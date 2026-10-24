@@ -5,6 +5,8 @@ import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import { MAX_PDF_SIZE, MAX_PDF_FILES, MAX_PDF_PAGES, validatePdfBatch, validatePdfMagicBytes } from "@/lib/validate";
@@ -173,6 +175,16 @@ export default function PdfMergeTool() {
       <Alert severity="info">
         Files are merged locally in your browser via <code>pdf-lib</code> without uploading. Max {MAX_FILES} files, {MAX_PDF_PAGES} pages total.
       </Alert>
+      <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+        Tips: Need to control page sequence? Check our{" "}
+        <Link component={NextLink} href="/blog/pdf-merge-guide/merge-multiple-pdfs-order" underline="hover" color="primary">
+          PDF reading order guide
+        </Link>{" "}
+        or learn how to{" "}
+        <Link component={NextLink} href="/blog/pdf-merge-guide/merge-pdfs-on-iphone" underline="hover" color="primary">
+          combine PDFs on iPhone without apps
+        </Link>.
+      </Typography>
     </ToolPaper>
   );
 }

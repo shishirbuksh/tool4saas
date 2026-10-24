@@ -5,6 +5,8 @@ import ToolPaper from "@/components/ToolPaper";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import Slider from "@mui/material/Slider";
 import TextField from "@mui/material/TextField";
 import Alert from "@mui/material/Alert";
@@ -226,8 +228,15 @@ export default function ImageCompressorTool() {
             </Button>
           </Box>
         )}
-        <Typography variant="caption" color="text.secondary">
-          Images are processed entirely in your browser and are never uploaded.
+        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+          Images are processed entirely in your browser and are never uploaded. · Need an exact 100KB file for portals or job applications? Read our{" "}
+          <Link component={NextLink} href="/blog/image-compressor-guide/compress-jpg-100kb-portal" underline="hover" color="primary">
+            100KB image compression guide
+          </Link>{" "}
+          and check our{" "}
+          <Link component={NextLink} href="/blog/image-compressor-guide/png-vs-jpg-vs-webp" underline="hover" color="primary">
+            PNG vs JPG vs WebP format comparison
+          </Link>.
         </Typography>
       </ToolPaper>
   );

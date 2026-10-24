@@ -6,6 +6,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import Stack from "@mui/material/Stack";
 import Alert from "@mui/material/Alert";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
@@ -72,6 +74,16 @@ export default function JsonFormatterTool() {
             />
           </Box>
         )}
+        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1.5 }}>
+          Troubleshooting invalid JSON? Read our{" "}
+          <Link component={NextLink} href="/blog/json-formatter-guide/json-parse-errors" underline="hover" color="primary">
+            JSON.parse error fix guide
+          </Link>{" "}
+          or convert arrays to spreadsheets with our{" "}
+          <Link component={NextLink} href="/blog/json-formatter-guide/json-to-csv" underline="hover" color="primary">
+            JSON to CSV workflow
+          </Link>.
+        </Typography>
       </ToolPaper>
   );
 }

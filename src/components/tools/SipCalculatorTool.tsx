@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import Stack from "@mui/material/Stack";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -111,6 +113,18 @@ export default function SipCalculatorTool() {
           <Typography color="text.secondary">Estimated gain</Typography>
           <Typography sx={{ fontWeight: 700 }}>{gain !== null ? money(gain, currency) : "—"}</Typography>
         </Box>
+        {future !== null && (
+          <Typography variant="caption" color="text.secondary">
+            Goal planning: See our breakdown of a{" "}
+            <Link component={NextLink} href="/blog/sip-calculator-guide/sip-5000-10-years" underline="hover" color="primary">
+              ₹5,000 monthly SIP growth chart
+            </Link>{" "}
+            or discover the required monthly investment to build a{" "}
+            <Link component={NextLink} href="/blog/sip-calculator-guide/sip-1-crore-goal" underline="hover" color="primary">
+              ₹1 Crore corpus by retirement
+            </Link>.
+          </Typography>
+        )}
       </Stack>
       <Alert severity="info">
         Disclaimer: This calculation is for illustration purposes only. Actual returns may vary due to

@@ -6,6 +6,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import NextLink from "next/link";
 import Slider from "@mui/material/Slider";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
@@ -132,8 +134,15 @@ export default function PasswordGeneratorTool() {
             Generate password
           </Button>
         </Box>
-        <Typography variant="caption" color="text.secondary">
-          Generated locally with your browser&apos;s cryptographic random generator. Nothing leaves this device.
+        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+          Generated locally with your browser&apos;s cryptographic random generator. Nothing leaves this device. · Need a memorable master key? Explore our{" "}
+          <Link component={NextLink} href="/blog/password-generator-guide/passphrase-vs-password" underline="hover" color="primary">
+            passphrase vs password guide
+          </Link>{" "}
+          and learn{" "}
+          <Link component={NextLink} href="/blog/password-generator-guide/what-makes-password-strong" underline="hover" color="primary">
+            what makes passwords truly strong
+          </Link>.
         </Typography>
       </ToolPaper>
   );
