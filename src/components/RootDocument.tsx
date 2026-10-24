@@ -111,10 +111,13 @@ export function baseMetadata(locale: Locale = "en"): Metadata {
       follow: true,
       googleBot: { index: true, follow: true, "max-image-preview": "large" },
     },
-    // DEEP-5: Search Console verification — only emitted when env is set, else omitted.
-    verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
-      ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
-      : undefined,
+    // Search Console & Webmaster verification — emitted when env is set, else omitted.
+    verification: {
+      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+      other: process.env.NEXT_PUBLIC_BING_VERIFICATION
+        ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION }
+        : undefined,
+    },
   };
 }
 

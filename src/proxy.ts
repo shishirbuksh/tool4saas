@@ -5,7 +5,7 @@ import type { NextRequest } from "next/server";
 // (e.g. /about/ → /about) with 308 so crawlers see one 200 per page.
 // Canonicals/sitemap all use slashless form; without this both variants 200.
 // Skips files (with extensions), API routes and _next internals.
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
   if (
     pathname.length > 1 &&
