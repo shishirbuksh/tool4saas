@@ -20,15 +20,33 @@ import {
   jsonFormatterEs,
   sipCalculatorEs,
   emiCalculatorEs,
+  bmiCalculatorEs,
   qrSizePrintEs,
   hreflangHubLanguages,
 } from "@/lib/i18n";
 
-// ES hub: /es/ — crawl hub linking the 4 ES pilots (no EN equivalent content
+// ES hub: /es/ — crawl hub linking the 16 ES pilots (no EN equivalent content
 // duplicated; EN home stays canonical EN). Canonical /es/, hreflang es/en.
 // V1 limitation: global Header/Footer/nav stay EN (root layout); hub body + cards
 // are native ES. Full shell translation lands with Phase 2 [locale]/ migration.
-const pilots = [invoiceGeneratorEs, qrCodeGeneratorEs, creditCardValidatorEs, unitConverterEs, typingSpeedEs, plagiarismCheckerEs, wordCounterEs, mortgageCalculatorEs, resumeBuilderEs, passwordGeneratorEs, imageCompressorEs, pdfMergeEs, jsonFormatterEs, sipCalculatorEs, emiCalculatorEs];
+const pilots = [
+  invoiceGeneratorEs,
+  qrCodeGeneratorEs,
+  creditCardValidatorEs,
+  unitConverterEs,
+  typingSpeedEs,
+  plagiarismCheckerEs,
+  wordCounterEs,
+  mortgageCalculatorEs,
+  resumeBuilderEs,
+  passwordGeneratorEs,
+  imageCompressorEs,
+  pdfMergeEs,
+  jsonFormatterEs,
+  sipCalculatorEs,
+  emiCalculatorEs,
+  bmiCalculatorEs,
+];
 const guides = [qrSizePrintEs];
 
 export const metadata: Metadata = (() => {
@@ -76,7 +94,7 @@ export default function EsHubPage() {
         </Link>
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
-        Quince herramientas gratuitas, sin registro y privadas en tu navegador. Elige una para empezar —
+        Dieciséis herramientas gratuitas, sin registro y privadas en tu navegador. Elige una para empezar —
         cada página incluye guía en 4 pasos y preguntas frecuentes.
       </Typography>
       <Box component="ul" sx={{ p: 0, m: 0, listStyle: "none", display: "grid", gap: 2 }}>

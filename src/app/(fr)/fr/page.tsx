@@ -4,12 +4,47 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
-import { invoiceGeneratorFr, qrCodeGeneratorFr, unitConverterFr, wordCounterFr, creditCardValidatorFr, typingSpeedFr, plagiarismCheckerFr, mortgageCalculatorFr, hreflangHubLanguages } from "@/lib/i18n";
+import {
+  invoiceGeneratorFr,
+  qrCodeGeneratorFr,
+  unitConverterFr,
+  wordCounterFr,
+  creditCardValidatorFr,
+  typingSpeedFr,
+  plagiarismCheckerFr,
+  mortgageCalculatorFr,
+  bmiCalculatorFr,
+  imageCompressorFr,
+  pdfMergeFr,
+  passwordGeneratorFr,
+  jsonFormatterFr,
+  resumeBuilderFr,
+  sipCalculatorFr,
+  emiCalculatorFr,
+  hreflangHubLanguages,
+} from "@/lib/i18n";
 
-// FR hub: /fr/ — crawl hub for the French pilots (8 tools).
+// FR hub: /fr/ — crawl hub for the French pilots (16 tools).
 // Canonical /fr/, hreflang fr/en. Global Header/Footer/nav stay EN (root
 // layout); hub body is native FR. Listed in the sitemap via HUB_LOCALES.
-const pilots = [invoiceGeneratorFr, qrCodeGeneratorFr, unitConverterFr, wordCounterFr, creditCardValidatorFr, typingSpeedFr, plagiarismCheckerFr, mortgageCalculatorFr];
+const pilots = [
+  invoiceGeneratorFr,
+  qrCodeGeneratorFr,
+  unitConverterFr,
+  wordCounterFr,
+  creditCardValidatorFr,
+  typingSpeedFr,
+  plagiarismCheckerFr,
+  mortgageCalculatorFr,
+  bmiCalculatorFr,
+  imageCompressorFr,
+  pdfMergeFr,
+  passwordGeneratorFr,
+  jsonFormatterFr,
+  resumeBuilderFr,
+  sipCalculatorFr,
+  emiCalculatorFr,
+];
 
 export const metadata: Metadata = (() => {
   const base = siteConfig.url.replace(/\/$/, "");
@@ -56,7 +91,7 @@ export default function FrHubPage() {
         </Link>
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
-        Huit outils gratuits, sans inscription et privés dans votre navigateur — avec guide en 4 étapes
+        Seize outils gratuits, sans inscription et privés dans votre navigateur — avec guide en 4 étapes
         et questions fréquentes. D&apos;autres outils suivront.
       </Typography>
       <Box component="ul" sx={{ p: 0, m: 0, listStyle: "none", display: "grid", gap: 2 }}>
