@@ -23,6 +23,8 @@ import {
 import EmbeddedTool from "@/components/blog/EmbeddedTool";
 import BlogSources from "@/components/blog/BlogSources";
 import { getGuideCitationUrls } from "@/lib/blog-sources";
+import YMYLDisclaimer from "@/components/YMYLDisclaimer";
+import { getBlogYMYLType } from "@/lib/ymyl";
 
 function canonicalFor(post: BlogPost, locale: Locale = "en"): string {
   const base = siteConfig.url.replace(/\/$/, "");
@@ -240,6 +242,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
   const validFaqs = validBlogFaqs(post);
   const publishedIso = getBlogPostDatePublishedIso(post.pillar, post.slug, post.published);
   const modifiedIso = getBlogPostDateModifiedIso(post.pillar, post.slug, post.updated);
+  const ymylType = getBlogYMYLType(post);
   // ES pilot: primary CTA deep-links /es/<slug> with the native ES title/short
   // when a transcreation exists; siblings/secondary stay EN (exist only in EN).
   const esPrimaryTool = locale === "es" && post.toolSlugs[0] ? getEsTool(post.toolSlugs[0]) : undefined;
@@ -306,6 +309,13 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
           </Typography>
         )}
       </Box>
+
+      {/* YMYL disclaimer for financial and health pillars */}
+      {ymylType && (
+        <Box sx={{ mb: 4 }}>
+          <YMYLDisclaimer type={ymylType} locale={locale} />
+        </Box>
+      )}
 
       {/* Above-fold tool CTA */}
       {primaryTool && primaryHref && (

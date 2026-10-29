@@ -285,7 +285,7 @@
 - [JPG Scans to Single PDF: A4 Size and Order Guide](https://tool4saas.com/blog/pdf-merge-guide/jpg-scans-single-pdf) (updated 2026-10-23)
 - [Extract PDF Pages by Range: 1-3,5 Syntax Guide](https://tool4saas.com/blog/pdf-merge-guide/extract-pages-range) (updated 2026-10-23)
 - [Convert PDF Pages to JPG Images](https://tool4saas.com/blog/pdf-merge-guide/pdf-pages-high-quality-jpg) (updated 2026-10-23)
-- [Fix Sideways Scans: Rotate PDF Pages Upright](https://tool4saas.com/blog/pdf-merge-guide/fix-sideways-scans) (updated 2026-10-23)
+- [Fix Sideways Scans: Rotate PDF Pages Upright](https://tool4saas.com/blog/pdf-merge-guide/fix-sideways-scans) (updated 2026-10-29)
 - [Add DRAFT Watermark to PDF Without Blocking Text](https://tool4saas.com/blog/pdf-merge-guide/add-draft-watermark) (updated 2026-10-23)
 - [Extract Text From PDF Without OCR (When It Works)](https://tool4saas.com/blog/pdf-merge-guide/extract-text-without-ocr) (updated 2026-10-19)
 - [Merge PDFs on iPhone Without an App](https://tool4saas.com/blog/pdf-merge-guide/merge-pdfs-on-iphone) (updated 2026-10-23)

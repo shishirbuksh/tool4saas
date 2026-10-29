@@ -23,3 +23,14 @@ export function getYMYLType(tool: { slug: string; category: string }): YMYLType 
   if (tool.category === "health") return "health";
   return OVERRIDES[tool.slug] ?? null;
 }
+
+const PILLAR_YMYL: Record<string, YMYLType> = {
+  "mortgage-calculator-guide": "finance",
+  "sip-calculator-guide": "finance",
+  "debt-payoff-guide": "finance",
+  "bmi-calculator-guide": "health",
+};
+
+export function getBlogYMYLType(post: { pillar: string }): YMYLType | null {
+  return PILLAR_YMYL[post.pillar] ?? null;
+}

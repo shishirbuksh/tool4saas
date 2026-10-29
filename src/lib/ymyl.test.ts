@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getYMYLType } from "./ymyl";
+import { getYMYLType, getBlogYMYLType } from "./ymyl";
 import { tools } from "./tools";
 
 describe("ymyl – central mapping", () => {
@@ -33,5 +33,13 @@ describe("ymyl – central mapping", () => {
   it("every finance/health tool gets a banner (33 total with overrides)", () => {
     const covered = tools.filter((t) => getYMYLType(t) !== null);
     expect(covered.length).toBe(33);
+  });
+
+  it("identifies financial and health blog pillars", () => {
+    expect(getBlogYMYLType({ pillar: "mortgage-calculator-guide" })).toBe("finance");
+    expect(getBlogYMYLType({ pillar: "sip-calculator-guide" })).toBe("finance");
+    expect(getBlogYMYLType({ pillar: "debt-payoff-guide" })).toBe("finance");
+    expect(getBlogYMYLType({ pillar: "bmi-calculator-guide" })).toBe("health");
+    expect(getBlogYMYLType({ pillar: "word-counter-guide" })).toBeNull();
   });
 });

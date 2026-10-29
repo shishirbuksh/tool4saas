@@ -83,6 +83,7 @@ async function submitIndexNow() {
         "Content-Type": "application/json; charset=utf-8",
       },
       body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(10000),
     });
 
     console.log(`IndexNow response: ${response.status} ${response.statusText}`);
@@ -94,6 +95,7 @@ async function submitIndexNow() {
     }
   } catch (err) {
     console.error("IndexNow submission error:", err.message);
+    process.exit(1);
   }
 }
 
