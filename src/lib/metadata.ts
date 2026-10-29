@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTool } from "@/lib/tools";
+import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { siteConfig } from "@/lib/site";
 import { getPilotLocales, hreflangLanguages, hreflangHubLanguages, HUB_LOCALES, OG_LOCALE } from "@/lib/i18n";
 import { toolMetaTitle } from "@/lib/seo-title";
@@ -61,7 +62,9 @@ export function toolMetadata(slug: string): Metadata {
   // keeps every title inside 30-70 characters and always retains the brand.
   const fullTitle = toolMetaTitle(tool.title, tool.short, tool.seoTitle);
 
-  return {
+    const isNoindex = NOINDEX_SLUGS.has(slug);
+
+    return {
     // absolute: bypasses layout title.template (%s | Tool4SaaS) which would
     // otherwise render a double suffix "... | Tool4SaaS | Tool4SaaS" (~80ch,
     // truncated in SERPs). Category pages use plain-string titles and are the
@@ -75,10 +78,10 @@ export function toolMetadata(slug: string): Metadata {
       languages: hreflangLanguages(base, slug),
     },
     robots: {
-      index: true,
+      index: !isNoindex,
       follow: true,
       googleBot: {
-        index: true,
+        index: !isNoindex,
         follow: true,
         "max-image-preview": "large",
         "max-snippet": -1,

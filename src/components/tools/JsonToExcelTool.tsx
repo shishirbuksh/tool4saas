@@ -76,7 +76,7 @@ export default function JsonToExcelTool() {
     document.body.appendChild(a);
     a.click();
     a.remove();
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   const handleDownloadXls = () => {
@@ -94,7 +94,7 @@ export default function JsonToExcelTool() {
     document.body.appendChild(a);
     a.click();
     a.remove();
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   const handleCopyCsv = () => copy(csv);

@@ -3,7 +3,6 @@ import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
 import { HOME_GUIDES } from "@/content/home";
 import { HOME_MODIFIED } from "@/lib/edit-dates.generated";
-import { LOCALES } from "@/lib/i18n";
 
 // Site-wide WebSite entity. `inLanguage` is the PRIMARY language (English) and
 // stays constant on every URL: the same `@id` must not report three different

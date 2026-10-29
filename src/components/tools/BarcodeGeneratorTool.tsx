@@ -97,7 +97,7 @@ export default function BarcodeGeneratorTool() {
     a.href = url;
     a.download = `barcode-${format}.svg`;
     a.click();
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   const downloadPNG = () => {

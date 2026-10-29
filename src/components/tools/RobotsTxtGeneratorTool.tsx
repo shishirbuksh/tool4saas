@@ -126,7 +126,7 @@ export default function RobotsTxtGeneratorTool() {
     a.href = url;
     a.download = "robots.txt";
     a.click();
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   const reset = () => {

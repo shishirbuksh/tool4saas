@@ -72,7 +72,7 @@ export const pdfRotateFix: BlogPost = {
     "Fix sideways PDF scans: diagnose page rotation vs content rotation, rotate a whole file, or split-rotate-merge a mixed bundle. Two worked examples.",
   keywords: ["fix sideways pdf scan", "rotate pdf pages upright", "pdf page rotation vs content", "mixed orientation pdf split rotate merge", "rotate only some pages pdf"],
   toolSlugs: ["pdf-merge"],
-  relatedSlugs: ["extract-pages-range", "merge-multiple-pdfs-order", "fix-sideways-scans"],
+  relatedSlugs: ["extract-pages-range", "merge-multiple-pdfs-order", "combine-pdf-and-images"],
   published: "2026-10-07",
   updated: "2026-10-22",
   readingMinutes: readingMinutesFor(html),

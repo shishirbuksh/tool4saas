@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { toolMetadata, homeMetadata, staticPageMetadata } from "./metadata";
 import { tools, getTool } from "./tools";
+import { NOINDEX_SLUGS } from "./tools/noindex";
 import { siteConfig } from "./site";
 import { ES_PILOT_SLUGS, FR_PILOT_SLUGS } from "./i18n";
 
@@ -82,8 +83,9 @@ describe("SEO metadata", () => {
     expect(meta.robots).toMatchObject({ index: true });
     for (const t of tools) {
       const r = toolMetadata(t.slug).robots as { index?: boolean; googleBot?: { index?: boolean } };
-      expect(r?.index, `${t.slug} robots.index`).toBe(true);
-      expect(r?.googleBot?.index, `${t.slug} googleBot.index`).toBe(true);
+      const expected = !NOINDEX_SLUGS.has(t.slug);
+      expect(r?.index, `${t.slug} robots.index`).toBe(expected);
+      expect(r?.googleBot?.index, `${t.slug} googleBot.index`).toBe(expected);
     }
   });
 

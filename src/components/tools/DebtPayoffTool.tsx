@@ -156,7 +156,7 @@ export default function DebtPayoffTool() {
     a.href = url;
     a.download = "debt-payoff.csv";
     a.click();
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   return (

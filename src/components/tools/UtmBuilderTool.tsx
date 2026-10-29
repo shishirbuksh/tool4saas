@@ -68,7 +68,7 @@ export default function UtmBuilderTool() {
     document.body.appendChild(a);
     a.click();
     a.remove();
-    URL.revokeObjectURL(objectUrl);
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
   };
 
   return (

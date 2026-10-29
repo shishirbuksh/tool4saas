@@ -170,7 +170,7 @@ export default function SpeechToTextTool() {
     document.body.appendChild(a);
     a.click();
     a.remove();
-    URL.revokeObjectURL(objectUrl);
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
   };
 
   if (!mounted) return null;

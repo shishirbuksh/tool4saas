@@ -8,6 +8,7 @@ import {
   fdMaturity,
   ppfMaturity,
   estimateTokens,
+  simulatePayoff,
 } from "./finance-calc";
 
 describe("finance-calc – calcEmi", () => {
@@ -157,5 +158,19 @@ describe("finance-calc – estimateTokens", () => {
     const code = estimateTokens("const x = 1; function f() { return [1,2,3]; }");
     expect(code.tokens).toBeGreaterThanOrEqual(plain.tokens);
     expect(code.words).toBeGreaterThan(0);
+  });
+});
+
+describe("finance-calc – simulatePayoff", () => {
+  it("handles duplicate debt names without collision", () => {
+    const debts = [
+      { name: "Credit Card", balance: 1000, aprPct: 15, minPayment: 50 },
+      { name: "Credit Card", balance: 2000, aprPct: 20, minPayment: 75 },
+    ];
+    const res = simulatePayoff(debts, 100, "avalanche");
+    expect(res).not.toBeNull();
+    expect(res!.neverPaysOff).toBe(false);
+    expect(res!.totalPaid).toBeGreaterThan(3000);
+    expect(res!.order).toEqual(["Credit Card", "Credit Card"]);
   });
 });

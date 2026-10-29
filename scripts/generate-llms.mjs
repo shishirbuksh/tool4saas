@@ -277,7 +277,15 @@ try {
       }
     }
   }
-} catch {}
+} catch (err) {
+  console.error("generate-llms: failed to process blog directory:", err);
+  process.exit(1);
+}
+
+if (clusterCount < 170) {
+  console.error(`generate-llms: expected at least 170 blog clusters, found ${clusterCount}`);
+  process.exit(1);
+}
 
 out += blogsOut + "\n";
 

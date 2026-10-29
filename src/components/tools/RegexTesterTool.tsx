@@ -9,7 +9,7 @@ import Stack from "@mui/material/Stack";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Alert from "@mui/material/Alert";
-import { runRegexInWorker } from "@/lib/regexWorker";
+import { runRegexInWorker, terminateRegexWorker } from "@/lib/regexWorker";
 
 export default function RegexTesterTool() {
   const [pattern, setPattern] = useState("");
@@ -17,6 +17,15 @@ export default function RegexTesterTool() {
   const [flags, setFlags] = useState({ g: true, i: false, m: false, s: false });
   const [error, setError] = useState("");
   const [matches, setMatches] = useState<{ value: string; index: number }[]>([]);
+
+  // Ensure worker terminated and worker URL revoked on unmount
+  useEffect(() => {
+    return () => {
+      try {
+        terminateRegexWorker();
+      } catch {}
+    };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;

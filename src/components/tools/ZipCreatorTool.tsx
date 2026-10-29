@@ -116,7 +116,7 @@ export default function ZipCreatorTool() {
       document.body.appendChild(a);
       a.click();
       a.remove();
-      URL.revokeObjectURL(url);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
       setSuccess(`Generated ${finalName} with ${files.length} file(s). Download started.`);
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);

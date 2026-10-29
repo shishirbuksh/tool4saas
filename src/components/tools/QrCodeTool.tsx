@@ -62,7 +62,7 @@ export default function QrCodeTool() {
   const [level, setLevel] = useState("M");
   const canvasRef = useRef<HTMLDivElement>(null);
 
-  const safeValue = buildValue(type, value, ssid, password);
+  const safeValue = buildValue(type, value, ssid, password).slice(0, 2048);
   const canGenerate = safeValue.trim().length > 0;
 
   const download = () => {
@@ -116,7 +116,10 @@ export default function QrCodeTool() {
                         ? "+1 555 000 0000…"
                         : "Enter text…"
                 }
-                slotProps={{ input: { inputMode: type === "email" ? "email" : type === "phone" ? "tel" : type === "url" ? "url" : "text", spellCheck: false, autoComplete: "off" } }}
+                slotProps={{
+                  input: { inputMode: type === "email" ? "email" : type === "phone" ? "tel" : type === "url" ? "url" : "text", spellCheck: false, autoComplete: "off" },
+                  htmlInput: { maxLength: 2048 },
+                }}
                 sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
               />
             ) : (

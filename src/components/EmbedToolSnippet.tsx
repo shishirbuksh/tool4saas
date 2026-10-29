@@ -125,6 +125,7 @@ export default function EmbedToolSnippet({ slug, title, locale = "en" }: EmbedTo
             slotProps={{
               input: {
                 readOnly: true,
+                "aria-label": t.btnToggle,
                 sx: {
                   fontFamily: "monospace",
                   fontSize: "0.8rem",

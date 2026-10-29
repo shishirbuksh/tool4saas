@@ -24,7 +24,7 @@ export function calcEmi({ principal, annualRatePct, years }: EmiInput): EmiResul
   if (!isFinite(emi)) return null;
   const total = emi * n;
   if (!isFinite(total)) return null;
-  const interest = total - principal;
+  const interest = Math.max(0, total - principal);
   if (!isFinite(interest)) return null;
   return { emi, total, interest, months: n };
 }
@@ -231,38 +231,42 @@ export function simulatePayoff(debts: PayoffDebt[], extraMonthly: number, strate
     if (!isFinite(d.balance) || !isFinite(d.aprPct) || !isFinite(d.minPayment)) return null;
     if (d.balance <= 0 || d.minPayment <= 0 || d.aprPct < 0 || d.aprPct > 60) return null;
   }
-  const order = [...debts].sort((a, b) =>
+  type IndexedDebt = PayoffDebt & { id: number };
+  const indexed: IndexedDebt[] = debts.map((d, idx) => ({ ...d, id: idx }));
+  const sorted = [...indexed].sort((a, b) =>
     strategy === "snowball" ? a.balance - b.balance || b.aprPct - a.aprPct : b.aprPct - a.aprPct || a.balance - b.balance,
-  ).map((d) => d.name);
-  const bals = new Map(debts.map((d) => [d.name, d.balance]));
-  const mins = new Map(debts.map((d) => [d.name, d.minPayment]));
+  );
+  const order = sorted.map((d) => d.name);
+  const sortedIds = sorted.map((d) => d.id);
+  const bals = new Map<number, number>(indexed.map((d) => [d.id, d.balance]));
+  const mins = new Map<number, number>(indexed.map((d) => [d.id, d.minPayment]));
   const pool = [...mins.values()].reduce((s, v) => s + v, 0) + extraMonthly;
   let interest = 0;
   let months = 0;
   for (let m = 1; m <= 600; m++) {
     let monthInterest = 0;
-    for (const [name, bal] of bals) {
+    for (const d of indexed) {
+      const bal = bals.get(d.id)!;
       if (bal <= 0) continue;
-      const d = debts.find((x) => x.name === name)!;
       const i = bal * (d.aprPct / 100 / 12);
-      bals.set(name, bal + i);
+      bals.set(d.id, bal + i);
       monthInterest += i;
     }
     interest += monthInterest;
     let remaining = pool;
-    for (const name of order) {
-      const bal = bals.get(name)!;
+    for (const id of sortedIds) {
+      const bal = bals.get(id)!;
       if (bal <= 0) continue;
-      const pay = Math.min(bal, mins.get(name)!, remaining);
-      bals.set(name, bal - pay);
+      const pay = Math.min(bal, mins.get(id)!, remaining);
+      bals.set(id, bal - pay);
       remaining -= pay;
       if (remaining <= 0) break;
     }
-    for (const name of order) {
-      const bal = bals.get(name)!;
+    for (const id of sortedIds) {
+      const bal = bals.get(id)!;
       if (bal <= 0 || remaining <= 0) continue;
       const kill = Math.min(bal, remaining);
-      bals.set(name, bal - kill);
+      bals.set(id, bal - kill);
       remaining -= kill;
     }
     months = m;

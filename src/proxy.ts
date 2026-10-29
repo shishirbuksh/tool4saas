@@ -13,7 +13,7 @@ export function proxy(req: NextRequest) {
     !pathname.includes(".")
   ) {
     const url = req.nextUrl.clone();
-    url.pathname = pathname.slice(0, -1);
+    url.pathname = pathname.replace(/\/+$/, "") || "/";
     url.search = search;
     return NextResponse.redirect(url, 308);
   }
