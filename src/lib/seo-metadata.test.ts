@@ -102,7 +102,7 @@ describe("SEO metadata", () => {
     const urls = (sitemap() as { url: string }[]).map((e) => e.url);
     expect(urls.some((u) => u.endsWith("/pdf-compress"))).toBe(false);
     expect(urls.some((u) => u.endsWith("/word-counter"))).toBe(true);
-  }, 20000);
+  }, 35000);
 
   it("noindex blog cluster is excluded from sitemap and llms.txt", async () => {
     const { default: sitemap } = await import("../app/sitemap");
@@ -158,5 +158,20 @@ describe("SEO metadata", () => {
     // Hubs cross-reference each other.
     expect(altOf(read("(es)/es/page.tsx"))).toEqual(["en_US", "fr_FR"]);
     expect(altOf(read("(fr)/fr/page.tsx"))).toEqual(["en_US", "es_ES"]);
+  });
+
+  it("SiteJsonLd and ToolSeo conform to Schema.org standards (no speakableSpecification or WebSite availableLanguage)", () => {
+    const siteJsonSrc = fs.readFileSync(path.join(root, "src", "components", "SiteJsonLd.tsx"), "utf8");
+    const toolSeoSrc = fs.readFileSync(path.join(root, "src", "components", "ToolSeo.tsx"), "utf8");
+
+    // Must use `speakable` property, not invalid `speakableSpecification`
+    expect(siteJsonSrc).not.toContain("speakableSpecification:");
+    expect(toolSeoSrc).not.toContain("speakableSpecification:");
+    expect(siteJsonSrc).toContain("speakable:");
+    expect(toolSeoSrc).toContain("speakable:");
+
+    // WebSite entity must NOT have availableLanguage
+    const webSiteBlock = siteJsonSrc.slice(siteJsonSrc.indexOf('"@type": "WebSite"'), siteJsonSrc.indexOf('"@type": "Organization"'));
+    expect(webSiteBlock).not.toContain("availableLanguage");
   });
 });

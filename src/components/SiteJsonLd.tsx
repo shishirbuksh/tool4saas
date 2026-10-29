@@ -22,7 +22,6 @@ export default function SiteJsonLd() {
         url: base,
         description: siteConfig.description,
         inLanguage: "en",
-        availableLanguage: [...LOCALES],
         image: `${base}/og/home`,
         publisher: { "@id": `${base}#organization` },
       },
@@ -37,6 +36,7 @@ export default function SiteJsonLd() {
           contactType: "customer support",
           email: siteConfig.email,
           url: `${base}/contact`,
+          availableLanguage: ["English", "Spanish", "French"],
         },
         ...(siteConfig.sameAs.length ? { sameAs: siteConfig.sameAs } : {}),
       },
@@ -70,7 +70,7 @@ export function HomeWebPageJsonLd() {
     author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
     inLanguage: "en",
     dateModified: HOME_MODIFIED,
-    speakableSpecification: {
+    speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: [".speakable-hero-summary", ".speakable-faq-answer"],
     },
