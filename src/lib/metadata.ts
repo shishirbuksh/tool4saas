@@ -171,6 +171,8 @@ export function homeMetadata(): PageMeta {
   const base = siteConfig.url.replace(/\/$/, "");
   const ogImage = `${base}/og/home`;
   return {
+    title: siteConfig.title,
+    description: siteConfig.description,
     alternates: {
       canonical: base,
       // EN home now advertises every hub (es/fr) so the hub hreflang cluster is

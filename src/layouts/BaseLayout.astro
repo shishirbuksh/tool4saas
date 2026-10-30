@@ -30,6 +30,7 @@ const {
 } = Astro.props;
 
 const title = resolveTitle(meta);
+const description = meta.description ?? og?.description ?? siteConfig.description;
 const canonical = meta.alternates?.canonical ?? siteConfig.url;
 const languages = meta.alternates?.languages ?? {};
 const robots = meta.robots ?? DEFAULT_ROBOTS;
@@ -64,7 +65,7 @@ const jsonLdScripts = graphs.map((graph) => JSON.stringify(graph).replace(/</g, 
     <Font cssVariable="--font-display" />
 
     <title>{title}</title>
-    {meta.description && <meta name="description" content={meta.description} />}
+    {description && <meta name="description" content={description} />}
     <meta name="application-name" content={meta.applicationName ?? siteConfig.name} />
     <meta name="author" content={meta.authors?.[0]?.name ?? siteConfig.author} />
     <meta name="creator" content={meta.creator ?? siteConfig.author} />
