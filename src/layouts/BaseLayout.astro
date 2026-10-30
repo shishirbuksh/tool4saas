@@ -154,7 +154,19 @@ const jsonLdScripts = graphs.map((graph) => JSON.stringify(graph).replace(/</g, 
     <slot />
     <script>
       import { hydrateApp } from "@/lib/astro/hydrate";
-      hydrateApp();
+      let hydrated = false;
+      function hydrate() {
+        if (hydrated) return;
+        hydrated = true;
+        hydrateApp();
+      }
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(hydrate, { timeout: 1500 });
+      } else {
+        setTimeout(hydrate, 50);
+      }
+      window.addEventListener("pointerdown", hydrate, { once: true, passive: true });
+      window.addEventListener("keydown", hydrate, { once: true, passive: true });
     </script>
   </body>
 </html>
