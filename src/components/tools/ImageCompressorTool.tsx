@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
-import NextLink from "next/link";
+import NextLink from "@/lib/astro/navigation";
 import Slider from "@mui/material/Slider";
 import TextField from "@mui/material/TextField";
 import Alert from "@mui/material/Alert";

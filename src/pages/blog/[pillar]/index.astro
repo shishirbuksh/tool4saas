@@ -1,0 +1,27 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import BlogPillarView from "@/views/pages/blog-pillar";
+import { BLOG_PILLARS, getPillarPost } from "@/lib/blog-registry";
+import { blogMetadataFor } from "@/components/blog/BlogArticle";
+
+export function getStaticPaths() {
+  return BLOG_PILLARS.map((p) => ({ params: { pillar: p.pillar } }));
+}
+
+const pillar = Astro.params.pillar!;
+const post = getPillarPost(pillar);
+if (!post) {
+  return Astro.redirect("/404");
+}
+
+const meta = blogMetadataFor(post);
+---
+
+<AppPage
+  View={BlogPillarView}
+  viewKey="pages/blog-pillar"
+  props={{ pillar }}
+  meta={meta}
+  locale="en"
+  pathname={`/blog/${pillar}`}
+/>

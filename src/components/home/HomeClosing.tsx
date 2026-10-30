@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Link from "next/link";
+import Link from "@/lib/astro/navigation";
 import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
 import { HOME_MODIFIED } from "@/lib/edit-dates.generated";
 

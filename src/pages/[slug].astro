@@ -1,0 +1,30 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import { tools } from "@/lib/tools";
+import { toolMetadata } from "@/lib/metadata";
+import { buildToolViewBySlug, buildToolJsonLd } from "@/lib/tool-view.server";
+
+// One static page per catalogue tool. Astro's static build emits
+// dist/<slug>.html, which Nginx serves at the extensionless /<slug> URL the
+// Next.js app used.
+export function getStaticPaths() {
+  return tools.map((tool) => ({ params: { slug: tool.slug } }));
+}
+
+const slug = Astro.params.slug!;
+const viewModules = import.meta.glob<{ default: any }>("../views/tools/*.tsx");
+const loadView = viewModules[`../views/tools/${slug}.tsx`];
+if (!loadView) throw new Error(`Missing view module for tool "${slug}"`);
+const View = (await loadView()).default;
+const view = buildToolViewBySlug(slug, "en");
+---
+
+<AppPage
+  View={View}
+  viewKey={`tools/${slug}`}
+  props={{ view }}
+  meta={toolMetadata(slug)}
+  locale="en"
+  pathname={`/${slug}`}
+  jsonLd={[buildToolJsonLd(view.tool, "en")]}
+/>

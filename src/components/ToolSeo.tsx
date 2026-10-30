@@ -4,170 +4,21 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { getCategory, type Tool } from "@/lib/tools";
-import { siteConfig } from "@/lib/site";
-import { getDateModifiedIso, getDatePublishedIso } from "@/lib/dates";
-import type { Locale } from "@/lib/i18n";
+import type { ToolView } from "@/lib/tool-view";
 
 // Real dates per-tool from git history — see src/lib/dates.ts
 // (shared with ToolPageShell visible <time> and sitemap lastmod).
 
-export default function ToolSeo({ tool, locale = "en" }: { tool: Tool; locale?: Locale }) {
-  const cat = getCategory(tool.category);
-  const base = siteConfig.url.replace(/\/$/, "");
-  const url = locale === "en" ? `${base}/${tool.slug}` : `${base}/${locale}/${tool.slug}`;
-  const catUrl = cat ? `${base}/category/${cat.id}` : undefined;
-  const inLanguage: Locale = locale;
-
-  const datePublished = getDatePublishedIso(tool.slug);
-  const dateModified = getDateModifiedIso(tool.slug);
-
-  // Validate JSON-LD inputs: drop malformed/empty entries so FAQPage always
-  // has Question + acceptedAnswer Answer text, and HowTo steps always have
-  // position + name + text.
-  const validFaq = Array.isArray(tool.faq)
-    ? tool.faq.filter(
-        (f) =>
-          typeof f?.question === "string" &&
-          f.question.trim().length > 0 &&
-          typeof f?.answer === "string" &&
-          f.answer.trim().length > 0
-      )
-    : [];
-  const validHowTo = Array.isArray(tool.howTo)
-    ? tool.howTo.filter(
-        (s) =>
-          typeof s?.name === "string" &&
-          s.name.trim().length > 0 &&
-          typeof s?.text === "string" &&
-          s.text.trim().length > 0
-      )
-    : [];
-
-  // BreadcrumbList with guaranteed sequential positions 1..n.
-  const homeUrl = locale === "en" ? base : `${base}/${locale}`;
-  const crumbItems: { name: string; item: string | undefined }[] = [
-    { name: locale === "es" ? "Inicio" : locale === "fr" ? "Accueil" : "Home", item: homeUrl },
-    ...(cat ? [{ name: cat.label, item: catUrl }] : []),
-    { name: tool.title, item: url },
-  ];
-
-  // Optional in-depth guide (field may not exist on Tool type yet).
-  const guide: unknown = (tool as unknown as { guide?: unknown }).guide;
-  const guideSections: unknown[] = Array.isArray(guide) ? guide : [];
-
-  // Conditional aggregateRating scaffolding: emit ONLY when the tool carries
-  // real rating data. No tool currently has rating data, so this stays omitted
-  // (no fake stars).
-  const maybeRating = (tool as unknown as { rating?: unknown }).rating as
-    | { ratingValue?: unknown; reviewCount?: unknown; bestRating?: unknown }
-    | undefined;
-  const ratingValue =
-    maybeRating && typeof maybeRating === "object" ? maybeRating.ratingValue : undefined;
-  const reviewCount =
-    maybeRating && typeof maybeRating === "object" ? maybeRating.reviewCount : undefined;
-  const hasValidRating =
-    (typeof ratingValue === "string" || typeof ratingValue === "number") &&
-    (typeof reviewCount === "string" || typeof reviewCount === "number") &&
-    Number(ratingValue) > 0 &&
-    Number(reviewCount) > 0;
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "@id": `${url}#app`,
-        name: tool.title,
-        description: tool.description,
-        url,
-        applicationCategory: "UtilitiesApplication",
-        operatingSystem: "Any",
-        browserRequirements: "Requires JavaScript",
-        isAccessibleForFree: true,
-        ...(tool.keywords?.length >= 3 ? { featureList: tool.keywords } : {}),
-        // Validated: free tool must be price 0 USD.
-        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        inLanguage,
-        author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
-        reviewer: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
-        datePublished,
-        dateModified,
-        ...(hasValidRating
-          ? {
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: String(ratingValue),
-                reviewCount: String(reviewCount),
-              },
-            }
-          : {}),
-      },
-      {
-        "@type": "WebPage",
-        "@id": `${url}#webpage`,
-        url,
-        name: tool.title,
-        description: tool.description,
-        inLanguage,
-        speakable: {
-          "@type": "SpeakableSpecification",
-          cssSelector: [".speakable-answer-first", ".faq-passage", ".howto-passage", ".tldr-passage"],
-        },
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: crumbItems.map((c, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: c.name,
-          item: c.item,
-        })),
-      },
-      ...(validFaq.length
-        ? [
-            {
-              "@type": "FAQPage",
-              mainEntity: validFaq.map((f) => ({
-                "@type": "Question",
-                name: f.question.trim(),
-                acceptedAnswer: { "@type": "Answer", text: f.answer.trim() },
-              })),
-            },
-          ]
-        : []),
-      ...(validHowTo.length
-        ? [
-            {
-              "@type": "HowTo",
-              name:
-                locale === "es"
-                  ? `Cómo usar ${tool.title}`
-                  : locale === "fr"
-                    ? `Comment utiliser ${tool.title}`
-                    : `How to use ${tool.title}`,
-              totalTime: "PT3M",
-              estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "0" },
-              tool: [{ "@type": "HowToTool", name: tool.title }],
-              step: validHowTo.map((s, i) => ({
-                "@type": "HowToStep",
-                position: i + 1,
-                name: s.name.trim(),
-                text: s.text.trim(),
-                url: `${url}#howto-step-${i + 1}`,
-              })),
-            },
-          ]
-        : []),
-    ],
-  };
+export default function ToolSeo({ view }: { view: ToolView }) {
+  const { tool, locale } = view;
+  // FAQ/HowTo/guide copy is pre-validated on the server; JSON-LD is emitted
+  // into <head> by AppPage.astro from src/lib/tool-view.server.ts.
+  const validFaq = view.validFaq;
+  const validHowTo = view.validHowTo;
+  const guideSections = view.guideSections;
 
   return (
     <Box component="section" aria-label={`${tool.title} FAQ and guide`} sx={{ mt: 6 }}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
-      />
       {validFaq.length > 0 && (
         <>
           <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, mb: 2 }}>

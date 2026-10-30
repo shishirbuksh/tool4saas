@@ -1,0 +1,20 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import TermsView from "@/views/pages/terms";
+import { staticPageMetadata } from "@/lib/metadata";
+
+const meta = staticPageMetadata({
+  title: "Terms of Service — Fair Use & Disclaimers",
+  description: "Terms of Service for Tool4SaaS — fair use of free browser tools, finance/health calculator disclaimers and content limits.",
+  path: "/terms",
+});
+---
+
+<AppPage
+  View={TermsView}
+  viewKey="pages/terms"
+  props={{}}
+  meta={meta}
+  locale="en"
+  pathname="/terms"
+/>

@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
 import Chip from "@mui/material/Chip";
 import Link from "@mui/material/Link";
-import NextLink from "next/link";
+import NextLink from "@/lib/astro/navigation";
 
 const STOPWORDS = new Set([
   "the",

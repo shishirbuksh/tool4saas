@@ -12,7 +12,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { siteConfig } from "@/lib/site";
-import type { Locale } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n-core";
 
 interface EmbedToolSnippetProps {
   slug: string;

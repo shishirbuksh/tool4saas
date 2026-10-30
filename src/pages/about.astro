@@ -1,0 +1,21 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import AboutView from "@/views/pages/about";
+import { staticPageMetadata } from "@/lib/metadata";
+
+const meta = staticPageMetadata({
+  title: "About Tool4SaaS — Team & How We Test",
+  description:
+    "Meet the Tool4SaaS team, our local-first mission, testing rig and contact. Online-only service, replies in 2 business days.",
+  path: "/about",
+});
+---
+
+<AppPage
+  View={AboutView}
+  viewKey="pages/about"
+  props={{}}
+  meta={meta}
+  locale="en"
+  pathname="/about"
+/>

@@ -1,6 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import dynamic from "@/lib/astro/dynamic";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 

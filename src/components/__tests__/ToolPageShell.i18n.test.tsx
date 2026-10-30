@@ -1,23 +1,15 @@
-import React from "react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { getTool } from "@/lib/tools";
 import { getEsTool, getFrTool } from "@/lib/i18n";
+import { buildToolView } from "@/lib/tool-view.server";
 import ToolPageShell from "@/components/ToolPageShell";
-
-// next/link without router context: render a plain anchor.
-vi.mock("next/link", () => ({
-  default: ({ href, children, ...rest }: any) => (
-    <a href={typeof href === "string" ? href : "#"} {...rest}>
-      {children}
-    </a>
-  ),
-}));
 
 describe("ToolPageShell – pilot locale switcher + shell strings", () => {
   it("EN invoice shell links both ES and FR versions (N-locale registry)", () => {
+    const view = buildToolView(getTool("invoice-generator")!, "en");
     render(
-      <ToolPageShell tool={getTool("invoice-generator")!}>
+      <ToolPageShell view={view}>
         <div>tool ui</div>
       </ToolPageShell>
     );
@@ -28,8 +20,9 @@ describe("ToolPageShell – pilot locale switcher + shell strings", () => {
   });
 
   it("EN non-pilot shell shows no switcher (no 404 hreflang targets)", () => {
+    const view = buildToolView(getTool("fd-calculator")!, "en");
     render(
-      <ToolPageShell tool={getTool("fd-calculator")!}>
+      <ToolPageShell view={view}>
         <div>tool ui</div>
       </ToolPageShell>
     );
@@ -37,8 +30,9 @@ describe("ToolPageShell – pilot locale switcher + shell strings", () => {
   });
 
   it("ES shell renders native strings + English switcher link", () => {
+    const view = buildToolView(getEsTool("invoice-generator")!, "es");
     render(
-      <ToolPageShell tool={getEsTool("invoice-generator")!} locale="es">
+      <ToolPageShell view={view}>
         <div>tool ui</div>
       </ToolPageShell>
     );
@@ -51,8 +45,9 @@ describe("ToolPageShell – pilot locale switcher + shell strings", () => {
   });
 
   it("FR shell renders native strings + EN/ES switcher links", () => {
+    const view = buildToolView(getFrTool("invoice-generator")!, "fr");
     render(
-      <ToolPageShell tool={getFrTool("invoice-generator")!} locale="fr">
+      <ToolPageShell view={view}>
         <div>tool ui</div>
       </ToolPageShell>
     );
@@ -67,8 +62,9 @@ describe("ToolPageShell – pilot locale switcher + shell strings", () => {
   });
 
   it("ES finance shell renders the localized YMYL banner (not financial advice → ES)", () => {
+    const view = buildToolView(getEsTool("mortgage-calculator")!, "es");
     render(
-      <ToolPageShell tool={getEsTool("mortgage-calculator")!} locale="es">
+      <ToolPageShell view={view}>
         <div>tool ui</div>
       </ToolPageShell>
     );

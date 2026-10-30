@@ -1,28 +1,18 @@
-import React from "react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import axe from "axe-core";
 import { getTool } from "@/lib/tools";
+import { buildToolView } from "@/lib/tool-view.server";
 import ToolPageShell from "@/components/ToolPageShell";
 
-vi.mock("next/link", () => ({
-  default: ({ href, children, ...rest }: any) => (
-    <a href={typeof href === "string" ? href : "#"} {...rest}>
-      {children}
-    </a>
-  ),
-}));
-
-// jsdom has no layout engine: color-contrast is always "incomplete" there,
-// so it is excluded here (covered manually in the a11y audit). Every other
-// violation fails the test.
 const EXCLUDED = ["color-contrast"];
 
 describe("ToolPageShell – axe accessibility", () => {
   for (const slug of ["mortgage-calculator", "bmi-calculator", "word-counter"]) {
     it(`has no axe violations on ${slug}`, async () => {
+      const view = buildToolView(getTool(slug)!, "en");
       const { container } = render(
-        <ToolPageShell tool={getTool(slug)!}>
+        <ToolPageShell view={view}>
           <div>tool ui</div>
         </ToolPageShell>
       );

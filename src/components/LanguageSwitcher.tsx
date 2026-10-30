@@ -1,8 +1,8 @@
 ﻿"use client";
 
 import { useState } from "react";
-import dynamic from "next/dynamic";
-import { usePathname } from "next/navigation";
+import dynamic from "@/lib/astro/dynamic";
+import { usePathname } from "@/lib/astro/navigation";
 import MuiNextLink from "@/components/MuiNextLink";
 import Button from "@mui/material/Button";
 import TranslateIcon from "@mui/icons-material/Translate";
@@ -12,7 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { LOCALES, LOCALE_NAME, switcherTarget, type Locale } from "@/lib/i18n";
+import { LOCALES, LOCALE_NAME, switcherTarget, type Locale } from "@/lib/i18n-core";
 
 const MenuDynamic = dynamic(() => import("@mui/material/Menu"), {
   ssr: false,

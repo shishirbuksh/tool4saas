@@ -174,17 +174,17 @@ if (envText == null) {
 
 // 2b. Funding Choices wired into the shared root document (conditional).
 {
-  const layout = readRel("src/components/RootDocument.tsx");
+  const layout = readRel("src/layouts/BaseLayout.astro");
   const wired =
     !!layout &&
     layout.includes("fundingChoicesId") &&
     layout.includes("fundingchoicesmessages.google.com");
   add(
-    "Funding Choices wired (RootDocument)",
+    "Funding Choices wired (BaseLayout)",
     wired ? "PASS" : "FAIL",
     wired
       ? "FC script rendered from NEXT_PUBLIC_FUNDING_CHOICES_ID (off when unset)"
-      : "RootDocument.tsx does not render the Funding Choices script"
+      : "BaseLayout.astro does not render the Funding Choices script"
   );
   // 2c. Auto Ads loader: AdSenseScript must be the page-level tag (client param).
   const ads = readRel("src/components/AdSenseScript.tsx");
@@ -200,11 +200,12 @@ if (envText == null) {
 // 3. Contact / Author / Methodology pages exist
 // ---------------------------------------------------------------------------
 for (const p of ["contact", "author", "methodology"]) {
-  const rel = `src/app/(en)/${p}/page.tsx`;
-  if (existsRel(rel)) {
-    add(`page /${p} exists`, "PASS", rel);
+  const astroPage = `src/pages/${p}.astro`;
+  const viewPage = `src/views/pages/${p}.tsx`;
+  if (existsRel(astroPage) || existsRel(viewPage)) {
+    add(`page /${p} exists`, "PASS", existsRel(astroPage) ? astroPage : viewPage);
   } else {
-    add(`page /${p} exists`, "FAIL", `${rel} missing`);
+    add(`page /${p} exists`, "FAIL", `${astroPage} missing`);
   }
 }
 
@@ -212,26 +213,26 @@ for (const p of ["contact", "author", "methodology"]) {
 // 4. Sitemap includes /contact + /author + /methodology
 // ---------------------------------------------------------------------------
 {
-  const content = readRel("src/app/sitemap.ts");
+  const content = readRel("src/pages/sitemap.xml.ts");
   if (content == null) {
-    add("sitemap /contact", "FAIL", "src/app/sitemap.ts missing");
-    add("sitemap /author", "FAIL", "src/app/sitemap.ts missing");
-    add("sitemap /methodology", "FAIL", "src/app/sitemap.ts missing");
+    add("sitemap /contact", "FAIL", "src/pages/sitemap.xml.ts missing");
+    add("sitemap /author", "FAIL", "src/pages/sitemap.xml.ts missing");
+    add("sitemap /methodology", "FAIL", "src/pages/sitemap.xml.ts missing");
   } else {
     add(
       "sitemap /contact",
       content.includes("/contact") ? "PASS" : "FAIL",
-      content.includes("/contact") ? "sitemap.ts lists /contact" : "sitemap.ts missing /contact"
+      content.includes("/contact") ? "sitemap.xml lists /contact" : "sitemap.xml missing /contact"
     );
     add(
       "sitemap /author",
       content.includes("/author") ? "PASS" : "FAIL",
-      content.includes("/author") ? "sitemap.ts lists /author" : "sitemap.ts missing /author"
+      content.includes("/author") ? "sitemap.xml lists /author" : "sitemap.xml missing /author"
     );
     add(
       "sitemap /methodology",
       content.includes("/methodology") ? "PASS" : "FAIL",
-      content.includes("/methodology") ? "sitemap.ts lists /methodology" : "sitemap.ts missing /methodology"
+      content.includes("/methodology") ? "sitemap.xml lists /methodology" : "sitemap.xml missing /methodology"
     );
   }
 }
@@ -240,27 +241,26 @@ for (const p of ["contact", "author", "methodology"]) {
 // 5. pdf-compress noindex + excluded from sitemap
 // ---------------------------------------------------------------------------
 {
-  const page = readRel("src/app/(en)/pdf-compress/page.tsx");
-  if (page == null) {
-    add("pdf-compress noindex", "FAIL", "src/app/(en)/pdf-compress/page.tsx missing");
-  } else if (/index\s*:\s*false/.test(page)) {
-    add("pdf-compress noindex", "PASS", "robots.index=false in page metadata");
+  const noindexList = readRel("src/lib/tools/noindex.ts");
+  if (noindexList == null) {
+    add("pdf-compress noindex", "FAIL", "src/lib/tools/noindex.ts missing");
+  } else if (noindexList.includes("pdf-compress")) {
+    add("pdf-compress noindex", "PASS", "pdf-compress in src/lib/tools/noindex.ts (robots.index=false)");
   } else {
-    add("pdf-compress noindex", "FAIL", "robots.index=false not found in pdf-compress page");
+    add("pdf-compress noindex", "FAIL", "pdf-compress not found in noindex.ts");
   }
-  const sitemap = readRel("src/app/sitemap.ts");
+  const sitemap = readRel("src/pages/sitemap.xml.ts");
   if (sitemap == null) {
-    add("pdf-compress sitemap exclusion", "FAIL", "src/app/sitemap.ts missing");
+    add("pdf-compress sitemap exclusion", "FAIL", "src/pages/sitemap.xml.ts missing");
   } else if (
-    sitemap.includes("pdf-compress") &&
-    (/NOINDEX/i.test(sitemap) || /noindex/i.test(sitemap))
+    sitemap.includes("NOINDEX_SLUGS")
   ) {
-    add("pdf-compress sitemap exclusion", "PASS", "pdf-compress filtered via NOINDEX set");
+    add("pdf-compress sitemap exclusion", "PASS", "pdf-compress filtered via NOINDEX_SLUGS set");
   } else {
     add(
       "pdf-compress sitemap exclusion",
       "FAIL",
-      "sitemap.ts must filter pdf-compress (NOINDEX set)"
+      "sitemap.xml.ts must filter pdf-compress (NOINDEX set)"
     );
   }
 }
@@ -269,9 +269,9 @@ for (const p of ["contact", "author", "methodology"]) {
 // 6. Layout consent-default denied + wait_for_update
 // ---------------------------------------------------------------------------
 {
-  const layout = readRel("src/components/RootDocument.tsx");
+  const layout = readRel("src/layouts/BaseLayout.astro");
   if (layout == null) {
-    add("layout consent-default", "FAIL", "src/components/RootDocument.tsx missing");
+    add("layout consent-default", "FAIL", "src/layouts/BaseLayout.astro missing");
   } else {
     const hasDefault =
       layout.includes("consent-default") || /consent['"]\s*,\s*['"]default['"]/.test(layout);
@@ -300,20 +300,21 @@ for (const p of ["contact", "author", "methodology"]) {
     const hasUnconditionalGa =
       layout.includes("googletagmanager.com/gtag/js") ||
       layout.includes("pagead2.googlesyndication.com");
-    const hasLoader = layout.includes("ConsentGatedGoogleScripts");
+    const appShell = readRel("src/components/AppShell.tsx");
+    const hasLoader = appShell && appShell.includes("ConsentGatedGoogleScripts");
     if (!hasUnconditionalGa && hasLoader) {
       add(
         "layout gated-load",
         "PASS",
-        "no unconditional gtag/adsbygoogle fetch; ConsentGatedGoogleScripts present"
+        "no unconditional gtag/adsbygoogle fetch; ConsentGatedGoogleScripts present in AppShell"
       );
     } else {
       add(
         "layout gated-load",
         "FAIL",
         !hasLoader
-          ? "ConsentGatedGoogleScripts missing in layout.tsx"
-          : "layout.tsx fetches Google scripts unconditionally"
+          ? "ConsentGatedGoogleScripts missing in AppShell.tsx"
+          : "BaseLayout.astro fetches Google scripts unconditionally"
       );
     }
     // 6c. Loader subscribes to consent state (event + key + split grants).
@@ -333,12 +334,12 @@ for (const p of ["contact", "author", "methodology"]) {
 }
 
 // ---------------------------------------------------------------------------
-// 7. next.config CSP has pagead2 + fundingchoices
+// 7. deploy/nginx.conf CSP has pagead2 + fundingchoices
 // ---------------------------------------------------------------------------
 {
-  const cfg = readRel("next.config.js") ?? readRel("next.config.mjs") ?? readRel("next.config.ts");
+  const cfg = readRel("deploy/nginx.conf");
   if (cfg == null) {
-    add("CSP ads domains", "FAIL", "next.config.* missing");
+    add("CSP ads domains", "FAIL", "deploy/nginx.conf missing");
   } else {
     const hasPagead = cfg.includes("pagead2.googlesyndication.com");
     const hasFC =
@@ -350,7 +351,7 @@ for (const p of ["contact", "author", "methodology"]) {
       const missing = [!hasPagead ? "pagead2" : null, !hasFC ? "fundingchoices" : null]
         .filter(Boolean)
         .join(", ");
-      add("CSP ads domains", "FAIL", `next.config CSP missing: ${missing}`);
+      add("CSP ads domains", "FAIL", `deploy/nginx.conf CSP missing: ${missing}`);
     }
   }
 }
@@ -428,17 +429,16 @@ for (const p of ["contact", "author", "methodology"]) {
   } else {
     add("YMYLDisclaimer exists", "PASS", "src/components/YMYLDisclaimer.tsx");
     const shell = readRel("src/components/ToolPageShell.tsx");
+    const server = readRel("src/lib/tool-view.server.ts");
     const map = readRel("src/lib/ymyl.ts");
-    const shellOk =
-      shell &&
-      shell.includes("YMYLDisclaimer") &&
-      shell.includes("getYMYLType");
+    const shellOk = shell && shell.includes("YMYLDisclaimer");
+    const serverOk = server && server.includes("getYMYLType");
     const mapOk =
       map && map.includes("getYMYLType") && map.includes('"finance"') && map.includes('"health"');
     add(
       "YMYLDisclaimer shell injection",
-      shellOk && mapOk ? "PASS" : "FAIL",
-      shellOk && mapOk ? "ToolPageShell renders getYMYLType(tool)" : "shell/map wiring missing"
+      shellOk && serverOk && mapOk ? "PASS" : "FAIL",
+      shellOk && serverOk && mapOk ? "ToolPageShell renders getYMYLType(tool)" : "shell/map wiring missing"
     );
     // Regression guard: no tool imports the disclaimer directly (no doubles).
     const files = [];
@@ -466,16 +466,16 @@ for (const p of ["contact", "author", "methodology"]) {
 // 11. Metadata title logic present
 // ---------------------------------------------------------------------------
 {
-  const layout = readRel("src/components/RootDocument.tsx");
-  const meta = readRel("src/lib/metadata.ts");
+  const layout = readRel("src/layouts/BaseLayout.astro");
+  const seo = readRel("src/lib/seo.ts");
   const layoutOk =
-    !!layout && layout.includes("template") && layout.includes("%s") && layout.includes("default");
+    !!layout && layout.includes("resolveTitle");
   const metaOk =
-    !!meta && (meta.includes("| Tool4SaaS") || meta.includes("fullTitle"));
+    !!seo && seo.includes("siteConfig.name");
   if (layoutOk && metaOk) {
-    add("metadata title logic", "PASS", "layout template %s + lib/metadata fullTitle");
+    add("metadata title logic", "PASS", "layout resolveTitle + lib/seo siteConfig.name");
   } else {
-    const missing = [!layoutOk ? "layout template %s" : null, !metaOk ? "lib/metadata title" : null]
+    const missing = [!layoutOk ? "layout resolveTitle" : null, !metaOk ? "lib/seo title" : null]
       .filter(Boolean)
       .join(", ");
     add("metadata title logic", "FAIL", `missing: ${missing}`);

@@ -1,0 +1,21 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import GuidesView from "@/views/pages/guides";
+import { staticPageMetadata } from "@/lib/metadata";
+
+const meta = staticPageMetadata({
+  title: "All Guides & Tutorials",
+  description:
+    "Every Tool4SaaS guide in one index: 17 silos covering invoices, PDFs, images, QR codes, resumes, finance and SEO. Jump straight to the tutorial you need.",
+  path: "/guides",
+});
+---
+
+<AppPage
+  View={GuidesView}
+  viewKey="pages/guides"
+  props={{}}
+  meta={meta}
+  locale="en"
+  pathname="/guides"
+/>

@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import DownloadIcon from "@mui/icons-material/Download";
-import dynamic from "next/dynamic";
+import dynamic from "@/lib/astro/dynamic";
 
 // Heavy dep split: qrcode.react loads in its own client-only chunk (ssr:false),
 // never in the homepage chunk. No static import (not even type-only) remains.

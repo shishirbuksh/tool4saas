@@ -1,27 +1,17 @@
-import React from "react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { getTool } from "@/lib/tools";
+import { buildToolView } from "@/lib/tool-view.server";
 import ToolPageShell from "@/components/ToolPageShell";
-
-// next/link without router context: render a plain anchor.
-vi.mock("next/link", () => ({
-  default: ({ href, children, ...rest }: any) => (
-    <a href={typeof href === "string" ? href : "#"} {...rest}>
-      {children}
-    </a>
-  ),
-}));
 
 describe("ToolPageShell – central YMYL injection", () => {
   it("renders the finance banner for mortgage-calculator", () => {
+    const view = buildToolView(getTool("mortgage-calculator")!, "en");
     render(
-      <ToolPageShell tool={getTool("mortgage-calculator")!}>
+      <ToolPageShell view={view}>
         <div>tool ui</div>
       </ToolPageShell>
     );
-    // ToolSeo FAQ/guide copy also mentions adviceTerms — scope to role=alert.
-    // (MUI Alert exposes an empty accessible name in jsdom, so match content.)
     const alerts = screen.getAllByRole("alert");
     expect(alerts.length).toBe(1);
     expect(alerts[0]).toHaveTextContent(/not financial advice/i);
@@ -29,8 +19,9 @@ describe("ToolPageShell – central YMYL injection", () => {
   });
 
   it("renders the health banner for bmi-calculator (category override)", () => {
+    const view = buildToolView(getTool("bmi-calculator")!, "en");
     render(
-      <ToolPageShell tool={getTool("bmi-calculator")!}>
+      <ToolPageShell view={view}>
         <div>tool ui</div>
       </ToolPageShell>
     );
@@ -40,8 +31,9 @@ describe("ToolPageShell – central YMYL injection", () => {
   });
 
   it("renders no banner for word-counter", () => {
+    const view = buildToolView(getTool("word-counter")!, "en");
     render(
-      <ToolPageShell tool={getTool("word-counter")!}>
+      <ToolPageShell view={view}>
         <div>tool ui</div>
       </ToolPageShell>
     );
@@ -50,8 +42,9 @@ describe("ToolPageShell – central YMYL injection", () => {
   });
 
   it("renders exactly one banner (no doubles)", () => {
+    const view = buildToolView(getTool("tip-calculator")!, "en");
     const { container } = render(
-      <ToolPageShell tool={getTool("tip-calculator")!}>
+      <ToolPageShell view={view}>
         <div>tool ui</div>
       </ToolPageShell>
     );
@@ -60,8 +53,9 @@ describe("ToolPageShell – central YMYL injection", () => {
   });
 
   it("keeps a single h1 + labelled breadcrumb nav", () => {
+    const view = buildToolView(getTool("qr-code-generator")!, "en");
     const { container } = render(
-      <ToolPageShell tool={getTool("qr-code-generator")!}>
+      <ToolPageShell view={view}>
         <div>tool ui</div>
       </ToolPageShell>
     );

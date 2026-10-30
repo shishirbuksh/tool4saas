@@ -1,0 +1,20 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import NotFoundView from "@/views/pages/not-found";
+import type { PageMeta } from "@/lib/seo";
+
+const meta: PageMeta = {
+  title: "Page Not Found (404) | Tool4SaaS",
+  description: "The page you're looking for doesn't exist or has moved.",
+  robots: { index: false, follow: true },
+};
+---
+
+<AppPage
+  View={NotFoundView}
+  viewKey="pages/not-found"
+  props={{}}
+  meta={meta}
+  locale="en"
+  pathname="/404"
+/>

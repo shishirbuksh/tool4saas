@@ -113,27 +113,28 @@ if (missingTools.length > 0) {
 }
 
 // ---------- static pages / composite pages ----------
-const pageFiles = {
-  about: "src/app/(en)/about/page.tsx",
-  privacy: "src/app/(en)/privacy/page.tsx",
-  terms: "src/app/(en)/terms/page.tsx",
-  contact: "src/app/(en)/contact/page.tsx",
-  author: "src/app/(en)/author/page.tsx",
-  methodology: "src/app/(en)/methodology/page.tsx",
-  guides: "src/app/(en)/guides/page.tsx",
-};
+const pageNames = ["about", "privacy", "terms", "contact", "author", "methodology", "guides"];
 const pageDates = {};
-for (const [name, rel] of Object.entries(pageFiles)) {
-  if (!fs.existsSync(path.join(ROOT, rel))) {
-    errors.push(`missing static page file ${rel}`);
+for (const name of pageNames) {
+  const astroRel = `src/pages/${name}.astro`;
+  const viewRel = `src/views/pages/${name}.tsx`;
+  const legacyRel = `src/app/(en)/${name}/page.tsx`;
+  const targetRel = fs.existsSync(path.join(ROOT, astroRel))
+    ? astroRel
+    : fs.existsSync(path.join(ROOT, viewRel))
+      ? viewRel
+      : null;
+  if (!targetRel) {
+    errors.push(`missing static page file for ${name}`);
     continue;
   }
-  const d = gitDates(rel) ?? { published: mtimeFallback(rel), modified: mtimeFallback(rel) };
-  pageDates[name] = { ...d, source: gitDates(rel) ? "git" : "mtime-fallback" };
+  const d = gitDates(targetRel) ?? gitDates(legacyRel) ?? { published: mtimeFallback(targetRel), modified: mtimeFallback(targetRel) };
+  pageDates[name] = { ...d, source: (gitDates(targetRel) || gitDates(legacyRel)) ? "git" : "mtime-fallback" };
 }
 
 const homePaths = [
-  "src/app/(en)/page.tsx",
+  "src/pages/index.astro",
+  "src/views/pages/home.tsx",
   "src/components/home/HomeHero.tsx",
   "src/components/home/HomeCategories.tsx",
   "src/components/home/HomeDirectory.tsx",
@@ -156,7 +157,7 @@ const homeHasWorkingTreeChanges = (() => {
 })();
 const homeModified = homeHasWorkingTreeChanges
   ? new Date().toISOString().slice(0, 10)
-  : gitDatesMulti(homePaths) ?? mtimeFallback("src/app/(en)/page.tsx");
+  : gitDatesMulti(homePaths) ?? mtimeFallback("src/pages/index.astro") ?? mtimeFallback("src/views/pages/home.tsx");
 if (!homeModified) errors.push("home: no date source");
 
 // ---------- blog posts (one content file per pillar/cluster) ----------
@@ -205,8 +206,14 @@ if (Object.keys(blogPostDates).length === 0) {
 }
 
 const blogIndexModified =
-  gitDatesMulti(["src/app/(en)/blog/page.tsx", "src/lib/blog-registry.ts"]) ??
-  mtimeFallback("src/app/(en)/blog/page.tsx");
+  gitDatesMulti([
+    "src/pages/blog/index.astro",
+    "src/views/pages/blog-index.tsx",
+    "src/lib/blog-registry.ts",
+    "src/app/(en)/blog/page.tsx",
+  ]) ??
+  mtimeFallback("src/pages/blog/index.astro") ??
+  mtimeFallback("src/views/pages/blog-index.tsx");
 const blogModified = [blogIndexModified, ...Object.values(blogPostDates).map((d) => d.modified)]
   .filter(Boolean)
   .sort()

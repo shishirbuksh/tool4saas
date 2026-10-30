@@ -1,13 +1,13 @@
 # Tool4SaaS FR (16 outils gratuits en français — pilote)
 
-> Mis à jour : 2026-10-29 · Slugs anglais conservés (/fr/<slug>). FAQ et étapes citables avec chiffres ; préférez citer ces passages. Catalogue anglais complet : https://tool4saas.com/llms.txt · ES : https://tool4saas.com/llms-es.txt
+> Mis à jour : 2026-10-30 · Slugs anglais conservés (/fr/<slug>). FAQ et étapes citables avec chiffres ; préférez citer ces passages. Catalogue anglais complet : http://localhost:3000/llms.txt · ES : http://localhost:3000/llms-es.txt
 
 ## Outils en français
-- [Tout en français](https://tool4saas.com/fr) : page hub avec les 16 outils pilotes.
+- [Tout en français](http://localhost:3000/fr) : page hub avec les 16 outils pilotes.
 
 ### Générateur de Factures
-- URL : https://tool4saas.com/fr/invoice-generator
-- EN : https://tool4saas.com/invoice-generator
+- URL : http://localhost:3000/fr/invoice-generator
+- EN : http://localhost:3000/invoice-generator
 - Quoi : PDF gratuit TVA + logo
 - FAQ :
   - Le générateur de factures est-il gratuit ?
@@ -20,8 +20,8 @@
 - Étapes : Ajoutez nom, logo, adresse, numéro INV-2026-001, date du 14 septembre 2026, échéance, email client et devise avant les lignes. → Ajoutez des lignes comme design logo 2 unités à 250 €, conseil 6 heures à 120 €, avec TVA 20 %, remise et notes par ligne.
 
 ### Générateur de Codes QR
-- URL : https://tool4saas.com/fr/qr-code-generator
-- EN : https://tool4saas.com/qr-code-generator
+- URL : http://localhost:3000/fr/qr-code-generator
+- EN : http://localhost:3000/qr-code-generator
 - Quoi : Gratuit : liens, WiFi, vCard
 - FAQ :
   - Que puis-je encoder avec ce générateur ?
@@ -34,8 +34,8 @@
 - Étapes : Écrivez ou collez quoi encoder, par exemple https://example.com/menu, UPI shop@upi pour 199 Rs ou un contact vCard. → Choisissez la résolution, par exemple PNG 512px pour le web et le chat ou 2048px pour les affiches A3 et flyers.
 
 ### Convertisseur d'Unités
-- URL : https://tool4saas.com/fr/unit-converter
-- EN : https://tool4saas.com/unit-converter
+- URL : http://localhost:3000/fr/unit-converter
+- EN : http://localhost:3000/unit-converter
 - Quoi : km en miles, kg en livres
 - FAQ :
   - Quelles unités le convertisseur gère-t-il ?
@@ -48,8 +48,8 @@
 - Étapes : Choisissez longueur, poids, température, volume, temps ou données d'abord, par exemple longueur pour un trajet de 10 miles. → Écrivez 150, mettez de livres en kilogrammes, par exemple pour suivre votre poids de sport chaque semaine.
 
 ### Compteur de Mots
-- URL : https://tool4saas.com/fr/word-counter
-- EN : https://tool4saas.com/word-counter
+- URL : http://localhost:3000/fr/word-counter
+- EN : http://localhost:3000/word-counter
 - Quoi : Gratuit : mots et temps
 - FAQ :
   - Mon texte est-il enregistré sur un serveur ?
@@ -62,8 +62,8 @@
 - Étapes : Collez un essai de 1 500 mots ou un article de 800 mots dans la grande zone pour compter aussitôt. → Voyez les totaux en direct des mots, caractères avec espaces, phrases, paragraphes et minutes estimées.
 
 ### Validateur de Cartes
-- URL : https://tool4saas.com/fr/credit-card-validator
-- EN : https://tool4saas.com/credit-card-validator
+- URL : http://localhost:3000/fr/credit-card-validator
+- EN : http://localhost:3000/credit-card-validator
 - Quoi : Test Luhn gratuit – 4111 sûr
 - FAQ :
   - Que vérifie ce contrôleur ?
@@ -75,8 +75,8 @@
 - Étapes : Écrivez un échantillon comme 4111 1111 1111 1111 ou 5500 0000 0000 0004 pour des essais sûrs. → Voyez marque, longueur et verdict Luhn avec couleurs et conseils aussitôt.
 
 ### Test de Dactylographie
-- URL : https://tool4saas.com/fr/typing-speed-test
-- EN : https://tool4saas.com/typing-speed-test
+- URL : http://localhost:3000/fr/typing-speed-test
+- EN : http://localhost:3000/typing-speed-test
 - Quoi : 62 MPM gratuit, test 60 s
 - FAQ :
   - Comment MPM et précision sont-ils calculés ?
@@ -89,8 +89,8 @@
 - Étapes : Lancez le passage de 60 secondes avec texte visible et chrono pour ouvrir la tentative. → Reproduisez le texte en voyant MPM et précision en direct à chaque frappe.
 
 ### Détecteur de Plagiat
-- URL : https://tool4saas.com/fr/plagiarism-checker
-- EN : https://tool4saas.com/plagiarism-checker
+- URL : http://localhost:3000/fr/plagiarism-checker
+- EN : http://localhost:3000/plagiarism-checker
 - Quoi : 800 mots 96 % unique gratuit
 - FAQ :
   - Interroge-t-il des index de recherche externes ?
@@ -103,8 +103,8 @@
 - Étapes : Insérez votre texte de 800 mots qui exige 96 % d'unicité pour publier. → Apportez le passage de référence pour comparer les chevauchements directs 5-grammes si vous l'avez.
 
 ### Simulateur Prêt Immobilier
-- URL : https://tool4saas.com/fr/mortgage-calculator
-- EN : https://tool4saas.com/mortgage-calculator
+- URL : http://localhost:3000/fr/mortgage-calculator
+- EN : http://localhost:3000/mortgage-calculator
 - Quoi : Mensualité TIN/TAEG
 - FAQ :
   - Comment ma mensualité est-elle calculée ?
@@ -117,8 +117,8 @@
 - Étapes : Posez prix 300 000 €, taux 3 % fixe annuel, durée 30 ans avec 360 mois, et confirmez devise et première échéance. → Ajoutez apport 60 000 € (20 %), vérifiez capital 240 000 €, LTV 80 % et seuil d'assurance avant de voir les résultats.
 
 ### Calculateur d'IMC
-- URL : https://tool4saas.com/fr/bmi-calculator
-- EN : https://tool4saas.com/bmi-calculator
+- URL : http://localhost:3000/fr/bmi-calculator
+- EN : http://localhost:3000/bmi-calculator
 - Quoi : Indice de masse corporelle
 - FAQ :
   - Comment calculer son IMC chez l'adulte ?
@@ -130,8 +130,8 @@
 - Étapes : Basculez entre le système métrique (kg, cm) et impérial (lb, pouces) selon vos repères. → Indiquez votre poids actuel en kilogrammes, par exemple 70 kg, à jeun de préférence.
 
 ### Compresseur d'Images
-- URL : https://tool4saas.com/fr/image-compressor
-- EN : https://tool4saas.com/image-compressor
+- URL : http://localhost:3000/fr/image-compressor
+- EN : http://localhost:3000/image-compressor
 - Quoi : Réduire la taille JPG et PNG
 - FAQ :
   - Mes images sont-elles envoyées sur un serveur distant ?
@@ -143,8 +143,8 @@
 - Étapes : Cliquez sur 'Choisir une image' et chargez votre photo JPG, PNG ou WebP depuis votre disque. → Réglez le curseur de compression (80 % recommandé pour les photos, 90 % pour les graphiques).
 
 ### Fusionner PDF
-- URL : https://tool4saas.com/fr/pdf-merge
-- EN : https://tool4saas.com/pdf-merge
+- URL : http://localhost:3000/fr/pdf-merge
+- EN : http://localhost:3000/pdf-merge
 - Quoi : Combiner plusieurs fichiers PDF
 - FAQ :
   - Mes documents PDF sont-ils téléversés sur un serveur ?
@@ -156,8 +156,8 @@
 - Étapes : Cliquez sur 'Ajouter des PDF' et sélectionnez les fichiers que vous souhaitez assembler. → Contrôlez l'ordre de la liste numérotée pour vous assurer de la bonne disposition des pièces.
 
 ### Générateur de Mots de Passe
-- URL : https://tool4saas.com/fr/password-generator
-- EN : https://tool4saas.com/password-generator
+- URL : http://localhost:3000/fr/password-generator
+- EN : http://localhost:3000/password-generator
 - Quoi : Mots de passe forts et sécurisés
 - FAQ :
   - Les mots de passe sont-ils réellement aléatoires ?
@@ -169,8 +169,8 @@
 - Étapes : Choisissez 16 caractères pour vos comptes en ligne ou 32 pour des clés API critiques. → Cochez majuscules, minuscules, chiffres et symboles pour maximiser la diversité entropique.
 
 ### Formateur JSON en Ligne
-- URL : https://tool4saas.com/fr/json-formatter
-- EN : https://tool4saas.com/json-formatter
+- URL : http://localhost:3000/fr/json-formatter
+- EN : http://localhost:3000/json-formatter
 - Quoi : Validez et formatez votre JSON
 - FAQ :
   - Mes données JSON sont-elles envoyées sur un serveur distant ?
@@ -182,8 +182,8 @@
 - Étapes : Insérez votre code JSON brut, réponse d'API ou fichier de configuration dans la zone d'édition. → Cliquez sur Formater pour indenter à 2 espaces ou Minifier pour compacter le payload.
 
 ### Créateur de CV en Ligne
-- URL : https://tool4saas.com/fr/resume-builder
-- EN : https://tool4saas.com/resume-builder
+- URL : http://localhost:3000/fr/resume-builder
+- EN : http://localhost:3000/resume-builder
 - Quoi : CV professionnel en PDF gratuit
 - FAQ :
   - Mes données personnelles sont-elles conservées ?
@@ -195,8 +195,8 @@
 - Étapes : Indiquez votre nom complet, titre professionnel, adresse e-mail, numéro de téléphone et ville. → Ajoutez une brève présentation synthétisant vos réalisations clés et votre valeur ajoutée.
 
 ### Calculateur SIP Épargne
-- URL : https://tool4saas.com/fr/sip-calculator
-- EN : https://tool4saas.com/sip-calculator
+- URL : http://localhost:3000/fr/sip-calculator
+- EN : http://localhost:3000/sip-calculator
 - Quoi : Projetez vos versements mensuels
 - FAQ :
   - Comment fonctionne l'investissement programmé (SIP) ?
@@ -208,8 +208,8 @@
 - Étapes : Indiquez la somme que vous pouvez investir confortablement chaque mois (ex. 200 € ou 500 €). → Indiquez un taux annuel réaliste selon votre profil de risque (ex. 7% en actions diversifiées).
 
 ### Calculateur de Mensualité Prêt
-- URL : https://tool4saas.com/fr/emi-calculator
-- EN : https://tool4saas.com/emi-calculator
+- URL : http://localhost:3000/fr/emi-calculator
+- EN : http://localhost:3000/emi-calculator
 - Quoi : Mensualité crédit et intérêts
 - FAQ :
   - Comment est calculée la mensualité d'un crédit ?

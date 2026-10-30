@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { theme, darkTheme } from "@/app/theme";
+import { theme, darkTheme } from "@/theme";
 
 type Mode = "light" | "dark";
 

@@ -1,0 +1,31 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import { pilotSlugsForLocale } from "@/lib/i18n-core";
+import { getLocaleTool } from "@/lib/i18n";
+import { localeToolMetadata } from "@/lib/metadata";
+import { buildToolView, buildToolJsonLd } from "@/lib/tool-view.server";
+
+// Translated pilot tool page (native ES SEO shell, shared tool UI).
+export function getStaticPaths() {
+  return [...pilotSlugsForLocale("es")].map((slug) => ({ params: { slug } }));
+}
+
+const slug = Astro.params.slug!;
+const viewModules = import.meta.glob<{ default: any }>("../../views/tools/*.tsx");
+const loadView = viewModules[`../../views/tools/${slug}.tsx`];
+if (!loadView) throw new Error(`Missing view module for tool "${slug}"`);
+const View = (await loadView()).default;
+const tool = getLocaleTool("es", slug);
+if (!tool) throw new Error(`Missing ES translation for tool "${slug}"`);
+const view = buildToolView(tool, "es");
+---
+
+<AppPage
+  View={View}
+  viewKey={`tools/${slug}`}
+  props={{ view }}
+  meta={localeToolMetadata(tool, "es")}
+  locale="es"
+  pathname={`/es/${slug}`}
+  jsonLd={[buildToolJsonLd(tool, "es")]}
+/>

@@ -1,4 +1,4 @@
-﻿import { describe, it, expect } from "vitest";
+import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -9,7 +9,9 @@ const exists = (rel: string) => fs.existsSync(path.join(root, rel));
 
 describe("adsense readiness (static)", () => {
   it("contact page exists and exposes the contact email via mailto", () => {
-    const rel = path.join("src", "app", "(en)", "contact", "page.tsx");
+    const astroPage = path.join("src", "pages", "contact.astro");
+    const rel = path.join("src", "views", "pages", "contact.tsx");
+    expect(exists(astroPage), astroPage).toBe(true);
     expect(exists(rel), rel).toBe(true);
     const src = read(rel);
     // Page renders the configured contact email via siteConfig (env-overridable),
@@ -19,14 +21,17 @@ describe("adsense readiness (static)", () => {
   });
 
   it("author page exists (E-E-A-T signal)", () => {
-    const rel = path.join("src", "app", "(en)", "author", "page.tsx");
+    const astroPage = path.join("src", "pages", "author.astro");
+    const rel = path.join("src", "views", "pages", "author.tsx");
+    expect(exists(astroPage), astroPage).toBe(true);
     expect(exists(rel), rel).toBe(true);
     expect(read(rel).length).toBeGreaterThan(0);
   });
 
   it("methodology page exists (warn-only if missing)", () => {
-    const rel = path.join("src", "app", "(en)", "methodology", "page.tsx");
-    if (!exists(rel)) {
+    const astroPage = path.join("src", "pages", "methodology.astro");
+    const rel = path.join("src", "views", "pages", "methodology.tsx");
+    if (!exists(astroPage) && !exists(rel)) {
       console.warn(`[adsense-readiness] missing ${rel}: methodology page recommended for E-E-A-T`);
       return;
     }
@@ -37,23 +42,24 @@ describe("adsense readiness (static)", () => {
     const src = read(path.join("src", "components", "Footer.tsx"));
     expect(src).toContain("/contact");
     expect(src).toContain("/author");
-    expect(exists(path.join("src", "app", "(en)", "author", "page.tsx"))).toBe(true);
-    expect(read(path.join("src", "app", "sitemap.ts"))).toContain("/author");
+    expect(exists(path.join("src", "pages", "author.astro"))).toBe(true);
+    expect(read(path.join("src", "pages", "sitemap.xml.ts"))).toContain("/author");
   });
 
   it("layout sets consent default denied with wait_for_update", () => {
-    const src = read(path.join("src", "components", "RootDocument.tsx"));
+    const src = read(path.join("src", "layouts", "BaseLayout.astro"));
     expect(src).toContain("wait_for_update");
     expect(src).toContain("consent', 'default'");
     expect(src).toContain("ad_storage: 'denied'");
     expect(src).toContain("analytics_storage: 'denied'");
   });
 
-  it("layout has no unconditional Google fetch (gated loader only)", () => {
-    const src = read(path.join("src", "components", "RootDocument.tsx"));
-    expect(src).not.toContain("googletagmanager.com/gtag/js");
-    expect(src).not.toContain("pagead2.googlesyndication.com");
-    expect(src).toContain("ConsentGatedGoogleScripts");
+  it("layout and app shell gate Google scripts safely", () => {
+    const base = read(path.join("src", "layouts", "BaseLayout.astro"));
+    expect(base).not.toContain("googletagmanager.com/gtag/js");
+    expect(base).not.toContain("pagead2.googlesyndication.com");
+    const shell = read(path.join("src", "components", "AppShell.tsx"));
+    expect(shell).toContain("ConsentGatedGoogleScripts");
   });
 
   it("ConsentGatedGoogleScripts gates on stored consent + split grants", () => {
@@ -71,8 +77,8 @@ describe("adsense readiness (static)", () => {
     expect(src).toContain("G-JD0HNN61MF");
   });
 
-  it("next.config.js allows AdSense + Funding Choices", () => {
-    const src = read("next.config.js");
+  it("deploy/nginx.conf allows AdSense + Funding Choices in CSP", () => {
+    const src = read(path.join("deploy", "nginx.conf"));
     expect(src).toContain("pagead2");
     expect(src).toContain("fundingchoices");
   });
@@ -93,7 +99,7 @@ describe("adsense readiness (static)", () => {
   });
 
   it("Funding Choices is wired + env-gated (off until an id is set)", () => {
-    const root = read(path.join("src", "components", "RootDocument.tsx"));
+    const root = read(path.join("src", "layouts", "BaseLayout.astro"));
     expect(root).toContain("fundingChoicesId");
     expect(root).toContain("fundingchoicesmessages.google.com");
     const site = read(path.join("src", "lib", "site.ts"));
@@ -108,7 +114,8 @@ describe("adsense readiness (static)", () => {
     // Shell renders the disclaimer from the single source (src/lib/ymyl.ts).
     const shell = read(path.join("src", "components", "ToolPageShell.tsx"));
     expect(shell).toContain("YMYLDisclaimer");
-    expect(shell).toContain("getYMYLType");
+    const server = read(path.join("src", "lib", "tool-view.server.ts"));
+    expect(server).toContain("getYMYLType");
     // The mapping covers finance + health categories and overrides.
     const map = read(path.join("src", "lib", "ymyl.ts"));
     expect(map).toContain('"finance"');

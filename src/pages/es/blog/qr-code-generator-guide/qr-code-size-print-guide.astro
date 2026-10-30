@@ -1,0 +1,17 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import EsBlogGuideView from "@/views/pages/es-blog-guide";
+import { blogMetadataFor } from "@/components/blog/BlogArticle";
+import { qrSizePrintEs } from "@/lib/i18n";
+
+const meta = blogMetadataFor(qrSizePrintEs, "es");
+---
+
+<AppPage
+  View={EsBlogGuideView}
+  viewKey="pages/es-blog-guide"
+  props={{}}
+  meta={meta}
+  locale="es"
+  pathname="/es/blog/qr-code-generator-guide/qr-code-size-print-guide"
+/>

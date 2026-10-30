@@ -12,6 +12,20 @@ function isPoisonHostname(hostname: string): boolean {
   return POISON_HOST_TOKENS.some((t) => h.includes(t));
 }
 
+// Astro/Vite inlines PUBLIC_* at build time. NEXT_PUBLIC_* names are kept as a
+// migration fallback (astro.config.mjs mirrors them through `vite.define`), so
+// existing deployments keep working while .env files move to the new prefix.
+const ENV = import.meta.env;
+const rawSiteUrl = (ENV.PUBLIC_SITE_URL ?? ENV.NEXT_PUBLIC_SITE_URL ?? "").trim();
+const rawAdsense = (ENV.PUBLIC_ADSENSE_CLIENT ?? ENV.NEXT_PUBLIC_ADSENSE_CLIENT ?? "").trim();
+const rawFundingChoices = (
+  ENV.PUBLIC_FUNDING_CHOICES_ID ?? ENV.NEXT_PUBLIC_FUNDING_CHOICES_ID ?? ""
+).trim();
+const rawGaId = (ENV.PUBLIC_GA_ID ?? ENV.NEXT_PUBLIC_GA_ID ?? "").trim();
+const rawEmail = (ENV.PUBLIC_CONTACT_EMAIL ?? ENV.NEXT_PUBLIC_CONTACT_EMAIL ?? "").trim();
+const rawAuthorUrl = (ENV.PUBLIC_AUTHOR_URL ?? ENV.NEXT_PUBLIC_AUTHOR_URL ?? "").trim();
+const rawSameAs = (ENV.PUBLIC_SAME_AS ?? ENV.NEXT_PUBLIC_SAME_AS ?? "").trim();
+
 export const siteConfig = {
   name: "Tool4SaaS",
   title: `${VISIBLE_TOOL_COUNT} Free Online Tools for Work, Money & Code | Tool4SaaS`,
@@ -25,12 +39,13 @@ export const siteConfig = {
     "productivity tools",
   ],
   url: (() => {
-    const raw = process.env.NEXT_PUBLIC_SITE_URL;
     const fallback = "https://your-domain.com";
-    const candidate = raw?.trim() || "";
+    const candidate = rawSiteUrl || "";
     if (!candidate) {
-      if (process.env.NODE_ENV === "production") {
-        throw new Error("NEXT_PUBLIC_SITE_URL is not set — set it for correct canonicals (fail-closed to avoid localhost canonicals in prod)");
+      if (ENV.PROD) {
+        throw new Error(
+          "PUBLIC_SITE_URL is not set — set it for correct canonicals (fail-closed to avoid localhost canonicals in prod)",
+        );
       }
       // Fallback poison avoidance: never expose placeholder domain in SEO; use localhost as safe dev fallback
       return "http://localhost:3000";
@@ -39,22 +54,24 @@ export const siteConfig = {
       const u = new URL(candidate);
       if (!/^https?:$/.test(u.protocol)) throw new Error("invalid protocol");
       if (isPoisonHostname(u.hostname)) {
-        console.warn(`NEXT_PUBLIC_SITE_URL is placeholder/poison "${candidate}", using fallback http://localhost:3000`);
+        console.warn(
+          `PUBLIC_SITE_URL is placeholder/poison "${candidate}", using fallback http://localhost:3000`,
+        );
         return "http://localhost:3000";
       }
       return u.origin + (u.pathname !== "/" ? u.pathname.replace(/\/$/, "") : "");
     } catch {
-      console.warn(`NEXT_PUBLIC_SITE_URL is invalid "${candidate}", using fallback ${fallback}`);
+      console.warn(`PUBLIC_SITE_URL is invalid "${candidate}", using fallback ${fallback}`);
       // Avoid leaking poison fallback into canonical/sitemap; use safe localhost
       return "http://localhost:3000";
     }
   })(),
   locale: "en_US",
   adsenseClient: (() => {
-    const raw = (process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "").trim();
+    const raw = rawAdsense;
     if (!raw) return "";
     if (!/^ca-pub-\d{16}$/.test(raw)) {
-      console.warn(`NEXT_PUBLIC_ADSENSE_CLIENT is invalid "${raw}" — expected format ca-pub-XXXXXXXXXXXXXXXX`);
+      console.warn(`PUBLIC_ADSENSE_CLIENT is invalid "${raw}" — expected format ca-pub-XXXXXXXXXXXXXXXX`);
       return "";
     }
     return raw;
@@ -65,10 +82,10 @@ export const siteConfig = {
   // exists in the AdSense/Ad Manager account, otherwise the request 404s and
   // adds render-blocking latency for no benefit. Empty => FC disabled.
   fundingChoicesId: (() => {
-    const raw = (process.env.NEXT_PUBLIC_FUNDING_CHOICES_ID || "").trim();
+    const raw = rawFundingChoices;
     if (!raw) return "";
     if (!/^pub-\d{16}$/.test(raw)) {
-      console.warn(`NEXT_PUBLIC_FUNDING_CHOICES_ID is invalid "${raw}" — expected format pub-XXXXXXXXXXXXXXXX`);
+      console.warn(`PUBLIC_FUNDING_CHOICES_ID is invalid "${raw}" — expected format pub-XXXXXXXXXXXXXXXX`);
       return "";
     }
     return raw;
@@ -77,15 +94,15 @@ export const siteConfig = {
   // Format: G- + 10 base-36 chars. Invalid values fall back (warn) so a
   // typo never silently disables analytics wiring.
   gaId: (() => {
-    const raw = (process.env.NEXT_PUBLIC_GA_ID || "").trim();
+    const raw = rawGaId;
     if (!raw) return "G-JD0HNN61MF";
     if (!/^G-[A-Z0-9]{10}$/.test(raw)) {
-      console.warn(`NEXT_PUBLIC_GA_ID is invalid "${raw}" — expected format G-XXXXXXXXXX`);
+      console.warn(`PUBLIC_GA_ID is invalid "${raw}" — expected format G-XXXXXXXXXX`);
       return "G-JD0HNN61MF";
     }
     return raw;
   })(),
-  email: (process.env.NEXT_PUBLIC_CONTACT_EMAIL || "").trim() || "hello@tool4saas.com",
+  email: rawEmail || "hello@tool4saas.com",
   author: "Tool4SaaS",
   // E-E-A-T author authority: role + short bio used by ToolPageShell author box
   // and ToolSeo reviewer JSON-LD. Keep generic team identity (no invented people).
@@ -93,21 +110,21 @@ export const siteConfig = {
   authorBio:
     "In-house reviewers who build and test every tool locally for accuracy across current Chrome, Edge, Firefox, and Safari.",
   authorUrl: (() => {
-    const raw = (process.env.NEXT_PUBLIC_AUTHOR_URL || "").trim();
+    const raw = rawAuthorUrl;
     if (raw) {
       try {
         const u = new URL(raw);
         if (/^https?:$/.test(u.protocol) && u.hostname && !isPoisonHostname(u.hostname))
           return u.href.replace(/\/$/, "");
         if (u.hostname && isPoisonHostname(u.hostname)) {
-          console.warn(`NEXT_PUBLIC_AUTHOR_URL is placeholder/poison "${raw}", falling back to site author page`);
+          console.warn(`PUBLIC_AUTHOR_URL is placeholder/poison "${raw}", falling back to site author page`);
         }
       } catch {
         // ignore invalid URL, fall through to site URL default
       }
     }
     // Default ownership signal: author page on the canonical site.
-    const siteRaw = (process.env.NEXT_PUBLIC_SITE_URL || "").trim();
+    const siteRaw = rawSiteUrl;
     if (siteRaw) {
       try {
         const u = new URL(siteRaw);
@@ -116,7 +133,7 @@ export const siteConfig = {
           return `${base}/author`;
         }
         if (u.hostname && isPoisonHostname(u.hostname)) {
-          console.warn(`NEXT_PUBLIC_SITE_URL is placeholder/poison "${siteRaw}", using fallback author page`);
+          console.warn(`PUBLIC_SITE_URL is placeholder/poison "${siteRaw}", using fallback author page`);
         }
       } catch {
         // ignore, use localhost fallback below
@@ -125,10 +142,10 @@ export const siteConfig = {
     return "http://localhost:3000/author";
   })(),
   // Ownership signals: add your LinkedIn / X / GitHub profile URLs via
-  // NEXT_PUBLIC_SAME_AS as a comma-separated list (e.g. "https://www.linkedin.com/company/...,https://x.com/...,https://github.com/...").
+  // PUBLIC_SAME_AS as a comma-separated list (e.g. "https://www.linkedin.com/company/...,https://x.com/...,https://github.com/...").
   // TODO: keep as empty placeholder until real profiles exist — do not invent URLs.
   sameAs: (() => {
-    const raw = process.env.NEXT_PUBLIC_SAME_AS;
+    const raw = rawSameAs;
     if (!raw) return [];
     const urls: string[] = [];
     for (const s of raw.split(",")) {

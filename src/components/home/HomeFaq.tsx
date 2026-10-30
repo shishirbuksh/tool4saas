@@ -1,7 +1,7 @@
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
+import Link from "@/lib/astro/navigation";
 import { FAQS } from "@/content/home";
 
 // Static FAQ accordion — zero JS, matches the FAQPage JSON-LD 1:1.

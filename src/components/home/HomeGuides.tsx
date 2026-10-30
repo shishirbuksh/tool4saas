@@ -2,7 +2,7 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
+import Link from "@/lib/astro/navigation";
 import { HOME_GUIDES } from "@/content/home";
 
 export default function HomeGuides() {

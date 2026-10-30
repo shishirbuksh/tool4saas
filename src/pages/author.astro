@@ -1,0 +1,21 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import AuthorView from "@/views/pages/author";
+import { staticPageMetadata } from "@/lib/metadata";
+
+const meta = staticPageMetadata({
+  title: "Our Authors — Tool4SaaS Editorial Team",
+  description:
+    "Meet the Tool4SaaS editorial team: tools, finance, and health reviewers who build and test every free tool in-house for accuracy.",
+  path: "/author",
+});
+---
+
+<AppPage
+  View={AuthorView}
+  viewKey="pages/author"
+  props={{}}
+  meta={meta}
+  locale="en"
+  pathname="/author"
+/>

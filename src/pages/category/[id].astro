@@ -1,0 +1,64 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import CategoryView from "@/views/pages/category";
+import { CATEGORIES, getCategory } from "@/lib/tools";
+import { seoTitleForCategory } from "@/lib/category-content";
+import { siteConfig } from "@/lib/site";
+import type { PageMeta } from "@/lib/seo";
+
+export function getStaticPaths() {
+  return CATEGORIES.map((c) => ({ params: { id: c.id } }));
+}
+
+const id = Astro.params.id!;
+const category = getCategory(id);
+if (!category) {
+  return Astro.redirect("/404");
+}
+
+const base = siteConfig.url.replace(/\/$/, "");
+const canonical = `${base}/category/${id}`;
+const ogImage = `${base}/og/category-${id}`;
+const seoTitle = seoTitleForCategory(id, category.label);
+
+const meta: PageMeta = {
+  title: seoTitle,
+  description: category.description,
+  alternates: { canonical, languages: { en: canonical, "x-default": canonical } },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    url: canonical,
+    siteName: siteConfig.name,
+    title: seoTitle,
+    description: category.description,
+    images: [{ url: ogImage, width: 1200, height: 630, alt: `${category.label} — ${siteConfig.name}` }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seoTitle,
+    description: category.description,
+    images: [ogImage],
+  },
+};
+---
+
+<AppPage
+  View={CategoryView}
+  viewKey="pages/category"
+  props={{ id }}
+  meta={meta}
+  locale="en"
+  pathname={`/category/${id}`}
+/>

@@ -110,9 +110,9 @@ describe("global revokeObjectURL ledger", () => {
     expect(createdUrls.length).toBe(revokedUrls.length);
   });
 
-  it("next.config.js has no unsafe-eval and has worker-src blob:", async () => {
-    const content = fs.readFileSync(path.resolve("next.config.js"), "utf8");
-    expect(content).toMatch(/unsafe-eval/);
+  it("deploy/nginx.conf has worker-src blob:", async () => {
+    const content = fs.readFileSync(path.resolve("deploy/nginx.conf"), "utf8");
+    expect(content).toMatch(/worker-src/);
     expect(content).toMatch(/blob:/);
   });
 

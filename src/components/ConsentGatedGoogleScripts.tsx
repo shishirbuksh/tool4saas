@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Script from "next/script";
+import Script from "@/lib/astro/script";
 import AdSenseScript from "@/components/AdSenseScript";
 import { siteConfig } from "@/lib/site";
 

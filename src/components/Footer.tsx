@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-import Link from "next/link";
+import Link from "@/lib/astro/navigation";
 import Button from "@mui/material/Button";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";

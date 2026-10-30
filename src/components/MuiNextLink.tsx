@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Link, { type LinkProps } from "next/link";
+import Link, { type LinkProps } from "@/lib/astro/navigation";
 
 type MuiNextLinkProps = LinkProps & {
   children?: React.ReactNode;

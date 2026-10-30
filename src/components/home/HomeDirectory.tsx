@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/astro/navigation";
 import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
 import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";

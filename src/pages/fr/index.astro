@@ -1,0 +1,47 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import FrHomeView from "@/views/pages/fr-home";
+import { siteConfig } from "@/lib/site";
+import { hreflangHubLanguages } from "@/lib/i18n";
+import type { PageMeta } from "@/lib/seo";
+
+const base = siteConfig.url.replace(/\/$/, "");
+const title = "Outils Gratuits en Ligne – Sans Inscription (2026) | Tool4SaaS";
+const description =
+  "Outils gratuits en français : factures PDF avec TVA et logo. Sans inscription, privés dans votre navigateur — essayez gratis.";
+
+const meta: PageMeta = {
+  title: { absolute: title },
+  description,
+  alternates: {
+    canonical: `${base}/fr`,
+    languages: hreflangHubLanguages(base, "fr"),
+  },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    alternateLocale: ["en_US", "es_ES"],
+    url: `${base}/fr`,
+    siteName: siteConfig.name,
+    title,
+    description,
+    images: [{ url: `${base}/og/home`, width: 1200, height: 630, alt: siteConfig.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [`${base}/og/home`],
+  },
+};
+---
+
+<AppPage
+  View={FrHomeView}
+  viewKey="pages/fr-home"
+  props={{}}
+  meta={meta}
+  locale="fr"
+  pathname="/fr"
+/>

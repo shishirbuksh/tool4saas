@@ -1,6 +1,6 @@
 import Alert from "@mui/material/Alert";
 import Link from "@mui/material/Link";
-import type { Locale } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n-core";
 
 const ADVICE: Record<Locale, { finance: string; health: string; general: string }> = {
   en: { finance: "financial", health: "medical", general: "professional" },

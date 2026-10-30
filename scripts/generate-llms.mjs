@@ -170,8 +170,9 @@ const visibleTools = tools.filter((t) => t.slug && !NOINDEX_SLUGS.has(t.slug));
 // English slugs kept as /es/<slug>). mjs can't import TS, so regex-parse like
 // the EN registry above. Parity (below) fails closed if pilots drift.
 const I18N_PATH = path.resolve("src/lib/i18n.ts");
+const I18N_CORE_PATH = path.resolve("src/lib/i18n-core.ts");
 const outEsPath = path.resolve("public/llms-es.txt");
-const esContent = readIfExists(I18N_PATH);
+const esContent = readIfExists(I18N_PATH) + "\n" + readIfExists(I18N_CORE_PATH);
 let esPilotSlugs = [];
 if (esContent) {
   const setMatch = esContent.match(/ES_PILOT_SLUGS\s*=\s*new Set<string>\(\[([\s\S]*?)\]\)/);

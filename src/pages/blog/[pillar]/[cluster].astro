@@ -1,0 +1,35 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import BlogClusterView from "@/views/pages/blog-cluster";
+import { getAllBlogStaticParams, getClusterPost } from "@/lib/blog-registry";
+import { isNoindexCluster } from "@/lib/blog/noindex";
+import { blogMetadataFor } from "@/components/blog/BlogArticle";
+import type { PageMeta } from "@/lib/seo";
+
+export function getStaticPaths() {
+  return getAllBlogStaticParams()
+    .filter((p) => p.cluster)
+    .map((p) => ({ params: { pillar: p.pillar, cluster: p.cluster as string } }));
+}
+
+const pillar = Astro.params.pillar!;
+const cluster = Astro.params.cluster!;
+const post = getClusterPost(pillar, cluster);
+if (!post) {
+  return Astro.redirect("/404");
+}
+
+let meta: PageMeta = blogMetadataFor(post);
+if (isNoindexCluster(pillar, cluster)) {
+  meta = { ...meta, robots: { index: false, follow: true } };
+}
+---
+
+<AppPage
+  View={BlogClusterView}
+  viewKey="pages/blog-cluster"
+  props={{ pillar, cluster }}
+  meta={meta}
+  locale="en"
+  pathname={`/blog/${pillar}/${cluster}`}
+/>

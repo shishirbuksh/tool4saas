@@ -1,0 +1,442 @@
+// Server-only mapping: tool slug to related blog guides. Kept out of the
+// React component (and therefore out of client bundles) on purpose.
+export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> = {
+  // ---- Mapped heroes (existing guides only) ----
+  // ---- Finance tools with topical guides ----
+  "freelance-rate-calculator": [
+    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
+    { href: "/blog/invoice-generator-guide/freelancer-invoice-guide", title: "Freelancer invoice guide: get paid on time" },
+    { href: "/blog/invoice-generator-guide/small-business-invoicing", title: "Small business invoicing without paid software" },
+  ],
+  "salary-calculator": [
+    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
+    { href: "/blog/resume-builder-guide/offer-letter-guide", title: "Offer letter: CTC math, clauses & negotiation" },
+  ],
+  "in-hand-salary-india": [
+    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
+    { href: "/blog/resume-builder-guide/offer-letter-guide", title: "Offer letter: CTC math, clauses & negotiation" },
+  ],
+  // ---- Calculators & billing-adjacent tools ----
+  "gst-calculator": [
+    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
+    { href: "/blog/invoice-generator-guide/gst-invoice-format-india", title: "GST invoice format India: fields, HSN & sample" },
+  ],
+  "number-to-words": [
+    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
+    { href: "/blog/invoice-generator-guide/invoice-numbering", title: "Invoice numbering: GST-compliant formats & sequences" },
+  ],
+  "commission-calculator": [
+    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
+    { href: "/blog/invoice-generator-guide/small-business-invoicing", title: "Small business invoicing without paid software" },
+    { href: "/blog/invoice-generator-guide/freelancer-invoice-guide", title: "Freelancer invoice guide: get paid on time" },
+  ],
+  "discount-calculator": [
+    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
+    { href: "/blog/invoice-generator-guide/small-business-invoicing", title: "Small business invoicing without paid software" },
+  ],
+  "percentage-calculator": [
+    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
+    { href: "/blog/invoice-generator-guide/gst-invoice-format-india", title: "GST invoice format India: fields, HSN & sample" },
+  ],
+  "currency-converter": [
+    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
+    { href: "/blog/invoice-generator-guide/freelancer-invoice-guide", title: "Freelancer invoice guide: get paid on time" },
+  ],
+  // ---- Invoice family ----
+  "invoice-generator": [
+    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
+    { href: "/blog/invoice-generator-guide/how-to-create-invoice-online", title: "How to create an invoice online in 5 steps" },
+    { href: "/blog/invoice-generator-guide/invoicing-mistakes-to-avoid", title: "12 invoice mistakes that delay payment" },
+    { href: "/blog/invoice-generator-guide/invoice-numbering", title: "Invoice numbering: GST-compliant formats & sequences" },
+    { href: "/blog/invoice-generator-guide/invoice-template-formats", title: "Free invoice templates: Word, Excel & PDF formats" },
+    { href: "/blog/invoice-generator-guide/gst-invoice-format-india", title: "GST invoice format India: fields, HSN & sample" },
+    { href: "/blog/invoice-generator-guide/freelancer-invoice-guide", title: "Freelancer invoice guide: get paid on time" },
+  ],
+  "document-generator": [
+    { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
+    { href: "/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt", title: "Invoice vs quotation vs receipt vs purchase order" },
+    { href: "/blog/invoice-generator-guide/small-business-invoicing", title: "Small business invoicing without paid software" },
+    { href: "/blog/invoice-generator-guide/invoice-template-formats", title: "Free invoice templates: Word, Excel & PDF formats" },
+    { href: "/blog/invoice-generator-guide/payment-terms-and-followups", title: "Payment terms + follow-up scripts" },
+    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
+    { href: "/blog/resume-builder-guide/offer-letter-guide", title: "Offer letter: CTC math, clauses & negotiation" },
+    { href: "/blog/resume-builder-guide/experienced-resume-guide", title: "Resume for experienced professionals" },
+  ],
+  // ---- QR family ----
+  "qr-code-generator": [
+    { href: "/blog/qr-code-generator-guide", title: "Free QR Code Generator Guide (pillar)" },
+    { href: "/blog/qr-code-generator-guide/how-to-create-qr-code", title: "How to create a QR code free in 60 seconds" },
+    { href: "/blog/qr-code-generator-guide/qr-code-size-print-guide", title: "QR code size guide for print & distance" },
+    { href: "/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes", title: "Static vs dynamic QR codes: which to choose" },
+    { href: "/blog/qr-code-generator-guide/upi-payment-qr-code-india", title: "UPI QR code for payments: setup & safety (India)" },
+    { href: "/blog/qr-code-generator-guide/vcard-contact-qr-code", title: "vCard QR code: digital business card in 5 seconds" },
+    { href: "/blog/qr-code-generator-guide/wifi-qr-code-guide", title: "WiFi QR code: share guest WiFi with one scan" },
+    { href: "/blog/qr-code-generator-guide/qr-code-not-scanning-fix", title: "QR code not scanning? 5 causes & fixes" },
+  ],
+  "qr-scanner": [
+    { href: "/blog/qr-code-generator-guide", title: "Free QR Code Generator Guide (pillar)" },
+    { href: "/blog/qr-code-generator-guide/qr-code-not-scanning-fix", title: "QR code not scanning? 5 causes & fixes" },
+    { href: "/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes", title: "Static vs dynamic QR codes: which to choose" },
+    { href: "/blog/qr-code-generator-guide/vcard-contact-qr-code", title: "vCard QR code: digital business card in 5 seconds" },
+    { href: "/blog/qr-code-generator-guide/upi-payment-qr-code-india", title: "UPI QR code for payments: setup & safety (India)" },
+  ],
+  "barcode-generator": [
+    { href: "/blog/qr-code-generator-guide", title: "Free QR Code Generator Guide (pillar)" },
+    { href: "/blog/qr-code-generator-guide/qr-code-vs-barcode", title: "QR code vs barcode: differences & when to use each" },
+    { href: "/blog/qr-code-generator-guide/qr-code-for-business", title: "QR codes for small business: 6 placements" },
+  ],
+  // ---- Resume family ----
+  "resume-builder": [
+    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
+    { href: "/blog/resume-builder-guide/how-to-make-resume", title: "How to make a resume in 15 minutes + tailor it" },
+    { href: "/blog/resume-builder-guide/resume-mistakes", title: "7 resume mistakes that kill interviews" },
+    { href: "/blog/resume-builder-guide/ats-resume-guide", title: "ATS-friendly resume: beat tracking software" },
+    { href: "/blog/resume-builder-guide/resume-vs-cv", title: "Resume vs CV vs biodata: differences & when to use each" },
+  ],
+  "ats-resume-checker": [
+    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
+    { href: "/blog/resume-builder-guide/ats-resume-guide", title: "ATS-friendly resume: beat tracking software" },
+    { href: "/blog/resume-builder-guide/resume-format-guide", title: "Resume format: sections, order & norms" },
+    { href: "/blog/resume-builder-guide/resume-mistakes", title: "7 resume mistakes that kill interviews" },
+  ],
+  "cover-letter-builder": [
+    { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
+    { href: "/blog/resume-builder-guide/cover-letter-guide", title: "Cover letter: 4-paragraph format that wins" },
+    { href: "/blog/resume-builder-guide/fresher-resume-guide", title: "Fresher resume guide: zero experience" },
+    { href: "/blog/resume-builder-guide/resume-vs-cv", title: "Resume vs CV vs biodata: differences & when to use each" },
+  ],
+  "mortgage-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment", title: "How to calculate mortgage payment: formula + examples" },
+    { href: "/blog/mortgage-calculator-guide/15-vs-30-year-mortgage", title: "15 vs 30 year mortgage: interest & payoff compared" },
+    { href: "/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment", title: "Extra mortgage payments: interest saved" },
+  ],
+  "home-affordability-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/how-much-house-can-i-afford", title: "How much house can I afford? 28/36 rule" },
+    { href: "/blog/mortgage-calculator-guide/rent-vs-buy-house", title: "Rent vs buy: 5% rule + break-even math" },
+  ],
+  "refinance-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage", title: "Should I refinance? Break-even rule + checklist" },
+    { href: "/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment", title: "Extra mortgage payments: interest saved" },
+  ],
+  "mortgage-overpayment-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment", title: "Extra mortgage payments: interest saved" },
+    { href: "/blog/mortgage-calculator-guide/mortgage-amortization-schedule", title: "Amortization schedule: how payments split" },
+  ],
+  "emi-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india", title: "Home loan EMI & eligibility India" },
+    { href: "/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment", title: "How to calculate mortgage payment: formula + examples" },
+    { href: "/blog/mortgage-calculator-guide/15-vs-30-year-mortgage", title: "15 vs 30 year mortgage: interest & payoff compared" },
+  ],
+  "home-loan-eligibility-india": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india", title: "Home loan EMI & eligibility India" },
+  ],
+  "rent-vs-buy-calculator": [
+    { href: "/blog/mortgage-calculator-guide", title: "Mortgage Calculator Guide (pillar)" },
+    { href: "/blog/mortgage-calculator-guide/rent-vs-buy-house", title: "Rent vs buy: 5% rule + break-even math" },
+    { href: "/blog/mortgage-calculator-guide/how-much-house-can-i-afford", title: "How much house can I afford? 28/36 rule" },
+  ],
+  "password-generator": [
+    { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
+    { href: "/blog/password-generator-guide/how-to-create-strong-password", title: "How to create a strong password: 16-character rule" },
+    { href: "/blog/password-generator-guide/passphrase-vs-password", title: "Passphrase vs password: when 5 words win" },
+    { href: "/blog/password-generator-guide/how-to-remember-passwords", title: "Remember passwords without reusing them" },
+    { href: "/blog/password-generator-guide/what-to-do-after-data-breach", title: "What to do after a data breach: 7-step checklist" },
+  ],
+  "password-strength": [
+    { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
+    { href: "/blog/password-generator-guide/password-strength-tester", title: "Strength tester: check without uploading" },
+    { href: "/blog/password-generator-guide/what-makes-password-strong", title: "What makes a password strong: entropy + blacklists" },
+  ],
+  "otp-generator": [
+    { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
+    { href: "/blog/password-generator-guide/2fa-vs-passkeys", title: "2FA vs passkeys: strength ladder + setup" },
+    { href: "/blog/password-generator-guide/what-to-do-after-data-breach", title: "What to do after a data breach: 7-step checklist" },
+  ],
+  "random-number": [
+    { href: "/blog/password-generator-guide", title: "Password Generator Guide (pillar)" },
+    { href: "/blog/password-generator-guide/random-password-ideas", title: "Random password ideas: patterns that stay safe" },
+    { href: "/blog/password-generator-guide/wifi-router-password", title: "Strong Wi-Fi & router passwords: setup" },
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/uuid-seed-test-database", title: "Seed test databases with UUIDs" },
+  ],
+  "word-counter": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/how-to-count-words-online", title: "How to count words online free (no signup)" },
+    { href: "/blog/word-counter-guide/ideal-blog-post-length-seo", title: "How long should a blog post be?" },
+    { href: "/blog/word-counter-guide/flesch-reading-ease-score-explained", title: "Flesch Reading Ease: formula and bands" },
+    { href: "/blog/word-counter-guide/keyword-density-seo-check", title: "Keyword density: check and fix stuffing" },
+    { href: "/blog/word-counter-guide/grammar-check-before-publish", title: "Grammar check before you publish" },
+  ],
+  "text-summarizer": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/how-to-summarize-text-fast", title: "How to summarize text: extractive method" },
+    { href: "/blog/word-counter-guide/text-to-speech-proofreading-use", title: "Proofread by listening: TTS workflow" },
+  ],
+  "grammar-checker": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/grammar-check-before-publish", title: "Grammar check before you publish" },
+    { href: "/blog/word-counter-guide/flesch-reading-ease-score-explained", title: "Flesch Reading Ease: formula and bands" },
+  ],
+  "typing-speed-test": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/typing-speed-test-practice-tips", title: "Reading and typing speed: WPM math + tips" },
+    { href: "/blog/word-counter-guide/how-to-count-words-online", title: "How to count words online free (no signup)" },
+  ],
+  "lorem-ipsum": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/lorem-ipsum-generator-use", title: "Lorem ipsum: when to use placeholder text" },
+    { href: "/blog/word-counter-guide/typing-speed-test-practice-tips", title: "Reading and typing speed: WPM math + tips" },
+  ],
+  "text-to-speech": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/text-to-speech-proofreading-use", title: "Proofread by listening: TTS workflow" },
+    { href: "/blog/word-counter-guide/grammar-check-before-publish", title: "Grammar check before you publish" },
+  ],
+  "text-tools": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
+    { href: "/blog/word-counter-guide/how-to-count-words-online", title: "How to count words online free (no signup)" },
+  ],
+  // ---- Image optimization silo ----
+  "image-compressor": [
+    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
+    { href: "/blog/image-compressor-guide/compress-jpg-100kb-portal", title: "Compress JPG to 100KB for online forms" },
+    { href: "/blog/image-compressor-guide/resize-image-exact-pixels", title: "Resize images to exact pixels without blur" },
+    { href: "/blog/image-compressor-guide/crop-passport-photos", title: "Crop passport photos to exact size" },
+    { href: "/blog/image-compressor-guide/strip-exif-before-upload", title: "Strip EXIF data before uploading" },
+  ],
+  "image-format-converter": [
+    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
+    { href: "/blog/image-compressor-guide/png-vs-jpg-vs-webp", title: "PNG vs JPG vs WebP: which format to use" },
+    { href: "/blog/image-compressor-guide/png-to-webp-transparency", title: "PNG to WebP without losing transparency" },
+  ],
+  "svg-optimizer": [
+    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
+    { href: "/blog/image-compressor-guide/optimize-svg-logos", title: "Optimize SVG logos without breaking them" },
+  ],
+  "exif-viewer": [
+    { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
+    { href: "/blog/image-compressor-guide/strip-exif-before-upload", title: "Strip EXIF data before uploading" },
+  ],
+  // ---- PDF workflow silo ----
+  "pdf-merge": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/merge-multiple-pdfs-order", title: "Merge multiple PDFs in order" },
+    { href: "/blog/pdf-merge-guide/extract-pages-range", title: "Extract pages by range: 1-3,5 syntax" },
+    { href: "/blog/pdf-merge-guide/fix-sideways-scans", title: "Fix sideways scans: rotate upright" },
+    { href: "/blog/pdf-merge-guide/add-draft-watermark", title: "Add DRAFT watermark readably" },
+  ],
+  "image-to-pdf": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/jpg-scans-single-pdf", title: "JPG scans to single PDF: A4 setup" },
+  ],
+  "pdf-to-jpg": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/pdf-pages-high-quality-jpg", title: "PDF pages to high-quality JPG" },
+  ],
+  "pdf-to-text": [
+    { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
+    { href: "/blog/pdf-merge-guide/extract-text-without-ocr", title: "Extract text without OCR" },
+  ],
+  // ---- Developer toolkit silo ----
+  "json-formatter": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/json-parse-errors", title: "Why JSON.parse fails: commas and quotes" },
+    { href: "/blog/json-formatter-guide/regex-flags-capture-groups", title: "Regex flags and capture groups" },
+  ],
+  "base64-tool": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/base64-url-safe-vs-standard", title: "Base64 URL-safe vs standard" },
+  ],
+  "hash-generator": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/sha256-vs-md5-hashes", title: "SHA-256 vs MD5: when to use which" },
+  ],
+  "regex-tester": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/regex-flags-capture-groups", title: "Regex flags and capture groups" },
+    { href: "/blog/json-formatter-guide/json-parse-errors", title: "Why JSON.parse fails: commas and quotes" },
+  ],
+  "jwt-decoder": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/jwt-expiry-without-trust", title: "Check JWT expiry without trusting it" },
+  ],
+  "url-encoder": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/url-encoding-spaces-symbols", title: "URL encoding: spaces and symbols" },
+  ],
+  // ---- SEO publishing silo ----
+  "seo-analyzer": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/fix-score-60-to-80", title: "Fix SEO score from 60 to 80" },
+    { href: "/blog/seo-analyzer-guide/title-meta-length-2026", title: "Title and meta lengths that avoid truncation" },
+    { href: "/blog/seo-analyzer-guide/geo-checklist-ai-citations", title: "GEO checklist: get cited by AI search" },
+  ],
+  "meta-tag-generator": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/title-meta-length-2026", title: "Title and meta lengths that avoid truncation" },
+  ],
+  "serp-preview": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/title-meta-length-2026", title: "Title and meta lengths that avoid truncation" },
+    { href: "/blog/seo-analyzer-guide/fix-score-60-to-80", title: "Fix SEO score from 60 to 80" },
+    { href: "/blog/seo-analyzer-guide/stale-og-image-fix", title: "Fix stale LinkedIn and social preview images" },
+  ],
+  "sitemap-generator": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/split-large-sitemap", title: "Split large sitemaps Search Console accepts" },
+  ],
+  "robots-txt-generator": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/robots-vs-noindex", title: "Robots.txt vs noindex: when to use each" },
+  ],
+  "utm-builder": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/utm-naming-governance", title: "Name UTM campaigns without splitting reports" },
+  ],
+  "faq-schema-generator": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/ai-content-false-positives", title: "Check AI content without false positives" },
+  ],
+  "ai-detector": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/ai-content-false-positives", title: "Check AI content without false positives" },
+  ],
+  "plagiarism-checker": [
+    { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
+    { href: "/blog/seo-analyzer-guide/ai-content-false-positives", title: "Check AI content without false positives" },
+  ],
+  // ---- India wealth & tax silo ----
+  "sip-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/sip-5000-10-years", title: "₹5,000 SIP in 10/15/20 years" },
+    { href: "/blog/sip-calculator-guide/sip-1-crore-goal", title: "How much SIP for ₹1 crore?" },
+  ],
+  "compound-interest-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/lumpsum-compounding-frequency", title: "Lump sum compounding frequency" },
+  ],
+  "fd-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/fd-quarterly-tds", title: "FD quarterly compounding and TDS" },
+    { href: "/blog/sip-calculator-guide/equity-ltcg-vs-fd-tax", title: "Equity LTCG vs FD tax" },
+  ],
+  "ppf-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/ppf-extend-15-years", title: "PPF after 15 years: extend or close?" },
+  ],
+  "income-tax-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/old-vs-new-regime-2026", title: "Old vs new tax regime in 2026" },
+    { href: "/blog/sip-calculator-guide/budget-2026-verdict-salaried", title: "Budget 2026 verdict for salaried savers" },
+  ],
+  "inflation-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/real-return-inflation", title: "Real vs nominal returns" },
+  ],
+  "retirement-calculator": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/sip-1-crore-goal", title: "How much SIP for ₹1 crore?" },
+  ],
+  "capital-gains-tax-india": [
+    { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
+    { href: "/blog/sip-calculator-guide/equity-ltcg-vs-fd-tax", title: "Equity LTCG vs FD tax" },
+    { href: "/blog/sip-calculator-guide/budget-2026-verdict-salaried", title: "Budget 2026 verdict for salaried savers" },
+  ],
+  // ---- Health & Wellness silo ----
+  "bmi-calculator": [
+    { href: "/blog/bmi-calculator-guide", title: "BMI Calculator Guide: Healthy Weight, Calories & Water Needs (pillar)" },
+    { href: "/blog/bmi-calculator-guide/how-bmi-is-calculated", title: "How BMI is calculated: metric and imperial formulas" },
+    { href: "/blog/bmi-calculator-guide/healthy-weight-range", title: "Healthy weight range for your height" },
+    { href: "/blog/bmi-calculator-guide/bmi-for-women", title: "BMI for women: body fat and distribution differences" },
+    { href: "/blog/bmi-calculator-guide/bmi-for-men", title: "BMI for men: muscle mass vs fat percentage" },
+  ],
+  "calorie-calculator": [
+    { href: "/blog/bmi-calculator-guide", title: "BMI Calculator Guide: Healthy Weight, Calories & Water Needs (pillar)" },
+    { href: "/blog/bmi-calculator-guide/calorie-deficit-for-weight-loss", title: "Calorie deficit math: BMR, TDEE and safe rates" },
+    { href: "/blog/bmi-calculator-guide/healthy-weight-range", title: "Healthy weight range for your height" },
+  ],
+  "water-intake-calculator": [
+    { href: "/blog/bmi-calculator-guide", title: "BMI Calculator Guide: Healthy Weight, Calories & Water Needs (pillar)" },
+    { href: "/blog/bmi-calculator-guide/daily-water-intake", title: "Daily water intake by weight, climate and activity" },
+  ],
+  // ---- Age & Date/Time arithmetic silo ----
+  "age-calculator": [
+    { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
+    { href: "/blog/age-calculator-guide/calculate-exact-age", title: "Calculate exact age: years, months, days and leap years" },
+    { href: "/blog/age-calculator-guide/age-difference", title: "Calculate age difference between two people" },
+    { href: "/blog/age-calculator-guide/age-in-days", title: "Convert age to total days, weeks and hours" },
+  ],
+  "date-calculator": [
+    { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
+    { href: "/blog/age-calculator-guide/date-difference", title: "Calculate days between two dates: elapsed vs dates touched" },
+    { href: "/blog/age-calculator-guide/date-add-subtract", title: "Add or subtract days, weeks, months and years" },
+    { href: "/blog/age-calculator-guide/leap-year-birthdays", title: "Leap year birthday math and February 29 rules" },
+  ],
+  "timezone-converter": [
+    { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
+    { href: "/blog/age-calculator-guide/timezone-conversion", title: "Time zone conversion: DST shifts and UTC offsets" },
+  ],
+  "timestamp-converter": [
+    { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
+    { href: "/blog/age-calculator-guide/unix-timestamp", title: "Unix timestamps: seconds vs milliseconds and ISO 8601" },
+  ],
+  // ---- Debt payoff silo ----
+  "debt-payoff-calculator": [
+    { href: "/blog/debt-payoff-guide", title: "Debt Payoff Guide: Snowball vs Avalanche Methods (pillar)" },
+    { href: "/blog/debt-payoff-guide/snowball-vs-avalanche", title: "Snowball vs avalanche: balances, rates and payoff compared" },
+    { href: "/blog/debt-payoff-guide/how-to-pay-off-credit-card-debt", title: "How to pay off credit card debt fast" },
+    { href: "/blog/debt-payoff-guide/minimum-payment-trap", title: "Credit card minimum payment trap: interest math" },
+    { href: "/blog/debt-payoff-guide/extra-payment-strategy", title: "Extra payments: how small additions slash payoff time" },
+  ],
+  // ---- Grade & GPA silo ----
+  "grade-calculator": [
+    { href: "/blog/grade-calculator-guide", title: "Grade Calculator Guide: Weighted Grades & Final Exam Score (pillar)" },
+    { href: "/blog/grade-calculator-guide/weighted-grade-calculation", title: "How to calculate weighted grades from syllabus percentages" },
+    { href: "/blog/grade-calculator-guide/final-exam-grade-needed", title: "What score do I need on the final exam?" },
+  ],
+  "gpa-calculator": [
+    { href: "/blog/grade-calculator-guide", title: "Grade Calculator Guide: Weighted Grades & Final Exam Score (pillar)" },
+    { href: "/blog/grade-calculator-guide/percentage-to-gpa", title: "Convert percentage to 4.0 GPA scale" },
+    { href: "/blog/grade-calculator-guide/gpa-vs-cgpa", title: "GPA vs CGPA: semester vs cumulative grade points" },
+    { href: "/blog/grade-calculator-guide/weighted-vs-unweighted-gpa", title: "Weighted vs unweighted GPA: AP, IB and honors points" },
+  ],
+  // ---- Digital Signature silo ----
+  "signature-maker": [
+    { href: "/blog/signature-maker-guide", title: "Signature Maker Guide: Draw, Type & Download Transparent PNG (pillar)" },
+    { href: "/blog/signature-maker-guide/transparent-signature-png", title: "How to create a transparent PNG signature" },
+    { href: "/blog/signature-maker-guide/drawn-vs-typed-signature", title: "Drawn vs typed signatures: when to use each" },
+    { href: "/blog/signature-maker-guide/signature-size-for-pdf", title: "Standard signature sizes for contracts, forms and email" },
+    { href: "/blog/signature-maker-guide/sign-pdf-without-printing", title: "How to place an image signature on a PDF contract" },
+  ],
+  // ---- Developer & Design extensions ----
+  "xml-formatter": [
+    { href: "/blog/json-formatter-guide", title: "Debug API Responses Locally: JSON, Base64, JWT Guide (pillar)" },
+    { href: "/blog/json-formatter-guide/format-xml-sitemaps-feeds", title: "Format XML sitemaps and RSS feeds cleanly" },
+  ],
+  "html-entities": [
+    { href: "/blog/json-formatter-guide", title: "Debug API Responses Locally: JSON, Base64, JWT Guide (pillar)" },
+    { href: "/blog/json-formatter-guide/html-entities-encode-decode", title: "HTML entities encode & decode: named vs numeric" },
+  ],
+  "text-diff": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide: Count Words, Reading Time & Readability (pillar)" },
+    { href: "/blog/word-counter-guide/compare-two-texts-word-diff", title: "Compare two text versions: word-by-word diff" },
+  ],
+  "markdown-editor": [
+    { href: "/blog/word-counter-guide", title: "Word Counter Guide: Count Words, Reading Time & Readability (pillar)" },
+    { href: "/blog/word-counter-guide/markdown-preview-before-publishing", title: "Markdown preview and syntax checking before publishing" },
+  ],
+  "color-contrast": [
+    { href: "/blog/image-compressor-guide", title: "Compress Images for Web Without Losing Quality: 80% Guide (pillar)" },
+    { href: "/blog/image-compressor-guide/wcag-contrast-check", title: "WCAG color contrast ratios: AA vs AAA compliance" },
+  ],
+  "image-to-base64": [
+    { href: "/blog/image-compressor-guide", title: "Compress Images for Web Without Losing Quality: 80% Guide (pillar)" },
+    { href: "/blog/image-compressor-guide/image-to-base64-data-url", title: "Convert images to Base64 data URLs: when to inline" },
+  ],
+};

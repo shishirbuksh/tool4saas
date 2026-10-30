@@ -3,11 +3,13 @@
 import { useState } from "react";
 import React from "react";
 import MuiNextLink from "@/components/MuiNextLink";
-import dynamic from "next/dynamic";
 
 const LinkWrapper = MuiNextLink;
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/lib/astro/navigation";
 import AppBar from "@mui/material/AppBar";
+import Drawer from "@mui/material/Drawer";
+import Menu from "@mui/material/Menu";
+import ToolSearch from "@/components/ToolSearch";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -33,18 +35,11 @@ import { siteConfig } from "@/lib/site";
 import { useThemeMode } from "@/components/ThemeProviderClient";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
-const DrawerDynamic = dynamic(() => import("@mui/material/Drawer"), {
-  ssr: false,
-  loading: () => null,
-}) as any;
-const MenuDynamic = dynamic(() => import("@mui/material/Menu"), {
-  ssr: false,
-  loading: () => null,
-}) as any;
-const ToolSearchDynamic = dynamic(() => import("@/components/ToolSearch"), {
-  ssr: false,
-  loading: () => null,
-}) as any;
+// Rendered directly (not lazy): the header search + menus are above the fold
+// and Astro SSRs them, so there is no hydration-time layout shift.
+const DrawerDynamic = Drawer as any;
+const MenuDynamic = Menu as any;
+const ToolSearchDynamic = ToolSearch as any;
 
 export default function Header() {
   const [open, setOpen] = useState(false);

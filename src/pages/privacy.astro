@@ -1,0 +1,21 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import PrivacyView from "@/views/pages/privacy";
+import { staticPageMetadata } from "@/lib/metadata";
+
+const meta = staticPageMetadata({
+  title: "Privacy Policy — Data Stays in Your Browser",
+  description:
+    "How Tool4SaaS handles your data: everything runs locally in your browser and nothing is uploaded unless you download or print.",
+  path: "/privacy",
+});
+---
+
+<AppPage
+  View={PrivacyView}
+  viewKey="pages/privacy"
+  props={{}}
+  meta={meta}
+  locale="en"
+  pathname="/privacy"
+/>

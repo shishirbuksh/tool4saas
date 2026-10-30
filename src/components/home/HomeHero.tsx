@@ -2,7 +2,7 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
+import Link from "@/lib/astro/navigation";
 import ToolSearch from "@/components/ToolSearch";
 import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
 

@@ -7,7 +7,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Paper from "@mui/material/Paper";
 import Switch from "@mui/material/Switch";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
+import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
 
 const KEY = "t4s-consent-v1";

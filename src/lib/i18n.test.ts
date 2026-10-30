@@ -160,7 +160,7 @@ describe("i18n pilot registry", () => {
   });
 
   it("sitemap includes every pilot /es URL and no non-pilot /es URLs", async () => {
-    const { default: sitemap } = await import("../app/sitemap");
+    const { default: sitemap } = await import("../pages/sitemap.xml");
     const urls = (sitemap() as { url: string }[]).map((e) => e.url);
     expect(urls).toContain(`${base}/es`);
     expect(urls).toContain(`${base}/fr`);
@@ -206,7 +206,7 @@ describe("i18n pilot registry", () => {
     const { getClusterPost } = await import("./blog-registry");
     expect(getClusterPost("qr-code-generator-guide", "qr-code-size-print-guide")).toBeDefined();
     // Sitemap emits the ES blog URL, never unlisted ES blog URLs.
-    const { default: sitemap } = await import("../app/sitemap");
+    const { default: sitemap } = await import("../pages/sitemap.xml");
     const urls = (sitemap() as { url: string }[]).map((e) => e.url);
     expect(urls).toContain(`${base}/es/blog/qr-code-generator-guide/qr-code-size-print-guide`);
     expect(urls.some((u) => u.endsWith("/es/blog/word-counter-guide/how-to-count-words-online"))).toBe(false);

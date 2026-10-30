@@ -1,7 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import Link from "next/link";
+import dynamic from "@/lib/astro/dynamic";
+import Link from "@/lib/astro/navigation";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Skeleton from "@mui/material/Skeleton";

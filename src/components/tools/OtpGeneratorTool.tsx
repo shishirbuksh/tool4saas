@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { ComponentType } from "react";
-import dynamic from "next/dynamic";
+import dynamic from "@/lib/astro/dynamic";
 import ToolPaper from "@/components/ToolPaper";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";

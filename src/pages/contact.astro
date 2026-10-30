@@ -1,0 +1,21 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import ContactView from "@/views/pages/contact";
+import { staticPageMetadata } from "@/lib/metadata";
+
+const meta = staticPageMetadata({
+  title: "Contact Tool4SaaS — Help, Feedback & Bugs",
+  description:
+    "Contact the Tool4SaaS team for support, feedback, or bug reports — we read every message and reply within 2 business days (Mon-Fri, UTC).",
+  path: "/contact",
+});
+---
+
+<AppPage
+  View={ContactView}
+  viewKey="pages/contact"
+  props={{}}
+  meta={meta}
+  locale="en"
+  pathname="/contact"
+/>

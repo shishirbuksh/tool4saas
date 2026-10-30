@@ -1,0 +1,21 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import BlogIndexView from "@/views/pages/blog-index";
+import { staticPageMetadata } from "@/lib/metadata";
+
+const meta = staticPageMetadata({
+  title: "Blog — Free Tool Guides & Tutorials",
+  description:
+    "Practical guides for every Tool4SaaS tool: invoice generators, PDF tools, calculators and more. Pillar guides + step-by-step tutorials with free templates.",
+  path: "/blog",
+});
+---
+
+<AppPage
+  View={BlogIndexView}
+  viewKey="pages/blog-index"
+  props={{}}
+  meta={meta}
+  locale="en"
+  pathname="/blog"
+/>

@@ -1,6 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import dynamic from "@/lib/astro/dynamic";
 
 const CookieConsent = dynamic(() => import("./CookieConsent"), {
   ssr: false,

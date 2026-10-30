@@ -1,0 +1,21 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import MethodologyView from "@/views/pages/methodology";
+import { staticPageMetadata } from "@/lib/metadata";
+
+const meta = staticPageMetadata({
+  title: "How We Test Tools — Accuracy You Can Verify",
+  description:
+    "How Tool4SaaS tests every tool: built locally, verified against known samples, checked across browsers, and kept up to date.",
+  path: "/methodology",
+});
+---
+
+<AppPage
+  View={MethodologyView}
+  viewKey="pages/methodology"
+  props={{}}
+  meta={meta}
+  locale="en"
+  pathname="/methodology"
+/>

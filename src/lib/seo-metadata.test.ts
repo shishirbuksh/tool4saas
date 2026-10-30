@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
-import { toolMetadata, homeMetadata, staticPageMetadata } from "./metadata";
+import { toolMetadata, homeMetadata, staticPageMetadata, localeToolMetadata } from "./metadata";
 import { tools, getTool } from "./tools";
 import { NOINDEX_SLUGS } from "./tools/noindex";
 import { siteConfig } from "./site";
-import { ES_PILOT_SLUGS, FR_PILOT_SLUGS } from "./i18n";
+import { ES_PILOT_SLUGS, FR_PILOT_SLUGS, getLocaleTool } from "./i18n";
 
 const root = process.cwd();
 const base = siteConfig.url.replace(/\/$/, "");
@@ -94,20 +94,20 @@ describe("SEO metadata", () => {
     // here. Instead assert the sitemap imports the single-source noindex list
     // (@/lib/tools NOINDEX_SLUGS, no local duplicate) and the generated sitemap
     // actually excludes the slug.
-    const src = fs.readFileSync(path.join(root, "src", "app", "sitemap.ts"), "utf8");
+    const src = fs.readFileSync(path.join(root, "src", "pages", "sitemap.xml.ts"), "utf8");
     expect(src).toContain("NOINDEX_SLUGS");
     expect(src).toMatch(/import\s+.*NOINDEX_SLUGS.*from\s+["']@\/lib\/tools["']/);
     expect(src).not.toMatch(/const\s+NOINDEX_SLUGS\s*=\s*new Set/);
     const toolsSrc = fs.readFileSync(path.join(root, "src", "lib", "tools", "index.ts"), "utf8");
     expect(toolsSrc).toContain("pdf-compress");
-    const { default: sitemap } = await import("../app/sitemap");
+    const { default: sitemap } = await import("../pages/sitemap.xml");
     const urls = (sitemap() as { url: string }[]).map((e) => e.url);
     expect(urls.some((u) => u.endsWith("/pdf-compress"))).toBe(false);
     expect(urls.some((u) => u.endsWith("/word-counter"))).toBe(true);
   }, 35000);
 
   it("noindex blog cluster is excluded from sitemap and llms.txt", async () => {
-    const { default: sitemap } = await import("../app/sitemap");
+    const { default: sitemap } = await import("../pages/sitemap.xml");
     const urls = (sitemap() as { url: string }[]).map((e) => e.url);
     expect(urls.some((u) => u.includes("/blog/pdf-merge-guide/compress-pdf-1mb-email"))).toBe(false);
     expect(urls.some((u) => u.includes("/blog/percentage-calculator-guide/percent-of-a-number"))).toBe(true);
@@ -117,9 +117,9 @@ describe("SEO metadata", () => {
   }, 20000);
 
   it("never emits a /fr/blog sitemap URL (FR publishes no blog)", async () => {
-    const src = fs.readFileSync(path.join(root, "src", "app", "sitemap.ts"), "utf8");
+    const src = fs.readFileSync(path.join(root, "src", "pages", "sitemap.xml.ts"), "utf8");
     expect(src).toContain("BLOG_PILOT_LOCALES");
-    const { default: sitemap } = await import("../app/sitemap");
+    const { default: sitemap } = await import("../pages/sitemap.xml");
     const urls = (sitemap() as { url: string }[]).map((e) => e.url);
     expect(
       urls.some((u) => u.includes("/es/blog/qr-code-generator-guide/qr-code-size-print-guide"))
@@ -138,33 +138,32 @@ describe("SEO metadata", () => {
   });
 
   it("locale tool pages keep og:locale:alternate in sync with pilot overlap", () => {
-    // Read the .tsx route files — locale metadata is authored inline there.
-    const read = (rel: string) =>
-      fs.readFileSync(path.join(root, "src", "app", rel), "utf8");
-    const altOf = (src: string) => {
-      const m = src.match(/alternateLocale:\s*\[([^\]]*)\]/);
-      return m ? m[1].split(",").map((s) => s.trim().replace(/"/g, "")).filter(Boolean) : [];
-    };
     for (const slug of FR_PILOT_SLUGS) {
-      const alt = altOf(read(`(fr)/fr/${slug}/page.tsx`));
+      const tool = getLocaleTool("fr", slug)!;
+      const meta = localeToolMetadata(tool, "fr");
+      const alt = meta.openGraph?.alternateLocale ?? [];
       expect(alt, `FR ${slug} en`).toContain("en_US");
       expect(alt, `FR ${slug} no self`).not.toContain("fr_FR");
       if (ES_PILOT_SLUGS.has(slug)) expect(alt, `FR ${slug} should also offer es`).toContain("es_ES");
     }
     for (const slug of ES_PILOT_SLUGS) {
-      const alt = altOf(read(`(es)/es/${slug}/page.tsx`));
+      const tool = getLocaleTool("es", slug)!;
+      const meta = localeToolMetadata(tool, "es");
+      const alt = meta.openGraph?.alternateLocale ?? [];
       expect(alt, `ES ${slug} en`).toContain("en_US");
       expect(alt, `ES ${slug} no self`).not.toContain("es_ES");
       if (FR_PILOT_SLUGS.has(slug)) expect(alt, `ES ${slug} should also offer fr`).toContain("fr_FR");
     }
     // Hubs cross-reference each other.
-    expect(altOf(read("(es)/es/page.tsx"))).toEqual(["en_US", "fr_FR"]);
-    expect(altOf(read("(fr)/fr/page.tsx"))).toEqual(["en_US", "es_ES"]);
+    const esPage = fs.readFileSync(path.join(root, "src", "pages", "es", "index.astro"), "utf8");
+    const frPage = fs.readFileSync(path.join(root, "src", "pages", "fr", "index.astro"), "utf8");
+    expect(esPage).toContain('alternateLocale: ["en_US", "fr_FR"]');
+    expect(frPage).toContain('alternateLocale: ["en_US", "es_ES"]');
   });
 
   it("SiteJsonLd and ToolSeo conform to Schema.org standards (no speakableSpecification or WebSite availableLanguage)", () => {
     const siteJsonSrc = fs.readFileSync(path.join(root, "src", "components", "SiteJsonLd.tsx"), "utf8");
-    const toolSeoSrc = fs.readFileSync(path.join(root, "src", "components", "ToolSeo.tsx"), "utf8");
+    const toolSeoSrc = fs.readFileSync(path.join(root, "src", "lib", "tool-view.server.ts"), "utf8");
 
     // Must use `speakable` property, not invalid `speakableSpecification`
     expect(siteJsonSrc).not.toContain("speakableSpecification:");

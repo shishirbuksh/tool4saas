@@ -1,0 +1,16 @@
+---
+import AppPage from "@/layouts/AppPage.astro";
+import HomeView from "@/views/pages/home";
+import { homeMetadata } from "@/lib/metadata";
+
+const meta = homeMetadata();
+---
+
+<AppPage
+  View={HomeView}
+  viewKey="pages/home"
+  props={{}}
+  meta={meta}
+  locale="en"
+  pathname="/"
+/>

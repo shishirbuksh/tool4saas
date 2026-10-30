@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/astro/navigation";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -8,42 +8,25 @@ import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import RelatedTools from "@/components/RelatedTools";
 import RelatedGuides from "@/components/blog/RelatedGuides";
 import EmbedToolSnippet from "@/components/EmbedToolSnippet";
-import { getCategory, NOINDEX_SLUGS, tools, type Tool } from "@/lib/tools";
-import { getYMYLType } from "@/lib/ymyl";
 import { siteConfig } from "@/lib/site";
-import { getDateModifiedIso, formatIsoHuman } from "@/lib/dates";
-import { isPilotSlug, getPilotLocales, LOCALE_LABEL, type Locale } from "@/lib/i18n";
-
-// Lead-in + link labels for the visible locale switcher, keyed by shell locale.
-// Link labels reuse LOCALE_LABEL so new locales plug in via i18n.ts only.
-const SWITCHER_LEAD: Record<Locale, string> = {
-  en: "Also available in: ",
-  es: "También disponible en: ",
-  fr: "Aussi disponible en : ",
-};
-function switcherLabel(viewLocale: Locale, target: Locale): string {
-  if (target === "en") return viewLocale === "fr" ? "version anglaise" : "English version";
-  return LOCALE_LABEL[target];
-}
-function switcherHref(toolSlug: string, target: Locale): string {
-  return target === "en" ? `/${toolSlug}` : `/${target}/${toolSlug}`;
-}
+import type { ToolView } from "@/lib/tool-view";
 
 // Real dateModified per-tool derived from git history — see src/lib/dates.ts
 // (shared with ToolSeo JSON-LD and sitemap lastmod).
 
-export default function ToolPageShell({ tool, children, locale = "en" }: { tool: Tool; children: React.ReactNode; locale?: Locale }) {
-  const cat = getCategory(tool.category);
+export default function ToolPageShell({ view, children }: { view: ToolView; children: React.ReactNode }) {
+  const { tool, locale } = view;
+  const cat = view.category;
   // dateModified comes from real git history of the tool's data file
   // (src/lib/edit-dates.generated.ts), so the visible <time> date always
   // equals the JSON-LD dateModified and the sitemap lastmod.
-  const seeAlso = tools.filter((t) => t.category === tool.category && t.slug !== tool.slug && !NOINDEX_SLUGS.has(t.slug)).slice(0, 2);
-  const dateModifiedIso = getDateModifiedIso(tool.slug);
-  const dateModifiedDisplay = formatIsoHuman(dateModifiedIso);
+  const seeAlso = view.seeAlso;
+  const dateModifiedIso = view.dateModifiedIso;
+  const dateModifiedDisplay = view.dateModifiedDisplay;
   // Central YMYL injection (single source: src/lib/ymyl.ts). Covers finance +
   // health categories plus 10 calculators/business overrides. Tools must not
   // import YMYLDisclaimer directly.
-  const ymylType = getYMYLType(tool);
+  const ymylType = view.ymylType;
   return (
     <Container maxWidth="xl" sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 }, overflowX: "clip" }}>
       <Box sx={{ mb: { xs: 6, md: 8 }, maxWidth: 800, mx: "auto", textAlign: "center" }}>
@@ -125,16 +108,14 @@ export default function ToolPageShell({ tool, children, locale = "en" }: { tool:
             )}
           </Typography>
         )}
-        {isPilotSlug(tool.slug) && (
+        {view.localeLinks.length > 0 && (
           <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
-            {SWITCHER_LEAD[locale]}
-            {(["en", ...getPilotLocales(tool.slug)] as Locale[])
-              .filter((l) => l !== locale)
-              .map((l, i) => (
-                <span key={l}>
+            {view.switcherLead}
+            {view.localeLinks.map((l, i) => (
+                <span key={l.locale}>
                   {i > 0 && " · "}
-                  <Link href={switcherHref(tool.slug, l)} hrefLang={l}>
-                    {switcherLabel(locale, l)} →
+                  <Link href={l.href} hrefLang={l.locale}>
+                    {l.label} →
                   </Link>
                 </span>
               ))}
@@ -176,8 +157,8 @@ export default function ToolPageShell({ tool, children, locale = "en" }: { tool:
           <EmbedToolSnippet slug={tool.slug} title={tool.title} locale={locale} />
         </Box>
       </Box>
-      <RelatedTools slug={tool.slug} />
-      <RelatedGuides slug={tool.slug} />
+      <RelatedTools tools={view.relatedTools} heading={view.relatedToolsHeading} />
+      <RelatedGuides guides={view.guides} />
       <Box
         component="section"
         aria-label={locale === "es" ? "Sobre el autor" : locale === "fr" ? "À propos de l'auteur" : "About the author"}
@@ -212,7 +193,7 @@ export default function ToolPageShell({ tool, children, locale = "en" }: { tool:
           )}
         </Typography>
       </Box>
-      <ToolSeo tool={tool} locale={locale} />
+      <ToolSeo view={view} />
     </Container>
   );
 }
