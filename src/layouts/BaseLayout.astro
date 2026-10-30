@@ -30,11 +30,11 @@ const {
 } = Astro.props;
 
 const title = resolveTitle(meta);
+const og = meta.openGraph;
 const description = meta.description ?? og?.description ?? siteConfig.description;
 const canonical = meta.alternates?.canonical ?? siteConfig.url;
 const languages = meta.alternates?.languages ?? {};
 const robots = meta.robots ?? DEFAULT_ROBOTS;
-const og = meta.openGraph;
 const twitter = meta.twitter;
 const ogImages = og?.images ?? [];
 const verification = meta.verification;

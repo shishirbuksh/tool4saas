@@ -3,12 +3,31 @@ body {
   padding: 0;
   margin: 0;
   background: #FCFCF9;
+  color: #111111;
   letter-spacing: -0.015em;
   overflow-x: clip;
 }
 [data-theme="dark"] html,
 [data-theme="dark"] body {
   background: #0A0A0A;
+  color: #EDEDED;
+}
+
+[data-theme="dark"] {
+  color: #EDEDED;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: #EDEDED;
+}
+
+[data-theme="dark"] .MuiAppBar-root {
+  color: #EDEDED;
 }
 
 a {

@@ -60,6 +60,7 @@ export default function HomeHero() {
           <Typography
             variant="h1"
             sx={{
+              color: "text.primary",
               fontSize: "clamp(2.4rem, 1.6rem + 2.4vw, 4rem)",
               lineHeight: 1.05,
               letterSpacing: "-0.04em",

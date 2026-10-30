@@ -58,6 +58,7 @@ export default function Header() {
       color="inherit"
       sx={{
         backgroundColor: "background.default",
+        color: "text.primary",
         borderRadius: 0,
         borderBottom: "1px solid",
         borderColor: "divider",
