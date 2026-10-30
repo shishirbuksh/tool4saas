@@ -330,3 +330,13 @@ output,
     margin: 16mm;
   }
 }
+
+/* Prevent iOS Safari automatic zoom on mobile input focus */
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea,
+  .MuiInputBase-input {
+    font-size: 16px !important;
+  }
+}
