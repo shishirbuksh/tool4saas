@@ -87,5 +87,11 @@ export default defineConfig({
   ),
   vite: {
     define: legacyEnv,
+    server: {
+      allowedHosts: true,
+    },
+    preview: {
+      allowedHosts: true,
+    },
   },
 });
