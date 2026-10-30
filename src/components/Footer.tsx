@@ -41,6 +41,7 @@ const COMPANY = [
   { href: "/author", label: "Author" },
   { href: "/methodology", label: "Methodology" },
   { href: "/contact", label: "Contact Us" },
+  { href: "/sitemap", label: "HTML Sitemap" },
 ];
 
 const LANGUAGES = [
@@ -271,6 +272,12 @@ export default function Footer() {
               ·
             </Typography>
             <FooterConsentActions />
+            <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
+              ·
+            </Typography>
+            <Box component="li">
+              <FooterLink href="/sitemap">HTML Sitemap</FooterLink>
+            </Box>
             <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
               ·
             </Typography>

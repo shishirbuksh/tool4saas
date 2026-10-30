@@ -61,7 +61,7 @@ export function sitemap(): SitemapItem[] {
     },
   ];
 
-  const pages: SitemapItem[] = ["/about", "/privacy", "/terms", "/contact", "/author", "/methodology"].map((p) => ({
+  const pages: SitemapItem[] = ["/about", "/privacy", "/terms", "/contact", "/author", "/methodology", "/sitemap"].map((p) => ({
     url: `${base}${p}`,
     lastModified: `${getPageModifiedIso(p.replace(/^\//, "")) ?? SITE_PUBLISHED_ISO}T00:00:00.000Z`,
     changeFrequency: "yearly",

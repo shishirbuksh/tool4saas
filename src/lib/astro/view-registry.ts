@@ -16,6 +16,7 @@ export const VIEW_REGISTRY: Record<string, () => Promise<unknown>> = {
   "pages/methodology": () => import("@/views/pages/methodology"),
   "pages/not-found": () => import("@/views/pages/not-found"),
   "pages/privacy": () => import("@/views/pages/privacy"),
+  "pages/sitemap": () => import("@/views/pages/sitemap"),
   "pages/terms": () => import("@/views/pages/terms"),
   "tools/aes-encryptor": () => import("@/views/tools/aes-encryptor"),
   "tools/age-calculator": () => import("@/views/tools/age-calculator"),

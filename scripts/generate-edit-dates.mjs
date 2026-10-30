@@ -113,7 +113,7 @@ if (missingTools.length > 0) {
 }
 
 // ---------- static pages / composite pages ----------
-const pageNames = ["about", "privacy", "terms", "contact", "author", "methodology", "guides"];
+const pageNames = ["about", "privacy", "terms", "contact", "author", "methodology", "guides", "sitemap"];
 const pageDates = {};
 for (const name of pageNames) {
   const astroRel = `src/pages/${name}.astro`;
