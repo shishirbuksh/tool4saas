@@ -197,7 +197,26 @@ export default function CookieConsent() {
         setAdsOn(false);
         setAnalyticsOn(false);
       }
-      setVisible(true);
+      // Defer showing the banner until user interaction or 3s delay
+      // to keep it from hijacking the Largest Contentful Paint (LCP) metric.
+      let showed = false;
+      let timer: ReturnType<typeof setTimeout>;
+      const showBanner = () => {
+        if (showed) return;
+        showed = true;
+        setVisible(true);
+        cleanup();
+      };
+      const cleanup = () => {
+        window.removeEventListener("scroll", showBanner);
+        window.removeEventListener("pointerdown", showBanner);
+        window.removeEventListener("keydown", showBanner);
+        clearTimeout(timer);
+      };
+      timer = setTimeout(showBanner, 3000);
+      window.addEventListener("scroll", showBanner, { once: true, passive: true });
+      window.addEventListener("pointerdown", showBanner, { once: true, passive: true });
+      window.addEventListener("keydown", showBanner, { once: true, passive: true });
     }
     const reopen = () => {
       try {
