@@ -88,7 +88,7 @@ export default function Footer() {
             <Stack spacing={2}>
               <Box className="flex items-center gap-3">
                 <Box
-                  className="flex p-2 rounded-[12px] bg-primary" style={{ color: "var(--color-primary-content)", boxShadow: "0 1px 2px rgba(34,29,29,0.08)" }}
+                  className="flex p-2 rounded-lg bg-primary" style={{ color: "var(--color-primary-content)", boxShadow: "0 1px 2px rgba(34,29,29,0.08)" }}
                 >
                   <BuildOutlinedIcon fontSize="small" aria-hidden="true" />
                 </Box>
@@ -110,7 +110,7 @@ export default function Footer() {
                 variant="outlined"
                 size="small"
                 startIcon={<EmailOutlinedIcon fontSize="small" aria-hidden="true" />}
-                className="self-start rounded-[7992px] normal-case"
+                className="self-start rounded-full normal-case"
               >
                 {siteConfig.email}
               </Button>

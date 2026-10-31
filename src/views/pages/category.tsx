@@ -151,7 +151,7 @@ export default function CategoryView({ id }: { id: string }) {
             <Box
               key={f.q}
               component="details"
-              className="mb-4 p-5 rounded-[12px] border border-base-300 bg-base-100"
+              className="mb-4 p-5 rounded-xl border border-base-300 bg-base-100"
             >
               <Typography
                 component="summary"
@@ -190,7 +190,7 @@ export default function CategoryView({ id }: { id: string }) {
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <Box
-                  className="block p-6 bg-base-100 rounded-[16px] border border-base-300 h-full hover:[transform:translateY(-2px)_scale(1.01)] hover:border-[rgba(0,0,0,0.12)] hover:[box-shadow:0_0_0_1px_rgba(0,0,0,0.06),_0_12px_32px_rgba(34,29,29,0.08),_0_4px_12px_rgba(34,29,29,0.05)] active:[transform:scale(0.99)] active:[transition-duration:100ms]" style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.06), 0 1px 2px rgba(34,29,29,0.05)", contentVisibility: "auto", containIntrinsicSize: "0 180px", transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), box-shadow 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms cubic-bezier(0.16,1,0.3,1)" }}
+                  className="block p-6 bg-base-100 rounded-xl border border-base-300 h-full hover:[transform:translateY(-2px)_scale(1.01)] hover:border-[rgba(0,0,0,0.12)] hover:[box-shadow:0_0_0_1px_rgba(0,0,0,0.06),_0_12px_32px_rgba(34,29,29,0.08),_0_4px_12px_rgba(34,29,29,0.05)] active:[transform:scale(0.99)] active:[transition-duration:100ms]" style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.06), 0 1px 2px rgba(34,29,29,0.05)", contentVisibility: "auto", containIntrinsicSize: "0 180px", transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), box-shadow 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms cubic-bezier(0.16,1,0.3,1)" }}
                 >
                   <Typography variant="h3" className="text-[18px] mb-1">
                     {g.category.label}

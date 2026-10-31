@@ -58,7 +58,7 @@ export default function HomeClosing() {
           <Grid size={{ xs: 12, lg: 5 }}>
             <Box
               aria-label="Get started"
-              className="rounded-[16px] border border-base-300 bg-base-100 shadow-[var(--shadow-md)] p-6 md:p-8 flex flex-col gap-4"
+              className="rounded-xl border border-base-300 bg-base-100 shadow-[var(--shadow-md)] p-6 md:p-8 flex flex-col gap-4"
             >
               <Typography
                 variant="h3"

@@ -91,7 +91,7 @@ export default function AboutView() {
       <Box
         component="section"
         aria-label="Founder story"
-        className="mt-8 p-6 border border-base-300 rounded-[24px] bg-base-100"
+        className="mt-8 p-6 border border-base-300 rounded-xl bg-base-100"
       >
         <Typography variant="h2" className="text-[1.5rem] mb-2 text-base-content">Why we built it</Typography>
         <Typography className="block mb-2 text-base-content/70 leading-[1.8]">
@@ -104,7 +104,7 @@ export default function AboutView() {
       <Box
         component="section"
         aria-label="About the author"
-        className="mt-6 p-6 border border-base-300 rounded-[24px]"
+        className="mt-6 p-6 border border-base-300 rounded-xl"
       >
         <Typography variant="h2" className="text-[1.25rem] mb-2 text-base-content">About the author</Typography>
         <Typography variant="body2" color="text.secondary" className="leading-[1.8]">

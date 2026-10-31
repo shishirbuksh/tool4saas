@@ -62,7 +62,7 @@ export default function EsHomeView() {
           <Box
             component="li"
             key={t.slug}
-            className="p-6 border border-base-300 rounded-[24px]"
+            className="p-6 border border-base-300 rounded-xl"
           >
             <Typography variant="h2" className="text-[1.25rem] mb-2">
               <Link href={`/es/${t.slug}`} hrefLang="es">
@@ -83,7 +83,7 @@ export default function EsHomeView() {
           <Box
             component="li"
             key={`${g.pillar}/${g.slug}`}
-            className="p-6 border border-base-300 rounded-[24px]"
+            className="p-6 border border-base-300 rounded-xl"
           >
             <Typography variant="h3" className="text-[1.1rem] mb-2">
               <Link href={`/es/blog/${g.pillar}/${g.slug}`} hrefLang="es">

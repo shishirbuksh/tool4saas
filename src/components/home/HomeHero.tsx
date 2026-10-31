@@ -20,7 +20,7 @@ export default function HomeHero() {
       aria-label="Free online tools"
       className="relative overflow-hidden border-b border-base-300 pt-14 md:pt-22 pb-16 md:pb-24 dark:[background-image:radial-gradient(900px_380px_at_50%_-8%,_rgba(255,255,255,0.06),_transparent_72%)]" style={{ backgroundImage: "radial-gradient(900px 380px at 50% -8%, rgba(17,17,17,0.05), transparent 72%)" }}
     >
-      <Container maxWidth="lg" className="px-4 md:px-8">
+      <Container maxWidth="xl" className="px-4 md:px-8">
         <Stack
           spacing={{ xs: 2.5, md: 3 }}
           className="items-center text-center max-w-[780px] mx-auto"
@@ -61,7 +61,7 @@ export default function HomeHero() {
             {QUICK_LINKS.map((q) => (
               <Link key={q.slug} href={`/${q.slug}`} style={{ textDecoration: "none" }}>
                 <Box
-                  className="inline-flex items-center min-h-[44px] px-4 rounded-[7992px] border border-base-300 bg-base-100 text-[0.875rem] font-semibold text-base-content hover:border-base-content hover:[transform:translateY(-1px)]" style={{ transition: "border-color 150ms ease, transform 150ms ease" }}
+                  className="inline-flex items-center min-h-[44px] px-4 rounded-full border border-base-300 bg-base-100 text-[0.875rem] font-semibold text-base-content hover:border-base-content hover:[transform:translateY(-1px)]" style={{ transition: "border-color 150ms ease, transform 150ms ease" }}
                 >
                   {q.label}
                 </Box>

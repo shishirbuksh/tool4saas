@@ -271,12 +271,12 @@ export default function SitemapView({
                 minHeight: 40,
                 padding: "8px 16px",
                 borderRadius: 999,
-                border: "1px solid var(--mui-palette-divider)",
+                border: "1px solid var(--color-base-300)",
                 textDecoration: "none",
                 fontSize: "0.875rem",
                 fontWeight: activeSection === item.id ? 700 : 500,
-                backgroundColor: activeSection === item.id ? "var(--mui-palette-action-selected)" : "transparent",
-                color: "var(--mui-palette-text-primary)",
+                backgroundColor: activeSection === item.id ? "var(--color-base-content)" : "transparent",
+                color: activeSection === item.id ? "var(--color-base-100)" : "inherit",
                 transition: "all 150ms ease",
               }}
             >
@@ -306,7 +306,7 @@ export default function SitemapView({
           {filteredCategories.map((group) => (
             <Grid size={{ xs: 12, md: 6, lg: 4 }} key={group.id}>
               <Box
-                className="p-6 rounded-[16px] border border-base-300 bg-base-100 h-full flex flex-col hover:border-primary hover:[box-shadow:0_6px_20px_rgba(0,0,0,0.06)]" style={{ transition: "box-shadow 200ms ease, border-color 200ms ease" }}
+                className="p-6 rounded-xl border border-base-300 bg-base-100 h-full flex flex-col hover:border-primary hover:[box-shadow:0_6px_20px_rgba(0,0,0,0.06)]" style={{ transition: "box-shadow 200ms ease, border-color 200ms ease" }}
               >
                 <Box className="flex items-center justify-between mb-3">
                   <Typography
@@ -345,7 +345,7 @@ export default function SitemapView({
                           display: "block",
                           padding: "6px 10px",
                           borderRadius: "8px",
-                          backgroundColor: "var(--mui-palette-action-hover)",
+                          backgroundColor: "color-mix(in oklab, var(--color-base-content) 5%, transparent)",
                           transition: "background-color 150ms ease",
                         }}
                       >
@@ -373,7 +373,7 @@ export default function SitemapView({
                     style={{
                       fontSize: "0.85rem",
                       fontWeight: 700,
-                      color: "var(--mui-palette-primary-main)",
+                      color: "var(--color-primary)",
                       textDecoration: "none",
                     }}
                   >
@@ -406,7 +406,7 @@ export default function SitemapView({
           {filteredPillars.map((p) => (
             <Grid size={{ xs: 12, md: 6 }} key={p.pillar}>
               <Box
-                className="p-6 rounded-[16px] border border-base-300 bg-base-100 h-full"
+                className="p-6 rounded-xl border border-base-300 bg-base-100 h-full"
               >
                 <Box className="flex items-center justify-between mb-2">
                   <Typography variant="overline" color="primary" className="font-bold">
@@ -414,7 +414,7 @@ export default function SitemapView({
                   </Typography>
                   <Link
                     href={`/${p.toolSlug}`}
-                    style={{ fontSize: "0.8rem", fontWeight: 600, color: "var(--mui-palette-text-secondary)" }}
+                    style={{ fontSize: "0.8rem", fontWeight: 600, color: "var(--color-base-content)", opacity: 0.7 }}
                   >
                     Open Tool ↗
                   </Link>
@@ -470,7 +470,7 @@ export default function SitemapView({
           {/* Spanish Hub */}
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
-              className="p-7 rounded-[16px] border border-base-300 bg-base-100 h-full"
+              className="p-7 rounded-xl border border-base-300 bg-base-100 h-full"
             >
               <Box className="flex items-center justify-between mb-4">
                 <Box className="flex items-center gap-3">
@@ -499,9 +499,9 @@ export default function SitemapView({
                         minHeight: 44,
                         padding: "8px 12px",
                         borderRadius: "8px",
-                        backgroundColor: "var(--mui-palette-action-hover)",
+                        backgroundColor: "color-mix(in oklab, var(--color-base-content) 5%, transparent)",
                         textDecoration: "none",
-                        color: "var(--mui-palette-text-primary)",
+                        color: "inherit",
                         fontWeight: 600,
                         fontSize: "0.875rem",
                       }}
@@ -522,7 +522,7 @@ export default function SitemapView({
           {/* French Hub */}
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
-              className="p-7 rounded-[16px] border border-base-300 bg-base-100 h-full"
+              className="p-7 rounded-xl border border-base-300 bg-base-100 h-full"
             >
               <Box className="flex items-center justify-between mb-4">
                 <Box className="flex items-center gap-3">
@@ -551,9 +551,9 @@ export default function SitemapView({
                         minHeight: 44,
                         padding: "8px 12px",
                         borderRadius: "8px",
-                        backgroundColor: "var(--mui-palette-action-hover)",
+                        backgroundColor: "color-mix(in oklab, var(--color-base-content) 5%, transparent)",
                         textDecoration: "none",
-                        color: "var(--mui-palette-text-primary)",
+                        color: "inherit",
                         fontWeight: 600,
                         fontSize: "0.875rem",
                       }}
@@ -591,8 +591,8 @@ export default function SitemapView({
                   flexDirection: "column",
                   padding: "16px",
                   borderRadius: "12px",
-                  border: "1px solid var(--mui-palette-divider)",
-                  backgroundColor: "var(--mui-palette-background-paper)",
+                  border: "1px solid var(--color-base-300)",
+                  backgroundColor: "var(--color-base-100)",
                   textDecoration: "none",
                   color: "inherit",
                   transition: "all 150ms ease",
@@ -615,7 +615,7 @@ export default function SitemapView({
         {/* Company & Legal */}
         <Grid size={{ xs: 12, md: 6 }}>
           <Box
-            className="p-7 rounded-[16px] border border-base-300 bg-base-100 h-full"
+            className="p-7 rounded-xl border border-base-300 bg-base-100 h-full"
           >
             <Typography variant="overline" color="primary" className="font-bold">
               ORGANIZATION &amp; GOVERNANCE
@@ -643,7 +643,7 @@ export default function SitemapView({
         {/* Technical Feeds */}
         <Grid size={{ xs: 12, md: 6 }} id="feeds" className="scroll-mt-[96px]">
           <Box
-            className="p-7 rounded-[16px] border border-base-300 bg-base-100 h-full"
+            className="p-7 rounded-xl border border-base-300 bg-base-100 h-full"
           >
             <Typography variant="overline" color="primary" className="font-bold">
               CRAWLERS &amp; MACHINE READABILITY

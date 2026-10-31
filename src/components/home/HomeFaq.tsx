@@ -30,7 +30,7 @@ export default function HomeFaq() {
             key={f.q}
             component="details"
             open={i === 0}
-            className="mb-2 px-4 md:px-5 py-3.5 md:py-4 rounded-[12px] border border-base-300 bg-base-100 [&[open]]:border-[rgba(0,0,0,0.16)] dark:[&_[open]]:border-[rgba(255,255,255,0.2)]" style={{ contentVisibility: "auto", containIntrinsicSize: "auto 64px" }}
+            className="mb-2 px-4 md:px-5 py-3.5 md:py-4 rounded-xl border border-base-300 bg-base-100 [&[open]]:border-[rgba(0,0,0,0.16)] dark:[&_[open]]:border-[rgba(255,255,255,0.2)]" style={{ contentVisibility: "auto", containIntrinsicSize: "auto 64px" }}
           >
             <Typography
               component="summary"

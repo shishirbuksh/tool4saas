@@ -66,7 +66,7 @@ export default function HomeCategories() {
                   >
                     <Box
                       aria-hidden="true"
-                      className="flex-[0_0_auto] w-[40px] h-[40px] rounded-[12px] grid bg-[rgba(0,0,0,0.04)] text-base-content dark:bg-[rgba(255,255,255,0.07)]" style={{ placeItems: "center" }}
+                      className="flex-[0_0_auto] w-10 h-10 rounded-xl grid bg-base-content/5 text-base-content dark:bg-base-content/10" style={{ placeItems: "center" }}
                     >
                       <Icon fontSize="small" />
                     </Box>

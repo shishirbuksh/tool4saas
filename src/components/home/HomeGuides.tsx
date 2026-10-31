@@ -36,7 +36,7 @@ export default function HomeGuides() {
           {HOME_GUIDES.map((guide) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={guide.href}>
               <Box
-                className="p-4 md:p-5 rounded-[16px] border border-base-300 bg-base-100 h-full flex flex-col hover:border-[rgba(0,0,0,0.16)] hover:[transform:translateY(-2px)] dark:[&_:hover]:border-[rgba(255,255,255,0.2)]" style={{ transition: "border-color 200ms ease, transform 200ms ease" }}
+                className="p-4 md:p-5 rounded-xl border border-base-300 bg-base-100 h-full flex flex-col hover:border-[rgba(0,0,0,0.16)] hover:[transform:translateY(-2px)] dark:[&_:hover]:border-[rgba(255,255,255,0.2)]" style={{ transition: "border-color 200ms ease, transform 200ms ease" }}
               >
                 <Typography
                   variant="body2"

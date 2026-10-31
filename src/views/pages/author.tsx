@@ -85,7 +85,7 @@ export default function AuthorView() {
             key={r.role}
             component="section"
             aria-label={r.role}
-            className="p-6 border border-base-300 rounded-[24px] bg-base-100 flex gap-4"
+            className="p-6 border border-base-300 rounded-xl bg-base-100 flex gap-4"
           >
             <Avatar className="w-[48px] h-[48px] font-bold" aria-hidden="true">
               {r.initials}
@@ -119,7 +119,7 @@ export default function AuthorView() {
       <Box
         component="section"
         aria-label="Editorial process, credentials and corrections"
-        className="mt-8 p-6 border border-base-300 rounded-[24px] bg-base-100"
+        className="mt-8 p-6 border border-base-300 rounded-xl bg-base-100"
       >
         <Typography variant="h2" className="text-[1.25rem] mb-2">
           Editorial process, credentials and corrections
@@ -140,7 +140,7 @@ export default function AuthorView() {
       <Box
         component="section"
         aria-label="How we verify"
-        className="mt-8 p-6 border border-base-300 rounded-[24px] bg-base-100"
+        className="mt-8 p-6 border border-base-300 rounded-xl bg-base-100"
       >
         <Typography variant="h2" className="text-[1.25rem] mb-2">
           How we verify

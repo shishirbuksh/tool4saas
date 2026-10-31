@@ -60,7 +60,7 @@ export default function FrHomeView() {
           <Box
             component="li"
             key={t.slug}
-            className="p-6 border border-base-300 rounded-[24px]"
+            className="p-6 border border-base-300 rounded-xl"
           >
             <Typography variant="h2" className="text-[1.25rem] mb-2">
               <Link href={`/fr/${t.slug}`} hrefLang="fr">
