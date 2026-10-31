@@ -6,10 +6,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@mui/material/*": ["./src/components/ui/*"],
-      "@mui/material": ["./src/components/ui/index"],
-      "@mui/icons-material/*": ["./src/components/ui/icons/*"],
-      "@mui/icons-material": ["./src/components/ui/icons/index"]
+      "@mui/material/*": ["./src/components/ds/*"],
+      "@mui/material": ["./src/components/ds/index"],
+      "@mui/icons-material/*": ["./src/components/ds/icons/*"],
+      "@mui/icons-material": ["./src/components/ds/icons/index"]
     },
     "verbatimModuleSyntax": false,
     "types": ["vite/client"]

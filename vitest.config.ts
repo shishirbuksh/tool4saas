@@ -14,10 +14,10 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: "@", replacement: path.resolve(__dirname, "./src") },
-      { find: /^@mui\/material\/(.*)/, replacement: path.resolve(__dirname, "./src/components/ui/$1") },
-      { find: "@mui/material", replacement: path.resolve(__dirname, "./src/components/ui/index.ts") },
-      { find: /^@mui\/icons-material\/(.*)/, replacement: path.resolve(__dirname, "./src/components/ui/icons/$1") },
-      { find: "@mui/icons-material", replacement: path.resolve(__dirname, "./src/components/ui/icons/index.ts") },
+      { find: /^@mui\/material\/(.*)/, replacement: path.resolve(__dirname, "./src/components/ds/$1") },
+      { find: "@mui/material", replacement: path.resolve(__dirname, "./src/components/ds/index.ts") },
+      { find: /^@mui\/icons-material\/(.*)/, replacement: path.resolve(__dirname, "./src/components/ds/icons/$1") },
+      { find: "@mui/icons-material", replacement: path.resolve(__dirname, "./src/components/ds/icons/index.ts") },
     ],
   },
 });
