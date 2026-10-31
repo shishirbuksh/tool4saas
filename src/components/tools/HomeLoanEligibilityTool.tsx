@@ -1,14 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import { homeLoanEligibility } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
@@ -58,8 +50,8 @@ export default function HomeLoanEligibilityTool() {
             label="FOIR cap"
             value={foirCap}
             onChange={(e) => setFoirCap(Number(e.target.value) as typeof foirCap)}
-            MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-            sx={{ minHeight: 44 }}
+           
+            className="min-h-[44px]"
           >
             {FOIR_OPTIONS.map((o) => (
               <MenuItem key={o} value={o}>
@@ -74,8 +66,8 @@ export default function HomeLoanEligibilityTool() {
             label="Income multiplier"
             value={multiplier}
             onChange={(e) => setMultiplier(Number(e.target.value) as typeof multiplier)}
-            MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-            sx={{ minHeight: 44 }}
+           
+            className="min-h-[44px]"
           >
             {MULTIPLIER_OPTIONS.map((o) => (
               <MenuItem key={o} value={o}>
@@ -86,37 +78,31 @@ export default function HomeLoanEligibilityTool() {
         </FormControl>
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Eligible loan amount
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null && isFinite(result.eligible) ? money(result.eligible, "INR") : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Available for EMI (FOIR)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.availEmi) ? money(result.availEmi, "INR") : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Max by FOIR</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result?.maxByFoir != null && isFinite(result.maxByFoir) ? money(result.maxByFoir, "INR") : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Max by income multiplier</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.maxByMultiplier) ? money(result.maxByMultiplier, "INR") : "—"}
           </Typography>
         </Box>

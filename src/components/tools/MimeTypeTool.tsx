@@ -1,12 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+
 
 const MAP: Record<string, string> = {
   txt: "text/plain",
@@ -81,30 +76,16 @@ export default function MimeTypeTool() {
         {result && result !== "none" && (
           <Stack spacing={1}>
             <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                p: 1.5,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: "divider",
-              }}
+              className="flex justify-between p-3 rounded-[16px] border border-base-300"
             >
               <Typography color="text.secondary">Extension</Typography>
-              <Typography sx={{ fontFamily: "monospace", fontWeight: 700 }}>.{result.ext}</Typography>
+              <Typography className="font-bold" style={{ fontFamily: "monospace" }}>.{result.ext}</Typography>
             </Box>
             <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                p: 1.5,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: "divider",
-              }}
+              className="flex justify-between p-3 rounded-[16px] border border-base-300"
             >
               <Typography color="text.secondary">MIME type</Typography>
-              <Typography sx={{ fontFamily: "monospace", fontWeight: 700 }}>{result.mime}</Typography>
+              <Typography className="font-bold" style={{ fontFamily: "monospace" }}>{result.mime}</Typography>
             </Box>
           </Stack>
         )}
@@ -114,17 +95,7 @@ export default function MimeTypeTool() {
             <Box
               component="button"
               onClick={() => copy(result.type === "extension" ? result.mime : `.${result.ext}`)}
-              sx={{
-                px: 2,
-                py: 1,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: "primary.main",
-                color: "primary.main",
-                background: "transparent",
-                cursor: "pointer",
-                fontWeight: 600,
-              }}
+              className="px-4 py-2 rounded-[16px] border border-primary text-primary cursor-pointer font-semibold" style={{ background: "transparent" }}
             >
               Copy {result.type === "extension" ? "MIME" : "extension"}
             </Box>

@@ -1,12 +1,6 @@
-"use client";
 
-import { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Paper from "@mui/material/Paper";
-import Switch from "@mui/material/Switch";
-import Typography from "@mui/material/Typography";
+import { useEffect, useState } from "react";import { Box, Button, FormControlLabel, Paper, Switch, Typography } from "@/components/ds";
+
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
 
@@ -271,18 +265,18 @@ export default function CookieConsent() {
       role="region"
       aria-label="Cookie consent"
       aria-describedby="t4s-consent-desc"
-      sx={{ position: "fixed", left: 16, right: 16, bottom: "max(16px, env(safe-area-inset-bottom))", zIndex: (theme) => theme.zIndex.drawer - 10, display: "flex", justifyContent: "center", pointerEvents: "none" }}
+      className="fixed left-[16px] right-[16px] bottom-[max(16px,_env(safe-area-inset-bottom))] flex justify-center" style={{ zIndex: (theme) => theme.zIndex.drawer - 10, pointerEvents: "none" }}
     >
-      <Paper elevation={0} sx={{ pointerEvents: "auto", maxWidth: 720, width: "100%", p: { xs: 2, sm: 3 }, border: "1px solid", borderColor: "divider", borderRadius: "12px" }}>
-        <Typography component="p" variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
+      <Paper elevation={0} className="max-w-[720px] w-full p-4 sm:p-6 border border-base-300 rounded-[12px]" style={{ pointerEvents: "auto" }}>
+        <Typography component="p" variant="subtitle1" className="font-bold mb-2">
           Cookies and ads
         </Typography>
-        <Typography id="t4s-consent-desc" variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.7 }}>
+        <Typography id="t4s-consent-desc" variant="body2" color="text.secondary" className="mb-4 leading-[1.7]">
           Tool inputs run locally, but we use Google Analytics and Google AdSense cookies for measurement and ads. See our{" "}
           <Link href="/privacy">Privacy Policy</Link>. You can accept or reject — the site works either way.
           Choices expire after 12 months; you can change them anytime via “Cookie choices” in the footer.
         </Typography>
-        <Box sx={{ display: "flex", gap: 0.5, flexWrap: "wrap", mb: 1 }}>
+        <Box className="flex gap-1 flex-wrap mb-2">
           <FormControlLabel
             control={
               <Switch
@@ -302,14 +296,14 @@ export default function CookieConsent() {
             label="Ads"
           />
         </Box>
-        <Box sx={{ display: "flex", gap: 1.5, flexWrap: "wrap" }}>
-          <Button variant="contained" onClick={() => choose(true)} sx={{ minHeight: 44 }}>
+        <Box className="flex gap-3 flex-wrap">
+          <Button variant="contained" onClick={() => choose(true)} className="min-h-[44px]">
             Accept all
           </Button>
-          <Button variant="outlined" onClick={() => choose(false)} sx={{ minHeight: 44 }}>
+          <Button variant="outlined" onClick={() => choose(false)} className="min-h-[44px]">
             Reject all
           </Button>
-          <Button variant="text" onClick={saveChoices} sx={{ minHeight: 44 }}>
+          <Button variant="text" onClick={saveChoices} className="min-h-[44px]">
             Save choices
           </Button>
         </Box>

@@ -1,17 +1,7 @@
-"use client";
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Alert from "@mui/material/Alert";
-import Slider from "@mui/material/Slider";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert, Slider } from "@/components/ds";
+
 import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 
@@ -173,12 +163,12 @@ export default function ImageFormatConverterTool() {
 
   return (
     <ToolPaper spacing={3}>
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
         <Button variant="outlined" component="label">
           Choose image
           <input ref={fileInputRef} type="file" accept="image/*" hidden onChange={onFile} />
         </Button>
-        <FormControl size="small" sx={{ minWidth: 180 }} disabled={busy}>
+        <FormControl size="small" className="min-w-[180px]" disabled={busy}>
           <InputLabel id="format-label">Target format</InputLabel>
           <Select
             labelId="format-label"
@@ -220,8 +210,8 @@ export default function ImageFormatConverterTool() {
       </Box>
 
       {result && (
-        <Box sx={{ p: 2, border: "1px solid", borderColor: "divider", borderRadius: 2 }}>
-          <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 700 }}>
+        <Box className="p-4 border border-base-300 rounded-[16px]">
+          <Typography variant="subtitle2" gutterBottom className="font-bold">
             Result
           </Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom>
@@ -231,7 +221,7 @@ export default function ImageFormatConverterTool() {
             component="img"
             src={result.url}
             alt="converted preview"
-            sx={{ maxWidth: "100%", borderRadius: 1, my: 1, display: "block" }}
+            className="max-w-full rounded-[8px] my-2 block"
           />
           <Button variant="contained" href={result.url} download={result.name}>
             Download

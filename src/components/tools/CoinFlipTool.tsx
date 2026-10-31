@@ -1,12 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 type Outcome = "Heads" | "Tails";
 
@@ -59,14 +55,14 @@ export default function CoinFlipTool() {
 
   return (
     <ToolPaper>
-      <Stack spacing={2} sx={{ alignItems: "center" }}>
-        <Typography variant="h2" sx={{ fontFamily: "sans-serif", fontWeight: 800 }}>
+      <Stack spacing={2} className="items-center">
+        <Typography variant="h2" className="font-extrabold" style={{ fontFamily: "sans-serif" }}>
           {result ?? "—"}
         </Typography>
         <Button variant="contained" onClick={flip}>
           Flip
         </Button>
-        <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
+        <Stack direction="row" spacing={1} className="items-center">
           <Typography variant="body2" color="text.secondary">
             Best of
           </Typography>
@@ -88,47 +84,40 @@ export default function CoinFlipTool() {
           </Typography>
         )}
         {result && (
-          <Button variant="outlined" onClick={() => setResult(null)} sx={{ mt: 1 }}>
+          <Button variant="outlined" onClick={() => setResult(null)} className="mt-2">
             New flip
           </Button>
         )}
         {result && (
-          <Box sx={{ mt: 1, textAlign: "center" }}>
+          <Box className="mt-2 text-center">
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(result)}>
               Copy result
             </Button>
           </Box>
         )}
         {history.length > 0 && (
-          <Box sx={{ width: "100%", mt: 1 }}>
-            <Typography variant="body2" color="text.secondary" sx={{ textAlign: "center" }}>
+          <Box className="w-full mt-2">
+            <Typography variant="body2" color="text.secondary" className="text-center">
               {heads} Heads · {tails} Tails
               {currentStreak ? ` · ${currentStreak.count} ${currentStreak.side} in a row` : ""}
               {longestStreak > 1 ? ` · longest run ${longestStreak}` : ""}
             </Typography>
-            <Box sx={{ maxHeight: 120, overflow: "auto", mt: 1 }}>
+            <Box className="max-h-[120px] overflow-auto mt-2">
               {[...history].reverse().slice(0, 20).map((h, i) => (
                 <Box
                   key={i}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    px: 1,
-                    py: 0.5,
-                    borderBottom: "1px solid",
-                    borderColor: "divider",
-                  }}
+                  className="flex justify-between px-2 py-1 border-b border-base-300"
                 >
                   <Typography variant="body2" color="text.secondary">
                     Flip {history.length - i}
                   </Typography>
-                  <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                  <Typography variant="body2" className="font-bold">
                     {h}
                   </Typography>
                 </Box>
               ))}
             </Box>
-            <Box sx={{ textAlign: "center", mt: 1 }}>
+            <Box className="text-center mt-2">
               <Button
                 size="small"
                 startIcon={<ContentCopyIcon />}

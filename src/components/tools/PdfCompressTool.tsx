@@ -1,11 +1,7 @@
-"use client";
 
 import { useState, useRef } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Alert } from "@/components/ds";
+
 import { MAX_PDF_SIZE, validatePdfFile, validatePdfMagicBytes } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 
@@ -79,7 +75,7 @@ export default function PdfCompressTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         PDF File Checker
       </Typography>
       <Typography variant="body2" color="text.secondary">

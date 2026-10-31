@@ -1,12 +1,7 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Slider from "@mui/material/Slider";
+import ToolPaper from "@/components/ToolPaper";import { Box, Typography, Stack, TextField, Slider } from "@/components/ds";
+
 import { copyToClipboard } from "@/lib/clipboard";
 
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
@@ -58,26 +53,15 @@ export default function ColorShadesTool() {
 
   return (
     <ToolPaper>
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: { sm: "center" } }}>
-        <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="sm:items-center">
+        <Stack direction="row" spacing={1.5} className="items-center">
           <Box
             component="input"
             type="color"
             value={normalizedHex}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHex(e.target.value)}
             aria-label="Base color picker"
-            sx={{
-              width: 48,
-              height: 44,
-              minWidth: 44,
-              minHeight: 44,
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 2,
-              p: 0.5,
-              cursor: "pointer",
-              bgcolor: "transparent",
-            }}
+            className="w-[48px] h-[44px] min-w-[44px] min-h-[44px] border border-base-300 rounded-[16px] p-1 cursor-pointer bg-transparent"
           />
           <TextField
             value={hex}
@@ -88,11 +72,11 @@ export default function ColorShadesTool() {
             error={!isValid}
             helperText={!isValid ? "Enter a valid hex (e.g. #6366f1)" : ""}
             slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-            sx={{ width: 180, "& input": { fontFamily: "monospace", textTransform: "lowercase" } }}
+            className="w-[180px] [&_input]:[font-family:monospace] [&_input]:lowercase"
           />
         </Stack>
-        <Box sx={{ flex: 1, minWidth: 180, maxWidth: 320 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
+        <Box className="flex-1 min-w-[180px] max-w-[320px]">
+          <Typography variant="subtitle2" className="font-bold mb-1">
             Steps: {steps}
           </Typography>
           <Slider
@@ -112,28 +96,11 @@ export default function ColorShadesTool() {
       </Stack>
 
       <Box
-        sx={{
-          height: 72,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          bgcolor: isValid ? normalizedHex : "#ffffff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        className="h-[72px] rounded-[16px] border border-base-300 flex items-center justify-center" style={{ backgroundColor: isValid ? normalizedHex : "#ffffff" }}
       >
         <Typography
           variant="body2"
-          sx={{
-            fontFamily: "monospace",
-            fontWeight: 700,
-            px: 1.5,
-            py: 0.5,
-            borderRadius: 1,
-            bgcolor: "rgba(0,0,0,0.55)",
-            color: "#fff",
-          }}
+          className="font-bold px-3 py-1 rounded-[8px] bg-[rgba(0,0,0,0.55)] text-[#fff]" style={{ fontFamily: "monospace" }}
         >
           {isValid ? normalizedHex : "Invalid color"}
         </Typography>
@@ -146,19 +113,11 @@ export default function ColorShadesTool() {
       ) : (
         <>
           <Box>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+            <Typography variant="subtitle2" className="font-bold mb-2">
               Shades — mix with black
             </Typography>
             <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: {
-                  xs: "repeat(2, 1fr)",
-                  sm: "repeat(4, 1fr)",
-                  md: "repeat(5, 1fr)",
-                },
-                gap: 1.5,
-              }}
+              className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3"
             >
               {shades.map((c) => (
                 <Box
@@ -166,25 +125,11 @@ export default function ColorShadesTool() {
                   component="button"
                   type="button"
                   onClick={() => copy(c)}
-                  sx={{
-                    border: "1px solid",
-                    borderColor: "divider",
-                    borderRadius: 2,
-                    overflow: "hidden",
-                    cursor: "pointer",
-                    p: 0,
-                    textAlign: "left",
-                    bgcolor: "background.paper",
-                    width: "100%",
-                    font: "inherit",
-                    color: "inherit",
-                    "&:hover": { borderColor: "text.secondary" },
-                    "&:active": { transform: "scale(0.98)" },
-                  }}
+                  className="border border-base-300 rounded-[16px] overflow-hidden cursor-pointer p-0 text-left bg-base-100 w-full text-inherit hover:border-base-content/70 active:[transform:scale(0.98)]" style={{ font: "inherit" }}
                 >
-                  <Box sx={{ height: 56, bgcolor: c }} />
-                  <Box sx={{ p: 1, textAlign: "center" }}>
-                    <Typography variant="caption" sx={{ fontFamily: "monospace", fontWeight: 700, display: "block" }}>
+                  <Box className="h-[56px]" style={{ backgroundColor: c }} />
+                  <Box className="p-2 text-center">
+                    <Typography variant="caption" className="font-bold block" style={{ fontFamily: "monospace" }}>
                       {c}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
@@ -197,19 +142,11 @@ export default function ColorShadesTool() {
           </Box>
 
           <Box>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+            <Typography variant="subtitle2" className="font-bold mb-2">
               Tints — mix with white
             </Typography>
             <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: {
-                  xs: "repeat(2, 1fr)",
-                  sm: "repeat(4, 1fr)",
-                  md: "repeat(5, 1fr)",
-                },
-                gap: 1.5,
-              }}
+              className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3"
             >
               {tints.map((c) => (
                 <Box
@@ -217,25 +154,11 @@ export default function ColorShadesTool() {
                   component="button"
                   type="button"
                   onClick={() => copy(c)}
-                  sx={{
-                    border: "1px solid",
-                    borderColor: "divider",
-                    borderRadius: 2,
-                    overflow: "hidden",
-                    cursor: "pointer",
-                    p: 0,
-                    textAlign: "left",
-                    bgcolor: "background.paper",
-                    width: "100%",
-                    font: "inherit",
-                    color: "inherit",
-                    "&:hover": { borderColor: "text.secondary" },
-                    "&:active": { transform: "scale(0.98)" },
-                  }}
+                  className="border border-base-300 rounded-[16px] overflow-hidden cursor-pointer p-0 text-left bg-base-100 w-full text-inherit hover:border-base-content/70 active:[transform:scale(0.98)]" style={{ font: "inherit" }}
                 >
-                  <Box sx={{ height: 56, bgcolor: c }} />
-                  <Box sx={{ p: 1, textAlign: "center" }}>
-                    <Typography variant="caption" sx={{ fontFamily: "monospace", fontWeight: 700, display: "block" }}>
+                  <Box className="h-[56px]" style={{ backgroundColor: c }} />
+                  <Box className="p-2 text-center">
+                    <Typography variant="caption" className="font-bold block" style={{ fontFamily: "monospace" }}>
                       {c}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">

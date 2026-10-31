@@ -1,9 +1,9 @@
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import { Button, Box } from "@/components/ds";
+
 
 export default function Probe() {
   return (
-    <Box sx={{ p: 2, bgcolor: "primary.main" }}>
+    <Box className="p-4 bg-primary">
       <Button variant="contained">Probe button</Button>
     </Box>
   );

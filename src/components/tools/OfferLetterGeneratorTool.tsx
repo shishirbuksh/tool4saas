@@ -1,19 +1,9 @@
-"use client";
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
-import NumericField from "@/components/NumericField";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Grid from "@mui/material/Grid";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
-import PrintIcon from "@mui/icons-material/Print";
+import NumericField from "@/components/NumericField";import { Paper, Box, TextField, Button, Typography, Stack, Alert, Grid } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Download as DownloadIcon, Print as PrintIcon } from "@/components/ds/icons";
 import { money } from "@/lib/format";
 
 export default function OfferLetterGeneratorTool() {
@@ -108,7 +98,7 @@ export default function OfferLetterGeneratorTool() {
   return (
     <Box>
       <ToolPaper>
-        <Typography variant="h3" sx={{ fontSize: 20, fontWeight: 700 }}>
+        <Typography variant="h3" className="text-[20px] font-bold">
           Offer details
         </Typography>
         <Grid container spacing={2}>
@@ -141,52 +131,52 @@ export default function OfferLetterGeneratorTool() {
           </Grid>
         </Grid>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
-          <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={handleCopy} sx={{ minHeight: 44 }}>
+          <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={handleCopy} className="min-h-[44px]">
             {copied ? "Copied!" : "Copy"}
           </Button>
-          <Button variant="contained" startIcon={<DownloadIcon />} onClick={handlePdf} sx={{ minHeight: 44 }}>
+          <Button variant="contained" startIcon={<DownloadIcon />} onClick={handlePdf} className="min-h-[44px]">
             Download PDF
           </Button>
-          <Button variant="outlined" startIcon={<PrintIcon />} onClick={() => window.print()} sx={{ minHeight: 44 }}>
+          <Button variant="outlined" startIcon={<PrintIcon />} onClick={() => window.print()} className="min-h-[44px]">
             Print
           </Button>
         </Stack>
         <Alert severity="warning">Template only, not legal advice. Have HR or counsel review before use.</Alert>
       </ToolPaper>
 
-      <Paper id="offer-letter-print" sx={{ p: { xs: 3, sm: 5 }, mt: 3, maxWidth: 800, mx: "auto", bgcolor: "#fff", color: "#000" }}>
-        <Typography variant="h4" sx={{ fontWeight: 800, color: "#0f172a" }}>
+      <Paper id="offer-letter-print" className="p-6 sm:p-10 mt-6 max-w-[800px] mx-auto bg-[#fff] text-[#000]">
+        <Typography variant="h4" className="font-extrabold text-[#0f172a]">
           {company || "Company"}
         </Typography>
-        <Typography sx={{ color: "#64748b", fontSize: 13, mb: 2 }}>Offer of Employment</Typography>
-        <Typography sx={{ fontSize: 13, color: "#334155", mb: 2 }}>Date: {joiningDate || new Date().toISOString().slice(0, 10)}</Typography>
-        <Typography sx={{ fontSize: 14, color: "#1e293b", whiteSpace: "pre-line", lineHeight: 1.8 }}>
+        <Typography className="text-[#64748b] text-[13px] mb-4">Offer of Employment</Typography>
+        <Typography className="text-[13px] text-[#334155] mb-4">Date: {joiningDate || new Date().toISOString().slice(0, 10)}</Typography>
+        <Typography className="text-[14px] text-[#1e293b] whitespace-pre-line leading-[1.8]">
           {`Dear ${candidateName || "Candidate"},\n\nWe are pleased to offer you the position of ${role || "Role"} at ${company || "Company"} (${workMode || "On-site"}, ${location || "Location"}). Your annual CTC will be ${ctcNum}, payable per company payroll cycle.\n\nExpected joining: ${joiningDate || "To be confirmed"}. Probation: ${probation || "—"}. Notice: ${notice || "—"}.`}
         </Typography>
-        <Box component="table" sx={{ width: "100%", mt: 3, borderCollapse: "collapse", fontSize: 13 }}>
+        <Box component="table" className="w-full mt-6 border-collapse text-[13px]">
           <Box component="thead">
-            <Box component="tr" sx={{ borderBottom: "2px solid #0f172a" }}>
-              <Box component="th" sx={{ textAlign: "left", p: 1, color: "#64748b" }}>Component</Box>
-              <Box component="th" sx={{ textAlign: "right", p: 1, color: "#64748b" }}>Annual</Box>
-              <Box component="th" sx={{ textAlign: "right", p: 1, color: "#64748b" }}>Monthly</Box>
+            <Box component="tr" style={{ borderBottom: "2px solid #0f172a" }}>
+              <Box component="th" className="text-left p-2 text-[#64748b]">Component</Box>
+              <Box component="th" className="text-right p-2 text-[#64748b]">Annual</Box>
+              <Box component="th" className="text-right p-2 text-[#64748b]">Monthly</Box>
             </Box>
           </Box>
           <Box component="tbody">
             {breakdown.map((b) => (
-              <Box component="tr" key={b.label} sx={{ borderBottom: "1px solid #e2e8f0" }}>
-                <Box component="td" sx={{ p: 1 }}>{b.label}</Box>
-                <Box component="td" sx={{ p: 1, textAlign: "right" }}>{b.annual}</Box>
-                <Box component="td" sx={{ p: 1, textAlign: "right" }}>{monthly(b.annual)}</Box>
+              <Box component="tr" key={b.label} className="border-b border-b-[#e2e8f0]">
+                <Box component="td" className="p-2">{b.label}</Box>
+                <Box component="td" className="p-2 text-right">{b.annual}</Box>
+                <Box component="td" className="p-2 text-right">{monthly(b.annual)}</Box>
               </Box>
             ))}
-            <Box component="tr" sx={{ fontWeight: 800 }}>
-              <Box component="td" sx={{ p: 1 }}>Total CTC</Box>
-              <Box component="td" sx={{ p: 1, textAlign: "right" }}>{ctcNum}</Box>
-              <Box component="td" sx={{ p: 1, textAlign: "right" }}>{monthly(ctcNum)}</Box>
+            <Box component="tr" className="font-extrabold">
+              <Box component="td" className="p-2">Total CTC</Box>
+              <Box component="td" className="p-2 text-right">{ctcNum}</Box>
+              <Box component="td" className="p-2 text-right">{monthly(ctcNum)}</Box>
             </Box>
           </Box>
         </Box>
-        <Typography sx={{ mt: 3, fontSize: 13, color: "#334155" }}>
+        <Typography className="mt-6 text-[13px] text-[#334155]">
           Sincerely,
           <br />
           HR, {company || "Company"}

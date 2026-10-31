@@ -1,15 +1,6 @@
-"use client";
 
-import { useState, useMemo } from "react";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Alert from "@mui/material/Alert";
+import { useState, useMemo } from "react";import { Box, Stack, TextField, Typography, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
 import { fmt0, fmtNumber } from "@/lib/format";
 
@@ -204,45 +195,39 @@ export default function MacroCalculatorTool() {
       )}
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: isValidRatio ? "primary.main" : "warning.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border text-center" style={{ borderColor: isValidRatio ? "primary.main" : "warning.main" }}
       >
         <Typography variant="overline" color="text.secondary">
           Daily macros {validCalories !== null ? `for ${fmtKcal(validCalories)} kcal` : ""}
         </Typography>
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 1, justifyContent: "space-around" }}>
-          <Box sx={{ flex: 1 }}>
-            <Typography variant="caption" color="text.secondary" sx={{ textTransform: "uppercase", letterSpacing: 1 }}>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="mt-2 justify-around">
+          <Box className="flex-1">
+            <Typography variant="caption" color="text.secondary" className="uppercase tracking-[1px]">
               Protein {proteinPct}%
             </Typography>
-            <Typography variant="h4" sx={{ fontWeight: 800, color: "primary.main" }}>
+            <Typography variant="h4" className="font-extrabold text-primary">
               {proteinGrams !== null ? `${fmtGrams(proteinGrams)} g` : "—"}
             </Typography>
             <Typography variant="caption" color="text.secondary">
               {proteinKcal !== null ? `${fmtKcal(proteinKcal)} kcal • ${fmtGrams(proteinGrams ?? 0)} g = cal × ${proteinPct}% ÷ 4` : "4 kcal/g"}
             </Typography>
           </Box>
-          <Box sx={{ flex: 1 }}>
-            <Typography variant="caption" color="text.secondary" sx={{ textTransform: "uppercase", letterSpacing: 1 }}>
+          <Box className="flex-1">
+            <Typography variant="caption" color="text.secondary" className="uppercase tracking-[1px]">
               Carbs {carbPct}%
             </Typography>
-            <Typography variant="h4" sx={{ fontWeight: 800, color: "primary.main" }}>
+            <Typography variant="h4" className="font-extrabold text-primary">
               {carbGrams !== null ? `${fmtGrams(carbGrams)} g` : "—"}
             </Typography>
             <Typography variant="caption" color="text.secondary">
               {carbKcal !== null ? `${fmtKcal(carbKcal)} kcal • ${fmtGrams(carbGrams ?? 0)} g = cal × ${carbPct}% ÷ 4` : "4 kcal/g"}
             </Typography>
           </Box>
-          <Box sx={{ flex: 1 }}>
-            <Typography variant="caption" color="text.secondary" sx={{ textTransform: "uppercase", letterSpacing: 1 }}>
+          <Box className="flex-1">
+            <Typography variant="caption" color="text.secondary" className="uppercase tracking-[1px]">
               Fat {fatPct}%
             </Typography>
-            <Typography variant="h4" sx={{ fontWeight: 800, color: "primary.main" }}>
+            <Typography variant="h4" className="font-extrabold text-primary">
               {fatGrams !== null ? `${fmtGrams(fatGrams)} g` : "—"}
             </Typography>
             <Typography variant="caption" color="text.secondary">
@@ -253,40 +238,35 @@ export default function MacroCalculatorTool() {
       </Box>
 
       <Box
-        sx={{
-          p: 1.5,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-        }}
+        className="p-3 rounded-[16px] border border-base-300"
       >
         <Stack spacing={0.5}>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box className="flex justify-between">
             <Typography color="text.secondary">Protein</Typography>
-            <Typography sx={{ fontWeight: 700 }}>
+            <Typography className="font-bold">
               {proteinGrams !== null ? `${fmtGrams(proteinGrams)} g` : "—"} {proteinKcal !== null ? `(${fmtKcal(proteinKcal)} kcal)` : ""}
             </Typography>
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box className="flex justify-between">
             <Typography color="text.secondary">Carbohydrates</Typography>
-            <Typography sx={{ fontWeight: 700 }}>
+            <Typography className="font-bold">
               {carbGrams !== null ? `${fmtGrams(carbGrams)} g` : "—"} {carbKcal !== null ? `(${fmtKcal(carbKcal)} kcal)` : ""}
             </Typography>
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box className="flex justify-between">
             <Typography color="text.secondary">Fat</Typography>
-            <Typography sx={{ fontWeight: 700 }}>
+            <Typography className="font-bold">
               {fatGrams !== null ? `${fmtGrams(fatGrams)} g` : "—"} {fatKcal !== null ? `(${fmtKcal(fatKcal)} kcal)` : ""}
             </Typography>
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid", borderColor: "divider", pt: 1, mt: 1 }}>
-            <Typography sx={{ fontWeight: 700 }}>Total</Typography>
-            <Typography sx={{ fontWeight: 800 }}>
+          <Box className="flex justify-between border-t border-base-300 pt-2 mt-2">
+            <Typography className="font-bold">Total</Typography>
+            <Typography className="font-extrabold">
               {validCalories !== null ? `${fmtKcal(validCalories)} kcal` : "—"} • {totalPct}%
             </Typography>
           </Box>
         </Stack>
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+        <Typography variant="caption" color="text.secondary" className="block mt-2">
           Formulas: protein = cal × protein% ÷ 4 • carbs = cal × carb% ÷ 4 • fat = cal × fat% ÷ 9
         </Typography>
       </Box>

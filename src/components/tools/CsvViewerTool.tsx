@@ -1,20 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Table from "@mui/material/Table";
-import TableHead from "@mui/material/TableHead";
-import TableBody from "@mui/material/TableBody";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Box, Typography, Stack, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper, Button } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 // 500KB cap – prevent UI freeze on huge CSV pastes (performance guard)
 export const MAX_CSV_SIZE = 500 * 1024; // 500KB cap
@@ -153,7 +141,7 @@ export default function CsvViewerTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         CSV Viewer
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -179,7 +167,7 @@ export default function CsvViewerTool() {
           Reached 500KB limit – further input is truncated.
         </Typography>
       )}
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ alignItems: { sm: "center" } }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} className="sm:items-center">
         <TextField
           label="Filter rows"
           size="small"
@@ -194,15 +182,15 @@ export default function CsvViewerTool() {
           startIcon={<ContentCopyIcon />}
           onClick={handleCopyJson}
           disabled={!displayedRows.length}
-          sx={{ whiteSpace: "nowrap", flexShrink: 0 }}
+          className="whitespace-nowrap shrink-0"
         >
           Copy as JSON
         </Button>
       </Stack>
 
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-1">
+          <Typography variant="subtitle2" className="font-bold">
             Preview {rows.length ? `(${displayedRows.length > 100 ? "100 of " : ""}${displayedRows.length} / ${rows.length} rows)` : ""}
           </Typography>
           <Typography variant="caption" color="text.secondary">
@@ -211,7 +199,7 @@ export default function CsvViewerTool() {
         </Stack>
 
         {headers.length > 0 && displayedRows.length > 0 ? (
-          <TableContainer component={Paper} variant="outlined" sx={{ maxHeight: 440 }}>
+          <TableContainer component={Paper} variant="outlined" className="max-h-[440px]">
             <Table size="small" stickyHeader aria-label="CSV data table">
               <TableHead>
                 <TableRow>
@@ -219,15 +207,9 @@ export default function CsvViewerTool() {
                     <TableCell
                       key={h}
                       onClick={() => handleSort(h)}
-                      sx={{
-                        fontWeight: 700,
-                        cursor: "pointer",
-                        userSelect: "none",
-                        whiteSpace: "nowrap",
-                        bgcolor: "background.paper",
-                      }}
+                      className="font-bold cursor-pointer whitespace-nowrap bg-base-100" style={{ userSelect: "none" }}
                     >
-                      <Box component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5 }}>
+                      <Box component="span" className="inline-flex items-center gap-1">
                         {h}
                         {sortColumn === h ? (sortDir === "asc" ? " ▲" : " ▼") : " ↕"}
                       </Box>
@@ -239,7 +221,7 @@ export default function CsvViewerTool() {
                 {displayedRows.slice(0, 100).map((row, idx) => (
                   <TableRow key={idx} hover>
                     {headers.map((h) => (
-                      <TableCell key={h} sx={{ whiteSpace: "nowrap", maxWidth: 300, overflow: "hidden", textOverflow: "ellipsis" }}>
+                      <TableCell key={h} className="whitespace-nowrap max-w-[300px] overflow-hidden text-ellipsis">
                         {row[h]}
                       </TableCell>
                     ))}
@@ -249,7 +231,7 @@ export default function CsvViewerTool() {
             </Table>
           </TableContainer>
         ) : (
-          <Paper variant="outlined" sx={{ p: 2, textAlign: "center" }}>
+          <Paper variant="outlined" className="p-4 text-center">
             <Typography variant="body2" color="text.secondary">
               {input.trim() ? "No rows to display." : "Paste CSV above to see the table preview."}
             </Typography>

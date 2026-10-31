@@ -1,14 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const isObj = (v: unknown): v is Record<string, unknown> =>
   v !== null && typeof v === "object";
@@ -89,8 +83,8 @@ export default function JsonToYamlTool() {
         {error && <Alert severity="error">{error}</Alert>}
         {output && (
           <Stack spacing={1}>
-            <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }}>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+            <Stack direction="row" className="items-center justify-between">
+              <Typography variant="subtitle2" className="font-bold">
                 YAML
               </Typography>
               <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(output)}>

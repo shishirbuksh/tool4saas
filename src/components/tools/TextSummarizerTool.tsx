@@ -1,15 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Slider from "@mui/material/Slider";
-import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
-import Box from "@mui/material/Box";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Slider, Button, Alert, Box } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 export default function TextSummarizerTool() {
@@ -96,12 +89,12 @@ export default function TextSummarizerTool() {
         slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
       />
 
-      <Box sx={{ maxWidth: 400 }}>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+      <Box className="max-w-[400px]">
+        <Stack direction="row" className="items-center justify-between mb-1">
+          <Typography variant="subtitle2" className="font-bold">
             Summary length
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 600 }}>
+          <Typography variant="body2" color="text.secondary" className="font-semibold">
             {ratio}%
           </Typography>
         </Stack>
@@ -148,8 +141,8 @@ export default function TextSummarizerTool() {
         <Alert severity="info">Enter text above to generate a summary. The summarizer uses word-frequency scoring to pick the most representative sentences.</Alert>
       ) : (
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-1">
+            <Typography variant="subtitle2" className="font-bold">
               Summary
             </Typography>
             <Typography variant="caption" color="text.secondary">
@@ -165,7 +158,7 @@ export default function TextSummarizerTool() {
             slotProps={{
               input: { readOnly: true, "aria-label": "Summary output", spellCheck: false },
             }}
-            sx={{ "& textarea": { lineHeight: 1.6 } }}
+            className="[&_textarea]:leading-[1.6]"
           />
         </Box>
       )}

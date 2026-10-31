@@ -1,5 +1,5 @@
-import Alert from "@mui/material/Alert";
-import Link from "@mui/material/Link";
+import { Alert, Link } from "@/components/ds";
+
 import type { Locale } from "@/lib/i18n-core";
 
 const ADVICE: Record<Locale, { finance: string; health: string; general: string }> = {

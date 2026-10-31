@@ -1,15 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Box from "@mui/material/Box";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, Box } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, AutoFixHigh as AutoFixHighIcon } from "@/components/ds/icons";
 
 const MULTI_WORD_KEYWORDS = [
   "GROUP BY",
@@ -183,9 +176,9 @@ export default function SqlFormatterTool() {
         onChange={(e) => setInput(e.target.value)}
         placeholder={`select id, name from users where active = 1 order by name;`}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ fontFamily: "monospace" }}
+        style={{ fontFamily: "monospace" }}
       />
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button variant="contained" startIcon={<AutoFixHighIcon />} onClick={() => handleFormat(false)} disabled={!input}>
           Format
         </Button>
@@ -199,7 +192,7 @@ export default function SqlFormatterTool() {
       {error && <Alert severity="error">{error}</Alert>}
       {output && (
         <Box>
-          <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 700 }}>
+          <Typography variant="subtitle2" gutterBottom className="font-bold">
             Result
           </Typography>
           <TextField
@@ -208,7 +201,7 @@ export default function SqlFormatterTool() {
             minRows={8}
             fullWidth
             slotProps={{ input: { readOnly: true, "aria-label": "Result", spellCheck: false, autoComplete: "off" } }}
-            sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+            className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
           />
         </Box>
       )}

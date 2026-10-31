@@ -1,16 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 
 type Course = {
   id: number;
@@ -68,7 +59,7 @@ export default function GpaCalculatorTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         GPA Calculator
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -81,11 +72,11 @@ export default function GpaCalculatorTool() {
             key={course.id}
             direction={{ xs: "column", sm: "row" }}
             spacing={1.5}
-            sx={{ alignItems: { xs: "stretch", sm: "center" } }}
+            className="items-stretch sm:items-center"
           >
             <Typography
               variant="body2"
-              sx={{ minWidth: 72, fontWeight: 600, color: "text.secondary", pt: { xs: 0, sm: 0 } }}
+              className="min-w-[72px] font-semibold text-base-content/70 pt-0 sm:pt-0"
             >
               Course {index + 1}
             </Typography>
@@ -124,7 +115,7 @@ export default function GpaCalculatorTool() {
               color="error"
               onClick={() => removeCourse(course.id)}
               disabled={courses.length === 1}
-              sx={{ minWidth: 88, flexShrink: 0 }}
+              className="min-w-[88px] shrink-0"
             >
               Remove
             </Button>
@@ -142,37 +133,31 @@ export default function GpaCalculatorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 2.5,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-5 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Your GPA (4.0 Scale)
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {gpa !== null ? fmt(gpa) : "—"}
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+        <Typography variant="body2" color="text.secondary" className="mt-1">
           {percentage !== null ? `${fmt(percentage)}%` : "—"} {gpa !== null && "• 4.0 scale"}
         </Typography>
       </Box>
 
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box className="flex flex-col gap-2">
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Total credits</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{totalCredits ? fmt(totalCredits) : "—"}</Typography>
+          <Typography className="font-bold">{totalCredits ? fmt(totalCredits) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Total grade points</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{totalCredits ? fmt(totalPoints) : "—"}</Typography>
+          <Typography className="font-bold">{totalCredits ? fmt(totalPoints) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Formula</Typography>
-          <Typography sx={{ fontWeight: 600, fontSize: 13, color: "text.secondary" }}>
+          <Typography className="font-semibold text-[13px] text-base-content/70">
             Σ(grade × credits) / Σcredits
           </Typography>
         </Box>

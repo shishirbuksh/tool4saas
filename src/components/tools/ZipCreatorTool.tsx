@@ -1,13 +1,7 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, TextField, Alert } from "@/components/ds";
+
 
 type ZipFileEntry = {
   id: number;
@@ -133,7 +127,7 @@ export default function ZipCreatorTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         ZIP Creator
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -145,16 +139,10 @@ export default function ZipCreatorTool() {
         {files.map((file) => (
           <Box
             key={file.id}
-            sx={{
-              p: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 2,
-              bgcolor: "background.paper",
-            }}
+            className="p-4 border border-base-300 rounded-[16px] bg-base-100"
           >
             <Stack spacing={1.5}>
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ alignItems: "flex-start" }}>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} className="items-start">
                 <TextField
                   label="Filename"
                   value={file.name}
@@ -163,14 +151,14 @@ export default function ZipCreatorTool() {
                   fullWidth
                   size="small"
                   slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-                  sx={{ flex: 1 }}
+                  className="flex-1"
                 />
                 <Button
                   variant="outlined"
                   color="error"
                   onClick={() => removeFile(file.id)}
                   disabled={files.length <= 1}
-                  sx={{ flexShrink: 0, whiteSpace: "nowrap" }}
+                  className="shrink-0 whitespace-nowrap"
                 >
                   Remove
                 </Button>
@@ -184,14 +172,14 @@ export default function ZipCreatorTool() {
                 minRows={3}
                 fullWidth
                 slotProps={{ input: { spellCheck: false } }}
-                sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+                className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
               />
             </Stack>
           </Box>
         ))}
       </Stack>
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button variant="outlined" onClick={addFile}>
           Add file
         </Button>
@@ -215,7 +203,7 @@ export default function ZipCreatorTool() {
         <Button variant="contained" onClick={generateZip} disabled={loading || files.length === 0}>
           {loading ? "Generating..." : `Generate & Download ZIP (${files.length} file${files.length === 1 ? "" : "s"})`}
         </Button>
-        <Typography variant="caption" color="text.secondary" sx={{ ml: 2 }}>
+        <Typography variant="caption" color="text.secondary" className="ml-4">
           Creates Blob and triggers browser download. All processing runs locally.
         </Typography>
       </Box>

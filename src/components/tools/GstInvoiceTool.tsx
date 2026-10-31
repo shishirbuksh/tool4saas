@@ -1,28 +1,9 @@
-"use client";
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
-import NumericField from "@/components/NumericField";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
-import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import DeleteIcon from "@mui/icons-material/Delete";
-import AddIcon from "@mui/icons-material/Add";
-import DownloadIcon from "@mui/icons-material/Download";
-import PrintIcon from "@mui/icons-material/Print";
+import NumericField from "@/components/NumericField";import { Paper, Box, TextField, Button, Typography, Grid, IconButton, Stack, Divider, Alert, Select, MenuItem, FormControl, InputLabel, FormControlLabel, Checkbox } from "@/components/ds";
+
+import { Delete as DeleteIcon, Add as AddIcon, Download as DownloadIcon, Print as PrintIcon } from "@/components/ds/icons";
 import { money } from "@/lib/format";
 import { gstSplit } from "@/lib/finance-calc";
 
@@ -123,21 +104,21 @@ export default function GstInvoiceTool() {
 
   return (
     <Box>
-      <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 2 }}>
-        <Typography variant="h3" sx={{ fontSize: 20 }}>
+      <Stack direction="row" className="items-center justify-between mb-4">
+        <Typography variant="h3" className="text-[20px]">
           GST invoice details
         </Typography>
         <Stack direction="row" spacing={1}>
-          <Button variant="contained" startIcon={<DownloadIcon />} onClick={handlePdf} sx={{ minHeight: 44 }}>
+          <Button variant="contained" startIcon={<DownloadIcon />} onClick={handlePdf} className="min-h-[44px]">
             Download PDF
           </Button>
-          <Button variant="outlined" startIcon={<PrintIcon />} onClick={() => window.print()} sx={{ minHeight: 44 }}>
+          <Button variant="outlined" startIcon={<PrintIcon />} onClick={() => window.print()} className="min-h-[44px]">
             Print
           </Button>
         </Stack>
       </Stack>
 
-      <ToolPaper sx={{ mb: 3 }}>
+      <ToolPaper className="mb-6">
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 6 }}>
             <TextField
@@ -201,7 +182,7 @@ export default function GstInvoiceTool() {
               </Select>
             </FormControl>
           </Grid>
-          <Grid size={{ xs: 12, sm: 3 }} sx={{ display: "flex", alignItems: "center" }}>
+          <Grid size={{ xs: 12, sm: 3 }} className="flex items-center">
             <FormControlLabel
               control={<Checkbox checked={interState} onChange={(e) => setInterState(e.target.checked)} />}
               label="Inter-state (IGST)"
@@ -214,7 +195,7 @@ export default function GstInvoiceTool() {
       <ToolPaper>
         <Stack spacing={1}>
           {items.map((l, i) => (
-            <Grid container spacing={1} key={i} sx={{ alignItems: "center" }}>
+            <Grid container spacing={1} key={i} className="items-center">
               <Grid size={{ xs: 12, sm: 6 }}>
                 <TextField label="Description" fullWidth value={l.desc} onChange={(e) => updateItem(i, { desc: e.target.value })} />
               </Grid>
@@ -232,22 +213,22 @@ export default function GstInvoiceTool() {
             </Grid>
           ))}
         </Stack>
-        <Button startIcon={<AddIcon />} onClick={addItem} sx={{ mt: 1 }}>
+        <Button startIcon={<AddIcon />} onClick={addItem} className="mt-2">
           Add line
         </Button>
       </ToolPaper>
 
       {/* Printable invoice */}
-      <Paper id="gst-invoice-print" sx={{ p: { xs: 3, sm: 5 }, mt: 4, maxWidth: 800, mx: "auto", bgcolor: "#fff", color: "#000" }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}>
+      <Paper id="gst-invoice-print" className="p-6 sm:p-10 mt-8 max-w-[800px] mx-auto bg-[#fff] text-[#000]">
+        <Box className="flex justify-between mb-6">
           <Box>
-            <Typography variant="h4" sx={{ fontWeight: 800, color: "#0f172a" }}>
+            <Typography variant="h4" className="font-extrabold text-[#0f172a]">
               TAX INVOICE
             </Typography>
-            <Typography sx={{ whiteSpace: "pre-line", color: "#334155" }}>{supplier || "—"}</Typography>
-            <Typography sx={{ color: "#334155", fontSize: 13 }}>GSTIN: {gstin || "—"}</Typography>
+            <Typography className="whitespace-pre-line text-[#334155]">{supplier || "—"}</Typography>
+            <Typography className="text-[#334155] text-[13px]">GSTIN: {gstin || "—"}</Typography>
           </Box>
-          <Box sx={{ textAlign: "right", color: "#334155" }}>
+          <Box className="text-right text-[#334155]">
             <Box>
               <strong>#{invNo || "—"}</strong>
             </Box>
@@ -255,47 +236,47 @@ export default function GstInvoiceTool() {
             <Box>Place of supply: {placeOfSupply}</Box>
           </Box>
         </Box>
-        <Box sx={{ mb: 3, color: "#334155" }}>
-          <Typography sx={{ fontWeight: 700, mb: 0.5 }}>Bill to</Typography>
-          <Typography sx={{ whiteSpace: "pre-line" }}>{client || "—"}</Typography>
+        <Box className="mb-6 text-[#334155]">
+          <Typography className="font-bold mb-1">Bill to</Typography>
+          <Typography className="whitespace-pre-line">{client || "—"}</Typography>
         </Box>
-        <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", fontSize: { xs: 12, sm: 14 } }}>
+        <Box component="table" className="w-full border-collapse text-[12px] sm:text-[14px]">
           <Box component="thead">
-            <Box component="tr" sx={{ borderBottom: "2px solid #0f172a" }}>
-              <Box component="th" sx={th}>
+            <Box component="tr" style={{ borderBottom: "2px solid #0f172a" }}>
+              <Box component="th" style={{ ...th }}>
                 Description
               </Box>
-              <Box component="th" sx={{ ...th, textAlign: "right" }}>
+              <Box component="th" className="text-right" style={{ ...th }}>
                 Qty
               </Box>
-              <Box component="th" sx={{ ...th, textAlign: "right" }}>
+              <Box component="th" className="text-right" style={{ ...th }}>
                 Rate
               </Box>
-              <Box component="th" sx={{ ...th, textAlign: "right" }}>
+              <Box component="th" className="text-right" style={{ ...th }}>
                 Amount
               </Box>
             </Box>
           </Box>
           <Box component="tbody">
             {items.map((l, i) => (
-              <Box component="tr" key={i} sx={{ borderBottom: "1px solid #e2e8f0", breakInside: "avoid", pageBreakInside: "avoid" }}>
-                <Box component="td" sx={td}>
+              <Box component="tr" key={i} className="border-b border-b-[#e2e8f0] break-inside-avoid">
+                <Box component="td" style={{ ...td }}>
                   {l.desc || "—"}
                 </Box>
-                <Box component="td" sx={{ ...td, textAlign: "right" }}>
+                <Box component="td" className="text-right" style={{ ...td }}>
                   {num(l.qty)}
                 </Box>
-                <Box component="td" sx={{ ...td, textAlign: "right" }}>
+                <Box component="td" className="text-right" style={{ ...td }}>
                   {money(num(l.rate), "INR")}
                 </Box>
-                <Box component="td" sx={{ ...td, textAlign: "right" }}>
+                <Box component="td" className="text-right" style={{ ...td }}>
                   {money(num(l.qty) * num(l.rate), "INR")}
                 </Box>
               </Box>
             ))}
           </Box>
         </Box>
-        <Box sx={{ width: 280, ml: "auto", mt: 3, color: "#334155" }}>
+        <Box className="w-[280px] ml-auto mt-6 text-[#334155]">
           <Row label="Subtotal" value={money(totals.subtotal, "INR")} />
           {interState ? (
             <Row label={`IGST (${gstRate}%)`} value={money(totals.igst, "INR")} />
@@ -305,8 +286,8 @@ export default function GstInvoiceTool() {
               <Row label={`SGST (${gstRate / 2}%)`} value={money(totals.sgst, "INR")} />
             </>
           )}
-          <Divider sx={{ my: 1 }} />
-          <Box sx={{ display: "flex", justifyContent: "space-between", fontWeight: 800, fontSize: 16 }}>
+          <Divider className="my-2" />
+          <Box className="flex justify-between font-extrabold text-[16px]">
             <span>Total</span>
             <span>{money(totals.total, "INR")}</span>
           </Box>
@@ -321,7 +302,7 @@ const td: React.CSSProperties = { padding: "8px 4px" };
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between", py: 0.25 }}>
+    <Box className="flex justify-between py-0.5">
       <span>{label}</span>
       <span>{value}</span>
     </Box>

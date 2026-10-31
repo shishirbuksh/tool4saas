@@ -1,16 +1,7 @@
-"use client";
 
-import { useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Collapse from "@mui/material/Collapse";
-import CodeIcon from "@mui/icons-material/Code";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import CheckIcon from "@mui/icons-material/Check";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { useState } from "react";import { Box, Button, Typography, TextField, Collapse } from "@/components/ds";
+
+import { Code as CodeIcon, ContentCopy as ContentCopyIcon, Check as CheckIcon, ExpandMore as ExpandMoreIcon, ExpandLess as ExpandLessIcon } from "@/components/ds/icons";
 import { siteConfig } from "@/lib/site";
 import type { Locale } from "@/lib/i18n-core";
 
@@ -78,20 +69,15 @@ export default function EmbedToolSnippet({ slug, title, locale = "en" }: EmbedTo
   };
 
   return (
-    <Box sx={{ mt: 3, mb: 1 }}>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
+    <Box className="mt-6 mb-2">
+      <Box className="flex justify-center">
         <Button
           variant="text"
           size="small"
           onClick={() => setOpen(!open)}
           startIcon={<CodeIcon fontSize="small" />}
           endIcon={open ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}
-          sx={{
-            color: "text.secondary",
-            fontSize: "0.85rem",
-            textTransform: "none",
-            "&:hover": { color: "primary.main", bgcolor: "action.hover" },
-          }}
+          className="text-base-content/70 text-[0.85rem] normal-case hover:text-primary hover:[bgcolor:action.hover]"
           aria-expanded={open}
           aria-controls={`embed-section-${slug}`}
         >
@@ -102,17 +88,9 @@ export default function EmbedToolSnippet({ slug, title, locale = "en" }: EmbedTo
       <Collapse in={open} timeout="auto" unmountOnExit>
         <Box
           id={`embed-section-${slug}`}
-          sx={{
-            mt: 2,
-            p: 3,
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: "12px",
-            bgcolor: "background.paper",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
-          }}
+          className="mt-4 p-6 border border-base-300 rounded-[12px] bg-base-100" style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}
         >
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.6 }}>
+          <Typography variant="body2" color="text.secondary" className="mb-4 leading-[1.6]">
             {t.desc}
           </Typography>
 
@@ -135,14 +113,14 @@ export default function EmbedToolSnippet({ slug, title, locale = "en" }: EmbedTo
             }}
           />
 
-          <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 1.5 }}>
+          <Box className="flex justify-end mt-3">
             <Button
               variant="contained"
               size="small"
               onClick={handleCopy}
               startIcon={copied ? <CheckIcon /> : <ContentCopyIcon />}
               color={copied ? "success" : "primary"}
-              sx={{ textTransform: "none", fontWeight: 600 }}
+              className="normal-case font-semibold"
             >
               {copied ? t.copied : t.btnCopy}
             </Button>

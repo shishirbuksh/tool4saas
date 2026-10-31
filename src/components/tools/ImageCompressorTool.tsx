@@ -1,18 +1,8 @@
-"use client";
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
-import Slider from "@mui/material/Slider";
-import TextField from "@mui/material/TextField";
-import Alert from "@mui/material/Alert";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import CompressIcon from "@mui/icons-material/Compress";
-import DownloadIcon from "@mui/icons-material/Download";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Link, Slider, TextField, Alert } from "@/components/ds";
+
+import { CloudUpload as CloudUploadIcon, Compress as CompressIcon, Download as DownloadIcon } from "@/components/ds/icons";
 import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 
@@ -206,7 +196,7 @@ export default function ImageCompressorTool() {
             input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" },
             htmlInput: { min: 1, step: 1 },
           }}
-          sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+          
           helperText="Images wider than this are scaled down."
         />
 
@@ -217,24 +207,24 @@ export default function ImageCompressorTool() {
         </Box>
 
         {result && (
-          <Box sx={{ p: 2, border: "1px solid", borderColor: "divider", borderRadius: 2 }}>
-            <Typography  variant="subtitle2"  gutterBottom sx={{ fontWeight: 700 }}>Result</Typography>
+          <Box className="p-4 border border-base-300 rounded-[16px]">
+            <Typography  variant="subtitle2"  gutterBottom className="font-bold">Result</Typography>
             <Typography variant="body2" color="text.secondary" gutterBottom>
               {fmtBytes(origSize)} → {fmtBytes(result.size)} (saved {Math.max(0, Math.round((1 - result.size / origSize) * 100))}%)
             </Typography>
-            <Box component="img" src={result.url} alt="compressed preview" sx={{ maxWidth: "100%", borderRadius: 1, my: 1, display: "block" }} />
+            <Box component="img" src={result.url} alt="compressed preview" className="max-w-full rounded-[8px] my-2 block" />
             <Button variant="contained" startIcon={<DownloadIcon />} href={result.url} download={result.name}>
               Download
             </Button>
           </Box>
         )}
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+        <Typography variant="caption" color="text.secondary" className="block mt-2">
           Images are processed entirely in your browser and are never uploaded. · Need an exact 100KB file for portals or job applications? Read our{" "}
-          <Link component={NextLink} href="/blog/image-compressor-guide/compress-jpg-100kb-portal" underline="hover" color="primary">
+          <Link href="/blog/image-compressor-guide/compress-jpg-100kb-portal" underline="hover" color="primary">
             100KB image compression guide
           </Link>{" "}
           and check our{" "}
-          <Link component={NextLink} href="/blog/image-compressor-guide/png-vs-jpg-vs-webp" underline="hover" color="primary">
+          <Link href="/blog/image-compressor-guide/png-vs-jpg-vs-webp" underline="hover" color="primary">
             PNG vs JPG vs WebP format comparison
           </Link>.
         </Typography>

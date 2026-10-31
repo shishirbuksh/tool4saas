@@ -1,13 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Button } from "@/components/ds";
+
 import { MS_PER_DAY } from "@/lib/format";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 
 export default function WorkDaysCalculatorTool() {
   const [start, setStart] = useState("");
@@ -64,8 +59,8 @@ export default function WorkDaysCalculatorTool() {
           Calculate business days
         </Button>
         {workDays >= 0 && (
-          <Box sx={{ p: 2, borderRadius: 2, border: "1px solid", borderColor: "primary.main", textAlign: "center" }}>
-            <Typography variant="h3" sx={{ fontWeight: 800 }}>{workDays}</Typography>
+          <Box className="p-4 rounded-[16px] border border-primary text-center">
+            <Typography variant="h3" className="font-extrabold">{workDays}</Typography>
             <Typography variant="body2" color="text.secondary">business days</Typography>
           </Box>
         )}

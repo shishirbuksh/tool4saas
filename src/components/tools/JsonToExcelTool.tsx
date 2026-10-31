@@ -1,23 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
-import Table from "@mui/material/Table";
-import TableHead from "@mui/material/TableHead";
-import TableBody from "@mui/material/TableBody";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
-import TableViewIcon from "@mui/icons-material/TableView";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, Alert, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper, Box } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Download as DownloadIcon, TableView as TableViewIcon } from "@/components/ds/icons";
 
 const escapeCsv = (v: unknown) => {
   const s = v === null || v === undefined ? "" : String(v);
@@ -103,7 +88,7 @@ export default function JsonToExcelTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         JSON to Excel
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -119,18 +104,18 @@ export default function JsonToExcelTool() {
         onChange={(e) => setInput(e.target.value)}
         placeholder='[{"name":"Ada","age":36},{"name":"Bob","age":29}]'
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+        className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
         error={!!error}
         helperText={error || "Supports array of objects or a single object. All processing runs locally."}
       />
 
       {error && (
-        <Alert severity="error" sx={{ mt: 1 }}>
+        <Alert severity="error" className="mt-2">
           {error}
         </Alert>
       )}
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button
           variant="contained"
           startIcon={<DownloadIcon />}
@@ -165,8 +150,8 @@ export default function JsonToExcelTool() {
       </Stack>
 
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-1">
+          <Typography variant="subtitle2" className="font-bold">
             Preview {data.length ? `(${previewRows.length} / ${data.length} rows)` : ""}
           </Typography>
           <Typography variant="caption" color="text.secondary">
@@ -175,14 +160,14 @@ export default function JsonToExcelTool() {
         </Stack>
 
         {headers.length > 0 && previewRows.length > 0 ? (
-          <TableContainer component={Paper} variant="outlined" sx={{ maxHeight: 440 }}>
+          <TableContainer component={Paper} variant="outlined" className="max-h-[440px]">
             <Table size="small" stickyHeader aria-label="JSON to Excel preview">
               <TableHead>
                 <TableRow>
                   {headers.map((h) => (
                     <TableCell
                       key={h}
-                      sx={{ fontWeight: 700, whiteSpace: "nowrap", bgcolor: "background.paper" }}
+                      className="font-bold whitespace-nowrap bg-base-100"
                     >
                       {h}
                     </TableCell>
@@ -195,7 +180,7 @@ export default function JsonToExcelTool() {
                     {headers.map((h) => (
                       <TableCell
                         key={h}
-                        sx={{ whiteSpace: "nowrap", maxWidth: 300, overflow: "hidden", textOverflow: "ellipsis" }}
+                        className="whitespace-nowrap max-w-[300px] overflow-hidden text-ellipsis"
                       >
                         {String(row[h] ?? "")}
                       </TableCell>
@@ -206,14 +191,14 @@ export default function JsonToExcelTool() {
             </Table>
           </TableContainer>
         ) : (
-          <Paper variant="outlined" sx={{ p: 2, textAlign: "center" }}>
+          <Paper variant="outlined" className="p-4 text-center">
             <Typography variant="body2" color="text.secondary">
               {input.trim() ? (error ? "Fix JSON errors to see preview." : "No rows to display.") : "Paste JSON above to see the table preview."}
             </Typography>
           </Paper>
         )}
         {data.length > 100 && (
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: "block" }}>
+          <Typography variant="caption" color="text.secondary" className="mt-1 block">
             Showing first 100 rows. Download to get all {data.length} rows.
           </Typography>
         )}

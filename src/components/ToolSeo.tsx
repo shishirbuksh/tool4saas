@@ -1,9 +1,6 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Box, Typography, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
+
+import { ExpandMore as ExpandMoreIcon } from "@/components/ds/icons";
 import type { ToolView } from "@/lib/tool-view";
 
 // Real dates per-tool from git history — see src/lib/dates.ts
@@ -18,26 +15,20 @@ export default function ToolSeo({ view }: { view: ToolView }) {
   const guideSections = view.guideSections;
 
   return (
-    <Box component="section" aria-label={`${tool.title} FAQ and guide`} sx={{ mt: 6 }}>
+    <Box component="section" aria-label={`${tool.title} FAQ and guide`} className="mt-12">
       {validFaq.length > 0 && (
         <>
-          <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, mb: 2 }}>
+          <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
             {locale === "es" ? "Preguntas frecuentes" : locale === "fr" ? "Questions fréquentes" : "Frequently asked questions"}
           </Typography>
           {validFaq.map((f, i) => (
             <Accordion
               key={i}
               elevation={0}
-              sx={{
-                bgcolor: "background.paper",
-                border: "1px solid",
-                borderColor: "divider",
-                "&:before": { display: "none" },
-                mb: 1,
-              }}
+              className="bg-base-100 border border-base-300 before:hidden mb-2"
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography component="span" sx={{ fontWeight: 600, fontSize: "1rem" }}>
+                <Typography component="span" className="font-semibold text-[1rem]">
                   {f.question}
                 </Typography>
               </AccordionSummary>
@@ -52,14 +43,14 @@ export default function ToolSeo({ view }: { view: ToolView }) {
       )}
 
       {validHowTo.length > 0 && (
-        <Box component="section" sx={{ mt: 4 }}>
-          <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, mb: 2 }}>
+        <Box component="section" className="mt-8">
+          <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
             {locale === "es" ? `Cómo usar ${tool.title}` : locale === "fr" ? `Comment utiliser ${tool.title}` : `How to use ${tool.title}`}
           </Typography>
-          <Box component="ol" sx={{ pl: 3, color: "text.secondary", "& li": { mb: 1 } }}>
+          <Box component="ol" className="pl-6 text-base-content/70 [&_li]:mb-2">
             {validHowTo.map((s, i) => (
               <li key={i} id={`howto-step-${i + 1}`} className="howto-passage">
-                <Typography component="span" color="text.primary" sx={{ fontWeight: 600 }}>
+                <Typography component="span" color="text.primary" className="font-semibold">
                   {s.name}:{" "}
                 </Typography>
                 <Typography component="span">{s.text}</Typography>
@@ -70,14 +61,14 @@ export default function ToolSeo({ view }: { view: ToolView }) {
       )}
 
       {guideSections.length > 0 && (
-        <Box component="section" aria-label="In-depth guide" sx={{ mt: 4 }}>
-          <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, mb: 2 }}>
+        <Box component="section" aria-label="In-depth guide" className="mt-8">
+          <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
             {locale === "es" ? "Guía en profundidad" : locale === "fr" ? "Guide approfondi" : "In-depth guide"}
           </Typography>
           {guideSections.map((entry: unknown, i: number) => {
             if (typeof entry === "string") {
               return (
-                <Typography key={i} color="text.secondary" sx={{ lineHeight: 1.8, mb: 2 }}>
+                <Typography key={i} color="text.secondary" className="leading-[1.8] mb-4">
                   {entry}
                 </Typography>
               );
@@ -106,12 +97,12 @@ export default function ToolSeo({ view }: { view: ToolView }) {
                   section?.text,
                 ].filter((p): p is string => typeof p === "string" && p.trim().length > 0);
             return (
-              <Box key={i} sx={{ mt: 3 }}>
-                <Typography variant="h3" sx={{ fontSize: { xs: "1.25rem", md: "1.5rem" }, mb: 1 }}>
+              <Box key={i} className="mt-6">
+                <Typography variant="h3" className="text-[1.25rem] md:text-[1.5rem] mb-2">
                   {heading}
                 </Typography>
                 {paragraphs.map((p, j) => (
-                  <Typography key={j} color="text.secondary" sx={{ lineHeight: 1.8, mb: 1.5 }}>
+                  <Typography key={j} color="text.secondary" className="leading-[1.8] mb-3">
                     {p}
                   </Typography>
                 ))}

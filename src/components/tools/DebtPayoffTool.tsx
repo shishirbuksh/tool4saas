@@ -1,23 +1,7 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import IconButton from "@mui/material/IconButton";
-import Chip from "@mui/material/Chip";
-import Divider from "@mui/material/Divider";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Paper from "@mui/material/Paper";
-import DeleteIcon from "@mui/icons-material/Delete";
-import AddIcon from "@mui/icons-material/Add";
-import DownloadIcon from "@mui/icons-material/Download";
+import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Button, TextField, IconButton, Chip, Divider, Select, MenuItem, FormControl, InputLabel, Paper } from "@/components/ds";
+
+import { Delete as DeleteIcon, Add as AddIcon, Download as DownloadIcon } from "@/components/ds/icons";
 import { money } from "@/lib/format";
 import { simulatePayoff, type PayoffDebt } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
@@ -56,30 +40,30 @@ function StrategyCard({
   return (
     <Paper
       variant="outlined"
-      sx={{ p: 2, flex: 1, borderColor: highlight ? "success.main" : undefined, borderWidth: highlight ? 2 : 1 }}
+      className="p-4 flex-1" style={{ borderColor: highlight ? "success.main" : undefined, borderWidth: highlight ? 2 : 1 }}
     >
       <Stack spacing={1}>
-        <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
+        <Typography variant="subtitle1" className="font-extrabold">
           {title}
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Debt-free in</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{months !== null ? fmtTerm(months) : "—"}</Typography>
+          <Typography className="font-bold">{months !== null ? fmtTerm(months) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Total interest</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{interest !== null ? money(interest, currency) : "—"}</Typography>
+          <Typography className="font-bold">{interest !== null ? money(interest, currency) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Total paid</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{paid !== null ? money(paid, currency) : "—"}</Typography>
+          <Typography className="font-bold">{paid !== null ? money(paid, currency) : "—"}</Typography>
         </Box>
         <Divider />
         <Typography variant="overline" color="text.secondary">
           Payoff order
         </Typography>
         {order.length > 0 ? (
-          <Stack component="ol" spacing={0.5} sx={{ m: 0, pl: 3 }}>
+          <Stack component="ol" spacing={0.5} className="m-0 pl-6">
             {order.map((name, i) => (
               <Typography component="li" key={`${name}-${i}`} variant="body2">
                 {i + 1}. {name}
@@ -167,8 +151,8 @@ export default function DebtPayoffTool() {
           label="Currency"
           value={currency}
           onChange={(e) => setCurrency(e.target.value as typeof currency)}
-          MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-          sx={{ minHeight: 44 }}
+         
+          className="min-h-[44px]"
         >
           {CURRENCIES.map((c) => (
             <MenuItem key={c} value={c}>
@@ -179,10 +163,10 @@ export default function DebtPayoffTool() {
       </FormControl>
       <Stack spacing={2}>
         {debts.map((d, i) => (
-          <Paper key={i} variant="outlined" sx={{ p: 2 }}>
+          <Paper key={i} variant="outlined" className="p-4">
             <Stack spacing={2}>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <Typography variant="subtitle2" sx={{ fontWeight: 700, flex: 1 }}>
+              <Box className="flex items-center gap-2">
+                <Typography variant="subtitle2" className="font-bold flex-1">
                   Debt {i + 1}
                 </Typography>
                 <IconButton aria-label={`Remove debt ${i + 1}`} size="small" onClick={() => removeDebt(i)} disabled={debts.length <= 1}>
@@ -196,7 +180,7 @@ export default function DebtPayoffTool() {
                 onChange={(e) => updateDebt(i, { name: e.target.value })}
                 placeholder="Card A…"
                 slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-                sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+                
               />
               <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
                 <NumericField label="Balance" value={d.balance} onChange={(v) => updateDebt(i, { balance: v })} />
@@ -235,7 +219,7 @@ export default function DebtPayoffTool() {
             />
           </Stack>
           {interestSaved !== null && interestSaved > 0 && (
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Box className="flex justify-center">
               <Chip
                 color="success"
                 label={`Avalanche saves ${money(interestSaved, currency)} in interest vs snowball`}

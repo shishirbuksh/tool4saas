@@ -1,12 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+
 
 export default function UrlParserTool() {
   const [url, setUrl] = useState("");
@@ -63,39 +58,25 @@ export default function UrlParserTool() {
             {rows.map(([k, v]) => (
               <Box
                 key={k}
-                sx={{
-                  display: "flex",
-                  gap: 2,
-                  p: 1.5,
-                  borderRadius: 2,
-                  border: "1px solid",
-                  borderColor: "divider",
-                }}
+                className="flex gap-4 p-3 rounded-[16px] border border-base-300"
               >
-                <Typography sx={{ width: 110, fontWeight: 700, color: "text.secondary" }}>{k}</Typography>
-                <Typography sx={{ fontFamily: "monospace", fontSize: 14, wordBreak: "break-all" }}>{v}</Typography>
+                <Typography className="w-[110px] font-bold text-base-content/70">{k}</Typography>
+                <Typography className="text-[14px] break-all" style={{ fontFamily: "monospace" }}>{v}</Typography>
               </Box>
             ))}
             {parsed.params.length > 0 && (
-              <Box sx={{ mt: 1 }}>
-                <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+              <Box className="mt-2">
+                <Typography variant="subtitle2" className="font-bold mb-2">
                   Query parameters
                 </Typography>
                 <Stack spacing={1}>
                   {parsed.params.map(([k, v]) => (
                     <Box
                       key={k}
-                      sx={{
-                        display: "flex",
-                        gap: 2,
-                        p: 1.5,
-                        borderRadius: 2,
-                        border: "1px solid",
-                        borderColor: "divider",
-                      }}
+                      className="flex gap-4 p-3 rounded-[16px] border border-base-300"
                     >
-                      <Typography sx={{ width: 160, fontWeight: 600, color: "primary.main" }}>{k}</Typography>
-                      <Typography sx={{ fontFamily: "monospace", fontSize: 14, wordBreak: "break-all" }}>{v}</Typography>
+                      <Typography className="w-[160px] font-semibold text-primary">{k}</Typography>
+                      <Typography className="text-[14px] break-all" style={{ fontFamily: "monospace" }}>{v}</Typography>
                     </Box>
                   ))}
                 </Stack>

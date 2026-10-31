@@ -1,13 +1,7 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Chip from "@mui/material/Chip";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Chip, Alert } from "@/components/ds";
+
 
 const luhn = (num: string): boolean => {
   const digits = num.replace(/\D/g, "");
@@ -54,7 +48,7 @@ export default function CreditCardValidatorTool() {
           placeholder="4242 4242 4242 4242"
           slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
         />
-        <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={1} className="flex-wrap">
           <Chip label={`Brand: ${detected || "—"}`} variant="outlined" />
           <Chip
             label={digits ? (valid ? "Valid (Luhn)" : "Invalid") : "Enter a number"}

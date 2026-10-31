@@ -1,16 +1,7 @@
-"use client";
 
 import { useState, useEffect, useRef } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import ToolPaper from "@/components/ToolPaper";import { Typography, Box, Stack, Button, TextField, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 
 type Mode = "work" | "break";
 
@@ -201,7 +192,7 @@ export default function PomodoroTimerTool() {
   return (
     <ToolPaper spacing={3}>
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 800 }}>
+        <Typography variant="h6" className="font-extrabold">
           Pomodoro Timer
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -209,7 +200,7 @@ export default function PomodoroTimerTool() {
         </Typography>
       </Box>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "flex-end" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-end">
         <TextField
           label="Work minutes"
           type="number"
@@ -248,19 +239,12 @@ export default function PomodoroTimerTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 3,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: isFinished ? "success.main" : mode === "work" ? "primary.main" : "secondary.main",
-          bgcolor: isFinished ? "success.light" : "background.paper",
-          textAlign: "center",
-        }}
+        className="p-6 rounded-[16px] border text-center" style={{ borderColor: isFinished ? "success.main" : mode === "work" ? "primary.main" : "secondary.main", backgroundColor: isFinished ? "success.light" : "background.paper" }}
       >
         <Typography
           variant="overline"
           color={isFinished ? "success.main" : mode === "work" ? "primary.main" : "secondary.main"}
-          sx={{ fontWeight: 700, letterSpacing: 1.2 }}
+          className="font-bold tracking-[1.2px]"
         >
           {isFinished ? "All done" : mode === "work" ? "Work" : "Break"} {isFinished ? "" : `· Cycle ${currentCycle} / ${cycles}`}
         </Typography>
@@ -268,50 +252,38 @@ export default function PomodoroTimerTool() {
         {/* Timer display: h2 (page h1 is the tool title in ToolPageShell) */}
         <Typography
           variant="h2"
-          sx={{
-            fontFamily: "monospace",
-            fontWeight: 800,
-            letterSpacing: 2,
-            fontSize: { xs: "3rem", sm: "4.5rem" },
-            lineHeight: 1,
-            mt: 1,
-          }}
+          className="font-extrabold tracking-[2px] text-[3rem] sm:text-[4.5rem] leading-[1] mt-2" style={{ fontFamily: "monospace" }}
           aria-live="polite"
         >
           {display}
         </Typography>
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.5 }}>
+        <Typography variant="caption" color="text.secondary" className="block mt-1">
           mm:ss
         </Typography>
 
-        <Box sx={{ mt: 2, height: 10, borderRadius: 5, bgcolor: "divider", overflow: "hidden" }}>
+        <Box className="mt-4 h-[10px] rounded-[40px] bg-base-300 overflow-hidden">
           <Box
-            sx={{
-              width: `${Math.min(100, Math.max(0, progress))}%`,
-              height: "100%",
-              bgcolor: isFinished ? "success.main" : mode === "work" ? "primary.main" : "secondary.main",
-              transition: "width 0.5s linear",
-            }}
+            className="h-full" style={{ width: `${Math.min(100, Math.max(0, progress))}%`, backgroundColor: isFinished ? "success.main" : mode === "work" ? "primary.main" : "secondary.main", transition: "width 0.5s linear" }}
           />
         </Box>
-        <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: "block" }}>
+        <Typography variant="caption" color="text.secondary" className="mt-2 block">
           Progress: {progress.toFixed(0)}% · {mode === "work" ? `${workMinutes} min work` : `${breakMinutes} min break`}
         </Typography>
 
         {isFinished && (
-          <Typography variant="h6" color="success.main" sx={{ mt: 2, fontWeight: 800 }}>
+          <Typography variant="h6" color="success.main" className="mt-4 font-extrabold">
             Pomodoro finished! 🎉 {cycles} cycle{cycles > 1 ? "s" : ""} completed.
           </Typography>
         )}
       </Box>
 
-      <Stack direction="row" spacing={2} sx={{ justifyContent: "center" }}>
+      <Stack direction="row" spacing={2} className="justify-center">
         {!isRunning ? (
-          <Button variant="contained" onClick={handleStart} disabled={isFinished} sx={{ minWidth: 100 }}>
+          <Button variant="contained" onClick={handleStart} disabled={isFinished} className="min-w-[100px]">
             Start
           </Button>
         ) : (
-          <Button variant="contained" color="warning" onClick={handlePause} sx={{ minWidth: 100 }}>
+          <Button variant="contained" color="warning" onClick={handlePause} className="min-w-[100px]">
             Pause
           </Button>
         )}
@@ -320,7 +292,7 @@ export default function PomodoroTimerTool() {
         </Button>
       </Stack>
 
-      <Stack direction="row" spacing={2} sx={{ justifyContent: "center", flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={2} className="justify-center flex-wrap">
         <Typography variant="body2" color="text.secondary">
           Cycle count: <strong>{isFinished ? cycles : currentCycle}</strong> / {cycles}
         </Typography>
@@ -332,7 +304,7 @@ export default function PomodoroTimerTool() {
         </Typography>
       </Stack>
 
-      <Typography variant="caption" color="text.secondary" sx={{ display: "block", textAlign: "center" }}>
+      <Typography variant="caption" color="text.secondary" className="block text-center">
         Uses setInterval every 1s and useRef for remaining seconds. On finish it triggers Notification and vibrate.
       </Typography>
     </ToolPaper>

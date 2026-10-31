@@ -4,7 +4,6 @@ export interface PaperProps extends HTMLAttributes<HTMLDivElement> {
   elevation?: number;
   variant?: "elevation" | "outlined";
   ref?: any;
-  [key: string]: any;
 }
 
 export const Paper = forwardRef<HTMLDivElement, PaperProps>(function Paper(

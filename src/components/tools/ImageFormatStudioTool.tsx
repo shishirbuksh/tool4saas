@@ -1,9 +1,6 @@
-"use client";
 
-import { useState } from "react";
-import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
+import { useState } from "react";import { Box, Tab, Tabs } from "@/components/ds";
+
 import ImageFormatConverterTool from "@/components/tools/ImageFormatConverterTool";
 import SvgToPngConverterTool from "@/components/tools/SvgToPngConverterTool";
 
@@ -14,7 +11,7 @@ export default function ImageFormatStudioTool() {
 
   return (
     <>
-      <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 3 }}>
+      <Box className="border-b border-base-300 mb-6">
         <Tabs
           value={mode}
           onChange={(_event, next: number) => setMode(next)}
@@ -27,10 +24,10 @@ export default function ImageFormatStudioTool() {
           ))}
         </Tabs>
       </Box>
-      <Box sx={{ display: mode === 0 ? "block" : "none" }}>
+      <Box style={{ display: mode === 0 ? "block" : "none" }}>
         <ImageFormatConverterTool />
       </Box>
-      <Box sx={{ display: mode === 1 ? "block" : "none" }}>
+      <Box style={{ display: mode === 1 ? "block" : "none" }}>
         <SvgToPngConverterTool />
       </Box>
     </>

@@ -1,16 +1,7 @@
-"use client";
 
 import { useState, useRef, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 import { validateImageFiles, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 
 type PageSize = "a4" | "letter";
@@ -276,7 +267,7 @@ export default function ImageToPdfTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         Image to PDF
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -284,7 +275,7 @@ export default function ImageToPdfTool() {
         page size and orientation. All processing runs locally in your browser.
       </Typography>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center", flexWrap: "wrap" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center flex-wrap">
         <Button variant="outlined" component="label">
           Add images
           <input
@@ -336,48 +327,23 @@ export default function ImageToPdfTool() {
 
       {images.length > 0 ? (
         <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
-            gap: 2,
-          }}
+          className="grid grid-cols-[repeat(auto-fill,_minmax(140px,_1fr))] gap-4"
         >
           {images.map((img, index) => (
             <Box
               key={img.id}
-              sx={{
-                border: "1px solid",
-                borderColor: "divider",
-                borderRadius: 2,
-                overflow: "hidden",
-                bgcolor: "background.paper",
-                display: "flex",
-                flexDirection: "column",
-              }}
+              className="border border-base-300 rounded-[16px] overflow-hidden bg-base-100 flex flex-col"
             >
               <Box
                 component="img"
                 src={img.objectUrl}
                 alt={img.name}
-                sx={{
-                  width: "100%",
-                  height: 120,
-                  objectFit: "cover",
-                  display: "block",
-                  borderBottom: "1px solid",
-                  borderColor: "divider",
-                }}
+                className="w-full h-[120px] object-cover block border-b border-base-300"
               />
-              <Box sx={{ p: 1, flex: 1, minWidth: 0 }}>
+              <Box className="p-2 flex-1 min-w-[0px]">
                 <Typography
                   variant="caption"
-                  sx={{
-                    display: "block",
-                    fontWeight: 600,
-                    whiteSpace: "nowrap",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                  }}
+                  className="block font-semibold whitespace-nowrap overflow-hidden text-ellipsis"
                   title={img.name}
                 >
                   {index + 1}. {img.name}
@@ -386,7 +352,7 @@ export default function ImageToPdfTool() {
                   {img.width} × {img.height}
                 </Typography>
               </Box>
-              <Box sx={{ p: 1, pt: 0 }}>
+              <Box className="p-2 pt-0">
                 <Button size="small" color="error" variant="outlined" fullWidth onClick={() => removeImage(img.id)}>
                   Remove
                 </Button>
@@ -396,14 +362,7 @@ export default function ImageToPdfTool() {
         </Box>
       ) : (
         <Box
-          sx={{
-            p: 3,
-            border: "1px dashed",
-            borderColor: "divider",
-            borderRadius: 2,
-            textAlign: "center",
-            bgcolor: "background.default",
-          }}
+          className="p-6 border-base-300 rounded-[16px] text-center bg-base-100" style={{ border: "1px dashed" }}
         >
           <Typography variant="body2" color="text.secondary">
             Choose one or more images to preview thumbnails here. Each image will be placed on its own PDF page via{" "}
@@ -416,7 +375,7 @@ export default function ImageToPdfTool() {
         <Button variant="contained" onClick={generatePdf} disabled={images.length === 0 || loading}>
           {loading ? "Generating..." : `Generate & Download PDF (${images.length})`}
         </Button>
-        <Typography variant="caption" color="text.secondary" sx={{ ml: 2 }}>
+        <Typography variant="caption" color="text.secondary" className="ml-4">
           Uses <code>dynamic import(&quot;jspdf&quot;)</code> and <code>addImage</code>. Download via <code>save()</code>.
         </Typography>
       </Box>

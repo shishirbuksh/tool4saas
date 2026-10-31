@@ -1,17 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
-import Stack from "@mui/material/Stack";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Alert from "@mui/material/Alert";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Link, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -89,38 +78,32 @@ export default function SipCalculatorTool() {
         </Select>
       </FormControl>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Future value
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {future !== null ? money(future, currency) : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Invested amount</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{invested !== null ? money(invested, currency) : "—"}</Typography>
+          <Typography className="font-bold">{invested !== null ? money(invested, currency) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Estimated gain</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{gain !== null ? money(gain, currency) : "—"}</Typography>
+          <Typography className="font-bold">{gain !== null ? money(gain, currency) : "—"}</Typography>
         </Box>
         {future !== null && (
           <Typography variant="caption" color="text.secondary">
             Goal planning: See our breakdown of a{" "}
-            <Link component={NextLink} href="/blog/sip-calculator-guide/sip-5000-10-years" underline="hover" color="primary">
+            <Link href="/blog/sip-calculator-guide/sip-5000-10-years" underline="hover" color="primary">
               ₹5,000 monthly SIP growth chart
             </Link>{" "}
             or discover the required monthly investment to build a{" "}
-            <Link component={NextLink} href="/blog/sip-calculator-guide/sip-1-crore-goal" underline="hover" color="primary">
+            <Link href="/blog/sip-calculator-guide/sip-1-crore-goal" underline="hover" color="primary">
               ₹1 Crore corpus by retirement
             </Link>.
           </Typography>

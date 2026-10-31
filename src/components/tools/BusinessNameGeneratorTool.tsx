@@ -1,23 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Paper from "@mui/material/Paper";
-import IconButton from "@mui/material/IconButton";
-import Chip from "@mui/material/Chip";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import StarIcon from "@mui/icons-material/Star";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
-import DeleteIcon from "@mui/icons-material/Delete";
+import ToolPaper from "@/components/ToolPaper";import { Box, Stack, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Paper, IconButton, Chip } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Star as StarIcon, StarBorder as StarBorderIcon, Delete as DeleteIcon } from "@/components/ds/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 type StyleOption = "modern" | "classic" | "playful" | "tech" | "luxury";
@@ -179,7 +164,7 @@ export default function BusinessNameGeneratorTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         Business Name Generator
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -226,7 +211,7 @@ export default function BusinessNameGeneratorTool() {
         </FormControl>
       </Stack>
 
-      <Stack direction="row" spacing={1} sx={{ alignItems: "center", flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} className="items-center flex-wrap">
         <Button variant="contained" onClick={handleGenerate}>
           Generate names
         </Button>
@@ -238,7 +223,7 @@ export default function BusinessNameGeneratorTool() {
         >
           Copy all
         </Button>
-        <Box sx={{ flexGrow: 1 }} />
+        <Box className="grow" />
         <Typography variant="caption" color="text.secondary">
           {names.length ? `${names.length} ideas` : "12 ideas per run"}
         </Typography>
@@ -252,18 +237,14 @@ export default function BusinessNameGeneratorTool() {
 
       {names.length > 0 ? (
         <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" },
-            gap: 1.5,
-          }}
+          className="grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-3"
         >
           {names.map((name) => {
             const isFav = favorites.includes(name);
             return (
-              <Paper key={name} variant="outlined" sx={{ p: 1.5, display: "flex", alignItems: "center", gap: 1 }}>
-                <Box sx={{ minWidth: 0, flexGrow: 1 }}>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 700 }} noWrap title={name}>
+              <Paper key={name} variant="outlined" className="p-3 flex items-center gap-2">
+                <Box className="min-w-[0px] grow">
+                  <Typography variant="subtitle2" className="font-bold" noWrap title={name}>
                     {name}
                   </Typography>
                   <Typography variant="caption" color="text.secondary" noWrap>
@@ -286,7 +267,7 @@ export default function BusinessNameGeneratorTool() {
           })}
         </Box>
       ) : (
-        <Paper variant="outlined" sx={{ p: 2, textAlign: "center" }}>
+        <Paper variant="outlined" className="p-4 text-center">
           <Typography variant="body2" color="text.secondary">
             Add an optional keyword, choose a style and length, then click Generate names.
           </Typography>
@@ -294,8 +275,8 @@ export default function BusinessNameGeneratorTool() {
       )}
 
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 1 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-2">
+          <Typography variant="subtitle2" className="font-bold">
             Shortlist ({favorites.length})
           </Typography>
           <Stack direction="row" spacing={1}>
@@ -308,7 +289,7 @@ export default function BusinessNameGeneratorTool() {
           </Stack>
         </Stack>
         {favorites.length > 0 ? (
-          <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
+          <Stack direction="row" spacing={1} className="flex-wrap gap-2">
             {favorites.map((fav) => (
               <Chip
                 key={fav}

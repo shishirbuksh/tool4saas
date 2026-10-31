@@ -1,15 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Slider from "@mui/material/Slider";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Slider, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -38,8 +29,8 @@ export default function TipCalculatorTool() {
             label="Currency"
             value={currency}
             onChange={(e) => setCurrency(e.target.value as typeof currency)}
-            MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-            sx={{ minHeight: 44 }}
+           
+            className="min-h-[44px]"
           >
             {CURRENCIES.map((c) => (
               <MenuItem key={c} value={c}>
@@ -59,10 +50,10 @@ export default function TipCalculatorTool() {
             input: { inputMode: "decimal", spellCheck: false, autoComplete: "off", startAdornment: currency === "USD" ? "$" : currency },
             htmlInput: { min: 0, step: "any" },
           }}
-          sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+          
         />
         <Box>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
+          <Typography variant="subtitle2" className="font-bold mb-1">
             Tip: {tip}%
           </Typography>
           <Slider
@@ -91,29 +82,22 @@ export default function TipCalculatorTool() {
             input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" },
             htmlInput: { min: 1, step: 1 },
           }}
-          sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+          
         />
-        <Stack spacing={1.5} sx={{ mt: 1 }}>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Stack spacing={1.5} className="mt-2">
+          <Box className="flex justify-between">
             <Typography color="text.secondary">Tip amount</Typography>
-            <Typography sx={{ fontWeight: 700 }}>{money(tipAmount, currency)}</Typography>
+            <Typography className="font-bold">{money(tipAmount, currency)}</Typography>
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box className="flex justify-between">
             <Typography color="text.secondary">Total</Typography>
-            <Typography sx={{ fontWeight: 700 }}>{money(total, currency)}</Typography>
+            <Typography className="font-bold">{money(total, currency)}</Typography>
           </Box>
           <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              p: 1.5,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "primary.main",
-            }}
+            className="flex justify-between p-3 rounded-[16px] border border-primary"
           >
             <Typography color="text.secondary">Per person</Typography>
-            <Typography sx={{ fontWeight: 800, color: "primary.main" }}>{money(perPerson, currency)}</Typography>
+            <Typography className="font-extrabold text-primary">{money(perPerson, currency)}</Typography>
            </Box>
          </Stack>
     </ToolPaper>

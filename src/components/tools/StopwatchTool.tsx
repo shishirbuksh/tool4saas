@@ -1,14 +1,8 @@
-"use client";
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Link from "@mui/material/Link";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Link } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
 import { MS_PER_HOUR, MS_PER_MINUTE, MS_PER_SECOND } from "@/lib/format";
 
 const fmt = (ms: number) => {
@@ -67,10 +61,10 @@ export default function StopwatchTool() {
 
   return (
     <ToolPaper>
-      <Stack spacing={2} sx={{ alignItems: "center" }}>
+      <Stack spacing={2} className="items-center">
         <Typography
           variant="h2"
-          sx={{ fontFamily: "monospace", fontWeight: 800, letterSpacing: 1 }}
+          className="font-extrabold tracking-[1px]" style={{ fontFamily: "monospace" }}
           aria-live="polite"
         >
           {fmt(elapsed)}
@@ -91,23 +85,16 @@ export default function StopwatchTool() {
           </Button>
         </Stack>
         {laps.length > 0 && (
-          <Box sx={{ width: "100%", maxHeight: 160, overflow: "auto" }}>
+          <Box className="w-full max-h-[160px] overflow-auto">
             {laps.map((l, i) => (
               <Box
                 key={i}
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  px: 1,
-                  py: 0.5,
-                  borderBottom: "1px solid",
-                  borderColor: "divider",
-                }}
+                className="flex justify-between px-2 py-1 border-b border-base-300"
               >
                 <Typography variant="body2" color="text.secondary">
                   Lap {i + 1}
                 </Typography>
-                <Typography variant="body2" sx={{ fontFamily: "monospace" }}>
+                <Typography variant="body2" style={{ fontFamily: "monospace" }}>
                   {fmt(l)}
                 </Typography>
               </Box>
@@ -124,7 +111,7 @@ export default function StopwatchTool() {
             </Button>
           </Stack>
         )}
-        <Typography variant="body2" color="text.secondary" sx={{ textAlign: "center" }}>
+        <Typography variant="body2" color="text.secondary" className="text-center">
           Need focus cycles or event countdowns? Try the{" "}
           <Link href="/pomodoro-timer">Pomodoro timer</Link> or{" "}
           <Link href="/date-calculator">Countdown timer</Link>.

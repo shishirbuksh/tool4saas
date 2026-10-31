@@ -1,15 +1,7 @@
-"use client";
 
 import { useState, useRef } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
-import Slider from "@mui/material/Slider";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert, TextField, MenuItem, Slider } from "@/components/ds";
+
 import { MAX_IMAGE_SIZE } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 
@@ -182,13 +174,13 @@ export default function PdfWatermarkTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         PDF Watermark
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Add a text watermark to every page of a PDF. Files are processed locally in your browser and never uploaded.
       </Typography>
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center", flexWrap: "wrap" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center flex-wrap">
         <Button variant="outlined" component="label">
           Choose PDF
           <input ref={inputRef} type="file" accept="application/pdf,.pdf" hidden onChange={onFile} />
@@ -203,8 +195,8 @@ export default function PdfWatermarkTool() {
         </Typography>
       </Stack>
       {file && (
-        <Box sx={{ display: "flex", justifyContent: "space-between", p: 1.5, border: "1px solid", borderColor: "divider", borderRadius: 2 }}>
-          <Typography variant="body2" sx={{ fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis" }}>
+        <Box className="flex justify-between p-3 border border-base-300 rounded-[16px]">
+          <Typography variant="body2" className="font-semibold overflow-hidden text-ellipsis">
             {file.name} ({fmtBytes(file.size)})
           </Typography>
           <Button size="small" color="error" onClick={clear}>
@@ -222,7 +214,7 @@ export default function PdfWatermarkTool() {
         slotProps={{ htmlInput: { maxLength: 100 } }}
       />
       <Box>
-        <Typography variant="body2" sx={{ fontWeight: 600 }}>
+        <Typography variant="body2" className="font-semibold">
           Opacity: {opacity.toFixed(2)}
         </Typography>
         <Slider

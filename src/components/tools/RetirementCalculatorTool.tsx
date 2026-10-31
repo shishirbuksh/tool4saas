@@ -1,15 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Alert from "@mui/material/Alert";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -110,18 +101,12 @@ export default function RetirementCalculatorTool() {
         {field("Retirement goal (optional)", goal, setGoal)}
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Projected corpus at retirement
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {future !== null ? money(future, currency) : "—"}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -129,13 +114,13 @@ export default function RetirementCalculatorTool() {
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Total contributions</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{invested !== null ? money(invested, currency) : "—"}</Typography>
+          <Typography className="font-bold">{invested !== null ? money(invested, currency) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Retirement goal</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {shortfall !== null && future !== null
               ? money(shortfall + future, currency)
               : goal.trim() !== "" && future !== null
@@ -143,9 +128,9 @@ export default function RetirementCalculatorTool() {
                 : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">{shortfall !== null && shortfall > 0 ? "Shortfall" : "Surplus"}</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {shortfall !== null ? money(Math.abs(shortfall), currency) : "—"}
           </Typography>
         </Box>

@@ -1,18 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
-import UnfoldLessIcon from "@mui/icons-material/UnfoldLess";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Alert, Button } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, ExpandMore as ExpandMoreIcon, ChevronRight as ChevronRightIcon, UnfoldMore as UnfoldMoreIcon, UnfoldLess as UnfoldLessIcon } from "@/components/ds/icons";
 
 type JsonValue = unknown;
 
@@ -130,25 +120,25 @@ export default function JsonTreeViewerTool() {
       : 0;
 
     return (
-      <Box key={path} sx={{ ml: depth * 2, borderLeft: depth > 0 ? "1px dashed #e0e0e0" : "none", pl: depth > 0 ? 1.2 : 0, py: 0.15 }}>
-        <Stack direction="row" spacing={0.5} sx={{ alignItems: "center", flexWrap: "wrap", gap: 0.5 }}>
+      <Box key={path} className="py-0.3" style={{ marginLeft: "calc((depth * 2) * 8px)", borderLeft: depth > 0 ? "1px dashed #e0e0e0" : "none", paddingLeft: "calc((depth > 0 ? 1.2 : 0) * 8px)" }}>
+        <Stack direction="row" spacing={0.5} className="items-center flex-wrap gap-1">
           {isExpandable ? (
             <Button
               size="small"
               onClick={() => toggle(path)}
-              sx={{ minWidth: 28, width: 28, height: 22, p: 0, color: "text.secondary" }}
+              className="min-w-[28px] w-[28px] h-[22px] p-0 text-base-content/70"
               aria-label={isExpanded ? `Collapse ${path}` : `Expand ${path}`}
             >
-              {isExpanded ? <ExpandMoreIcon sx={{ fontSize: 18 }} /> : <ChevronRightIcon sx={{ fontSize: 18 }} />}
+              {isExpanded ? <ExpandMoreIcon className="text-[18px]" /> : <ChevronRightIcon className="text-[18px]" />}
             </Button>
           ) : (
-            <Box sx={{ width: 28, height: 22, display: "inline-flex" }} />
+            <Box className="w-[28px] h-[22px] inline-flex" />
           )}
 
           {name !== "__root__" && (
-            <Typography variant="body2" component="span" sx={{ fontWeight: 600, fontFamily: "monospace", fontSize: 13, color: "#1a237e" }}>
+            <Typography variant="body2" component="span" className="font-semibold text-[13px] text-[#1a237e]" style={{ fontFamily: "monospace" }}>
               {name}
-              <Typography component="span" sx={{ fontWeight: 400, color: "text.secondary" }}>
+              <Typography component="span" className="font-normal text-base-content/70">
                 :
               </Typography>
             </Typography>
@@ -158,12 +148,12 @@ export default function JsonTreeViewerTool() {
             <Typography
               variant="body2"
               component="span"
-              sx={{ fontFamily: "monospace", fontSize: 12.5, color: "text.secondary", cursor: "pointer" }}
+              className="text-[12.5px] text-base-content/70 cursor-pointer" style={{ fontFamily: "monospace" }}
               onClick={() => toggle(path)}
             >
               {type === "array" ? `Array[${childrenCount}]` : `Object{${childrenCount}}`}
               {!isExpanded && childrenCount > 0 && (
-                <Typography component="span" sx={{ ml: 0.5, color: "text.disabled", fontSize: 12 }}>
+                <Typography component="span" className="ml-1 text-base-content/40 text-[12px]">
                   {type === "array" ? "[…]" : "{…}"}
                 </Typography>
               )}
@@ -172,13 +162,7 @@ export default function JsonTreeViewerTool() {
             <Typography
               variant="body2"
               component="span"
-              sx={{
-                fontFamily: "monospace",
-                fontSize: 13,
-                color: getTypeColor(type),
-                wordBreak: "break-all",
-                fontWeight: type === "string" ? 400 : 500,
-              }}
+              className="text-[13px] break-all" style={{ fontFamily: "monospace", color: getTypeColor(type), fontWeight: type === "string" ? 400 : 500 }}
             >
               {getValuePreview(value)}
             </Typography>
@@ -186,29 +170,18 @@ export default function JsonTreeViewerTool() {
 
           <Typography
             variant="caption"
-            sx={{
-              ml: 0.5,
-              px: 0.6,
-              py: 0.15,
-              borderRadius: 0.5,
-              bgcolor: "#f5f5f5",
-              color: getTypeColor(type),
-              fontFamily: "monospace",
-              fontSize: 11,
-              fontWeight: 600,
-              border: "1px solid #eeeeee",
-            }}
+            className="ml-1 px-1.2 py-0.3 rounded-[4px] bg-[#f5f5f5] text-[11px] font-semibold border border-[#eeeeee]" style={{ color: getTypeColor(type), fontFamily: "monospace" }}
           >
             {type}
           </Typography>
 
-          <Stack direction="row" spacing={0.25} sx={{ ml: 0.5 }}>
+          <Stack direction="row" spacing={0.25} className="ml-1">
             <Button
               size="small"
               variant="text"
-              startIcon={<ContentCopyIcon sx={{ fontSize: 14 }} />}
+              startIcon={<ContentCopyIcon className="text-[14px]" />}
               onClick={() => copyPath(path)}
-              sx={{ fontSize: 11, py: 0.1, px: 0.6, minWidth: 0, height: 20, textTransform: "none" }}
+              className="text-[11px] py-0.2 px-1.2 min-w-[0px] h-[20px] normal-case"
               aria-label={`Copy path ${path}`}
             >
               {copiedPath === path ? "Copied!" : "path"}
@@ -217,9 +190,9 @@ export default function JsonTreeViewerTool() {
               <Button
                 size="small"
                 variant="text"
-                startIcon={<ContentCopyIcon sx={{ fontSize: 14 }} />}
+                startIcon={<ContentCopyIcon className="text-[14px]" />}
                 onClick={() => copyValue(value)}
-                sx={{ fontSize: 11, py: 0.1, px: 0.6, minWidth: 0, height: 20, textTransform: "none" }}
+                className="text-[11px] py-0.2 px-1.2 min-w-[0px] h-[20px] normal-case"
                 aria-label={`Copy value ${path}`}
               >
                 value
@@ -229,16 +202,16 @@ export default function JsonTreeViewerTool() {
         </Stack>
 
         {isExpandable && isExpanded && (
-          <Box sx={{ mt: 0.25 }}>
+          <Box className="mt-0.5">
             {childrenCount === 0 ? (
-              <Typography variant="caption" sx={{ ml: 3.5, color: "text.disabled", fontFamily: "monospace", fontStyle: "italic" }}>
+              <Typography variant="caption" className="ml-7 text-base-content/40 italic" style={{ fontFamily: "monospace" }}>
                 {type === "array" ? "empty array" : "empty object"}
               </Typography>
             ) : Array.isArray(value) ? (
               <>
                 {(value as unknown[]).slice(0, 200).map((item, idx) => renderNode(`[${idx}]`, item, `${path}[${idx}]`, depth + 1))}
                 {(value as unknown[]).length > 200 && (
-                  <Typography variant="caption" sx={{ ml: 3.5, color: "text.secondary", fontStyle: "italic" }}>
+                  <Typography variant="caption" className="ml-7 text-base-content/70 italic">
                     ... {(value as unknown[]).length - 200} more items hidden
                   </Typography>
                 )}
@@ -247,7 +220,7 @@ export default function JsonTreeViewerTool() {
               <>
                 {Object.entries(value as Record<string, unknown>).slice(0, 200).map(([k, v]) => renderNode(k, v, `${path}.${k}`, depth + 1))}
                 {Object.keys(value as Record<string, unknown>).length > 200 && (
-                  <Typography variant="caption" sx={{ ml: 3.5, color: "text.secondary", fontStyle: "italic" }}>
+                  <Typography variant="caption" className="ml-7 text-base-content/70 italic">
                     ... {Object.keys(value as Record<string, unknown>).length - 200} more keys hidden
                   </Typography>
                 )}
@@ -261,7 +234,7 @@ export default function JsonTreeViewerTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         JSON Tree Viewer
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -278,7 +251,7 @@ export default function JsonTreeViewerTool() {
         onChange={(e) => setInput(e.target.value)}
         placeholder='{ "hello": "world", "count": 42 }'
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+        className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
       />
 
       {error ? (
@@ -291,8 +264,8 @@ export default function JsonTreeViewerTool() {
 
       {!error && input.trim() && data !== null && (
         <Box>
-          <Stack direction="row" spacing={1} sx={{ alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 1, mb: 1 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" spacing={1} className="items-center justify-between flex-wrap gap-2 mb-2">
+            <Typography variant="subtitle2" className="font-bold">
               Tree View
             </Typography>
             <Stack direction="row" spacing={1}>
@@ -306,56 +279,38 @@ export default function JsonTreeViewerTool() {
           </Stack>
 
           <Box
-            sx={{
-              border: "1px solid #e0e0e0",
-              borderRadius: 1.5,
-              p: 1.5,
-              bgcolor: "#fafafa",
-              maxHeight: 520,
-              overflow: "auto",
-              fontFamily: "monospace",
-            }}
+            className="border border-[#e0e0e0] rounded-[12px] p-3 bg-[#fafafa] max-h-[520px] overflow-auto" style={{ fontFamily: "monospace" }}
           >
             {data !== null && typeof data === "object" ? (
               // root is object/array — show its children directly with root label
               <Box>
-                <Stack direction="row" spacing={0.5} sx={{ alignItems: "center", mb: 0.5 }}>
+                <Stack direction="row" spacing={0.5} className="items-center mb-1">
                   <Button
                     size="small"
                     onClick={() => toggle("root")}
-                    sx={{ minWidth: 28, width: 28, height: 22, p: 0, color: "text.secondary" }}
+                    className="min-w-[28px] w-[28px] h-[22px] p-0 text-base-content/70"
                     aria-label={expanded.has("root") ? "Collapse root" : "Expand root"}
                   >
-                    {expanded.has("root") ? <ExpandMoreIcon sx={{ fontSize: 18 }} /> : <ChevronRightIcon sx={{ fontSize: 18 }} />}
+                    {expanded.has("root") ? <ExpandMoreIcon className="text-[18px]" /> : <ChevronRightIcon className="text-[18px]" />}
                   </Button>
-                  <Typography variant="body2" sx={{ fontWeight: 700, fontFamily: "monospace", fontSize: 13 }}>
+                  <Typography variant="body2" className="font-bold text-[13px]" style={{ fontFamily: "monospace" }}>
                     root
                   </Typography>
-                  <Typography variant="caption" sx={{ color: "text.secondary", fontFamily: "monospace" }}>
+                  <Typography variant="caption" className="text-base-content/70" style={{ fontFamily: "monospace" }}>
                     {Array.isArray(data) ? `Array[${(data as unknown[]).length}]` : `Object{${Object.keys(data as Record<string, unknown>).length}}`}
                   </Typography>
                   <Typography
                     variant="caption"
-                    sx={{
-                      px: 0.6,
-                      py: 0.15,
-                      borderRadius: 0.5,
-                      bgcolor: "#fff",
-                      color: getTypeColor(getType(data)),
-                      fontFamily: "monospace",
-                      fontSize: 11,
-                      fontWeight: 600,
-                      border: "1px solid #eeeeee",
-                    }}
+                    className="px-1.2 py-0.3 rounded-[4px] bg-[#fff] text-[11px] font-semibold border border-[#eeeeee]" style={{ color: getTypeColor(getType(data)), fontFamily: "monospace" }}
                   >
                     {getType(data)}
                   </Typography>
                   <Button
                     size="small"
                     variant="text"
-                    startIcon={<ContentCopyIcon sx={{ fontSize: 14 }} />}
+                    startIcon={<ContentCopyIcon className="text-[14px]" />}
                     onClick={() => copyPath("root")}
-                    sx={{ fontSize: 11, py: 0.1, px: 0.6, minWidth: 0, height: 20, textTransform: "none" }}
+                    className="text-[11px] py-0.2 px-1.2 min-w-[0px] h-[20px] normal-case"
                   >
                     {copiedPath === "root" ? "Copied!" : "copy path"}
                   </Button>
@@ -366,23 +321,23 @@ export default function JsonTreeViewerTool() {
                       ? (data as unknown[]).slice(0, 200).map((item, idx) => renderNode(`[${idx}]`, item, `root[${idx}]`, 1))
                       : Object.entries(data as Record<string, unknown>).slice(0, 200).map(([k, v]) => renderNode(k, v, `root.${k}`, 1))}
                     {Array.isArray(data) && (data as unknown[]).length > 200 && (
-                      <Typography variant="caption" sx={{ ml: 3.5, color: "text.secondary", fontStyle: "italic" }}>
+                      <Typography variant="caption" className="ml-7 text-base-content/70 italic">
                         ... {(data as unknown[]).length - 200} more items hidden
                       </Typography>
                     )}
                     {!Array.isArray(data) && Object.keys(data as Record<string, unknown>).length > 200 && (
-                      <Typography variant="caption" sx={{ ml: 3.5, color: "text.secondary", fontStyle: "italic" }}>
+                      <Typography variant="caption" className="ml-7 text-base-content/70 italic">
                         ... {Object.keys(data as Record<string, unknown>).length - 200} more keys hidden
                       </Typography>
                     )}
 
                     {Array.isArray(data) && (data as unknown[]).length === 0 && (
-                      <Typography variant="caption" sx={{ ml: 3.5, color: "text.disabled", fontStyle: "italic" }}>
+                      <Typography variant="caption" className="ml-7 text-base-content/40 italic">
                         empty array
                       </Typography>
                     )}
                     {!Array.isArray(data) && Object.keys(data as Record<string, unknown>).length === 0 && (
-                      <Typography variant="caption" sx={{ ml: 3.5, color: "text.disabled", fontStyle: "italic" }}>
+                      <Typography variant="caption" className="ml-7 text-base-content/40 italic">
                         empty object
                       </Typography>
                     )}
@@ -395,23 +350,16 @@ export default function JsonTreeViewerTool() {
             )}
           </Box>
 
-          <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
-            Tip: path uses dot notation for objects (e.g. <Box component="span" sx={{ fontFamily: "monospace" }}>root.address.city</Box>) and brackets for
-            arrays (e.g. <Box component="span" sx={{ fontFamily: "monospace" }}>root.roles[0]</Box>).
+          <Typography variant="caption" color="text.secondary" className="block mt-2">
+            Tip: path uses dot notation for objects (e.g. <Box component="span" style={{ fontFamily: "monospace" }}>root.address.city</Box>) and brackets for
+            arrays (e.g. <Box component="span" style={{ fontFamily: "monospace" }}>root.roles[0]</Box>).
           </Typography>
         </Box>
       )}
 
       {!error && input.trim() && data === null && getType(data) === "null" && (
         <Box
-          sx={{
-            border: "1px solid #e0e0e0",
-            borderRadius: 1.5,
-            p: 1.5,
-            bgcolor: "#fafafa",
-            maxHeight: 520,
-            overflow: "auto",
-          }}
+          className="border border-[#e0e0e0] rounded-[12px] p-3 bg-[#fafafa] max-h-[520px] overflow-auto"
         >
           {renderNode("__root__", data, "root", 0)}
         </Box>

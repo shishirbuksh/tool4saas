@@ -1,6 +1,5 @@
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Container, Box, Typography } from "@/components/ds";
+
 import Link from "@/lib/astro/navigation";
 import { FAQS } from "@/content/home";
 
@@ -11,29 +10,17 @@ export default function HomeFaq() {
       component="section"
       id="faq"
       aria-label="Frequently asked questions"
-      sx={{
-        bgcolor: "background.paper",
-        borderTop: "1px solid",
-        borderBottom: "1px solid",
-        borderColor: "divider",
-        py: { xs: 7, md: 10 },
-        scrollMarginTop: 100,
-      }}
+      className="bg-base-100 border-t border-b border-base-300 py-14 md:py-20 scroll-mt-[100px]"
     >
-      <Container maxWidth="md" sx={{ px: { xs: 2, md: 4 } }}>
-        <Box sx={{ textAlign: "center", mb: { xs: 3, md: 4 } }}>
+      <Container maxWidth="md" className="px-4 md:px-8">
+        <Box className="text-center mb-6 md:mb-8">
           <Typography
             variant="h2"
-            sx={{
-              fontSize: { xs: "1.75rem", md: "2.25rem" },
-              fontWeight: 700,
-              letterSpacing: "-0.025em",
-              mb: 0.5,
-            }}
+            className="text-[1.75rem] md:text-[2.25rem] font-bold tracking-[-0.025em] mb-1"
           >
             Frequently asked questions
           </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9375rem", md: "1rem" } }}>
+          <Typography color="text.secondary" className="text-[0.9375rem] md:text-[1rem]">
             Plain answers. Still stuck? <Link href="/contact">Contact us</Link>.
           </Typography>
         </Box>
@@ -43,36 +30,18 @@ export default function HomeFaq() {
             key={f.q}
             component="details"
             open={i === 0}
-            sx={{
-              mb: 1,
-              px: { xs: 2, md: 2.5 },
-              py: { xs: 1.75, md: 2 },
-              borderRadius: "12px",
-              border: "1px solid",
-              borderColor: "divider",
-              bgcolor: "background.default",
-              contentVisibility: "auto",
-              containIntrinsicSize: "auto 64px",
-              "&[open]": { borderColor: "rgba(0,0,0,0.16)" },
-              'html[data-theme="dark"] &[open]': { borderColor: "rgba(255,255,255,0.2)" },
-            }}
+            className="mb-2 px-4 md:px-5 py-3.5 md:py-4 rounded-[12px] border border-base-300 bg-base-100 [&[open]]:border-[rgba(0,0,0,0.16)] dark:[&_[open]]:border-[rgba(255,255,255,0.2)]" style={{ contentVisibility: "auto", containIntrinsicSize: "auto 64px" }}
           >
             <Typography
               component="summary"
-              sx={{
-                fontSize: { xs: "0.9375rem", md: "1rem" },
-                fontWeight: 600,
-                cursor: "pointer",
-                lineHeight: 1.4,
-                "&:focus-visible": { outline: "3px solid", outlineOffset: "4px" },
-              }}
+              className="text-[0.9375rem] md:text-[1rem] font-semibold cursor-pointer leading-[1.4] focus-visible:[outline:3px_solid] focus-visible:[outline-offset:4px]"
             >
               {f.q}
             </Typography>
             <Typography
               color="text.secondary"
-              className="speakable-faq-answer"
-              sx={{ lineHeight: 1.7, mt: 1, fontSize: { xs: "0.875rem", md: "0.9375rem" } }}
+              className="speakable-faq-answer leading-[1.7] mt-2 text-[0.875rem] md:text-[0.9375rem]"
+              
             >
               {f.a}
             </Typography>

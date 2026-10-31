@@ -1,11 +1,7 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography } from "@/components/ds";
+
 
 function countSyllables(word: string): number {
   const w = word.toLowerCase().replace(/[^a-z]/g, "");
@@ -133,33 +129,16 @@ export default function ReadabilityCheckerTool() {
       />
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          bgcolor: "background.paper",
-        }}
+        className="p-4 rounded-[16px] border border-base-300 bg-base-100"
       >
-        <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2 }}>
+        <Typography variant="subtitle2" className="font-bold mb-4">
           Readability Scores
         </Typography>
 
         <Stack spacing={2}>
           {/* Flesch Reading Ease */}
           <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 2,
-              p: 1.5,
-              borderRadius: 1.5,
-              border: "1px solid",
-              borderColor: "divider",
-              borderLeft: "4px solid",
-              borderLeftColor: easeColor,
-            }}
+            className="flex items-center justify-between gap-4 p-3 rounded-[12px] border border-base-300" style={{ borderLeft: "4px solid", borderLeftColor: easeColor }}
           >
             <Box>
               <Typography variant="body2" color="text.secondary">
@@ -169,25 +148,14 @@ export default function ReadabilityCheckerTool() {
                 {hasText ? getFleschEaseLabel(stats.fleschEase) : "—"}
               </Typography>
             </Box>
-            <Typography variant="h6" sx={{ fontWeight: 800, color: easeColor }}>
+            <Typography variant="h6" className="font-extrabold" style={{ color: easeColor }}>
               {hasText ? stats.fleschEase.toFixed(1) : "—"}
             </Typography>
           </Box>
 
           {/* Flesch-Kincaid Grade Level */}
           <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 2,
-              p: 1.5,
-              borderRadius: 1.5,
-              border: "1px solid",
-              borderColor: "divider",
-              borderLeft: "4px solid",
-              borderLeftColor: gradeColor,
-            }}
+            className="flex items-center justify-between gap-4 p-3 rounded-[12px] border border-base-300" style={{ borderLeft: "4px solid", borderLeftColor: gradeColor }}
           >
             <Box>
               <Typography variant="body2" color="text.secondary">
@@ -197,7 +165,7 @@ export default function ReadabilityCheckerTool() {
                 {hasText ? getGradeLabel(stats.fleschKincaid) : "—"}
               </Typography>
             </Box>
-            <Typography variant="h6" sx={{ fontWeight: 800, color: gradeColor }}>
+            <Typography variant="h6" className="font-extrabold" style={{ color: gradeColor }}>
               {hasText ? stats.fleschKincaid.toFixed(1) : "—"}
             </Typography>
           </Box>
@@ -205,18 +173,9 @@ export default function ReadabilityCheckerTool() {
           {/* Supporting stats */}
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
             <Box
-              sx={{
-                flex: 1,
-                p: 1.5,
-                borderRadius: 1.5,
-                border: "1px solid",
-                borderColor: "divider",
-                textAlign: "center",
-                borderTop: "3px solid",
-                borderTopColor: "primary.main",
-              }}
+              className="flex-1 p-3 rounded-[12px] border border-base-300 text-center border-t-primary" style={{ borderTop: "3px solid" }}
             >
-              <Typography variant="h6" sx={{ fontWeight: 800 }}>
+              <Typography variant="h6" className="font-extrabold">
                 {stats.wordCount}
               </Typography>
               <Typography variant="caption" color="text.secondary">
@@ -224,18 +183,9 @@ export default function ReadabilityCheckerTool() {
               </Typography>
             </Box>
             <Box
-              sx={{
-                flex: 1,
-                p: 1.5,
-                borderRadius: 1.5,
-                border: "1px solid",
-                borderColor: "divider",
-                textAlign: "center",
-                borderTop: "3px solid",
-                borderTopColor: "info.main",
-              }}
+              className="flex-1 p-3 rounded-[12px] border border-base-300 text-center border-t-info" style={{ borderTop: "3px solid" }}
             >
-              <Typography variant="h6" sx={{ fontWeight: 800 }}>
+              <Typography variant="h6" className="font-extrabold">
                 {stats.syllableCount}
               </Typography>
               <Typography variant="caption" color="text.secondary">
@@ -243,18 +193,9 @@ export default function ReadabilityCheckerTool() {
               </Typography>
             </Box>
             <Box
-              sx={{
-                flex: 1,
-                p: 1.5,
-                borderRadius: 1.5,
-                border: "1px solid",
-                borderColor: "divider",
-                textAlign: "center",
-                borderTop: "3px solid",
-                borderTopColor: avgLengthColor,
-              }}
+              className="flex-1 p-3 rounded-[12px] border border-base-300 text-center" style={{ borderTop: "3px solid", borderTopColor: avgLengthColor }}
             >
-              <Typography variant="h6" sx={{ fontWeight: 800, color: avgLengthColor }}>
+              <Typography variant="h6" className="font-extrabold" style={{ color: avgLengthColor }}>
                 {hasText ? stats.avgSentenceLength.toFixed(1) : "—"}
               </Typography>
               <Typography variant="caption" color="text.secondary">
@@ -264,7 +205,7 @@ export default function ReadabilityCheckerTool() {
           </Stack>
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <Box sx={{ flex: 1, display: "flex", justifyContent: "space-between", px: 0.5 }}>
+            <Box className="flex-1 flex justify-between px-1">
               <Typography variant="caption" color="text.secondary">
                 Sentences: <strong>{stats.sentenceCount}</strong>
               </Typography>

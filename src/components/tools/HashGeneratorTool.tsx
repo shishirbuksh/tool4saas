@@ -1,17 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const ALGOS = ["SHA-1", "SHA-256", "SHA-384", "SHA-512"] as const;
 
@@ -60,7 +51,7 @@ export default function HashGeneratorTool() {
           error={input.length > MAX_HASH_INPUT}
         />
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-          <FormControl sx={{ minWidth: 160 }}>
+          <FormControl className="min-w-[160px]">
             <InputLabel>Algorithm</InputLabel>
             <Select label="Algorithm" value={algo} onChange={(e) => setAlgo(e.target.value as (typeof ALGOS)[number])}>
               {ALGOS.map((a) => (
@@ -77,14 +68,14 @@ export default function HashGeneratorTool() {
         </Stack>
         {output && (
           <Box>
-            <Typography  variant="subtitle2"  gutterBottom sx={{ fontWeight: 700 }}>{algo} result</Typography>
+            <Typography  variant="subtitle2"  gutterBottom className="font-bold">{algo} result</Typography>
             <TextField
               value={output}
               multiline
               minRows={3}
               fullWidth
               slotProps={{ input: { readOnly: true, "aria-label": "Hash result", spellCheck: false } }}
-              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+              className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
           </Box>
         )}

@@ -1,17 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControl from "@mui/material/FormControl";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import InputLabel from "@mui/material/InputLabel";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, FormControl, FormControlLabel, Radio, RadioGroup, Select, MenuItem, InputLabel } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -69,29 +58,23 @@ export default function GstCalculatorTool() {
           <FormControlLabel value="inclusive" control={<Radio />} label="Price includes tax (inclusive)" />
         </RadioGroup>
         <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "primary.main",
-            textAlign: "center",
-          }}
+          className="p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
             Tax amount
           </Typography>
-          <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+          <Typography variant="h3" className="font-extrabold text-primary">
             {gst !== null ? money(gst, currency) : "—"}
           </Typography>
         </Box>
         <Stack spacing={1.5}>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box className="flex justify-between">
             <Typography color="text.secondary">Net {mode === "exclusive" ? "price" : "of total"}</Typography>
-            <Typography sx={{ fontWeight: 700 }}>{net !== null ? money(net, currency) : "—"}</Typography>
+            <Typography className="font-bold">{net !== null ? money(net, currency) : "—"}</Typography>
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box className="flex justify-between">
             <Typography color="text.secondary">Total</Typography>
-            <Typography sx={{ fontWeight: 700 }}>{total !== null ? money(total, currency) : "—"}</Typography>
+            <Typography className="font-bold">{total !== null ? money(total, currency) : "—"}</Typography>
           </Box>
         </Stack>
     </ToolPaper>

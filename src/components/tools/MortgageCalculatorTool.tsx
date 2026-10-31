@@ -1,17 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel, Link } from "@/components/ds";
+
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -59,7 +48,7 @@ export default function MortgageCalculatorTool() {
         input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
         htmlInput: { min: 0, step: "any" },
       }}
-      sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+      
     />
   );
 
@@ -71,8 +60,8 @@ export default function MortgageCalculatorTool() {
           label="Currency"
           value={currency}
           onChange={(e) => setCurrency(e.target.value as typeof currency)}
-          MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-          sx={{ minHeight: 44 }}
+         
+          className="min-h-[44px]"
         >
           {CURRENCIES.map((c) => (
             <MenuItem key={c} value={c}>
@@ -88,38 +77,32 @@ export default function MortgageCalculatorTool() {
         {field("Term (years)", years, setYears)}
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Monthly payment (EMI)
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {emi !== null && isFinite(emi) ? money(emi, currency) : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Total paid</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{total !== null && isFinite(total) ? money(total, currency) : "—"}</Typography>
+          <Typography className="font-bold">{total !== null && isFinite(total) ? money(total, currency) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Total interest</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{interest !== null && isFinite(interest) ? money(interest, currency) : "—"}</Typography>
+          <Typography className="font-bold">{interest !== null && isFinite(interest) ? money(interest, currency) : "—"}</Typography>
         </Box>
         {emi !== null && isFinite(emi) && (
           <Typography variant="caption" color="text.secondary">
             Planning a home purchase? Compare payoff timelines in our{" "}
-            <Link component={NextLink} href="/blog/mortgage-calculator-guide/15-vs-30-year-mortgage" underline="hover" color="primary">
+            <Link href="/blog/mortgage-calculator-guide/15-vs-30-year-mortgage" underline="hover" color="primary">
               15 vs 30-year mortgage breakdown
             </Link>{" "}
             or calculate budget limits with the{" "}
-            <Link component={NextLink} href="/blog/mortgage-calculator-guide/how-much-house-can-i-afford" underline="hover" color="primary">
+            <Link href="/blog/mortgage-calculator-guide/how-much-house-can-i-afford" underline="hover" color="primary">
               28/36 rule affordability guide
             </Link>.
           </Typography>

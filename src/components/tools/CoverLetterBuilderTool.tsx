@@ -1,20 +1,8 @@
-"use client";
 
 import { useState, useMemo, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Paper from "@mui/material/Paper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Grid from "@mui/material/Grid";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import PrintIcon from "@mui/icons-material/Print";
+import ToolPaper from "@/components/ToolPaper";import { Paper, TextField, Typography, Box, Stack, Button, Select, MenuItem, FormControl, InputLabel, Grid } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Print as PrintIcon } from "@/components/ds/icons";
 
 type Tone = "professional" | "friendly" | "enthusiastic" | "formal" | "confident" | "conversational";
 
@@ -135,7 +123,7 @@ export default function CoverLetterBuilderTool() {
   return (
     <Box>
       <ToolPaper>
-        <Typography variant="h3" sx={{ fontSize: 20, fontWeight: 700 }}>
+        <Typography variant="h3" className="text-[20px] font-bold">
           Applicant details
         </Typography>
         <Grid container spacing={2}>
@@ -172,8 +160,8 @@ export default function CoverLetterBuilderTool() {
         </Grid>
       </ToolPaper>
 
-      <ToolPaper sx={{ mt: 3 }}>
-        <Typography variant="h3" sx={{ fontSize: 20, fontWeight: 700 }}>
+      <ToolPaper className="mt-6">
+        <Typography variant="h3" className="text-[20px] font-bold">
           Recipient details
         </Typography>
         <Grid container spacing={2}>
@@ -223,9 +211,9 @@ export default function CoverLetterBuilderTool() {
         </Grid>
       </ToolPaper>
 
-      <ToolPaper sx={{ mt: 3 }}>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }}>
-          <Typography variant="h3" sx={{ fontSize: 20, fontWeight: 700 }}>
+      <ToolPaper className="mt-6">
+        <Stack direction="row" className="items-center justify-between">
+          <Typography variant="h3" className="text-[20px] font-bold">
             Letter body
           </Typography>
           <Button size="small" onClick={handleResetBody}>
@@ -243,7 +231,7 @@ export default function CoverLetterBuilderTool() {
           placeholder={DEFAULT_BODY}
           helperText="Available placeholders: {{applicantName}}, {{company}}, {{position}}, {{hiringManager}}, {{date}}, {{closing}} — also supports [Company] style. Tone controls the closing phrase."
           slotProps={{ input: { spellCheck: true } }}
-          sx={{ "& textarea": { lineHeight: 1.6, fontSize: 14 } }}
+          className="[&_textarea]:leading-[1.6] [&_textarea]:text-[14px]"
         />
 
         <Typography variant="caption" color="text.secondary">
@@ -252,8 +240,8 @@ export default function CoverLetterBuilderTool() {
       </ToolPaper>
 
       {/* Preview */}
-      <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mt: 4, mb: 2 }}>
-        <Typography variant="h3" sx={{ fontSize: 20, fontWeight: 700 }}>
+      <Stack direction="row" className="items-center justify-between mt-8 mb-4">
+        <Typography variant="h3" className="text-[20px] font-bold">
           Preview
         </Typography>
         <Stack direction="row" spacing={1}>
@@ -269,55 +257,37 @@ export default function CoverLetterBuilderTool() {
       <Paper
         id="cover-letter-print"
         variant="outlined"
-        sx={{
-          p: { xs: 3, sm: 5 },
-          maxWidth: 800,
-          mx: "auto",
-          bgcolor: "#fff",
-          color: "#000",
-          minHeight: 520,
-        }}
+        className="p-6 sm:p-10 max-w-[800px] mx-auto bg-[#fff] text-[#000] min-h-[520px]"
       >
         {/* Header */}
-        <Box sx={{ mb: 3 }}>
-          <Typography sx={{ fontSize: 20, fontWeight: 800, color: "#0f172a", lineHeight: 1.2 }}>
+        <Box className="mb-6">
+          <Typography className="text-[20px] font-extrabold text-[#0f172a] leading-[1.2]">
             {applicantName || "Your Name"}
           </Typography>
-          <Typography sx={{ fontSize: 13, color: "#475569", whiteSpace: "pre-line", mt: 0.5 }}>
+          <Typography className="text-[13px] text-[#475569] whitespace-pre-line mt-1">
             {contact || "email@domain.com · (555) 000-0000"}
           </Typography>
-          <Typography sx={{ fontSize: 13, color: "#334155", mt: 2 }}>{date || new Date().toISOString().slice(0, 10)}</Typography>
+          <Typography className="text-[13px] text-[#334155] mt-4">{date || new Date().toISOString().slice(0, 10)}</Typography>
         </Box>
 
         {/* Recipient block */}
-        <Box sx={{ mb: 3, color: "#334155", fontSize: 13, lineHeight: 1.6 }}>
-          <Typography sx={{ fontSize: 13, color: "#0f172a", whiteSpace: "pre-line" }}>
+        <Box className="mb-6 text-[#334155] text-[13px] leading-[1.6]">
+          <Typography className="text-[13px] text-[#0f172a] whitespace-pre-line">
             {hiringManager ? `${hiringManager}` : "Hiring Manager"}
           </Typography>
-          <Typography sx={{ fontSize: 13, color: "#334155" }}>{company || "Company Name"}</Typography>
+          <Typography className="text-[13px] text-[#334155]">{company || "Company Name"}</Typography>
           {position && (
-            <Typography sx={{ fontSize: 13, color: "#334155" }}>Re: {position} Position</Typography>
+            <Typography className="text-[13px] text-[#334155]">Re: {position} Position</Typography>
           )}
         </Box>
 
         {/* Body */}
         <Box
-          sx={{
-            fontSize: 14,
-            lineHeight: 1.8,
-            color: "#1e293b",
-            whiteSpace: "pre-line",
-            wordBreak: "break-word",
-          }}
+          className="text-[14px] leading-[1.8] text-[#1e293b] whitespace-pre-line break-words"
         >
           <Typography
             component="div"
-            sx={{
-              whiteSpace: "pre-line",
-              fontSize: 14,
-              lineHeight: 1.8,
-              color: "#1e293b",
-            }}
+            className="whitespace-pre-line text-[14px] leading-[1.8] text-[#1e293b]"
           >
             {/* Greeting is part of body if user included Dear, otherwise show resolved body directly */}
             {resolvedBody}
@@ -325,26 +295,16 @@ export default function CoverLetterBuilderTool() {
         </Box>
 
         {/* Tone badge */}
-        <Box sx={{ mt: 4, display: "flex", justifyContent: "flex-end" }}>
+        <Box className="mt-8 flex justify-end">
           <Typography
-            sx={{
-              fontSize: 11,
-              textTransform: "uppercase",
-              letterSpacing: 0.8,
-              color: "#64748b",
-              border: "1px solid #e2e8f0",
-              px: 1.2,
-              py: 0.4,
-              borderRadius: 1,
-              bgcolor: "#f8fafc",
-            }}
+            className="text-[11px] uppercase tracking-[0.8px] text-[#64748b] border border-[#e2e8f0] px-2.4 py-0.8 rounded-[8px] bg-[#f8fafc]"
           >
             Tone: {TONE_OPTIONS.find((t) => t.value === tone)?.label}
           </Typography>
         </Box>
       </Paper>
 
-      <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 2, textAlign: "center" }}>
+      <Typography variant="caption" color="text.secondary" className="block mt-4 text-center">
         Use Copy to copy the full letter text or Print to print / save as PDF.
       </Typography>
     </Box>

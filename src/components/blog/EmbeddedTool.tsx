@@ -1,10 +1,7 @@
-"use client";
 
 import dynamic from "@/lib/astro/dynamic";
-import Link from "@/lib/astro/navigation";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Skeleton from "@mui/material/Skeleton";
+import Link from "@/lib/astro/navigation";import { Box, Typography, Skeleton } from "@/components/ds";
+
 
 // In-page working tools for pillar guides (P0-2). Loaded client-only via
 // dynamic ssr:false so the SSR article HTML stays lean for crawlers while
@@ -53,12 +50,12 @@ export default function EmbeddedTool({
     <Box
       component="section"
       aria-label={`Try the ${title} now`}
-      sx={{ p: { xs: 2, md: 3 }, mb: 4, borderRadius: "16px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}
+      className="p-4 md:p-6 mb-8 rounded-[16px] border border-base-300 bg-base-100"
     >
-      <Typography variant="h2" sx={{ fontSize: "1.25rem", fontWeight: 800, mb: 0.5 }}>
+      <Typography variant="h2" className="text-[1.25rem] font-extrabold mb-1">
         Try it live: {title}
       </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+      <Typography variant="body2" color="text.secondary" className="mb-4">
         The working tool, right here in the guide — {short}. No signup, free forever.{" "}
         <Link href={`/${slug}`}>Open the full page →</Link>
       </Typography>

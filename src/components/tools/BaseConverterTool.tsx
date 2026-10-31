@@ -1,18 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import Alert from "@mui/material/Alert";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem, Alert } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const BASES = [
   { v: 2, label: "Binary (2)" },
@@ -71,7 +61,7 @@ export default function BaseConverterTool() {
           onChange={(e) => setValue(e.target.value)}
           fullWidth
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ "& input": { fontFamily: "monospace" } }}
+          className="[&_input]:[font-family:monospace]"
         />
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
           <FormControl fullWidth>
@@ -95,15 +85,15 @@ export default function BaseConverterTool() {
         <Button variant="contained" onClick={convert}>Convert</Button>
         {!error && result && (
           <Box>
-            <Stack direction="row"   sx={{ alignItems: "center", justifyContent: "space-between",  mb: 0.5 }}>
-              <Typography  variant="subtitle2"  sx={{ fontWeight: 700 }}>Result (base {to})</Typography>
+            <Stack direction="row"   className="items-center justify-between mb-1">
+              <Typography  variant="subtitle2"  className="font-bold">Result (base {to})</Typography>
               <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => void import("@/lib/clipboard").then(m=>m.copyToClipboard(result))}>Copy</Button>
             </Stack>
             <TextField
               value={result}
               fullWidth
               slotProps={{ input: { readOnly: true, "aria-label": "Result", spellCheck: false } }}
-              sx={{ "& input": { fontFamily: "monospace", fontSize: 16 } }}
+              className="[&_input]:[font-family:monospace] [&_input]:text-[16px]"
             />
           </Box>
         )}

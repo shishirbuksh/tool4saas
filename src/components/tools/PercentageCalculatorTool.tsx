@@ -1,16 +1,7 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+
 
 type Mode = "of" | "what" | "change";
 
@@ -71,8 +62,8 @@ export default function PercentageCalculatorTool() {
         </Stack>
         <Button variant="contained" onClick={calc}>Calculate</Button>
         {result && (
-          <Box sx={{ p: 2, bgcolor: "primary.main", color: "primary.contrastText", borderRadius: 2, whiteSpace: "pre-line" }}>
-            <Typography  variant="h5"  sx={{ fontWeight: 800 }}>{result}</Typography>
+          <Box className="p-4 bg-primary rounded-[16px] whitespace-pre-line" style={{ color: "var(--color-primary-content)" }}>
+            <Typography  variant="h5"  className="font-extrabold">{result}</Typography>
           </Box>
         )}
       </ToolPaper>

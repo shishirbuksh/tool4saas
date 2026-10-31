@@ -1,18 +1,8 @@
-"use client";
 
-import { useRef, useState } from "react";
-import Paper from "@mui/material/Paper";
+import { useRef, useState } from "react";import { Paper, Box, TextField, MenuItem, Slider, Button, Typography, Stack, Link } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
-import Slider from "@mui/material/Slider";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
-import DownloadIcon from "@mui/icons-material/Download";
+import { Download as DownloadIcon } from "@/components/ds/icons";
 import dynamic from "@/lib/astro/dynamic";
 
 // Heavy dep split: qrcode.react loads in its own client-only chunk (ssr:false),
@@ -78,7 +68,7 @@ export default function QrCodeTool() {
   return (
     <ToolPaper>
       <Stack spacing={3} direction={{ xs: "column", md: "row" }}>
-        <Box sx={{ flex: 1 }}>
+        <Box className="flex-1">
           <Stack spacing={2}>
             <TextField
               select
@@ -86,10 +76,9 @@ export default function QrCodeTool() {
               value={type}
               onChange={(e) => setType(e.target.value)}
               fullWidth
-              sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+              
               slotProps={{
                 select: {
-                  MenuProps: { slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } },
                 },
               }}
             >
@@ -120,12 +109,12 @@ export default function QrCodeTool() {
                   input: { inputMode: type === "email" ? "email" : type === "phone" ? "tel" : type === "url" ? "url" : "text", spellCheck: false, autoComplete: "off" },
                   htmlInput: { maxLength: 2048 },
                 }}
-                sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+                
               />
             ) : (
               <>
-                <TextField label="Network name (SSID)" value={ssid} onChange={(e) => setSsid(e.target.value)} fullWidth placeholder="My WiFi network…" slotProps={{ input: { inputMode: "text", spellCheck: false, autoComplete: "off" } }} sx={{ "& .MuiInputBase-root": { minHeight: 44 } }} />
-                <TextField label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} fullWidth placeholder="WiFi password…" slotProps={{ input: { spellCheck: false, autoComplete: "off" } }} sx={{ "& .MuiInputBase-root": { minHeight: 44 } }} />
+                <TextField label="Network name (SSID)" value={ssid} onChange={(e) => setSsid(e.target.value)} fullWidth placeholder="My WiFi network…" slotProps={{ input: { inputMode: "text", spellCheck: false, autoComplete: "off" } }}  />
+                <TextField label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} fullWidth placeholder="WiFi password…" slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}  />
               </>
             )}
 
@@ -143,10 +132,9 @@ export default function QrCodeTool() {
               onChange={(e) => setLevel(e.target.value)}
               fullWidth
               helperText="Higher = more scannable when damaged, but denser"
-              sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+              
               slotProps={{
                 select: {
-                  MenuProps: { slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } },
                 },
               }}
             >
@@ -157,13 +145,13 @@ export default function QrCodeTool() {
           </Stack>
         </Box>
 
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2 }}>
-          <Paper variant="outlined" sx={{ p: 2, bgcolor: canGenerate ? "#ffffff" : "background.paper" }}>
-            <Box ref={canvasRef} sx={{ lineHeight: 0 }}>
+        <Box className="flex flex-col items-center justify-center gap-4">
+          <Paper variant="outlined" className="p-4" style={{ backgroundColor: canGenerate ? "#ffffff" : "background.paper" }}>
+            <Box ref={canvasRef} className="leading-[0]">
               {canGenerate ? (
                 <QRCodeCanvas value={safeValue} size={size} level={level as "L" | "M" | "Q" | "H"} bgColor="#ffffff" fgColor="#0f172a" />
               ) : (
-                <Box sx={{ width: size, height: size, display: "flex", alignItems: "center", justifyContent: "center", color: "text.disabled", border: "1px dashed", borderColor: "divider" }}>
+                <Box className="flex items-center justify-center text-base-content/40 border-base-300" style={{ width: size, height: size, border: "1px dashed" }}>
                   Enter a value
                 </Box>
               )}
@@ -172,9 +160,9 @@ export default function QrCodeTool() {
           <Button variant="contained" startIcon={<DownloadIcon />} onClick={download} disabled={!canGenerate}>
             Download PNG
           </Button>
-          <Typography variant="caption" color="text.secondary" sx={{ textAlign: "center", maxWidth: 260 }}>
+          <Typography variant="caption" color="text.secondary" className="text-center max-w-[260px]">
             Planning to print? Read our{" "}
-            <Link component={NextLink} href="/blog/qr-code-generator-guide/qr-code-size-print-guide" underline="hover" color="primary">
+            <Link href="/blog/qr-code-generator-guide/qr-code-size-print-guide" underline="hover" color="primary">
               QR Code Sizing &amp; Print Guide
             </Link>
           </Typography>

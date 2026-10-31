@@ -1,95 +1,69 @@
-"use client";
-
-import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
-import CardContent from "@mui/material/CardContent";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import React from "react";
-import MuiNextLink from "@/components/MuiNextLink";
-
-const LinkWrapper = MuiNextLink;
-
-import AbcIcon from "@mui/icons-material/Abc";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import AttachFileIcon from "@mui/icons-material/AttachFile";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
-import CakeIcon from "@mui/icons-material/Cake";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import CasinoIcon from "@mui/icons-material/Casino";
-import CodeIcon from "@mui/icons-material/Code";
-import ColorLensIcon from "@mui/icons-material/ColorLens";
-import ContrastIcon from "@mui/icons-material/Contrast";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import DataObjectIcon from "@mui/icons-material/DataObject";
-import DateRangeIcon from "@mui/icons-material/DateRange";
-import DescriptionIcon from "@mui/icons-material/Description";
-import DifferenceIcon from "@mui/icons-material/Difference";
-import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
-import FindReplaceIcon from "@mui/icons-material/FindReplace";
-import FingerprintIcon from "@mui/icons-material/Fingerprint";
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
-import GradientIcon from "@mui/icons-material/Gradient";
-import HtmlIcon from "@mui/icons-material/Html";
-import HttpIcon from "@mui/icons-material/Http";
-import ImageIcon from "@mui/icons-material/Image";
-import KeyIcon from "@mui/icons-material/Key";
-import LinkIcon from "@mui/icons-material/Link";
-import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import MarkunreadIcon from "@mui/icons-material/Markunread";
-import NotesIcon from "@mui/icons-material/Notes";
-import NumbersIcon from "@mui/icons-material/Numbers";
-import PaletteIcon from "@mui/icons-material/Palette";
-import PercentIcon from "@mui/icons-material/Percent";
-import PhotoSizeSelectLargeIcon from "@mui/icons-material/PhotoSizeSelectLarge";
-import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
-import PublicIcon from "@mui/icons-material/Public";
-import QrCode2Icon from "@mui/icons-material/QrCode2";
-import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
-import ReplayIcon from "@mui/icons-material/Replay";
-import RestaurantIcon from "@mui/icons-material/Restaurant";
-import ScheduleIcon from "@mui/icons-material/Schedule";
-import SearchIcon from "@mui/icons-material/Search";
-import SellIcon from "@mui/icons-material/Sell";
-import ShuffleIcon from "@mui/icons-material/Shuffle";
-import SpellcheckIcon from "@mui/icons-material/Spellcheck";
-import StraightenIcon from "@mui/icons-material/Straighten";
-import SubjectIcon from "@mui/icons-material/Subject";
-import TableChartIcon from "@mui/icons-material/TableChart";
-import TagIcon from "@mui/icons-material/Tag";
-import TextSnippetIcon from "@mui/icons-material/TextSnippet";
-import TimerIcon from "@mui/icons-material/Timer";
-import TollIcon from "@mui/icons-material/Toll";
-import TransformIcon from "@mui/icons-material/Transform";
-import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
-import VolumeUpIcon from "@mui/icons-material/VolumeUp";
-import VpnKeyIcon from "@mui/icons-material/VpnKey";
-import type { SxProps } from "@mui/material";
+import {
+  Abc as AbcIcon,
+  AccountBalance as AccountBalanceIcon,
+  AttachFile as AttachFileIcon,
+  AttachMoney as AttachMoneyIcon,
+  BarChart as BarChartIcon,
+  BuildOutlined as BuildOutlinedIcon,
+  Cake as CakeIcon,
+  CalendarToday as CalendarTodayIcon,
+  Casino as CasinoIcon,
+  Code as CodeIcon,
+  ColorLens as ColorLensIcon,
+  Contrast as ContrastIcon,
+  CreditCard as CreditCardIcon,
+  DataObject as DataObjectIcon,
+  DateRange as DateRangeIcon,
+  Description as DescriptionIcon,
+  Difference as DifferenceIcon,
+  EmojiEmotions as EmojiEmotionsIcon,
+  FindReplace as FindReplaceIcon,
+  Fingerprint as FingerprintIcon,
+  FitnessCenter as FitnessCenterIcon,
+  FormatListNumbered as FormatListNumberedIcon,
+  Gradient as GradientIcon,
+  Html as HtmlIcon,
+  Http as HttpIcon,
+  Image as ImageIcon,
+  Key as KeyIcon,
+  Link as LinkIcon,
+  LocalOffer as LocalOfferIcon,
+  Markunread as MarkunreadIcon,
+  Notes as NotesIcon,
+  Numbers as NumbersIcon,
+  Palette as PaletteIcon,
+  Percent as PercentIcon,
+  PhotoSizeSelectLarge as PhotoSizeSelectLargeIcon,
+  PictureAsPdf as PictureAsPdfIcon,
+  Public as PublicIcon,
+  QrCode2 as QrCode2Icon,
+  ReceiptLong as ReceiptLongIcon,
+  Replay as ReplayIcon,
+  Restaurant as RestaurantIcon,
+  Schedule as ScheduleIcon,
+  Search as SearchIcon,
+  Sell as SellIcon,
+  Shuffle as ShuffleIcon,
+  Spellcheck as SpellcheckIcon,
+  Straighten as StraightenIcon,
+  Subject as SubjectIcon,
+  TableChart as TableChartIcon,
+  Tag as TagIcon,
+  TextSnippet as TextSnippetIcon,
+  Timer as TimerIcon,
+  Toll as TollIcon,
+  Transform as TransformIcon,
+  VerifiedUser as VerifiedUserIcon,
+  VolumeUp as VolumeUpIcon,
+  VpnKey as VpnKeyIcon,
+} from "@/components/ds/icons";
 import type { IconName } from "@/lib/tools/icons";
 import type { LiteTool } from "@/lib/tools/catalog-lite";
 
-// Static imports (tree-shaken via next.config optimizePackageImports for
-// @mui/icons-material): icons ride shared chunks — no 57x dynamic() waterfall.
-// IconFallback reserves 34px for unknown-icon / future lazy paths → no CLS on card grids.
-function IconFallback() {
-  return (
-    <Box
-      aria-hidden="true"
-      sx={{
-        width: 34,
-        height: 34,
-        borderRadius: "12px",
-        bgcolor: "rgba(0,0,0,0.06)",
-      }}
-    />
-  );
-}
+type CardIcon = React.ComponentType<{ size?: number; className?: string; "aria-hidden"?: boolean }>;
 
-
-const ICONS: Record<IconName, React.ComponentType<{ sx?: SxProps }>> = {
+const ICONS: Record<IconName, CardIcon> = {
   BuildOutlined: BuildOutlinedIcon,
   ReceiptLong: ReceiptLongIcon,
   QrCode2: QrCode2Icon,
@@ -149,13 +123,6 @@ const ICONS: Record<IconName, React.ComponentType<{ sx?: SxProps }>> = {
   PictureAsPdf: PictureAsPdfIcon,
 };
 
-function Icon({ name, size = 34 }: { name: IconName; size?: number }) {
-  const Cmp = ICONS[name] ?? ICONS.BuildOutlined;
-  // IconFallback retained as a fixed-size CLS guard (unknown-icon / future lazy paths).
-  if (!Cmp) return <IconFallback />;
-  return <Cmp sx={{ fontSize: size }} />;
-}
-
 const CATEGORY_TINTS: Record<string, { bg: string; fg: string }> = {
   "text-documents": { bg: "#EFF6FF", fg: "#1D4ED8" },
   business: { bg: "#F0FDF4", fg: "#15803D" },
@@ -175,110 +142,52 @@ const DEFAULT_TINT = { bg: "#F5F5F5", fg: "#111111" };
 
 export default function ToolCard({ tool, dense = false }: { tool: LiteTool; dense?: boolean }) {
   const tint = CATEGORY_TINTS[tool.category] ?? DEFAULT_TINT;
+  const Icon = ICONS[tool.icon] ?? ICONS.BuildOutlined;
+
   return (
-    <Card
-      sx={{
-        height: "100%",
-        // Perf: offscreen cards skip rendering; intrinsic size reserves layout (no CLS).
-        // NOTE: no loading="lazy"/fetchpriority here — Card has no <img>; icons are
-        // static imports (shared chunks) and card navigation uses Next <Link> prefetch.
-        // No rel="prefetch" — Next.js <Link> prefetches in-viewport routes by default.
-        contentVisibility: "auto",
-        containIntrinsicSize: dense ? "0 115px" : "0 280px",
-        transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), box-shadow 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms cubic-bezier(0.16,1,0.3,1)",
-        "&:hover": {
-          // --motion-hover-lift: -2px + scale(1.01) spring (theme token — not -6px)
-          transform: "translateY(-2px) scale(1.01)",
-          borderColor: "rgba(0,0,0,0.12)",
-          boxShadow:
-            "0 0 0 1px rgba(0,0,0,0.06), 0 12px 32px rgba(34,29,29,0.08), 0 4px 12px rgba(34,29,29,0.05)",
-          'html[data-theme="dark"] &': {
-            borderColor: "rgba(255,255,255,0.15)",
-            boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3)",
-          },
-        },
-        "&:active": { transform: "scale(0.99)", transitionDuration: "100ms" },
-      }}
+    <a
+      href={`/${tool.slug}`}
+      aria-label={`Open ${tool.title} tool`}
+      className={`card group relative h-full overflow-hidden border border-base-300 bg-base-100 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-base-content/20 hover:shadow-[0_12px_32px_rgba(17,17,17,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content active:scale-[0.99] ${
+        dense ? "rounded-xl" : "rounded-xl"
+      }`}
+      style={{ contentVisibility: "auto", containIntrinsicSize: dense ? "0 96px" : "0 220px" }}
     >
-      <CardActionArea
-        component={LinkWrapper}
-        href={`/${tool.slug}`}
-        aria-label={`Open ${tool.title} tool`}
-        sx={{
-          height: "100%",
-          borderRadius: "16px",
-          "&:focus-visible": {
-            outline: "3px solid",
-            outlineColor: "primary.main",
-            outlineOffset: 2,
-            boxShadow: "0 0 0 5px var(--focus-ring-offset, #FCFCF9), 0 0 0 8px var(--focus-ring, #111111)",
-          },
-        }}
-      >
-        <CardContent sx={{ p: dense ? 1.5 : { xs: 2, sm: 3 } }}>
-          <Box
-            aria-hidden="true"
-            sx={{
-              width: dense ? 36 : 56,
-              height: dense ? 36 : 56,
-              borderRadius: "12px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              bgcolor: tint.bg,
-              color: tint.fg,
-              border: "1px solid rgba(0,0,0,0.08)",
-              boxShadow: "0 0 0 1px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)",
-              "& > *": { color: tint.fg },
-              'html[data-theme="dark"] &': {
-                bgcolor: "rgba(255,255,255,0.06)",
-                borderColor: "rgba(255,255,255,0.1)",
-                boxShadow: "none",
-                "& > *": { color: "#EDEDED" },
-              },
-              mb: dense ? 1 : { xs: 1.5, sm: 2 },
-            }}
-          >
-            <Icon name={tool.icon} size={dense ? 22 : 34} />
-          </Box>
-          <Typography
-            component="h3"
-            variant="h5"
-            sx={{
-              mb: dense ? 0.25 : 1,
-              fontSize: dense ? { xs: "0.875rem", sm: "0.9375rem" } : { xs: "1.25rem", sm: "1.5rem" },
-              lineHeight: 1.3,
-              letterSpacing: "-0.015em",
-              fontWeight: dense ? 600 : 600,
-              textWrap: "balance",
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-            }}
+      <div className={`card-body flex ${dense ? "flex-row items-center gap-3 p-3.5" : "flex-col gap-0 p-5 sm:p-6"}`}>
+        <span
+          aria-hidden="true"
+          className="flex shrink-0 items-center justify-center rounded-xl border border-black/5 bg-[var(--tint-bg)] text-[var(--tint-fg)] dark:border-white/10 dark:bg-white/5 dark:text-base-content"
+          style={
+            {
+              "--tint-bg": tint.bg,
+              "--tint-fg": tint.fg,
+              width: dense ? 38 : 52,
+              height: dense ? 38 : 52,
+            } as React.CSSProperties
+          }
+        >
+          <Icon size={dense ? 20 : 26} />
+        </span>
+
+        <div className={dense ? "min-w-0" : "mt-4"}>
+          <h3
+            className={`m-0 line-clamp-2 text-balance font-semibold tracking-[-0.015em] text-base-content ${
+              dense ? "text-[0.9375rem] leading-[1.3]" : "text-[1.0625rem] leading-[1.35] sm:text-[1.1875rem]"
+            }`}
           >
             {tool.title}
-          </Typography>
-          <Typography
-            component="div"
-            variant="body2"
-            color="text.secondary"
-            sx={{
-              lineHeight: 1.6,
-              letterSpacing: "-0.015em",
-              textWrap: "pretty",
-              fontVariantNumeric: "tabular-nums",
-              display: dense ? { xs: "none", sm: "-webkit-box" } : "-webkit-box",
-              WebkitLineClamp: dense ? 1 : 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-            }}
+          </h3>
+          <p
+            className={`m-0 text-base-content/60 ${
+              dense
+                ? "mt-0.5 line-clamp-1 text-[0.8125rem] leading-[1.4] max-sm:hidden"
+                : "mt-1.5 line-clamp-2 text-[0.875rem] leading-[1.5]"
+            }`}
           >
             {tool.short}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+          </p>
+        </div>
+      </div>
+    </a>
   );
 }

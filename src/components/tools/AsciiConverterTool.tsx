@@ -1,15 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Button, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 type Mode = "encode" | "decode";
@@ -118,7 +111,7 @@ export default function AsciiConverterTool() {
                   : "e.g. 72 101 108 108 111"
         }
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+        className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
       />
 
       {mode === "encode" && encoded && (
@@ -134,9 +127,9 @@ export default function AsciiConverterTool() {
             <Box key={field.key}>
               <Stack
                 direction="row"
-                sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}
+                className="items-center justify-between mb-1"
               >
-                <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                <Typography variant="subtitle2" className="font-bold">
                   {field.label}
                 </Typography>
                 <Button
@@ -157,7 +150,7 @@ export default function AsciiConverterTool() {
                 slotProps={{
                   input: { readOnly: true, "aria-label": field.label, spellCheck: false },
                 }}
-                sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+                className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
               />
             </Box>
           ))}
@@ -168,9 +161,9 @@ export default function AsciiConverterTool() {
         <Box>
           <Stack
             direction="row"
-            sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}
+            className="items-center justify-between mb-1"
           >
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+            <Typography variant="subtitle2" className="font-bold">
               Decoded text
             </Typography>
             <Button
@@ -191,9 +184,9 @@ export default function AsciiConverterTool() {
             slotProps={{
               input: { readOnly: true, "aria-label": "Decoded text", spellCheck: false },
             }}
-            sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+            className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
           />
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: "block" }}>
+          <Typography variant="caption" color="text.secondary" className="mt-1 block">
             {decodeFormat === "hex"
               ? "Hex bytes separated by space or comma, 0x prefix optional."
               : decodeFormat === "bin"

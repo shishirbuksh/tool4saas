@@ -1,21 +1,8 @@
-"use client";
 
 import { useCallback, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
-import Slider from "@mui/material/Slider";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
-import Grid from "@mui/material/Grid";
-import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import RefreshIcon from "@mui/icons-material/Refresh";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Link, Slider, FormControlLabel, Switch, Grid, InputAdornment, IconButton } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Refresh as RefreshIcon } from "@/components/ds/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 const SETS = {
@@ -95,7 +82,7 @@ export default function PasswordGeneratorTool() {
             ),
            } }}
           fullWidth
-          sx={{ "& input": { fontFamily: "monospace", fontSize: 18 }, "& .MuiInputBase-root": { minHeight: 44 } }}
+          className="[&_input]:[font-family:monospace] [&_input]:text-[18px]"
         />
 
         <Box>
@@ -134,13 +121,13 @@ export default function PasswordGeneratorTool() {
             Generate password
           </Button>
         </Box>
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+        <Typography variant="caption" color="text.secondary" className="block mt-2">
           Generated locally with your browser&apos;s cryptographic random generator. Nothing leaves this device. · Need a memorable master key? Explore our{" "}
-          <Link component={NextLink} href="/blog/password-generator-guide/passphrase-vs-password" underline="hover" color="primary">
+          <Link href="/blog/password-generator-guide/passphrase-vs-password" underline="hover" color="primary">
             passphrase vs password guide
           </Link>{" "}
           and learn{" "}
-          <Link component={NextLink} href="/blog/password-generator-guide/what-makes-password-strong" underline="hover" color="primary">
+          <Link href="/blog/password-generator-guide/what-makes-password-strong" underline="hover" color="primary">
             what makes passwords truly strong
           </Link>.
         </Typography>

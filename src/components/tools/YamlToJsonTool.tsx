@@ -1,15 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Box from "@mui/material/Box";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, Box } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, SwapHoriz as SwapHorizIcon } from "@/components/ds/icons";
 
 function getIndent(line: string): number {
   const m = line.match(/^ */);
@@ -282,7 +275,7 @@ export default function YamlToJsonTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         YAML to JSON
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -297,9 +290,9 @@ export default function YamlToJsonTool() {
         onChange={(e) => setInput(e.target.value)}
         placeholder={`name: Ada\nage: 30\nactive: true\nroles:\n  - admin\n  - editor\naddress:\n  city: Paris\n  zip: 75001`}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ fontFamily: "monospace" }}
+        style={{ fontFamily: "monospace" }}
       />
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button variant="contained" startIcon={<SwapHorizIcon />} onClick={convert} disabled={!input}>
           Convert to JSON
         </Button>
@@ -313,8 +306,8 @@ export default function YamlToJsonTool() {
       {error && <Alert severity="error">{error}</Alert>}
       {output && (
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 1 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-2">
+            <Typography variant="subtitle2" className="font-bold">
               JSON Output
             </Typography>
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(output)}>
@@ -327,7 +320,7 @@ export default function YamlToJsonTool() {
             minRows={8}
             fullWidth
             slotProps={{ input: { readOnly: true, spellCheck: false, autoComplete: "off", "aria-label": "JSON Output" } }}
-            sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+            className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
           />
         </Box>
       )}

@@ -1,15 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import MenuItem from "@mui/material/MenuItem";
-import Typography from "@mui/material/Typography";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Stack, MenuItem, Typography } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const LANGUAGES = [
@@ -201,7 +194,7 @@ export default function CodeToImageTool() {
           label="Language"
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
-          sx={{ minWidth: 180 }}
+          className="min-w-[180px]"
         >
           {LANGUAGES.map((l) => (
             <MenuItem key={l} value={l}>
@@ -214,7 +207,7 @@ export default function CodeToImageTool() {
           label="Theme"
           value={theme}
           onChange={(e) => setTheme(e.target.value as ThemeValue)}
-          sx={{ minWidth: 160 }}
+          className="min-w-[160px]"
         >
           {THEMES.map((t) => (
             <MenuItem key={t.value} value={t.value}>
@@ -238,64 +231,35 @@ export default function CodeToImageTool() {
             autoComplete: "off",
           },
         }}
-        sx={{ "& textarea": { fontFamily: "ui-monospace, monospace", fontSize: 13 } }}
+        className="[&_textarea]:[font-family:ui-monospace,_monospace] [&_textarea]:text-[13px]"
         helperText={`${code.length.toLocaleString()} / ${MAX_CODE_SIZE.toLocaleString()} chars`}
         error={code.length > MAX_CODE_SIZE}
       />
 
       <Box>
-        <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+        <Typography variant="subtitle2" className="font-bold mb-2">
           Preview
         </Typography>
         <Box
-          sx={{
-            borderRadius: 2,
-            overflow: "hidden",
-            border: "1px solid",
-            borderColor: isDark ? "#30363d" : "divider",
-            bgcolor: isDark ? "#0d1117" : "#ffffff",
-          }}
+          className="rounded-[16px] overflow-hidden border" style={{ borderColor: isDark ? "#30363d" : "divider", backgroundColor: isDark ? "#0d1117" : "#ffffff" }}
         >
           <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              px: 2,
-              py: 1.25,
-              bgcolor: isDark ? "#161b22" : "#f6f8fa",
-              borderBottom: "1px solid",
-              borderColor: isDark ? "#30363d" : "divider",
-            }}
+            className="flex items-center gap-2 px-4 py-2.5 border-b" style={{ backgroundColor: isDark ? "#161b22" : "#f6f8fa", borderColor: isDark ? "#30363d" : "divider" }}
           >
-            <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: "#ff5f57" }} />
-            <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: "#febc2e" }} />
-            <Box sx={{ width: 12, height: 12, borderRadius: "50%", bgcolor: "#28c840" }} />
+            <Box className="w-[12px] h-[12px] rounded-full bg-[#ff5f57]" />
+            <Box className="w-[12px] h-[12px] rounded-full bg-[#febc2e]" />
+            <Box className="w-[12px] h-[12px] rounded-full bg-[#28c840]" />
             <Typography
               variant="caption"
-              sx={{
-                ml: 1,
-                fontFamily: "ui-monospace, monospace",
-                color: isDark ? "#8b949e" : "text.secondary",
-              }}
+              className="ml-2" style={{ fontFamily: "ui-monospace, monospace", color: isDark ? "#8b949e" : "text.secondary" }}
             >
               {language}
             </Typography>
           </Box>
-          <Box sx={{ overflowX: "auto" }}>
+          <Box className="overflow-x-auto">
             <Box
               component="pre"
-              sx={{
-                m: 0,
-                p: 3,
-                fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
-                fontSize: 13,
-                lineHeight: 1.7,
-                color: isDark ? "#e6edf3" : "#1f2328",
-                bgcolor: "transparent",
-                whiteSpace: "pre",
-                minHeight: 120,
-              }}
+              className="m-0 p-6 text-[13px] leading-[1.7] bg-transparent whitespace-pre min-h-[120px]" style={{ fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace", color: isDark ? "#e6edf3" : "#1f2328" }}
             >
               {code || " "}
             </Box>

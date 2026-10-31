@@ -1,17 +1,7 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Switch from "@mui/material/Switch";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Switch, FormControlLabel } from "@/components/ds";
+
 
 const UNITS = ["B", "KB", "MB", "GB", "TB"] as const;
 type Unit = (typeof UNITS)[number];
@@ -85,7 +75,7 @@ export default function FileSizeConverterTool() {
         </FormControl>
       </Stack>
 
-      <Stack direction="row" spacing={2} sx={{ alignItems: "center", justifyContent: "space-between", flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={2} className="items-center justify-between flex-wrap">
         <FormControlLabel
           control={<Switch checked={binary} onChange={(e) => setBinary(e.target.checked)} />}
           label={binary ? "Binary (1024)" : "Decimal (1000)"}
@@ -95,15 +85,15 @@ export default function FileSizeConverterTool() {
         </Typography>
       </Stack>
 
-      <Box sx={{ p: 2, bgcolor: "primary.main", color: "primary.contrastText", borderRadius: 2 }}>
-        <Typography variant="caption" sx={{ opacity: 0.9 }}>
+      <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
+        <Typography variant="caption" className="opacity-[0.9]">
           Result
         </Typography>
-        <Typography variant="h4" sx={{ fontWeight: 800, wordBreak: "break-all" }}>
+        <Typography variant="h4" className="font-extrabold break-all">
           {result ? `${result} ${to}` : "—"}
         </Typography>
         {bytesPreview && (
-          <Typography variant="body2" sx={{ opacity: 0.85, mt: 0.5, fontFamily: "monospace" }}>
+          <Typography variant="body2" className="opacity-[0.85] mt-1" style={{ fontFamily: "monospace" }}>
             {bytesPreview} B · {value} {from} = bytes ({value} × {base}^{UNIT_EXP[from]})
           </Typography>
         )}
@@ -111,11 +101,11 @@ export default function FileSizeConverterTool() {
 
       <Typography variant="caption" color="text.secondary">
         Formula: bytes = value × {base}
-        <Box component="span" sx={{ verticalAlign: "super", fontSize: "0.7em" }}>
+        <Box component="span" className="text-[0.7em]" style={{ verticalAlign: "super" }}>
           {UNIT_EXP[from]}
         </Box>{" "}
         (from), result = bytes ÷ {base}
-        <Box component="span" sx={{ verticalAlign: "super", fontSize: "0.7em" }}>
+        <Box component="span" className="text-[0.7em]" style={{ verticalAlign: "super" }}>
           {UNIT_EXP[to]}
         </Box>{" "}
         (to)

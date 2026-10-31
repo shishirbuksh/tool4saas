@@ -1,13 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const toTitle = (s: string) =>
   s.replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
@@ -61,8 +56,8 @@ export default function CaseConverterTool() {
         <Stack spacing={2}>
           {MODES.map((m) => (
             <Box key={m.key}>
-              <Stack direction="row"   sx={{ alignItems: "center", justifyContent: "space-between",  mb: 0.5 }}>
-                <Typography  variant="subtitle2"  sx={{ fontWeight: 700 }}>{m.label}</Typography>
+              <Stack direction="row"   className="items-center justify-between mb-1">
+                <Typography  variant="subtitle2"  className="font-bold">{m.label}</Typography>
                 <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(outputs[m.key])} disabled={!outputs[m.key]}>Copy</Button>
               </Stack>
               <TextField
@@ -71,7 +66,7 @@ export default function CaseConverterTool() {
                 minRows={2}
                 fullWidth
                 slotProps={{ input: { readOnly: true, "aria-label": m.label, spellCheck: false } }}
-                sx={{ "& textarea": { fontSize: 13 } }}
+                className="[&_textarea]:text-[13px]"
               />
             </Box>
           ))}

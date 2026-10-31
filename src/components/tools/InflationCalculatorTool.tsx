@@ -1,15 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -81,19 +72,12 @@ export default function InflationCalculatorTool() {
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <Box
-          sx={{
-            flex: 1,
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "primary.main",
-            textAlign: "center",
-          }}
+          className="flex-1 p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
             Future amount
           </Typography>
-          <Typography variant="h5" sx={{ fontWeight: 800, color: "primary.main" }}>
+          <Typography variant="h5" className="font-extrabold text-primary">
             {futureAmount !== null ? money(futureAmount, currency) : "—"}
           </Typography>
           <Typography variant="caption" color="text.secondary">
@@ -101,19 +85,12 @@ export default function InflationCalculatorTool() {
           </Typography>
         </Box>
         <Box
-          sx={{
-            flex: 1,
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "primary.main",
-            textAlign: "center",
-          }}
+          className="flex-1 p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
             Purchasing power
           </Typography>
-          <Typography variant="h5" sx={{ fontWeight: 800, color: "primary.main" }}>
+          <Typography variant="h5" className="font-extrabold text-primary">
             {purchasingPower !== null ? money(purchasingPower, currency) : "—"}
           </Typography>
           <Typography variant="caption" color="text.secondary">

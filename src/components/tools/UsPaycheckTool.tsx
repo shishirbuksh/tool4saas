@@ -1,17 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
-import NumericField from "@/components/NumericField";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Grid from "@mui/material/Grid";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import NumericField from "@/components/NumericField";import { Box, Typography, Stack, Alert, Grid, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 import { money } from "@/lib/format";
 
 const num = (v: string) => {
@@ -148,7 +139,7 @@ export default function UsPaycheckTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h3" sx={{ fontSize: 20, fontWeight: 700 }}>
+      <Typography variant="h3" className="text-[20px] font-bold">
         Paycheck details
       </Typography>
       <Grid container spacing={2}>
@@ -165,8 +156,8 @@ export default function UsPaycheckTool() {
               label="Filing status"
               value={filing}
               onChange={(e) => setFiling(e.target.value as Filing)}
-              MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-              sx={{ minHeight: 44 }}
+             
+              className="min-h-[44px]"
             >
               {FILING_LABELS.map((f) => (
                 <MenuItem key={f.value} value={f.value}>
@@ -183,8 +174,8 @@ export default function UsPaycheckTool() {
               label="Pay frequency"
               value={frequency}
               onChange={(e) => setFrequency(e.target.value)}
-              MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-              sx={{ minHeight: 44 }}
+             
+              className="min-h-[44px]"
             >
               {FREQUENCIES.map((f) => (
                 <MenuItem key={f.value} value={f.value}>
@@ -201,8 +192,8 @@ export default function UsPaycheckTool() {
               label="State tax"
               value={stateRate}
               onChange={(e) => setStateRate(e.target.value as StatePreset)}
-              MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-              sx={{ minHeight: 44 }}
+             
+              className="min-h-[44px]"
             >
               {STATE_PRESETS.map((s) => (
                 <MenuItem key={s.value} value={s.value}>
@@ -221,18 +212,12 @@ export default function UsPaycheckTool() {
 
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Net per paycheck
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {money(result.perPaycheck, "USD")}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -241,29 +226,29 @@ export default function UsPaycheckTool() {
       </Box>
 
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Taxable (gross − 401(k) − std. ded. {money(result.stdDed, "USD")})</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{money(result.taxable, "USD")}</Typography>
+          <Typography className="font-bold">{money(result.taxable, "USD")}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Federal (simplified 2026)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{money(result.federal, "USD")}</Typography>
+          <Typography className="font-bold">{money(result.federal, "USD")}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">State ({result.effectiveStateRate}%)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{money(result.state, "USD")}</Typography>
+          <Typography className="font-bold">{money(result.state, "USD")}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Social Security (6.2% to {money(SS_WAGE_BASE, "USD")})</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{money(result.ss, "USD")}</Typography>
+          <Typography className="font-bold">{money(result.ss, "USD")}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Medicare (1.45%)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{money(result.medicare, "USD")}</Typography>
+          <Typography className="font-bold">{money(result.medicare, "USD")}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Annual net</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{money(result.annualNet, "USD")}</Typography>
+          <Typography className="font-bold">{money(result.annualNet, "USD")}</Typography>
         </Box>
       </Stack>
 

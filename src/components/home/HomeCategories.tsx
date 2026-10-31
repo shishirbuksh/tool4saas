@@ -1,27 +1,13 @@
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import { Container, Box, Grid, Typography } from "@/components/ds";
+
 import Link from "@/lib/astro/navigation";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import CalculateIcon from "@mui/icons-material/Calculate";
-import CodeIcon from "@mui/icons-material/Code";
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import ImageIcon from "@mui/icons-material/Image";
-import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
-import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
-import ScheduleIcon from "@mui/icons-material/Schedule";
-import SearchIcon from "@mui/icons-material/Search";
-import ShuffleIcon from "@mui/icons-material/Shuffle";
-import TextSnippetIcon from "@mui/icons-material/TextSnippet";
-import TransformIcon from "@mui/icons-material/Transform";
-import type { SvgIconProps } from "@mui/material/SvgIcon";
+import { AccountBalance as AccountBalanceIcon, Calculate as CalculateIcon, Code as CodeIcon, FitnessCenter as FitnessCenterIcon, Image as ImageIcon, PictureAsPdf as PictureAsPdfIcon, ReceiptLong as ReceiptLongIcon, Schedule as ScheduleIcon, Search as SearchIcon, Shuffle as ShuffleIcon, TextSnippet as TextSnippetIcon, Transform as TransformIcon } from "@/components/ds/icons";
 import type { ComponentType } from "react";
 import { CATEGORIES } from "@/lib/tools/categories";
 import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
 
-const CATEGORY_ICONS: Record<string, ComponentType<SvgIconProps>> = {
+const CATEGORY_ICONS: Record<string, ComponentType<{ fontSize?: "small" | "medium" | "large"; className?: string }>> = {
   "text-documents": TextSnippetIcon,
   business: ReceiptLongIcon,
   developer: CodeIcon,
@@ -50,32 +36,22 @@ export default function HomeCategories() {
       component="nav"
       id="categories"
       aria-label="Tool categories"
-      sx={{
-        py: { xs: 7, md: 10 },
-        borderBottom: "1px solid",
-        borderColor: "divider",
-        scrollMarginTop: 100,
-      }}
+      className="py-14 md:py-20 border-b border-base-300 scroll-mt-[100px]"
     >
-      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
-        <Box sx={{ textAlign: "center", mb: { xs: 3, md: 4 }, maxWidth: 640, mx: "auto" }}>
+      <Container maxWidth="xl" className="px-4 md:px-8">
+        <Box className="text-center mb-6 md:mb-8 max-w-[640px] mx-auto">
           <Typography
             variant="h2"
-            sx={{
-              fontSize: { xs: "1.75rem", md: "2.25rem" },
-              fontWeight: 700,
-              letterSpacing: "-0.025em",
-              mb: 0.5,
-            }}
+            className="text-[1.75rem] md:text-[2.25rem] font-bold tracking-[-0.025em] mb-1"
           >
             Browse by category
           </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9375rem", md: "1rem" } }}>
+          <Typography color="text.secondary" className="text-[0.9375rem] md:text-[1rem]">
             {CATEGORIES.length} collections, one browser tab.
           </Typography>
         </Box>
 
-        <Grid container spacing={{ xs: 1.5, md: 2 }}>
+        <Grid container className="gap-3 md:gap-4">
           {CATEGORIES.map((category) => {
             const Icon = CATEGORY_ICONS[category.id] ?? TextSnippetIcon;
             const count = counts.get(category.id) ?? 0;
@@ -86,67 +62,24 @@ export default function HomeCategories() {
                   style={{ textDecoration: "none", color: "inherit", display: "block", height: "100%" }}
                 >
                   <Box
-                    sx={{
-                      height: "100%",
-                      minHeight: 84,
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 1.5,
-                      p: { xs: 1.75, md: 2 },
-                      borderRadius: "16px",
-                      border: "1px solid",
-                      borderColor: "divider",
-                      bgcolor: "background.paper",
-                      transition:
-                        "transform 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms ease, box-shadow 200ms ease",
-                      "&:hover": {
-                        transform: "translateY(-2px)",
-                        borderColor: "rgba(0,0,0,0.14)",
-                        boxShadow:
-                          "0 0 0 1px rgba(0,0,0,0.06), 0 8px 24px rgba(34,29,29,0.07)",
-                      },
-                      'html[data-theme="dark"] &': {
-                        bgcolor: "background.paper",
-                      },
-                      'html[data-theme="dark"] &:hover': {
-                        borderColor: "rgba(255,255,255,0.18)",
-                        boxShadow:
-                          "0 0 0 1px rgba(255,255,255,0.06), 0 8px 24px rgba(0,0,0,0.4)",
-                      },
-                      "&:active": { transform: "scale(0.99)" },
-                    }}
+                    className="h-full min-h-[84px] flex items-center gap-3 p-3.5 md:p-4 rounded-xl border border-base-300 bg-base-100 hover:[transform:translateY(-2px)] hover:border-[rgba(0,0,0,0.14)] hover:[box-shadow:0_0_0_1px_rgba(0,0,0,0.06),_0_8px_24px_rgba(34,29,29,0.07)] dark:bg-base-100 dark:[&_:hover]:border-[rgba(255,255,255,0.18)] dark:[&_:hover]:[box-shadow:0_0_0_1px_rgba(255,255,255,0.06),_0_8px_24px_rgba(0,0,0,0.4)] active:[transform:scale(0.99)]" style={{ transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms ease, box-shadow 200ms ease" }}
                   >
                     <Box
                       aria-hidden="true"
-                      sx={{
-                        flex: "0 0 auto",
-                        width: 40,
-                        height: 40,
-                        borderRadius: "12px",
-                        display: "grid",
-                        placeItems: "center",
-                        bgcolor: "rgba(0,0,0,0.04)",
-                        color: "text.primary",
-                        'html[data-theme="dark"] &': { bgcolor: "rgba(255,255,255,0.07)" },
-                      }}
+                      className="flex-[0_0_auto] w-[40px] h-[40px] rounded-[12px] grid bg-[rgba(0,0,0,0.04)] text-base-content dark:bg-[rgba(255,255,255,0.07)]" style={{ placeItems: "center" }}
                     >
                       <Icon fontSize="small" />
                     </Box>
-                    <Box sx={{ minWidth: 0 }}>
+                    <Box className="min-w-[0px]">
                       <Typography
-                        sx={{
-                          fontSize: { xs: "0.875rem", md: "0.9375rem" },
-                          fontWeight: 600,
-                          lineHeight: 1.3,
-                          letterSpacing: "-0.015em",
-                        }}
+                        className="text-[0.875rem] md:text-[0.9375rem] font-semibold leading-[1.3] tracking-[-0.015em]"
                       >
                         {category.label}
                       </Typography>
                       <Typography
                         variant="body2"
                         color="text.secondary"
-                        sx={{ fontSize: "0.75rem", mt: 0.25 }}
+                        className="text-[0.75rem] mt-0.5"
                       >
                         {count} tools
                       </Typography>

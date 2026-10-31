@@ -20,9 +20,15 @@ export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElemen
     [key: string]: any;
   };
   inputProps?: any;
+  inputRef?: any;
+  slotProps?: {
+    htmlInput?: Record<string, any>;
+    input?: Record<string, any>;
+    [key: string]: any;
+  };
   select?: boolean;
+  variant?: "outlined" | "filled" | "standard";
   ref?: any;
-  [key: string]: any;
 }
 
 export const TextField = forwardRef<any, TextFieldProps>(function TextField(

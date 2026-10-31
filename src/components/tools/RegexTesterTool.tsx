@@ -1,14 +1,7 @@
-"use client";
 
 import { useEffect, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, FormControlLabel, Checkbox, Alert } from "@/components/ds";
+
 import { runRegexInWorker, terminateRegexWorker } from "@/lib/regexWorker";
 
 export default function RegexTesterTool() {
@@ -62,11 +55,11 @@ export default function RegexTesterTool() {
           onChange={(e) => setPattern(e.target.value)}
           placeholder="e.g. (\w+)@(\w+)…"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+          
           error={!!error}
           helperText={error || "Enter a JavaScript-style regex pattern."}
         />
-        <Stack direction="row" spacing={3} sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={3} className="flex-wrap">
           {(["g", "i", "m", "s"] as const).map((k) => (
             <FormControlLabel
               key={k}
@@ -84,10 +77,10 @@ export default function RegexTesterTool() {
           onChange={(e) => setText(e.target.value)}
           placeholder="Paste the text to test against…"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+          
         />
         <Box>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+          <Typography variant="subtitle2" className="font-bold mb-2">
             Matches ({matches.length})
           </Typography>
           {matches.length === 0 ? (
@@ -99,15 +92,7 @@ export default function RegexTesterTool() {
               {matches.slice(0, 100).map((m, i) => (
                 <Box
                   key={i}
-                  sx={{
-                    p: 1.5,
-                    borderRadius: 2,
-                    border: "1px solid",
-                    borderColor: "divider",
-                    fontFamily: "monospace",
-                    fontSize: 14,
-                    overflowX: "auto",
-                  }}
+                  className="p-3 rounded-[16px] border border-base-300 text-[14px] overflow-x-auto" style={{ fontFamily: "monospace" }}
                 >
                   <Typography component="span" variant="caption" color="text.secondary">
                     #{i + 1} @ {m.index}:{" "}

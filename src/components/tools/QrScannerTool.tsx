@@ -1,12 +1,7 @@
-"use client";
 
 import { useState, useRef, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert } from "@/components/ds";
+
 import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 import { copyToClipboard } from "@/lib/clipboard";
 
@@ -392,14 +387,14 @@ export default function QrScannerTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         QR Scanner
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        Upload an image containing a QR code or use your camera to scan. Decoding runs locally via a lazy-loaded <Box component="code" sx={{ fontFamily: "monospace", bgcolor: "action.hover", px: 0.5, borderRadius: 0.5 }}>jsQR</Box> library (dynamic import).
+        Upload an image containing a QR code or use your camera to scan. Decoding runs locally via a lazy-loaded <Box component="code" className="px-1 rounded-[4px]" style={{ fontFamily: "monospace", backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}>jsQR</Box> library (dynamic import).
       </Typography>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ alignItems: { sm: "center" }, flexWrap: "wrap" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} className="sm:items-center flex-wrap">
         <Button variant="contained" component="label">
           Choose image
           <input ref={fileInputRef} type="file" accept="image/*" hidden onChange={onFile} />
@@ -419,14 +414,14 @@ export default function QrScannerTool() {
           </Stack>
         )}
         {(decoded || previewUrl || fileName || cameraActive) && (
-          <Button variant="text" onClick={cameraActive ? clearWithCamera : clearAll} sx={{ ml: { sm: "auto" } }}>
+          <Button variant="text" onClick={cameraActive ? clearWithCamera : clearAll} className="sm:ml-auto">
             Clear
           </Button>
         )}
       </Stack>
 
       {fileName && !cameraActive && (
-        <Typography variant="body2" color="text.secondary" sx={{ wordBreak: "break-all" }}>
+        <Typography variant="body2" color="text.secondary" className="break-all">
           Selected: {fileName}
         </Typography>
       )}
@@ -437,19 +432,19 @@ export default function QrScannerTool() {
       {copied && <Alert severity="success">Copied to clipboard</Alert>}
 
       {/* hidden canvas for decoding - draw file or video frame to canvas then getImageData */}
-      <Box component="canvas" ref={canvasRef} sx={{ display: "none" }} aria-hidden />
+      <Box component="canvas" ref={canvasRef} className="hidden" aria-hidden />
 
       {/* preview for uploaded image */}
       {previewUrl && !cameraActive && (
         <Box>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+          <Typography variant="subtitle2" className="font-bold mb-2">
             Preview
           </Typography>
           <Box
             component="img"
             src={previewUrl}
             alt="Uploaded QR preview"
-            sx={{ maxWidth: "100%", maxHeight: 360, borderRadius: 2, border: "1px solid", borderColor: "divider", display: "block" }}
+            className="max-w-full max-h-[360px] rounded-[16px] border border-base-300 block"
           />
         </Box>
       )}
@@ -457,14 +452,7 @@ export default function QrScannerTool() {
       {/* camera preview */}
       {cameraActive && (
         <Box
-          sx={{
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: 2,
-            overflow: "hidden",
-            bgcolor: "common.black",
-            position: "relative",
-          }}
+          className="border border-base-300 rounded-[16px] overflow-hidden bg-black relative"
         >
           <Box
             component="video"
@@ -472,21 +460,11 @@ export default function QrScannerTool() {
             autoPlay
             playsInline
             muted
-            sx={{ width: "100%", maxHeight: 400, display: "block", objectFit: "contain", bgcolor: "common.black" }}
+            className="w-full max-h-[400px] block object-contain bg-black"
           />
           {scanning && (
             <Box
-              sx={{
-                position: "absolute",
-                top: 8,
-                left: 8,
-                bgcolor: "rgba(0,0,0,0.6)",
-                color: "common.white",
-                px: 1,
-                py: 0.5,
-                borderRadius: 1,
-                fontSize: 12,
-              }}
+              className="absolute top-[8px] left-[8px] bg-[rgba(0,0,0,0.6)] text-white px-2 py-1 rounded-[8px] text-[12px]"
             >
               Scanning…
             </Box>
@@ -495,7 +473,7 @@ export default function QrScannerTool() {
       )}
 
       {!cameraActive && !previewUrl && (
-        <Box sx={{ p: 2, border: "1px dashed", borderColor: "divider", borderRadius: 2, textAlign: "center" }}>
+        <Box className="p-4 border-base-300 rounded-[16px] text-center" style={{ border: "1px dashed" }}>
           <Typography variant="body2" color="text.secondary">
             No image loaded. Choose an image or start the camera to scan a QR code.
           </Typography>
@@ -503,37 +481,19 @@ export default function QrScannerTool() {
       )}
 
       <Box
-        sx={{
-          p: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          borderRadius: 2,
-          bgcolor: "background.paper",
-        }}
+        className="p-4 border border-base-300 rounded-[16px] bg-base-100"
       >
-        <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+        <Typography variant="subtitle2" className="font-bold mb-2">
           Decoded text
         </Typography>
         {decoded ? (
           <Stack spacing={1.5}>
             <Box
-              sx={{
-                p: 1.5,
-                border: "1px solid",
-                borderColor: "divider",
-                borderRadius: 1.5,
-                bgcolor: "action.hover",
-                wordBreak: "break-all",
-                whiteSpace: "pre-wrap",
-                fontFamily: "monospace",
-                fontSize: 14,
-                maxHeight: 200,
-                overflow: "auto",
-              }}
+              className="p-3 border border-base-300 rounded-[12px] break-all whitespace-pre-wrap text-[14px] max-h-[200px] overflow-auto" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)", fontFamily: "monospace" }}
             >
               {decoded}
             </Box>
-            <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
+            <Stack direction="row" spacing={1} className="flex-wrap">
               <Button variant="contained" size="small" onClick={() => void copyDecoded()}>
                 {copied ? "Copied!" : "Copy"}
               </Button>
@@ -557,7 +517,7 @@ export default function QrScannerTool() {
             No QR code decoded yet. Upload a QR image or capture from camera.
           </Typography>
         )}
-        <Typography variant="caption" color="text.secondary" sx={{ mt: 1.5, display: "block" }}>
+        <Typography variant="caption" color="text.secondary" className="mt-3 block">
           Decoding: draw to canvas → getImageData → dynamic import(&quot;jsqr&quot;) → jsQR(data, width, height). If jsQR is missing, an alert with &quot;jsQR not installed, install via npm install jsqr&quot; is shown. Camera uses getUserMedia with permission handling; auto-scan via requestAnimationFrame and manual Capture button.
         </Typography>
       </Box>

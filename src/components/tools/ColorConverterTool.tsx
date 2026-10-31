@@ -1,13 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Button } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 function hexToRgb(hex: string) {
   let h = hex.replace("#", "").trim();
@@ -47,14 +42,14 @@ export default function ColorConverterTool() {
 
   return (
     <ToolPaper>
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center" }}>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
           <Box
             component="input"
             type="color"
             value={rgb ? rgbToHex(rgb) : "#000000"}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHex(e.target.value)}
             aria-label="Pick a color"
-            sx={{ width: 72, height: 56, minHeight: 44, minWidth: 44, border: "none", borderRadius: 2, bgcolor: "transparent", cursor: "pointer", p: 0 }}
+            className="w-[72px] h-[56px] min-h-[44px] min-w-[44px] border-0 rounded-[16px] bg-transparent cursor-pointer p-0"
           />
           <TextField
             label="HEX"
@@ -65,11 +60,11 @@ export default function ColorConverterTool() {
             slotProps={{ input: { inputMode: "text", spellCheck: false, autoComplete: "off" } }}
             error={!rgb}
             helperText={rgb ? "" : "Enter a valid #RRGGBB hex color"}
-            sx={{ "& input": { fontFamily: "monospace", textTransform: "uppercase" }, "& .MuiInputBase-root": { minHeight: 44 } }}
+            className="[&_input]:[font-family:monospace] [&_input]:uppercase"
           />
         </Stack>
 
-        <Box sx={{ p: 2, border: "1px solid", borderColor: "divider", borderRadius: 2, minHeight: 120, bgcolor: rgb ? `rgb(${rgb.r},${rgb.g},${rgb.b})` : "#fff" }} />
+        <Box className="p-4 border border-base-300 rounded-[16px] min-h-[120px]" style={{ backgroundColor: rgb ? `rgb(${rgb.r},${rgb.g},${rgb.b})` : "#fff" }} />
 
         {rgb && hsl && (
           <Stack spacing={1}>
@@ -84,9 +79,9 @@ export default function ColorConverterTool() {
 
 function Row({ label, value, onCopy }: { label: string; value: string; onCopy: () => void }) {
   return (
-    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
-      <Typography  variant="subtitle2"  sx={{ fontWeight: 700,  width: 56 }}>{label}</Typography>
-      <TextField value={value} slotProps={{ input: { readOnly: true, "aria-label": label, spellCheck: false, autoComplete: "off" } }} fullWidth sx={{ "& input": { fontFamily: "monospace" }, "& .MuiInputBase-root": { minHeight: 44 } }} />
+    <Box className="flex items-center justify-between gap-2">
+      <Typography  variant="subtitle2"  className="font-bold w-[56px]">{label}</Typography>
+      <TextField value={value} slotProps={{ input: { readOnly: true, "aria-label": label, spellCheck: false, autoComplete: "off" } }} fullWidth className="[&_input]:[font-family:monospace]" />
       <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={onCopy}>Copy</Button>
     </Box>
   );

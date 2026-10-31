@@ -1,16 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 import { parseCsv as parseCsvSafe, MAX_CSV_SIZE } from "./CsvViewerTool";
 
@@ -68,8 +60,8 @@ export default function JsonCsvTool() {
           helperText={error}
         />
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-1">
+            <Typography variant="subtitle2" className="font-bold">
               {mode === "json" ? "CSV output" : "JSON output"}
             </Typography>
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(output)} disabled={!output}>
@@ -88,16 +80,16 @@ export default function JsonCsvTool() {
                 spellCheck: false,
               },
             }}
-            sx={{ "& textarea": { fontSize: 13, fontFamily: "monospace" } }}
+            className="[&_textarea]:text-[13px] [&_textarea]:[font-family:monospace]"
           />
         </Box>
         {isOverCap && mode === "csv" && (
-          <Alert severity="warning" sx={{ mt: 1 }}>
+          <Alert severity="warning" className="mt-2">
             Input truncated to {Math.round(MAX_CSV_SIZE / 1024)}KB for performance. Only the first {Math.round(MAX_CSV_SIZE / 1024)}KB were converted.
           </Alert>
         )}
         {output && !error && (
-          <Alert severity="success" sx={{ mt: 1 }}>
+          <Alert severity="success" className="mt-2">
             Converted successfully. Everything runs in your browser.
           </Alert>
         )}

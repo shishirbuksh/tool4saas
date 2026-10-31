@@ -1,11 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -68,18 +63,12 @@ export default function FreelanceRateCalculatorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Required hourly rate
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {hourly !== null ? money(hourly) : "—"}
         </Typography>
         <Typography variant="caption" color="text.secondary">
@@ -88,22 +77,15 @@ export default function FreelanceRateCalculatorTool() {
       </Box>
 
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Daily rate (8h)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{daily !== null ? money(daily) : "—"}</Typography>
+          <Typography className="font-bold">{daily !== null ? money(daily) : "—"}</Typography>
         </Box>
         <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            p: 1.5,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-          }}
+          className="flex justify-between p-3 rounded-[16px] border border-base-300"
         >
           <Typography color="text.secondary">Project total (all billable hours)</Typography>
-          <Typography sx={{ fontWeight: 800 }}>{project !== null ? money(project) : "—"}</Typography>
+          <Typography className="font-extrabold">{project !== null ? money(project) : "—"}</Typography>
         </Box>
       </Stack>
 

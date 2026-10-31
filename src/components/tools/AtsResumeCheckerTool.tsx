@@ -1,15 +1,7 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Alert from "@mui/material/Alert";
-import Chip from "@mui/material/Chip";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
+import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography, Alert, Chip, Link } from "@/components/ds";
+
 
 const STOPWORDS = new Set([
   "the",
@@ -182,14 +174,7 @@ export default function AtsResumeCheckerTool() {
           <Box
             component="span"
             key={idx}
-            sx={{
-              bgcolor: "success.light",
-              color: "success.dark",
-              px: 0.4,
-              py: 0.1,
-              borderRadius: 0.8,
-              fontWeight: 700,
-            }}
+            className="px-0.8 py-0.2 rounded-[6.4px] font-bold" style={{ backgroundColor: "color-mix(in oklab, var(--color-success) 15%, var(--color-base-100))", color: "var(--color-success)" }}
           >
             {part}
           </Box>
@@ -230,18 +215,12 @@ export default function AtsResumeCheckerTool() {
         </Alert>
       ) : (
         <Box
-          sx={{
-            p: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: 2,
-            bgcolor: "background.paper",
-          }}
+          className="p-4 border border-base-300 rounded-[16px] bg-base-100"
         >
           <Stack spacing={2}>
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2, flexWrap: "wrap" }}>
+            <Box className="flex items-center justify-between gap-4 flex-wrap">
               <Box>
-                <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                <Typography variant="subtitle2" className="font-bold">
                   ATS Match Score
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
@@ -249,27 +228,16 @@ export default function AtsResumeCheckerTool() {
                   {keywords.length > 0 ? ` · ${keywords.length - matched.length} missing` : ""}
                 </Typography>
               </Box>
-              <Typography variant="h4" sx={{ fontWeight: 900, color: scoreColor, minWidth: 80, textAlign: "right" }}>
+              <Typography variant="h4" className="font-black min-w-[80px] text-right" style={{ color: scoreColor }}>
                 {score}%
               </Typography>
             </Box>
 
             <Box
-              sx={{
-                height: 10,
-                borderRadius: 999,
-                bgcolor: "divider",
-                overflow: "hidden",
-              }}
+              className="h-[10px] rounded-[7992px] bg-base-300 overflow-hidden"
             >
               <Box
-                sx={{
-                  height: "100%",
-                  width: `${score}%`,
-                  bgcolor: scoreColor,
-                  transition: "width 0.3s ease",
-                  borderRadius: 999,
-                }}
+                className="h-full rounded-[7992px]" style={{ width: `${score}%`, backgroundColor: scoreColor, transition: "width 0.3s ease" }}
               />
             </Box>
 
@@ -282,7 +250,7 @@ export default function AtsResumeCheckerTool() {
             </Alert>
 
             <Box>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+              <Typography variant="subtitle2" className="font-bold mb-2">
                 Extracted keywords ({keywords.length})
               </Typography>
               {keywords.length === 0 ? (
@@ -290,7 +258,7 @@ export default function AtsResumeCheckerTool() {
                   No keywords extracted after stopword filtering. Try a longer job description.
                 </Typography>
               ) : (
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.8 }}>
+                <Box className="flex flex-wrap gap-1.6">
                   {keywords.map((kw) => {
                     const isMatched = matched.includes(kw);
                     return (
@@ -300,12 +268,7 @@ export default function AtsResumeCheckerTool() {
                         size="small"
                         variant={isMatched ? "filled" : "outlined"}
                         color={isMatched ? "success" : "error"}
-                        sx={{
-                          fontWeight: isMatched ? 700 : 500,
-                          bgcolor: isMatched ? "success.light" : undefined,
-                          color: isMatched ? "success.dark" : undefined,
-                          borderColor: isMatched ? "success.main" : undefined,
-                        }}
+                        style={{ fontWeight: isMatched ? 700 : 500, backgroundColor: isMatched ? "success.light" : undefined, color: isMatched ? "success.dark" : undefined, borderColor: isMatched ? "success.main" : undefined }}
                       />
                     );
                   })}
@@ -314,8 +277,8 @@ export default function AtsResumeCheckerTool() {
             </Box>
 
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-              <Box sx={{ flex: 1 }}>
-                <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1, color: "success.main" }}>
+              <Box className="flex-1">
+                <Typography variant="subtitle2" className="font-bold mb-2 text-success">
                   Matched ({matched.length})
                 </Typography>
                 {matched.length === 0 ? (
@@ -323,20 +286,20 @@ export default function AtsResumeCheckerTool() {
                     No keywords matched yet.
                   </Typography>
                 ) : (
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.7 }}>
+                  <Box className="flex flex-wrap gap-1.4">
                     {matched.map((kw) => (
                       <Chip
                         key={kw}
                         label={kw}
                         size="small"
-                        sx={{ bgcolor: "success.light", color: "success.dark", fontWeight: 600 }}
+                        className="font-semibold" style={{ backgroundColor: "color-mix(in oklab, var(--color-success) 15%, var(--color-base-100))", color: "var(--color-success)" }}
                       />
                     ))}
                   </Box>
                 )}
               </Box>
-              <Box sx={{ flex: 1 }}>
-                <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1, color: "error.main" }}>
+              <Box className="flex-1">
+                <Typography variant="subtitle2" className="font-bold mb-2 text-error">
                   Missing ({missing.length})
                 </Typography>
                 {missing.length === 0 ? (
@@ -344,7 +307,7 @@ export default function AtsResumeCheckerTool() {
                     {hasJob ? "All keywords covered!" : "—"}
                   </Typography>
                 ) : (
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.7 }}>
+                  <Box className="flex flex-wrap gap-1.4">
                     {missing.map((kw) => (
                       <Chip
                         key={kw}
@@ -352,7 +315,7 @@ export default function AtsResumeCheckerTool() {
                         size="small"
                         variant="outlined"
                         color="error"
-                        sx={{ fontWeight: 600 }}
+                        className="font-semibold"
                       />
                     ))}
                   </Box>
@@ -364,47 +327,27 @@ export default function AtsResumeCheckerTool() {
       )}
 
       <Box>
-        <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+        <Typography variant="subtitle2" className="font-bold mb-2">
           Resume highlight preview
         </Typography>
         {!hasResume ? (
           <Alert severity="info">Paste your resume above to see matched keywords highlighted in context.</Alert>
         ) : matched.length === 0 && hasJob ? (
           <Box
-            sx={{
-              p: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 2,
-              whiteSpace: "pre-wrap",
-              fontSize: 13,
-              lineHeight: 1.7,
-              color: "text.secondary",
-              bgcolor: "background.paper",
-            }}
+            className="p-4 border border-base-300 rounded-[16px] whitespace-pre-wrap text-[13px] leading-[1.7] text-base-content/70 bg-base-100"
           >
             No keywords matched — nothing to highlight. Try adding terms from the missing list.
           </Box>
         ) : (
           <Box
-            sx={{
-              p: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 2,
-              whiteSpace: "pre-wrap",
-              fontSize: 13,
-              lineHeight: 1.7,
-              fontFamily: "inherit",
-              bgcolor: "background.paper",
-            }}
+            className="p-4 border border-base-300 rounded-[16px] whitespace-pre-wrap text-[13px] leading-[1.7] bg-base-100" style={{ fontFamily: "inherit" }}
           >
             {highlightedResume ?? resume}
           </Box>
         )}
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+        <Typography variant="caption" color="text.secondary" className="block mt-2">
           Tip: ATS checks are keyword-based. Add missing terms only where you have truthful experience. For layout compliance, follow our{" "}
-          <Link component={NextLink} href="/blog/resume-builder-guide/ats-resume-guide" underline="hover" color="primary">
+          <Link href="/blog/resume-builder-guide/ats-resume-guide" underline="hover" color="primary">
             ATS-friendly resume formatting guide
           </Link>.
         </Typography>

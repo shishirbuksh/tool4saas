@@ -1,21 +1,13 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Paper from "@mui/material/Paper";
+import { useMemo, useState } from "react";import { Paper, Box, TextField, Typography, Link, Grid, Stack } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
 import { WPM_READING, WPM_SPEAKING } from "@/lib/format";
 
 function Stat({ label, value }: { label: string; value: number | string }) {
   return (
-    <Paper variant="outlined" sx={{ p: 2, textAlign: "center" }}>
-      <Typography variant="h3" sx={{ fontSize: 28, fontWeight: 800, color: "primary.main" }}>
+    <Paper variant="outlined" className="p-4 text-center">
+      <Typography variant="h3" className="text-[28px] font-extrabold text-primary">
         {value}
       </Typography>
       <Typography variant="caption" color="text.secondary">
@@ -103,15 +95,15 @@ export default function WordCounterTool() {
         slotProps={{ htmlInput: { maxLength: MAX_CHARS } } as unknown as object}
       />
       {isAtLimit && (
-        <Typography variant="caption" color="warning.main" sx={{ mt: 1, display: "block" }}>
+        <Typography variant="caption" color="warning.main" className="mt-2 block">
           Reached 1,000,000 character limit – further input is truncated for performance.
         </Typography>
       )}
-      <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+      <Typography variant="caption" color="text.secondary" className="block">
         {text.length.toLocaleString()} / {MAX_CHARS.toLocaleString()} characters
         {text.length > 500_000 ? " · large text may affect performance" : ""}
       </Typography>
-      <Grid container spacing={2} sx={{ mt: 1 }}>
+      <Grid container spacing={2} className="mt-2">
         <Grid size={{ xs: 6, sm: 4, md: 2 }}  ><Stat label="Words" value={stats.words} /></Grid>
         <Grid size={{ xs: 6, sm: 4, md: 2 }}  ><Stat label="Characters" value={stats.chars} /></Grid>
         <Grid size={{ xs: 6, sm: 4, md: 2 }}  ><Stat label="No spaces" value={stats.charsNoSpace} /></Grid>
@@ -120,35 +112,35 @@ export default function WordCounterTool() {
         <Grid size={{ xs: 6, sm: 4, md: 2 }}  ><Stat label="Read min" value={stats.readingTime} /></Grid>
       </Grid>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={4} sx={{ mt: 4 }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={4} className="mt-8">
         <Box>
-          <Typography  variant="subtitle2"  gutterBottom sx={{ fontWeight: 700 }}>
+          <Typography  variant="subtitle2"  gutterBottom className="font-bold">
             Estimated reading / speaking time
           </Typography>
           <Typography variant="body2" color="text.secondary">
             ≈ {stats.readingTime} min to read · ≈ {stats.speakingTime} min to speak
           </Typography>
-          <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+          <Typography variant="caption" color="text.secondary" className="block mt-2">
             Writing an essay or book? See our{" "}
-            <Link component={NextLink} href="/blog/word-counter-guide/pages-per-1000-words" underline="hover" color="primary">
+            <Link href="/blog/word-counter-guide/pages-per-1000-words" underline="hover" color="primary">
               words to pages chart
             </Link>{" "}
             or check your{" "}
-            <Link component={NextLink} href="/blog/word-counter-guide/flesch-reading-ease-score-explained" underline="hover" color="primary">
+            <Link href="/blog/word-counter-guide/flesch-reading-ease-score-explained" underline="hover" color="primary">
               Flesch readability score
             </Link>.
           </Typography>
         </Box>
-        <Box sx={{ flex: 1 }}>
-          <Typography  variant="subtitle2"  gutterBottom sx={{ fontWeight: 700 }}>
+        <Box className="flex-1">
+          <Typography  variant="subtitle2"  gutterBottom className="font-bold">
             Top words
           </Typography>
           {keyword.length === 0 ? (
             <Typography variant="body2" color="text.secondary">—</Typography>
           ) : (
-            <Stack direction="row"  useFlexGap spacing={1} sx={{ flexWrap: "wrap" }}>
+            <Stack direction="row"  useFlexGap spacing={1} className="flex-wrap">
               {keyword.map(([w, c]) => (
-                <Box key={w} sx={{ px: 1.5, py: 0.5, borderRadius: 5, bgcolor: "primary.main", color: "primary.contrastText", fontSize: 13 }}>
+                <Box key={w} className="px-3 py-1 rounded-[40px] bg-primary text-[13px]" style={{ color: "var(--color-primary-content)" }}>
                   {w} · {c}
                 </Box>
               ))}

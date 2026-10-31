@@ -1,15 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+
 import { fmtNumber } from "@/lib/format";
 
 type Shape = "slab" | "footing" | "column";
@@ -146,12 +138,12 @@ export default function ConcreteCalculatorTool() {
         </Stack>
       )}
 
-      <Box sx={{ p: 2, bgcolor: "primary.main", color: "primary.contrastText", borderRadius: 2 }}>
+      <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
         <Typography variant="caption">Concrete needed</Typography>
-        <Typography variant="h4" sx={{ fontWeight: 800 }}>
+        <Typography variant="h4" className="font-extrabold">
           {result ? `${fmtNumber(result.cuYd, { maximumFractionDigits: 3 })} cu yd` : "—"}
         </Typography>
-        <Typography variant="body2" sx={{ mt: 1, opacity: 0.9 }}>
+        <Typography variant="body2" className="mt-2 opacity-[0.9]">
           {result
             ? `${fmtNumber(result.cuFt, { maximumFractionDigits: 2 })} cu ft • ${fmtNumber(result.bags, { maximumFractionDigits: 0 })} × 80 lb bags (0.6 cu ft each)`
             : "Enter positive dimensions to calculate volume."}

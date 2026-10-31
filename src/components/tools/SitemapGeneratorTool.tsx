@@ -1,19 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, Alert, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const CHANGEFREQ_OPTIONS = ["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"] as const;
@@ -105,12 +94,12 @@ export default function SitemapGeneratorTool() {
         onChange={(e) => setRaw(e.target.value)}
         placeholder={"https://example.com/\nhttps://example.com/about\nhttps://example.com/contact"}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+        className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
         helperText={`${validUrls.length} valid • ${invalidUrls.length} invalid`}
       />
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-        <FormControl sx={{ minWidth: 180, flex: 1 }}>
+        <FormControl className="min-w-[180px] flex-1">
           <InputLabel>Changefreq</InputLabel>
           <Select
             label="Changefreq"
@@ -133,7 +122,7 @@ export default function SitemapGeneratorTool() {
           slotProps={{ htmlInput: { min: 0, max: 1, step: 0.1 } }}
           error={!priorityValid}
           helperText={!priorityValid ? "Priority must be between 0.0 and 1.0" : " "}
-          sx={{ flex: 1 }}
+          className="flex-1"
         />
 
         <TextField
@@ -142,17 +131,17 @@ export default function SitemapGeneratorTool() {
           value={lastmod}
           onChange={(e) => setLastmod(e.target.value)}
           slotProps={{ inputLabel: { shrink: true } }}
-          sx={{ flex: 1 }}
+          className="flex-1"
           helperText="Optional"
         />
       </Stack>
 
       {invalidUrls.length > 0 && (
         <Alert severity="error">
-          <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>
+          <Typography variant="body2" className="font-bold mb-1">
             Invalid URLs ({invalidUrls.length}):
           </Typography>
-          <Box component="ul" sx={{ m: 0, pl: 2, wordBreak: "break-all", fontFamily: "monospace", fontSize: 13 }}>
+          <Box component="ul" className="m-0 pl-4 break-all text-[13px]" style={{ fontFamily: "monospace" }}>
             {invalidUrls.map((u) => (
               <li key={u}>{u}</li>
             ))}
@@ -166,7 +155,7 @@ export default function SitemapGeneratorTool() {
 
       {xml ? (
         <Box>
-          <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 700 }}>
+          <Typography variant="subtitle2" gutterBottom className="font-bold">
             Preview — sitemap.xml ({validUrls.length} URL{validUrls.length === 1 ? "" : "s"})
           </Typography>
           <TextField
@@ -175,14 +164,14 @@ export default function SitemapGeneratorTool() {
             minRows={12}
             fullWidth
             slotProps={{ input: { readOnly: true, "aria-label": "Generated sitemap XML", spellCheck: false, autoComplete: "off" } }}
-            sx={{ "& textarea": { fontFamily: "monospace", fontSize: 12 } }}
+            className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[12px]"
           />
         </Box>
       ) : (
         <Alert severity="info">Enter at least one valid absolute URL (including https://) to generate the sitemap.</Alert>
       )}
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button variant="contained" startIcon={<ContentCopyIcon />} onClick={handleCopy} disabled={!xml}>
           Copy XML
         </Button>

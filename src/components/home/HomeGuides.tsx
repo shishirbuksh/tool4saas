@@ -1,7 +1,5 @@
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import { Container, Box, Grid, Typography } from "@/components/ds";
+
 import Link from "@/lib/astro/navigation";
 import { HOME_GUIDES } from "@/content/home";
 
@@ -11,33 +9,21 @@ export default function HomeGuides() {
       component="section"
       id="guides"
       aria-labelledby="guides-heading"
-      sx={{ py: { xs: 7, md: 10 }, scrollMarginTop: 100 }}
+      className="py-14 md:py-20 scroll-mt-[100px]"
     >
-      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 4 } }}>
+      <Container maxWidth="xl" className="px-4 md:px-8">
         <Box
-          sx={{
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            gap: 2,
-            mb: { xs: 3, md: 4 },
-            flexWrap: "wrap",
-          }}
+          className="flex items-end justify-between gap-4 mb-6 md:mb-8 flex-wrap"
         >
-          <Box sx={{ maxWidth: 620 }}>
+          <Box className="max-w-[620px]">
             <Typography
               component="h2"
               id="guides-heading"
-              sx={{
-                fontSize: { xs: "1.75rem", md: "2.25rem" },
-                fontWeight: 700,
-                letterSpacing: "-0.025em",
-                mb: 0.5,
-              }}
+              className="text-[1.75rem] md:text-[2.25rem] font-bold tracking-[-0.025em] mb-1"
             >
               Guides and tutorials
             </Typography>
-            <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9375rem", md: "1rem" } }}>
+            <Typography color="text.secondary" className="text-[0.9375rem] md:text-[1rem]">
               Practical walkthroughs. Each guide links back to a free tool.
             </Typography>
           </Box>
@@ -50,49 +36,18 @@ export default function HomeGuides() {
           {HOME_GUIDES.map((guide) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={guide.href}>
               <Box
-                sx={{
-                  p: { xs: 2, md: 2.5 },
-                  borderRadius: "16px",
-                  border: "1px solid",
-                  borderColor: "divider",
-                  bgcolor: "background.paper",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  transition: "border-color 200ms ease, transform 200ms ease",
-                  "&:hover": {
-                    borderColor: "rgba(0,0,0,0.16)",
-                    transform: "translateY(-2px)",
-                  },
-                  'html[data-theme="dark"] &:hover': {
-                    borderColor: "rgba(255,255,255,0.2)",
-                  },
-                }}
+                className="p-4 md:p-5 rounded-[16px] border border-base-300 bg-base-100 h-full flex flex-col hover:border-[rgba(0,0,0,0.16)] hover:[transform:translateY(-2px)] dark:[&_:hover]:border-[rgba(255,255,255,0.2)]" style={{ transition: "border-color 200ms ease, transform 200ms ease" }}
               >
                 <Typography
                   variant="body2"
-                  sx={{
-                    fontWeight: 700,
-                    color: "text.secondary",
-                    mb: 0.75,
-                    fontSize: "0.6875rem",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                  }}
+                  className="font-bold text-base-content/70 mb-1.5 text-[0.6875rem] tracking-[0.06em] uppercase"
                 >
                   {guide.label} · <time dateTime={guide.date}>{guide.date}</time>
                 </Typography>
                 <Link href={guide.href} style={{ textDecoration: "none", color: "inherit" }}>
                   <Typography
                     component="h3"
-                    sx={{
-                      fontSize: { xs: "1.0625rem", md: "1.125rem" },
-                      fontWeight: 700,
-                      lineHeight: 1.35,
-                      letterSpacing: "-0.015em",
-                      mb: 0.75,
-                      textWrap: "balance",
-                    }}
+                    className="text-[1.0625rem] md:text-[1.125rem] font-bold leading-[1.35] tracking-[-0.015em] mb-1.5 text-balance"
                   >
                     {guide.title}
                   </Typography>
@@ -100,14 +55,7 @@ export default function HomeGuides() {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{
-                    lineHeight: 1.55,
-                    mb: 1.5,
-                    display: "-webkit-box",
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }}
+                  className="leading-[1.55] mb-3 line-clamp-2 overflow-hidden" style={{ display: "-webkit-box", WebkitBoxOrient: "vertical" }}
                 >
                   {guide.desc}
                 </Typography>

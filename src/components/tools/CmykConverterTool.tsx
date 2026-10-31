@@ -1,13 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography, Button } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
@@ -116,7 +111,7 @@ export default function CmykConverterTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 800 }}>
+      <Typography variant="h6" className="font-extrabold">
         CMYK Converter
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -126,70 +121,26 @@ export default function CmykConverterTool() {
       {/* Swatches */}
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <Box
-          sx={{
-            flex: 1,
-            height: 120,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            bgcolor: previewColor,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          className="flex-1 h-[120px] rounded-[16px] border border-base-300 flex items-center justify-center" style={{ backgroundColor: previewColor }}
         >
           <Typography
             variant="caption"
-            sx={{
-              fontFamily: "monospace",
-              fontWeight: 700,
-              px: 1.5,
-              py: 0.5,
-              borderRadius: 1,
-              bgcolor: "rgba(0,0,0,0.55)",
-              color: "#fff",
-            }}
+            className="font-bold px-3 py-1 rounded-[8px] bg-[rgba(0,0,0,0.55)] text-[#fff]" style={{ fontFamily: "monospace" }}
           >
             {isValid ? hexString : "Invalid color"}
           </Typography>
         </Box>
         <Box
-          sx={{
-            flex: 1,
-            height: 120,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            bgcolor: previewColor,
-            opacity: 0.9,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
-            overflow: "hidden",
-          }}
+          className="flex-1 h-[120px] rounded-[16px] border border-base-300 opacity-[0.9] flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: previewColor }}
         >
           <Box
-            sx={{
-              position: "absolute",
-              inset: 0,
-              background: cmyk
+            className="absolute inset-0" style={{ background: cmyk
                 ? `linear-gradient(135deg, ${previewColor} 0%, rgba(0,0,0,${cmyk.k / 100}) 100%)`
-                : previewColor,
-            }}
+                : previewColor }}
           />
           <Typography
             variant="caption"
-            sx={{
-              fontFamily: "monospace",
-              fontWeight: 700,
-              px: 1.5,
-              py: 0.5,
-              borderRadius: 1,
-              bgcolor: "rgba(255,255,255,0.85)",
-              color: "#111",
-              position: "relative",
-            }}
+            className="font-bold px-3 py-1 rounded-[8px] bg-[rgba(255,255,255,0.85)] text-[#111] relative" style={{ fontFamily: "monospace" }}
           >
             {isValid ? cmykString : "—"}
           </Typography>
@@ -197,25 +148,14 @@ export default function CmykConverterTool() {
       </Stack>
 
       {/* HEX input */}
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: { sm: "center" } }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="sm:items-center">
         <Box
           component="input"
           type="color"
           value={isValid ? hexDisplay : "#000000"}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHexInput(e.target.value)}
           aria-label="Color picker"
-          sx={{
-            width: 56,
-            height: 44,
-            minWidth: 44,
-            minHeight: 44,
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: 2,
-            p: 0.5,
-            cursor: "pointer",
-            bgcolor: "transparent",
-          }}
+          className="w-[56px] h-[44px] min-w-[44px] min-h-[44px] border border-base-300 rounded-[16px] p-1 cursor-pointer bg-transparent"
         />
         <TextField
           label="HEX"
@@ -226,14 +166,14 @@ export default function CmykConverterTool() {
           error={!isValid}
           helperText={!isValid ? "Enter a valid hex (e.g. #0099cc or #09c)" : ""}
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ "& input": { fontFamily: "monospace", textTransform: "uppercase" } }}
+          className="[&_input]:[font-family:monospace] [&_input]:uppercase"
         />
         <Button
           variant="outlined"
           startIcon={<ContentCopyIcon />}
           onClick={() => copy(hexString)}
           disabled={!isValid}
-          sx={{ whiteSpace: "nowrap", minHeight: 44, height: 44 }}
+          className="whitespace-nowrap min-h-[44px] h-[44px]"
         >
           Copy HEX
         </Button>
@@ -241,7 +181,7 @@ export default function CmykConverterTool() {
 
       {/* RGB inputs */}
       <Box>
-        <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+        <Typography variant="subtitle2" className="font-bold mb-2">
           RGB (0–255)
         </Typography>
         <Stack direction="row" spacing={1.5}>
@@ -274,7 +214,7 @@ export default function CmykConverterTool() {
 
       {/* CMYK inputs */}
       <Box>
-        <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+        <Typography variant="subtitle2" className="font-bold mb-2">
           CMYK (0–100%)
         </Typography>
         <Stack direction="row" spacing={1.5}>
@@ -315,29 +255,20 @@ export default function CmykConverterTool() {
 
       {/* All formats with swatches and copy buttons */}
       <Stack spacing={1}>
-        <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Typography variant="subtitle2" className="font-bold">
           All formats
         </Typography>
 
         <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 1,
-            p: 1.5,
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: 2,
-          }}
+          className="flex items-center justify-between gap-2 p-3 border border-base-300 rounded-[16px]"
         >
-          <Stack direction="row" spacing={1.5} sx={{ alignItems: "center", flex: 1, minWidth: 0 }}>
-            <Box sx={{ width: 36, height: 36, borderRadius: 1, border: "1px solid", borderColor: "divider", bgcolor: previewColor, flexShrink: 0 }} />
-            <Box sx={{ minWidth: 0 }}>
-              <Typography variant="caption" color="text.secondary" sx={{ display: "block", fontWeight: 700 }}>
+          <Stack direction="row" spacing={1.5} className="items-center flex-1 min-w-[0px]">
+            <Box className="w-[36px] h-[36px] rounded-[8px] border border-base-300 shrink-0" style={{ backgroundColor: previewColor }} />
+            <Box className="min-w-[0px]">
+              <Typography variant="caption" color="text.secondary" className="block font-bold">
                 HEX
               </Typography>
-              <Typography variant="body2" sx={{ fontFamily: "monospace", fontWeight: 700, wordBreak: "break-all" }}>
+              <Typography variant="body2" className="font-bold break-all" style={{ fontFamily: "monospace" }}>
                 {hexString}
               </Typography>
             </Box>
@@ -348,24 +279,15 @@ export default function CmykConverterTool() {
         </Box>
 
         <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 1,
-            p: 1.5,
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: 2,
-          }}
+          className="flex items-center justify-between gap-2 p-3 border border-base-300 rounded-[16px]"
         >
-          <Stack direction="row" spacing={1.5} sx={{ alignItems: "center", flex: 1, minWidth: 0 }}>
-            <Box sx={{ width: 36, height: 36, borderRadius: 1, border: "1px solid", borderColor: "divider", bgcolor: previewColor, flexShrink: 0 }} />
-            <Box sx={{ minWidth: 0 }}>
-              <Typography variant="caption" color="text.secondary" sx={{ display: "block", fontWeight: 700 }}>
+          <Stack direction="row" spacing={1.5} className="items-center flex-1 min-w-[0px]">
+            <Box className="w-[36px] h-[36px] rounded-[8px] border border-base-300 shrink-0" style={{ backgroundColor: previewColor }} />
+            <Box className="min-w-[0px]">
+              <Typography variant="caption" color="text.secondary" className="block font-bold">
                 RGB
               </Typography>
-              <Typography variant="body2" sx={{ fontFamily: "monospace", fontWeight: 700, wordBreak: "break-all" }}>
+              <Typography variant="body2" className="font-bold break-all" style={{ fontFamily: "monospace" }}>
                 {rgbString}
               </Typography>
             </Box>
@@ -376,24 +298,15 @@ export default function CmykConverterTool() {
         </Box>
 
         <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 1,
-            p: 1.5,
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: 2,
-          }}
+          className="flex items-center justify-between gap-2 p-3 border border-base-300 rounded-[16px]"
         >
-          <Stack direction="row" spacing={1.5} sx={{ alignItems: "center", flex: 1, minWidth: 0 }}>
-            <Box sx={{ width: 36, height: 36, borderRadius: 1, border: "1px solid", borderColor: "divider", bgcolor: previewColor, flexShrink: 0 }} />
-            <Box sx={{ minWidth: 0 }}>
-              <Typography variant="caption" color="text.secondary" sx={{ display: "block", fontWeight: 700 }}>
+          <Stack direction="row" spacing={1.5} className="items-center flex-1 min-w-[0px]">
+            <Box className="w-[36px] h-[36px] rounded-[8px] border border-base-300 shrink-0" style={{ backgroundColor: previewColor }} />
+            <Box className="min-w-[0px]">
+              <Typography variant="caption" color="text.secondary" className="block font-bold">
                 CMYK
               </Typography>
-              <Typography variant="body2" sx={{ fontFamily: "monospace", fontWeight: 700, wordBreak: "break-all" }}>
+              <Typography variant="body2" className="font-bold break-all" style={{ fontFamily: "monospace" }}>
                 {cmykString}
               </Typography>
             </Box>
@@ -406,43 +319,43 @@ export default function CmykConverterTool() {
 
       {/* Readonly fields with copy for quick access */}
       <Stack spacing={1}>
-        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, width: 56 }}>
+        <Box className="flex items-center justify-between gap-2">
+          <Typography variant="subtitle2" className="font-bold w-[56px]">
             HEX
           </Typography>
           <TextField
             value={hexString}
             slotProps={{ input: { readOnly: true, "aria-label": "HEX", spellCheck: false } }}
             fullWidth
-            sx={{ "& input": { fontFamily: "monospace" } }}
+            className="[&_input]:[font-family:monospace]"
           />
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => copy(hexString)} disabled={!isValid}>
             Copy
           </Button>
         </Box>
-        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, width: 56 }}>
+        <Box className="flex items-center justify-between gap-2">
+          <Typography variant="subtitle2" className="font-bold w-[56px]">
             RGB
           </Typography>
           <TextField
             value={rgbString}
             slotProps={{ input: { readOnly: true, "aria-label": "RGB", spellCheck: false } }}
             fullWidth
-            sx={{ "& input": { fontFamily: "monospace" } }}
+            className="[&_input]:[font-family:monospace]"
           />
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => copy(rgbString)} disabled={!isValid}>
             Copy
           </Button>
         </Box>
-        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, width: 56 }}>
+        <Box className="flex items-center justify-between gap-2">
+          <Typography variant="subtitle2" className="font-bold w-[56px]">
             CMYK
           </Typography>
           <TextField
             value={cmykString}
             slotProps={{ input: { readOnly: true, "aria-label": "CMYK", spellCheck: false } }}
             fullWidth
-            sx={{ "& input": { fontFamily: "monospace" } }}
+            className="[&_input]:[font-family:monospace]"
           />
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => copy(cmykString)} disabled={!isValid}>
             Copy

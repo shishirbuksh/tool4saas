@@ -1,15 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControlLabel, Switch } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 export default function UuidGeneratorTool() {
   const [count, setCount] = useState(5);
@@ -27,13 +20,13 @@ export default function UuidGeneratorTool() {
 
   return (
     <ToolPaper>
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center" }}>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
           <TextField
             label="How many"
             type="number"
             value={count}
             onChange={(e) => setCount(Number(e.target.value))}
-            sx={{ maxWidth: 160 }}
+            className="max-w-[160px]"
             slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
           />
           <FormControlLabel control={<Switch checked={upper} onChange={(e) => setUpper(e.target.checked)} />} label="Uppercase" />
@@ -42,14 +35,14 @@ export default function UuidGeneratorTool() {
         </Stack>
         {result && (
           <Box>
-            <Typography  variant="subtitle2"  gutterBottom sx={{ fontWeight: 700 }}>{result.split("\n").length} UUIDs (v4)</Typography>
+            <Typography  variant="subtitle2"  gutterBottom className="font-bold">{result.split("\n").length} UUIDs (v4)</Typography>
             <TextField
               value={result}
               multiline
               minRows={6}
               fullWidth
               slotProps={{ input: { readOnly: true, "aria-label": "Generated UUIDs", spellCheck: false } }}
-              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+              className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
           </Box>
         )}

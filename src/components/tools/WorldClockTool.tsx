@@ -1,16 +1,7 @@
-"use client";
 
 import { useState, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import ToolPaper from "@/components/ToolPaper";import { Typography, Box, Stack, TextField, Button, MenuItem, Select, FormControl, InputLabel } from "@/components/ds";
+
 import { MS_PER_MINUTE } from "@/lib/format";
 
 type City = {
@@ -180,7 +171,7 @@ export default function WorldClockTool() {
   return (
     <ToolPaper spacing={3}>
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 800 }}>
+        <Typography variant="h6" className="font-extrabold">
           World Clock
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -188,7 +179,7 @@ export default function WorldClockTool() {
         </Typography>
       </Box>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "flex-start" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-start">
         <TextField
           label="Add IANA timezone"
           placeholder="Europe/Paris"
@@ -204,14 +195,14 @@ export default function WorldClockTool() {
           error={Boolean(error)}
           helperText={error || "Validate via Intl.DateTimeFormat — e.g. America/Los_Angeles"}
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ "& input": { fontFamily: "monospace" } }}
+          className="[&_input]:[font-family:monospace]"
         />
-        <Button variant="contained" onClick={handleAddCustom} sx={{ whiteSpace: "nowrap", mt: { xs: 0, sm: 1 } }}>
+        <Button variant="contained" onClick={handleAddCustom} className="whitespace-nowrap mt-0 sm:mt-2">
           Add zone
         </Button>
       </Stack>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
         <FormControl fullWidth>
           <InputLabel>Quick add preset</InputLabel>
           <Select
@@ -234,7 +225,7 @@ export default function WorldClockTool() {
           </Select>
         </FormControl>
 
-        <FormControl sx={{ minWidth: 140 }}>
+        <FormControl className="min-w-[140px]">
           <InputLabel>Format</InputLabel>
           <Select label="Format" value={hour12 ? "12h" : "24h"} onChange={(e) => setHour12(e.target.value === "12h")}>
             <MenuItem value="24h">24-hour</MenuItem>
@@ -242,17 +233,13 @@ export default function WorldClockTool() {
           </Select>
         </FormControl>
 
-        <Button variant="outlined" onClick={handleReset} sx={{ whiteSpace: "nowrap" }}>
+        <Button variant="outlined" onClick={handleReset} className="whitespace-nowrap">
           Reset
         </Button>
       </Stack>
 
       <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" },
-          gap: 2,
-        }}
+        className="grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-4"
       >
         {cities.map((city) => {
           const time = now ? formatTime(city.zone, now, hour12) : "—";
@@ -261,24 +248,17 @@ export default function WorldClockTool() {
           return (
             <Box
               key={city.zone}
-              sx={{
-                p: 2,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: "divider",
-                bgcolor: "background.paper",
-                textAlign: "center",
-              }}
+              className="p-4 rounded-[16px] border border-base-300 bg-base-100 text-center"
             >
-              <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+              <Typography variant="subtitle2" className="font-bold">
                 {city.label}
               </Typography>
-              <Typography variant="caption" color="text.secondary" sx={{ fontFamily: "monospace", display: "block", mb: 0.5 }}>
+              <Typography variant="caption" color="text.secondary" className="block mb-1" style={{ fontFamily: "monospace" }}>
                 {city.zone} · {offset}
               </Typography>
               <Typography
                 variant="h5"
-                sx={{ fontWeight: 800, fontFamily: "monospace", letterSpacing: 0.5 }}
+                className="font-extrabold tracking-[0.5px]" style={{ fontFamily: "monospace" }}
                 aria-live="polite"
               >
                 {time}
@@ -286,7 +266,7 @@ export default function WorldClockTool() {
               <Typography variant="caption" color="text.secondary">
                 {date}
               </Typography>
-              <Box sx={{ mt: 1 }}>
+              <Box className="mt-2">
                 <Button size="small" color="inherit" onClick={() => handleRemove(city.zone)}>
                   Remove
                 </Button>
@@ -296,7 +276,7 @@ export default function WorldClockTool() {
         })}
       </Box>
 
-      <Typography variant="caption" color="text.secondary" sx={{ display: "block", textAlign: "center" }}>
+      <Typography variant="caption" color="text.secondary" className="block text-center">
         Times rendered via Intl.DateTimeFormat with timeZone and refreshed every second via setInterval.
       </Typography>
     </ToolPaper>

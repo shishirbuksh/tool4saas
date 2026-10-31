@@ -1,14 +1,7 @@
-"use client";
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Slider from "@mui/material/Slider";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, TextField, Slider, Alert } from "@/components/ds";
+
 import { validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 import { sanitizeSvg } from "./SvgOptimizerTool";
@@ -221,7 +214,7 @@ export default function SvgToPngConverterTool() {
 
   return (
     <ToolPaper spacing={3}>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         SVG to PNG Converter
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -238,14 +231,14 @@ export default function SvgToPngConverterTool() {
         onChange={(e) => setSvgText(e.target.value)}
         placeholder={`<svg xmlns="http://www.w3.org/2000/svg"><rect fill="#6366f1" /></svg>`}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ fontFamily: "monospace", "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+        className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]" style={{ fontFamily: "monospace" }}
       />
-      <Typography variant="caption" color="text.secondary" sx={{ fontFamily: "monospace" }}>
+      <Typography variant="caption" color="text.secondary" style={{ fontFamily: "monospace" }}>
         Input: {fmtBytes(inputBytes)} / {fmtBytes(SVG_MAX_BYTES)} (500KB guard)
       </Typography>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={3}>
-        <Box sx={{ flex: 1 }}>
+        <Box className="flex-1">
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Scale: {scale}x
           </Typography>
@@ -261,7 +254,7 @@ export default function SvgToPngConverterTool() {
             aria-label="PNG scale"
           />
         </Box>
-        <Box sx={{ width: { xs: "100%", sm: 220 } }}>
+        <Box className="w-full sm:w-[220px]">
           <TextField
             label="Base size (px)"
             type="number"
@@ -288,8 +281,8 @@ export default function SvgToPngConverterTool() {
       </Stack>
 
       {result && (
-        <Box sx={{ p: 2, border: "1px solid", borderColor: "divider", borderRadius: 2 }}>
-          <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 700 }}>
+        <Box className="p-4 border border-base-300 rounded-[16px]">
+          <Typography variant="subtitle2" gutterBottom className="font-bold">
             Result
           </Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom>
@@ -299,7 +292,7 @@ export default function SvgToPngConverterTool() {
             component="img"
             src={result.url}
             alt="PNG preview"
-            sx={{ maxWidth: "100%", borderRadius: 1, my: 1, display: "block" }}
+            className="max-w-full rounded-[8px] my-2 block"
           />
           <Button variant="contained" href={result.url} download={result.name}>
             Download PNG

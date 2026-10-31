@@ -1,7 +1,5 @@
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import { Container, Box, Typography, Button } from "@/components/ds";
+
 import Link from "@/lib/astro/navigation";
 import ToolSearchIsland from "@/components/ToolSearchIsland";
 
@@ -20,10 +18,10 @@ const POPULAR_CATEGORIES = [
 
 export default function NotFoundView() {
   return (
-    <Container maxWidth="sm" sx={{ py: 12, textAlign: "center" }}>
-      <Typography variant="h1" sx={{ fontSize: "4rem", fontWeight: 800, color: "primary.main" }} aria-label="404 Page not found">404</Typography>
-      <Typography variant="h2" sx={{ fontSize: "1.5rem", mb: 2 }}>Page not found</Typography>
-      <Typography color="text.secondary" sx={{ mb: 4 }}>
+    <Container maxWidth="sm" className="py-24 text-center">
+      <Typography variant="h1" className="text-[4rem] font-extrabold text-primary" aria-label="404 Page not found">404</Typography>
+      <Typography variant="h2" className="text-[1.5rem] mb-4">Page not found</Typography>
+      <Typography color="text.secondary" className="mb-8">
         The page you&apos;re looking for doesn&apos;t exist or has moved.
       </Typography>
       <Box>
@@ -31,10 +29,10 @@ export default function NotFoundView() {
           Back to home
         </Button>
       </Box>
-      <Box sx={{ mt: 4, maxWidth: 400, mx: "auto" }}>
-        <ToolSearchIsland sx={{ width: "100%" }} />
+      <Box className="mt-8 max-w-[400px] mx-auto">
+        <ToolSearchIsland className="w-full" />
       </Box>
-      <Box sx={{ mt: 3, display: "flex", flexWrap: "wrap", gap: 1, justifyContent: "center" }}>
+      <Box className="mt-6 flex flex-wrap gap-2 justify-center">
         {POPULAR_TOOLS.map((t) => (
           <Button
             key={t.slug}
@@ -42,13 +40,13 @@ export default function NotFoundView() {
             href={`/${t.slug}`}
             variant="outlined"
             size="medium"
-            sx={{ minHeight: 44 }}
+            className="min-h-[44px]"
           >
             {t.title}
           </Button>
         ))}
       </Box>
-      <Box sx={{ mt: 2, display: "flex", flexWrap: "wrap", gap: 1, justifyContent: "center" }}>
+      <Box className="mt-4 flex flex-wrap gap-2 justify-center">
         {POPULAR_CATEGORIES.map((c) => (
           <Button
             key={c.id}
@@ -56,7 +54,7 @@ export default function NotFoundView() {
             href={`/category/${c.id}`}
             variant="text"
             size="small"
-            sx={{ minHeight: 44 }}
+            className="min-h-[44px]"
           >
             {c.label}
           </Button>

@@ -1,11 +1,7 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack } from "@/components/ds";
+
 
 const hexToHsl = (hex: string) => {
   let h = hex.replace("#", "");
@@ -77,14 +73,14 @@ export default function ColorPaletteTool() {
 
   return (
     <ToolPaper>
-        <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
+        <Stack direction="row" spacing={1.5} className="items-center">
           <Box
             component="input"
             type="color"
             value={toRgb(base)}
             onChange={(e) => setBase(e.target.value)}
             aria-label="Base color picker"
-            sx={{ width: 48, height: 44, minWidth: 44, minHeight: 44, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
+            className="w-[48px] h-[44px] min-w-[44px] min-h-[44px] border border-base-300 rounded-[16px] p-1 cursor-pointer bg-transparent"
           />
           <TextField
             value={base}
@@ -92,15 +88,11 @@ export default function ColorPaletteTool() {
             size="small"
             label="Base color"
             slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-            sx={{ width: 180 }}
+            className="w-[180px]"
           />
         </Stack>
         <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr 1fr", sm: "1fr 1fr 1fr" },
-            gap: 1.5,
-          }}
+          className="grid grid-cols-[1fr_1fr] sm:grid-cols-[1fr_1fr_1fr] gap-3"
         >
           {swatches.map((s) => (
             <button
@@ -120,12 +112,12 @@ export default function ColorPaletteTool() {
                 color: "inherit",
               }}
             >
-              <Box sx={{ height: 64, background: s.hex }} />
-              <Box sx={{ p: 1 }}>
-                <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+              <Box className="h-[64px]" style={{ background: s.hex }} />
+              <Box className="p-2">
+                <Typography variant="caption" color="text.secondary" className="block">
                   {s.label}
                 </Typography>
-                <Typography variant="body2" sx={{ fontFamily: "monospace", fontWeight: 700 }}>
+                <Typography variant="body2" className="font-bold" style={{ fontFamily: "monospace" }}>
                   {s.hex}
                 </Typography>
               </Box>

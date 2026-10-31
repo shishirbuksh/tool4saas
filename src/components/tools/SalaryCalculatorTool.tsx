@@ -1,15 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Alert from "@mui/material/Alert";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -106,18 +97,12 @@ export default function SalaryCalculatorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Net annual (take-home)
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {net !== null ? money(net, currency) : "—"}
         </Typography>
         <Typography variant="caption" color="text.secondary">
@@ -126,26 +111,19 @@ export default function SalaryCalculatorTool() {
       </Box>
 
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Taxable income</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{taxable !== null ? money(taxable, currency) : "—"}</Typography>
+          <Typography className="font-bold">{taxable !== null ? money(taxable, currency) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Estimated tax</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{tax !== null ? money(tax, currency) : "—"}</Typography>
+          <Typography className="font-bold">{tax !== null ? money(tax, currency) : "—"}</Typography>
         </Box>
         <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            p: 1.5,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-          }}
+          className="flex justify-between p-3 rounded-[16px] border border-base-300"
         >
           <Typography color="text.secondary">Per pay ({freqLabel})</Typography>
-          <Typography sx={{ fontWeight: 800 }}>{perPay !== null ? money(perPay, currency) : "—"}</Typography>
+          <Typography className="font-extrabold">{perPay !== null ? money(perPay, currency) : "—"}</Typography>
         </Box>
       </Stack>
 

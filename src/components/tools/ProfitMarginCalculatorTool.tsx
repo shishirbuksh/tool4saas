@@ -1,15 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -62,29 +53,23 @@ export default function ProfitMarginCalculatorTool() {
         {field("Revenue (price)", revenue, setRevenue)}
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Profit
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {profit !== null ? money(profit, currency) : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Margin (profit / revenue × 100)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{fmtPct(margin)}</Typography>
+          <Typography className="font-bold">{fmtPct(margin)}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Markup (profit / cost × 100)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{fmtPct(markup)}</Typography>
+          <Typography className="font-bold">{fmtPct(markup)}</Typography>
         </Box>
       </Stack>
       <Alert severity="info">

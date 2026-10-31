@@ -1,15 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import { salesTaxTotal } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
@@ -59,7 +50,7 @@ export default function UsSalesTaxCalculatorTool() {
           input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
           htmlInput: { min: 0, step: "any" },
         }}
-        sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+        
       />
       <FormControl fullWidth>
         <InputLabel>State</InputLabel>
@@ -67,8 +58,8 @@ export default function UsSalesTaxCalculatorTool() {
           label="State"
           value={preset}
           onChange={(e) => setPreset(e.target.value as PresetValue)}
-          MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-          sx={{ minHeight: 44 }}
+         
+          className="min-h-[44px]"
         >
           {STATE_PRESETS.map((s) => (
             <MenuItem key={s.value} value={s.value}>
@@ -89,40 +80,34 @@ export default function UsSalesTaxCalculatorTool() {
             input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
             htmlInput: { min: 0, step: "any" },
           }}
-          sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+          
         />
       )}
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Total with tax
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null && isFinite(result.total) ? money(result.total) : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Subtotal</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {(() => {
               const a = parseFloat(amount);
               return isFinite(a) && a >= 0 ? money(a) : "—";
             })()}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">
             Sales tax{isFinite(effectiveRate) ? ` (${effectiveRate}%)` : ""}
           </Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.tax) ? money(result.tax) : "—"}
           </Typography>
         </Box>

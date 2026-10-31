@@ -1,4 +1,3 @@
-"use client";
 
 import dynamic from "@/lib/astro/dynamic";
 

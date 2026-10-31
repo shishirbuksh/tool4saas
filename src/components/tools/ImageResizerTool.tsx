@@ -1,15 +1,7 @@
-"use client";
 
 import { useRef, useState, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, TextField, Typography, Stack, FormControlLabel, Checkbox, Alert } from "@/components/ds";
+
 import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 
 export default function ImageResizerTool() {
@@ -187,12 +179,12 @@ export default function ImageResizerTool() {
           Resize
         </Button>
         {dataUrl && (
-          <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+          <Stack direction="row" spacing={2} className="items-center">
             <Box
               component="img"
               src={dataUrl}
               alt="Resized preview"
-              sx={{ maxWidth: 160, maxHeight: 160, borderRadius: 2, border: "1px solid", borderColor: "divider" }}
+              className="max-w-[160px] max-h-[160px] rounded-[16px] border border-base-300"
             />
             <Button component="a" href={dataUrl} download={name || "resized.png"} variant="outlined" size="small">
               Download

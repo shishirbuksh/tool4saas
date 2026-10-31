@@ -1,5 +1,5 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Box, Typography } from "@/components/ds";
+
 import { getGuideSources } from "@/lib/blog-sources";
 
 // Visible counterpart to the BlogPosting `citation` array. YMYL only; unknown
@@ -11,22 +11,15 @@ export default function BlogSources({ pillar }: { pillar: string }) {
     <Box
       component="aside"
       aria-label="Sources and further reading"
-      sx={{
-        mt: 5,
-        p: 3,
-        borderRadius: "12px",
-        border: "1px solid",
-        borderColor: "divider",
-        bgcolor: "action.hover",
-      }}
+      className="mt-10 p-6 rounded-[12px] border border-base-300 bg-base-200/50"
     >
-      <Typography component="h2" sx={{ fontSize: "1.1rem", fontWeight: 800, mb: 1 }}>
+      <Typography component="h2" className="text-[1.1rem] font-extrabold mb-2">
         Sources and further reading
       </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5, lineHeight: 1.7 }}>
+      <Typography variant="body2" color="text.secondary" className="mb-3 leading-[1.7]">
         This guide is educational, not medical or financial advice. Primary references:
       </Typography>
-      <Box component="ul" sx={{ m: 0, pl: 2.5 }}>
+      <Box component="ul" className="m-0 pl-5">
         {sources.map((source) => (
           <li key={source.href} style={{ marginBottom: 6 }}>
             <a

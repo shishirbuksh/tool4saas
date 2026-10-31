@@ -1,14 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Link, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
 import { BMI_UNDERWEIGHT, BMI_NORMAL, BMI_OVERWEIGHT, KG_PER_LB, METERS_PER_INCH, fmt1 } from "@/lib/format";
 
@@ -64,7 +56,7 @@ export default function BmiCalculatorTool() {
               input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
               htmlInput: { min: 0, step: "any" },
             }}
-            sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+            
           />
           <TextField
             label={unit === "metric" ? "Height (cm)" : "Height (in)"}
@@ -77,36 +69,30 @@ export default function BmiCalculatorTool() {
               input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
               htmlInput: { min: 0, step: "any" },
             }}
-            sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+            
           />
         </Stack>
         <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            textAlign: "center",
-          }}
+          className="p-4 rounded-[16px] border border-base-300 text-center"
         >
           <Typography variant="overline" color="text.secondary">
             Your BMI
           </Typography>
-          <Typography variant="h3" sx={{ fontWeight: 800, color }}>
+          <Typography variant="h3" className="font-extrabold" style={{ color: color }}>
             {bmi !== null ? fmt(bmi) : "—"}
           </Typography>
           {bmi !== null && (
             <>
-              <Typography variant="subtitle1" sx={{ color, fontWeight: 700 }}>
+              <Typography variant="subtitle1" className="font-bold" style={{ color: color }}>
                 {category}
               </Typography>
-              <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+              <Typography variant="caption" color="text.secondary" className="block mt-2">
                 Understand your numbers: Explore the{" "}
-                <Link component={NextLink} href="/blog/bmi-calculator-guide/healthy-weight-range" underline="hover" color="primary">
+                <Link href="/blog/bmi-calculator-guide/healthy-weight-range" underline="hover" color="primary">
                   healthy weight range chart
                 </Link>
                 {" "}or calculate a{" "}
-                <Link component={NextLink} href="/blog/bmi-calculator-guide/calorie-deficit-for-weight-loss" underline="hover" color="primary">
+                <Link href="/blog/bmi-calculator-guide/calorie-deficit-for-weight-loss" underline="hover" color="primary">
                   safe calorie deficit
                 </Link>.
               </Typography>

@@ -1,32 +1,14 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
+import ToolPaper from "@/components/ToolPaper";import { Paper, Box, TextField, Typography, Grid, Stack, Alert, Button, FormControl, InputLabel, Select, MenuItem, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { estimateTokens, estimateAiCost } from "@/lib/finance-calc";
 
 function Stat({ label, value }: { label: string; value: number | string }) {
   return (
-    <Paper variant="outlined" sx={{ p: 2, textAlign: "center" }}>
-      <Typography variant="h3" sx={{ fontSize: 28, fontWeight: 800, color: "primary.main" }}>
+    <Paper variant="outlined" className="p-4 text-center">
+      <Typography variant="h3" className="text-[28px] font-extrabold text-primary">
         {value}
       </Typography>
       <Typography variant="caption" color="text.secondary">
@@ -113,18 +95,18 @@ export default function AiTokenCounterTool() {
         onChange={handleChange}
         placeholder="Paste your prompt or document here…"
         slotProps={{ htmlInput: { maxLength: MAX_CHARS } } as unknown as object}
-        sx={{ "& .MuiInputBase-input": { fontFamily: "monospace", minHeight: 44 } }}
+        
       />
       {isAtLimit && (
-        <Typography variant="caption" color="warning.main" sx={{ mt: 1, display: "block" }}>
+        <Typography variant="caption" color="warning.main" className="mt-2 block">
           Reached 500KB limit (~500,000 characters) – further input is truncated for performance.
         </Typography>
       )}
-      <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+      <Typography variant="caption" color="text.secondary" className="block">
         {text.length.toLocaleString()} / {MAX_CHARS.toLocaleString()} characters
       </Typography>
 
-      <Grid container spacing={2} sx={{ mt: 1 }}>
+      <Grid container spacing={2} className="mt-2">
         <Grid size={{ xs: 6, sm: 3 }}>
           <Stat label="Characters" value={stats.chars.toLocaleString()} />
         </Grid>
@@ -142,8 +124,8 @@ export default function AiTokenCounterTool() {
         </Grid>
       </Grid>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 2 }}>
-        <FormControl fullWidth sx={{ maxWidth: { sm: 280 } }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="mt-4">
+        <FormControl fullWidth className="sm:max-w-[280px]">
           <InputLabel id="ai-model-label">Model</InputLabel>
           <Select
             labelId="ai-model-label"
@@ -158,7 +140,7 @@ export default function AiTokenCounterTool() {
             ))}
           </Select>
         </FormControl>
-        <Box sx={{ flex: 1 }} />
+        <Box className="flex-1" />
         <Button
           variant="outlined"
           startIcon={<ContentCopyIcon />}
@@ -169,8 +151,8 @@ export default function AiTokenCounterTool() {
         </Button>
       </Stack>
 
-      <Box sx={{ mt: 2 }}>
-        <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 700 }}>
+      <Box className="mt-4">
+        <Typography variant="subtitle2" gutterBottom className="font-bold">
           Cost per model (input pricing, editable)
         </Typography>
         <TableContainer component={Paper} variant="outlined">
@@ -194,10 +176,10 @@ export default function AiTokenCounterTool() {
                       value={Number.isFinite(m.price) ? m.price : 0}
                       onChange={(e) => updatePrice(m.id, e.target.value)}
                       slotProps={{ htmlInput: { min: 0, step: 0.05 } }}
-                      sx={{ width: 130 }}
+                      className="w-[130px]"
                     />
                   </TableCell>
-                  <TableCell align="right" sx={{ fontFamily: "monospace" }}>
+                  <TableCell align="right" style={{ fontFamily: "monospace" }}>
                     {m.cost === null ? "—" : `$${m.cost.toFixed(6)}`}
                   </TableCell>
                 </TableRow>
@@ -205,7 +187,7 @@ export default function AiTokenCounterTool() {
             </TableBody>
           </Table>
         </TableContainer>
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+        <Typography variant="caption" color="text.secondary" className="block mt-2">
           {stats.tokens.toLocaleString()} tokens × selected model rate. Edit prices anytime — pricing changes
           frequently.
         </Typography>

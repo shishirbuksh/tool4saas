@@ -1,17 +1,6 @@
-"use client";
 
-import { useState, useMemo } from "react";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Alert from "@mui/material/Alert";
+import { useState, useMemo } from "react";import { Box, Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
 import { fmtNumber, BMI_UNDERWEIGHT, METERS_PER_INCH, KG_PER_LB } from "@/lib/format";
 
@@ -108,7 +97,7 @@ export default function IdealWeightCalculatorTool() {
 
   return (
     <ToolPaper>
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
         <ToggleButtonGroup
           size="small"
           value={heightUnit}
@@ -146,7 +135,7 @@ export default function IdealWeightCalculatorTool() {
           </Select>
         </FormControl>
 
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box className="flex items-center">
           <ToggleButtonGroup
             size="small"
             value={resultUnit}
@@ -166,18 +155,12 @@ export default function IdealWeightCalculatorTool() {
       </Typography>
 
       <Box
-        sx={{
-          p: 2.5,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-5 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Ideal weight — {FORMULA_LABELS[formula]} ({sex})
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {data ? formatWeight(data.selected, resultUnit, 1) : "—"}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -188,10 +171,10 @@ export default function IdealWeightCalculatorTool() {
             : "Enter height to calculate"}
         </Typography>
         {data && (
-          <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+          <Typography variant="caption" color="text.secondary" className="block mt-2">
             Range (±10%): {formatWeight(data.range10.lower, resultUnit, 1)} –{" "}
             {formatWeight(data.range10.upper, resultUnit, 1)}
-            <Box component="span" sx={{ mx: 0.5 }}>
+            <Box component="span" className="mx-1">
               •
             </Box>
             {resultUnit === "kg"
@@ -202,14 +185,9 @@ export default function IdealWeightCalculatorTool() {
       </Box>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-        }}
+        className="p-4 rounded-[16px] border border-base-300"
       >
-        <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+        <Typography variant="subtitle2" className="font-bold mb-2">
           All formulas (kg / lb)
         </Typography>
         <Stack spacing={1}>
@@ -220,23 +198,23 @@ export default function IdealWeightCalculatorTool() {
               ["Miller", data?.miller],
             ] as const
           ).map(([label, val]) => (
-            <Box key={label} sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
-              <Typography variant="body2" color={label.toLowerCase() === formula ? "primary.main" : "text.secondary"} sx={{ fontWeight: label.toLowerCase() === formula ? 700 : 400 }}>
+            <Box key={label} className="flex justify-between gap-4">
+              <Typography variant="body2" color={label.toLowerCase() === formula ? "primary.main" : "text.secondary"} style={{ fontWeight: label.toLowerCase() === formula ? 700 : 400 }}>
                 {label}
               </Typography>
-              <Typography variant="body2" sx={{ fontWeight: 700, fontVariantNumeric: "tabular-nums" }}>
+              <Typography variant="body2" className="font-bold tabular-nums">
                 {val !== undefined && val !== null && data ? `${fmt(val, 1)} kg / ${fmt(val * LB_PER_KG, 1)} lb` : "—"}
               </Typography>
             </Box>
           ))}
         </Stack>
         {data && (
-          <Box sx={{ mt: 1.5, pt: 1.5, borderTop: "1px solid", borderColor: "divider" }}>
-            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box className="mt-3 pt-3 border-t border-base-300">
+            <Box className="flex justify-between">
               <Typography variant="body2" color="text.secondary">
                 Healthy BMI range (18.5–24.9)
               </Typography>
-              <Typography variant="body2" sx={{ fontWeight: 700, fontVariantNumeric: "tabular-nums" }}>
+              <Typography variant="body2" className="font-bold tabular-nums">
                 {fmt(data.bmiRange.lower, 1)} – {fmt(data.bmiRange.upper, 1)} kg
               </Typography>
             </Box>

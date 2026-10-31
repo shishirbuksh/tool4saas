@@ -1,15 +1,7 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Box, Typography, Stack, Button, Tabs, Tab, Alert } from "@/components/ds";
+
 import { copyToClipboard } from "@/lib/clipboard";
 
 const MAX_MARKDOWN_SIZE = 500 * 1024; // 500KB guard
@@ -168,7 +160,7 @@ export default function MarkdownEditorTool() {
     <ToolPaper>
       <Stack spacing={2}>
         <Box>
-          <Typography variant="h6" sx={{ fontWeight: 700 }}>
+          <Typography variant="h6" className="font-bold">
             Markdown Editor
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -192,7 +184,7 @@ export default function MarkdownEditorTool() {
               onChange={(e) => handleMarkdownChange(e.target.value)}
               placeholder="Type your markdown here..."
               slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13, lineHeight: 1.6 } }}
+              className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px] [&_textarea]:leading-[1.6]"
               helperText={`${markdown.length} / ${MAX_MARKDOWN_SIZE} chars`}
               error={!!sizeError}
             />
@@ -203,60 +195,12 @@ export default function MarkdownEditorTool() {
             role="tabpanel"
             id="markdown-panel-1"
             aria-labelledby="markdown-tab-1"
-            sx={{
-              p: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 2,
-              minHeight: 380,
-              bgcolor: "background.paper",
-              overflow: "auto",
-              "& h1": { fontSize: "2rem", fontWeight: 800, mt: 1, mb: 1 },
-              "& h2": { fontSize: "1.5rem", fontWeight: 700, mt: 2, mb: 1 },
-              "& h3": { fontSize: "1.25rem", fontWeight: 700, mt: 2, mb: 1 },
-              "& h4": { fontSize: "1.1rem", fontWeight: 700, mt: 1.5, mb: 1 },
-              "& h5": { fontSize: "1rem", fontWeight: 700, mt: 1, mb: 1 },
-              "& h6": { fontSize: "0.9rem", fontWeight: 700, mt: 1, mb: 1, color: "text.secondary" },
-              "& p": { my: 1, lineHeight: 1.7 },
-              "& a": { color: "primary.main", textDecoration: "underline" },
-              "& blockquote": {
-                borderLeft: "4px solid",
-                borderColor: "divider",
-                pl: 2,
-                ml: 0,
-                my: 1.5,
-                color: "text.secondary",
-                fontStyle: "italic",
-              },
-              "& ul": { pl: 3, my: 1 },
-              "& li": { my: 0.5 },
-              "& code": {
-                fontFamily: "monospace",
-                fontSize: 13,
-                bgcolor: "action.hover",
-                px: 0.6,
-                py: 0.2,
-                borderRadius: 1,
-              },
-              "& pre": {
-                bgcolor: "#1e1e1e",
-                color: "#dcdcdc",
-                p: 2,
-                borderRadius: 1.5,
-                overflow: "auto",
-                my: 1.5,
-              },
-              "& pre code": {
-                bgcolor: "transparent",
-                p: 0,
-                color: "inherit",
-              },
-            }}
+            className="p-4 border border-base-300 rounded-[16px] min-h-[380px] bg-base-100 overflow-auto [&_h1]:text-[2rem] [&_h1]:font-extrabold [&_h1]:mt-2 [&_h1]:mb-2 [&_h2]:text-[1.5rem] [&_h2]:font-bold [&_h2]:mt-4 [&_h2]:mb-2 [&_h3]:text-[1.25rem] [&_h3]:font-bold [&_h3]:mt-4 [&_h3]:mb-2 [&_h4]:text-[1.1rem] [&_h4]:font-bold [&_h4]:mt-3 [&_h4]:mb-2 [&_h5]:text-[1rem] [&_h5]:font-bold [&_h5]:mt-2 [&_h5]:mb-2 [&_h6]:text-[0.9rem] [&_h6]:font-bold [&_h6]:mt-2 [&_h6]:mb-2 [&_h6]:text-base-content/70 [&_p]:my-2 [&_p]:leading-[1.7] [&_a]:text-primary [&_a]:underline [&_blockquote]:[border-left:4px_solid] [&_blockquote]:border-base-300 [&_blockquote]:pl-4 [&_blockquote]:ml-0 [&_blockquote]:my-3 [&_blockquote]:text-base-content/70 [&_blockquote]:italic [&_ul]:pl-6 [&_ul]:my-2 [&_li]:my-1 [&_code]:[font-family:monospace] [&_code]:text-[13px] [&_code]:[bgcolor:action.hover] [&_code]:px-1.2 [&_code]:py-0.4 [&_code]:rounded-[8px] [&_pre]:bg-[#1e1e1e] [&_pre]:text-[#dcdcdc] [&_pre]:p-4 [&_pre]:rounded-[12px] [&_pre]:overflow-auto [&_pre]:my-3 [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-inherit"
             dangerouslySetInnerHTML={{ __html: html || '<p style="color:#999">Nothing to preview</p>' }}
           />
         )}
 
-        <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
           <Button variant="contained" onClick={handleCopyHtml} disabled={!html}>
             {copied ? "Copied!" : "Copy HTML"}
           </Button>
@@ -270,32 +214,14 @@ export default function MarkdownEditorTool() {
 
         <Box
           component="details"
-          sx={{
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: 2,
-            p: 1.5,
-            bgcolor: "action.hover",
-          }}
+          className="border border-base-300 rounded-[16px] p-3" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
         >
-          <Typography component="summary" variant="subtitle2" sx={{ cursor: "pointer", fontWeight: 700 }}>
+          <Typography component="summary" variant="subtitle2" className="cursor-pointer font-bold">
             Generated HTML (for debugging)
           </Typography>
           <Box
             component="pre"
-            sx={{
-              mt: 1.5,
-              p: 2,
-              bgcolor: "background.paper",
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 1,
-              overflow: "auto",
-              fontSize: 12,
-              fontFamily: "monospace",
-              whiteSpace: "pre-wrap",
-              wordBreak: "break-word",
-            }}
+            className="mt-3 p-4 bg-base-100 border border-base-300 rounded-[8px] overflow-auto text-[12px] whitespace-pre-wrap break-words" style={{ fontFamily: "monospace" }}
           >
             {html}
           </Box>

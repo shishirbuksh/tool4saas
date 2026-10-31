@@ -1,13 +1,7 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Box, Typography, Stack, Button, Alert } from "@/components/ds";
+
 import { copyToClipboard } from "@/lib/clipboard";
 
 type ThumbnailQuality = {
@@ -112,7 +106,7 @@ export default function YoutubeThumbnailTool() {
   return (
     <ToolPaper spacing={3}>
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 700 }}>
+        <Typography variant="h6" className="font-bold">
           YouTube Thumbnail Downloader
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -139,7 +133,7 @@ export default function YoutubeThumbnailTool() {
 
       {videoId && thumbnails.length > 0 && (
         <Box>
-          <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>
+          <Typography variant="subtitle1" className="font-bold mb-4">
             Thumbnails for {videoId}
           </Typography>
 
@@ -147,29 +141,11 @@ export default function YoutubeThumbnailTool() {
             {thumbnails.map((thumb) => (
               <Box
                 key={thumb.key}
-                sx={{
-                  border: "1px solid",
-                  borderColor: "divider",
-                  borderRadius: 2,
-                  overflow: "hidden",
-                  bgcolor: "background.paper",
-                }}
+                className="border border-base-300 rounded-[16px] overflow-hidden bg-base-100"
               >
-                <Stack direction={{ xs: "column", sm: "row" }} spacing={0} sx={{ alignItems: "stretch" }}>
+                <Stack direction={{ xs: "column", sm: "row" }} spacing={0} className="items-stretch">
                   <Box
-                    sx={{
-                      flexShrink: 0,
-                      width: { xs: "100%", sm: 320 },
-                      bgcolor: "grey.100",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      overflow: "hidden",
-                      borderRight: { sm: "1px solid" },
-                      borderBottom: { xs: "1px solid", sm: "none" },
-                      borderColor: "divider",
-                      minHeight: 180,
-                    }}
+                    className="shrink-0 w-full sm:w-[320px] flex items-center justify-center overflow-hidden sm:[border-right:1px_solid] border-b sm:border-b-0 border-base-300 min-h-[180px]" style={{ backgroundColor: "var(--color-base-200)" }}
                   >
                     <Box
                       component="img"
@@ -179,23 +155,17 @@ export default function YoutubeThumbnailTool() {
                       decoding="async"
                       width={320}
                       height={180}
-                      sx={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        display: "block",
-                        maxHeight: 180,
-                      }}
+                      className="w-full h-full object-cover block max-h-[180px]"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = "none";
                       }}
                     />
                   </Box>
 
-                  <Box sx={{ flex: 1, p: 2, minWidth: 0 }}>
-                    <Stack spacing={1.25} sx={{ height: "100%" }}>
+                  <Box className="flex-1 p-4 min-w-[0px]">
+                    <Stack spacing={1.25} className="h-full">
                       <Box>
-                        <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                        <Typography variant="subtitle2" className="font-bold">
                           {thumb.label} — {thumb.key}
                         </Typography>
                         <Typography variant="caption" color="text.secondary">
@@ -208,10 +178,10 @@ export default function YoutubeThumbnailTool() {
                         fullWidth
                         size="small"
                         slotProps={{ input: { readOnly: true, spellCheck: false, autoComplete: "off", "aria-label": `${thumb.key} URL` } }}
-                        sx={{ "& input": { fontFamily: "monospace", fontSize: 12 } }}
+                        className="[&_input]:[font-family:monospace] [&_input]:text-[12px]"
                       />
 
-                      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap", mt: "auto", pt: 1 }}>
+                      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap mt-auto pt-2">
                         <Button
                           variant="contained"
                           size="small"
@@ -239,7 +209,7 @@ export default function YoutubeThumbnailTool() {
                       </Stack>
 
                       {copied === thumb.key && (
-                        <Alert severity="success" sx={{ py: 0 }}>
+                        <Alert severity="success" className="py-0">
                           Copied to clipboard!
                         </Alert>
                       )}
@@ -251,7 +221,7 @@ export default function YoutubeThumbnailTool() {
           </Stack>
 
           {downloadError && (
-            <Alert severity="info" sx={{ mt: 2 }}>
+            <Alert severity="info" className="mt-4">
               {downloadError}
             </Alert>
           )}
@@ -265,7 +235,7 @@ export default function YoutubeThumbnailTool() {
       )}
 
       {videoId && (
-        <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
           <Button
             variant="outlined"
             onClick={() => {

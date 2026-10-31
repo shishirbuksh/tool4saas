@@ -1,14 +1,7 @@
-"use client";
 
 import { useEffect, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+
 
 const ZONES = [
   "UTC",
@@ -104,18 +97,12 @@ export default function TimezoneConverterTool() {
         {zoneSelect("From timezone", from, setFrom)}
         {zoneSelect("To timezone", to, setTo)}
         <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "primary.main",
-            textAlign: "center",
-          }}
+          className="p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
             {to}
           </Typography>
-          <Typography variant="h5" sx={{ fontWeight: 800, color: "primary.main" }}>
+          <Typography variant="h5" className="font-extrabold text-primary">
             {instant ? fmt(to) : "—"}
           </Typography>
           {instant && (

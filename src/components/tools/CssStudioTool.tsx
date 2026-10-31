@@ -1,9 +1,6 @@
-"use client";
 
-import { useState } from "react";
-import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
+import { useState } from "react";import { Box, Tab, Tabs } from "@/components/ds";
+
 import GradientGeneratorTool from "@/components/tools/GradientGeneratorTool";
 import CssBoxShadowTool from "@/components/tools/CssBoxShadowTool";
 import CssBorderRadiusTool from "@/components/tools/CssBorderRadiusTool";
@@ -16,7 +13,7 @@ export default function CssStudioTool() {
 
   return (
     <>
-      <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 3 }}>
+      <Box className="border-b border-base-300 mb-6">
         <Tabs
           value={mode}
           onChange={(_event, next: number) => setMode(next)}
@@ -29,16 +26,16 @@ export default function CssStudioTool() {
           ))}
         </Tabs>
       </Box>
-      <Box sx={{ display: mode === 0 ? "block" : "none" }}>
+      <Box style={{ display: mode === 0 ? "block" : "none" }}>
         <GradientGeneratorTool />
       </Box>
-      <Box sx={{ display: mode === 1 ? "block" : "none" }}>
+      <Box style={{ display: mode === 1 ? "block" : "none" }}>
         <CssBoxShadowTool />
       </Box>
-      <Box sx={{ display: mode === 2 ? "block" : "none" }}>
+      <Box style={{ display: mode === 2 ? "block" : "none" }}>
         <CssBorderRadiusTool />
       </Box>
-      <Box sx={{ display: mode === 3 ? "block" : "none" }}>
+      <Box style={{ display: mode === 3 ? "block" : "none" }}>
         <CssClipPathTool />
       </Box>
     </>

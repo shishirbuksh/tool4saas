@@ -7,7 +7,9 @@ export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement
   fullWidth?: boolean;
   ref?: any;
   label?: ReactNode;
-  [key: string]: any;
+  labelId?: string;
+  MenuProps?: Record<string, any>;
+  inputProps?: Record<string, any>;
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select(

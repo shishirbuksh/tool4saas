@@ -1,4 +1,3 @@
-"use client";
 
 import Script from "@/lib/astro/script";
 import { siteConfig } from "@/lib/site";

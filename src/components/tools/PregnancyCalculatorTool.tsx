@@ -1,12 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography, Alert } from "@/components/ds";
+
 import { MS_PER_DAY } from "@/lib/format";
 
 function addDays(date: Date, days: number) {
@@ -122,23 +117,15 @@ export default function PregnancyCalculatorTool() {
           ) : null}
 
           <Box
-            sx={{
-              p: 2.5,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "primary.main",
-              bgcolor: "primary.main",
-              color: "primary.contrastText",
-              textAlign: "center",
-            }}
+            className="p-5 rounded-[16px] border border-primary bg-primary text-center" style={{ color: "var(--color-primary-content)" }}
           >
-            <Typography variant="overline" sx={{ color: "primary.contrastText", opacity: 0.9 }}>
+            <Typography variant="overline" className="opacity-[0.9]" style={{ color: "var(--color-primary-content)" }}>
               Estimated due date — LMP + 280 days{result.cycleAdjustment !== 0 ? ` ${result.cycleAdjustment > 0 ? "+" : ""}${result.cycleAdjustment} days (cycle adjusted)` : ""}
             </Typography>
-            <Typography variant="h4" sx={{ fontWeight: 800 }}>
+            <Typography variant="h4" className="font-extrabold">
               {formatDate(result.dueDate)}
             </Typography>
-            <Typography variant="body2" sx={{ opacity: 0.9, mt: 0.5 }}>
+            <Typography variant="body2" className="opacity-[0.9] mt-1">
               {result.daysUntilDue >= 0
                 ? `${result.daysUntilDue} days to go${result.weeksUntilDue > 0 ? ` (~${result.weeksUntilDue} weeks)` : ""}`
                 : `${Math.abs(result.daysUntilDue)} days past due date`}
@@ -147,20 +134,12 @@ export default function PregnancyCalculatorTool() {
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
             <Box
-              sx={{
-                flex: 1,
-                p: 2,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: "divider",
-                bgcolor: "background.paper",
-                textAlign: "center",
-              }}
+              className="flex-1 p-4 rounded-[16px] border border-base-300 bg-base-100 text-center"
             >
               <Typography variant="overline" color="text.secondary">
                 Weeks pregnant
               </Typography>
-              <Typography variant="h4" sx={{ fontWeight: 800 }} color="primary.main">
+              <Typography variant="h4" className="font-extrabold" color="primary.main">
                 {result.isFuture ? "—" : `${result.gestationalWeeks}w ${result.gestationalDays}d`}
               </Typography>
               <Typography variant="caption" color="text.secondary">
@@ -168,20 +147,12 @@ export default function PregnancyCalculatorTool() {
               </Typography>
             </Box>
             <Box
-              sx={{
-                flex: 1,
-                p: 2,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: "divider",
-                bgcolor: "background.paper",
-                textAlign: "center",
-              }}
+              className="flex-1 p-4 rounded-[16px] border border-base-300 bg-base-100 text-center"
             >
               <Typography variant="overline" color="text.secondary">
                 Estimated conception date
               </Typography>
-              <Typography variant="h6" sx={{ fontWeight: 800 }}>
+              <Typography variant="h6" className="font-extrabold">
                 {formatShort(result.conceptionDate)}
               </Typography>
               <Typography variant="caption" color="text.secondary">
@@ -191,45 +162,39 @@ export default function PregnancyCalculatorTool() {
           </Stack>
 
           <Box
-            sx={{
-              p: 2,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              bgcolor: "background.paper",
-            }}
+            className="p-4 rounded-[16px] border border-base-300 bg-base-100"
           >
-            <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1.5 }}>
+            <Typography variant="subtitle2" className="font-bold mb-3">
               Trimesters
             </Typography>
             <Stack spacing={1.2}>
-              <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2, flexWrap: "wrap" }}>
+              <Box className="flex justify-between gap-4 flex-wrap">
                 <Typography variant="body2" color="text.secondary">
                   First trimester
                 </Typography>
-                <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                <Typography variant="body2" className="font-semibold">
                   {formatShort(result.lmpDate)} – {formatShort(result.trimester1End)}
                 </Typography>
               </Box>
               <Typography variant="caption" color="text.secondary">
                 Week 1 to 13w6d
               </Typography>
-              <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2, flexWrap: "wrap" }}>
+              <Box className="flex justify-between gap-4 flex-wrap">
                 <Typography variant="body2" color="text.secondary">
                   Second trimester
                 </Typography>
-                <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                <Typography variant="body2" className="font-semibold">
                   {formatShort(result.trimester2Start)} – {formatShort(result.trimester2End)}
                 </Typography>
               </Box>
               <Typography variant="caption" color="text.secondary">
                 Week 14w0d to 27w6d
               </Typography>
-              <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2, flexWrap: "wrap" }}>
+              <Box className="flex justify-between gap-4 flex-wrap">
                 <Typography variant="body2" color="text.secondary">
                   Third trimester
                 </Typography>
-                <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                <Typography variant="body2" className="font-semibold">
                   {formatShort(result.trimester3Start)} – {formatShort(result.dueDate)}
                 </Typography>
               </Box>
@@ -240,15 +205,9 @@ export default function PregnancyCalculatorTool() {
           </Box>
 
           <Box
-            sx={{
-              p: 2,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              bgcolor: "background.paper",
-            }}
+            className="p-4 rounded-[16px] border border-base-300 bg-base-100"
           >
-            <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+            <Typography variant="subtitle2" className="font-bold mb-2">
               How it is calculated
             </Typography>
             <Typography variant="body2" color="text.secondary">

@@ -1,16 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Table from "@mui/material/Table";
-import TableHead from "@mui/material/TableHead";
-import TableBody from "@mui/material/TableBody";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
+import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Table, TableHead, TableBody, TableRow, TableCell, TableContainer } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import { fdMaturity } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
@@ -53,18 +43,12 @@ export default function FdCalculatorTool() {
         <NumericField label="Tenure (years)" value={years} onChange={setYears} />
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Maturity value
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null && isFinite(result.maturity) ? money(result.maturity, "INR") : "—"}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -72,15 +56,15 @@ export default function FdCalculatorTool() {
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Interest earned</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.interest) ? money(result.interest, "INR") : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Effective yield (p.a.)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.effYieldPct) ? `${result.effYieldPct.toFixed(2)}%` : "—"}
           </Typography>
         </Box>

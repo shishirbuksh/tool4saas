@@ -1,16 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Slider from "@mui/material/Slider";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const toRgb = (hex: string) => {
   let h = hex.replace("#", "");
@@ -31,14 +23,14 @@ export default function GradientGeneratorTool() {
       : `radial-gradient(circle, ${toRgb(c1)}, ${toRgb(c2)})`;
 
   const picker = (c: string, set: (v: string) => void, label: string) => (
-    <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
+    <Stack direction="row" spacing={1.5} className="items-center">
       <Box
         component="input"
         type="color"
         value={toRgb(c)}
         onChange={(e) => set(e.target.value)}
         aria-label={label}
-        sx={{ width: 48, height: 44, minWidth: 44, minHeight: 44, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
+        className="w-[48px] h-[44px] min-w-[44px] min-h-[44px] border border-base-300 rounded-[16px] p-1 cursor-pointer bg-transparent"
       />
       <TextField
         value={c}
@@ -46,7 +38,7 @@ export default function GradientGeneratorTool() {
         size="small"
         label={`${label} hex value`}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ width: 140 }}
+        className="w-[140px]"
       />
     </Stack>
   );
@@ -60,25 +52,19 @@ export default function GradientGeneratorTool() {
           <ToggleButton value="radial">Radial</ToggleButton>
         </ToggleButtonGroup>
         {type === "linear" && (
-          <Box sx={{ maxWidth: 320 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
+          <Box className="max-w-[320px]">
+            <Typography variant="subtitle2" className="font-bold mb-1">
               Angle: {angle}°
             </Typography>
             <Slider value={angle} min={0} max={360} step={1} onChange={(_, v) => setAngle(Array.isArray(v) ? v[0] : v)} aria-label="Gradient angle in degrees" />
           </Box>
         )}
         <Box
-          sx={{
-            height: 160,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            background: css,
-          }}
+          className="h-[160px] rounded-[16px] border border-base-300" style={{ background: css }}
         />
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-1">
+            <Typography variant="subtitle2" className="font-bold">
               CSS
             </Typography>
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(css)}>
@@ -89,7 +75,7 @@ export default function GradientGeneratorTool() {
             value={css}
             fullWidth
             slotProps={{ input: { readOnly: true, "aria-label": "CSS gradient", spellCheck: false } }}
-            sx={{ "& input": { fontFamily: "monospace", fontSize: 13 } }}
+            className="[&_input]:[font-family:monospace] [&_input]:text-[13px]"
           />
         </Box>
       </ToolPaper>

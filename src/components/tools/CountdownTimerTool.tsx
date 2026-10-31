@@ -1,12 +1,7 @@
-"use client";
 
 import { useState, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+
 import { MS_PER_DAY, MS_PER_HOUR, MS_PER_MINUTE, MS_PER_SECOND } from "@/lib/format";
 import { copyToClipboard } from "@/lib/clipboard";
 
@@ -139,7 +134,7 @@ export default function CountdownTimerTool() {
 
   return (
     <ToolPaper spacing={3}>
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "flex-end" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-end">
         <TextField
           label="Target date & time"
           type="datetime-local"
@@ -151,11 +146,11 @@ export default function CountdownTimerTool() {
           error={isInvalid}
         />
         {!running ? (
-          <Button variant="contained" onClick={handleStart} disabled={!inputValue || isInvalid} sx={{ whiteSpace: "nowrap", minWidth: 100 }}>
+          <Button variant="contained" onClick={handleStart} disabled={!inputValue || isInvalid} className="whitespace-nowrap min-w-[100px]">
             Start
           </Button>
         ) : (
-          <Button variant="contained" color="warning" onClick={handleStop} sx={{ whiteSpace: "nowrap", minWidth: 100 }}>
+          <Button variant="contained" color="warning" onClick={handleStop} className="whitespace-nowrap min-w-[100px]">
             Stop
           </Button>
         )}
@@ -165,14 +160,7 @@ export default function CountdownTimerTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 3,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: isPast ? "error.main" : "divider",
-          bgcolor: isPast ? "error.light" : "background.paper",
-          textAlign: "center",
-        }}
+        className="p-6 rounded-[16px] border text-center" style={{ borderColor: isPast ? "error.main" : "divider", backgroundColor: isPast ? "error.light" : "background.paper" }}
       >
         {targetMs === null || remaining === null ? (
           <Typography variant="body1" color="text.secondary">
@@ -180,13 +168,13 @@ export default function CountdownTimerTool() {
           </Typography>
         ) : isPast ? (
           <>
-            <Typography variant="h5" sx={{ fontWeight: 800 }} color="error">
+            <Typography variant="h5" className="font-extrabold" color="error">
               Countdown finished!
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+            <Typography variant="body2" color="text.secondary" className="mt-2">
               Target was {new Date(targetMs).toLocaleString()} — this date is in the past.
             </Typography>
-            <Stack direction="row" spacing={2} sx={{ justifyContent: "center", mt: 2 }}>
+            <Stack direction="row" spacing={2} className="justify-center mt-4">
               <Unit value="00" label="Days" />
               <Unit value="00" label="Hours" />
               <Unit value="00" label="Minutes" />
@@ -198,36 +186,36 @@ export default function CountdownTimerTool() {
             <Typography variant="overline" color="text.secondary">
               {running ? "Time remaining" : isFuture ? "Paused — time remaining" : "Ready"}
             </Typography>
-            <Stack direction="row" spacing={{ xs: 1, sm: 2 }} sx={{ justifyContent: "center", mt: 1, flexWrap: "wrap" }} aria-live="polite">
+            <Stack direction="row" spacing={{ xs: 1, sm: 2 }} className="justify-center mt-2 flex-wrap" aria-live="polite">
               <Unit value={String(remaining.days)} label="Days" />
               <Unit value={pad2(remaining.hours)} label="Hours" />
               <Unit value={pad2(remaining.minutes)} label="Minutes" />
               <Unit value={pad2(remaining.seconds)} label="Seconds" />
             </Stack>
-            <Typography variant="caption" color="text.secondary" sx={{ mt: 2, display: "block" }}>
+            <Typography variant="caption" color="text.secondary" className="mt-4 block">
               Target: {new Date(targetMs).toLocaleString()}
             </Typography>
           </>
         )}
       </Box>
 
-      <Box sx={{ p: 2, borderRadius: 2, border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}>
-        <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+      <Box className="p-4 rounded-[16px] border border-base-300 bg-base-100">
+        <Typography variant="subtitle2" className="font-bold mb-2">
           Shareable link
         </Typography>
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={1} sx={{ alignItems: "center" }}>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={1} className="items-center">
           <TextField
             value={shareUrl}
             placeholder="Pick a date to generate link"
             fullWidth
             slotProps={{ input: { readOnly: true, "aria-label": "Shareable link", spellCheck: false } }}
-            sx={{ "& input": { fontFamily: "monospace", fontSize: 13 } }}
+            className="[&_input]:[font-family:monospace] [&_input]:text-[13px]"
           />
           <Button variant="outlined" onClick={handleCopy} disabled={!shareUrl}>
             {copied ? "Copied!" : "Copy link"}
           </Button>
         </Stack>
-        <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: "block" }}>
+        <Typography variant="caption" color="text.secondary" className="mt-2 block">
           Anyone with this link will see the same countdown (via ?target= query param).
         </Typography>
       </Box>
@@ -238,19 +226,12 @@ export default function CountdownTimerTool() {
 function Unit({ value, label }: { value: string; label: string }) {
   return (
     <Box
-      sx={{
-        minWidth: { xs: 64, sm: 86 },
-        p: 1.5,
-        borderRadius: 2,
-        bgcolor: "primary.main",
-        color: "primary.contrastText",
-        textAlign: "center",
-      }}
+      className="min-w-[64px] sm:min-w-[86px] p-3 rounded-[16px] bg-primary text-center" style={{ color: "var(--color-primary-content)" }}
     >
-      <Typography variant="h4" sx={{ fontWeight: 800, fontFamily: "monospace", lineHeight: 1 }}>
+      <Typography variant="h4" className="font-extrabold leading-[1]" style={{ fontFamily: "monospace" }}>
         {value}
       </Typography>
-      <Typography variant="caption" sx={{ opacity: 0.9, textTransform: "uppercase", letterSpacing: 0.8 }}>
+      <Typography variant="caption" className="opacity-[0.9] uppercase tracking-[0.8px]">
         {label}
       </Typography>
     </Box>

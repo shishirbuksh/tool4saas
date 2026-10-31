@@ -1,12 +1,6 @@
-import Link from "@/lib/astro/navigation";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Breadcrumbs, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
+
+import { ExpandMore as ExpandMoreIcon } from "@/components/ds/icons";
 import { siteConfig } from "@/lib/site";
 import { getTool } from "@/lib/tools";
 import { getEsTool } from "@/lib/i18n";
@@ -252,9 +246,9 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
   const primaryShort = esPrimaryTool?.short ?? primaryTool?.short ?? "";
 
   return (
-    <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
+    <Container maxWidth="lg" className="py-12 md:py-20 px-4 md:px-8">
       <BlogJsonLd post={post} locale={locale} />
-      <Breadcrumbs sx={{ mb: 2 }} aria-label="breadcrumb">
+      <Breadcrumbs className="mb-4" aria-label="breadcrumb">
         <Link href={locale === "es" ? "/es" : "/"} style={{ color: "inherit", textDecoration: "none" }}>{locale === "es" ? "Inicio" : "Home"}</Link>
         <Link href="/blog" style={{ color: "inherit", textDecoration: "none" }}>Blog</Link>
         {post.kind === "cluster" && pillarMeta && (
@@ -262,18 +256,18 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
             {pillarMeta.title.length > 40 ? pillarMeta.shortLabel : pillarMeta.title}
           </Link>
         )}
-        <Typography color="text.primary" component="span" sx={{ maxWidth: 320, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+        <Typography color="text.primary" component="span" className="max-w-[320px] overflow-hidden text-ellipsis whitespace-nowrap">
           {post.title}
         </Typography>
       </Breadcrumbs>
 
-      <Typography component="h1" variant="h1" sx={{ fontSize: { xs: "2rem", md: "2.75rem" }, fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.15, mb: 2, textWrap: "balance" }}>
+      <Typography component="h1" variant="h1" className="text-[2rem] md:text-[2.75rem] font-extrabold tracking-[-0.02em] leading-[1.15] mb-4 text-balance">
         {post.title}
       </Typography>
-      <Typography color="text.secondary" className="blog-answer-first" sx={{ mb: 2, maxWidth: 760, fontSize: "1.1rem", lineHeight: 1.7 }}>
+      <Typography color="text.secondary" className="blog-answer-first mb-4 max-w-[760px] text-[1.1rem] leading-[1.7]" >
         {post.description}
       </Typography>
-      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, alignItems: "center", mb: 4 }}>
+      <Box className="flex flex-wrap gap-4 items-center mb-8">
         <Typography variant="body2" color="text.secondary">
           {locale === "es" ? (
             <>
@@ -297,7 +291,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
             metadata above: only posts in the ES blog pilot registry render
             it, so links never point at 404s. ES view links back to EN. */}
         {isEsBlogPilot(post.pillar, post.slug) && (
-          <Typography variant="body2" color="text.secondary" sx={{ width: "100%" }}>
+          <Typography variant="body2" color="text.secondary" className="w-full">
             {locale === "es" ? "Also available in: " : "También disponible en: "}
             <Link
               href={locale === "es" ? `/blog/${post.pillar}/${post.slug}` : `/es/blog/${post.pillar}/${post.slug}`}
@@ -312,16 +306,16 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
 
       {/* YMYL disclaimer for financial and health pillars */}
       {ymylType && (
-        <Box sx={{ mb: 4 }}>
+        <Box className="mb-8">
           <YMYLDisclaimer type={ymylType} locale={locale} />
         </Box>
       )}
 
       {/* Above-fold tool CTA */}
       {primaryTool && primaryHref && (
-        <Box sx={{ p: 3, mb: 4, borderRadius: "16px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper", display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 2, alignItems: { sm: "center" }, justifyContent: "space-between" }}>
+        <Box className="p-6 mb-8 rounded-[16px] border border-base-300 bg-base-100 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
           <Box>
-            <Typography variant="h2" sx={{ fontSize: "1.1rem", fontWeight: 700, mb: 0.5 }}>
+            <Typography variant="h2" className="text-[1.1rem] font-bold mb-1">
               {locale === "es" ? (
                 <>Pruébala ahora — {primaryTitle}, gratis en tu navegador</>
               ) : (
@@ -355,15 +349,15 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
         />
       )}
 
-      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "240px 1fr" }, gap: 4, alignItems: "start" }}>
+      <Box className="grid grid-cols-[1fr] md:grid-cols-[240px_1fr] gap-8 items-start">
         {/* TOC — after body on mobile (order 2) so answer-first H1+intro stays above fold; sticky sidebar on md+ */}
-        <Box component="nav" aria-label={locale === "es" ? "Índice" : "Table of contents"} sx={{ position: { md: "sticky" }, top: { md: 100 }, p: 2.5, border: "1px solid", borderColor: "divider", borderRadius: "12px", bgcolor: "background.paper", order: { xs: 2, md: 0 } }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 1.5, letterSpacing: "0.04em", textTransform: "uppercase", fontSize: "0.75rem" }}>
+        <Box component="nav" aria-label={locale === "es" ? "Índice" : "Table of contents"} className="md:sticky md:top-[100px] p-5 border border-base-300 rounded-[12px] bg-base-100 md:[order:0]" style={{ order: "2" }}>
+          <Typography variant="subtitle2" className="font-extrabold mb-3 tracking-[0.04em] uppercase text-[0.75rem]">
             {locale === "es" ? "En esta página" : "On this page"}
           </Typography>
-          <Box component="ul" sx={{ m: 0, p: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 0.5 }}>
+          <Box component="ul" className="m-0 p-0 list-none flex flex-col gap-1">
             {post.toc.map((t) => (
-              <Box component="li" key={t.id} sx={{ pl: t.level === 3 ? 2 : 0 }}>
+              <Box component="li" key={t.id} style={{ paddingLeft: t.level === 3 ? "16px" : "0px" }}>
                 <Link href={`#${t.id}`} style={{ textDecoration: "none", fontSize: t.level === 3 ? "0.85rem" : "0.9rem", fontWeight: t.level === 2 ? 600 : 400, color: "inherit", display: "block", padding: "6px 0", lineHeight: 1.4 }}>
                   {t.text}
                 </Link>
@@ -377,11 +371,11 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
           <article className="blog-body" dangerouslySetInnerHTML={{ __html: post.html }} />
           <BlogSources pillar={post.pillar} />
           {secondaryTools.length > 0 && (
-            <Box sx={{ mt: 4, p: 3, borderRadius: "12px", bgcolor: "action.hover", border: "1px solid", borderColor: "divider" }}>
-              <Typography variant="h2" sx={{ fontSize: "1.1rem", fontWeight: 700, mb: 1 }}>
+            <Box className="mt-8 p-6 rounded-[12px] border border-base-300 bg-base-200/50">
+              <Typography variant="h2" className="text-[1.1rem] font-bold mb-2">
                 {locale === "es" ? "Herramientas gratis relacionadas" : "Related free tools"}
               </Typography>
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+              <Box className="flex flex-wrap gap-2">
                 {secondaryTools.map((t) => (
                   <Link key={t!.slug} href={`/${t!.slug}`} style={{ display: "inline-flex", minHeight: 44, alignItems: "center", padding: "8px 16px", borderRadius: 999, border: "1px solid var(--mui-palette-divider)", textDecoration: "none", fontSize: "0.875rem", fontWeight: 600 }}>
                     {t!.title} →
@@ -392,19 +386,19 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
           )}
 
           {validFaqs.length > 0 && (
-            <Box component="section" sx={{ mt: 5 }}>
-              <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "1.75rem" }, fontWeight: 800, mb: 2 }}>
+            <Box component="section" className="mt-10">
+              <Typography variant="h2" className="text-[1.5rem] md:text-[1.75rem] font-extrabold mb-4">
                 {locale === "es" ? "Preguntas frecuentes" : "Frequently asked questions"}
               </Typography>
               {validFaqs.map((f, i) => (
-                <Accordion key={i} elevation={0} sx={{ border: "1px solid", borderColor: "divider", "&:before": { display: "none" }, mb: 1 }}>
+                <Accordion key={i} elevation={0} className="border border-base-300 before:hidden mb-2">
                   <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography component="span" sx={{ fontWeight: 600, fontSize: "1rem" }}>
+                    <Typography component="span" className="font-semibold text-[1rem]">
                       {f.question}
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography color="text.secondary" className="faq-passage speakable-answer-first" sx={{ lineHeight: 1.7 }}>{f.answer}</Typography>
+                    <Typography color="text.secondary" className="faq-passage speakable-answer-first leading-[1.7]" >{f.answer}</Typography>
                   </AccordionDetails>
                 </Accordion>
               ))}
@@ -412,15 +406,15 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
           )}
 
           {primaryTool && primaryHref && (
-            <Box sx={{ mt: 5, p: 4, borderRadius: "16px", textAlign: "center", border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}>
-              <Typography variant="h2" sx={{ fontSize: "1.4rem", fontWeight: 800, mb: 1 }}>
+            <Box className="mt-10 p-8 rounded-[16px] text-center border border-base-300 bg-base-100">
+              <Typography variant="h2" className="text-[1.4rem] font-extrabold mb-2">
                 {locale === "es" ? (
                   <>Terminaste de leer — abre {primaryTitle}</>
                 ) : (
                   <>Done reading — open the {primaryTool.title}</>
                 )}
               </Typography>
-              <Typography color="text.secondary" sx={{ mb: 2 }}>
+              <Typography color="text.secondary" className="mb-4">
                 {locale === "es" ? (
                   <>{primaryShort} — gratis en tu navegador, sin registro.</>
                 ) : (
@@ -436,23 +430,23 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
       </Box>
 
       {/* Sibling silo mesh */}
-      <Box component="section" sx={{ mt: 6, pt: 4, borderTop: "1px solid", borderColor: "divider" }}>
-        <Typography variant="h2" sx={{ fontSize: "1.25rem", fontWeight: 800, mb: 2 }}>
+      <Box component="section" className="mt-12 pt-8 border-t border-base-300">
+        <Typography variant="h2" className="text-[1.25rem] font-extrabold mb-4">
           {locale === "es" ? "Sigue leyendo en esta guía" : "Keep reading in this guide"}
         </Typography>
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
+        <Box className="grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr] gap-4">
           {related.map((r) => (
             <Link
               key={`${r.pillar}/${r.slug}`}
               href={r.kind === "pillar" ? `/blog/${r.pillar}` : `/blog/${r.pillar}/${r.slug}`}
               style={{ textDecoration: "none", color: "inherit", display: "block", padding: 20, borderRadius: 12, border: "1px solid var(--mui-palette-divider)" }}
             >
-              <Typography variant="subtitle2" color="primary" sx={{ fontWeight: 700, mb: 0.5, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+              <Typography variant="subtitle2" color="primary" className="font-bold mb-1 text-[0.75rem] uppercase tracking-[0.05em]">
                 {r.kind === "pillar"
                   ? locale === "es" ? "Guía pilar" : "Pillar guide"
                   : locale === "es" ? "En este bloque" : "In this silo"}
               </Typography>
-              <Typography variant="h3" sx={{ fontSize: "1rem", fontWeight: 700, lineHeight: 1.4 }}>
+              <Typography variant="h3" className="text-[1rem] font-bold leading-[1.4]">
                 {r.title}
               </Typography>
             </Link>

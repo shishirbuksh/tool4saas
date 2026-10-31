@@ -1,8 +1,5 @@
-import Link from "@/lib/astro/navigation";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
+import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Grid } from "@/components/ds";
+
 import { siteConfig } from "@/lib/site";
 import { getTool } from "@/lib/tools";
 import { getPillarMeta, getPillarPost, getClustersForPillar } from "@/lib/blog-registry";
@@ -20,12 +17,12 @@ export default function BlogPillarView({ pillar }: { pillar: string }) {
   return (
     <Box>
       <BlogArticle post={post} />
-      <Container maxWidth="lg" sx={{ pb: 10, px: { xs: 2, md: 4 } }}>
-        <Box component="section" sx={{ mt: 2, p: 4, borderRadius: "16px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}>
-          <Typography variant="h2" sx={{ fontSize: "1.4rem", fontWeight: 800, mb: 1 }}>
+      <Container maxWidth="lg" className="pb-20 px-4 md:px-8">
+        <Box component="section" className="mt-4 p-8 rounded-[16px] border border-base-300 bg-base-100">
+          <Typography variant="h2" className="text-[1.4rem] font-extrabold mb-2">
             All {clusters.length} tutorials in this silo
           </Typography>
-          <Typography color="text.secondary" sx={{ mb: 3 }}>
+          <Typography color="text.secondary" className="mb-6">
             Each tutorial solves one job — pick yours. Every page links back here and to the{" "}
             {tool && <Link href={`/${tool.slug}`}>free {tool.title.toLowerCase()}</Link>}.
           </Typography>
@@ -33,14 +30,14 @@ export default function BlogPillarView({ pillar }: { pillar: string }) {
             {clusters.map((c, i) => (
               <Grid size={{ xs: 12, sm: 6 }} key={c.slug}>
                 <Link href={`/blog/${pillar}/${c.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-                  <Box sx={{ p: 2.5, borderRadius: "12px", border: "1px solid", borderColor: "divider", height: "100%" }}>
-                    <Typography variant="overline" color="primary" sx={{ fontWeight: 700 }}>
+                  <Box className="p-5 rounded-[12px] border border-base-300 h-full">
+                    <Typography variant="overline" color="primary" className="font-bold">
                       PART {String(i + 1).padStart(2, "0")}
                     </Typography>
-                    <Typography variant="h3" sx={{ fontSize: "1.02rem", fontWeight: 700, lineHeight: 1.4 }}>
+                    <Typography variant="h3" className="text-[1.02rem] font-bold leading-[1.4]">
                       {c.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+                    <Typography variant="body2" color="text.secondary" className="mt-1">
                       {c.readingMinutes} min read
                     </Typography>
                   </Box>
@@ -48,7 +45,7 @@ export default function BlogPillarView({ pillar }: { pillar: string }) {
               </Grid>
             ))}
           </Grid>
-          <Typography variant="body2" color="text.secondary" sx={{ mt: 3 }}>
+          <Typography variant="body2" color="text.secondary" className="mt-6">
             Canonical: {base}/blog/{pillar} · Pillar targets “{meta.keywords[0]}”; clusters target one long-tail each — no cannibalization.
           </Typography>
         </Box>

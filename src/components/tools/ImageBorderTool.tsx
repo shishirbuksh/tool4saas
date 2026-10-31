@@ -1,13 +1,7 @@
-"use client";
 
 import { useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, TextField, Typography, Stack, Alert } from "@/components/ds";
+
 import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 
 export default function ImageBorderTool() {
@@ -159,12 +153,12 @@ export default function ImageBorderTool() {
           Add border
         </Button>
         {dataUrl && (
-          <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+          <Stack direction="row" spacing={2} className="items-center">
             <Box
               component="img"
               src={dataUrl}
               alt="Bordered image"
-              sx={{ maxWidth: 200, maxHeight: 200, borderRadius: 2, border: "1px solid", borderColor: "divider" }}
+              className="max-w-[200px] max-h-[200px] rounded-[16px] border border-base-300"
             />
             <Button component="a" href={dataUrl} download={name || "bordered.png"} variant="outlined" size="small">
               Download

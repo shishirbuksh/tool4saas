@@ -1,13 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const EMAIL_RE = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
 
@@ -33,8 +28,8 @@ export default function EmailExtractorTool() {
           slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
         />
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 1 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-2">
+            <Typography variant="subtitle2" className="font-bold">
               Found {emails.length} unique email{emails.length === 1 ? "" : "s"}
             </Typography>
             <Button
@@ -55,17 +50,7 @@ export default function EmailExtractorTool() {
               {emails.slice(0, 100).map((e) => (
                 <Box
                   key={e}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    p: 1.5,
-                    borderRadius: 2,
-                    border: "1px solid",
-                    borderColor: "divider",
-                    fontFamily: "monospace",
-                    fontSize: 14,
-                  }}
+                  className="flex justify-between items-center p-3 rounded-[16px] border border-base-300 text-[14px]" style={{ fontFamily: "monospace" }}
                 >
                   <span>{e}</span>
                   <Button size="small" onClick={() => copy(e)}>
@@ -74,7 +59,7 @@ export default function EmailExtractorTool() {
                 </Box>
               ))}
               {emails.length > 100 && (
-                <Typography variant="body2" color="text.secondary" sx={{ textAlign: "center", mt: 1 }}>
+                <Typography variant="body2" color="text.secondary" className="text-center mt-2">
                   Showing first 100 results. {emails.length - 100} more not shown.
                 </Typography>
               )}

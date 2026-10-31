@@ -1,6 +1,5 @@
-import Link from "@/lib/astro/navigation";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import Link from "@/lib/astro/navigation";import { Box, Typography } from "@/components/ds";
+
 
 // Tool → blog guide backlinks. Closes the silo loop: blog posts funnel down to
 // money tool pages, and tool pages link back up to the guides. The mapping is
@@ -13,14 +12,14 @@ export default function RelatedGuides({
 }) {
   if (guides.length === 0) return null;
   return (
-    <Box component="section" aria-label="Related guides" sx={{ mt: 4, p: 3, border: "1px solid", borderColor: "divider", borderRadius: "12px", bgcolor: "background.paper" }}>
-      <Typography variant="h2" sx={{ fontSize: "1.125rem", mb: 0.5 }}>
+    <Box component="section" aria-label="Related guides" className="mt-8 p-6 border border-base-300 rounded-[12px] bg-base-100">
+      <Typography variant="h2" className="text-[1.125rem] mb-1">
         Learn: guides &amp; tutorials
       </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+      <Typography variant="body2" color="text.secondary" className="mb-4">
         Deep dives from the Tool4SaaS blog – tested workflows, print sizes and fixes.
       </Typography>
-      <Box component="ul" sx={{ m: 0, pl: 3, display: "flex", flexDirection: "column", gap: 1 }}>
+      <Box component="ul" className="m-0 pl-6 flex flex-col gap-2">
         {guides.map((g) => (
           <Box component="li" key={g.href}>
             <Link href={g.href} style={{ fontWeight: 600 }}>

@@ -1,4 +1,3 @@
-"use client";
 
 import { siteConfig } from "@/lib/site";
 

@@ -1,11 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -54,38 +49,32 @@ export default function SimpleInterestCalculatorTool() {
         {field("Time (years)", years, setYears)}
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Total amount
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {total !== null ? money(total) : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Principal</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {(() => {
               const p = parseFloat(principal);
               return isFinite(p) && p > 0 ? money(p) : "—";
             })()}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Interest</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{interest !== null ? money(interest) : "—"}</Typography>
+          <Typography className="font-bold">{interest !== null ? money(interest) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Monthly payment</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{monthly !== null ? money(monthly) : "—"}</Typography>
+          <Typography className="font-bold">{monthly !== null ? money(monthly) : "—"}</Typography>
         </Box>
       </Stack>
       <Alert severity="info">

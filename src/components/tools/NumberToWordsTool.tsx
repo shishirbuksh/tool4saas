@@ -1,14 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const ONES = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
 const TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
@@ -70,8 +64,8 @@ export default function NumberToWordsTool() {
           helperText={error}
         />
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-1">
+            <Typography variant="subtitle2" className="font-bold">
               In words
             </Typography>
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(words)} disabled={!words}>
@@ -84,11 +78,11 @@ export default function NumberToWordsTool() {
             minRows={2}
             fullWidth
             slotProps={{ input: { readOnly: true, "aria-label": "Number in words", spellCheck: false } }}
-            sx={{ "& textarea": { fontSize: 15, textTransform: "capitalize" } }}
+            className="[&_textarea]:text-[15px] [&_textarea]:capitalize"
           />
         </Box>
         {words && !error && (
-          <Alert severity="success" sx={{ mt: 1 }}>
+          <Alert severity="success" className="mt-2">
             Converted successfully.
           </Alert>
         )}

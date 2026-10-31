@@ -1,18 +1,9 @@
-"use client";
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
-import NumericField from "@/components/NumericField";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Grid from "@mui/material/Grid";
-import DownloadIcon from "@mui/icons-material/Download";
-import PrintIcon from "@mui/icons-material/Print";
+import NumericField from "@/components/NumericField";import { Paper, Box, TextField, Button, Typography, Stack, Alert, Grid } from "@/components/ds";
+
+import { Download as DownloadIcon, Print as PrintIcon } from "@/components/ds/icons";
 import { money } from "@/lib/format";
 
 const num = (v: string) => {
@@ -87,7 +78,7 @@ export default function PayslipGeneratorTool() {
   return (
     <Box>
       <ToolPaper>
-        <Typography variant="h3" sx={{ fontSize: 20, fontWeight: 700 }}>
+        <Typography variant="h3" className="text-[20px] font-bold">
           Payslip details
         </Typography>
         <Grid container spacing={2}>
@@ -120,28 +111,28 @@ export default function PayslipGeneratorTool() {
           </Grid>
         </Grid>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
-          <Button variant="contained" startIcon={<DownloadIcon />} onClick={handlePdf} sx={{ minHeight: 44 }}>
+          <Button variant="contained" startIcon={<DownloadIcon />} onClick={handlePdf} className="min-h-[44px]">
             Download PDF
           </Button>
-          <Button variant="outlined" startIcon={<PrintIcon />} onClick={() => window.print()} sx={{ minHeight: 44 }}>
+          <Button variant="outlined" startIcon={<PrintIcon />} onClick={() => window.print()} className="min-h-[44px]">
             Print
           </Button>
         </Stack>
         <Alert severity="warning">Illustration only, not proof of employment. Verify with payroll records.</Alert>
       </ToolPaper>
 
-      <Paper id="payslip-print" sx={{ p: { xs: 3, sm: 5 }, mt: 3, maxWidth: 800, mx: "auto", bgcolor: "#fff", color: "#000" }}>
-        <Typography variant="h4" sx={{ fontWeight: 800, color: "#0f172a" }}>
+      <Paper id="payslip-print" className="p-6 sm:p-10 mt-6 max-w-[800px] mx-auto bg-[#fff] text-[#000]">
+        <Typography variant="h4" className="font-extrabold text-[#0f172a]">
           Payslip — {month || "Month"}
         </Typography>
-        <Typography sx={{ fontSize: 13, color: "#475569", mb: 2 }}>
+        <Typography className="text-[13px] text-[#475569] mb-4">
           {employer || "Employer"} · {employee || "Employee"}
         </Typography>
-        <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+        <Box component="table" className="w-full border-collapse text-[13px]">
           <Box component="thead">
-            <Box component="tr" sx={{ borderBottom: "2px solid #0f172a" }}>
-              <Box component="th" sx={{ textAlign: "left", p: 1, color: "#64748b" }}>Item</Box>
-              <Box component="th" sx={{ textAlign: "right", p: 1, color: "#64748b" }}>Amount</Box>
+            <Box component="tr" style={{ borderBottom: "2px solid #0f172a" }}>
+              <Box component="th" className="text-left p-2 text-[#64748b]">Item</Box>
+              <Box component="th" className="text-right p-2 text-[#64748b]">Amount</Box>
             </Box>
           </Box>
           <Box component="tbody">
@@ -155,7 +146,7 @@ export default function PayslipGeneratorTool() {
             <Row label="Total deductions" value={totals.deductions} bold />
           </Box>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2, fontWeight: 800, fontSize: 16 }}>
+        <Box className="flex justify-between mt-4 font-extrabold text-[16px]">
           <span>Net pay</span>
           <span>{money(totals.net, "INR")}</span>
         </Box>
@@ -166,9 +157,9 @@ export default function PayslipGeneratorTool() {
 
 function Row({ label, value, bold }: { label: string; value: number; bold?: boolean }) {
   return (
-    <Box component="tr" sx={{ borderBottom: "1px solid #e2e8f0", fontWeight: bold ? 700 : 400 }}>
-      <Box component="td" sx={{ p: 1 }}>{label}</Box>
-      <Box component="td" sx={{ p: 1, textAlign: "right" }}>{money(value, "INR")}</Box>
+    <Box component="tr" className="border-b border-b-[#e2e8f0]" style={{ fontWeight: bold ? 700 : 400 }}>
+      <Box component="td" className="p-2">{label}</Box>
+      <Box component="td" className="p-2 text-right">{money(value, "INR")}</Box>
     </Box>
   );
 }

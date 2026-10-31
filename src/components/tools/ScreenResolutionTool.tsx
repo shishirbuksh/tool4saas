@@ -1,19 +1,7 @@
-"use client";
 
-import React, { useState, useEffect } from 'react';
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import Alert from "@mui/material/Alert";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import React, { useState, useEffect } from 'react';import { Stack, Typography, Alert, Card, CardContent, Button, Box, Table, TableBody, TableCell, TableHead, TableRow } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import ToolPaper from "@/components/ToolPaper";
 
 // Calculate Greatest Common Divisor
@@ -91,12 +79,12 @@ export default function ScreenResolutionTool() {
 
     return (
         <ToolPaper>
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
+            <Typography variant="h6" gutterBottom className="font-bold">
                 Screen Resolution Dashboard
             </Typography>
-            <Stack direction="row" spacing={3} useFlexGap sx={{ flexWrap: "wrap" }}>
+            <Stack direction="row" spacing={3} useFlexGap className="flex-wrap">
                 {cards.map((c) => (
-                <Card key={c.label} sx={{ minWidth: 200, flex: 1 }}>
+                <Card key={c.label} className="min-w-[200px] flex-1">
                     <CardContent>
                         <Typography color="text.secondary" gutterBottom>
                             {c.label}
@@ -108,7 +96,7 @@ export default function ScreenResolutionTool() {
                           size="small"
                           startIcon={<ContentCopyIcon />}
                           onClick={() => copy(`${c.label}: ${c.value}`)}
-                          sx={{ mt: 1 }}
+                          className="mt-2"
                         >
                           Copy
                         </Button>
@@ -116,7 +104,7 @@ export default function ScreenResolutionTool() {
                 </Card>
                 ))}
             </Stack>
-            <Box sx={{ mt: 2 }}>
+            <Box className="mt-4">
                 <Button
                   size="small"
                   startIcon={<ContentCopyIcon />}
@@ -129,11 +117,11 @@ export default function ScreenResolutionTool() {
                   Copy all metrics
                 </Button>
             </Box>
-            <Box sx={{ mt: 3 }}>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }} gutterBottom>
+            <Box className="mt-6">
+                <Typography variant="subtitle1" className="font-bold" gutterBottom>
                     DPR & breakpoint guide
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                <Typography variant="body2" color="text.secondary" className="mb-4">
                     DPR (device pixel ratio) is physical pixels per CSS pixel: a DPR of 2 means a
                     375pt-wide iPhone renders 750 physical pixels, so export images at 2x. Viewport
                     shrinks with zoom, sidebars and devtools while hardware pixels stay fixed.

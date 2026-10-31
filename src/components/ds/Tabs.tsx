@@ -4,8 +4,8 @@ export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChang
   value?: any;
   onChange?: (e: any, newValue: any) => void;
   variant?: "standard" | "scrollable" | "fullWidth";
+  scrollButtons?: "auto" | boolean;
   ref?: any;
-  [key: string]: any;
 }
 
 export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
@@ -41,7 +41,6 @@ export interface TabProps extends HTMLAttributes<HTMLButtonElement> {
   iconPosition?: "top" | "bottom" | "start" | "end";
   isActive?: boolean;
   disabled?: boolean;
-  [key: string]: any;
 }
 
 export const Tab = forwardRef<HTMLButtonElement, TabProps>(function Tab(

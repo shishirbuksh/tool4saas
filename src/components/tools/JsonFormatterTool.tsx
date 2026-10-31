@@ -1,17 +1,8 @@
-"use client";
 
 import { useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Link, Stack, Alert } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, AutoFixHigh as AutoFixHighIcon } from "@/components/ds/icons";
 
 export default function JsonFormatterTool() {
   const [input, setInput] = useState("");
@@ -50,12 +41,12 @@ export default function JsonFormatterTool() {
           onChange={(e) => setInput(e.target.value)}
           placeholder='{ "hello": "world" }…'
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ fontFamily: "monospace", "& .MuiInputBase-root": { minHeight: 44 } }}
+          style={{ fontFamily: "monospace" }}
           inputRef={inputRef}
           error={!!error}
           helperText={error ? `Invalid JSON: ${error}` : "Paste valid JSON to format or minify."}
         />
-        <Stack direction="row" spacing={1}  useFlexGap sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={1}  useFlexGap className="flex-wrap">
           <Button variant="contained" startIcon={<AutoFixHighIcon />} onClick={() => format(2)} disabled={!input}>Format (2 spaces)</Button>
           <Button variant="outlined" onClick={() => format(null)} disabled={!input}>Minify</Button>
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={copy} disabled={!output}>Copy</Button>
@@ -63,24 +54,24 @@ export default function JsonFormatterTool() {
         {error && <Alert severity="error">Invalid JSON: {error}</Alert>}
         {output && (
           <Box>
-            <Typography  variant="subtitle2"  gutterBottom sx={{ fontWeight: 700 }}>Result</Typography>
+            <Typography  variant="subtitle2"  gutterBottom className="font-bold">Result</Typography>
             <TextField
               value={output}
               multiline
               minRows={8}
               fullWidth
               slotProps={{ input: { readOnly: true, "aria-label": "Result", spellCheck: false, autoComplete: "off" } }}
-              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 }, "& .MuiInputBase-root": { minHeight: 44 } }}
+              className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
           </Box>
         )}
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1.5 }}>
+        <Typography variant="caption" color="text.secondary" className="block mt-3">
           Troubleshooting invalid JSON? Read our{" "}
-          <Link component={NextLink} href="/blog/json-formatter-guide/json-parse-errors" underline="hover" color="primary">
+          <Link href="/blog/json-formatter-guide/json-parse-errors" underline="hover" color="primary">
             JSON.parse error fix guide
           </Link>{" "}
           or convert arrays to spreadsheets with our{" "}
-          <Link component={NextLink} href="/blog/json-formatter-guide/json-to-csv" underline="hover" color="primary">
+          <Link href="/blog/json-formatter-guide/json-to-csv" underline="hover" color="primary">
             JSON to CSV workflow
           </Link>.
         </Typography>

@@ -1,12 +1,7 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Chip from "@mui/material/Chip";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Chip } from "@/components/ds";
+
 
 const toRgb = (hex: string) => {
   let h = hex.replace("#", "");
@@ -46,21 +41,21 @@ export default function ColorContrastTool() {
   const pass = (min: number) => (r !== null ? r >= min : false);
 
   const preview = (c: string, set: (v: string) => void, label: string) => (
-      <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
+      <Stack direction="row" spacing={1.5} className="items-center">
       <Box
         component="input"
         type="color"
         value={toRgb(c) ? c : "#000000"}
         onChange={(e) => set(e.target.value)}
         aria-label={label}
-        sx={{ width: 48, height: 44, minWidth: 44, minHeight: 44, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
+        className="w-[48px] h-[44px] min-w-[44px] min-h-[44px] border border-base-300 rounded-[16px] p-1 cursor-pointer bg-transparent"
       />
       <TextField
         value={c}
         onChange={(e) => set(e.target.value)}
         size="small"
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ width: 140 }}
+        className="w-[140px]"
       />
     </Stack>
   );
@@ -70,37 +65,24 @@ export default function ColorContrastTool() {
         {preview(fg, setFg, "Foreground color picker")}
         {preview(bg, setBg, "Background color picker")}
         <Box
-          sx={{
-            p: 4,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            background: toRgb(bg) ? bg : "#fff",
-            color: toRgb(fg) ? fg : "#000",
-          }}
+          className="p-8 rounded-[16px] border border-base-300" style={{ background: toRgb(bg) ? bg : "#fff", color: toRgb(fg) ? fg : "#000" }}
         >
-          <Typography variant="h5" sx={{ fontWeight: 800 }}>
+          <Typography variant="h5" className="font-extrabold">
             Preview text
           </Typography>
           <Typography variant="body1">The quick brown fox jumps over the lazy dog.</Typography>
         </Box>
         <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            textAlign: "center",
-          }}
+          className="p-4 rounded-[16px] border border-base-300 text-center"
         >
           <Typography variant="overline" color="text.secondary">
             Contrast ratio
           </Typography>
-          <Typography variant="h4" sx={{ fontWeight: 800 }}>
+          <Typography variant="h4" className="font-extrabold">
             {r !== null ? `${r.toFixed(2)}:1` : "—"}
           </Typography>
         </Box>
-        <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={1} className="flex-wrap">
           <Chip label={`AA normal (4.5:1) ${pass(4.5) ? "✓" : "✗"}`} color={pass(4.5) ? "success" : "error"} variant="outlined" />
           <Chip label={`AA large (3:1) ${pass(3) ? "✓" : "✗"}`} color={pass(3) ? "success" : "error"} variant="outlined" />
           <Chip label={`AAA normal (7:1) ${pass(7) ? "✓" : "✗"}`} color={pass(7) ? "success" : "error"} variant="outlined" />

@@ -6,9 +6,10 @@ import * as Lucide from "lucide-react";
  * Accepts standard MUI icon props (fontSize, className, style, sx).
  */
 export function createIcon(LucideIcon: React.ComponentType<any> | undefined, fallbackName = "Icon") {
-  return function IconWrapper({ fontSize, className = "", style, ...props }: any) {
-    let size = 20;
-    if (fontSize === "small") size = 16;
+  return function IconWrapper({ fontSize, size: sizeProp, className = "", style, ...props }: any) {
+    let size = typeof sizeProp === "number" ? sizeProp : 20;
+    if (typeof fontSize === "number") size = fontSize;
+    else if (fontSize === "small") size = 16;
     else if (fontSize === "large") size = 28;
     else if (fontSize === "inherit") size = 18;
 

@@ -2,14 +2,18 @@ import React, { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "re
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined" | "text";
-  color?: "primary" | "secondary" | "success" | "error" | "warning" | "info" | "inherit";
+  color?: "primary" | "secondary" | "success" | "error" | "warning" | "info" | "inherit" | "default";
   size?: "small" | "medium" | "large";
   fullWidth?: boolean;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   href?: string;
+  component?: React.ElementType;
+  disableElevation?: boolean;
+  download?: string | boolean;
+  target?: string;
+  rel?: string;
   ref?: any;
-  [key: string]: any;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(

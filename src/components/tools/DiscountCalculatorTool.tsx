@@ -1,14 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -61,30 +53,24 @@ export default function DiscountCalculatorTool() {
           {field("Tax (%)", tax, setTax, "%")}
         </Stack>
         <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "primary.main",
-            textAlign: "center",
-          }}
+          className="p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
             Final price
           </Typography>
-          <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+          <Typography variant="h3" className="font-extrabold text-primary">
             {final !== null ? money(final, currency) : "—"}
           </Typography>
         </Box>
         <Stack spacing={1.5}>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box className="flex justify-between">
             <Typography color="text.secondary">You save</Typography>
-            <Typography sx={{ fontWeight: 700 }}>{saved !== null ? money(saved, currency) : "—"}</Typography>
+            <Typography className="font-bold">{saved !== null ? money(saved, currency) : "—"}</Typography>
           </Box>
           {withTax !== null && (
-            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Box className="flex justify-between">
               <Typography color="text.secondary">With tax</Typography>
-              <Typography sx={{ fontWeight: 700 }}>{money(withTax, currency)}</Typography>
+              <Typography className="font-bold">{money(withTax, currency)}</Typography>
             </Box>
           )}
         </Stack>

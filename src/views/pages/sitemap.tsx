@@ -1,18 +1,8 @@
-"use client";
 
-import { useState, useMemo } from "react";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
-import Chip from "@mui/material/Chip";
-import Stack from "@mui/material/Stack";
+import { useState, useMemo } from "react";import { Container, Box, Typography, Grid, TextField, InputAdornment, Chip, Stack, IconButton } from "@/components/ds";
+
 import Link from "@/lib/astro/navigation";
-import SearchIcon from "@mui/icons-material/Search";
-import ClearIcon from "@mui/icons-material/Clear";
-import IconButton from "@mui/material/IconButton";
+import { Search as SearchIcon, Clear as ClearIcon } from "@/components/ds/icons";
 import { siteConfig } from "@/lib/site";
 
 export interface SitemapToolItem {
@@ -165,53 +155,47 @@ export default function SitemapView({
   };
 
   return (
-    <Container maxWidth="xl" sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
+    <Container maxWidth="xl" className="py-12 md:py-20 px-4 md:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
 
       {/* Header & Breadcrumbs */}
-      <Box sx={{ mb: 4 }}>
+      <Box className="mb-8">
         <Box
           component="nav"
           aria-label="Breadcrumb"
-          sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2, color: "text.secondary", fontSize: "0.875rem" }}
+          className="flex items-center gap-2 mb-4 text-base-content/70 text-[0.875rem]"
         >
           <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
             Home
           </Link>
-          <Typography component="span" color="text.disabled" sx={{ fontSize: "0.875rem" }}>
+          <Typography component="span" color="text.disabled" className="text-[0.875rem]">
             /
           </Typography>
-          <Typography component="span" color="text.primary" sx={{ fontWeight: 600, fontSize: "0.875rem" }}>
+          <Typography component="span" color="text.primary" className="font-semibold text-[0.875rem]">
             Sitemap
           </Typography>
         </Box>
 
         <Typography
           variant="overline"
-          sx={{ fontWeight: 700, letterSpacing: "0.15em", color: "primary.main", display: "block" }}
+          className="font-bold tracking-[0.15em] text-primary block"
         >
           COMPLETE DIRECTORY
         </Typography>
         <Typography
           component="h1"
           variant="h1"
-          sx={{
-            fontSize: { xs: "2.2rem", sm: "2.8rem", md: "3.5rem" },
-            fontWeight: 800,
-            color: "text.primary",
-            letterSpacing: "-0.02em",
-            mb: 2,
-          }}
+          className="text-[2.2rem] sm:text-[2.8rem] md:text-[3.5rem] font-extrabold text-base-content tracking-[-0.02em] mb-4"
         >
           HTML Sitemap
         </Typography>
         <Typography
           variant="body1"
           color="text.secondary"
-          sx={{ maxWidth: 840, fontSize: { xs: "1rem", md: "1.15rem" }, lineHeight: 1.7, mb: 3 }}
+          className="max-w-[840px] text-[1rem] md:text-[1.15rem] leading-[1.7] mb-6"
         >
           Explore the full ecosystem of {siteConfig.name}. Access all {totalTools} free browser-based tools
           grouped across 12 categories, {totalGuides} workflow guides and tutorials, {totalPilots} multilingual pilots,
@@ -219,16 +203,16 @@ export default function SitemapView({
         </Typography>
 
         {/* Stats Chips */}
-        <Stack direction="row" spacing={1} useFlexGap sx={{ mb: 4, flexWrap: "wrap" }}>
-          <Chip label={`${totalTools} Free Tools`} color="primary" variant="outlined" sx={{ fontWeight: 600 }} />
-          <Chip label="12 Categories" variant="outlined" sx={{ fontWeight: 600 }} />
-          <Chip label={`${totalGuides} In-Depth Guides`} variant="outlined" sx={{ fontWeight: 600 }} />
-          <Chip label={`${totalPilots} Localized Tools (ES & FR)`} variant="outlined" sx={{ fontWeight: 600 }} />
-          <Chip label="Zero Sign-up · Local First" variant="outlined" sx={{ fontWeight: 600 }} />
+        <Stack direction="row" spacing={1} useFlexGap className="mb-8 flex-wrap">
+          <Chip label={`${totalTools} Free Tools`} color="primary" variant="outlined" className="font-semibold" />
+          <Chip label="12 Categories" variant="outlined" className="font-semibold" />
+          <Chip label={`${totalGuides} In-Depth Guides`} variant="outlined" className="font-semibold" />
+          <Chip label={`${totalPilots} Localized Tools (ES & FR)`} variant="outlined" className="font-semibold" />
+          <Chip label="Zero Sign-up · Local First" variant="outlined" className="font-semibold" />
         </Stack>
 
         {/* Search & Filter Controls */}
-        <Box sx={{ maxWidth: 650, mb: 4 }}>
+        <Box className="max-w-[650px] mb-8">
           <TextField
             fullWidth
             placeholder="Search tools, guides or pages (e.g. invoice, QR, PDF, tax)..."
@@ -250,15 +234,10 @@ export default function SitemapView({
                 ) : null,
               },
             }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "12px",
-                bgcolor: "background.paper",
-              },
-            }}
+            
           />
           {query && (
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1, fontWeight: 500 }}>
+            <Typography variant="body2" color="text.secondary" className="mt-2 font-medium">
               Found {totalFilteredTools} tool{totalFilteredTools === 1 ? "" : "s"} and {totalFilteredGuides} guide
               {totalFilteredGuides === 1 ? "" : "s"} matching &ldquo;{query}&rdquo;
             </Typography>
@@ -266,7 +245,7 @@ export default function SitemapView({
         </Box>
 
         {/* Navigation Quick Links */}
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 6 }}>
+        <Box className="flex flex-wrap gap-2 mb-12">
           {[
             { id: "all", label: "Overview", href: "#" },
             { id: "tools", label: `Tools (${totalTools})`, href: "#tools" },
@@ -308,17 +287,17 @@ export default function SitemapView({
       </Box>
 
       {/* SECTION 1: TOOLS BY CATEGORY */}
-      <Box component="section" id="tools" sx={{ mb: 10, scrollMarginTop: 96 }}>
-        <Box sx={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", mb: 3 }}>
+      <Box component="section" id="tools" className="mb-20 scroll-mt-[96px]">
+        <Box className="flex items-baseline justify-between mb-6">
           <Box>
-            <Typography variant="overline" color="primary" sx={{ fontWeight: 700 }}>
+            <Typography variant="overline" color="primary" className="font-bold">
               ONLINE UTILITIES
             </Typography>
-            <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "1.8rem", md: "2.3rem" }, fontWeight: 800 }}>
+            <Typography component="h2" variant="h2" className="text-[1.8rem] md:text-[2.3rem] font-extrabold">
               125 Free Online Tools by Category
             </Typography>
           </Box>
-          <Typography variant="body2" color="text.secondary" sx={{ display: { xs: "none", sm: "block" } }}>
+          <Typography variant="body2" color="text.secondary" className="hidden sm:block">
             100% Client-Side · No Sign-Up
           </Typography>
         </Box>
@@ -327,27 +306,13 @@ export default function SitemapView({
           {filteredCategories.map((group) => (
             <Grid size={{ xs: 12, md: 6, lg: 4 }} key={group.id}>
               <Box
-                sx={{
-                  p: 3,
-                  borderRadius: "16px",
-                  border: "1px solid",
-                  borderColor: "divider",
-                  bgcolor: "background.paper",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  transition: "box-shadow 200ms ease, border-color 200ms ease",
-                  "&:hover": {
-                    borderColor: "primary.main",
-                    boxShadow: "0 6px 20px rgba(0,0,0,0.06)",
-                  },
-                }}
+                className="p-6 rounded-[16px] border border-base-300 bg-base-100 h-full flex flex-col hover:border-primary hover:[box-shadow:0_6px_20px_rgba(0,0,0,0.06)]" style={{ transition: "box-shadow 200ms ease, border-color 200ms ease" }}
               >
-                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1.5 }}>
+                <Box className="flex items-center justify-between mb-3">
                   <Typography
                     component="h3"
                     variant="h3"
-                    sx={{ fontSize: "1.25rem", fontWeight: 700, m: 0 }}
+                    className="text-[1.25rem] font-bold m-0"
                   >
                     <Link
                       href={`/category/${group.id}`}
@@ -360,24 +325,16 @@ export default function SitemapView({
                     label={`${group.tools.length} tools`}
                     size="small"
                     variant="outlined"
-                    sx={{ fontWeight: 600, fontSize: "0.75rem" }}
+                    className="font-semibold text-[0.75rem]"
                   />
                 </Box>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2, minHeight: 38 }}>
+                <Typography variant="body2" color="text.secondary" className="mb-4 min-h-[38px]">
                   {group.description}
                 </Typography>
 
                 <Box
                   component="ul"
-                  sx={{
-                    p: 0,
-                    m: 0,
-                    listStyle: "none",
-                    flexGrow: 1,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 1.25,
-                  }}
+                  className="p-0 m-0 list-none grow flex flex-col gap-2.5"
                 >
                   {group.tools.map((t) => (
                     <Box component="li" key={t.slug}>
@@ -394,23 +351,14 @@ export default function SitemapView({
                       >
                         <Typography
                           variant="body2"
-                          sx={{
-                            fontWeight: 600,
-                            color: "text.primary",
-                            "&:hover": { color: "primary.main" },
-                          }}
+                          className="font-semibold text-base-content hover:text-primary"
                         >
                           {t.title}
                         </Typography>
                         <Typography
                           variant="caption"
                           color="text.secondary"
-                          sx={{
-                            display: "-webkit-box",
-                            WebkitLineClamp: 1,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                          }}
+                          className="line-clamp-1 overflow-hidden" style={{ display: "-webkit-box", WebkitBoxOrient: "vertical" }}
                         >
                           {t.short}
                         </Typography>
@@ -419,7 +367,7 @@ export default function SitemapView({
                   ))}
                 </Box>
 
-                <Box sx={{ mt: 2.5, pt: 1.5, borderTop: "1px dashed", borderColor: "divider" }}>
+                <Box className="mt-5 pt-3 border-base-300" style={{ borderTop: "1px dashed" }}>
                   <Link
                     href={`/category/${group.id}`}
                     style={{
@@ -439,13 +387,13 @@ export default function SitemapView({
       </Box>
 
       {/* SECTION 2: GUIDES & ARTICLES */}
-      <Box component="section" id="guides" sx={{ mb: 10, scrollMarginTop: 96 }}>
-        <Box sx={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", mb: 3 }}>
+      <Box component="section" id="guides" className="mb-20 scroll-mt-[96px]">
+        <Box className="flex items-baseline justify-between mb-6">
           <Box>
-            <Typography variant="overline" color="primary" sx={{ fontWeight: 700 }}>
+            <Typography variant="overline" color="primary" className="font-bold">
               KNOWLEDGE BASE
             </Typography>
-            <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "1.8rem", md: "2.3rem" }, fontWeight: 800 }}>
+            <Typography component="h2" variant="h2" className="text-[1.8rem] md:text-[2.3rem] font-extrabold">
               198 Guides &amp; Workflow Tutorials
             </Typography>
           </Box>
@@ -458,17 +406,10 @@ export default function SitemapView({
           {filteredPillars.map((p) => (
             <Grid size={{ xs: 12, md: 6 }} key={p.pillar}>
               <Box
-                sx={{
-                  p: 3,
-                  borderRadius: "16px",
-                  border: "1px solid",
-                  borderColor: "divider",
-                  bgcolor: "background.paper",
-                  height: "100%",
-                }}
+                className="p-6 rounded-[16px] border border-base-300 bg-base-100 h-full"
               >
-                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1 }}>
-                  <Typography variant="overline" color="primary" sx={{ fontWeight: 700 }}>
+                <Box className="flex items-center justify-between mb-2">
+                  <Typography variant="overline" color="primary" className="font-bold">
                     {p.clusters.length + 1} ARTICLES
                   </Typography>
                   <Link
@@ -478,16 +419,16 @@ export default function SitemapView({
                     Open Tool ↗
                   </Link>
                 </Box>
-                <Typography component="h3" variant="h3" sx={{ fontSize: "1.3rem", fontWeight: 700, mb: 1 }}>
+                <Typography component="h3" variant="h3" className="text-[1.3rem] font-bold mb-2">
                   <Link href={`/blog/${p.pillar}`} style={{ color: "inherit", textDecoration: "none" }}>
                     {p.title}
                   </Link>
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                <Typography variant="body2" color="text.secondary" className="mb-4">
                   {p.description}
                 </Typography>
 
-                <Box component="ul" sx={{ m: 0, pl: 2.5, color: "text.secondary", fontSize: "0.9rem" }}>
+                <Box component="ul" className="m-0 pl-5 text-base-content/70 text-[0.9rem]">
                   <li style={{ marginBottom: 6 }}>
                     <Link href={`/blog/${p.pillar}`} style={{ fontWeight: 700 }}>
                       {p.title} (Core Pillar Guide)
@@ -511,15 +452,15 @@ export default function SitemapView({
       </Box>
 
       {/* SECTION 3: MULTILINGUAL TOOLS */}
-      <Box component="section" id="multilingual" sx={{ mb: 10, scrollMarginTop: 96 }}>
-        <Box sx={{ mb: 3 }}>
-          <Typography variant="overline" color="primary" sx={{ fontWeight: 700 }}>
+      <Box component="section" id="multilingual" className="mb-20 scroll-mt-[96px]">
+        <Box className="mb-6">
+          <Typography variant="overline" color="primary" className="font-bold">
             INTERNATIONAL PILOTS
           </Typography>
-          <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "1.8rem", md: "2.3rem" }, fontWeight: 800 }}>
+          <Typography component="h2" variant="h2" className="text-[1.8rem] md:text-[2.3rem] font-extrabold">
             32 Multilingual Tools (Español &amp; Français)
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 760, mt: 1 }}>
+          <Typography variant="body1" color="text.secondary" className="max-w-[760px] mt-2">
             Localized, native-language editions of our most popular utilities with localized formatting, regional tax
             support, and translated interfaces.
           </Typography>
@@ -529,21 +470,14 @@ export default function SitemapView({
           {/* Spanish Hub */}
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
-              sx={{
-                p: 3.5,
-                borderRadius: "16px",
-                border: "1px solid",
-                borderColor: "divider",
-                bgcolor: "background.paper",
-                height: "100%",
-              }}
+              className="p-7 rounded-[16px] border border-base-300 bg-base-100 h-full"
             >
-              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                  <Typography sx={{ fontSize: "1.5rem" }} aria-hidden="true">
+              <Box className="flex items-center justify-between mb-4">
+                <Box className="flex items-center gap-3">
+                  <Typography className="text-[1.5rem]" aria-hidden="true">
                     🇪🇸
                   </Typography>
-                  <Typography component="h3" variant="h3" sx={{ fontSize: "1.3rem", fontWeight: 700 }}>
+                  <Typography component="h3" variant="h3" className="text-[1.3rem] font-bold">
                     <Link href="/es" style={{ color: "inherit", textDecoration: "none" }}>
                       Herramientas en Español
                     </Link>
@@ -551,7 +485,7 @@ export default function SitemapView({
                 </Box>
                 <Chip label={`${filteredPilotsEs.length} herramientas`} size="small" variant="outlined" />
               </Box>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2.5 }}>
+              <Typography variant="body2" color="text.secondary" className="mb-5">
                 Versiones en español adaptadas para España y Latinoamérica con IVA, IRPF y soporte offline.
               </Typography>
               <Grid container spacing={1.5}>
@@ -577,7 +511,7 @@ export default function SitemapView({
                   </Grid>
                 ))}
               </Grid>
-              <Box sx={{ mt: 3, pt: 2, borderTop: "1px dashed", borderColor: "divider" }}>
+              <Box className="mt-6 pt-4 border-base-300" style={{ borderTop: "1px dashed" }}>
                 <Link href="/es" style={{ fontWeight: 700, fontSize: "0.9rem" }}>
                   Ver centro en español (/es) →
                 </Link>
@@ -588,21 +522,14 @@ export default function SitemapView({
           {/* French Hub */}
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
-              sx={{
-                p: 3.5,
-                borderRadius: "16px",
-                border: "1px solid",
-                borderColor: "divider",
-                bgcolor: "background.paper",
-                height: "100%",
-              }}
+              className="p-7 rounded-[16px] border border-base-300 bg-base-100 h-full"
             >
-              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                  <Typography sx={{ fontSize: "1.5rem" }} aria-hidden="true">
+              <Box className="flex items-center justify-between mb-4">
+                <Box className="flex items-center gap-3">
+                  <Typography className="text-[1.5rem]" aria-hidden="true">
                     🇫🇷
                   </Typography>
-                  <Typography component="h3" variant="h3" sx={{ fontSize: "1.3rem", fontWeight: 700 }}>
+                  <Typography component="h3" variant="h3" className="text-[1.3rem] font-bold">
                     <Link href="/fr" style={{ color: "inherit", textDecoration: "none" }}>
                       Outils en Français
                     </Link>
@@ -610,7 +537,7 @@ export default function SitemapView({
                 </Box>
                 <Chip label={`${filteredPilotsFr.length} outils`} size="small" variant="outlined" />
               </Box>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2.5 }}>
+              <Typography variant="body2" color="text.secondary" className="mb-5">
                 Utilitaires en français adaptés pour la France, la Belgique, la Suisse et le Canada.
               </Typography>
               <Grid container spacing={1.5}>
@@ -636,7 +563,7 @@ export default function SitemapView({
                   </Grid>
                 ))}
               </Grid>
-              <Box sx={{ mt: 3, pt: 2, borderTop: "1px dashed", borderColor: "divider" }}>
+              <Box className="mt-6 pt-4 border-base-300" style={{ borderTop: "1px dashed" }}>
                 <Link href="/fr" style={{ fontWeight: 700, fontSize: "0.9rem" }}>
                   Voir le centre en français (/fr) →
                 </Link>
@@ -647,11 +574,11 @@ export default function SitemapView({
       </Box>
 
       {/* SECTION 4: CATEGORY HUBS */}
-      <Box component="section" id="categories" sx={{ mb: 10, scrollMarginTop: 96 }}>
-        <Typography variant="overline" color="primary" sx={{ fontWeight: 700 }}>
+      <Box component="section" id="categories" className="mb-20 scroll-mt-[96px]">
+        <Typography variant="overline" color="primary" className="font-bold">
           COLLECTIONS
         </Typography>
-        <Typography component="h2" variant="h2" sx={{ fontSize: { xs: "1.8rem", md: "2.3rem" }, fontWeight: 800, mb: 3 }}>
+        <Typography component="h2" variant="h2" className="text-[1.8rem] md:text-[2.3rem] font-extrabold mb-6">
           12 Category Hub Pages
         </Typography>
         <Grid container spacing={2}>
@@ -671,7 +598,7 @@ export default function SitemapView({
                   transition: "all 150ms ease",
                 }}
               >
-                <Typography variant="subtitle1" sx={{ fontWeight: 700, color: "text.primary", mb: 0.5 }}>
+                <Typography variant="subtitle1" className="font-bold text-base-content mb-1">
                   {c.label}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
@@ -684,30 +611,23 @@ export default function SitemapView({
       </Box>
 
       {/* SECTION 5: COMPANY, LEGAL & TECHNICAL FEEDS */}
-      <Grid container spacing={4} id="company" sx={{ scrollMarginTop: 96 }}>
+      <Grid container spacing={4} id="company" className="scroll-mt-[96px]">
         {/* Company & Legal */}
         <Grid size={{ xs: 12, md: 6 }}>
           <Box
-            sx={{
-              p: 3.5,
-              borderRadius: "16px",
-              border: "1px solid",
-              borderColor: "divider",
-              bgcolor: "background.paper",
-              height: "100%",
-            }}
+            className="p-7 rounded-[16px] border border-base-300 bg-base-100 h-full"
           >
-            <Typography variant="overline" color="primary" sx={{ fontWeight: 700 }}>
+            <Typography variant="overline" color="primary" className="font-bold">
               ORGANIZATION &amp; GOVERNANCE
             </Typography>
-            <Typography component="h3" variant="h3" sx={{ fontSize: "1.4rem", fontWeight: 700, mb: 2 }}>
+            <Typography component="h3" variant="h3" className="text-[1.4rem] font-bold mb-4">
               Company, Trust &amp; Legal
             </Typography>
-            <Box component="ul" sx={{ p: 0, m: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box component="ul" className="p-0 m-0 list-none flex flex-col gap-4">
               {STATIC_PAGES.map((page) => (
                 <Box component="li" key={page.href}>
                   <Link href={page.href} style={{ textDecoration: "none" }}>
-                    <Typography variant="subtitle2" sx={{ fontWeight: 700, color: "text.primary" }}>
+                    <Typography variant="subtitle2" className="font-bold text-base-content">
                       {page.label}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
@@ -721,28 +641,21 @@ export default function SitemapView({
         </Grid>
 
         {/* Technical Feeds */}
-        <Grid size={{ xs: 12, md: 6 }} id="feeds" sx={{ scrollMarginTop: 96 }}>
+        <Grid size={{ xs: 12, md: 6 }} id="feeds" className="scroll-mt-[96px]">
           <Box
-            sx={{
-              p: 3.5,
-              borderRadius: "16px",
-              border: "1px solid",
-              borderColor: "divider",
-              bgcolor: "background.paper",
-              height: "100%",
-            }}
+            className="p-7 rounded-[16px] border border-base-300 bg-base-100 h-full"
           >
-            <Typography variant="overline" color="primary" sx={{ fontWeight: 700 }}>
+            <Typography variant="overline" color="primary" className="font-bold">
               CRAWLERS &amp; MACHINE READABILITY
             </Typography>
-            <Typography component="h3" variant="h3" sx={{ fontSize: "1.4rem", fontWeight: 700, mb: 2 }}>
+            <Typography component="h3" variant="h3" className="text-[1.4rem] font-bold mb-4">
               Technical Feeds &amp; Agent Discovery
             </Typography>
-            <Box component="ul" sx={{ p: 0, m: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box component="ul" className="p-0 m-0 list-none flex flex-col gap-4">
               {MACHINE_FEEDS.map((feed) => (
                 <Box component="li" key={feed.href}>
                   <a href={feed.href} style={{ textDecoration: "none" }}>
-                    <Typography variant="subtitle2" sx={{ fontWeight: 700, color: "text.primary" }}>
+                    <Typography variant="subtitle2" className="font-bold text-base-content">
                       {feed.label}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">

@@ -1,13 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const MAX_INPUT_SIZE = 500 * 1024; // 500KB guard
@@ -223,7 +218,7 @@ export default function JsBeautifierTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         JS Beautifier
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -240,10 +235,10 @@ export default function JsBeautifierTool() {
         onChange={(e) => setInput(e.target.value)}
         placeholder={'function greet(name){const msg="Hello, "+name; // comment\nreturn msg;}'}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+        className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
       />
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button variant="contained" onClick={handleFormat} disabled={!input.trim()}>
           Format
         </Button>
@@ -260,8 +255,8 @@ export default function JsBeautifierTool() {
 
       {output && (
         <Stack spacing={1}>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between">
+            <Typography variant="subtitle2" className="font-bold">
               Output Preview
             </Typography>
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={handleCopy}>
@@ -274,7 +269,7 @@ export default function JsBeautifierTool() {
             minRows={8}
             fullWidth
             slotProps={{ input: { readOnly: true, spellCheck: false, autoComplete: "off" } }}
-            sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+            className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
           />
         </Stack>
       )}

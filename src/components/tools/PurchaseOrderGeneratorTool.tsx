@@ -1,22 +1,7 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
-import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import DeleteIcon from "@mui/icons-material/Delete";
-import AddIcon from "@mui/icons-material/Add";
-import PrintIcon from "@mui/icons-material/Print";
+import { useMemo, useState } from "react";import { Paper, Box, TextField, Button, Typography, Grid, IconButton, Stack, Divider, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
+import { Delete as DeleteIcon, Add as AddIcon, Print as PrintIcon } from "@/components/ds/icons";
 import ToolPaper from "@/components/ToolPaper";
 import { money } from "@/lib/format";
 
@@ -49,8 +34,8 @@ export default function PurchaseOrderGeneratorTool() {
 
   return (
     <Box>
-      <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 2 }}>
-        <Typography variant="h3" sx={{ fontSize: 20 }}>Purchase order details</Typography>
+      <Stack direction="row" className="items-center justify-between mb-4">
+        <Typography variant="h3" className="text-[20px]">Purchase order details</Typography>
         <Button variant="contained" startIcon={<PrintIcon />} onClick={() => window.print()}>
           Download / Print PDF
         </Button>
@@ -83,10 +68,10 @@ export default function PurchaseOrderGeneratorTool() {
         </Grid>
       </ToolPaper>
 
-      <ToolPaper sx={{ mt: 3 }}>
+      <ToolPaper className="mt-6">
         <Stack spacing={1}>
           {lines.map((l, i) => (
-            <Grid container spacing={1} key={i} sx={{ alignItems: "center" }}>
+            <Grid container spacing={1} key={i} className="items-center">
               <Grid size={{ xs: 12, sm: 6 }}>
                 <TextField label="Description" fullWidth value={l.desc} onChange={(e) => updateLine(i, { desc: e.target.value })} />
               </Grid>
@@ -104,9 +89,9 @@ export default function PurchaseOrderGeneratorTool() {
             </Grid>
           ))}
         </Stack>
-        <Button startIcon={<AddIcon />} onClick={addLine} sx={{ mt: 1 }}>Add line</Button>
+        <Button startIcon={<AddIcon />} onClick={addLine} className="mt-2">Add line</Button>
 
-        <Grid container spacing={2} sx={{ mt: 2, alignItems: "center" }}>
+        <Grid container spacing={2} className="mt-4 items-center">
           <Grid size={{ xs: 12, sm: 8 }}>
             <TextField label="Notes" multiline minRows={2} fullWidth value={notes} onChange={(e) => setNotes(e.target.value)} />
           </Grid>
@@ -117,55 +102,55 @@ export default function PurchaseOrderGeneratorTool() {
       </ToolPaper>
 
       {/* Printable purchase order */}
-      <Paper id="po-print" sx={{ p: { xs: 3, sm: 5 }, mt: 4, maxWidth: 800, mx: "auto", bgcolor: "#fff", color: "#000" }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 4 }}>
+      <Paper id="po-print" className="p-6 sm:p-10 mt-8 max-w-[800px] mx-auto bg-[#fff] text-[#000]">
+        <Box className="flex justify-between mb-8">
           <Box>
-            <Typography variant="h4" sx={{ fontWeight: 800, color: "#0f172a" }}>PURCHASE ORDER</Typography>
-            <Typography sx={{ whiteSpace: "pre-line", color: "#334155" }}>{shipTo}</Typography>
+            <Typography variant="h4" className="font-extrabold text-[#0f172a]">PURCHASE ORDER</Typography>
+            <Typography className="whitespace-pre-line text-[#334155]">{shipTo}</Typography>
           </Box>
-          <Box sx={{ textAlign: "right", color: "#334155" }}>
+          <Box className="text-right text-[#334155]">
             <Box><strong>#{poNumber}</strong></Box>
             <Box>Date: {date}</Box>
           </Box>
         </Box>
-        <Box sx={{ mb: 4, color: "#334155" }}>
-          <Typography sx={{ fontWeight: 700, mb: 0.5 }}>Supplier</Typography>
-          <Typography sx={{ whiteSpace: "pre-line" }}>{supplier}</Typography>
+        <Box className="mb-8 text-[#334155]">
+          <Typography className="font-bold mb-1">Supplier</Typography>
+          <Typography className="whitespace-pre-line">{supplier}</Typography>
         </Box>
-        <Box sx={{ mb: 4, color: "#334155" }}>
-          <Typography sx={{ fontWeight: 700, mb: 0.5 }}>Ship to</Typography>
-          <Typography sx={{ whiteSpace: "pre-line" }}>{shipTo}</Typography>
+        <Box className="mb-8 text-[#334155]">
+          <Typography className="font-bold mb-1">Ship to</Typography>
+          <Typography className="whitespace-pre-line">{shipTo}</Typography>
         </Box>
-        <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", fontSize: { xs: 12, sm: 14 } }}>
+        <Box component="table" className="w-full border-collapse text-[12px] sm:text-[14px]">
           <Box component="thead">
-            <Box component="tr" sx={{ borderBottom: "2px solid #0f172a" }}>
-              <Box component="th" sx={th}>Description</Box>
-              <Box component="th" sx={{ ...th, textAlign: "right" }}>Qty</Box>
-              <Box component="th" sx={{ ...th, textAlign: "right" }}>Rate</Box>
-              <Box component="th" sx={{ ...th, textAlign: "right" }}>Amount</Box>
+            <Box component="tr" style={{ borderBottom: "2px solid #0f172a" }}>
+              <Box component="th" style={{ ...th }}>Description</Box>
+              <Box component="th" className="text-right" style={{ ...th }}>Qty</Box>
+              <Box component="th" className="text-right" style={{ ...th }}>Rate</Box>
+              <Box component="th" className="text-right" style={{ ...th }}>Amount</Box>
             </Box>
           </Box>
           <Box component="tbody">
             {lines.map((l, i) => (
-              <Box component="tr" key={i} sx={{ borderBottom: "1px solid #e2e8f0" }}>
-                <Box component="td" sx={td}>{l.desc || "—"}</Box>
-                <Box component="td" sx={{ ...td, textAlign: "right" }}>{l.qty}</Box>
-                <Box component="td" sx={{ ...td, textAlign: "right" }}>{money(l.rate, currency)}</Box>
-                <Box component="td" sx={{ ...td, textAlign: "right" }}>{money((l.qty || 0) * (l.rate || 0), currency)}</Box>
+              <Box component="tr" key={i} className="border-b border-b-[#e2e8f0]">
+                <Box component="td" style={{ ...td }}>{l.desc || "—"}</Box>
+                <Box component="td" className="text-right" style={{ ...td }}>{l.qty}</Box>
+                <Box component="td" className="text-right" style={{ ...td }}>{money(l.rate, currency)}</Box>
+                <Box component="td" className="text-right" style={{ ...td }}>{money((l.qty || 0) * (l.rate || 0), currency)}</Box>
               </Box>
             ))}
           </Box>
         </Box>
-        <Box sx={{ width: 260, ml: "auto", mt: 3, color: "#334155" }}>
+        <Box className="w-[260px] ml-auto mt-6 text-[#334155]">
           <Row label="Subtotal" value={money(totals.subtotal, currency)} />
           <Row label={`Tax (${tax}%)`} value={money(totals.taxAmt, currency)} />
-          <Divider sx={{ my: 1 }} />
-          <Box sx={{ display: "flex", justifyContent: "space-between", fontWeight: 800, fontSize: 16 }}>
+          <Divider className="my-2" />
+          <Box className="flex justify-between font-extrabold text-[16px]">
             <span>Total</span><span>{money(totals.total, currency)}</span>
           </Box>
         </Box>
         {notes && (
-          <Typography sx={{ mt: 4, whiteSpace: "pre-line", color: "#64748b", fontSize: 13 }}>{notes}</Typography>
+          <Typography className="mt-8 whitespace-pre-line text-[#64748b] text-[13px]">{notes}</Typography>
         )}
       </Paper>
     </Box>
@@ -177,7 +162,7 @@ const td: React.CSSProperties = { padding: "8px 4px" };
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between", py: 0.25 }}>
+    <Box className="flex justify-between py-0.5">
       <span>{label}</span><span>{value}</span>
     </Box>
   );

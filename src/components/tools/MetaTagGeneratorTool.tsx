@@ -1,18 +1,9 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import Alert from "@mui/material/Alert";
-import Divider from "@mui/material/Divider";
-import LinearProgress from "@mui/material/LinearProgress";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { useTheme } from "@mui/material/styles";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, MenuItem, Alert, Divider, LinearProgress } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { useThemeMode } from "@/components/ThemeProviderClient";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const OG_TYPES = ["website", "article", "product", "profile", "video", "music"] as const;
@@ -34,7 +25,7 @@ function getDomain(url: string): string {
 }
 
 export default function MetaTagGeneratorTool() {
-  const theme = useTheme();
+  const { mode } = useThemeMode();
   const [title, setTitle] = useState("Example Domain — Free Tools for Everyone");
   const [description, setDescription] = useState(
     "Discover free online tools for developers, SEO experts and creators. Fast, private and easy to use — no sign-up required."
@@ -124,7 +115,7 @@ export default function MetaTagGeneratorTool() {
   return (
     <ToolPaper spacing={3}>
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 700 }}>
+        <Typography variant="h6" className="font-bold">
           Meta Tag Generator
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -145,25 +136,25 @@ export default function MetaTagGeneratorTool() {
             error={titleOver}
             slotProps={{ htmlInput: { maxLength: 120 }, input: { spellCheck: true, autoComplete: "off" } }}
           />
-          <Stack direction="row" spacing={1} sx={{ alignItems: "center", mt: 1 }}>
-            <Box sx={{ flex: 1 }}>
+          <Stack direction="row" spacing={1} className="items-center mt-2">
+            <Box className="flex-1">
               <LinearProgress
                 variant="determinate"
                 value={titleProgress}
                 color={titleOver ? "error" : titleProgress > 90 ? "warning" : "primary"}
-                sx={{ height: 6, borderRadius: 5 }}
+                className="h-[6px] rounded-[40px]"
               />
             </Box>
             <Typography
               variant="caption"
               color={titleOver ? "error.main" : "text.secondary"}
-              sx={{ minWidth: 70, textAlign: "right", fontFamily: "monospace" }}
+              className="min-w-[70px] text-right" style={{ fontFamily: "monospace" }}
             >
               {titleLen}/{TITLE_MAX}
             </Typography>
           </Stack>
           {titleOver && (
-            <Alert severity="warning" sx={{ mt: 1 }}>
+            <Alert severity="warning" className="mt-2">
               Title is {titleLen - TITLE_MAX} characters too long. Google typically truncates after ~60 characters.
             </Alert>
           )}
@@ -182,25 +173,25 @@ export default function MetaTagGeneratorTool() {
             error={descOver}
             slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
           />
-          <Stack direction="row" spacing={1} sx={{ alignItems: "center", mt: 1 }}>
-            <Box sx={{ flex: 1 }}>
+          <Stack direction="row" spacing={1} className="items-center mt-2">
+            <Box className="flex-1">
               <LinearProgress
                 variant="determinate"
                 value={descProgress}
                 color={descOver ? "error" : descProgress > 90 ? "warning" : "primary"}
-                sx={{ height: 6, borderRadius: 5 }}
+                className="h-[6px] rounded-[40px]"
               />
             </Box>
             <Typography
               variant="caption"
               color={descOver ? "error.main" : "text.secondary"}
-              sx={{ minWidth: 70, textAlign: "right", fontFamily: "monospace" }}
+              className="min-w-[70px] text-right" style={{ fontFamily: "monospace" }}
             >
               {descLen}/{DESC_MAX}
             </Typography>
           </Stack>
           {descOver && (
-            <Alert severity="warning" sx={{ mt: 1 }}>
+            <Alert severity="warning" className="mt-2">
               Description is {descLen - DESC_MAX} characters too long. Google typically truncates after ~155–160
               characters.
             </Alert>
@@ -235,7 +226,7 @@ export default function MetaTagGeneratorTool() {
             select
             value={type}
             onChange={(e) => setType(e.target.value as OgType)}
-            sx={{ minWidth: 160 }}
+            className="min-w-[160px]"
           >
             {OG_TYPES.map((t) => (
               <MenuItem key={t} value={t}>
@@ -248,136 +239,73 @@ export default function MetaTagGeneratorTool() {
 
       <Divider />
 
-      <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+      <Typography variant="subtitle1" className="font-bold">
         Live previews
       </Typography>
 
-      <Stack direction={{ xs: "column", md: "row" }} spacing={3} sx={{ alignItems: "flex-start" }}>
+      <Stack direction={{ xs: "column", md: "row" }} spacing={3} className="items-start">
         {/* SERP preview */}
-        <Box sx={{ flex: 1, minWidth: 0 }}>
+        <Box className="flex-1 min-w-[0px]">
           <Typography
             variant="caption"
-            sx={{ fontWeight: 700, letterSpacing: 0.5, color: "text.secondary", mb: 1, display: "block" }}
+            className="font-bold tracking-[0.5px] text-base-content/70 mb-2 block"
           >
             GOOGLE SERP
           </Typography>
           <Box
-            sx={{
-              p: 2,
-              borderRadius: 1.5,
-              border: "1px solid",
-              borderColor: "divider",
-              bgcolor: "background.paper",
-              maxWidth: 520,
-            }}
+            className="p-4 rounded-[12px] border border-base-300 bg-base-100 max-w-[520px]"
           >
             <Typography
               variant="caption"
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 0.75,
-                color: "text.secondary",
-                fontSize: 12,
-                lineHeight: 1.4,
-                wordBreak: "break-all",
-              }}
+              className="flex items-center gap-1.5 text-base-content/70 text-[12px] leading-[1.4] break-all"
             >
               <Box
                 component="span"
-                sx={{
-                  width: 18,
-                  height: 18,
-                  borderRadius: "50%",
-                  bgcolor: "grey.200",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 10,
-                  flexShrink: 0,
-                }}
+                className="w-[18px] h-[18px] rounded-full inline-flex items-center justify-center text-[10px] shrink-0" style={{ backgroundColor: "var(--color-base-300)" }}
               >
                 🌐
               </Box>
-              <Box component="span" sx={{ minWidth: 0 }}>
-                <Box component="span" sx={{ color: "text.primary", fontWeight: 500 }}>
+              <Box component="span" className="min-w-[0px]">
+                <Box component="span" className="text-base-content font-medium">
                   {displayUrl.split(" › ")[0]}
                 </Box>
-                <Box component="span" sx={{ display: "block", fontSize: 12, color: "text.secondary" }}>
+                <Box component="span" className="block text-[12px] text-base-content/70">
                   {displayUrl}
                 </Box>
               </Box>
-              <Box component="span" sx={{ ml: "auto", flexShrink: 0, color: "text.disabled" }}>
+              <Box component="span" className="ml-auto shrink-0 text-base-content/40">
                 ⋮
               </Box>
             </Typography>
             <Typography
-              sx={{
-                color: theme.palette.mode === "dark" ? "#8ab4f8" : "#1a0dab",
-                fontSize: 18,
-                lineHeight: 1.3,
-                mt: 0.75,
-                wordBreak: "break-word",
-                display: "-webkit-box",
-                WebkitLineClamp: 1,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                ...(titleOver ? { textDecoration: "underline wavy #d32f2f" } : {}),
-              }}
+              className="text-[18px] leading-[1.3] mt-1.5 break-words line-clamp-1 overflow-hidden" style={{ color: mode === "dark" ? "#8ab4f8" : "#1a0dab", display: "-webkit-box", WebkitBoxOrient: "vertical", ...(titleOver ? { textDecoration: "underline wavy #d32f2f" } : {}) }}
             >
               {displayTitle}
             </Typography>
             <Typography
-              sx={{
-                color: theme.palette.mode === "dark" ? "#bdc1c6" : "#474747",
-                fontSize: 13.5,
-                lineHeight: 1.58,
-                mt: 0.5,
-                wordBreak: "break-word",
-                display: "-webkit-box",
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                ...(descOver ? { textDecoration: "underline wavy #ed6c02" } : {}),
-              }}
+              className="text-[13.5px] leading-[1.58] mt-1 break-words line-clamp-2 overflow-hidden" style={{ color: mode === "dark" ? "#bdc1c6" : "#474747", display: "-webkit-box", WebkitBoxOrient: "vertical", ...(descOver ? { textDecoration: "underline wavy #ed6c02" } : {}) }}
             >
               {displayDesc}
             </Typography>
           </Box>
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: "block" }}>
+          <Typography variant="caption" color="text.secondary" className="mt-1 block">
             Title truncates ~60 chars / 580px, description ~160 chars.
           </Typography>
         </Box>
 
         {/* OG preview mock */}
-        <Box sx={{ flex: 1, minWidth: 0 }}>
+        <Box className="flex-1 min-w-[0px]">
           <Typography
             variant="caption"
-            sx={{ fontWeight: 700, letterSpacing: 0.5, color: "text.secondary", mb: 1, display: "block" }}
+            className="font-bold tracking-[0.5px] text-base-content/70 mb-2 block"
           >
             SOCIAL / OG — 1200×630
           </Typography>
           <Box
-            sx={{
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 2,
-              overflow: "hidden",
-              bgcolor: "background.paper",
-              maxWidth: 520,
-            }}
+            className="border border-base-300 rounded-[16px] overflow-hidden bg-base-100 max-w-[520px]"
           >
             <Box
-              sx={{
-                aspectRatio: "1.91 / 1",
-                bgcolor: "grey.100",
-                borderBottom: "1px solid",
-                borderColor: "divider",
-                overflow: "hidden",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
+              className="aspect-[1.91_/_1] border-b border-base-300 overflow-hidden flex items-center justify-center" style={{ backgroundColor: "var(--color-base-200)" }}
             >
               {displayImage ? (
                 <Box
@@ -385,62 +313,40 @@ export default function MetaTagGeneratorTool() {
                   src={displayImage}
                   alt="OG preview"
                   onError={() => setImgError(true)}
-                  sx={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  className="w-full h-full object-cover block"
                 />
               ) : (
-                <Stack sx={{ alignItems: "center", p: 2, color: "text.secondary" }}>
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                <Stack className="items-center p-4 text-base-content/70">
+                  <Typography variant="body2" className="font-semibold">
                     1200 × 630
                   </Typography>
                   <Typography variant="caption">No image — add an image URL</Typography>
                 </Stack>
               )}
             </Box>
-            <Box sx={{ bgcolor: "grey.50", p: 1.5 }}>
+            <Box className="p-3" style={{ backgroundColor: "var(--color-base-200)" }}>
               <Typography
                 variant="caption"
-                sx={{
-                  color: "text.secondary",
-                  textTransform: "uppercase",
-                  letterSpacing: 0.4,
-                  lineHeight: 1.2,
-                  display: "block",
-                }}
+                className="text-base-content/70 uppercase tracking-[0.4px] leading-[1.2] block"
               >
                 {domain}
               </Typography>
               <Typography
                 variant="subtitle2"
-                sx={{
-                  fontWeight: 700,
-                  lineHeight: 1.25,
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                  wordBreak: "break-word",
-                }}
+                className="font-bold leading-[1.25] line-clamp-2 overflow-hidden break-words" style={{ display: "-webkit-box", WebkitBoxOrient: "vertical" }}
               >
                 {displayTitle}
               </Typography>
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{
-                  fontSize: 13,
-                  lineHeight: 1.4,
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                  wordBreak: "break-word",
-                }}
+                className="text-[13px] leading-[1.4] line-clamp-2 overflow-hidden break-words" style={{ display: "-webkit-box", WebkitBoxOrient: "vertical" }}
               >
                 {displayDesc}
               </Typography>
             </Box>
           </Box>
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: "block" }}>
+          <Typography variant="caption" color="text.secondary" className="mt-1 block">
             Used by Facebook, LinkedIn and X (summary_large_image).
           </Typography>
         </Box>
@@ -449,9 +355,9 @@ export default function MetaTagGeneratorTool() {
       <Box>
         <Stack
           direction="row"
-          sx={{ alignItems: "center", justifyContent: "space-between", mb: 1, flexWrap: "wrap", gap: 1 }}
+          className="items-center justify-between mb-2 flex-wrap gap-2"
         >
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Typography variant="subtitle2" className="font-bold">
             Generated meta tags
           </Typography>
           <Typography variant="caption" color="text.secondary">
@@ -466,16 +372,16 @@ export default function MetaTagGeneratorTool() {
           slotProps={{
             input: { readOnly: true, "aria-label": "Generated meta tags", spellCheck: false, autoComplete: "off" },
           }}
-          sx={{ "& textarea": { fontFamily: "monospace", fontSize: 12, lineHeight: 1.6 } }}
+          className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[12px] [&_textarea]:leading-[1.6]"
         />
         {copied && (
-          <Alert severity="success" sx={{ mt: 1 }}>
+          <Alert severity="success" className="mt-2">
             Copied to clipboard!
           </Alert>
         )}
       </Box>
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button variant="contained" startIcon={<ContentCopyIcon />} onClick={handleCopy}>
           {copied ? "Copied!" : "Copy meta tags"}
         </Button>

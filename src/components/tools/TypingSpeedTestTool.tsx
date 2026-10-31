@@ -1,14 +1,7 @@
-"use client";
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, TextField, Typography, Stack, Link } from "@/components/ds";
+
 
 const DURATION_SEC = 60;
 
@@ -123,25 +116,20 @@ export default function TypingSpeedTestTool() {
 
   return (
     <ToolPaper>
-      <Stack spacing={2} sx={{ alignItems: "center" }}>
+      <Stack spacing={2} className="items-center">
         <Typography
           variant="h2"
-          sx={{ fontFamily: "monospace", fontWeight: 800, letterSpacing: 1 }}
+          className="font-extrabold tracking-[1px]" style={{ fontFamily: "monospace" }}
           aria-live="polite"
         >
           {timeLeft}s
         </Typography>
-        <Box sx={{ width: "100%", height: 8, borderRadius: 4, bgcolor: "divider", overflow: "hidden" }}>
+        <Box className="w-full h-[8px] rounded-[32px] bg-base-300 overflow-hidden">
           <Box
-            sx={{
-              width: `${(elapsedSec / DURATION_SEC) * 100}%`,
-              height: "100%",
-              bgcolor: "primary.main",
-              transition: "width 0.5s linear",
-            }}
+            className="h-full bg-primary" style={{ width: `${(elapsedSec / DURATION_SEC) * 100}%`, transition: "width 0.5s linear" }}
           />
         </Box>
-        <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap", justifyContent: "center" }}>
+        <Stack direction="row" spacing={2} className="flex-wrap justify-center">
           <Typography variant="body2" color="text.secondary">
             WPM: <strong>{wpm}</strong>
           </Typography>
@@ -154,17 +142,7 @@ export default function TypingSpeedTestTool() {
         </Stack>
 
         <Box
-          sx={{
-            width: "100%",
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            bgcolor: "background.default",
-            fontFamily: "monospace",
-            fontSize: "1rem",
-            lineHeight: 1.8,
-          }}
+          className="w-full p-4 rounded-[16px] border border-base-300 bg-base-100 text-[1rem] leading-[1.8]" style={{ fontFamily: "monospace" }}
           aria-label="Text sample to type"
         >
           {sample.split("").map((ch, i) => {
@@ -184,12 +162,7 @@ export default function TypingSpeedTestTool() {
               <Box
                 key={i}
                 component="span"
-                sx={{
-                  color,
-                  bgcolor: bg,
-                  borderRadius: 0.5,
-                  px: bg ? 0.25 : 0,
-                }}
+                className="rounded-[4px]" style={{ color: color, backgroundColor: bg, paddingLeft: "calc((bg ? 0.25 : 0) * 8px)", paddingRight: "calc((bg ? 0.25 : 0) * 8px)" }}
               >
                 {ch}
               </Box>
@@ -228,16 +201,16 @@ export default function TypingSpeedTestTool() {
         </Stack>
 
         {finished && (
-          <Typography variant="h6" color="success.main" sx={{ fontWeight: 800 }} aria-live="polite">
+          <Typography variant="h6" color="success.main" className="font-extrabold" aria-live="polite">
             Finished! {wpm} WPM · {accuracy}% accuracy
           </Typography>
         )}
 
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", pt: 1 }}>
+        <Typography variant="caption" color="text.secondary" className="block pt-2">
           {finished
             ? "Looking to increase your words per minute? Read our "
             : "Benchmark your score: Learn standard WPM metrics and touch typing drills in our "}
-          <Link component={NextLink} href="/blog/word-counter-guide/typing-speed-test-practice-tips" underline="hover" color="primary">
+          <Link href="/blog/word-counter-guide/typing-speed-test-practice-tips" underline="hover" color="primary">
             typing speed guide & practice tips
           </Link>.
         </Typography>

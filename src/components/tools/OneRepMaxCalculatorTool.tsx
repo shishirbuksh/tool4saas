@@ -1,13 +1,6 @@
-"use client";
 
-import { useState, useMemo } from "react";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import Alert from "@mui/material/Alert";
+import { useState, useMemo } from "react";import { Box, Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Alert } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
 import { fmt1 } from "@/lib/format";
 
@@ -55,7 +48,7 @@ export default function OneRepMaxCalculatorTool() {
           onChange={(e) => setReps(e.target.value)}
           slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
         />
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box className="flex items-center">
           <ToggleButtonGroup
             size="small"
             value={unit}
@@ -70,18 +63,12 @@ export default function OneRepMaxCalculatorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Epley estimated 1RM
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {epley !== null ? `${fmt1(epley)} ${unit}` : "—"}
         </Typography>
         <Typography variant="caption" color="text.secondary">
@@ -90,18 +77,12 @@ export default function OneRepMaxCalculatorTool() {
       </Box>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-base-300 text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Brzycki estimated 1RM
         </Typography>
-        <Typography variant="h4" sx={{ fontWeight: 800 }}>
+        <Typography variant="h4" className="font-extrabold">
           {brzycki !== null ? `${fmt1(brzycki)} ${unit}` : "—"}
         </Typography>
         <Typography variant="caption" color="text.secondary">
@@ -113,9 +94,9 @@ export default function OneRepMaxCalculatorTool() {
         {ZONES.map((pct) => {
           const value = average !== null ? (average * pct) / 100 : null;
           return (
-            <Box key={pct} sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Box key={pct} className="flex justify-between">
               <Typography color="text.secondary">{pct}% of 1RM (avg)</Typography>
-              <Typography sx={{ fontWeight: 700 }}>
+              <Typography className="font-bold">
                 {value !== null ? `${fmt1(value)} ${unit}` : "—"}
               </Typography>
             </Box>

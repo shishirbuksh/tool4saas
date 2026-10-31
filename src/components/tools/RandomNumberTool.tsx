@@ -1,16 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
-import Alert from "@mui/material/Alert";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControlLabel, Switch, Alert } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 function randInt(min: number, max: number) {
@@ -70,11 +62,11 @@ export default function RandomNumberTool() {
         <Button variant="contained" onClick={generate}>Generate</Button>
         {result.length > 0 && (
           <Box>
-            <Stack direction="row"   sx={{ alignItems: "center", justifyContent: "space-between",  mb: 0.5 }}>
-              <Typography  variant="subtitle2"  sx={{ fontWeight: 700 }}>Results</Typography>
+            <Stack direction="row"   className="items-center justify-between mb-1">
+              <Typography  variant="subtitle2"  className="font-bold">Results</Typography>
               <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => void import("@/lib/clipboard").then(m=>m.copyToClipboard(result.join(", ")))}>Copy</Button>
             </Stack>
-            <Box sx={{ p: 2, border: "1px solid", borderColor: "divider", borderRadius: 2, fontFamily: "monospace", fontSize: 14, lineHeight: 1.8 }}>
+            <Box className="p-4 border border-base-300 rounded-[16px] text-[14px] leading-[1.8]" style={{ fontFamily: "monospace" }}>
               {result.join(", ")}
             </Box>
           </Box>

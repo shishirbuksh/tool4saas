@@ -1,14 +1,7 @@
-"use client";
 
 import { useState, useRef } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Link, Stack, Alert } from "@/components/ds";
+
 import { MAX_PDF_SIZE, MAX_PDF_FILES, MAX_PDF_PAGES, validatePdfBatch, validatePdfMagicBytes } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 
@@ -131,13 +124,13 @@ export default function PdfMergeTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         PDF Merge
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Combine multiple PDFs into one document. Files are processed locally in your browser and never uploaded.
       </Typography>
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center", flexWrap: "wrap" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center flex-wrap">
         <Button variant="outlined" component="label">
           Add PDFs
           <input ref={inputRef} type="file" accept="application/pdf,.pdf" multiple hidden onChange={onFiles} />
@@ -154,8 +147,8 @@ export default function PdfMergeTool() {
       {files.length > 0 && (
         <Stack spacing={1}>
           {files.map((f, i) => (
-            <Box key={`${f.name}-${i}`} sx={{ display: "flex", justifyContent: "space-between", p: 1.5, border: "1px solid", borderColor: "divider", borderRadius: 2 }}>
-              <Typography variant="body2" sx={{ fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis" }}>
+            <Box key={`${f.name}-${i}`} className="flex justify-between p-3 border border-base-300 rounded-[16px]">
+              <Typography variant="body2" className="font-semibold overflow-hidden text-ellipsis">
                 {i + 1}. {f.name} ({fmtBytes(f.size)})
               </Typography>
               <Button size="small" color="error" onClick={() => remove(i)}>
@@ -175,13 +168,13 @@ export default function PdfMergeTool() {
       <Alert severity="info">
         Files are merged locally in your browser via <code>pdf-lib</code> without uploading. Max {MAX_FILES} files, {MAX_PDF_PAGES} pages total.
       </Alert>
-      <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+      <Typography variant="caption" color="text.secondary" className="block mt-2">
         Tips: Need to control page sequence? Check our{" "}
-        <Link component={NextLink} href="/blog/pdf-merge-guide/merge-multiple-pdfs-order" underline="hover" color="primary">
+        <Link href="/blog/pdf-merge-guide/merge-multiple-pdfs-order" underline="hover" color="primary">
           PDF reading order guide
         </Link>{" "}
         or learn how to{" "}
-        <Link component={NextLink} href="/blog/pdf-merge-guide/merge-pdfs-on-iphone" underline="hover" color="primary">
+        <Link href="/blog/pdf-merge-guide/merge-pdfs-on-iphone" underline="hover" color="primary">
           combine PDFs on iPhone without apps
         </Link>.
       </Typography>

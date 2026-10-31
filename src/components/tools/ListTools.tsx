@@ -1,12 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 function splitLines(s: string) {
   return s.split(/\r?\n/);
@@ -46,7 +42,7 @@ export default function ListTools() {
           onChange={(e) => setInput(e.target.value)}
           placeholder={"apple\nbanana\ncherry"}
         />
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+        <Box className="flex flex-wrap gap-2">
           <Button variant="contained" onClick={sortAsc} disabled={!input}>Sort A→Z</Button>
           <Button variant="contained" onClick={sortDesc} disabled={!input}>Sort Z→A</Button>
           <Button variant="outlined" onClick={reverse} disabled={!input}>Reverse</Button>
@@ -57,14 +53,14 @@ export default function ListTools() {
         </Box>
         {output && (
           <Box>
-            <Typography  variant="subtitle2"  gutterBottom sx={{ fontWeight: 700 }}>{outCount} lines</Typography>
+            <Typography  variant="subtitle2"  gutterBottom className="font-bold">{outCount} lines</Typography>
             <TextField
               value={output}
               multiline
               minRows={6}
               fullWidth
               slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false } }}
-              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+              className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
           </Box>
         )}

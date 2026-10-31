@@ -1,24 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Link from "@mui/material/Link";
-import NextLink from "@/lib/astro/navigation";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Button from "@mui/material/Button";
-import Table from "@mui/material/Table";
-import TableHead from "@mui/material/TableHead";
-import TableBody from "@mui/material/TableBody";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Link, Alert, Select, MenuItem, FormControl, InputLabel, Button, Table, TableHead, TableBody, TableRow, TableCell, TableContainer } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import { calcEmi, amortizationSchedule } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
@@ -80,7 +62,7 @@ export default function EmiCalculatorTool() {
         input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
         htmlInput: { min: 0, step: "any" },
       }}
-      sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+      
     />
   );
 
@@ -92,8 +74,8 @@ export default function EmiCalculatorTool() {
           label="Currency"
           value={currency}
           onChange={(e) => setCurrency(e.target.value as typeof currency)}
-          MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-          sx={{ minHeight: 44 }}
+         
+          className="min-h-[44px]"
         >
           {CURRENCIES.map((c) => (
             <MenuItem key={c} value={c}>
@@ -108,38 +90,32 @@ export default function EmiCalculatorTool() {
         {field("Term (years)", years, setYears)}
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Monthly payment (EMI)
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null && isFinite(result.emi) ? money(result.emi, currency) : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Total paid</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.total) ? money(result.total, currency) : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Total interest</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.interest) ? money(result.interest, currency) : "—"}
           </Typography>
         </Box>
         {result !== null && isFinite(result.interest) && (
           <Typography variant="caption" color="text.secondary">
             Tip: Want to cut total interest? Learn how extra payments reduce your loan balance in our{" "}
-            <Link component={NextLink} href="/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment" underline="hover" color="primary">
+            <Link href="/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment" underline="hover" color="primary">
               mortgage overpayment guide
             </Link>.
           </Typography>
@@ -147,7 +123,7 @@ export default function EmiCalculatorTool() {
       </Stack>
       {schedule.length > 0 && (
         <Stack spacing={1.5}>
-          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Box className="flex justify-between items-center">
             <Typography variant="h6">Amortization (first 12 months)</Typography>
             <Button variant="outlined" onClick={handleExportCsv}>
               Export CSV

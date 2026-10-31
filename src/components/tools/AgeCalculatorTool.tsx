@@ -1,18 +1,14 @@
-"use client";
 
 import { useMemo, useState, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Grid } from "@/components/ds";
+
 import { MS_PER_DAY } from "@/lib/format";
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 function Stat({ label, value }: { label: string; value: string | number }) {
   return (
-    <Box sx={{ p: 2, bgcolor: "background.paper", border: "1px solid", borderColor: "divider", borderRadius: 2, textAlign: "center" }}>
-      <Typography  variant="h4"  color="primary.main" sx={{ fontWeight: 800 }}>{value}</Typography>
+    <Box className="p-4 bg-base-100 border border-base-300 rounded-[16px] text-center">
+      <Typography  variant="h4"  color="primary.main" className="font-extrabold">{value}</Typography>
       <Typography variant="caption" color="text.secondary">{label}</Typography>
     </Box>
   );
@@ -67,9 +63,9 @@ export default function AgeCalculatorTool() {
               <Grid size={{ xs: 6 }}><Stat label="Total days lived" value={res.totalDays.toLocaleString()} /></Grid>
               <Grid size={{ xs: 6 }}><Stat label="Born on" value={res.weekday} /></Grid>
             </Grid>
-            <Box sx={{ p: 2, bgcolor: "primary.main", color: "primary.contrastText", borderRadius: 2 }}>
+            <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
               <Typography variant="caption">Next birthday</Typography>
-              <Typography  variant="h5"  sx={{ fontWeight: 800 }}>
+              <Typography  variant="h5"  className="font-extrabold">
                 {res.next.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })} ({res.daysUntil} days away)
               </Typography>
             </Box>

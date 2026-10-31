@@ -1,13 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import Alert from "@mui/material/Alert";
+import { useMemo, useState } from "react";import { Box, Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Alert } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
 import { fmt1 } from "@/lib/format";
 
@@ -68,7 +61,7 @@ export default function BodyFatCalculatorTool() {
 
   return (
     <ToolPaper>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box className="flex items-center">
         <ToggleButtonGroup
           size="small"
           value={sex}
@@ -122,22 +115,16 @@ export default function BodyFatCalculatorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Body Fat Percentage (US Navy)
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: category ? category.color : "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold" style={{ color: category ? category.color : "primary.main" }}>
           {bodyFat !== null ? `${fmt1(bodyFat)}%` : "—"}
         </Typography>
         {category !== null && (
-          <Typography variant="subtitle1" sx={{ color: category.color, fontWeight: 700 }}>
+          <Typography variant="subtitle1" className="font-bold" style={{ color: category.color }}>
             {category.label}
           </Typography>
         )}

@@ -1,15 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Chip from "@mui/material/Chip";
+import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel, Chip } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import { calcIndiaCG } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
@@ -60,8 +51,8 @@ export default function CapitalGainsTool() {
           label="Asset type"
           value={asset}
           onChange={(e) => setAsset(e.target.value as Asset)}
-          MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-          sx={{ minHeight: 44 }}
+         
+          className="min-h-[44px]"
         >
           <MenuItem value="equity">Listed equity</MenuItem>
           <MenuItem value="property">Property</MenuItem>
@@ -83,8 +74,8 @@ export default function CapitalGainsTool() {
             label="Slab rate (STCG)"
             value={slabRate}
             onChange={(e) => setSlabRate(e.target.value)}
-            MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-            sx={{ minHeight: 44 }}
+           
+            className="min-h-[44px]"
           >
             {SLAB_OPTIONS.map((o) => (
               <MenuItem key={o} value={String(o)}>
@@ -101,7 +92,7 @@ export default function CapitalGainsTool() {
             helperText="₹1.25L LTCG exemption / year"
           />
         ) : (
-          <Box sx={{ flex: 1, display: "flex", alignItems: "center" }}>
+          <Box className="flex-1 flex items-center">
             <Typography variant="caption" color="text.secondary">
               Slab applies only to property / gold STCG. LTCG is flat 12.5% + 4% cess.
             </Typography>
@@ -115,21 +106,15 @@ export default function CapitalGainsTool() {
         </Typography>
       )}
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Estimated capital gains tax
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null && isFinite(result.totalTax) ? money(result.totalTax, "INR") : "—"}
         </Typography>
-        <Stack direction="row" spacing={1} sx={{ mt: 1, justifyContent: "center" }}>
+        <Stack direction="row" spacing={1} className="mt-2 justify-center">
           {result !== null ? (
             <>
               <Chip
@@ -145,41 +130,41 @@ export default function CapitalGainsTool() {
         </Stack>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Capital gain</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.gain) ? money(result.gain, "INR") : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Taxable gain</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.taxableGain) ? money(result.taxableGain, "INR") : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">
             Base tax{result !== null ? ` (${result.ratePct}%)` : ""}
           </Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.baseTax) ? money(result.baseTax, "INR") : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Cess (4%)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.cess) ? money(result.cess, "INR") : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Net proceeds</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null && isFinite(result.netProceeds) ? money(result.netProceeds, "INR") : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Effective rate on gain</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {effectivePct !== null && isFinite(effectivePct) ? `${effectivePct.toFixed(2)}%` : "—"}
           </Typography>
         </Box>

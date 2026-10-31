@@ -1,18 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
-import LinearProgress from "@mui/material/LinearProgress";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
-import WarningIcon from "@mui/icons-material/Warning";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Alert, Button, LinearProgress } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, CheckCircle as CheckCircleIcon, Cancel as CancelIcon, Warning as WarningIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 type Status = "pass" | "warn" | "fail";
@@ -276,22 +266,16 @@ export default function SeoAnalyzerTool() {
         placeholder="## Heading&#10;&#10;Write 300+ words…"
         slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
         helperText={`${wordCount} words — use ## subheadings and ![alt] images.`}
-        sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+        className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
       />
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           SEO Score
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: grade.color }}>
+        <Typography variant="h3" className="font-extrabold" style={{ color: grade.color }}>
           {score} / 100
         </Typography>
         <Typography variant="body2" color="text.secondary" gutterBottom>
@@ -301,7 +285,7 @@ export default function SeoAnalyzerTool() {
           variant="determinate"
           value={score}
           aria-label={`SEO score ${score} out of 100`}
-          sx={{ height: 8, borderRadius: 999 }}
+          className="h-[8px] rounded-[7992px]"
         />
       </Box>
 
@@ -309,25 +293,17 @@ export default function SeoAnalyzerTool() {
         {checks.map((c) => (
           <Box
             key={c.label}
-            sx={{
-              display: "flex",
-              alignItems: "flex-start",
-              gap: 1.5,
-              p: 1.5,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "divider",
-            }}
+            className="flex items-start gap-3 p-3 rounded-[16px] border border-base-300"
           >
             {c.status === "pass" ? (
-              <CheckCircleIcon color="success" fontSize="small" sx={{ mt: 0.25 }} />
+              <CheckCircleIcon color="success" fontSize="small" className="mt-0.5" />
             ) : c.status === "warn" ? (
-              <WarningIcon color="warning" fontSize="small" sx={{ mt: 0.25 }} />
+              <WarningIcon color="warning" fontSize="small" className="mt-0.5" />
             ) : (
-              <CancelIcon color="error" fontSize="small" sx={{ mt: 0.25 }} />
+              <CancelIcon color="error" fontSize="small" className="mt-0.5" />
             )}
-            <Box sx={{ flex: 1 }}>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+            <Box className="flex-1">
+              <Typography variant="subtitle2" className="font-bold">
                 {c.label}{" "}
                 <Typography component="span" variant="caption" color="text.secondary">
                   {c.points}/{c.max}

@@ -1,8 +1,5 @@
-import Link from "@/lib/astro/navigation";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Breadcrumbs } from "@/components/ds";
+
 import ToolSeo from "@/components/ToolSeo";
 import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import RelatedTools from "@/components/RelatedTools";
@@ -28,32 +25,32 @@ export default function ToolPageShell({ view, children }: { view: ToolView; chil
   // import YMYLDisclaimer directly.
   const ymylType = view.ymylType;
   return (
-    <Container maxWidth="xl" sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 8, md: 12 }, px: { xs: 2, md: 4 }, overflowX: "clip" }}>
-      <Box sx={{ mb: { xs: 6, md: 8 }, maxWidth: 800, mx: "auto", textAlign: "center" }}>
-        <Breadcrumbs sx={{ mb: 4, typography: 'body2', justifyContent: "center", display: "flex" }} aria-label="breadcrumb">
+    <Container maxWidth="xl" className="pt-12 md:pt-20 pb-16 md:pb-24 px-4 md:px-8 overflow-x-clip">
+      <Box className="mb-12 md:mb-16 max-w-[800px] mx-auto text-center">
+        <Breadcrumbs className="mb-8 justify-center flex" aria-label="breadcrumb">
           <Link href={locale === "en" ? "/" : `/${locale}`} style={{textDecoration: "none"}}>
-            <Box component="span" sx={{ color: "text.secondary", textDecoration: "none", '&:hover': { color: 'primary.main' } }}>
+            <Box component="span" className="text-base-content/70 no-underline hover:text-primary">
               {locale === "es" ? "Inicio" : locale === "fr" ? "Accueil" : "Home"}
             </Box>
           </Link>
           {cat && (
             <Link href={`/category/${cat.id}`} style={{textDecoration: "none"}}>
-              <Box component="span" sx={{ color: "text.secondary", textDecoration: "none", '&:hover': { color: 'primary.main' } }}>
+              <Box component="span" className="text-base-content/70 no-underline hover:text-primary">
                 {cat.label}
               </Box>
             </Link>
           )}
-          <Typography color="text.primary" sx={{ fontWeight: 600 }}>{tool.title}</Typography>
+          <Typography color="text.primary" className="font-semibold">{tool.title}</Typography>
         </Breadcrumbs>
         
-        <Typography variant="h1" sx={{ fontSize: { xs: "2rem", sm: "2.5rem", md: "3.5rem" }, fontWeight: 800, mb: 3, letterSpacing: "-0.03em", textWrap: "balance" }}>
+        <Typography variant="h1" className="text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] font-extrabold mb-6 tracking-[-0.03em] text-balance">
           {tool.title}
         </Typography>
-        <Typography color="text.secondary" sx={{ fontSize: { xs: "1.125rem", md: "1.25rem" }, lineHeight: 1.6, maxWidth: 640, mx: "auto", textWrap: "pretty" }}>
+        <Typography color="text.secondary" className="text-[1.125rem] md:text-[1.25rem] leading-[1.6] max-w-[640px] mx-auto text-pretty">
           {tool.description}
         </Typography>
         {cat && (
-          <Typography variant="body2" color="text.secondary" sx={{ mt: 2, lineHeight: 1.7 }}>
+          <Typography variant="body2" color="text.secondary" className="mt-4 leading-[1.7]">
             {locale === "es" ? (
               <>
                 Parte de nuestra colección <Link href={`/category/${cat.id}`}>{cat.label}</Link> —{" "}
@@ -109,7 +106,7 @@ export default function ToolPageShell({ view, children }: { view: ToolView; chil
           </Typography>
         )}
         {view.localeLinks.length > 0 && (
-          <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
+          <Typography variant="body2" color="text.secondary" className="mt-3">
             {view.switcherLead}
             {view.localeLinks.map((l, i) => (
                 <span key={l.locale}>
@@ -122,19 +119,19 @@ export default function ToolPageShell({ view, children }: { view: ToolView; chil
           </Typography>
         )}
       </Box>
-      <Box sx={{ maxWidth: 860, mx: "auto" }}>
-        <Box sx={{ width: "100%", minWidth: 0, overflowX: "auto" }}>
+      <Box className="max-w-[860px] mx-auto">
+        <Box className="w-full min-w-[0px] overflow-x-auto">
           {ymylType && (
-            <Box sx={{ mb: 2 }}>
+            <Box className="mb-4">
               <YMYLDisclaimer type={ymylType} locale={locale} />
             </Box>
           )}
           {/* TL;DR answer box: 40-60w citable definition above the tool UI
               for answer engines + voice (see speakable .tldr-passage). */}
           <Box
-            sx={{ mb: 3, p: 2.5, borderRadius: "12px", border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}
+            className="mb-6 p-5 rounded-[12px] border border-base-300 bg-base-100"
           >
-            <Typography color="text.primary" className="tldr-passage speakable-answer-first" sx={{ lineHeight: 1.7 }}>
+            <Typography color="text.primary" className="tldr-passage speakable-answer-first leading-[1.7]" >
               {locale === "es" ? (
                 <>
                   <strong>Respuesta rápida:</strong> {tool.title} — {tool.short} Gratis, sin registro, funciona en tu navegador.
@@ -162,29 +159,29 @@ export default function ToolPageShell({ view, children }: { view: ToolView; chil
       <Box
         component="section"
         aria-label={locale === "es" ? "Sobre el autor" : locale === "fr" ? "À propos de l'auteur" : "About the author"}
-        sx={{ mt: 4, p: 3, border: "1px solid", borderColor: "divider", borderRadius: "12px", bgcolor: "background.paper" }}
+        className="mt-8 p-6 border border-base-300 rounded-[12px] bg-base-100"
       >
-        <Typography variant="h2" sx={{ fontSize: "1.125rem", mb: 1 }}>
+        <Typography variant="h2" className="text-[1.125rem] mb-2">
           {locale === "es" ? "Sobre el autor" : locale === "fr" ? "À propos de l'auteur" : "About the author"}
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.8 }}>
+        <Typography variant="body2" color="text.secondary" className="leading-[1.8]">
           {locale === "es" ? (
             <>
-              Revisado por <Box component="span" translate="no" sx={{ display: "inline" }}>{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
+              Revisado por <Box component="span" translate="no" className="inline">{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
               Última actualización:{" "}
               <time dateTime={dateModifiedIso}>{dateModifiedDisplay}</time>.{" "}
               Ver <Link href="/author">autores</Link>, <Link href="/methodology">metodología</Link> o <Link href="/contact">contacto</Link>.
             </>
           ) : locale === "fr" ? (
             <>
-              Relu par <Box component="span" translate="no" sx={{ display: "inline" }}>{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
+              Relu par <Box component="span" translate="no" className="inline">{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
               Dernière mise à jour :{" "}
               <time dateTime={dateModifiedIso}>{dateModifiedDisplay}</time>.{" "}
               Voir <Link href="/author">auteurs</Link>, <Link href="/methodology">méthodologie</Link> ou <Link href="/contact">contact</Link>.
             </>
           ) : (
             <>
-              Reviewed by the <Box component="span" translate="no" sx={{ display: "inline" }}>{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
+              Reviewed by the <Box component="span" translate="no" className="inline">{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
               Last updated:{" "}
               <time dateTime={dateModifiedIso}>{dateModifiedDisplay}</time>.{" "}
               {/* Both /author and /methodology exist (glob check) — prefer /author first */}

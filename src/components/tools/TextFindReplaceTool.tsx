@@ -1,16 +1,8 @@
-"use client";
 
 import { useEffect, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Alert from "@mui/material/Alert";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControlLabel, Checkbox, Alert } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { runRegexInWorker, terminateRegexWorker } from "@/lib/regexWorker";
 
 // Exported pure function for testing and reusability – O(n) via parts array + join
@@ -191,7 +183,7 @@ export default function TextFindReplaceTool() {
             slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
           />
         </Stack>
-        <Stack direction="row" spacing={3} sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={3} className="flex-wrap">
           <FormControlLabel
             control={<Checkbox checked={useRegex} onChange={(e) => setUseRegex(e.target.checked)} />}
             label="Use regular expression"
@@ -216,7 +208,7 @@ export default function TextFindReplaceTool() {
           </Button>
         </Stack>
         <Box>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
+          <Typography variant="subtitle2" className="font-bold mb-1">
             Result
           </Typography>
           <TextField

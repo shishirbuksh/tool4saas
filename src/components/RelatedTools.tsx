@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
+import { Box, Typography, Link } from "@/components/ds";
+
 import type { ToolLink } from "@/lib/tool-view";
 
 // Prop-driven related-tool chips. The candidate list is computed on the server
@@ -16,11 +15,11 @@ export default function RelatedTools({
   if (related.length === 0) return null;
 
   return (
-    <Box component="section" aria-label="Related tools" sx={{ mt: 6 }}>
-      <Typography variant="h2" sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, mb: 2 }}>
+    <Box component="section" aria-label="Related tools" className="mt-12">
+      <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
         {heading}
       </Typography>
-      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+      <Box className="flex flex-wrap gap-2">
         {related.map((t) => (
           <Link
             key={t.slug}
@@ -28,22 +27,7 @@ export default function RelatedTools({
             underline="none"
             title={`${t.title} – ${t.short} (free, no signup)`}
             aria-label={`Open ${t.title} tool – ${t.short}, free`}
-            sx={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              px: 2,
-              py: 0.75,
-              minHeight: 44,
-              borderRadius: "999px",
-              border: "1px solid",
-              borderColor: "divider",
-              color: "text.primary",
-              typography: "body2",
-              fontWeight: 600,
-              textDecoration: "none",
-              "&:hover": { borderColor: "primary.main", color: "primary.main" },
-            }}
+            className="inline-flex items-center justify-center px-4 py-1.5 min-h-[44px] rounded-full border border-base-300 text-base-content font-semibold no-underline hover:border-primary hover:text-primary"
           >
             {t.title}
           </Link>

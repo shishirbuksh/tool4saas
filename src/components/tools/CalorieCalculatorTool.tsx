@@ -1,17 +1,6 @@
-"use client";
 
-import { useState, useMemo } from "react";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Alert from "@mui/material/Alert";
+import { useState, useMemo } from "react";import { Box, Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
 import { fmt0 } from "@/lib/format";
 
@@ -64,7 +53,7 @@ export default function CalorieCalculatorTool() {
           onChange={(e) => setAge(e.target.value)}
           slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
         />
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box className="flex items-center">
           <ToggleButtonGroup
             size="small"
             value={sex}
@@ -109,18 +98,12 @@ export default function CalorieCalculatorTool() {
       </FormControl>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Basal Metabolic Rate (BMR)
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {bmr !== null ? `${fmt(bmr)} kcal/day` : "—"}
         </Typography>
         <Typography variant="caption" color="text.secondary">
@@ -129,18 +112,12 @@ export default function CalorieCalculatorTool() {
       </Box>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-base-300 text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Total Daily Energy Expenditure (TDEE)
         </Typography>
-        <Typography variant="h4" sx={{ fontWeight: 800 }}>
+        <Typography variant="h4" className="font-extrabold">
           {tdee !== null ? `${fmt(tdee)} kcal/day` : "—"}
         </Typography>
         <Typography variant="caption" color="text.secondary">
@@ -149,21 +126,21 @@ export default function CalorieCalculatorTool() {
       </Box>
 
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Maintain weight</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{tdee !== null ? `${fmt(tdee)} kcal` : "—"}</Typography>
+          <Typography className="font-bold">{tdee !== null ? `${fmt(tdee)} kcal` : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Mild weight loss (−500 kcal)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{deficit !== null ? `${fmt(deficit)} kcal` : "—"}</Typography>
+          <Typography className="font-bold">{deficit !== null ? `${fmt(deficit)} kcal` : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Weight loss (−1000 kcal)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{aggressiveDeficit !== null ? `${fmt(aggressiveDeficit)} kcal` : "—"}</Typography>
+          <Typography className="font-bold">{aggressiveDeficit !== null ? `${fmt(aggressiveDeficit)} kcal` : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Mild weight gain (+500 kcal)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{surplus !== null ? `${fmt(surplus)} kcal` : "—"}</Typography>
+          <Typography className="font-bold">{surplus !== null ? `${fmt(surplus)} kcal` : "—"}</Typography>
         </Box>
       </Stack>
 

@@ -1,9 +1,6 @@
-"use client";
 
-import { useState } from "react";
-import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
+import { useState } from "react";import { Box, Tab, Tabs } from "@/components/ds";
+
 import ColorConverterTool from "@/components/tools/ColorConverterTool";
 import CmykConverterTool from "@/components/tools/CmykConverterTool";
 import ColorPaletteTool from "@/components/tools/ColorPaletteTool";
@@ -17,7 +14,7 @@ export default function ColorStudioTool() {
 
   return (
     <>
-      <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 3 }}>
+      <Box className="border-b border-base-300 mb-6">
         <Tabs
           value={mode}
           onChange={(_event, next: number) => setMode(next)}
@@ -30,19 +27,19 @@ export default function ColorStudioTool() {
           ))}
         </Tabs>
       </Box>
-      <Box sx={{ display: mode === 0 ? "block" : "none" }}>
+      <Box style={{ display: mode === 0 ? "block" : "none" }}>
         <ColorConverterTool />
       </Box>
-      <Box sx={{ display: mode === 1 ? "block" : "none" }}>
+      <Box style={{ display: mode === 1 ? "block" : "none" }}>
         <CmykConverterTool />
       </Box>
-      <Box sx={{ display: mode === 2 ? "block" : "none" }}>
+      <Box style={{ display: mode === 2 ? "block" : "none" }}>
         <ColorPaletteTool />
       </Box>
-      <Box sx={{ display: mode === 3 ? "block" : "none" }}>
+      <Box style={{ display: mode === 3 ? "block" : "none" }}>
         <ColorShadesTool />
       </Box>
-      <Box sx={{ display: mode === 4 ? "block" : "none" }}>
+      <Box style={{ display: mode === 4 ? "block" : "none" }}>
         <RandomHexColorTool />
       </Box>
     </>

@@ -1,11 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack } from "@/components/ds";
+
 
 export default function PercentageChangeTool() {
   const [old, setOld] = useState("");
@@ -40,18 +36,12 @@ export default function PercentageChangeTool() {
           />
         </Stack>
         <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "primary.main",
-            textAlign: "center",
-          }}
+          className="p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
             Change
           </Typography>
-          <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+          <Typography variant="h3" className="font-extrabold text-primary">
             {change !== null ? `${change.toFixed(2)}%` : "—"}
           </Typography>
         </Box>

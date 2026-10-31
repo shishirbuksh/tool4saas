@@ -1,17 +1,8 @@
-"use client";
 
 import { useEffect, useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import SwapVertIcon from "@mui/icons-material/SwapVert";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+
+import { SwapVert as SwapVertIcon } from "@/components/ds/icons";
 import { fmtNumber, money } from "@/lib/format";
 
 const CURRENCIES = [
@@ -158,7 +149,7 @@ export default function CurrencyConverterTool() {
         slotProps={{ input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" } }}
       />
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
         <FormControl fullWidth>
           <InputLabel>From</InputLabel>
           <Select label="From" value={from} onChange={(e) => setFrom(e.target.value)}>
@@ -169,7 +160,7 @@ export default function CurrencyConverterTool() {
             ))}
           </Select>
         </FormControl>
-        <Button onClick={swap} aria-label="Swap currencies" sx={{ minWidth: 0 }}>
+        <Button onClick={swap} aria-label="Swap currencies" className="min-w-[0px]">
           <SwapVertIcon />
         </Button>
         <FormControl fullWidth>
@@ -184,12 +175,12 @@ export default function CurrencyConverterTool() {
         </FormControl>
       </Stack>
 
-      <Box sx={{ p: 2, bgcolor: "primary.main", color: "primary.contrastText", borderRadius: 2 }}>
+      <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
         <Typography variant="caption">Result</Typography>
-        <Typography variant="h4" sx={{ fontWeight: 800 }}>
+        <Typography variant="h4" className="font-extrabold">
           {result || "—"}
         </Typography>
-        <Typography variant="caption" sx={{ opacity: 0.85 }}>
+        <Typography variant="caption" className="opacity-[0.85]">
           {unitRate}
         </Typography>
       </Box>

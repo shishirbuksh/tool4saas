@@ -1,11 +1,7 @@
-"use client";
 
 import { useState } from "react";
-import type { FormEvent } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import type { FormEvent } from "react";import { Box, TextField, Button, Typography } from "@/components/ds";
+
 import { siteConfig } from "@/lib/site";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -39,7 +35,7 @@ export function CopyEmailButton() {
   }
 
   return (
-    <Button variant="outlined" onClick={handleCopy} sx={{ minHeight: 44 }}>
+    <Button variant="outlined" onClick={handleCopy} className="min-h-[44px]">
       {copied ? "Copied!" : "Copy email"}
     </Button>
   );
@@ -92,8 +88,8 @@ export default function ContactForm() {
   }
 
   return (
-    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 4, display: "grid", gap: 2 }}>
-      <Typography variant="h2" sx={{ fontSize: "1.25rem", color: "text.primary" }}>
+    <Box component="form" onSubmit={handleSubmit} noValidate className="mt-8 grid gap-4">
+      <Typography variant="h2" className="text-[1.25rem] text-base-content">
         Send us a message
       </Typography>
       <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} required fullWidth slotProps={{ htmlInput: { minLength: 2 } }} autoComplete="name" />
@@ -105,7 +101,7 @@ export default function ContactForm() {
           {error}
         </Typography>
       ) : null}
-      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, alignItems: "center" }}>
+      <Box className="flex flex-wrap gap-3 items-center">
         <Button type="submit" variant="contained">
           Open email draft
         </Button>

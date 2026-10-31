@@ -1,15 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, Alert } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 export default function UtmBuilderTool() {
@@ -80,7 +73,7 @@ export default function UtmBuilderTool() {
         onChange={(e) => setUrl(e.target.value)}
         placeholder="https://example.com/page"
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ "& input": { fontFamily: "monospace", fontSize: 13 } }}
+        className="[&_input]:[font-family:monospace] [&_input]:text-[13px]"
         helperText="Must be an absolute URL including https://"
       />
 
@@ -134,7 +127,7 @@ export default function UtmBuilderTool() {
 
       {result ? (
         <Box>
-          <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 700 }}>
+          <Typography variant="subtitle2" gutterBottom className="font-bold">
             Preview — tagged URL
           </Typography>
           <TextField
@@ -145,14 +138,14 @@ export default function UtmBuilderTool() {
             slotProps={{
               input: { readOnly: true, "aria-label": "Generated UTM URL", spellCheck: false, autoComplete: "off" },
             }}
-            sx={{ "& textarea": { fontFamily: "monospace", fontSize: 12, wordBreak: "break-all" } }}
+            className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[12px] [&_textarea]:break-all"
           />
         </Box>
       ) : (
         !error && <Alert severity="info">Enter a base URL above to build your tagged UTM link.</Alert>
       )}
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button variant="contained" startIcon={<ContentCopyIcon />} onClick={handleCopy} disabled={!result}>
           Copy URL
         </Button>

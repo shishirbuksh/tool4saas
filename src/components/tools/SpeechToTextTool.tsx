@@ -1,22 +1,8 @@
-"use client";
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import Alert from "@mui/material/Alert";
-import MicIcon from "@mui/icons-material/Mic";
-import StopIcon from "@mui/icons-material/Stop";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
-import DeleteIcon from "@mui/icons-material/Delete";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem, Alert } from "@/components/ds";
+
+import { Mic as MicIcon, Stop as StopIcon, ContentCopy as ContentCopyIcon, Download as DownloadIcon, Delete as DeleteIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const LANGUAGES = [
@@ -190,7 +176,7 @@ export default function SpeechToTextTool() {
   return (
     <ToolPaper>
       <Stack spacing={2}>
-        <FormControl fullWidth sx={{ maxWidth: 320 }}>
+        <FormControl fullWidth className="max-w-[320px]">
           <InputLabel id="stt-language-label">Language</InputLabel>
           <Select
             labelId="stt-language-label"
@@ -249,13 +235,13 @@ export default function SpeechToTextTool() {
             placeholder="Press Start and speak — your words will appear here…"
             slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
           />
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: "block" }}>
+          <Typography variant="caption" color="text.secondary" className="mt-1 block">
             {transcript.trim() ? `${transcript.trim().split(/\s+/).length} words` : "Nothing captured yet"}
             {interim ? " — showing live interim results" : ""}
           </Typography>
         </Box>
 
-        <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
           <Button
             variant="contained"
             startIcon={<ContentCopyIcon />}

@@ -1,16 +1,7 @@
-"use client";
 
 import { useState, useRef, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, TextField, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+
 
 type Format = "CODE128" | "EAN13" | "UPC";
 
@@ -111,15 +102,15 @@ export default function BarcodeGeneratorTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         Barcode Generator
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Generate CODE128, EAN13 and UPC barcodes. Rendered to SVG and canvas via lazy-loaded JsBarcode.
       </Typography>
 
-      <Stack spacing={2} direction={{ xs: "column", md: "row" }} sx={{ alignItems: "flex-start" }}>
-        <Stack spacing={2} sx={{ flex: 1, width: "100%" }}>
+      <Stack spacing={2} direction={{ xs: "column", md: "row" }} className="items-start">
+        <Stack spacing={2} className="flex-1 w-full">
           <TextField
             label="Text to encode"
             value={text}
@@ -171,7 +162,7 @@ export default function BarcodeGeneratorTool() {
             />
           </Stack>
 
-          <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
+          <Stack direction="row" spacing={1} className="flex-wrap">
             <Button variant="contained" onClick={generate} disabled={!ready && !text.trim()}>
               Generate
             </Button>
@@ -196,32 +187,18 @@ export default function BarcodeGeneratorTool() {
         </Stack>
 
         <Box
-          sx={{
-            flex: 1,
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 2,
-            p: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: 2,
-            bgcolor: "#fff",
-            minHeight: 180,
-            justifyContent: "center",
-          }}
+          className="flex-1 w-full flex flex-col items-center gap-4 p-4 border border-base-300 rounded-[16px] bg-[#fff] min-h-[180px] justify-center"
         >
           <Typography variant="subtitle2" color="text.secondary">
             Preview (SVG)
           </Typography>
-          <Box sx={{ width: "100%", display: "flex", justifyContent: "center", overflowX: "auto" }}>
+          <Box className="w-full flex justify-center overflow-x-auto">
             {/* SVG ref for JsBarcode */}
             <svg ref={svgRef} style={{ maxWidth: "100%" }} />
           </Box>
           {/* Hidden canvas for PNG export - also rendered via JsBarcode */}
           <canvas ref={canvasRef} style={{ display: "none" }} />
-          <Typography variant="caption" color="text.secondary" sx={{ textAlign: "center" }}>
+          <Typography variant="caption" color="text.secondary" className="text-center">
             SVG and canvas are both rendered via dynamic import(&quot;jsbarcode&quot;). Use Download buttons to export.
           </Typography>
         </Box>

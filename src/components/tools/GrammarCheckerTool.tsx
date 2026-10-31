@@ -1,12 +1,7 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Alert } from "@/components/ds";
+
 
 type GrammarIssue = {
   type: string;
@@ -144,16 +139,7 @@ export default function GrammarCheckerTool() {
         <Box
           key={`h-${i}`}
           component="span"
-          sx={{
-            bgcolor: "warning.light",
-            color: "warning.contrastText",
-            px: 0.4,
-            py: 0.1,
-            borderRadius: 0.5,
-            border: "1px solid",
-            borderColor: "warning.main",
-            fontWeight: 600,
-          }}
+          className="px-0.8 py-0.2 rounded-[4px] border border-warning font-semibold" style={{ backgroundColor: "color-mix(in oklab, var(--color-warning) 15%, var(--color-base-100))", color: "var(--color-warning-content)" }}
           title={`${iss.type}: ${iss.suggestion}`}
         >
           {text.slice(iss.index, iss.index + iss.length)}
@@ -180,7 +166,7 @@ export default function GrammarCheckerTool() {
         slotProps={{ input: { spellCheck: true } }}
       />
 
-      <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+      <Stack direction="row" spacing={2} className="items-center">
         <Typography variant="body2" color="text.secondary">
           {text.length} characters · {text.trim() ? text.trim().split(/\s+/).length : 0} words · {issues.length} issue{issues.length !== 1 ? "s" : ""} found
         </Typography>
@@ -188,24 +174,12 @@ export default function GrammarCheckerTool() {
 
       {text && (
         <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            bgcolor: "background.paper",
-            minHeight: 96,
-            whiteSpace: "pre-wrap",
-            wordBreak: "break-word",
-            fontFamily: "inherit",
-            fontSize: 14,
-            lineHeight: 1.7,
-          }}
+          className="p-4 rounded-[16px] border border-base-300 bg-base-100 min-h-[96px] whitespace-pre-wrap break-words text-[14px] leading-[1.7]" style={{ fontFamily: "inherit" }}
         >
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+          <Typography variant="subtitle2" className="font-bold mb-2">
             Highlighted preview
           </Typography>
-          <Box component="div" sx={{ whiteSpace: "pre-wrap" }}>
+          <Box component="div" className="whitespace-pre-wrap">
             {highlighted}
           </Box>
         </Box>
@@ -223,59 +197,32 @@ export default function GrammarCheckerTool() {
 
       {issues.length > 0 && (
         <Box>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1.5 }}>
+          <Typography variant="subtitle2" className="font-bold mb-3">
             Issues ({issues.length})
           </Typography>
           <Stack spacing={1.2}>
             {issues.map((iss, idx) => (
               <Box
                 key={`${iss.type}-${iss.index}-${idx}`}
-                sx={{
-                  p: 1.5,
-                  borderRadius: 2,
-                  border: "1px solid",
-                  borderColor: "divider",
-                  bgcolor: "action.hover",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 0.5,
-                }}
+                className="p-3 rounded-[16px] border border-base-300 flex flex-col gap-1" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
               >
-                <Stack direction="row" spacing={1} sx={{ alignItems: "center", flexWrap: "wrap", gap: 1 }}>
+                <Stack direction="row" spacing={1} className="items-center flex-wrap gap-2">
                   <Box
-                    sx={{
-                      px: 1,
-                      py: 0.2,
-                      borderRadius: 1,
-                      bgcolor: "warning.main",
-                      color: "warning.contrastText",
-                      fontSize: 11,
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      letterSpacing: 0.5,
-                    }}
+                    className="px-2 py-0.4 rounded-[8px] bg-warning text-[11px] font-bold uppercase tracking-[0.5px]" style={{ color: "var(--color-warning-content)" }}
                   >
                     {iss.type}
                   </Box>
-                  <Typography variant="caption" color="text.secondary" sx={{ fontFamily: "monospace" }}>
+                  <Typography variant="caption" color="text.secondary" style={{ fontFamily: "monospace" }}>
                     @ position {iss.position}
                   </Typography>
                   <Typography
                     variant="caption"
-                    sx={{
-                      fontFamily: "monospace",
-                      bgcolor: "background.paper",
-                      px: 0.8,
-                      py: 0.2,
-                      borderRadius: 1,
-                      border: "1px solid",
-                      borderColor: "divider",
-                    }}
+                    className="bg-base-100 px-1.6 py-0.4 rounded-[8px] border border-base-300" style={{ fontFamily: "monospace" }}
                   >
                     {iss.snippet}
                   </Typography>
                 </Stack>
-                <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                <Typography variant="body2" className="font-semibold">
                   {iss.message}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

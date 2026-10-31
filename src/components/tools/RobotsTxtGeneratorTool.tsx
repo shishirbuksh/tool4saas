@@ -1,21 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Box from "@mui/material/Box";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
-import RefreshIcon from "@mui/icons-material/Refresh";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, FormControlLabel, Checkbox, Select, MenuItem, FormControl, InputLabel, Box } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Download as DownloadIcon, Refresh as RefreshIcon } from "@/components/ds/icons";
 
 const PRESET_AGENTS = [
   { value: "*", label: "All bots (*)" },
@@ -143,7 +130,7 @@ export default function RobotsTxtGeneratorTool() {
 
   return (
     <ToolPaper spacing={3}>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         Robots.txt Generator
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -151,7 +138,7 @@ export default function RobotsTxtGeneratorTool() {
       </Typography>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-        <FormControl sx={{ minWidth: 220, flex: 1 }}>
+        <FormControl className="min-w-[220px] flex-1">
           <InputLabel id="ua-label">User-agent</InputLabel>
           <Select
             labelId="ua-label"
@@ -167,7 +154,7 @@ export default function RobotsTxtGeneratorTool() {
           </Select>
         </FormControl>
 
-        <FormControl sx={{ minWidth: 160 }}>
+        <FormControl className="min-w-[160px]">
           <InputLabel id="delay-label">Crawl-delay</InputLabel>
           <Select
             labelId="delay-label"
@@ -207,7 +194,7 @@ export default function RobotsTxtGeneratorTool() {
           placeholder={"/\n/public/"}
           helperText="e.g. / or /public/"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+          className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
         />
         <TextField
           label="Disallow paths (one per line)"
@@ -219,7 +206,7 @@ export default function RobotsTxtGeneratorTool() {
           placeholder={"/admin/\n/private/\n/tmp/"}
           helperText="e.g. /admin/ — leave blank to allow all"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+          className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
         />
       </Stack>
 
@@ -245,7 +232,7 @@ export default function RobotsTxtGeneratorTool() {
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
       />
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={1} sx={{ flexWrap: "wrap" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={1} className="flex-wrap">
         <FormControlLabel
           control={
             <Checkbox checked={includeSitemap} onChange={(e) => setIncludeSitemap(e.target.checked)} />
@@ -277,8 +264,8 @@ export default function RobotsTxtGeneratorTool() {
       </Stack>
 
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 1 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-2">
+          <Typography variant="subtitle2" className="font-bold">
             Preview — robots.txt
           </Typography>
           <Typography variant="caption" color="text.secondary">
@@ -293,12 +280,9 @@ export default function RobotsTxtGeneratorTool() {
           slotProps={{
             input: { readOnly: true, "aria-label": "Generated robots.txt", spellCheck: false },
           }}
-          sx={{
-            "& textarea": { fontFamily: "monospace", fontSize: 13, lineHeight: 1.6 },
-            bgcolor: "background.default",
-          }}
+          className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px] [&_textarea]:leading-[1.6] bg-base-100"
         />
-        <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: "block" }}>
+        <Typography variant="caption" color="text.secondary" className="mt-2 block">
           Place this file at the root of your site (e.g. https://example.com/robots.txt).
         </Typography>
       </Box>

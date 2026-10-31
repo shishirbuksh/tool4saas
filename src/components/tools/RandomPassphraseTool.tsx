@@ -1,12 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const PASSPHRASE_WORDS = [
   "alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa",
@@ -82,8 +78,8 @@ export default function RandomPassphraseTool() {
         </Stack>
         {passphrase && (
           <Stack spacing={1}>
-            <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }}>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+            <Stack direction="row" className="items-center justify-between">
+              <Typography variant="subtitle2" className="font-bold">
                 Passphrase
               </Typography>
               <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(passphrase)}>

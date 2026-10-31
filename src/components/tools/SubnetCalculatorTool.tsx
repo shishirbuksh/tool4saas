@@ -1,20 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Slider from "@mui/material/Slider";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableRow from "@mui/material/TableRow";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert, Slider, Table, TableBody, TableCell, TableContainer, TableRow } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 function ipToInt(ip: string): number {
   const parts = ip.trim().split(".");
@@ -118,7 +106,7 @@ export default function SubnetCalculatorTool() {
           fullWidth
           placeholder="192.168.1.10"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ "& input": { fontFamily: "monospace" } }}
+          className="[&_input]:[font-family:monospace]"
         />
         <TextField
           label="CIDR"
@@ -126,11 +114,11 @@ export default function SubnetCalculatorTool() {
           value={cidr}
           onChange={(e) => setCidr(Number(e.target.value))}
           slotProps={{ htmlInput: { min: 0, max: 32, step: 1 } }}
-          sx={{ minWidth: 120, "& input": { fontFamily: "monospace" } }}
+          className="min-w-[120px] [&_input]:[font-family:monospace]"
         />
       </Stack>
       <Box>
-        <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: "block" }}>
+        <Typography variant="caption" color="text.secondary" className="mb-2 block">
           Prefix length: /{cidr}
         </Typography>
         <Slider
@@ -154,9 +142,9 @@ export default function SubnetCalculatorTool() {
         <Box>
           <Stack
             direction="row"
-            sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}
+            className="items-center justify-between mb-1"
           >
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+            <Typography variant="subtitle2" className="font-bold">
               Subnet details
             </Typography>
             <Button
@@ -167,7 +155,7 @@ export default function SubnetCalculatorTool() {
               Copy
             </Button>
           </Stack>
-          <TableContainer sx={{ border: "1px solid", borderColor: "divider", borderRadius: 2 }}>
+          <TableContainer className="border border-base-300 rounded-[16px]">
             <Table size="small" aria-label="Subnet calculation results">
               <TableBody>
                 {rows.map(([label, value]) => (
@@ -175,11 +163,11 @@ export default function SubnetCalculatorTool() {
                     <TableCell
                       component="th"
                       scope="row"
-                      sx={{ fontWeight: 700, whiteSpace: "nowrap", width: 160 }}
+                      className="font-bold whitespace-nowrap w-[160px]"
                     >
                       {label}
                     </TableCell>
-                    <TableCell sx={{ fontFamily: "monospace", wordBreak: "break-all" }}>
+                    <TableCell className="break-all" style={{ fontFamily: "monospace" }}>
                       {value}
                     </TableCell>
                   </TableRow>

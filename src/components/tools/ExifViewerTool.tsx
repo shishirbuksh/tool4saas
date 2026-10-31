@@ -1,17 +1,7 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Table from "@mui/material/Table";
-import TableHead from "@mui/material/TableHead";
-import TableBody from "@mui/material/TableBody";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert, Table, TableHead, TableBody, TableRow, TableCell } from "@/components/ds";
+
 import { validateImageFile, MAX_IMAGE_SIZE } from "@/lib/validate";
 
 type ExifTags = Record<string, string>;
@@ -395,25 +385,25 @@ export default function ExifViewerTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         EXIF Viewer
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Choose a JPEG image to view its EXIF metadata (camera make/model, date, orientation, GPS). Images are parsed locally in your browser.
       </Typography>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ alignItems: { sm: "center" } }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} className="sm:items-center">
         <Button variant="contained" component="label">
           Choose image
           <input type="file" accept="image/*" hidden onChange={onFile} />
         </Button>
         {fileName && (
-          <Typography variant="body2" color="text.secondary" sx={{ wordBreak: "break-all" }}>
+          <Typography variant="body2" color="text.secondary" className="break-all">
             {fileName}
           </Typography>
         )}
         {(fileName || exif || error || info) && (
-          <Button variant="outlined" onClick={clear} sx={{ ml: { sm: "auto" } }}>
+          <Button variant="outlined" onClick={clear} className="sm:ml-auto">
             Clear
           </Button>
         )}
@@ -424,22 +414,22 @@ export default function ExifViewerTool() {
 
       {hasResult && (
         <Box>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+          <Typography variant="subtitle2" className="font-bold mb-2">
             EXIF Data
           </Typography>
-          <Box sx={{ border: "1px solid", borderColor: "divider", borderRadius: 2, overflow: "hidden" }}>
+          <Box className="border border-base-300 rounded-[16px] overflow-hidden">
             <Table size="small" aria-label="EXIF data table">
               <TableHead>
                 <TableRow>
-                  <TableCell sx={{ fontWeight: 700, bgcolor: "background.paper", width: "40%" }}>Tag</TableCell>
-                  <TableCell sx={{ fontWeight: 700, bgcolor: "background.paper" }}>Value</TableCell>
+                  <TableCell className="font-bold bg-base-100 w-[40%]">Tag</TableCell>
+                  <TableCell className="font-bold bg-base-100">Value</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {Object.entries(exif!).map(([k, v]) => (
                   <TableRow key={k} hover>
-                    <TableCell sx={{ fontWeight: 600, whiteSpace: "nowrap" }}>{k}</TableCell>
-                    <TableCell sx={{ wordBreak: "break-all", fontFamily: k.includes("GPS") ? "monospace" : undefined, fontSize: 13 }}>
+                    <TableCell className="font-semibold whitespace-nowrap">{k}</TableCell>
+                    <TableCell className="break-all text-[13px]" style={{ fontFamily: k.includes("GPS") ? "monospace" : undefined }}>
                       {v || <Box component="span" color="text.secondary">—</Box>}
                     </TableCell>
                   </TableRow>
@@ -447,14 +437,14 @@ export default function ExifViewerTool() {
               </TableBody>
             </Table>
           </Box>
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: "block" }}>
+          <Typography variant="caption" color="text.secondary" className="mt-2 block">
             {Object.keys(exif!).length} tag(s) found. GPS coordinates are shown as DMS and decimal degrees.
           </Typography>
         </Box>
       )}
 
       {!hasResult && !error && !info && (
-        <Box sx={{ p: 2, border: "1px dashed", borderColor: "divider", borderRadius: 2, textAlign: "center" }}>
+        <Box className="p-4 border-base-300 rounded-[16px] text-center" style={{ border: "1px dashed" }}>
           <Typography variant="body2" color="text.secondary">
             No image loaded. Choose a JPEG photo to inspect EXIF.
           </Typography>

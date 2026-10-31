@@ -1,13 +1,7 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
 import { MS_PER_DAY } from "@/lib/format";
 
 const fmt = (d: Date) =>
@@ -102,18 +96,12 @@ export default function DateCalculatorTool() {
         )}
 
         <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            bgcolor: "background.paper",
-          }}
+          className="p-4 rounded-[16px] border border-base-300 bg-base-100"
         >
           <Typography variant="overline" color="text.secondary">
             {mode === "shift" ? "Resulting date" : "Difference"}
           </Typography>
-          <Typography variant="h6" sx={{ fontWeight: 700 }}>
+          <Typography variant="h6" className="font-bold">
             {mode === "shift"
               ? shiftResult
                 ? fmt(shiftResult)

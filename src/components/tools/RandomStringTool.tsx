@@ -1,15 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControlLabel, Checkbox } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 const SETS = {
@@ -74,7 +67,7 @@ export default function RandomStringTool() {
             slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
           />
         </Stack>
-        <Stack direction="row" spacing={3} sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={3} className="flex-wrap">
           {(Object.keys(opts) as (keyof typeof opts)[]).map((k) => (
             <FormControlLabel
               key={k}
@@ -93,8 +86,8 @@ export default function RandomStringTool() {
         </Button>
         {results.length > 0 && (
           <Box>
-            <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+            <Stack direction="row" className="items-center justify-between mb-1">
+              <Typography variant="subtitle2" className="font-bold">
                 Results
               </Typography>
               <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(results.join("\n"))}>
@@ -105,17 +98,7 @@ export default function RandomStringTool() {
               {results.map((r, i) => (
                 <Box
                   key={i}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    p: 1.5,
-                    borderRadius: 2,
-                    border: "1px solid",
-                    borderColor: "divider",
-                    fontFamily: "monospace",
-                    fontSize: 14,
-                  }}
+                  className="flex justify-between items-center p-3 rounded-[16px] border border-base-300 text-[14px]" style={{ fontFamily: "monospace" }}
                 >
                   <span>{r}</span>
                   <Button size="small" onClick={() => copy(r)}>

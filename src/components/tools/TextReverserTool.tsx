@@ -1,15 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 type Mode = "chars" | "words" | "lines";
 
@@ -43,8 +36,8 @@ export default function TextReverserTool() {
           <ToggleButton value="lines">Reverse lines</ToggleButton>
         </ToggleButtonGroup>
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-1">
+            <Typography variant="subtitle2" className="font-bold">
               Reversed text
             </Typography>
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(result)} disabled={!result}>

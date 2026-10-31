@@ -1,16 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Slider from "@mui/material/Slider";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const toHex = (hex: string) => {
   let h = hex.replace("#", "");
@@ -38,8 +30,8 @@ export default function CssBoxShadowTool() {
     set: (v: number) => void,
     unit = "px",
   ) => (
-    <Box sx={{ maxWidth: 320 }}>
-      <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
+    <Box className="max-w-[320px]">
+      <Typography variant="subtitle2" className="font-bold mb-1">
         {label}: {value}
         {unit}
       </Typography>
@@ -60,14 +52,14 @@ export default function CssBoxShadowTool() {
       {sliderRow("Offset Y", offsetY, -50, 50, setOffsetY)}
       {sliderRow("Blur", blur, 0, 100, setBlur)}
       {sliderRow("Spread", spread, -20, 20, setSpread)}
-      <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
+      <Stack direction="row" spacing={1.5} className="items-center">
         <Box
           component="input"
           type="color"
           value={toHex(color)}
           onChange={(e) => setColor(e.target.value)}
           aria-label="Shadow color picker"
-          sx={{ width: 48, height: 44, minWidth: 44, minHeight: 44, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
+          className="w-[48px] h-[44px] min-w-[44px] min-h-[44px] border border-base-300 rounded-[16px] p-1 cursor-pointer bg-transparent"
         />
         <TextField
           value={color}
@@ -75,7 +67,7 @@ export default function CssBoxShadowTool() {
           size="small"
           label="Shadow color"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ width: 140 }}
+          className="w-[140px]"
         />
         <ToggleButtonGroup
           size="small"
@@ -89,32 +81,15 @@ export default function CssBoxShadowTool() {
         </ToggleButtonGroup>
       </Stack>
       <Box
-        sx={{
-          height: 160,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          bgcolor: "background.paper",
-        }}
+        className="h-[160px] rounded-[16px] border border-base-300 flex items-center justify-center bg-base-100"
       >
         <Box
-          sx={{
-            width: 120,
-            height: 80,
-            borderRadius: 2,
-            bgcolor: "background.paper",
-            border: "1px solid",
-            borderColor: "divider",
-            boxShadow,
-          }}
+          className="w-[120px] h-[80px] rounded-[16px] bg-base-100 border border-base-300" style={{ boxShadow: boxShadow }}
         />
       </Box>
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-1">
+          <Typography variant="subtitle2" className="font-bold">
             CSS
           </Typography>
           <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(css)}>
@@ -125,7 +100,7 @@ export default function CssBoxShadowTool() {
           value={css}
           fullWidth
           slotProps={{ input: { readOnly: true, "aria-label": "CSS box-shadow", spellCheck: false } }}
-          sx={{ "& input": { fontFamily: "monospace", fontSize: 13 } }}
+          className="[&_input]:[font-family:monospace] [&_input]:text-[13px]"
         />
       </Box>
     </ToolPaper>

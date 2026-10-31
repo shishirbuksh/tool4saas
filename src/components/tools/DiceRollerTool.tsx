@@ -1,13 +1,7 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Chip from "@mui/material/Chip";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Chip } from "@/components/ds";
+
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 const rand = (max: number) => {
@@ -68,7 +62,7 @@ export default function DiceRollerTool() {
             slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
           />
         </Stack>
-        <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={1} className="flex-wrap">
           {PRESETS.map((p) => (
             <Button
               key={p.label}
@@ -89,14 +83,14 @@ export default function DiceRollerTool() {
         </Button>
         {results.length > 0 && (
           <Stack spacing={1.5}>
-            <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
+            <Stack direction="row" spacing={1} className="flex-wrap gap-2">
               {results.map((r, i) => (
-                <Chip key={i} label={r} color="primary" sx={{ fontFamily: "monospace", fontWeight: 700 }} />
+                <Chip key={i} label={r} color="primary" className="font-bold" style={{ fontFamily: "monospace" }} />
               ))}
             </Stack>
-            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Box className="flex justify-between">
               <Typography color="text.secondary">Total</Typography>
-              <Typography sx={{ fontWeight: 700 }}>{total}</Typography>
+              <Typography className="font-bold">{total}</Typography>
             </Box>
             <Button size="small" onClick={() => copy(results.join(", "))}>
               Copy results
@@ -104,26 +98,19 @@ export default function DiceRollerTool() {
           </Stack>
         )}
         {history.length > 1 && (
-          <Box sx={{ width: "100%", maxHeight: 160, overflow: "auto" }}>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
+          <Box className="w-full max-h-[160px] overflow-auto">
+            <Typography variant="body2" color="text.secondary" className="mb-1">
               Roll history
             </Typography>
             {history.slice(1).map((h, i) => (
               <Box
                 key={i}
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  px: 1,
-                  py: 0.5,
-                  borderBottom: "1px solid",
-                  borderColor: "divider",
-                }}
+                className="flex justify-between px-2 py-1 border-b border-base-300"
               >
                 <Typography variant="body2" color="text.secondary">
                   {h.label}: {h.values.join(", ")}
                 </Typography>
-                <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                <Typography variant="body2" className="font-bold">
                   {h.total}
                 </Typography>
               </Box>

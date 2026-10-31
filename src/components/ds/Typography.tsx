@@ -24,7 +24,6 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   gutterBottom?: boolean;
   noWrap?: boolean;
   ref?: any;
-  [key: string]: any;
 }
 
 const variantTagMap: Record<TypographyVariant, ElementType> = {

@@ -90,9 +90,10 @@ export const ToggleButtonGroup = forwardRef<
     exclusive?: boolean;
     onChange?: (e: any, val: any) => void;
     size?: string;
+    fullWidth?: boolean;
   }
 >(function ToggleButtonGroup(
-  { value, onChange, size = "medium", className = "", style, children, ...props },
+  { value, onChange, size = "medium", fullWidth, className = "", style, children, ...props },
   ref
 ) {
   const rendered = React.Children.map(children, (child) => {
@@ -111,7 +112,7 @@ export const ToggleButtonGroup = forwardRef<
     });
   });
   return (
-    <div ref={ref} className={`join ${className}`} style={style} {...props}>
+    <div ref={ref} className={`join ${fullWidth ? "w-full" : ""} ${className}`} style={style} {...props}>
       {rendered}
     </div>
   );
@@ -141,8 +142,16 @@ export const ToggleButton = forwardRef<
 
 export const Accordion = forwardRef<
   HTMLDivElement,
-  HTMLAttributes<HTMLDivElement> & { expanded?: boolean; onChange?: any }
->(function Accordion({ expanded, onChange, className = "", style, children, ...props }, ref) {
+  HTMLAttributes<HTMLDivElement> & {
+    expanded?: boolean;
+    onChange?: any;
+    elevation?: number;
+    variant?: "elevation" | "outlined";
+  }
+>(function Accordion(
+  { expanded, onChange, elevation: _elevation, variant: _variant, className = "", style, children, ...props },
+  ref
+) {
   return (
     <div
       ref={ref}

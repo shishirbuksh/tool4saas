@@ -1,9 +1,5 @@
-import Link from "@/lib/astro/navigation";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Grid from "@mui/material/Grid";
+import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Breadcrumbs, Grid } from "@/components/ds";
+
 import ToolCard from "@/components/ToolCard";
 import { getCategory, toolsByCategoryCached, NOINDEX_SLUGS } from "@/lib/tools";
 import { introForCategory, faqContentForCategory } from "@/lib/category-content";
@@ -91,28 +87,28 @@ export default function CategoryView({ id }: { id: string }) {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ py: { xs: 8, md: 12 }, px: { xs: 2, md: 4 }, overflowX: "clip" }}>
+    <Container maxWidth="xl" className="py-16 md:py-24 px-4 md:px-8 overflow-x-clip">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
-      <Breadcrumbs sx={{ mb: 2 }} aria-label="breadcrumb">
+      <Breadcrumbs className="mb-4" aria-label="breadcrumb">
         <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
           Home
         </Link>
         <Typography color="text.primary">{category.label}</Typography>
       </Breadcrumbs>
-      <Typography variant="h1" sx={{ fontSize: { xs: "2rem", md: "2.5rem" }, mb: 1 }}>
+      <Typography variant="h1" className="text-[2rem] md:text-[2.5rem] mb-2">
         {category.label}
       </Typography>
       {(() => {
         const intro = introForCategory(id);
         return (
-          <Box sx={{ mb: 4, maxWidth: 760 }}>
-            <Typography color="text.secondary" sx={{ mb: 2, lineHeight: 1.8 }}>
+          <Box className="mb-8 max-w-[760px]">
+            <Typography color="text.secondary" className="mb-4 leading-[1.8]">
               {intro.body}
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+            <Typography variant="body2" color="text.secondary" className="mb-2">
               Popular in {category.label}:{" "}
               {intro.picks.map((p, i) => (
                 <span key={p.slug}>
@@ -139,12 +135,12 @@ export default function CategoryView({ id }: { id: string }) {
       <Box
         component="section"
         aria-label={`Frequently asked questions about ${category.label}`}
-        sx={{ mt: 6, maxWidth: 800 }}
+        className="mt-12 max-w-[800px]"
       >
-        <Typography variant="h2" sx={{ fontSize: 22, fontWeight: 800, mb: 1 }}>
+        <Typography variant="h2" className="text-[22px] font-extrabold mb-2">
           Frequently asked questions about {category.label}
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+        <Typography variant="body2" color="text.secondary" className="mb-4">
           Reviewed by the Tool4SaaS Editorial Team · <Link href="/author">Authors</Link> ·{" "}
           <Link href="/methodology">How we test</Link>
         </Typography>
@@ -155,23 +151,16 @@ export default function CategoryView({ id }: { id: string }) {
             <Box
               key={f.q}
               component="details"
-              sx={{
-                mb: 2,
-                p: 2.5,
-                borderRadius: "12px",
-                border: "1px solid",
-                borderColor: "divider",
-                bgcolor: "background.paper",
-              }}
+              className="mb-4 p-5 rounded-[12px] border border-base-300 bg-base-100"
             >
               <Typography
                 component="summary"
                 variant="h3"
-                sx={{ fontSize: "1.05rem", fontWeight: 700, cursor: "pointer" }}
+                className="text-[1.05rem] font-bold cursor-pointer"
               >
                 {f.q}
               </Typography>
-              <Typography color="text.secondary" className="faq-passage speakable-answer-first" sx={{ lineHeight: 1.7, mt: 1 }}>
+              <Typography color="text.secondary" className="faq-passage speakable-answer-first leading-[1.7] mt-2" >
                 {parts ? (
                   <>
                     {parts.map((part, idx) => (
@@ -189,8 +178,8 @@ export default function CategoryView({ id }: { id: string }) {
           );
         })}
       </Box>
-      <Box sx={{ mt: 5 }}>
-        <Typography variant="h2" sx={{ fontSize: 20, mb: 2 }}>
+      <Box className="mt-10">
+        <Typography variant="h2" className="text-[20px] mb-4">
           Browse all categories
         </Typography>
         <Grid container spacing={3}>
@@ -201,27 +190,9 @@ export default function CategoryView({ id }: { id: string }) {
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <Box
-                  sx={{
-                    display: "block",
-                    p: 3,
-                    bgcolor: "background.paper",
-                    borderRadius: "16px",
-                    border: "1px solid",
-                    borderColor: "divider",
-                    height: "100%",
-                    boxShadow: "0 0 0 1px rgba(0,0,0,0.06), 0 1px 2px rgba(34,29,29,0.05)",
-                    contentVisibility: "auto",
-                    containIntrinsicSize: "0 180px",
-                    transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), box-shadow 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms cubic-bezier(0.16,1,0.3,1)",
-                    "&:hover": {
-                      transform: "translateY(-2px) scale(1.01)",
-                      borderColor: "rgba(0,0,0,0.12)",
-                      boxShadow: "0 0 0 1px rgba(0,0,0,0.06), 0 12px 32px rgba(34,29,29,0.08), 0 4px 12px rgba(34,29,29,0.05)",
-                    },
-                    "&:active": { transform: "scale(0.99)", transitionDuration: "100ms" },
-                  }}
+                  className="block p-6 bg-base-100 rounded-[16px] border border-base-300 h-full hover:[transform:translateY(-2px)_scale(1.01)] hover:border-[rgba(0,0,0,0.12)] hover:[box-shadow:0_0_0_1px_rgba(0,0,0,0.06),_0_12px_32px_rgba(34,29,29,0.08),_0_4px_12px_rgba(34,29,29,0.05)] active:[transform:scale(0.99)] active:[transition-duration:100ms]" style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.06), 0 1px 2px rgba(34,29,29,0.05)", contentVisibility: "auto", containIntrinsicSize: "0 180px", transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), box-shadow 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms cubic-bezier(0.16,1,0.3,1)" }}
                 >
-                  <Typography variant="h3" sx={{ fontSize: 18, mb: 0.5 }}>
+                  <Typography variant="h3" className="text-[18px] mb-1">
                     {g.category.label}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">

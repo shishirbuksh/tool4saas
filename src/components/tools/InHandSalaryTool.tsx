@@ -1,20 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Table from "@mui/material/Table";
-import TableHead from "@mui/material/TableHead";
-import TableBody from "@mui/material/TableBody";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
+import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel, Table, TableHead, TableBody, TableRow, TableCell, TableContainer } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import { inHandIndia, INDIA_NEW_REGIME_FY26_27 } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
@@ -35,9 +21,9 @@ export default function InHandSalaryTool() {
   }, [ctcAnnual, basicDaAnnual, ptMonthly, pfCapped]);
 
   const row = (label: string, value: number | null | undefined) => (
-    <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
+    <Box className="flex justify-between gap-4">
       <Typography color="text.secondary">{label}</Typography>
-      <Typography sx={{ fontWeight: 700, textAlign: "right" }}>
+      <Typography className="font-bold text-right">
         {value != null && isFinite(value) ? money(value, "INR") : "—"}
       </Typography>
     </Box>
@@ -57,8 +43,8 @@ export default function InHandSalaryTool() {
             label="PF calculation"
             value={pfCapped ? "capped" : "actual"}
             onChange={(e) => setPfCapped(e.target.value === "capped")}
-            MenuProps={{ slotProps: { paper: { sx: { bgcolor: "background.paper", color: "text.primary" } } } }}
-            sx={{ minHeight: 44 }}
+           
+            className="min-h-[44px]"
           >
             <MenuItem value="capped">Capped (₹15,000 wage ceiling)</MenuItem>
             <MenuItem value="actual">Actual (full Basic + DA)</MenuItem>
@@ -66,18 +52,12 @@ export default function InHandSalaryTool() {
         </FormControl>
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           In-hand salary / month
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null && isFinite(result.inHandMonthly) ? money(result.inHandMonthly, "INR") : "—"}
         </Typography>
         <Typography variant="body2" color="text.secondary">

@@ -1,13 +1,7 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import LinearProgress from "@mui/material/LinearProgress";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Alert, LinearProgress } from "@/components/ds";
+
 
 // Alias to satisfy Progress requirement (MUI LinearProgress)
 const Progress = LinearProgress;
@@ -247,7 +241,7 @@ export default function AiDetectorTool() {
         slotProps={{ input: { spellCheck: true } }}
       />
 
-      <Stack direction="row" spacing={2} sx={{ alignItems: "center", justifyContent: "space-between", flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={2} className="items-center justify-between flex-wrap">
         <Typography variant="body2" color="text.secondary">
           {hasText ? `${analysis?.totalWords ?? 0} words · ${analysis?.sentenceCount ?? 0} sentences` : "Enter text above for heuristic analysis"}
         </Typography>
@@ -262,27 +256,21 @@ export default function AiDetectorTool() {
         </Alert>
       ) : (
         <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            bgcolor: "background.paper",
-          }}
+          className="p-4 rounded-[16px] border border-base-300 bg-base-100"
         >
           <Stack spacing={2.5}>
             {/* AI Likelihood */}
             <Box>
-              <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-                <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+              <Stack direction="row" className="items-center justify-between mb-1">
+                <Typography variant="subtitle2" className="font-bold">
                   AI likelihood
                 </Typography>
-                <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600 }}>
+                <Typography variant="caption" color="text.secondary" className="font-semibold">
                   {likelihoodLabel}
                 </Typography>
               </Stack>
-              <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 1 }}>
-                <Typography variant="h4" sx={{ fontWeight: 800, color: `${likelihoodColor}.main` }}>
+              <Stack direction="row" className="items-center justify-between mb-2">
+                <Typography variant="h4" className="font-extrabold" style={{ color: `${likelihoodColor}.main` }}>
                   {likelihood}%
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -293,9 +281,9 @@ export default function AiDetectorTool() {
                 variant="determinate"
                 value={likelihood}
                 color={likelihoodColor}
-                sx={{ height: 10, borderRadius: 999 }}
+                className="h-[10px] rounded-[7992px]"
               />
-              <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: "block" }}>
+              <Typography variant="caption" color="text.secondary" className="mt-1 block">
                 {likelihood >= 75
                   ? "Text shows uniform structure and low perplexity typical of AI output — but verify manually."
                   : likelihood >= 55
@@ -309,19 +297,12 @@ export default function AiDetectorTool() {
             {/* Metrics grid */}
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
               <Box
-                sx={{
-                  flex: 1,
-                  p: 1.5,
-                  borderRadius: 1.5,
-                  border: "1px solid",
-                  borderColor: "divider",
-                  bgcolor: "action.hover",
-                }}
+                className="flex-1 p-3 rounded-[12px] border border-base-300" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
               >
-                <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                <Typography variant="caption" color="text.secondary" className="font-semibold uppercase tracking-[0.5px]">
                   Avg sentence length variance
                 </Typography>
-                <Typography variant="h6" sx={{ fontWeight: 800, mt: 0.5 }}>
+                <Typography variant="h6" className="font-extrabold mt-1">
                   {analysis?.variance.toFixed(2) ?? "—"}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
@@ -329,19 +310,12 @@ export default function AiDetectorTool() {
                 </Typography>
               </Box>
               <Box
-                sx={{
-                  flex: 1,
-                  p: 1.5,
-                  borderRadius: 1.5,
-                  border: "1px solid",
-                  borderColor: "divider",
-                  bgcolor: "action.hover",
-                }}
+                className="flex-1 p-3 rounded-[12px] border border-base-300" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
               >
-                <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                <Typography variant="caption" color="text.secondary" className="font-semibold uppercase tracking-[0.5px]">
                   Burstiness (std dev)
                 </Typography>
-                <Typography variant="h6" sx={{ fontWeight: 800, mt: 0.5 }}>
+                <Typography variant="h6" className="font-extrabold mt-1">
                   {analysis?.burstiness.toFixed(2) ?? "—"}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
@@ -352,58 +326,44 @@ export default function AiDetectorTool() {
 
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
               <Box
-                sx={{
-                  flex: 1,
-                  p: 1.5,
-                  borderRadius: 1.5,
-                  border: "1px solid",
-                  borderColor: "divider",
-                  bgcolor: "action.hover",
-                }}
+                className="flex-1 p-3 rounded-[12px] border border-base-300" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
               >
-                <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                <Typography variant="caption" color="text.secondary" className="font-semibold uppercase tracking-[0.5px]">
                   Repetition score
                 </Typography>
-                <Typography variant="h6" sx={{ fontWeight: 800, mt: 0.5 }}>
+                <Typography variant="h6" className="font-extrabold mt-1">
                   {analysis ? `${(analysis.repetitionScore * 100).toFixed(1)}%` : "—"}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
                   1 − unique/total words. High repetition → more AI-like.
                 </Typography>
-                <Box sx={{ mt: 1 }}>
+                <Box className="mt-2">
                   <Progress
                     variant="determinate"
                     value={Math.min(100, analysis ? analysis.repetitionScore * 100 : 0)}
                     color={analysis && analysis.repetitionScore > 0.25 ? "warning" : "success"}
-                    sx={{ height: 6, borderRadius: 999 }}
+                    className="h-[6px] rounded-[7992px]"
                   />
                 </Box>
               </Box>
               <Box
-                sx={{
-                  flex: 1,
-                  p: 1.5,
-                  borderRadius: 1.5,
-                  border: "1px solid",
-                  borderColor: "divider",
-                  bgcolor: "action.hover",
-                }}
+                className="flex-1 p-3 rounded-[12px] border border-base-300" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
               >
-                <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                <Typography variant="caption" color="text.secondary" className="font-semibold uppercase tracking-[0.5px]">
                   Perplexity proxy
                 </Typography>
-                <Typography variant="h6" sx={{ fontWeight: 800, mt: 0.5 }}>
+                <Typography variant="h6" className="font-extrabold mt-1">
                   {analysis ? `${(analysis.perplexityProxy * 100).toFixed(1)}%` : "—"}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
                   Uncommon word ratio = uncommon/total. Low ratio → low perplexity → more AI-like.
                 </Typography>
-                <Box sx={{ mt: 1 }}>
+                <Box className="mt-2">
                   <Progress
                     variant="determinate"
                     value={Math.min(100, analysis ? analysis.perplexityProxy * 100 : 0)}
                     color={analysis && analysis.perplexityProxy < 0.35 ? "warning" : "success"}
-                    sx={{ height: 6, borderRadius: 999 }}
+                    className="h-[6px] rounded-[7992px]"
                   />
                 </Box>
               </Box>
@@ -411,16 +371,7 @@ export default function AiDetectorTool() {
 
             {/* Detailed breakdown */}
             <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 1.5,
-                p: 1.5,
-                borderRadius: 1.5,
-                border: "1px dashed",
-                borderColor: "divider",
-                bgcolor: "background.default",
-              }}
+              className="flex flex-wrap gap-3 p-3 rounded-[12px] border-base-300 bg-base-100" style={{ border: "1px dashed" }}
             >
               <Typography variant="caption" color="text.secondary">
                 uncommon word ratio: <strong>{analysis?.uncommonWordRatio.toFixed(3) ?? "—"}</strong>
@@ -442,7 +393,7 @@ export default function AiDetectorTool() {
         </Box>
       )}
 
-      <Alert severity="warning" sx={{ mt: 1 }}>
+      <Alert severity="warning" className="mt-2">
         Heuristic only, not for academic decisions. This detector is an approximate heuristic based on burstiness, variance, repetition, and perplexity proxy — it is not a reliable AI classifier and must not be used for grading or disciplinary action.
       </Alert>
 

@@ -1,13 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const VOID = new Set([
   "area", "base", "br", "col", "embed", "hr", "img", "input",
@@ -62,8 +57,8 @@ export default function HtmlBeautifierTool() {
         </Box>
         {output && (
           <Stack spacing={1}>
-            <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }}>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+            <Stack direction="row" className="items-center justify-between">
+              <Typography variant="subtitle2" className="font-bold">
                 Formatted HTML
               </Typography>
               <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(output)}>

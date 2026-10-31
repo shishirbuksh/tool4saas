@@ -1,16 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Alert from "@mui/material/Alert";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import Typography from "@mui/material/Typography";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Alert, Box, Button, Stack, TextField, ToggleButton, ToggleButtonGroup, Typography } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 type Mode = "encrypt" | "decrypt";
 
@@ -169,7 +161,7 @@ export default function AesEncryptorTool() {
         onChange={(e) => setPlaintext(e.target.value.slice(0, MAX_INPUT_SIZE + 1))}
         placeholder={mode === "encrypt" ? "Type or paste text to encrypt…" : "Paste Base64 payload (salt + iv + ciphertext)…"}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ fontFamily: "monospace" }}
+        style={{ fontFamily: "monospace" }}
         helperText={`${plaintext.length.toLocaleString()} / ${MAX_INPUT_SIZE.toLocaleString()} chars`}
         error={plaintext.length > MAX_INPUT_SIZE}
       />
@@ -186,7 +178,7 @@ export default function AesEncryptorTool() {
         slotProps={{ input: { autoComplete: "off" } }}
         helperText="Salt (16B) + IV (12B) are random per encryption and packed into the Base64 output."
       />
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button variant="contained" onClick={run} disabled={!plaintext || !password || busy}>
           {busy ? "Working…" : mode === "encrypt" ? "Encrypt →" : "← Decrypt"}
         </Button>
@@ -205,7 +197,7 @@ export default function AesEncryptorTool() {
       {error && <Alert severity="error">{error}</Alert>}
       {output && (
         <Box>
-          <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 700 }}>
+          <Typography variant="subtitle2" gutterBottom className="font-bold">
             {mode === "encrypt" ? "Encrypted output (Base64)" : "Decrypted output"}
           </Typography>
           <TextField
@@ -214,7 +206,7 @@ export default function AesEncryptorTool() {
             minRows={5}
             fullWidth
             slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false } }}
-            sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+            className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
           />
         </Box>
       )}

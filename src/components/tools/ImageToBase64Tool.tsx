@@ -1,16 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { validateImageFile, MAX_IMAGE_SIZE } from "@/lib/validate";
 
 const MAX_DATA_URL_SIZE = 15_000_000; // ~15M chars cap for pasted data URLs (≈11MB binary, base64 overhead)
@@ -59,11 +51,11 @@ export default function ImageToBase64Tool() {
               Choose image
               <input type="file" accept="image/*" hidden onChange={onFile} />
             </Button>
-            {error && <Alert severity="error" sx={{ mt: 1 }}>{error}</Alert>}
+            {error && <Alert severity="error" className="mt-2">{error}</Alert>}
             {dataUrl && (
-              <Box sx={{ mt: 2 }}>
-                <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+              <Box className="mt-4">
+                <Stack direction="row" className="items-center justify-between mb-1">
+                  <Typography variant="subtitle2" className="font-bold">
                     Base64 data URL
                   </Typography>
                   <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(dataUrl)}>
@@ -76,7 +68,7 @@ export default function ImageToBase64Tool() {
                   minRows={4}
                   fullWidth
                   slotProps={{ input: { readOnly: true, "aria-label": "Base64 data URL", spellCheck: false } }}
-                  sx={{ "& textarea": { fontSize: 12, fontFamily: "monospace" } }}
+                  className="[&_textarea]:text-[12px] [&_textarea]:[font-family:monospace]"
                 />
               </Box>
             )}
@@ -98,7 +90,7 @@ export default function ImageToBase64Tool() {
         {decodeTooLarge && <Alert severity="error">Input too large — max {MAX_DATA_URL_SIZE.toLocaleString()} chars.</Alert>}
 
         <Box>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+          <Typography variant="subtitle2" className="font-bold mb-2">
             Preview
           </Typography>
           {decodeTooLarge ? (
@@ -109,7 +101,7 @@ export default function ImageToBase64Tool() {
                 component="img"
                 src={previewSrc}
                 alt="Preview"
-                sx={{ maxWidth: "100%", maxHeight: 280, borderRadius: 2, border: "1px solid", borderColor: "divider" }}
+                className="max-w-full max-h-[280px] rounded-[16px] border border-base-300"
               />
             ) : (
               <Alert severity="warning">That is not a valid image data URL.</Alert>

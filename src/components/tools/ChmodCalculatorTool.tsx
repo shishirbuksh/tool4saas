@@ -1,15 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Checkbox, FormControlLabel } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 type Perm = { r: boolean; w: boolean; x: boolean };
 
@@ -33,8 +26,8 @@ function PermGroup({
   onChange: (next: Perm) => void;
 }) {
   return (
-    <Box sx={{ flex: 1, minWidth: 0, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 2 }}>
-      <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+    <Box className="flex-1 min-w-[0px] border border-base-300 rounded-[16px] p-4">
+      <Typography variant="subtitle2" className="font-bold mb-2">
         {label} ({digit})
       </Typography>
       <Stack direction="row" spacing={1}>
@@ -76,8 +69,8 @@ export default function ChmodCalculatorTool() {
         <PermGroup label="Other" digit={t} perm={other} onChange={setOther} />
       </Stack>
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-1">
+          <Typography variant="subtitle2" className="font-bold">
             Octal
           </Typography>
           <Button
@@ -92,12 +85,12 @@ export default function ChmodCalculatorTool() {
           value={octal}
           fullWidth
           slotProps={{ input: { readOnly: true, "aria-label": "Octal", spellCheck: false } }}
-          sx={{ "& input": { fontFamily: "monospace", fontSize: 16 } }}
+          className="[&_input]:[font-family:monospace] [&_input]:text-[16px]"
         />
       </Box>
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-1">
+          <Typography variant="subtitle2" className="font-bold">
             Symbolic
           </Typography>
           <Button
@@ -112,12 +105,12 @@ export default function ChmodCalculatorTool() {
           value={symbolic}
           fullWidth
           slotProps={{ input: { readOnly: true, "aria-label": "Symbolic", spellCheck: false } }}
-          sx={{ "& input": { fontFamily: "monospace", fontSize: 16 } }}
+          className="[&_input]:[font-family:monospace] [&_input]:text-[16px]"
         />
       </Box>
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-1">
+          <Typography variant="subtitle2" className="font-bold">
             Command
           </Typography>
           <Button
@@ -132,7 +125,7 @@ export default function ChmodCalculatorTool() {
           value={command}
           fullWidth
           slotProps={{ input: { readOnly: true, "aria-label": "Command", spellCheck: false } }}
-          sx={{ "& input": { fontFamily: "monospace", fontSize: 16 } }}
+          className="[&_input]:[font-family:monospace] [&_input]:text-[16px]"
         />
       </Box>
     </ToolPaper>

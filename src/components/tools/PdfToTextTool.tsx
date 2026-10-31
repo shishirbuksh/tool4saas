@@ -1,15 +1,8 @@
-"use client";
 
 import { useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import TextField from "@mui/material/TextField";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert, TextField } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
 import { validatePdfFile, validatePdfMagicBytes, MAX_PDF_SIZE, MAX_PDF_PAGES } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 import { loadPdfjs } from "@/lib/pdfjs";
@@ -212,13 +205,13 @@ export default function PdfToTextTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         PDF to Text
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Extract text from a PDF into plain text. Files are processed locally in your browser and never uploaded.
       </Typography>
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center", flexWrap: "wrap" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center flex-wrap">
         <Button variant="outlined" component="label">
           Choose PDF
           <input ref={inputRef} type="file" accept="application/pdf,.pdf" hidden onChange={onFile} />
@@ -233,8 +226,8 @@ export default function PdfToTextTool() {
         </Typography>
       </Stack>
       {file && (
-        <Box sx={{ display: "flex", justifyContent: "space-between", p: 1.5, border: "1px solid", borderColor: "divider", borderRadius: 2 }}>
-          <Typography variant="body2" sx={{ fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis" }}>
+        <Box className="flex justify-between p-3 border border-base-300 rounded-[16px]">
+          <Typography variant="body2" className="font-semibold overflow-hidden text-ellipsis">
             {file.name} ({fmtBytes(file.size)})
           </Typography>
           <Button size="small" color="error" onClick={clear}>
@@ -270,10 +263,10 @@ export default function PdfToTextTool() {
             slotProps={{ input: { readOnly: true, spellCheck: false } }}
           />
           <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
-            <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={handleCopy} sx={{ minHeight: 44 }}>
+            <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={handleCopy} className="min-h-[44px]">
               {copied ? "Copied!" : "Copy"}
             </Button>
-            <Button variant="contained" startIcon={<DownloadIcon />} onClick={handleDownload} sx={{ minHeight: 44 }}>
+            <Button variant="contained" startIcon={<DownloadIcon />} onClick={handleDownload} className="min-h-[44px]">
               Download .txt
             </Button>
           </Stack>

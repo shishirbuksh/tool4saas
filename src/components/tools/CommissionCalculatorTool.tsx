@@ -1,14 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -55,25 +47,19 @@ export default function CommissionCalculatorTool() {
           {field("Commission (%)", percent, setPercent, "%")}
         </Stack>
         <Box
-          sx={{
-            p: 2,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "primary.main",
-            textAlign: "center",
-          }}
+          className="p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
             Commission
           </Typography>
-          <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+          <Typography variant="h3" className="font-extrabold text-primary">
             {commission !== null ? money(commission, currency) : "—"}
           </Typography>
         </Box>
         <Stack spacing={1.5}>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box className="flex justify-between">
             <Typography color="text.secondary">Total</Typography>
-            <Typography sx={{ fontWeight: 700 }}>{total !== null ? money(total, currency) : "—"}</Typography>
+            <Typography className="font-bold">{total !== null ? money(total, currency) : "—"}</Typography>
           </Box>
         </Stack>
     </ToolPaper>

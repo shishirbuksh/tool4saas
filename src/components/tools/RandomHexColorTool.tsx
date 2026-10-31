@@ -1,11 +1,6 @@
-"use client";
 
-import React, { useState, useCallback } from 'react';
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+import React, { useState, useCallback } from 'react';import { Stack, Box, Button, TextField, Typography } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
 
 export default function RandomHexColorTool() {
@@ -33,11 +28,11 @@ export default function RandomHexColorTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" gutterBottom className="font-bold">
         Secure Random Hex Color Generator
       </Typography>
 
-      <Stack direction="row" spacing={2} sx={{ mb: 2, alignItems: "center", flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={2} className="mb-4 items-center flex-wrap">
         <TextField
           type="number"
           label="Number of Colors"
@@ -52,21 +47,14 @@ export default function RandomHexColorTool() {
       </Stack>
 
       {colors.length > 0 ? (
-        <Box sx={{ p: 1, border: "1px solid", borderColor: "divider", borderRadius: 2, bgcolor: "background.paper" }}>
-          <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap", gap: 2 }}>
+        <Box className="p-2 border border-base-300 rounded-[16px] bg-base-100">
+          <Stack direction="row" spacing={2} className="flex-wrap gap-4">
             {colors.map((color, idx) => (
-              <Box key={idx} sx={{ textAlign: "center" }}>
+              <Box key={idx} className="text-center">
                 <Box
-                  sx={{
-                    width: 100,
-                    height: 100,
-                    backgroundColor: color,
-                    borderRadius: 1,
-                    border: "1px solid #ccc",
-                    mb: 1,
-                  }}
+                  className="w-[100px] h-[100px] rounded-[8px] border border-[#ccc] mb-2" style={{ backgroundColor: color }}
                 />
-                <Typography variant="body2" sx={{ fontFamily: "monospace" }}>
+                <Typography variant="body2" style={{ fontFamily: "monospace" }}>
                   {color}
                 </Typography>
               </Box>

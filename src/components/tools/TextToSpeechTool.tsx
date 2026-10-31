@@ -1,17 +1,7 @@
-"use client";
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Slider from "@mui/material/Slider";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Slider, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+
 
 export default function TextToSpeechTool() {
   const [text, setText] = useState("");
@@ -80,7 +70,7 @@ export default function TextToSpeechTool() {
           placeholder="Type or paste the text you want spoken…"
           slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
         />
-        <FormControl fullWidth sx={{ maxWidth: 320 }}>
+        <FormControl fullWidth className="max-w-[320px]">
           <InputLabel id="voice-label">Voice</InputLabel>
           <Select
             labelId="voice-label"
@@ -95,14 +85,14 @@ export default function TextToSpeechTool() {
             ))}
           </Select>
         </FormControl>
-        <Box sx={{ maxWidth: 320 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
+        <Box className="max-w-[320px]">
+          <Typography variant="subtitle2" className="font-bold mb-1">
             Rate: {rate.toFixed(1)}x
           </Typography>
           <Slider value={rate} min={0.5} max={2} step={0.1} onChange={(_, v) => setRate(Array.isArray(v) ? v[0] : v)} aria-label="Speech rate" />
         </Box>
-        <Box sx={{ maxWidth: 320 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
+        <Box className="max-w-[320px]">
+          <Typography variant="subtitle2" className="font-bold mb-1">
             Pitch: {pitch.toFixed(1)}
           </Typography>
           <Slider value={pitch} min={0} max={2} step={0.1} onChange={(_, v) => setPitch(Array.isArray(v) ? v[0] : v)} aria-label="Speech pitch" />

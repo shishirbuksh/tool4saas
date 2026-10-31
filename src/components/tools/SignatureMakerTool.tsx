@@ -1,14 +1,7 @@
-"use client";
 
 import { useState, useRef, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Slider from "@mui/material/Slider";
-import MenuItem from "@mui/material/MenuItem";
+import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, TextField, Slider, MenuItem } from "@/components/ds";
+
 
 const FONTS = [
   { value: "Brush Script MT", label: "Brush Script" },
@@ -210,7 +203,7 @@ export default function SignatureMakerTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         Signature Maker
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -219,14 +212,7 @@ export default function SignatureMakerTool() {
       </Typography>
 
       <Box
-        sx={{
-          border: "1px solid",
-          borderColor: "divider",
-          borderRadius: 2,
-          bgcolor: "background.paper",
-          overflow: "hidden",
-          lineHeight: 0,
-        }}
+        className="border border-base-300 rounded-[16px] bg-base-100 overflow-hidden leading-[0]"
       >
         <Box
           component="canvas"
@@ -238,13 +224,7 @@ export default function SignatureMakerTool() {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          sx={{
-            width: "100%",
-            height: 300,
-            display: "block",
-            cursor: "crosshair",
-            touchAction: "none",
-          }}
+          className="w-full h-[300px] block" style={{ cursor: "crosshair", touchAction: "none" }}
           // Set explicit width/height via style; actual pixel size handled in initCanvas
           width={700}
           height={300}
@@ -252,25 +232,14 @@ export default function SignatureMakerTool() {
         />
       </Box>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: { sm: "center" } }}>
-        <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="sm:items-center">
+        <Stack direction="row" spacing={1.5} className="items-center">
           <Box
             component="input"
             type="color"
             value={toHexColor(penColor)}
             onChange={(e) => setPenColor(e.target.value)}
-            sx={{
-              width: 48,
-              height: 44,
-              minWidth: 44,
-              minHeight: 44,
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 2,
-              p: 0.5,
-              cursor: "pointer",
-              bgcolor: "transparent",
-            }}
+            className="w-[48px] h-[44px] min-w-[44px] min-h-[44px] border border-base-300 rounded-[16px] p-1 cursor-pointer bg-transparent"
             aria-label="Pen color picker"
           />
           <TextField
@@ -279,12 +248,12 @@ export default function SignatureMakerTool() {
             onChange={(e) => setPenColor(e.target.value)}
             size="small"
             placeholder="#0f172a"
-            sx={{ width: 140 }}
+            className="w-[140px]"
             slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
           />
         </Stack>
 
-        <Box sx={{ flex: 1, maxWidth: 320 }}>
+        <Box className="flex-1 max-w-[320px]">
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Pen width: {penWidth}px
           </Typography>
@@ -309,8 +278,8 @@ export default function SignatureMakerTool() {
         </Stack>
       </Stack>
 
-      <Stack spacing={2} sx={{ borderTop: "1px solid", borderColor: "divider", pt: 2 }}>
-        <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+      <Stack spacing={2} className="border-t border-base-300 pt-4">
+        <Typography variant="subtitle2" className="font-bold">
           Typed signature
         </Typography>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
@@ -327,11 +296,11 @@ export default function SignatureMakerTool() {
             label="Font"
             value={font}
             onChange={(e) => setFont(e.target.value)}
-            sx={{ minWidth: 180 }}
+            className="min-w-[180px]"
             fullWidth
           >
             {FONTS.map((f) => (
-              <MenuItem key={f.value} value={f.value} sx={{ fontFamily: f.value }}>
+              <MenuItem key={f.value} value={f.value} style={{ fontFamily: f.value }}>
                 {f.label}
               </MenuItem>
             ))}
@@ -339,18 +308,7 @@ export default function SignatureMakerTool() {
         </Stack>
         {typedText && (
           <Box
-            sx={{
-              p: 2,
-              border: "1px dashed",
-              borderColor: "divider",
-              borderRadius: 2,
-              bgcolor: "background.paper",
-              textAlign: "center",
-              fontFamily: font,
-              fontSize: 32,
-              color: toHexColor(penColor),
-              wordBreak: "break-word",
-            }}
+            className="p-4 border-base-300 rounded-[16px] bg-base-100 text-center text-[32px] break-words" style={{ border: "1px dashed", fontFamily: font, color: toHexColor(penColor) }}
           >
             {typedText}
           </Box>

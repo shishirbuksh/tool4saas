@@ -1,15 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Button, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 type Mode = "encode" | "decode";
@@ -125,15 +118,15 @@ export default function MorseTranslatorTool() {
           mode === "encode" ? "HELLO WORLD" : ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
         }
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ fontFamily: "monospace" }}
+        style={{ fontFamily: "monospace" }}
       />
 
       <Box>
         <Stack
           direction="row"
-          sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}
+          className="items-center justify-between mb-1"
         >
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Typography variant="subtitle2" className="font-bold">
             {mode === "encode" ? "Morse output" : "Decoded text"}
           </Typography>
           <Button
@@ -152,7 +145,7 @@ export default function MorseTranslatorTool() {
           fullWidth
           placeholder={mode === "encode" ? "Morse code will appear here…" : "Decoded text will appear here…"}
           slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false } }}
-          sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+          className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
         />
       </Box>
 

@@ -5,7 +5,6 @@ export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
   color?: "primary" | "secondary" | "error" | "inherit";
   edge?: "start" | "end" | false;
   ref?: any;
-  [key: string]: any;
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(

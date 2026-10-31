@@ -1,12 +1,7 @@
-"use client";
 
 import { useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+
 
 const toRgb = (hex: string) => {
   let h = hex.replace("#", "");
@@ -41,14 +36,14 @@ export default function FaviconGeneratorTool() {
   };
 
   const colorField = (label: string, value: string, set: (v: string) => void) => (
-    <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
+    <Stack direction="row" spacing={1.5} className="items-center">
       <Box
         component="input"
         type="color"
         value={toRgb(value)}
         onChange={(e) => set(e.target.value)}
         aria-label={`${label} color picker`}
-        sx={{ width: 48, height: 44, minWidth: 44, minHeight: 44, border: "1px solid", borderColor: "divider", borderRadius: 2, p: 0.5, cursor: "pointer", bgcolor: "transparent" }}
+        className="w-[48px] h-[44px] min-w-[44px] min-h-[44px] border border-base-300 rounded-[16px] p-1 cursor-pointer bg-transparent"
       />
       <TextField
         value={value}
@@ -56,7 +51,7 @@ export default function FaviconGeneratorTool() {
         size="small"
         label={label}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ width: 160 }}
+        className="w-[160px]"
       />
     </Stack>
   );
@@ -78,23 +73,23 @@ export default function FaviconGeneratorTool() {
           type="number"
           value={size}
           onChange={(e) => setSize(e.target.value)}
-          sx={{ maxWidth: 200 }}
+          className="max-w-[200px]"
           slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
         />
         <Button variant="contained" onClick={draw}>
           Generate favicon
         </Button>
         <Box>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+          <Typography variant="subtitle2" className="font-bold mb-2">
             Preview
           </Typography>
           {dataUrl ? (
-            <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+            <Stack direction="row" spacing={2} className="items-center">
               <Box
                 component="img"
                 src={dataUrl}
                 alt="Favicon preview"
-                sx={{ width: 64, height: 64, borderRadius: 2, border: "1px solid", borderColor: "divider" }}
+                className="w-[64px] h-[64px] rounded-[16px] border border-base-300"
               />
               <Button
                 component="a"

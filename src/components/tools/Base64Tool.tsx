@@ -1,14 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const MAX_INPUT_SIZE = 1_000_000; // 1M chars cap
 
@@ -64,26 +58,26 @@ export default function Base64Tool() {
           onChange={(e) => setInput(e.target.value.slice(0, MAX_INPUT_SIZE + 1))}
           placeholder="Type or paste text…"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          sx={{ fontFamily: "monospace", "& .MuiInputBase-root": { minHeight: 44 } }}
+          style={{ fontFamily: "monospace" }}
           helperText={`${input.length.toLocaleString()} / ${MAX_INPUT_SIZE.toLocaleString()} chars`}
           error={input.length > MAX_INPUT_SIZE}
         />
         {input.length > MAX_INPUT_SIZE && <Alert severity="warning">Input exceeds 1M chars — will be truncated.</Alert>}
-        <Stack direction="row" spacing={1}  useFlexGap sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={1}  useFlexGap className="flex-wrap">
           <Button variant="contained" onClick={encode} disabled={!input}>Encode →</Button>
           <Button variant="contained" color="secondary" onClick={decode} disabled={!input}>← Decode</Button>
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => output && void import("@/lib/clipboard").then(m=>m.copyToClipboard(output))} disabled={!output}>Copy</Button>
         </Stack>
         {output && (
           <Box>
-            <Typography  variant="subtitle2"  gutterBottom sx={{ fontWeight: 700 }}>Output</Typography>
+            <Typography  variant="subtitle2"  gutterBottom className="font-bold">Output</Typography>
             <TextField
               value={output}
               multiline
               minRows={6}
               fullWidth
               slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false, autoComplete: "off" } }}
-              sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 }, "& .MuiInputBase-root": { minHeight: 44 } }}
+              className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
           </Box>
         )}

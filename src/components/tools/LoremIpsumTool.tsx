@@ -1,17 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const WORDS =
   "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in reprehenderit voluptate velit esse cillum eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum".split(
@@ -76,7 +67,7 @@ export default function LoremIpsumTool() {
             slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
           />
           {mode === "paragraphs" && (
-            <FormControl fullWidth sx={{ maxWidth: 220 }}>
+            <FormControl fullWidth className="max-w-[220px]">
               <InputLabel>Start</InputLabel>
               <Select label="Start" value={startWith ? "yes" : "no"} onChange={(e) => setStartWith(e.target.value === "yes")}>
                 <MenuItem value="yes">Start with “Lorem ipsum…”</MenuItem>
@@ -90,11 +81,11 @@ export default function LoremIpsumTool() {
         </Button>
         {output && (
           <Box>
-            <Stack direction="row"   sx={{ alignItems: "center", justifyContent: "space-between",  mb: 0.5 }}>
-              <Typography  variant="subtitle2"  sx={{ fontWeight: 700 }}>Result</Typography>
+            <Stack direction="row"   className="items-center justify-between mb-1">
+              <Typography  variant="subtitle2"  className="font-bold">Result</Typography>
               <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => void import("@/lib/clipboard").then(m=>m.copyToClipboard(output))}>Copy</Button>
             </Stack>
-            <TextField value={output} multiline minRows={8} fullWidth slotProps={{ input: { readOnly: true, "aria-label": "Generated text", spellCheck: false } }} sx={{ "& textarea": { fontSize: 13, lineHeight: 1.6 } }} />
+            <TextField value={output} multiline minRows={8} fullWidth slotProps={{ input: { readOnly: true, "aria-label": "Generated text", spellCheck: false } }} className="[&_textarea]:text-[13px] [&_textarea]:leading-[1.6]" />
           </Box>
         )}
       </ToolPaper>

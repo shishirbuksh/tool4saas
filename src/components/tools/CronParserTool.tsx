@@ -1,12 +1,7 @@
-"use client";
 
 import { useMemo, useState, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+
 
 const FIELD_REGEX =
   /^(\*(\/\d+)?|\d+(-\d+)?(\/\d+)?)(,(\*(\/\d+)?|\d+(-\d+)?(\/\d+)?))*$/;
@@ -228,33 +223,25 @@ export default function CronParserTool() {
         helperText={hasError ? error : "Format: minute hour day-of-month month day-of-week — e.g., 0 0 * * * = daily at midnight"}
         error={hasError}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ "& input": { fontFamily: "monospace" } }}
+        className="[&_input]:[font-family:monospace]"
       />
 
       {!hasError && fields ? (
         <Stack spacing={2}>
           <Box>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+            <Typography variant="subtitle2" className="font-bold mb-2">
               Field breakdown
             </Typography>
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={1} sx={{ flexWrap: "wrap" }}>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={1} className="flex-wrap">
               {fields.map((f, idx) => (
                 <Box
                   key={idx}
-                  sx={{
-                    flex: 1,
-                    minWidth: 120,
-                    p: 1.5,
-                    borderRadius: 2,
-                    border: "1px solid",
-                    borderColor: "divider",
-                    bgcolor: "background.paper",
-                  }}
+                  className="flex-1 min-w-[120px] p-3 rounded-[16px] border border-base-300 bg-base-100"
                 >
-                  <Typography variant="caption" color="text.secondary" sx={{ textTransform: "uppercase", letterSpacing: 0.5 }}>
+                  <Typography variant="caption" color="text.secondary" className="uppercase tracking-[0.5px]">
                     {FIELD_META[idx].label}
                   </Typography>
-                  <Typography variant="body2" sx={{ fontFamily: "monospace", fontWeight: 700 }}>
+                  <Typography variant="body2" className="font-bold" style={{ fontFamily: "monospace" }}>
                     {f}
                   </Typography>
                   <Typography variant="caption" color="text.secondary">
@@ -268,7 +255,7 @@ export default function CronParserTool() {
           <Alert severity="info">{description}</Alert>
 
           <Box>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+            <Typography variant="subtitle2" className="font-bold mb-2">
               Next 5 run times
             </Typography>
             {nextRuns.length === 0 ? (
@@ -278,23 +265,12 @@ export default function CronParserTool() {
                 {nextRuns.map((d, i) => (
                   <Box
                     key={i}
-                    sx={{
-                      p: 1.5,
-                      borderRadius: 2,
-                      border: "1px solid",
-                      borderColor: "divider",
-                      fontFamily: "monospace",
-                      fontSize: 14,
-                      display: "flex",
-                      justifyContent: "space-between",
-                      gap: 2,
-                      flexWrap: "wrap",
-                    }}
+                    className="p-3 rounded-[16px] border border-base-300 text-[14px] flex justify-between gap-4 flex-wrap" style={{ fontFamily: "monospace" }}
                   >
-                    <Typography component="span" variant="body2" sx={{ fontFamily: "monospace" }}>
+                    <Typography component="span" variant="body2" style={{ fontFamily: "monospace" }}>
                       {d.toLocaleString()}
                     </Typography>
-                    <Typography component="span" variant="caption" color="text.secondary" sx={{ fontFamily: "monospace" }}>
+                    <Typography component="span" variant="caption" color="text.secondary" style={{ fontFamily: "monospace" }}>
                       {d.toISOString().replace("T", " ").slice(0, 16)} UTC
                     </Typography>
                   </Box>
@@ -310,12 +286,12 @@ export default function CronParserTool() {
         <Alert severity="error">{error}</Alert>
       )}
 
-      <Box sx={{ pt: 1 }}>
+      <Box className="pt-2">
         <Typography variant="caption" color="text.secondary">
-          Examples: <Box component="span" sx={{ fontFamily: "monospace" }}>* * * * *</Box> every minute ·{" "}
-          <Box component="span" sx={{ fontFamily: "monospace" }}>0 * * * *</Box> hourly ·{" "}
-          <Box component="span" sx={{ fontFamily: "monospace" }}>0 0 * * 0</Box> weekly ·{" "}
-          <Box component="span" sx={{ fontFamily: "monospace" }}>30 9 1 * *</Box> At 09:30 on day-of-month 1
+          Examples: <Box component="span" style={{ fontFamily: "monospace" }}>* * * * *</Box> every minute ·{" "}
+          <Box component="span" style={{ fontFamily: "monospace" }}>0 * * * *</Box> hourly ·{" "}
+          <Box component="span" style={{ fontFamily: "monospace" }}>0 0 * * 0</Box> weekly ·{" "}
+          <Box component="span" style={{ fontFamily: "monospace" }}>30 9 1 * *</Box> At 09:30 on day-of-month 1
         </Typography>
       </Box>
     </ToolPaper>

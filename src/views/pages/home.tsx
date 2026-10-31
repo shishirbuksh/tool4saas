@@ -1,4 +1,5 @@
-import Box from "@mui/material/Box";
+import { Box } from "@/components/ds";
+
 import {
   HomeToolsItemList,
   HomeFaqJsonLd,
@@ -15,7 +16,7 @@ import { FAQS } from "@/content/home";
 
 export default function HomeView() {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", overflowX: "clip" }}>
+    <Box className="flex flex-col min-h-[100vh] overflow-x-clip">
       <HomeWebPageJsonLd />
       <HomeToolsItemList />
       <HomeFaqJsonLd faqs={FAQS} />

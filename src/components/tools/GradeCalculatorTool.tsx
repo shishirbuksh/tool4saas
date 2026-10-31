@@ -1,12 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+
 
 type Assessment = {
   id: number;
@@ -80,7 +75,7 @@ export default function GradeCalculatorTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         Grade Calculator
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -94,11 +89,11 @@ export default function GradeCalculatorTool() {
             key={item.id}
             direction={{ xs: "column", sm: "row" }}
             spacing={1.5}
-            sx={{ alignItems: { xs: "stretch", sm: "center" } }}
+            className="items-stretch sm:items-center"
           >
             <Typography
               variant="body2"
-              sx={{ minWidth: 72, fontWeight: 600, color: "text.secondary" }}
+              className="min-w-[72px] font-semibold text-base-content/70"
             >
               #{index + 1}
             </Typography>
@@ -145,7 +140,7 @@ export default function GradeCalculatorTool() {
               color="error"
               onClick={() => removeAssessment(item.id)}
               disabled={assessments.length === 1}
-              sx={{ minWidth: 88, flexShrink: 0 }}
+              className="min-w-[88px] shrink-0"
             >
               Remove
             </Button>
@@ -163,23 +158,13 @@ export default function GradeCalculatorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: 1,
-        }}
+        className="p-4 rounded-[16px] border border-base-300 flex justify-between items-center flex-wrap gap-2"
       >
         <Typography color="text.secondary">
           Weighted average {totalWeight ? `(${fmt(totalWeight)}% weight entered)` : ""}
         </Typography>
-        <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
-          <Typography sx={{ fontWeight: 800, fontSize: 20 }}>
+        <Stack direction="row" spacing={1.5} className="items-center">
+          <Typography className="font-extrabold text-[20px]">
             {average !== null ? `${fmt(average)}% (${getLetter(average)})` : "—"}
           </Typography>
           <Button
@@ -235,23 +220,17 @@ export default function GradeCalculatorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 2.5,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-5 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Required on final
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {required !== null && isFinite(required)
             ? `${fmt(required)}%${requiredLetter ? ` (${requiredLetter})` : ""}`
             : "—"}
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+        <Typography variant="body2" color="text.secondary" className="mt-1">
           {required === null
             ? "Enter a valid current grade, final weight (1–100%), and target grade."
             : required > 100
@@ -262,16 +241,16 @@ export default function GradeCalculatorTool() {
         </Typography>
       </Box>
 
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box className="flex flex-col gap-2">
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Weighted average</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {average !== null ? `${fmt(average)}% (${getLetter(average)})` : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Formula</Typography>
-          <Typography sx={{ fontWeight: 600, fontSize: 13, color: "text.secondary" }}>
+          <Typography className="font-semibold text-[13px] text-base-content/70">
             (target − current × (1 − w)) / w
           </Typography>
         </Box>

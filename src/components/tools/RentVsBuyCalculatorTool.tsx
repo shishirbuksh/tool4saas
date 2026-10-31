@@ -1,11 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -86,18 +81,12 @@ export default function RentVsBuyCalculatorTool() {
         {field("Appreciation (%/yr)", appreciation, setAppreciation)}
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Verdict
         </Typography>
-        <Typography variant="h4" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h4" className="font-extrabold text-primary">
           {result ? result.verdict : "—"}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -109,25 +98,25 @@ export default function RentVsBuyCalculatorTool() {
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Buy total (down + EMI × n)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{result ? money(result.buyTotal) : "—"}</Typography>
+          <Typography className="font-bold">{result ? money(result.buyTotal) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Rent total (3% yearly hike)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{result ? money(result.rentTotal) : "—"}</Typography>
+          <Typography className="font-bold">{result ? money(result.rentTotal) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Monthly EMI</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{result ? money(result.emi) : "—"}</Typography>
+          <Typography className="font-bold">{result ? money(result.emi) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Projected home value</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{result ? money(result.homeValue) : "—"}</Typography>
+          <Typography className="font-bold">{result ? money(result.homeValue) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Break-even</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result ? (result.breakEven !== null ? `Year ${result.breakEven}` : `No break-even within ${years} years`) : "—"}
           </Typography>
         </Box>

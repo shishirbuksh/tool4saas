@@ -1,16 +1,8 @@
-"use client";
 
-import { useRef, useState } from "react";
-import Paper from "@mui/material/Paper";
+import { useRef, useState } from "react";import { Paper, Box, TextField, MenuItem, Slider, Button, Typography, Stack } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
-import Slider from "@mui/material/Slider";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import DownloadIcon from "@mui/icons-material/Download";
+import { Download as DownloadIcon } from "@/components/ds/icons";
 import dynamic from "@/lib/astro/dynamic";
 
 // Heavy dep split: qrcode.react loads in its own client-only chunk (ssr:false),
@@ -63,7 +55,7 @@ export default function WifiQrGeneratorTool() {
   return (
     <ToolPaper>
       <Stack spacing={3} direction={{ xs: "column", md: "row" }}>
-        <Box sx={{ flex: 1 }}>
+        <Box className="flex-1">
           <Stack spacing={2}>
             <TextField
               label="Network name (SSID)"
@@ -109,19 +101,13 @@ export default function WifiQrGeneratorTool() {
         </Box>
 
         <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 2,
-          }}
+          className="flex flex-col items-center justify-center gap-4"
         >
           <Paper
             variant="outlined"
-            sx={{ p: 2, bgcolor: canGenerate ? "#ffffff" : "background.paper" }}
+            className="p-4" style={{ backgroundColor: canGenerate ? "#ffffff" : "background.paper" }}
           >
-            <Box ref={canvasRef} sx={{ lineHeight: 0 }}>
+            <Box ref={canvasRef} className="leading-[0]">
               {canGenerate ? (
                 <QRCodeCanvas
                   value={wifiValue}
@@ -132,16 +118,7 @@ export default function WifiQrGeneratorTool() {
                 />
               ) : (
                 <Box
-                  sx={{
-                    width: size,
-                    height: size,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "text.disabled",
-                    border: "1px dashed",
-                    borderColor: "divider",
-                  }}
+                  className="flex items-center justify-center text-base-content/40 border-base-300" style={{ width: size, height: size, border: "1px dashed" }}
                 >
                   Enter an SSID
                 </Box>

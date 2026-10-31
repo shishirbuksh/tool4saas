@@ -1,15 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Box from "@mui/material/Box";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControlLabel, Checkbox, Box } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 export default function TextCleanerTool() {
@@ -101,7 +94,7 @@ export default function TextCleanerTool() {
         slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
       />
 
-      <Stack direction="row" sx={{ flexWrap: "wrap", gap: 0, columnGap: 3 }}>
+      <Stack direction="row" className="flex-wrap gap-0 gap-x-6">
         <FormControlLabel
           control={<Checkbox checked={trimLines} onChange={(e) => setTrimLines(e.target.checked)} />}
           label="Trim lines"
@@ -137,8 +130,8 @@ export default function TextCleanerTool() {
       </Stack>
 
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-1">
+          <Typography variant="subtitle2" className="font-bold">
             Cleaned text
           </Typography>
           <Typography variant="caption" color="text.secondary">
@@ -158,18 +151,13 @@ export default function TextCleanerTool() {
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={2}
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          bgcolor: "action.hover",
-          justifyContent: "space-between",
-        }}
+        className="p-4 rounded-[16px] justify-between" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
       >
         <Box>
           <Typography variant="caption" color="text.secondary">
             Input
           </Typography>
-          <Typography variant="body2" sx={{ fontWeight: 600 }}>
+          <Typography variant="body2" className="font-semibold">
             {stats.inputChars} chars · {stats.inputLines} lines · {stats.inputWords} words
           </Typography>
         </Box>
@@ -177,7 +165,7 @@ export default function TextCleanerTool() {
           <Typography variant="caption" color="text.secondary">
             Output
           </Typography>
-          <Typography variant="body2" sx={{ fontWeight: 600 }}>
+          <Typography variant="body2" className="font-semibold">
             {stats.outputChars} chars · {stats.outputLines} lines · {stats.outputWords} words
           </Typography>
         </Box>
@@ -185,7 +173,7 @@ export default function TextCleanerTool() {
           <Typography variant="caption" color="text.secondary">
             Saved
           </Typography>
-          <Typography variant="body2" sx={{ fontWeight: 600, color: stats.saved > 0 ? "success.main" : "text.primary" }}>
+          <Typography variant="body2" className="font-semibold" style={{ color: stats.saved > 0 ? "success.main" : "text.primary" }}>
             {stats.saved > 0 ? `-${stats.saved} chars` : "0 chars"} {stats.emptyLines > 0 ? `· ${stats.emptyLines} empty lines in input` : ""}
           </Typography>
         </Box>

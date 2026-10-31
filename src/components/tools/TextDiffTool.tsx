@@ -1,12 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+
 
 type DiffPart = { t: "same" | "add" | "del"; v: string };
 
@@ -97,31 +92,22 @@ export default function TextDiffTool() {
         />
         {parts.length > 0 && (
           <Box>
-            <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
-              <Typography variant="caption" sx={{ color: "error.main" }}>Removed: {removed}</Typography>
-              <Typography variant="caption" sx={{ color: "success.main" }}>Added: {added}</Typography>
+            <Stack direction="row" spacing={2} className="mb-2">
+              <Typography variant="caption" className="text-error">Removed: {removed}</Typography>
+              <Typography variant="caption" className="text-success">Added: {added}</Typography>
             </Stack>
             <Box
-              sx={{
-                p: 2,
-                border: "1px solid",
-                borderColor: "divider",
-                borderRadius: 2,
-                whiteSpace: "pre-wrap",
-                fontFamily: "monospace",
-                fontSize: 13,
-                lineHeight: 1.7,
-              }}
+              className="p-4 border border-base-300 rounded-[16px] whitespace-pre-wrap text-[13px] leading-[1.7]" style={{ fontFamily: "monospace" }}
             >
               {parts.map((p, idx) =>
                 p.t === "same" ? (
                   <span key={idx}>{p.v}</span>
                 ) : p.t === "del" ? (
-                  <Box component="span" key={idx} sx={{ bgcolor: "error.light", color: "error.dark", textDecoration: "line-through" }}>
+                  <Box component="span" key={idx} className="line-through" style={{ backgroundColor: "color-mix(in oklab, var(--color-error) 15%, var(--color-base-100))", color: "var(--color-error)" }}>
                     {p.v}
                   </Box>
                 ) : (
-                  <Box component="span" key={idx} sx={{ bgcolor: "success.light", color: "success.contrastText" }}>
+                  <Box component="span" key={idx} style={{ backgroundColor: "color-mix(in oklab, var(--color-success) 15%, var(--color-base-100))", color: "var(--color-success-content)" }}>
                     {p.v}
                   </Box>
                 )

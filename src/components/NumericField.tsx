@@ -1,6 +1,5 @@
-"use client";
+import { TextField } from "@/components/ds";
 
-import TextField from "@mui/material/TextField";
 
 type NumericFieldProps = {
   label: string;
@@ -37,7 +36,7 @@ export default function NumericField({
         input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
         htmlInput: { min, step: "any" },
       }}
-      sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+      
     />
   );
 }

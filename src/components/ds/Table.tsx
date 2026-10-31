@@ -1,22 +1,28 @@
 import React, { forwardRef, type HTMLAttributes, type TdHTMLAttributes, type ThHTMLAttributes } from "react";
 
-export const TableContainer = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(function TableContainer(
-  { className = "", style, children, ...props },
+export const TableContainer = forwardRef<
+  HTMLDivElement,
+  HTMLAttributes<HTMLDivElement> & { component?: React.ElementType; variant?: "outlined" | "elevation" }
+>(function TableContainer(
+  { className = "", style, children, component: Component = "div", variant: _variant, ...props },
   ref
 ) {
   return (
-    <div ref={ref} className={`overflow-x-auto rounded-xl border border-base-200 ${className}`} style={style} {...props}>
+    <Component ref={ref} className={`overflow-x-auto rounded-xl border border-base-200 ${className}`} style={style} {...props}>
       {children}
-    </div>
+    </Component>
   );
 });
 
-export const Table = forwardRef<HTMLTableElement, HTMLAttributes<HTMLTableElement>>(function Table(
-  { className = "", style, children, ...props },
+export const Table = forwardRef<
+  HTMLTableElement,
+  HTMLAttributes<HTMLTableElement> & { size?: "small" | "medium"; stickyHeader?: boolean }
+>(function Table(
+  { className = "", style, children, size: _size, stickyHeader, ...props },
   ref
 ) {
   return (
-    <table ref={ref} className={`table table-zebra w-full text-sm ${className}`} style={style} {...props}>
+    <table ref={ref} className={`table table-zebra w-full text-sm ${stickyHeader ? "sticky top-0" : ""} ${className}`} style={style} {...props}>
       {children}
     </table>
   );
@@ -44,12 +50,19 @@ export const TableBody = forwardRef<HTMLTableSectionElement, HTMLAttributes<HTML
   );
 });
 
-export const TableRow = forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>>(function TableRow(
-  { className = "", children, ...props },
+export const TableRow = forwardRef<
+  HTMLTableRowElement,
+  HTMLAttributes<HTMLTableRowElement> & { selected?: boolean; hover?: boolean }
+>(function TableRow(
+  { className = "", children, selected, hover: _hover, ...props },
   ref
 ) {
   return (
-    <tr ref={ref} className={`hover:bg-base-200/40 transition-colors ${className}`} {...props}>
+    <tr
+      ref={ref}
+      className={`hover:bg-base-200/40 transition-colors ${selected ? "bg-primary/10" : ""} ${className}`}
+      {...props}
+    >
       {children}
     </tr>
   );

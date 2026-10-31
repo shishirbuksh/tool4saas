@@ -1,16 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Slider from "@mui/material/Slider";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 type Shape = "circle" | "ellipse" | "triangle" | "hexagon" | "star";
 
@@ -78,8 +70,8 @@ export default function CssClipPathTool() {
     set: (v: number) => void,
     unit = "%",
   ) => (
-    <Box sx={{ maxWidth: 320 }}>
-      <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 0.5 }}>
+    <Box className="max-w-[320px]">
+      <Typography variant="subtitle2" className="font-bold mb-1">
         {label}: {value}
         {unit}
       </Typography>
@@ -102,7 +94,7 @@ export default function CssClipPathTool() {
         exclusive
         onChange={(_, v) => v && setShape(v as Shape)}
         aria-label="Clip-path shape"
-        sx={{ flexWrap: "wrap" }}
+        className="flex-wrap"
       >
         <ToggleButton value="circle">Circle</ToggleButton>
         <ToggleButton value="ellipse">Ellipse</ToggleButton>
@@ -128,29 +120,15 @@ export default function CssClipPathTool() {
       {(shape === "triangle" || shape === "hexagon" || shape === "star") &&
         sliderRow("Size", polySize, 10, 100, setPolySize)}
       <Box
-        sx={{
-          height: 160,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          bgcolor: "background.paper",
-        }}
+        className="h-[160px] rounded-[16px] border border-base-300 flex items-center justify-center bg-base-100"
       >
         <Box
-          sx={{
-            width: 160,
-            height: 100,
-            bgcolor: "primary.main",
-            clipPath,
-          }}
+          className="w-[160px] h-[100px] bg-primary" style={{ clipPath: clipPath }}
         />
       </Box>
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-1">
+          <Typography variant="subtitle2" className="font-bold">
             CSS
           </Typography>
           <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(css)}>
@@ -161,7 +139,7 @@ export default function CssClipPathTool() {
           value={css}
           fullWidth
           slotProps={{ input: { readOnly: true, "aria-label": "CSS clip-path", spellCheck: false } }}
-          sx={{ "& input": { fontFamily: "monospace", fontSize: 13 } }}
+          className="[&_input]:[font-family:monospace] [&_input]:text-[13px]"
         />
       </Box>
     </ToolPaper>

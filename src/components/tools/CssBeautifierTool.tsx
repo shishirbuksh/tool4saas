@@ -1,14 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Box from "@mui/material/Box";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, Box } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 function beautifyCss(css: string): string {
@@ -126,7 +120,7 @@ export default function CssBeautifierTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         CSS Beautifier
       </Typography>
       <Typography variant="body2" color="text.secondary">
@@ -142,10 +136,10 @@ export default function CssBeautifierTool() {
         onChange={(e) => setInput(e.target.value)}
         placeholder={"/* Example */\n.container{display:flex;justify-content:center;}\n.container .item{color:red;}"}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+        className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
       />
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button variant="contained" onClick={handleFormat} disabled={!input.trim()}>
           Format
         </Button>
@@ -167,8 +161,8 @@ export default function CssBeautifierTool() {
 
       {output && (
         <Stack spacing={1}>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between">
+            <Typography variant="subtitle2" className="font-bold">
               Output Preview
             </Typography>
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={handleCopy}>
@@ -181,31 +175,25 @@ export default function CssBeautifierTool() {
             minRows={8}
             fullWidth
             slotProps={{ input: { readOnly: true, spellCheck: false, autoComplete: "off" } }}
-            sx={{ "& textarea": { fontFamily: "monospace", fontSize: 13 } }}
+            className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
           />
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Typography variant="subtitle2" className="font-bold">
             Preview
           </Typography>
           <Box
-            sx={{
-              p: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 1,
-              overflow: "auto",
-            }}
+            className="p-4 border border-base-300 rounded-[8px] overflow-auto"
           >
             <style>{output}</style>
-            <Typography variant="body2" sx={{ mb: 1 }} color="text.secondary">
+            <Typography variant="body2" className="mb-2" color="text.secondary">
               Preview area styled by your CSS (if selectors match elements below):
             </Typography>
-            <Box className="preview-container" sx={{ p: 2, border: "1px dashed", borderColor: "divider" }}>
+            <Box className="preview-container p-4 border-base-300" style={{ border: "1px dashed" }}>
               <Box component="div" className="container">
                 <Box component="div" className="item">
                   Sample .container .item element
                 </Box>
               </Box>
-              <Box component="div" className="box" sx={{ mt: 1 }}>
+              <Box component="div" className="box mt-2" >
                 Sample .box element
               </Box>
               <Typography variant="body2" className="text">

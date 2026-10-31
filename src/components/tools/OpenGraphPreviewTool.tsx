@@ -1,16 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import Alert from "@mui/material/Alert";
-import Divider from "@mui/material/Divider";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, MenuItem, Alert, Divider } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const OG_TYPES = ["website", "article", "product", "profile", "video", "music"] as const;
@@ -77,7 +69,7 @@ export default function OpenGraphPreviewTool() {
   return (
     <ToolPaper spacing={3}>
       <Box>
-        <Typography variant="h6" sx={{ fontWeight: 700 }}>
+        <Typography variant="h6" className="font-bold">
           Open Graph Preview
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -132,7 +124,7 @@ export default function OpenGraphPreviewTool() {
             select
             value={type}
             onChange={(e) => setType(e.target.value as (typeof OG_TYPES)[number])}
-            sx={{ minWidth: 160 }}
+            className="min-w-[160px]"
           >
             {OG_TYPES.map((t) => (
               <MenuItem key={t} value={t}>
@@ -145,54 +137,36 @@ export default function OpenGraphPreviewTool() {
 
       <Divider />
 
-      <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+      <Typography variant="subtitle1" className="font-bold">
         Previews
       </Typography>
 
-      <Stack direction={{ xs: "column", md: "row" }} spacing={3} sx={{ alignItems: "flex-start" }}>
+      <Stack direction={{ xs: "column", md: "row" }} spacing={3} className="items-start">
         {/* Facebook Card — 1200x630 */}
-        <Box sx={{ flex: 1, minWidth: 0 }}>
-          <Typography variant="caption" sx={{ fontWeight: 700, letterSpacing: 0.5, color: "text.secondary", mb: 1, display: "block" }}>
+        <Box className="flex-1 min-w-[0px]">
+          <Typography variant="caption" className="font-bold tracking-[0.5px] text-base-content/70 mb-2 block">
             FACEBOOK — 1200×630
           </Typography>
           <Box
-            sx={{
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 2,
-              overflow: "hidden",
-              bgcolor: "background.paper",
-              maxWidth: 520,
-            }}
+            className="border border-base-300 rounded-[16px] overflow-hidden bg-base-100 max-w-[520px]"
           >
             {/* Mock Facebook header */}
-            <Stack direction="row" spacing={1} sx={{ p: 1.5, alignItems: "center" }}>
-              <Box sx={{ width: 40, height: 40, borderRadius: "50%", bgcolor: "primary.main", flexShrink: 0 }} />
-              <Box sx={{ minWidth: 0 }}>
-                <Typography variant="body2" sx={{ fontWeight: 700, lineHeight: 1.1 }}>
+            <Stack direction="row" spacing={1} className="p-3 items-center">
+              <Box className="w-[40px] h-[40px] rounded-full bg-primary shrink-0" />
+              <Box className="min-w-[0px]">
+                <Typography variant="body2" className="font-bold leading-[1.1]">
                   Your Page
                 </Typography>
-                <Typography variant="caption" color="text.secondary" sx={{ lineHeight: 1 }}>
+                <Typography variant="caption" color="text.secondary" className="leading-[1]">
                   Sponsored · 🌐
                 </Typography>
               </Box>
-              <Box sx={{ ml: "auto", color: "text.secondary", fontSize: 20, lineHeight: 1 }}>⋯</Box>
+              <Box className="ml-auto text-base-content/70 text-[20px] leading-[1]">⋯</Box>
             </Stack>
 
             {/* Image area 1.91:1 */}
             <Box
-              sx={{
-                aspectRatio: "1.91 / 1",
-                bgcolor: "grey.100",
-                borderTop: "1px solid",
-                borderBottom: "1px solid",
-                borderColor: "divider",
-                position: "relative",
-                overflow: "hidden",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
+              className="aspect-[1.91_/_1] border-t border-b border-base-300 relative overflow-hidden flex items-center justify-center" style={{ backgroundColor: "var(--color-base-200)" }}
             >
               {displayImage ? (
                 <Box
@@ -200,11 +174,11 @@ export default function OpenGraphPreviewTool() {
                   src={displayImage}
                   alt="OG preview"
                   onError={() => setImgError(true)}
-                  sx={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  className="w-full h-full object-cover block"
                 />
               ) : (
-                <Stack sx={{ alignItems: "center", p: 2, color: "text.secondary" }}>
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                <Stack className="items-center p-4 text-base-content/70">
+                  <Typography variant="body2" className="font-semibold">
                     1200 × 630
                   </Typography>
                   <Typography variant="caption">No image — add an og:image URL</Typography>
@@ -213,106 +187,70 @@ export default function OpenGraphPreviewTool() {
             </Box>
 
             {/* Facebook bottom info */}
-            <Box sx={{ bgcolor: "grey.50", p: 1.5, borderTop: "1px solid", borderColor: "divider" }}>
+            <Box className="p-3 border-t border-base-300" style={{ backgroundColor: "var(--color-base-200)" }}>
               <Typography
                 variant="caption"
-                sx={{ color: "text.secondary", textTransform: "uppercase", letterSpacing: 0.4, lineHeight: 1.2, display: "block" }}
+                className="text-base-content/70 uppercase tracking-[0.4px] leading-[1.2] block"
               >
                 {domain}
               </Typography>
               <Typography
                 variant="subtitle2"
-                sx={{
-                  fontWeight: 700,
-                  lineHeight: 1.25,
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                  wordBreak: "break-word",
-                }}
+                className="font-bold leading-[1.25] line-clamp-2 overflow-hidden break-words" style={{ display: "-webkit-box", WebkitBoxOrient: "vertical" }}
               >
                 {displayTitle}
               </Typography>
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{
-                  fontSize: 13,
-                  lineHeight: 1.4,
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                  wordBreak: "break-word",
-                }}
+                className="text-[13px] leading-[1.4] line-clamp-2 overflow-hidden break-words" style={{ display: "-webkit-box", WebkitBoxOrient: "vertical" }}
               >
                 {displayDesc}
               </Typography>
             </Box>
           </Box>
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: "block" }}>
+          <Typography variant="caption" color="text.secondary" className="mt-1 block">
             Facebook truncates title ~80 chars and description ~110 chars.
           </Typography>
         </Box>
 
         {/* Twitter Card — summary_large_image */}
-        <Box sx={{ flex: 1, minWidth: 0 }}>
-          <Typography variant="caption" sx={{ fontWeight: 700, letterSpacing: 0.5, color: "text.secondary", mb: 1, display: "block" }}>
+        <Box className="flex-1 min-w-[0px]">
+          <Typography variant="caption" className="font-bold tracking-[0.5px] text-base-content/70 mb-2 block">
             TWITTER / X — SUMMARY_LARGE_IMAGE
           </Typography>
           <Box
-            sx={{
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: 3,
-              overflow: "hidden",
-              bgcolor: "background.paper",
-              maxWidth: 520,
-            }}
+            className="border border-base-300 rounded-[24px] overflow-hidden bg-base-100 max-w-[520px]"
           >
             {/* Mock tweet header */}
-            <Stack direction="row" spacing={1.25} sx={{ p: 1.5, pb: 1, alignItems: "flex-start" }}>
-              <Box sx={{ width: 40, height: 40, borderRadius: "50%", bgcolor: "grey.800", flexShrink: 0 }} />
-              <Box sx={{ minWidth: 0, flex: 1 }}>
-                <Stack direction="row" spacing={0.75} sx={{ alignItems: "center", flexWrap: "wrap" }}>
-                  <Typography variant="body2" sx={{ fontWeight: 700 }}>
+            <Stack direction="row" spacing={1.25} className="p-3 pb-2 items-start">
+              <Box className="w-[40px] h-[40px] rounded-full shrink-0" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 80%, transparent)" }} />
+              <Box className="min-w-[0px] flex-1">
+                <Stack direction="row" spacing={0.75} className="items-center flex-wrap">
+                  <Typography variant="body2" className="font-bold">
                     Your Brand
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     @yourbrand · now
                   </Typography>
                 </Stack>
-                <Typography variant="body2" sx={{ mt: 0.25, lineHeight: 1.4 }}>
+                <Typography variant="body2" className="mt-0.5 leading-[1.4]">
                   Check out our latest update 👇
                 </Typography>
-                <Typography variant="body2" color="primary.main" sx={{ wordBreak: "break-all" }}>
+                <Typography variant="body2" color="primary.main" className="break-all">
                   {displayUrl}
                 </Typography>
               </Box>
-              <Box sx={{ color: "text.secondary", fontSize: 18 }}>⋯</Box>
+              <Box className="text-base-content/70 text-[18px]">⋯</Box>
             </Stack>
 
             {/* Twitter card */}
-            <Box sx={{ px: 1.5, pb: 1.5 }}>
+            <Box className="px-3 pb-3">
               <Box
-                sx={{
-                  border: "1px solid",
-                  borderColor: "divider",
-                  borderRadius: 3,
-                  overflow: "hidden",
-                  bgcolor: "background.paper",
-                }}
+                className="border border-base-300 rounded-[24px] overflow-hidden bg-base-100"
               >
                 <Box
-                  sx={{
-                    aspectRatio: "1.91 / 1",
-                    bgcolor: "grey.100",
-                    overflow: "hidden",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
+                  className="aspect-[1.91_/_1] overflow-hidden flex items-center justify-center" style={{ backgroundColor: "var(--color-base-200)" }}
                 >
                   {displayImage ? (
                     <Box
@@ -320,61 +258,37 @@ export default function OpenGraphPreviewTool() {
                       src={displayImage}
                       alt="Twitter OG preview"
                       onError={() => setImgError(true)}
-                      sx={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      className="w-full h-full object-cover block"
                     />
                   ) : (
-                    <Stack sx={{ alignItems: "center", p: 2, color: "text.secondary" }}>
-                      <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                    <Stack className="items-center p-4 text-base-content/70">
+                      <Typography variant="body2" className="font-semibold">
                         1200 × 628
                       </Typography>
                       <Typography variant="caption">No image</Typography>
                     </Stack>
                   )}
                 </Box>
-                <Box sx={{ p: 1.5 }}>
+                <Box className="p-3">
                   <Typography
                     variant="body2"
-                    sx={{
-                      fontWeight: 700,
-                      lineHeight: 1.3,
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                      wordBreak: "break-word",
-                    }}
+                    className="font-bold leading-[1.3] line-clamp-2 overflow-hidden break-words" style={{ display: "-webkit-box", WebkitBoxOrient: "vertical" }}
                   >
                     {displayTitle}
                   </Typography>
                   <Typography
                     variant="body2"
                     color="text.secondary"
-                    sx={{
-                      fontSize: 13,
-                      lineHeight: 1.4,
-                      mt: 0.25,
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                      wordBreak: "break-word",
-                    }}
+                    className="text-[13px] leading-[1.4] mt-0.5 line-clamp-2 overflow-hidden break-words" style={{ display: "-webkit-box", WebkitBoxOrient: "vertical" }}
                   >
                     {displayDesc}
                   </Typography>
-                  <Stack direction="row" spacing={0.5} sx={{ alignItems: "center", mt: 0.75 }}>
+                  <Stack direction="row" spacing={0.5} className="items-center mt-1.5">
                     <Box
                       component="span"
-                      sx={{
-                        width: 16,
-                        height: 16,
-                        borderRadius: "50%",
-                        bgcolor: "grey.300",
-                        display: "inline-block",
-                        flexShrink: 0,
-                      }}
+                      className="w-[16px] h-[16px] rounded-full inline-block shrink-0" style={{ backgroundColor: "var(--color-base-300)" }}
                     />
-                    <Typography variant="caption" color="text.secondary" sx={{ wordBreak: "break-all" }}>
+                    <Typography variant="caption" color="text.secondary" className="break-all">
                       {domain.toLowerCase()}
                     </Typography>
                   </Stack>
@@ -382,15 +296,15 @@ export default function OpenGraphPreviewTool() {
               </Box>
             </Box>
           </Box>
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: "block" }}>
+          <Typography variant="caption" color="text.secondary" className="mt-1 block">
             X uses summary_large_image — same 1.91:1 image, rounded corners.
           </Typography>
         </Box>
       </Stack>
 
       <Box>
-        <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 1, flexWrap: "wrap", gap: 1 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+        <Stack direction="row" className="items-center justify-between mb-2 flex-wrap gap-2">
+          <Typography variant="subtitle2" className="font-bold">
             Meta tags
           </Typography>
           <Typography variant="caption" color="text.secondary">
@@ -403,16 +317,16 @@ export default function OpenGraphPreviewTool() {
           minRows={11}
           fullWidth
           slotProps={{ input: { readOnly: true, "aria-label": "Generated meta tags", spellCheck: false, autoComplete: "off" } }}
-          sx={{ "& textarea": { fontFamily: "monospace", fontSize: 12, lineHeight: 1.6 } }}
+          className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[12px] [&_textarea]:leading-[1.6]"
         />
         {copied && (
-          <Alert severity="success" sx={{ mt: 1 }}>
+          <Alert severity="success" className="mt-2">
             Copied to clipboard!
           </Alert>
         )}
       </Box>
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button variant="contained" startIcon={<ContentCopyIcon />} onClick={handleCopy}>
           {copied ? "Copied!" : "Copy meta tags"}
         </Button>

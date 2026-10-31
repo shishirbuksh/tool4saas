@@ -1,13 +1,6 @@
-"use client";
 
-import { useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { useState } from "react";import { Box, Button, TextField, Typography, Stack, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
 
 // Safe math evaluation without eval()/Function:
@@ -372,7 +365,7 @@ export default function ScientificCalculatorTool() {
 
   return (
     <ToolPaper>
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: { sm: "center" } }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="sm:items-center">
         <ToggleButtonGroup
           size="small"
           value={isDeg ? "deg" : "rad"}
@@ -386,7 +379,7 @@ export default function ScientificCalculatorTool() {
           <ToggleButton value="rad">RAD</ToggleButton>
         </ToggleButtonGroup>
         <Typography variant="body2" color="text.secondary">
-          Memory: <Typography component="span" variant="body2" sx={{ fontWeight: 700 }} color="text.primary">{formatResult(memory)}</Typography>
+          Memory: <Typography component="span" variant="body2" className="font-bold" color="text.primary">{formatResult(memory)}</Typography>
         </Typography>
       </Stack>
       <TextField
@@ -402,23 +395,17 @@ export default function ScientificCalculatorTool() {
         }}
         placeholder="e.g. sin(30)+log(100)+sqrt(16)"
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ "& .MuiInputBase-input": { fontFamily: "monospace" } }}
+        
       />
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: error ? "error.main" : "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border text-center" style={{ borderColor: error ? "error.main" : "primary.main" }}
       >
         <Typography variant="overline" color="text.secondary">
           Result
         </Typography>
         <Typography
           variant="h3"
-          sx={{ fontWeight: 800, color: error ? "error.main" : "primary.main", wordBreak: "break-all" }}
+          className="font-extrabold break-all" style={{ color: error ? "error.main" : "primary.main" }}
         >
           {error ? "Error" : result ?? "—"}
         </Typography>
@@ -426,19 +413,19 @@ export default function ScientificCalculatorTool() {
           <Typography variant="body2" color="error.main">{error}</Typography>
         ) : (
           result !== null && (
-            <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "monospace" }}>
+            <Typography variant="body2" color="text.secondary" style={{ fontFamily: "monospace" }}>
               {expression} =
             </Typography>
           )
         )}
       </Box>
-      <Box sx={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 1 }}>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => setMemory(0)}>MC</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append(String(memory))}>MR</Button>
+      <Box className="grid grid-cols-5 gap-2">
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => setMemory(0)}>MC</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append(String(memory))}>MR</Button>
         <Button
           size="small"
           variant="outlined"
-          sx={btnSx}
+          className="min-w-0 font-bold"
           onClick={() => {
             const v = getCurrentValue();
             if (v === null) setError("No value for M+");
@@ -453,7 +440,7 @@ export default function ScientificCalculatorTool() {
         <Button
           size="small"
           variant="outlined"
-          sx={btnSx}
+          className="min-w-0 font-bold"
           onClick={() => {
             const v = getCurrentValue();
             if (v === null) setError("No value for M-");
@@ -468,7 +455,7 @@ export default function ScientificCalculatorTool() {
         <Button
           size="small"
           variant="outlined"
-          sx={btnSx}
+          className="min-w-0 font-bold"
           onClick={() => {
             const v = getCurrentValue();
             if (v === null) setError("No value for MS");
@@ -480,21 +467,21 @@ export default function ScientificCalculatorTool() {
         >
           MS
         </Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("sin(")}>sin</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("cos(")}>cos</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("tan(")}>tan</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("log(")}>log</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("ln(")}>ln</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("sqrt(")}>√</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("cbrt(")}>∛</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("^2")}>x²</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("^")}>xʸ</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("^(" + "-1)")}>1/x</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("sin(")}>sin</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("cos(")}>cos</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("tan(")}>tan</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("log(")}>log</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("ln(")}>ln</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("sqrt(")}>√</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("cbrt(")}>∛</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("^2")}>x²</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("^")}>xʸ</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("^(" + "-1)")}>1/x</Button>
         <Button
           size="small"
           variant="outlined"
           color="error"
-          sx={btnSx}
+          className="min-w-0 font-bold"
           onClick={() => {
             setExpression("");
             setResult(null);
@@ -503,40 +490,40 @@ export default function ScientificCalculatorTool() {
         >
           C
         </Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => setExpression((p) => p.slice(0, -1))}>⌫</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("(")}>(</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append(")")}> )</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("%")}>%</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("7")}>7</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("8")}>8</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("9")}>9</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("/")}>÷</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("pi")}>π</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("4")}>4</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("5")}>5</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("6")}>6</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("*")}>×</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("e")}>e</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("1")}>1</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("2")}>2</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("3")}>3</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("-")}>−</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("+")}>+</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("0")}>0</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append(".")}>.</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("!")}>n!</Button>
-        <Button size="small" variant="outlined" sx={btnSx} onClick={() => append("^")}>^</Button>
-        <Button size="small" variant="contained" sx={btnSx} onClick={handleEquals}>=</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => setExpression((p) => p.slice(0, -1))}>⌫</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("(")}>(</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append(")")}> )</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("%")}>%</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("7")}>7</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("8")}>8</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("9")}>9</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("/")}>÷</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("pi")}>π</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("4")}>4</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("5")}>5</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("6")}>6</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("*")}>×</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("e")}>e</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("1")}>1</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("2")}>2</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("3")}>3</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("-")}>−</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("+")}>+</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("0")}>0</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append(".")}>.</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("!")}>n!</Button>
+        <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("^")}>^</Button>
+        <Button size="small" variant="contained" className="min-w-0 font-bold" onClick={handleEquals}>=</Button>
       </Box>
       {history.length > 0 && (
         <Stack spacing={1}>
           <Typography variant="overline" color="text.secondary">History</Typography>
           {history.map((h, idx) => (
-            <Box key={`${h.expr}-${h.res}-${idx}`} sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "monospace", wordBreak: "break-all" }}>
+            <Box key={`${h.expr}-${h.res}-${idx}`} className="flex justify-between gap-4">
+              <Typography variant="body2" color="text.secondary" className="break-all" style={{ fontFamily: "monospace" }}>
                 {h.expr}
               </Typography>
-              <Typography variant="body2" sx={{ fontWeight: 700, fontFamily: "monospace" }}>= {h.res}</Typography>
+              <Typography variant="body2" className="font-bold" style={{ fontFamily: "monospace" }}>= {h.res}</Typography>
             </Box>
           ))}
         </Stack>

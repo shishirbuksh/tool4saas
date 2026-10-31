@@ -1,27 +1,8 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Table from "@mui/material/Table";
-import TableHead from "@mui/material/TableHead";
-import TableBody from "@mui/material/TableBody";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import Paper from "@mui/material/Paper";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
+import ToolPaper from "@/components/ToolPaper";import { Box, Stack, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Checkbox, FormControlLabel, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 // deterministic fake arrays (US default)
@@ -336,14 +317,14 @@ export default function FakeDataGeneratorTool() {
 
   return (
     <ToolPaper>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+      <Typography variant="h6" className="font-bold">
         Fake Data Generator
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Generate realistic fake datasets for testing — people, addresses, companies or lorem text. Data is generated locally using crypto.getRandomValues and deterministic fake arrays.
       </Typography>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: { sm: "center" } }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="sm:items-center">
         <FormControl fullWidth>
           <InputLabel id="fake-data-type-label">Data type</InputLabel>
           <Select
@@ -384,12 +365,12 @@ export default function FakeDataGeneratorTool() {
         </FormControl>
       </Stack>
 
-      <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", alignItems: "center" }}>
+      <Stack direction="row" spacing={1} className="flex-wrap items-center">
         <FormControlLabel
           control={<Checkbox checked={includeHeaders} onChange={(e) => setIncludeHeaders(e.target.checked)} />}
           label="Include header row in CSV"
         />
-        <Box sx={{ flexGrow: 1 }} />
+        <Box className="grow" />
         <Button variant="contained" onClick={handleGenerate}>
           Generate
         </Button>
@@ -419,8 +400,8 @@ export default function FakeDataGeneratorTool() {
 
       {rows.length > 0 ? (
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 1 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-2">
+            <Typography variant="subtitle2" className="font-bold">
               Preview — {rows.length} {dataType} {rows.length === 1 ? "row" : "rows"}
             </Typography>
             <Typography variant="caption" color="text.secondary">
@@ -428,14 +409,14 @@ export default function FakeDataGeneratorTool() {
             </Typography>
           </Stack>
 
-          <TableContainer component={Paper} variant="outlined" sx={{ maxHeight: 440 }}>
+          <TableContainer component={Paper} variant="outlined" className="max-h-[440px]">
             <Table size="small" stickyHeader aria-label="Fake data table">
               <TableHead>
                 <TableRow>
                   {headers.map((h) => (
                     <TableCell
                       key={h}
-                      sx={{ fontWeight: 700, whiteSpace: "nowrap", bgcolor: "background.paper" }}
+                      className="font-bold whitespace-nowrap bg-base-100"
                     >
                       {h}
                     </TableCell>
@@ -448,13 +429,7 @@ export default function FakeDataGeneratorTool() {
                     {headers.map((h) => (
                       <TableCell
                         key={h}
-                        sx={{
-                          whiteSpace: h === "text" ? "normal" : "nowrap",
-                          maxWidth: h === "text" ? 520 : 220,
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          fontSize: 13,
-                        }}
+                        className="overflow-hidden text-ellipsis text-[13px]" style={{ whiteSpace: h === "text" ? "normal" : "nowrap", maxWidth: h === "text" ? 520 : 220 }}
                       >
                         {row[h]}
                       </TableCell>
@@ -465,26 +440,13 @@ export default function FakeDataGeneratorTool() {
             </Table>
           </TableContainer>
 
-          <Box sx={{ mt: 1.5 }}>
-            <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 0.5 }}>
+          <Box className="mt-3">
+            <Typography variant="caption" color="text.secondary" className="block mb-1">
               CSV preview (first 3 rows)
             </Typography>
             <Box
               component="pre"
-              sx={{
-                p: 1.5,
-                borderRadius: 1,
-                border: "1px solid",
-                borderColor: "divider",
-                bgcolor: "background.paper",
-                fontFamily: "monospace",
-                fontSize: 12,
-                whiteSpace: "pre-wrap",
-                wordBreak: "break-all",
-                maxHeight: 160,
-                overflow: "auto",
-                m: 0,
-              }}
+              className="p-3 rounded-[8px] border border-base-300 bg-base-100 text-[12px] whitespace-pre-wrap break-all max-h-[160px] overflow-auto m-0" style={{ fontFamily: "monospace" }}
             >
               {csvString.split("\n").slice(0, includeHeaders ? 4 : 3).join("\n")}
               {csvString.split("\n").length > 4 ? "\n..." : ""}
@@ -492,7 +454,7 @@ export default function FakeDataGeneratorTool() {
           </Box>
         </Box>
       ) : (
-        <Paper variant="outlined" sx={{ p: 2, textAlign: "center" }}>
+        <Paper variant="outlined" className="p-4 text-center">
           <Typography variant="body2" color="text.secondary">
             Choose a data type and count, then click Generate to create fake data.
           </Typography>

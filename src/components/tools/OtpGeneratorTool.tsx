@@ -1,19 +1,10 @@
-"use client";
 
 import { useEffect, useState } from "react";
 import type { ComponentType } from "react";
 import dynamic from "@/lib/astro/dynamic";
-import ToolPaper from "@/components/ToolPaper";
-import Alert from "@mui/material/Alert";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import LinearProgress from "@mui/material/LinearProgress";
-import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import RefreshIcon from "@mui/icons-material/Refresh";
+import ToolPaper from "@/components/ToolPaper";import { Alert, Box, Button, LinearProgress, Paper, Stack, TextField, Typography } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon, Refresh as RefreshIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 type QRCanvasProps = {
@@ -183,7 +174,7 @@ export default function OtpGeneratorTool() {
         helperText="Base32 (A–Z, 2–7). 30s step, 6 digits, HMAC-SHA1."
         error={Boolean(error)}
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        sx={{ "& input": { fontFamily: "monospace", fontSize: 14 } }}
+        className="[&_input]:[font-family:monospace] [&_input]:text-[14px]"
       />
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
@@ -220,13 +211,7 @@ export default function OtpGeneratorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 3,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          textAlign: "center",
-        }}
+        className="p-6 rounded-[16px] border border-base-300 text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Current code — {secondsLeft}s left
@@ -234,7 +219,7 @@ export default function OtpGeneratorTool() {
         <Typography
           variant="h3"
           aria-live="polite"
-          sx={{ fontWeight: 800, fontFamily: "monospace", letterSpacing: 4, my: 1 }}
+          className="font-extrabold tracking-[4px] my-2" style={{ fontFamily: "monospace" }}
         >
           {code || "------"}
         </Typography>
@@ -242,20 +227,20 @@ export default function OtpGeneratorTool() {
           variant="determinate"
           value={(secondsLeft / TIME_STEP) * 100}
           aria-label={`${secondsLeft} seconds remaining`}
-          sx={{ borderRadius: 1 }}
+          className="rounded-[8px]"
         />
         {error && (
-          <Typography variant="body2" color="error" sx={{ mt: 1 }}>
+          <Typography variant="body2" color="error" className="mt-2">
             {error}
           </Typography>
         )}
       </Box>
 
       <Box>
-        <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 700 }}>
+        <Typography variant="subtitle2" gutterBottom className="font-bold">
           Provisioning URI
         </Typography>
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={1} sx={{ alignItems: "center" }}>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={1} className="items-center">
           <TextField
             value={provisioningUri}
             placeholder="Enter a secret to generate URI"
@@ -263,21 +248,21 @@ export default function OtpGeneratorTool() {
             slotProps={{
               input: { readOnly: true, "aria-label": "Provisioning URI", spellCheck: false },
             }}
-            sx={{ "& input": { fontFamily: "monospace", fontSize: 12 } }}
+            className="[&_input]:[font-family:monospace] [&_input]:text-[12px]"
           />
           <Button
             variant="outlined"
             startIcon={<ContentCopyIcon />}
             onClick={handleCopyUri}
             disabled={!provisioningUri}
-            sx={{ whiteSpace: "nowrap" }}
+            className="whitespace-nowrap"
           >
             {copiedUri ? "Copied!" : "Copy URI"}
           </Button>
         </Stack>
         {provisioningUri && (
-          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-            <Paper variant="outlined" sx={{ p: 2, bgcolor: "#ffffff", lineHeight: 0 }}>
+          <Box className="flex justify-center mt-4">
+            <Paper variant="outlined" className="p-4 bg-[#ffffff] leading-[0]">
               <QRCodeCanvas
                 value={provisioningUri}
                 size={192}

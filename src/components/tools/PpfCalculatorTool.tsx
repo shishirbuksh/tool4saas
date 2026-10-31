@@ -1,17 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import { ppfMaturity } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
@@ -76,41 +65,35 @@ export default function PpfCalculatorTool() {
         />
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Maturity value
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null ? money(result.maturity, "INR") : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Total invested</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null ? money(result.invested, "INR") : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Interest earned</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {result !== null ? money(result.interest, "INR") : "—"}
           </Typography>
         </Box>
       </Stack>
       {schedule.length > 0 && (
         <Box>
-          <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
+          <Typography variant="subtitle1" className="font-bold mb-2">
             Year-wise balance schedule
           </Typography>
-          <TableContainer component={Paper} sx={{ maxHeight: 400 }}>
+          <TableContainer component={Paper} className="max-h-[400px]">
             <Table size="small" stickyHeader>
               <TableHead>
                 <TableRow>

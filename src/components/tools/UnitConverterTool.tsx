@@ -1,17 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import SwapVertIcon from "@mui/icons-material/SwapVert";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+
+import { SwapVert as SwapVertIcon } from "@/components/ds/icons";
 import { KG_PER_LB, METERS_PER_INCH, fmtNumber } from "@/lib/format";
 
 type Cat = {
@@ -103,7 +94,7 @@ export default function UnitConverterTool() {
 
         <TextField label="Value" type="number" value={value} onChange={(e) => setValue(e.target.value)} fullWidth slotProps={{ input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" } }} />
 
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center" }}>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
           <FormControl fullWidth>
             <InputLabel>From</InputLabel>
             <Select label="From" value={from} onChange={(e) => setFrom(e.target.value)}>
@@ -112,7 +103,7 @@ export default function UnitConverterTool() {
               ))}
             </Select>
           </FormControl>
-          <Button onClick={swap} aria-label="Swap units" sx={{ minWidth: 0 }}><SwapVertIcon /></Button>
+          <Button onClick={swap} aria-label="Swap units" className="min-w-[0px]"><SwapVertIcon /></Button>
           <FormControl fullWidth>
             <InputLabel>To</InputLabel>
             <Select label="To" value={to} onChange={(e) => setTo(e.target.value)}>
@@ -123,9 +114,9 @@ export default function UnitConverterTool() {
           </FormControl>
         </Stack>
 
-        <Box sx={{ p: 2, bgcolor: "primary.main", color: "primary.contrastText", borderRadius: 2 }}>
+        <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
           <Typography variant="caption">Result</Typography>
-          <Typography  variant="h4"  sx={{ fontWeight: 800 }}>
+          <Typography  variant="h4"  className="font-extrabold">
             {cat === "temperature" ? tempResult || "—" : result || "—"}
           </Typography>
         </Box>

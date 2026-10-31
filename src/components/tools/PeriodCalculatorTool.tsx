@@ -1,12 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Alert from "@mui/material/Alert";
+import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography, Alert } from "@/components/ds";
+
 import { MS_PER_DAY } from "@/lib/format";
 
 function addDays(date: Date, days: number) {
@@ -107,23 +102,15 @@ export default function PeriodCalculatorTool() {
       {result ? (
         <>
           <Box
-            sx={{
-              p: 2.5,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "primary.main",
-              bgcolor: "primary.main",
-              color: "primary.contrastText",
-              textAlign: "center",
-            }}
+            className="p-5 rounded-[16px] border border-primary bg-primary text-center" style={{ color: "var(--color-primary-content)" }}
           >
-            <Typography variant="overline" sx={{ color: "primary.contrastText", opacity: 0.9 }}>
+            <Typography variant="overline" className="opacity-[0.9]" style={{ color: "var(--color-primary-content)" }}>
               Estimated next period — LMP + {result.validCycle} days
             </Typography>
-            <Typography variant="h4" sx={{ fontWeight: 800 }}>
+            <Typography variant="h4" className="font-extrabold">
               {formatDate(result.nextPeriod)}
             </Typography>
-            <Typography variant="body2" sx={{ opacity: 0.9, mt: 0.5 }}>
+            <Typography variant="body2" className="opacity-[0.9] mt-1">
               {result.daysUntilPeriod > 0
                 ? `${result.daysUntilPeriod} days to go${result.cycleDay !== null ? ` (cycle day ${result.cycleDay} of ~${result.validCycle})` : ""}`
                 : result.daysUntilPeriod === 0
@@ -134,20 +121,12 @@ export default function PeriodCalculatorTool() {
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
             <Box
-              sx={{
-                flex: 1,
-                p: 2,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: "divider",
-                bgcolor: "background.paper",
-                textAlign: "center",
-              }}
+              className="flex-1 p-4 rounded-[16px] border border-base-300 bg-base-100 text-center"
             >
               <Typography variant="overline" color="text.secondary">
                 Estimated ovulation
               </Typography>
-              <Typography variant="h6" sx={{ fontWeight: 800 }}>
+              <Typography variant="h6" className="font-extrabold">
                 {formatShort(result.ovulationDay)}
               </Typography>
               <Typography variant="caption" color="text.secondary">
@@ -160,20 +139,12 @@ export default function PeriodCalculatorTool() {
               </Typography>
             </Box>
             <Box
-              sx={{
-                flex: 1,
-                p: 2,
-                borderRadius: 2,
-                border: "1px solid",
-                borderColor: "divider",
-                bgcolor: "background.paper",
-                textAlign: "center",
-              }}
+              className="flex-1 p-4 rounded-[16px] border border-base-300 bg-base-100 text-center"
             >
               <Typography variant="overline" color="text.secondary">
                 Fertile window
               </Typography>
-              <Typography variant="h6" sx={{ fontWeight: 800 }}>
+              <Typography variant="h6" className="font-extrabold">
                 {formatShort(result.fertileStart)} – {formatShort(result.fertileEnd)}
               </Typography>
               <Typography variant="caption" color="text.secondary">
@@ -183,29 +154,23 @@ export default function PeriodCalculatorTool() {
           </Stack>
 
           <Box
-            sx={{
-              p: 2,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              bgcolor: "background.paper",
-            }}
+            className="p-4 rounded-[16px] border border-base-300 bg-base-100"
           >
-            <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1.5 }}>
+            <Typography variant="subtitle2" className="font-bold mb-3">
               Next 3 periods
             </Typography>
             <Stack spacing={1.2}>
               {result.upcomingPeriods.map((period, index) => (
                 <Box
                   key={index}
-                  sx={{ display: "flex", justifyContent: "space-between", gap: 2, flexWrap: "wrap" }}
+                  className="flex justify-between gap-4 flex-wrap"
                 >
                   <Typography variant="body2" color="text.secondary">
                     Period {index + 1}
                   </Typography>
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="body2" className="font-semibold">
                     {formatShort(period.date)}
-                    <Typography component="span" variant="caption" color="text.secondary" sx={{ ml: 1 }}>
+                    <Typography component="span" variant="caption" color="text.secondary" className="ml-2">
                       {period.daysUntil > 0
                         ? `(in ${period.daysUntil} days)`
                         : period.daysUntil === 0
@@ -216,22 +181,16 @@ export default function PeriodCalculatorTool() {
                 </Box>
               ))}
             </Stack>
-            <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+            <Typography variant="caption" color="text.secondary" className="block mt-2">
               LMP + {result.validCycle} days, + {result.validCycle * 2} days, + {result.validCycle * 3} days on a{" "}
               {result.validCycle}-day cycle.
             </Typography>
           </Box>
 
           <Box
-            sx={{
-              p: 2,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "divider",
-              bgcolor: "background.paper",
-            }}
+            className="p-4 rounded-[16px] border border-base-300 bg-base-100"
           >
-            <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+            <Typography variant="subtitle2" className="font-bold mb-2">
               How it is calculated
             </Typography>
             <Typography variant="body2" color="text.secondary">

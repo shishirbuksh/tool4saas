@@ -1,17 +1,6 @@
-"use client";
 
-import { useState, useMemo } from "react";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import Alert from "@mui/material/Alert";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import { useState, useMemo } from "react";import { Box, Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+
 import ToolPaper from "@/components/ToolPaper";
 import { fmt0, fmt2, fmtNumber, KG_PER_LB } from "@/lib/format";
 
@@ -76,7 +65,7 @@ export default function WaterIntakeCalculatorTool() {
           </Select>
         </FormControl>
 
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box className="flex items-center">
           <ToggleButtonGroup
             size="small"
             value={climate}
@@ -91,42 +80,30 @@ export default function WaterIntakeCalculatorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Daily water intake
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {liters !== null ? `${fmtLiters(liters)} L` : "—"}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {totalMl !== null ? `${fmtMl(totalMl)} ml` : "Enter weight to calculate"}
         </Typography>
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.5 }}>
+        <Typography variant="caption" color="text.secondary" className="block mt-1">
           Base = weightKg × 35 ml{activityLevel === "active" ? " + 500 ml (active)" : ""}
           {climate === "hot" ? " + 500 ml (hot climate)" : ""}
         </Typography>
       </Box>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-base-300 text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Glasses per day (250 ml)
         </Typography>
-        <Typography variant="h4" sx={{ fontWeight: 800 }}>
+        <Typography variant="h4" className="font-extrabold">
           {glasses !== null ? `${fmtGlasses(glasses)} glasses` : "—"}
         </Typography>
         <Typography variant="caption" color="text.secondary">

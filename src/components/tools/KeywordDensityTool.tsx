@@ -1,12 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Chip from "@mui/material/Chip";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Chip } from "@/components/ds";
+
 
 const STOP = new Set([
   "the","a","an","and","or","but","of","to","in","on","at","for","with","is","are","was","were","be","been","being","it","this","that","these","those","as","by","from","your","you","we","they","he","she","i","me","my","our","their","his","her","them","what","which","who","how","why","when","where","can","will","would","should","could","do","does","did","not","no","yes","if","then","than","so","just","about","into","out","up","down","over","under","again","more","most","other","some","such","only","own","same","too","very",
@@ -52,11 +47,11 @@ export default function KeywordDensityTool() {
           type="number"
           value={limit}
           onChange={(e) => setLimit(e.target.value)}
-          sx={{ maxWidth: 200 }}
+          className="max-w-[200px]"
           slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
         />
         <Box>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+          <Typography variant="subtitle2" className="font-bold mb-2">
             Top words by frequency
           </Typography>
           {data.length === 0 ? (
@@ -68,30 +63,19 @@ export default function KeywordDensityTool() {
               {data.map((d) => (
                 <Box
                   key={d.word}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    gap: 2,
-                  }}
+                  className="flex items-center justify-between gap-4"
                 >
-                  <Box sx={{ minWidth: 140 }}>
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                  <Box className="min-w-[140px]">
+                    <Typography variant="body2" className="font-semibold">
                       {d.word}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
                       {d.count} {d.count === 1 ? "time" : "times"}
                     </Typography>
                   </Box>
-                  <Box sx={{ flex: 1 }}>
+                  <Box className="flex-1">
                     <Box
-                      sx={{
-                        height: 8,
-                        borderRadius: 999,
-                        background: "primary.main",
-                        width: `${Math.min(100, d.pct * 4)}%`,
-                        opacity: 0.7,
-                      }}
+                      className="h-[8px] rounded-[7992px] opacity-[0.7]" style={{ background: "var(--color-primary)", width: `${Math.min(100, d.pct * 4)}%` }}
                     />
                   </Box>
                   <Chip label={`${d.pct.toFixed(1)}%`} size="small" variant="outlined" />

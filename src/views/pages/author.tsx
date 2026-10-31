@@ -1,7 +1,5 @@
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
+import { Container, Typography, Box, Avatar } from "@/components/ds";
+
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
 
@@ -66,49 +64,49 @@ export default function AuthorView() {
   };
 
   return (
-    <Container maxWidth="md" sx={{ py: 6 }}>
+    <Container maxWidth="md" className="py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
-      <Typography variant="h1" sx={{ fontSize: "2.25rem", mb: 2 }}>
+      <Typography variant="h1" className="text-[2.25rem] mb-4">
         Our authors
       </Typography>
-      <Typography color="text.secondary" sx={{ mb: 1, lineHeight: 1.8 }}>
+      <Typography color="text.secondary" className="mb-2 leading-[1.8]">
         Reviewed by the <span translate="no">{siteConfig.authorRole}</span> — {siteConfig.authorBio}
       </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 4 }}>
+      <Typography variant="body2" color="text.secondary" className="mb-8">
         Last updated: <time dateTime="2026-09-09">September 9, 2026</time>
       </Typography>
 
-      <Box sx={{ display: "grid", gap: 2 }}>
+      <Box className="grid gap-4">
         {reviewers.map((r) => (
           <Box
             key={r.role}
             component="section"
             aria-label={r.role}
-            sx={{ p: 3, border: "1px solid", borderColor: "divider", borderRadius: 3, bgcolor: "background.paper", display: "flex", gap: 2 }}
+            className="p-6 border border-base-300 rounded-[24px] bg-base-100 flex gap-4"
           >
-            <Avatar sx={{ width: 48, height: 48, fontWeight: 700 }} aria-hidden="true">
+            <Avatar className="w-[48px] h-[48px] font-bold" aria-hidden="true">
               {r.initials}
             </Avatar>
             <Box>
-              <Typography variant="h2" sx={{ fontSize: "1.25rem", mb: 0.5 }}>
+              <Typography variant="h2" className="text-[1.25rem] mb-1">
                 {r.role}
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.8 }}>
+              <Typography variant="body2" color="text.secondary" className="leading-[1.8]">
                 {r.bio}
               </Typography>
               <Typography
                 component="h3"
                 variant="body2"
-                sx={{ fontWeight: 700, mt: 1.5, mb: 0.5 }}
+                className="font-bold mt-3 mb-1"
               >
                 Focus areas
               </Typography>
-              <Box component="ul" sx={{ m: 0, pl: 2.5, color: "text.secondary" }}>
+              <Box component="ul" className="m-0 pl-5 text-base-content/70">
                 {r.focusAreas.map((area) => (
-                  <Typography key={area} component="li" variant="body2" sx={{ lineHeight: 1.8 }}>
+                  <Typography key={area} component="li" variant="body2" className="leading-[1.8]">
                     {area}
                   </Typography>
                 ))}
@@ -121,12 +119,12 @@ export default function AuthorView() {
       <Box
         component="section"
         aria-label="Editorial process, credentials and corrections"
-        sx={{ mt: 4, p: 3, border: "1px solid", borderColor: "divider", borderRadius: 3, bgcolor: "background.paper" }}
+        className="mt-8 p-6 border border-base-300 rounded-[24px] bg-base-100"
       >
-        <Typography variant="h2" sx={{ fontSize: "1.25rem", mb: 1 }}>
+        <Typography variant="h2" className="text-[1.25rem] mb-2">
           Editorial process, credentials and corrections
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.8 }}>
+        <Typography variant="body2" color="text.secondary" className="leading-[1.8]">
           We publish as the <span translate="no">{siteConfig.authorRole}</span>, a role-based byline rather
           than individual names, so accountability sits with the process, not a persona. Tool reviewers verify
           outputs against reference samples, finance reviewers cross-check formulas against public guidance and
@@ -142,23 +140,23 @@ export default function AuthorView() {
       <Box
         component="section"
         aria-label="How we verify"
-        sx={{ mt: 4, p: 3, border: "1px solid", borderColor: "divider", borderRadius: 3, bgcolor: "background.paper" }}
+        className="mt-8 p-6 border border-base-300 rounded-[24px] bg-base-100"
       >
-        <Typography variant="h2" sx={{ fontSize: "1.25rem", mb: 1 }}>
+        <Typography variant="h2" className="text-[1.25rem] mb-2">
           How we verify
         </Typography>
-        <Box component="ul" sx={{ m: 0, pl: 2.5, color: "text.secondary" }}>
-          <Typography component="li" variant="body2" sx={{ lineHeight: 1.8 }}>
+        <Box component="ul" className="m-0 pl-5 text-base-content/70">
+          <Typography component="li" variant="body2" className="leading-[1.8]">
             Build and test every tool in-house against known samples before publishing.
           </Typography>
-          <Typography component="li" variant="body2" sx={{ lineHeight: 1.8 }}>
+          <Typography component="li" variant="body2" className="leading-[1.8]">
             Re-check outputs in current Chrome, Edge, Firefox, and Safari.
           </Typography>
-          <Typography component="li" variant="body2" sx={{ lineHeight: 1.8 }}>
+          <Typography component="li" variant="body2" className="leading-[1.8]">
             Re-verify calculator logic when rules change; label estimates as estimates.
           </Typography>
         </Box>
-        <Typography variant="body2" sx={{ mt: 1.5 }}>
+        <Typography variant="body2" className="mt-3">
           <Link href="/methodology">How we verify — see our methodology</Link>
         </Typography>
       </Box>
@@ -166,7 +164,7 @@ export default function AuthorView() {
       <Box
         component="nav"
         aria-label="Related pages"
-        sx={{ mt: 4, display: "flex", flexWrap: "wrap", gap: 2, color: "text.secondary" }}
+        className="mt-8 flex flex-wrap gap-4 text-base-content/70"
       >
         <Typography variant="body2">
           <Link href="/about">About us</Link>

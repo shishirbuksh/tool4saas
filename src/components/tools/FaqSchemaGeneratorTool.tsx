@@ -1,18 +1,8 @@
-"use client";
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
-import IconButton from "@mui/material/IconButton";
-import AddIcon from "@mui/icons-material/Add";
-import DeleteIcon from "@mui/icons-material/Delete";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, Alert, IconButton } from "@/components/ds";
+
+import { Add as AddIcon, Delete as DeleteIcon, ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 interface FaqPair {
@@ -94,15 +84,10 @@ export default function FaqSchemaGeneratorTool() {
         {pairs.map((pair, index) => (
           <Box
             key={pair.id}
-            sx={{
-              p: 2,
-              borderRadius: 2,
-              border: "1px solid",
-              borderColor: "divider",
-            }}
+            className="p-4 rounded-[16px] border border-base-300"
           >
-            <Stack direction="row" spacing={1} sx={{ alignItems: "center", justifyContent: "space-between", mb: 1 }}>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+            <Stack direction="row" spacing={1} className="items-center justify-between mb-2">
+              <Typography variant="subtitle2" className="font-bold">
                 Question {index + 1}
               </Typography>
               <IconButton
@@ -156,7 +141,7 @@ export default function FaqSchemaGeneratorTool() {
 
       {jsonLd ? (
         <Box>
-          <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 700 }}>
+          <Typography variant="subtitle2" gutterBottom className="font-bold">
             Preview — FAQ JSON-LD ({validPairs.length} question{validPairs.length === 1 ? "" : "s"})
           </Typography>
           <TextField
@@ -172,7 +157,7 @@ export default function FaqSchemaGeneratorTool() {
                 autoComplete: "off",
               },
             }}
-            sx={{ "& textarea": { fontFamily: "monospace", fontSize: 12 } }}
+            className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[12px]"
           />
         </Box>
       ) : (
@@ -181,7 +166,7 @@ export default function FaqSchemaGeneratorTool() {
         </Alert>
       )}
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
         <Button
           variant="contained"
           startIcon={<ContentCopyIcon />}

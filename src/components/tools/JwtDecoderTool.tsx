@@ -1,14 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const MAX_JWT_SIZE = 1_000_000;
 
@@ -54,8 +48,8 @@ export default function JwtDecoderTool() {
         />
         {token.length > MAX_JWT_SIZE && <Alert severity="warning">JWT exceeds 1M chars — truncated.</Alert>}
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-1">
+            <Typography variant="subtitle2" className="font-bold">
               Header
             </Typography>
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(header)} disabled={!header}>
@@ -68,12 +62,12 @@ export default function JwtDecoderTool() {
             minRows={3}
             fullWidth
             slotProps={{ input: { readOnly: true, "aria-label": "Decoded JWT header", spellCheck: false } }}
-            sx={{ "& textarea": { fontSize: 13, fontFamily: "monospace" } }}
+            className="[&_textarea]:text-[13px] [&_textarea]:[font-family:monospace]"
           />
         </Box>
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-1">
+            <Typography variant="subtitle2" className="font-bold">
               Payload
             </Typography>
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(payload)} disabled={!payload}>
@@ -86,11 +80,11 @@ export default function JwtDecoderTool() {
             minRows={5}
             fullWidth
             slotProps={{ input: { readOnly: true, "aria-label": "Decoded JWT payload", spellCheck: false } }}
-            sx={{ "& textarea": { fontSize: 13, fontFamily: "monospace" } }}
+            className="[&_textarea]:text-[13px] [&_textarea]:[font-family:monospace]"
           />
         </Box>
         {token.trim() && !error && (
-          <Alert severity="info" sx={{ mt: 1 }}>
+          <Alert severity="info" className="mt-2">
             Signature present (not verified). Only decode JWTs you trust.
           </Alert>
         )}

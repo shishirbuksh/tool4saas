@@ -1,23 +1,8 @@
-﻿"use client";
-
-import { useState } from "react";
-import dynamic from "@/lib/astro/dynamic";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "@/lib/astro/navigation";
-import MuiNextLink from "@/components/MuiNextLink";
-import Button from "@mui/material/Button";
-import TranslateIcon from "@mui/icons-material/Translate";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import MenuItem from "@mui/material/MenuItem";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Box, Button, ListItemButton, ListItemText, Stack, Typography } from "@/components/ds";
+import { Translate as TranslateIcon } from "@/components/ds/icons";
 import { LOCALES, LOCALE_NAME, switcherTarget, type Locale } from "@/lib/i18n-core";
-
-const MenuDynamic = dynamic(() => import("@mui/material/Menu"), {
-  ssr: false,
-  loading: () => null,
-}) as any;
 
 // Short code shown on the trigger button (locale-agnostic, "EN"/"ES"/"FR").
 const CODE: Record<Locale, string> = { en: "EN", es: "ES", fr: "FR" };
@@ -35,32 +20,49 @@ export default function LanguageSwitcher({
   onNavigate?: () => void;
 }) {
   const pathname = usePathname();
-  const [anchor, setAnchor] = useState<null | HTMLElement>(null);
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
   const normalize = pathname.replace(/\/$/, "") || "/";
   const active = (normalize.match(/^\/(es|fr)(?:\/|$)/)?.[1] ?? "en") as Locale;
+
+  useEffect(() => {
+    if (!open) return;
+    function handlePointerDown(event: MouseEvent) {
+      if (rootRef.current && !rootRef.current.contains(event.target as Node)) setOpen(false);
+    }
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
 
   if (variant === "drawer") {
     return (
       <Box component="nav" aria-label="Language">
-        <Typography variant="overline" color="text.secondary" sx={{ display: "block", mt: 3, mb: 1, px: 2, fontWeight: 700 }}>
+        <Typography variant="overline" color="text.secondary" className="mb-2 block px-4 font-bold">
           Language
         </Typography>
         <Stack spacing={0.5}>
-          {LOCALES.map((l) => (
+          {LOCALES.map((locale) => (
             <ListItemButton
-              key={l}
-              component={MuiNextLink}
-              href={switcherTarget(normalize, l)}
+              key={locale}
+              component="a"
+              href={switcherTarget(normalize, locale)}
               onClick={onNavigate}
-              selected={l === active}
-              aria-current={l === active ? "true" : undefined}
-              sx={{ minHeight: 44 }}
+              selected={locale === active}
+              aria-current={locale === active ? "true" : undefined}
+              className="min-h-[44px]"
             >
               <ListItemText
                 primary={
-                  <Typography sx={{ fontWeight: l === active ? 600 : 500 }}>
-                    {LOCALE_NAME[l]}
-                    {l === active ? " ✓" : ""}
+                  <Typography className={locale === active ? "font-semibold" : "font-medium"}>
+                    {LOCALE_NAME[locale]}
+                    {locale === active ? " ✓" : ""}
                   </Typography>
                 }
               />
@@ -72,57 +74,47 @@ export default function LanguageSwitcher({
   }
 
   return (
-    <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
-      <Button
-        aria-haspopup="menu"
-        aria-expanded={Boolean(anchor)}
-        aria-controls="locale-menu"
-        aria-label={`${CODE[active]}, language: ${LOCALE_NAME[active]}`}
-        onClick={(e) => setAnchor(e.currentTarget)}
-        startIcon={<TranslateIcon aria-hidden="true" />}
-        disableElevation
-        color="inherit"
-        sx={{ px: 1.5, minHeight: 44, fontWeight: 700, fontSize: "0.8125rem", letterSpacing: "0.06em" }}
-      >
-        {CODE[active]}
-      </Button>
-      <MenuDynamic
-        id="locale-menu"
-        anchorEl={anchor}
-        open={Boolean(anchor)}
-        onClose={() => setAnchor(null)}
-        disableScrollLock
-        elevation={4}
-        slotProps={{
-          paper: {
-            sx: {
-              mt: 1,
-              minWidth: 200,
-              border: "1px solid",
-              borderColor: "divider",
-              borderRadius: "12px",
-              backgroundColor: "background.paper",
-            },
-          },
-        }}
-      >
-        {LOCALES.map((l) => (
-          <MenuItem
-            key={l}
-            component={MuiNextLink}
-            href={switcherTarget(normalize, l)}
-            onClick={() => setAnchor(null)}
-            selected={l === active}
-            aria-current={l === active ? "page" : undefined}
-            sx={{ py: 1.5, px: 2.5, minHeight: 44 }}
+    <Stack direction="row" spacing={0.5} className="relative items-center">
+      <div ref={rootRef} className="relative">
+        <Button
+          variant="text"
+          color="inherit"
+          aria-haspopup="menu"
+          aria-expanded={open}
+          aria-controls="locale-menu"
+          aria-label={`${CODE[active]}, language: ${LOCALE_NAME[active]}`}
+          onClick={() => setOpen((value) => !value)}
+          startIcon={<TranslateIcon aria-hidden="true" />}
+          className="min-h-[44px] px-3 text-[0.8125rem] font-bold tracking-[0.06em]"
+        >
+          {CODE[active]}
+        </Button>
+        {open && (
+          <ul
+            id="locale-menu"
+            role="menu"
+            aria-label="Language"
+            className="menu absolute right-0 top-full z-[1300] mt-1 w-52 rounded-xl border border-base-300 bg-base-100 p-1.5 shadow-[0_12px_32px_rgba(17,17,17,0.12)]"
           >
-            <Typography variant="body2" sx={{ fontWeight: l === active ? 700 : 500 }}>
-              {LOCALE_NAME[l]}
-              {l === active ? " ✓" : ""}
-            </Typography>
-          </MenuItem>
-        ))}
-      </MenuDynamic>
+            {LOCALES.map((locale) => (
+              <li key={locale} role="none">
+                <a
+                  role="menuitem"
+                  href={switcherTarget(normalize, locale)}
+                  onClick={() => setOpen(false)}
+                  aria-current={locale === active ? "page" : undefined}
+                  className={`min-h-[44px] rounded-lg px-3 text-sm ${
+                    locale === active ? "bg-base-200 font-semibold" : "font-medium"
+                  }`}
+                >
+                  {LOCALE_NAME[locale]}
+                  {locale === active ? " ✓" : ""}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </Stack>
   );
 }

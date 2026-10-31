@@ -1,13 +1,7 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Chip from "@mui/material/Chip";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Chip } from "@/components/ds";
+
 
 type Mode = "wake" | "bed";
 
@@ -85,8 +79,8 @@ export default function SleepCycleCalculatorTool() {
 
   return (
     <ToolPaper spacing={3}>
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "flex-end" }}>
-        <Box sx={{ display: "flex", gap: 1 }}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-end">
+        <Box className="flex gap-2">
           <Button
             variant={mode === "wake" ? "contained" : "outlined"}
             onClick={() => handleModeChange("wake")}
@@ -110,7 +104,7 @@ export default function SleepCycleCalculatorTool() {
           slotProps={{ inputLabel: { shrink: true } }}
           helperText={isInvalidTime ? "Enter a valid time (HH:MM)" : mode === "wake" ? "We count 90-min cycles backwards" : "We count 90-min cycles forwards"}
           error={isInvalidTime}
-          sx={{ maxWidth: 220 }}
+          className="max-w-[220px]"
         />
         <TextField
           label="Fall-asleep time (min)"
@@ -120,21 +114,15 @@ export default function SleepCycleCalculatorTool() {
           slotProps={{ input: { inputProps: { min: 0, max: 120, step: 5 } }, inputLabel: { shrink: true } }}
           helperText={isInvalidBuffer ? "Enter 0–120" : "Avg. time to fall asleep"}
           error={isInvalidBuffer}
-          sx={{ maxWidth: 220 }}
+          className="max-w-[220px]"
         />
       </Stack>
 
       <Box
-        sx={{
-          p: 3,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          bgcolor: "background.paper",
-        }}
+        className="p-6 rounded-[16px] border border-base-300 bg-base-100"
       >
         {baseMinutes === null ? (
-          <Typography variant="body1" color="text.secondary" sx={{ textAlign: "center" }}>
+          <Typography variant="body1" color="text.secondary" className="text-center">
             Enter a valid time to see your sleep cycles.
           </Typography>
         ) : (
@@ -142,24 +130,14 @@ export default function SleepCycleCalculatorTool() {
             <Typography variant="overline" color="text.secondary">
               {mode === "wake" ? `Go to bed at one of these times to wake at ${formatTime(baseMinutes)}` : `Wake up at one of these times if you sleep at ${formatTime(baseMinutes)}`}
             </Typography>
-            <Stack spacing={1} sx={{ mt: 2 }} aria-live="polite">
+            <Stack spacing={1} className="mt-4" aria-live="polite">
               {results.map((r) => (
                 <Box
                   key={r.cycles}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    gap: 2,
-                    p: 1.5,
-                    borderRadius: 2,
-                    border: "1px solid",
-                    borderColor: r.recommended ? "primary.main" : "divider",
-                    bgcolor: r.recommended ? "primary.light" : "background.paper",
-                  }}
+                  className="flex items-center justify-between gap-4 p-3 rounded-[16px] border" style={{ borderColor: r.recommended ? "primary.main" : "divider", backgroundColor: r.recommended ? "primary.light" : "background.paper" }}
                 >
                   <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 800, fontFamily: "monospace", lineHeight: 1.2 }}>
+                    <Typography variant="h6" className="font-extrabold leading-[1.2]" style={{ fontFamily: "monospace" }}>
                       {r.label}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
@@ -174,7 +152,7 @@ export default function SleepCycleCalculatorTool() {
                 </Box>
               ))}
             </Stack>
-            <Typography variant="caption" color="text.secondary" sx={{ mt: 2, display: "block" }}>
+            <Typography variant="caption" color="text.secondary" className="mt-4 block">
               Each cycle is {CYCLE_MINUTES} minutes. Includes {bufferMinutes} min to fall asleep. Adults usually feel best with 5–6
               full cycles (7.5–9h).
             </Typography>
@@ -182,8 +160,8 @@ export default function SleepCycleCalculatorTool() {
         )}
       </Box>
 
-      <Box sx={{ p: 2, borderRadius: 2, border: "1px solid", borderColor: "divider", bgcolor: "background.paper" }}>
-        <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
+      <Box className="p-4 rounded-[16px] border border-base-300 bg-base-100">
+        <Typography variant="subtitle2" className="font-bold mb-2">
           How it works
         </Typography>
         <Typography variant="body2" color="text.secondary">

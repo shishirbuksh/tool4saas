@@ -1,15 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Alert from "@mui/material/Alert";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -110,7 +101,7 @@ export default function IncomeTaxCalculatorTool() {
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Standard deduction", deduction, setDeduction)}
-        <Box sx={{ flex: 1, display: "flex", alignItems: "center" }}>
+        <Box className="flex-1 flex items-center">
           <Typography variant="caption" color="text.secondary">
             Demo brackets: 10% to $11k · 12% to $44k · 22% to $95k · 24% above. Married doubles the demo
             thresholds.
@@ -119,18 +110,12 @@ export default function IncomeTaxCalculatorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Estimated net annual (after tax)
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {net !== null ? money(net, currency) : "—"}
         </Typography>
         <Typography variant="caption" color="text.secondary">
@@ -139,32 +124,25 @@ export default function IncomeTaxCalculatorTool() {
       </Box>
 
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Taxable income</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{taxable !== null ? money(taxable, currency) : "—"}</Typography>
+          <Typography className="font-bold">{taxable !== null ? money(taxable, currency) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Estimated tax</Typography>
-          <Typography sx={{ fontWeight: 700 }}>{tax !== null ? money(tax, currency) : "—"}</Typography>
+          <Typography className="font-bold">{tax !== null ? money(tax, currency) : "—"}</Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Effective tax rate</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {effectiveRate !== null ? `${effectiveRate.toFixed(2)}%` : "—"}
           </Typography>
         </Box>
         <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            p: 1.5,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-          }}
+          className="flex justify-between p-3 rounded-[16px] border border-base-300"
         >
           <Typography color="text.secondary">Gross annual</Typography>
-          <Typography sx={{ fontWeight: 800 }}>
+          <Typography className="font-extrabold">
             {gross !== "" && isFinite(parseFloat(gross)) ? money(parseFloat(gross), currency) : "—"}
           </Typography>
         </Box>

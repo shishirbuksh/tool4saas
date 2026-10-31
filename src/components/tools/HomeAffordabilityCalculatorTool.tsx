@@ -1,11 +1,6 @@
-"use client";
 
-import { useMemo, useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
+import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+
 import { EPSILON_RATE, money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
 
@@ -74,7 +69,7 @@ export default function HomeAffordabilityCalculatorTool() {
         input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
         htmlInput: { min: 0, step: "any" },
       }}
-      sx={{ "& .MuiInputBase-root": { minHeight: 44 } }}
+      
     />
   );
 
@@ -88,37 +83,31 @@ export default function HomeAffordabilityCalculatorTool() {
         {field("Term (years)", years, setYears)}
       </Stack>
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
-          textAlign: "center",
-        }}
+        className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
           Affordable monthly payment (28/36 DTI rule)
         </Typography>
-        <Typography variant="h3" sx={{ fontWeight: 800, color: "primary.main" }}>
+        <Typography variant="h3" className="font-extrabold text-primary">
           {affordable !== null && isFinite(affordable) ? money(affordable) : "—"}
         </Typography>
       </Box>
       <Stack spacing={1.5}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Max housing (28% of income)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {maxHousing !== null && isFinite(maxHousing) ? money(maxHousing) : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Max total debt (36% minus debts)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {maxTotal !== null && isFinite(maxTotal) ? money(maxTotal) : "—"}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box className="flex justify-between">
           <Typography color="text.secondary">Estimated home price (EMI inverse)</Typography>
-          <Typography sx={{ fontWeight: 700 }}>
+          <Typography className="font-bold">
             {price !== null && isFinite(price) ? money(price) : "—"}
           </Typography>
         </Box>

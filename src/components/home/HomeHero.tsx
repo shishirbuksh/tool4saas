@@ -1,7 +1,5 @@
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import { Container, Box, Stack, Typography } from "@/components/ds";
+
 import Link from "@/lib/astro/navigation";
 import ToolSearch from "@/components/ToolSearch";
 import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
@@ -20,73 +18,37 @@ export default function HomeHero() {
     <Box
       component="section"
       aria-label="Free online tools"
-      sx={{
-        position: "relative",
-        overflow: "hidden",
-        borderBottom: "1px solid",
-        borderColor: "divider",
-        pt: { xs: 7, md: 11 },
-        pb: { xs: 8, md: 12 },
-        backgroundImage:
-          "radial-gradient(900px 380px at 50% -8%, rgba(17,17,17,0.05), transparent 72%)",
-        'html[data-theme="dark"] &': {
-          backgroundImage:
-            "radial-gradient(900px 380px at 50% -8%, rgba(255,255,255,0.06), transparent 72%)",
-        },
-      }}
+      className="relative overflow-hidden border-b border-base-300 pt-14 md:pt-22 pb-16 md:pb-24 dark:[background-image:radial-gradient(900px_380px_at_50%_-8%,_rgba(255,255,255,0.06),_transparent_72%)]" style={{ backgroundImage: "radial-gradient(900px 380px at 50% -8%, rgba(17,17,17,0.05), transparent 72%)" }}
     >
-      <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 } }}>
+      <Container maxWidth="lg" className="px-4 md:px-8">
         <Stack
           spacing={{ xs: 2.5, md: 3 }}
-          sx={{ alignItems: "center", textAlign: "center", maxWidth: 780, mx: "auto" }}
+          className="items-center text-center max-w-[780px] mx-auto"
         >
           <Typography
             variant="body2"
-            sx={{
-              letterSpacing: "0.08em",
-              fontWeight: 700,
-              color: "text.secondary",
-              border: "1px solid",
-              borderColor: "divider",
-              px: 2,
-              py: 0.75,
-              borderRadius: "999px",
-              bgcolor: "background.paper",
-            }}
+            className="tracking-[0.08em] font-bold text-base-content/70 border border-base-300 px-4 py-1.5 rounded-full bg-base-100"
           >
             {VISIBLE_TOOL_COUNT} free tools · no sign-up · local-first
           </Typography>
 
           <Typography
             variant="h1"
-            sx={{
-              color: "text.primary",
-              fontSize: "clamp(2.4rem, 1.6rem + 2.4vw, 4rem)",
-              lineHeight: 1.05,
-              letterSpacing: "-0.04em",
-              fontWeight: 800,
-              textWrap: "balance",
-            }}
+            className="text-base-content text-[clamp(2.4rem,_1.6rem_+_2.4vw,_4rem)] leading-[1.05] tracking-[-0.04em] font-extrabold text-balance"
           >
             Free online tools, right in your browser
           </Typography>
 
           <Typography
             variant="body1"
-            className="speakable-hero-summary"
-            sx={{
-              color: "text.secondary",
-              fontSize: { xs: "1.0625rem", md: "1.1875rem" },
-              lineHeight: 1.6,
-              textWrap: "pretty",
-              maxWidth: 640,
-            }}
+            className="speakable-hero-summary text-base-content/70 text-[1.0625rem] md:text-[1.1875rem] leading-[1.6] text-pretty max-w-[640px]"
+            
           >
             Format JSON, merge PDFs, compress images, or make an invoice in seconds. No
             account needed — most tools run entirely on your device.
           </Typography>
 
-          <Box sx={{ width: "100%", maxWidth: 620, pt: { xs: 0.5, md: 1 } }}>
+          <Box className="w-full max-w-[620px] pt-1 md:pt-2">
             <ToolSearch
               variant="hero"
               placeholder={`Search ${VISIBLE_TOOL_COUNT} tools — invoice, JSON, QR code…`}
@@ -94,32 +56,12 @@ export default function HomeHero() {
           </Box>
 
           <Box
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 1,
-              justifyContent: "center",
-              pt: 0.5,
-            }}
+            className="flex flex-wrap gap-2 justify-center pt-1"
           >
             {QUICK_LINKS.map((q) => (
               <Link key={q.slug} href={`/${q.slug}`} style={{ textDecoration: "none" }}>
                 <Box
-                  sx={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    minHeight: 44,
-                    px: 2,
-                    borderRadius: 999,
-                    border: "1px solid",
-                    borderColor: "divider",
-                    bgcolor: "background.paper",
-                    fontSize: "0.875rem",
-                    fontWeight: 600,
-                    color: "text.primary",
-                    transition: "border-color 150ms ease, transform 150ms ease",
-                    "&:hover": { borderColor: "text.primary", transform: "translateY(-1px)" },
-                  }}
+                  className="inline-flex items-center min-h-[44px] px-4 rounded-[7992px] border border-base-300 bg-base-100 text-[0.875rem] font-semibold text-base-content hover:border-base-content hover:[transform:translateY(-1px)]" style={{ transition: "border-color 150ms ease, transform 150ms ease" }}
                 >
                   {q.label}
                 </Box>
@@ -127,7 +69,7 @@ export default function HomeHero() {
             ))}
           </Box>
 
-          <Typography variant="body2" color="text.secondary" sx={{ pt: 0.5 }}>
+          <Typography variant="body2" color="text.secondary" className="pt-1">
             No sign-up · Local-first · Free to use ·{" "}
             <Link href="#tools">Browse all {VISIBLE_TOOL_COUNT} tools</Link>
           </Typography>

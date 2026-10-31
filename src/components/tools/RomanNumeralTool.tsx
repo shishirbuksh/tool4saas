@@ -1,16 +1,8 @@
-"use client";
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 const MAP: [number, string][] = [
   [1000, "M"],
@@ -86,8 +78,8 @@ export default function RomanNumeralTool() {
           helperText={error}
         />
         <Box>
-          <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between", mb: 0.5 }}>
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+          <Stack direction="row" className="items-center justify-between mb-1">
+            <Typography variant="subtitle2" className="font-bold">
               {mode === "to" ? "Roman numeral" : "Arabic number"}
             </Typography>
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(output)} disabled={!output}>
@@ -98,11 +90,11 @@ export default function RomanNumeralTool() {
             value={output}
             fullWidth
             slotProps={{ input: { readOnly: true, "aria-label": "Converted value", spellCheck: false } }}
-            sx={{ "& input": { fontSize: 18, fontWeight: 700, letterSpacing: 1 } }}
+            className="[&_input]:text-[18px] [&_input]:font-bold [&_input]:tracking-[1px]"
           />
         </Box>
         {output && !error && (
-          <Alert severity="success" sx={{ mt: 1 }}>
+          <Alert severity="success" className="mt-2">
             {mode === "to" ? "Converted to Roman numerals." : "Converted to a number."}
           </Alert>
         )}

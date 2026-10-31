@@ -1,14 +1,8 @@
-"use client";
 
 import { useEffect, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Divider } from "@/components/ds";
+
+import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
 
 export default function TimestampConverterTool() {
   const [now, setNow] = useState<number | null>(null);
@@ -42,23 +36,23 @@ export default function TimestampConverterTool() {
 
   return (
     <ToolPaper spacing={3}>
-        <Box sx={{ p: 2, bgcolor: "primary.main", color: "primary.contrastText", borderRadius: 2 }}>
+        <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
           <Typography variant="caption">Current Unix time</Typography>
-          <Typography  variant="h5"  sx={{ fontWeight: 800,  fontFamily: "monospace" }}>
-            {now !== null ? Math.floor(now / 1000) : "..."} <Box component="span" sx={{ fontSize: 14, opacity: 0.85 }}>sec</Box>
+          <Typography  variant="h5"  className="font-extrabold" style={{ fontFamily: "monospace" }}>
+            {now !== null ? Math.floor(now / 1000) : "..."} <Box component="span" className="text-[14px] opacity-[0.85]">sec</Box>
           </Typography>
-          <Typography variant="body2" sx={{ fontFamily: "monospace", opacity: 0.9 }}>{now !== null ? now : "..."} ms</Typography>
+          <Typography variant="body2" className="opacity-[0.9]" style={{ fontFamily: "monospace" }}>{now !== null ? now : "..."} ms</Typography>
         </Box>
 
         <Divider>Epoch → Date</Divider>
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center" }}>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
           <TextField
             label="Epoch (seconds or ms)"
             value={epochInput}
             onChange={(e) => setEpochInput(e.target.value)}
             fullWidth
             slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
-            sx={{ "& input": { fontFamily: "monospace" } }}
+            className="[&_input]:[font-family:monospace]"
           />
           <Button variant="contained" onClick={epochToDate} disabled={!epochInput}>Convert</Button>
         </Stack>
@@ -70,7 +64,7 @@ export default function TimestampConverterTool() {
         )}
 
         <Divider>Date → Epoch</Divider>
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ alignItems: "center" }}>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
           <TextField
             label="Date & time"
             type="datetime-local"
@@ -93,9 +87,9 @@ export default function TimestampConverterTool() {
 
 function Line({ label, value, onCopy }: { label: string; value: string; onCopy: () => void }) {
   return (
-    <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 0.5 }}>
-      <Typography  variant="subtitle2"  sx={{ fontWeight: 700,  width: 110 }}>{label}</Typography>
-      <TextField value={value} fullWidth slotProps={{ input: { readOnly: true, "aria-label": label, spellCheck: false } }} sx={{ "& input": { fontFamily: "monospace", fontSize: 13 } }} />
+    <Box className="flex items-center gap-2 mb-1">
+      <Typography  variant="subtitle2"  className="font-bold w-[110px]">{label}</Typography>
+      <TextField value={value} fullWidth slotProps={{ input: { readOnly: true, "aria-label": label, spellCheck: false } }} className="[&_input]:[font-family:monospace] [&_input]:text-[13px]" />
       <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={onCopy}>Copy</Button>
     </Box>
   );

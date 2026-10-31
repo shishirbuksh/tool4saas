@@ -1,12 +1,7 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
+import { Box, Container, Typography, Grid, Stack, Button } from "@/components/ds";
+
 import Link from "@/lib/astro/navigation";
-import Button from "@mui/material/Button";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
+import { EmailOutlined as EmailOutlinedIcon, BuildOutlined as BuildOutlinedIcon } from "@/components/ds/icons";
 import type { ReactNode } from "react";
 import { CATEGORIES } from "@/lib/tools/categories";
 import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
@@ -62,11 +57,7 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
     <Link href={href} className="footer-link" style={linkStyle}>
       <Typography
         variant="body2"
-        sx={{
-          color: "text.secondary",
-          "&:hover": { color: "primary.main" },
-          transition: "color 150ms ease",
-        }}
+        className="text-base-content/70 hover:text-primary" style={{ transition: "color 150ms ease" }}
       >
         {children}
       </Typography>
@@ -76,7 +67,7 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
 
 function ColumnHeading({ children }: { children: ReactNode }) {
   return (
-    <Typography component="p" variant="subtitle1" sx={{ fontWeight: 700, mb: 1.5 }}>
+    <Typography component="p" variant="subtitle1" className="font-bold mb-3">
       {children}
     </Typography>
   );
@@ -88,43 +79,28 @@ export default function Footer() {
   return (
     <Box
       component="footer"
-      sx={{
-        bgcolor: "background.paper",
-        borderTop: "1px solid",
-        borderColor: "divider",
-      }}
+      className="bg-base-100 border-t border-base-300"
     >
-      <Box sx={{ height: 4, background: "var(--brand-gradient)" }} aria-hidden="true" />
-      <Container maxWidth="xl" sx={{ pt: { xs: 7, md: 9 }, pb: { xs: 4, md: 5 } }}>
+      <Box className="h-[4px]" style={{ background: "var(--brand-gradient)" }} aria-hidden="true" />
+      <Container maxWidth="xl" className="pt-14 md:pt-18 pb-8 md:pb-10">
         <Grid container spacing={{ xs: 4, md: 4 }}>
           <Grid size={{ xs: 12, md: 4, lg: 3 }}>
             <Stack spacing={2}>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+              <Box className="flex items-center gap-3">
                 <Box
-                  sx={{
-                    display: "flex",
-                    p: 1,
-                    borderRadius: "12px",
-                    bgcolor: "primary.main",
-                    color: "primary.contrastText",
-                    boxShadow: "0 1px 2px rgba(34,29,29,0.08)",
-                  }}
+                  className="flex p-2 rounded-[12px] bg-primary" style={{ color: "var(--color-primary-content)", boxShadow: "0 1px 2px rgba(34,29,29,0.08)" }}
                 >
                   <BuildOutlinedIcon fontSize="small" aria-hidden="true" />
                 </Box>
                 <Typography
                   variant="h6"
                   component="span"
-                  sx={{
-                    fontWeight: 800,
-                    fontFamily: "var(--font-display), serif",
-                    letterSpacing: "-0.02em",
-                  }}
+                  className="font-extrabold tracking-[-0.02em]" style={{ fontFamily: "var(--font-display), serif" }}
                 >
                   {siteConfig.name}
                 </Typography>
               </Box>
-              <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, maxWidth: 320 }}>
+              <Typography variant="body2" color="text.secondary" className="leading-[1.7] max-w-[320px]">
                 {VISIBLE_TOOL_COUNT} fast, local utilities for developers and creators. No
                 sign-ups — most tools run in your browser.
               </Typography>
@@ -134,16 +110,16 @@ export default function Footer() {
                 variant="outlined"
                 size="small"
                 startIcon={<EmailOutlinedIcon fontSize="small" aria-hidden="true" />}
-                sx={{ alignSelf: "flex-start", borderRadius: 999, textTransform: "none" }}
+                className="self-start rounded-[7992px] normal-case"
               >
                 {siteConfig.email}
               </Button>
               <Box
                 component="nav"
                 aria-label="Languages"
-                sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 1.5 }}
+                className="flex items-center flex-wrap gap-3"
               >
-                <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 600 }}>
+                <Typography variant="body2" color="text.secondary" className="font-semibold">
                   Languages:
                 </Typography>
                 {LANGUAGES.map((l) => (
@@ -157,11 +133,7 @@ export default function Footer() {
                   >
                     <Typography
                       variant="body2"
-                      sx={{
-                        color: "text.secondary",
-                        "&:hover": { color: "primary.main" },
-                        transition: "color 150ms ease",
-                      }}
+                      className="text-base-content/70 hover:text-primary" style={{ transition: "color 150ms ease" }}
                     >
                       {l.label}
                     </Typography>
@@ -175,14 +147,7 @@ export default function Footer() {
             <ColumnHeading>Categories</ColumnHeading>
             <Box
               component="ul"
-              sx={{
-                p: 0,
-                m: 0,
-                listStyle: "none",
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                columnGap: 2,
-              }}
+              className="p-0 m-0 list-none grid grid-cols-[1fr_1fr] gap-x-4"
             >
               {CATEGORIES.map((c) => (
                 <Box component="li" key={c.id}>
@@ -196,7 +161,7 @@ export default function Footer() {
             <ColumnHeading>Popular tools</ColumnHeading>
             <Box
               component="ul"
-              sx={{ p: 0, m: 0, listStyle: "none", display: "flex", flexDirection: "column" }}
+              className="p-0 m-0 list-none flex flex-col"
             >
               {popular.map((t) => (
                 <Box component="li" key={t.slug}>
@@ -213,7 +178,7 @@ export default function Footer() {
             <ColumnHeading>Learn</ColumnHeading>
             <Box
               component="ul"
-              sx={{ p: 0, m: 0, listStyle: "none", display: "flex", flexDirection: "column" }}
+              className="p-0 m-0 list-none flex flex-col"
             >
               {GUIDES.map((l) => (
                 <Box component="li" key={l.href}>
@@ -230,33 +195,14 @@ export default function Footer() {
         </Grid>
 
         <Box
-          sx={{
-            borderTop: "1px solid",
-            borderColor: "divider",
-            mt: { xs: 5, md: 6 },
-            pt: 3,
-            pb: "max(16px, env(safe-area-inset-bottom))",
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            justifyContent: "space-between",
-            alignItems: { xs: "flex-start", md: "center" },
-            gap: 2,
-          }}
+          className="border-t border-base-300 mt-10 md:mt-12 pt-6 pb-[max(16px,_env(safe-area-inset-bottom))] flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
         >
-          <Typography variant="body2" sx={{ fontWeight: 500, color: "text.secondary" }}>
+          <Typography variant="body2" className="font-medium text-base-content/70">
             © {year} {siteConfig.name}. All rights reserved.
           </Typography>
           <Box
             component="ul"
-            sx={{
-              p: 0,
-              m: 0,
-              listStyle: "none",
-              display: "flex",
-              flexWrap: "wrap",
-              gap: { xs: 0.5, md: 1 },
-              alignItems: "center",
-            }}
+            className="p-0 m-0 list-none flex flex-wrap gap-1 md:gap-2 items-center"
             aria-label="Legal and privacy"
           >
             <Box component="li">

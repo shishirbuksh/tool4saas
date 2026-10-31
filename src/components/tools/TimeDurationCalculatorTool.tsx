@@ -1,11 +1,7 @@
-"use client";
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack } from "@/components/ds";
+
 import { MS_PER_HOUR, MS_PER_MINUTE, MS_PER_SECOND } from "@/lib/format";
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -107,18 +103,12 @@ export default function TimeDurationCalculatorTool() {
       </Stack>
 
       <Box
-        sx={{
-          p: 2,
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: "divider",
-          bgcolor: "background.paper",
-        }}
+        className="p-4 rounded-[16px] border border-base-300 bg-base-100"
       >
         <Typography variant="overline" color="text.secondary">
           Duration
         </Typography>
-        <Typography variant="h6" sx={{ fontWeight: 700 }}>
+        <Typography variant="h6" className="font-bold">
           {!start || !end
             ? "Enter a start and end time"
             : !result || !formatted
@@ -128,7 +118,7 @@ export default function TimeDurationCalculatorTool() {
               : formatted.hms}
         </Typography>
         {result && !result.invalid && formatted ? (
-          <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+          <Typography variant="body2" color="text.secondary" className="mt-1">
             {formatted.totalHours.toFixed(2)} hours · {Math.round(formatted.totalMinutes)} minutes
             {result.overnight ? " · includes overnight" : ""}
           </Typography>
