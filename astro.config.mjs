@@ -1,5 +1,6 @@
 import { defineConfig, fontProviders } from "astro/config";
 import react from "@astrojs/react";
+import tailwindcss from "@tailwindcss/vite";
 import { existsSync, readFileSync } from "node:fs";
 import { REDIRECT_MAP } from "./scripts/redirects.mjs";
 
@@ -86,6 +87,7 @@ export default defineConfig({
     ]),
   ),
   vite: {
+    plugins: [tailwindcss()],
     define: legacyEnv,
     server: {
       allowedHosts: true,

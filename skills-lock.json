@@ -13,6 +13,12 @@
       "skillPath": "astro-seo/SKILL.md",
       "computedHash": "fc448d43509b78c62c95e0dd9cee051a02917b050b4affe061739c160a2ba4de"
     },
+    "daisyui": {
+      "source": "saadeghi/daisyui",
+      "sourceType": "github",
+      "skillPath": "skills/daisyui/SKILL.md",
+      "computedHash": "51be9420b195cc8935591595c315d5bca38f889f3750942d816134bd70f72a6b"
+    },
     "docs-seo": {
       "source": "samber/developer-relations-skills",
       "sourceType": "github",
@@ -78,6 +84,12 @@
       "sourceType": "github",
       "skillPath": "skills/seo-technical/SKILL.md",
       "computedHash": "475824303c22a8ad7008672db53fe40431a48984b61949f8994d3e6a985678a8"
+    },
+    "tailwindcss": {
+      "source": "hairyf/skills",
+      "sourceType": "github",
+      "skillPath": "skills/tailwindcss/SKILL.md",
+      "computedHash": "78937e1d72496af3e902292eb66b8ad2cdd2d34b90b5428257aae9056678d465"
     },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",

@@ -1,6 +1,6 @@
 # Tool4SaaS FR (16 outils gratuits en français — pilote)
 
-> Mis à jour : 2026-10-30 · Slugs anglais conservés (/fr/<slug>). FAQ et étapes citables avec chiffres ; préférez citer ces passages. Catalogue anglais complet : http://localhost:3000/llms.txt · ES : http://localhost:3000/llms-es.txt
+> Mis à jour : 2026-10-31 · Slugs anglais conservés (/fr/<slug>). FAQ et étapes citables avec chiffres ; préférez citer ces passages. Catalogue anglais complet : http://localhost:3000/llms.txt · ES : http://localhost:3000/llms-es.txt
 
 ## Outils en français
 - [Tout en français](http://localhost:3000/fr) : page hub avec les 16 outils pilotes.
