@@ -1,6 +1,5 @@
 "use client";
 
-import Box from "@mui/material/Box";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ThemeProviderClient from "@/components/ThemeProviderClient";
@@ -11,8 +10,7 @@ import type { Locale } from "@/lib/i18n-core";
 import type { ReactNode } from "react";
 
 // Shared React shell for every page. Rendered to static HTML at build time and
-// hydrated as one root by src/lib/astro/hydrate.ts. Keeping one root preserves
-// the single Emotion cache + MUI theme that the Next.js app relied on.
+// hydrated as one root by src/lib/astro/hydrate.ts.
 export default function AppShell({
   locale = "en",
   pathname = "/",
@@ -25,11 +23,11 @@ export default function AppShell({
   return (
     <PathnameProvider value={pathname}>
       <ThemeProviderClient>
-        <Box sx={{ position: "relative", zIndex: 1, overflowX: "clip" }}>
+        <div className="relative z-[1] overflow-x-clip min-h-screen flex flex-col justify-between bg-base-100 text-base-content font-sans antialiased">
           <Header />
-          <main id="main">{children}</main>
+          <main id="main" className="flex-grow">{children}</main>
           <Footer />
-        </Box>
+        </div>
         <CookieConsent />
       </ThemeProviderClient>
       <ConsentGatedGoogleScripts />

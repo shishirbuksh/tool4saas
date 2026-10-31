@@ -1,7 +1,5 @@
 import { renderToString } from "react-dom/server";
-import { CacheProvider } from "@emotion/react";
 import type { ReactElement } from "react";
-import { createPageCache } from "./emotion";
 
 export type RenderedPage = {
   html: string;
@@ -9,19 +7,9 @@ export type RenderedPage = {
   ids: string[];
 };
 
-// Render a React page tree to static HTML and collect the exact MUI/Emotion CSS
-// it used. The returned `css`/`ids` are emitted as a single
-// <style data-emotion="css id1 id2 ..."> tag in <head>, which Emotion's browser
-// cache then adopts during hydration.
+// Render a React page tree to static HTML. Pure DaisyUI + Tailwind CSS v4
+// requires zero runtime CSS extraction overhead.
 export function renderReactPage(element: ReactElement): RenderedPage {
-  const cache = createPageCache();
-  const html = renderToString(<CacheProvider value={cache}>{element}</CacheProvider>);
-  const ids = Object.keys(cache.inserted);
-  const css = ids
-    .map((id) => {
-      const value = cache.inserted[id];
-      return typeof value === "string" ? value : "";
-    })
-    .join("");
-  return { html, css, ids };
+  const html = renderToString(element);
+  return { html, css: "", ids: [] };
 }

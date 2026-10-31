@@ -2,7 +2,11 @@ import { defineConfig, fontProviders } from "astro/config";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import { existsSync, readFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { REDIRECT_MAP } from "./scripts/redirects.mjs";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // `.env` files are not loaded inside Astro config (only inside the app via
 // import.meta.env), so parse the handful of keys needed at config time.
@@ -49,13 +53,7 @@ export default defineConfig({
   // with `try_files $uri $uri.html $uri/ =404`.
   trailingSlash: "never",
   build: { format: "file" },
-  integrations: [
-    react({
-      // Emotion/MUI rely on insertion order; streaming can interleave style
-      // tags and produce mismatched class names on hydration.
-      experimentalDisableStreaming: true,
-    }),
-  ],
+  integrations: [react()],
   fonts: [
     {
       provider: fontProviders.fontsource(),
@@ -88,6 +86,14 @@ export default defineConfig({
   ),
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: [
+        { find: /^@mui\/material\/(.*)/, replacement: path.resolve(__dirname, "src/components/ui/$1") },
+        { find: "@mui/material", replacement: path.resolve(__dirname, "src/components/ui/index.ts") },
+        { find: /^@mui\/icons-material\/(.*)/, replacement: path.resolve(__dirname, "src/components/ui/icons/$1") },
+        { find: "@mui/icons-material", replacement: path.resolve(__dirname, "src/components/ui/icons/index.ts") },
+      ],
+    },
     define: legacyEnv,
     server: {
       allowedHosts: true,

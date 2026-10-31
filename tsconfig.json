@@ -5,7 +5,11 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@mui/material/*": ["./src/components/ui/*"],
+      "@mui/material": ["./src/components/ui/index"],
+      "@mui/icons-material/*": ["./src/components/ui/icons/*"],
+      "@mui/icons-material": ["./src/components/ui/icons/index"]
     },
     "verbatimModuleSyntax": false,
     "types": ["vite/client"]

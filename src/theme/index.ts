@@ -1,24 +1,20 @@
-import { createTheme } from "@mui/material/styles";
-import type { Shadows } from "@mui/material/styles";
-import { breakpoints, shape, transitions, lightShadows, darkShadows } from "@/theme/tokens";
-import { lightPalette, darkPalette } from "@/theme/palette";
-import { typography } from "@/theme/typography";
-import { lightComponents, buildDarkComponents } from "@/theme/components";
+// Theme tokens now unified via Tailwind CSS v4 and DaisyUI 5
+export const theme = {
+  palette: {
+    mode: "light",
+    primary: { main: "#111111" },
+    text: { primary: "#111111", secondary: "#666666" },
+    background: { default: "#FCFCF9", paper: "#FFFFFF" },
+  },
+};
 
-export const theme = createTheme({
-  breakpoints,
-  palette: lightPalette,
-  shape,
-  shadows: lightShadows as Shadows,
-  transitions,
-  typography,
-  spacing: 8,
-  components: lightComponents,
-});
+export const darkTheme = {
+  palette: {
+    mode: "dark",
+    primary: { main: "#FFFFFF" },
+    text: { primary: "#EDEDED", secondary: "#A3A3A3" },
+    background: { default: "#0A0A0A", paper: "#141414" },
+  },
+};
 
-export const darkTheme = createTheme({
-  ...theme,
-  palette: darkPalette,
-  shadows: darkShadows as Shadows,
-  components: buildDarkComponents(lightComponents),
-});
+export default theme;

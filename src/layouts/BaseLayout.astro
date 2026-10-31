@@ -143,8 +143,6 @@ const jsonLdScripts = graphs.map((graph) => JSON.stringify(graph).replace(/</g, 
         <script is:inline set:html={fundingChoicesBootstrap} />
       </>
     )}
-
-    {ids.length > 0 && <style data-emotion={`css ${ids.join(" ")}`} set:html={css} />}
     {jsonLdScripts.map((json) => (
       <script type="application/ld+json" set:html={json} />
     ))}
