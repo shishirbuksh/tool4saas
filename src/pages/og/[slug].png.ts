@@ -14,6 +14,7 @@ const STATIC_PAGES: Record<string, { title: string; desc: string }> = {
   methodology: { title: "How We Test Tools", desc: "Golden values, boundary tests and browser matrix." },
   blog: { title: "Tool4SaaS Blog Guides", desc: "Tested walkthroughs for invoices, QR, resumes and more." },
   guides: { title: "All Guides & Tutorials", desc: "Every pillar guide and tutorial, indexed by topic." },
+  sitemap: { title: "HTML Sitemap", desc: "Complete directory of all free browser tools, guides, and categories." },
 };
 
 export function getStaticPaths() {
