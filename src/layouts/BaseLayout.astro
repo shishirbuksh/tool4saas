@@ -117,7 +117,7 @@ const jsonLdScripts = graphs.map((graph) => JSON.stringify(graph).replace(/</g, 
     <link rel="icon" href="/icon-512.png" sizes="512x512" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" type="image/png" />
     <link rel="manifest" href={meta.manifest ?? "/manifest.webmanifest"} />
-    <link rel="canonical" href={canonical} />
+    {robots.index && <link rel="canonical" href={canonical} />}
     {Object.entries(languages).map(([hreflang, href]) => (
       href && <link rel="alternate" hreflang={hreflang} href={href} />
     ))}

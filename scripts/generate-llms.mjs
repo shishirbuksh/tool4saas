@@ -21,7 +21,7 @@ const BLOG_DATES_PATH = path.resolve("src/lib/blog-dates.generated.json");
 const LEGACY_BARREL = path.resolve("src/lib/tools.ts");
 const outPath = path.resolve("public/llms.txt");
 const outFullPath = path.resolve("public/llms-full.txt");
-const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const rawSiteUrl = (process.env.PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://tool4saas.com").trim();
 let siteUrl;
 if (!rawSiteUrl) {
   console.warn("NEXT_PUBLIC_SITE_URL is not set, using fallback https://your-domain.com — set it for correct canonicals");
