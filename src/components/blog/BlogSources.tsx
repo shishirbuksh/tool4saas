@@ -11,7 +11,7 @@ export default function BlogSources({ pillar }: { pillar: string }) {
     <Box
       component="aside"
       aria-label="Sources and further reading"
-      className="mt-10 p-6 rounded-[12px] border border-base-300 bg-base-200/50"
+      className="mt-10 p-6 rounded-xl border border-base-300 bg-base-200/50"
     >
       <Typography component="h2" className="text-[1.1rem] font-extrabold mb-2">
         Sources and further reading

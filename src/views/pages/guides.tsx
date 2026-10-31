@@ -67,7 +67,7 @@ export default function GuidesView() {
           <a
             key={s.meta.pillar}
             href={`#${s.meta.pillar}`}
-            style={{ display: "inline-flex", minHeight: 40, alignItems: "center", padding: "6px 14px", borderRadius: 999, border: "1px solid var(--mui-palette-divider)", textDecoration: "none", fontSize: "0.85rem", fontWeight: 600 }}
+            className="inline-flex min-h-[38px] items-center px-3.5 py-1.5 rounded-full border border-base-300 text-sm font-semibold hover:border-base-content text-base-content no-underline transition-colors"
           >
             {s.meta.shortLabel}
           </a>
@@ -80,7 +80,7 @@ export default function GuidesView() {
             <Box
               component="section"
               id={s.meta.pillar}
-              className="p-8 rounded-[16px] border border-base-300 bg-base-100 h-full scroll-mt-[96px]"
+              className="p-8 rounded-xl border border-base-300 bg-base-100 h-full scroll-mt-[96px] hover:border-base-content/30 transition-colors"
             >
               <Typography variant="overline" color="primary" className="font-bold">
                 {s.clusters.length + (s.pillar ? 1 : 0)} GUIDES
@@ -117,7 +117,7 @@ export default function GuidesView() {
         ))}
       </Grid>
 
-      <Box className="mt-12 p-6 rounded-[12px] border border-base-300" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}>
+      <Box className="mt-12 p-6 rounded-xl border border-base-300 bg-base-200/50">
         <Typography variant="body2" color="text.secondary" className="leading-[1.7]">
           <strong>Stay current:</strong> new guides land in the <a href="/rss.xml" style={{ fontWeight: 600 }}>RSS feed</a> first.
           Every tutorial links back to its pillar and to the free tool it demonstrates.

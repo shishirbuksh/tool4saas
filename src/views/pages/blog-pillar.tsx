@@ -17,8 +17,8 @@ export default function BlogPillarView({ pillar }: { pillar: string }) {
   return (
     <Box>
       <BlogArticle post={post} />
-      <Container maxWidth="lg" className="pb-20 px-4 md:px-8">
-        <Box component="section" className="mt-4 p-8 rounded-[16px] border border-base-300 bg-base-100">
+      <Container maxWidth="xl" className="pb-20 px-4 sm:px-6 lg:px-8">
+        <Box component="section" className="mt-4 p-8 rounded-xl border border-base-300 bg-base-100">
           <Typography variant="h2" className="text-[1.4rem] font-extrabold mb-2">
             All {clusters.length} tutorials in this silo
           </Typography>
@@ -30,7 +30,7 @@ export default function BlogPillarView({ pillar }: { pillar: string }) {
             {clusters.map((c, i) => (
               <Grid size={{ xs: 12, sm: 6 }} key={c.slug}>
                 <Link href={`/blog/${pillar}/${c.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-                  <Box className="p-5 rounded-[12px] border border-base-300 h-full">
+                  <Box className="p-5 rounded-xl border border-base-300 hover:border-base-content/40 transition-colors h-full">
                     <Typography variant="overline" color="primary" className="font-bold">
                       PART {String(i + 1).padStart(2, "0")}
                     </Typography>

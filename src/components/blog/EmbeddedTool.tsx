@@ -50,7 +50,7 @@ export default function EmbeddedTool({
     <Box
       component="section"
       aria-label={`Try the ${title} now`}
-      className="p-4 md:p-6 mb-8 rounded-[16px] border border-base-300 bg-base-100"
+      className="p-4 md:p-6 mb-8 rounded-xl border border-base-300 bg-base-100"
     >
       <Typography variant="h2" className="text-[1.25rem] font-extrabold mb-1">
         Try it live: {title}

@@ -12,7 +12,7 @@ export default function RelatedGuides({
 }) {
   if (guides.length === 0) return null;
   return (
-    <Box component="section" aria-label="Related guides" className="mt-8 p-6 border border-base-300 rounded-[12px] bg-base-100">
+    <Box component="section" aria-label="Related guides" className="mt-8 p-6 border border-base-300 rounded-xl bg-base-100">
       <Typography variant="h2" className="text-[1.125rem] mb-1">
         Learn: guides &amp; tutorials
       </Typography>

@@ -313,7 +313,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
 
       {/* Above-fold tool CTA */}
       {primaryTool && primaryHref && (
-        <Box className="p-6 mb-8 rounded-[16px] border border-base-300 bg-base-100 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
+        <Box className="p-6 mb-8 rounded-xl border border-base-300 bg-base-100 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
           <Box>
             <Typography variant="h2" className="text-[1.1rem] font-bold mb-1">
               {locale === "es" ? (
@@ -457,7 +457,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
             <Link
               key={`${r.pillar}/${r.slug}`}
               href={r.kind === "pillar" ? `/blog/${r.pillar}` : `/blog/${r.pillar}/${r.slug}`}
-              style={{ textDecoration: "none", color: "inherit", display: "block", padding: 20, borderRadius: 12, border: "1px solid var(--color-base-300)" }}
+              className="block p-5 rounded-xl border border-base-300 bg-base-100 hover:border-base-content/40 transition-colors no-underline text-inherit"
             >
               <Typography variant="subtitle2" color="primary" className="font-bold mb-1 text-[0.75rem] uppercase tracking-[0.05em]">
                 {r.kind === "pillar"

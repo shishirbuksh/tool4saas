@@ -61,7 +61,7 @@ export default function BlogIndexView() {
           const words = pillar ? countWords(pillar.html) : 0;
           return (
             <Grid size={{ xs: 12, md: 6 }} key={p.pillar}>
-              <Box className="p-8 rounded-[16px] border border-base-300 bg-base-100 h-full">
+              <Box className="p-8 rounded-xl border border-base-300 bg-base-100 hover:border-base-content/30 transition-colors h-full">
                 <Typography variant="overline" color="primary" className="font-bold">
                   PILLAR · {clusters.length} TUTORIALS · {words.toLocaleString()}+ WORDS
                 </Typography>
@@ -90,7 +90,7 @@ export default function BlogIndexView() {
           );
         })}
       </Grid>
-      <Box className="mt-12 p-6 rounded-[12px] border border-base-300" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}>
+      <Box className="mt-12 p-6 rounded-xl border border-base-300 bg-base-200/50">
         <Typography variant="body2" color="text.secondary" className="leading-[1.7]">
           <strong>How silos work here:</strong> the pillar ranks for the broad topic (e.g. free invoice generator guide),
           each tutorial ranks for one long-tail query (e.g. GST invoice format India), and all of them funnel to the free
