@@ -42,7 +42,7 @@ const graphs = jsonLd.filter(Boolean);
 
 const skipLabel = locale === "es" ? "Saltar al contenido" : locale === "fr" ? "Aller au contenu" : "Skip to content";
 
-const themeScript = `try{var m=localStorage.getItem('color-mode');if(m!=='light'&&m!=='dark')m=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',m);document.documentElement.style.colorScheme=m;var c=m==='dark'?'#0A0A0A':'#FCFCF9';var q=document.querySelector('meta[name="theme-color"]');if(q)q.setAttribute('content',c);else{var t=document.createElement('meta');t.name='theme-color';t.content=c;document.head.appendChild(t);}}catch(e){}`;
+const themeScript = `try{var m=localStorage.getItem('color-mode');if(m!=='light'&&m!=='dark')m=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',m==='dark'?'expo-dark':'expo-light');document.documentElement.style.colorScheme=m;var c=m==='dark'?'#0b0b0c':'#ffffff';var q=document.querySelector('meta[name="theme-color"]');if(q)q.setAttribute('content',c);else{var t=document.createElement('meta');t.name='theme-color';t.content=c;document.head.appendChild(t);}}catch(e){}`;
 
 const consentDefault = `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -58,11 +58,10 @@ const jsonLdScripts = graphs.map((graph) => JSON.stringify(graph).replace(/</g, 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#FCFCF9" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0A0A0A" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" />
 
     <Font cssVariable="--font-inter" preload />
-    <Font cssVariable="--font-display" />
+    <Font cssVariable="--font-jetbrains" />
 
     <title>{title}</title>
     {description && <meta name="description" content={description} />}

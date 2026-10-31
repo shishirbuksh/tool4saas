@@ -30,8 +30,10 @@ export default function ThemeProviderClient({
 
   useEffect(() => {
     const t = document.documentElement.getAttribute("data-theme");
-    if (t === "light" || t === "dark") {
-      setMode(t);
+    if (t === "expo-dark" || t === "dark") {
+      setMode("dark");
+    } else if (t === "expo-light" || t === "light") {
+      setMode("light");
     }
     setMounted(true);
   }, []);
@@ -40,9 +42,9 @@ export default function ThemeProviderClient({
     if (!mounted) return;
     localStorage.setItem("color-mode", mode);
     document.documentElement.style.colorScheme = mode;
-    document.documentElement.setAttribute("data-theme", mode);
+    document.documentElement.setAttribute("data-theme", mode === "dark" ? "expo-dark" : "expo-light");
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", mode === "dark" ? "#0A0A0A" : "#FCFCF9");
+    if (meta) meta.setAttribute("content", mode === "dark" ? "#0b0b0c" : "#ffffff");
   }, [mode, mounted]);
 
   const value = useMemo<ThemeModeContextValue>(

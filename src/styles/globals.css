@@ -1,75 +1,280 @@
 @import "tailwindcss";
-@plugin "daisyui";
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  background: #FCFCF9;
-  color: #111111;
-  letter-spacing: -0.015em;
-  overflow-x: clip;
-}
-[data-theme="dark"] html,
-[data-theme="dark"] body {
-  background: #0A0A0A;
-  color: #EDEDED;
+/* ------------------------------------------------------------------
+   daisyUI 5 — Expo design system
+   Pure white canvas, black CTAs, sky-blue hero wash, Inter + JetBrains Mono.
+   Two custom themes share the same geometry; dark is a derived inversion.
+   ------------------------------------------------------------------ */
+@plugin "daisyui" {
+  themes: false;
+  logs: false;
 }
 
-[data-theme="dark"] {
-  color: #EDEDED;
+@plugin "daisyui/theme" {
+  name: "expo-light";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #ffffff;
+  --color-base-200: #fafafa;
+  --color-base-300: #f0f0f3;
+  --color-base-content: #171717;
+
+  --color-primary: #000000;
+  --color-primary-content: #ffffff;
+  --color-secondary: #f0f0f3;
+  --color-secondary-content: #171717;
+  --color-accent: #0d74ce;
+  --color-accent-content: #ffffff;
+  --color-neutral: #171717;
+  --color-neutral-content: #ffffff;
+
+  --color-info: #0d74ce;
+  --color-info-content: #ffffff;
+  --color-success: #15803d;
+  --color-success-content: #ffffff;
+  --color-warning: #ab6400;
+  --color-warning-content: #ffffff;
+  --color-error: #b42318;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 9999px;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
 }
 
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5,
-[data-theme="dark"] h6 {
-  color: #EDEDED;
+@plugin "daisyui/theme" {
+  name: "expo-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+
+  --color-base-100: #0b0b0c;
+  --color-base-200: #171717;
+  --color-base-300: #1f2023;
+  --color-base-content: #f5f5f7;
+
+  --color-primary: #ffffff;
+  --color-primary-content: #171717;
+  --color-secondary: #1f2023;
+  --color-secondary-content: #f5f5f7;
+  --color-accent: #47c2ff;
+  --color-accent-content: #0b0b0c;
+  --color-neutral: #f5f5f7;
+  --color-neutral-content: #171717;
+
+  --color-info: #47c2ff;
+  --color-info-content: #0b0b0c;
+  --color-success: #4ade80;
+  --color-success-content: #0b0b0c;
+  --color-warning: #fbbf24;
+  --color-warning-content: #0b0b0c;
+  --color-error: #f87171;
+  --color-error-content: #0b0b0c;
+
+  --radius-selector: 9999px;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
 }
 
-[data-theme="dark"] .MuiAppBar-root {
-  color: #EDEDED;
+/* Project tokens that sit outside daisyUI's semantic palette. */
+@theme {
+  --color-ink: #171717;
+  --color-body: #60646c;
+  --color-muted: #999999;
+  --color-hairline: #f0f0f3;
+  --color-hairline-soft: #f5f5f7;
+  --color-hairline-strong: #dcdee0;
+  --color-sky-light: #cfe7ff;
+  --color-sky-mid: #a8c8e8;
+  --color-surface-dark: #171717;
+  --color-surface-dark-elevated: #1a1a1a;
+
+  --font-sans: var(--font-inter), "Inter", -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+  --font-display: var(--font-inter), "Inter", -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
 }
 
-a {
-  color: inherit;
+@custom-variant dark (&:where([data-theme=expo-dark], [data-theme=expo-dark] *));
+
+@layer base {
+  html {
+    font-size: 100%;
+    font-family: var(--font-inter), "Inter", -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.011em;
+    font-variant-ligatures: common-ligatures;
+    font-feature-settings: "liga" 1, "calt" 1;
+    hanging-punctuation: first allow-end;
+    scroll-behavior: smooth;
+    background: var(--color-base-100);
+    color: var(--color-base-content);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-base-100);
+    color: var(--color-base-content);
+    overflow-x: clip;
+    font-family: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-inter), "Inter", -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    text-wrap: balance;
+    max-width: 35ch;
+  }
+
+  h1 {
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  h2 {
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+  h3 {
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  h4 {
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+
+  p,
+  li {
+    line-height: 1.6;
+    letter-spacing: -0.008em;
+    text-wrap: pretty;
+    max-width: 65ch;
+    hanging-punctuation: first;
+    orphans: 2;
+    widows: 2;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--font-jetbrains), "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-base-content) 16%, transparent);
+  }
 }
+
+@supports not (text-wrap: balance) {
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: wrap;
+  }
+  p,
+  li {
+    text-wrap: wrap;
+  }
+}
+
+/* ---------- Web Interface Guidelines ---------- */
 
 :root {
-  --focus-ring: #111111;
-  --focus-ring-offset: #FCFCF9;
-  /* Contrast audit (WCAG AA 4.5:1): text.secondary #666666 on #FCFCF9 ≈ 5.7:1 PASS — no color change needed. */
-  --font-inter: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-  --brand-gradient: linear-gradient(135deg, #111111 0%, #333333 100%);
-}
-[data-theme="dark"] {
-  --focus-ring: #FFFFFF;
-  --focus-ring-offset: #0A0A0A;
+  --focus-ring: var(--color-base-content);
+  --focus-ring-offset: var(--color-base-100);
 }
 
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  box-shadow:
+    0 0 0 5px var(--focus-ring-offset),
+    0 0 0 8px var(--focus-ring);
+  border-radius: 4px;
+}
+
+@supports not selector(:focus-visible) {
+  a:focus,
+  button:focus,
+  [role="button"]:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+    box-shadow:
+      0 0 0 5px var(--focus-ring-offset),
+      0 0 0 8px var(--focus-ring);
+  }
+}
+
+a,
+button,
+[role="button"],
+input,
+textarea,
+select,
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+/* ---------- Footer links ---------- */
+
 .footer-link {
-  color: inherit;
+  color: var(--color-base-content);
   text-decoration: none;
   font-size: 0.875rem;
   line-height: 1.8;
   letter-spacing: -0.005em;
-  opacity: 1;
-  color: #434343;
-  transition: color 150ms ease;
+  opacity: 0.72;
+  transition: opacity 150ms ease;
 }
-[data-theme="dark"] .footer-link {
-  color: #D6D6D6;
-}
+
 .footer-link:hover {
+  opacity: 1;
   text-decoration: none;
-  color: #111111;
 }
-[data-theme="dark"] .footer-link:hover {
-  color: #FFFFFF;
-}
+
 .footer-legal-button {
   min-height: 44px;
   padding: 0;
@@ -79,8 +284,12 @@ a {
   cursor: pointer;
   text-align: left;
 }
+
 @media (prefers-contrast: more) {
-  .footer-link { text-decoration: underline; }
+  .footer-link {
+    text-decoration: underline;
+    opacity: 1;
+  }
 }
 
 /* Mobile perf: sticky header drops backdrop blur (expensive compositing). */
@@ -91,108 +300,14 @@ a {
   }
 }
 
-::selection {
-  background: rgba(17, 17, 17, 0.15);
-}
-[data-theme="dark"] ::selection {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* ---------- Web Interface Guidelines ---------- */
-
-/* Visible focus for every interactive element — WCAG 2.4.11 AA (3:1 + 2px) + 2.4.13 AAA enhanced (3px + high-contrast shadow) */
-a:focus-visible,
-button:focus-visible,
-[role="button"]:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible,
-[tabindex]:focus-visible {
-  outline: 3px solid var(--focus-ring, #111111);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 5px var(--focus-ring-offset, #FCFCF9), 0 0 0 8px var(--focus-ring, #111111);
-  border-radius: 4px;
-}
-@supports not selector(:focus-visible) {
-  a:focus,
-  button:focus,
-  [role="button"]:focus,
-  input:focus,
-  textarea:focus,
-  select:focus {
-    outline: 3px solid var(--focus-ring, #111111);
-    outline-offset: 2px;
-    box-shadow: 0 0 0 5px var(--focus-ring-offset, #FCFCF9), 0 0 0 8px var(--focus-ring, #111111);
-  }
-}
-.MuiButton-root:focus-visible,
-.MuiIconButton-root:focus-visible,
-.MuiCardActionArea-root:focus-visible {
-  border-radius: 12px;
-}
-
-/* Touch: kill 300ms tap delay and the default highlight flash */
-a,
-button,
-[role="button"],
-input,
-textarea,
-select,
-label {
-  -webkit-tap-highlight-color: transparent;
-}
-a,
-button,
-[role="button"] {
-  touch-action: manipulation;
-}
-
-/* Typography: prevent orphaned words on headings — premium fluid + AAA legibility */
-html {
-  font-size: 100%;
-  letter-spacing: -0.015em;
-  line-height: 1.6;
-  font-variant-ligatures: common-ligatures;
-  font-feature-settings: "liga" 1, "calt" 1;
-  hanging-punctuation: first allow-end;
-}
-h1, h2, h3, h4 {
-  font-family: var(--font-display), "Fraunces", Georgia, "Times New Roman", serif;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-  max-width: 35ch;
-}
-h1 { line-height: 1.05; letter-spacing: -0.04em; }
-h2 { line-height: 1.1; letter-spacing: -0.025em; }
-h3 { line-height: 1.15; letter-spacing: -0.02em; }
-h4 { line-height: 1.2; letter-spacing: -0.015em; }
-p, li {
-  line-height: 1.6;
-  letter-spacing: -0.015em;
-  text-wrap: pretty;
-  max-width: 65ch;
-  hanging-punctuation: first;
-  orphans: 2;
-  widows: 2;
-}
-@supports not (text-wrap: balance) {
-  h1, h2, h3, h4 { text-wrap: wrap; }
-  p, li { text-wrap: wrap; }
-}
-
 /* Skip link for keyboard / screen-reader users — 44px AAA touch target */
 .skip-link {
   position: absolute;
   left: 8px;
   top: -60px;
   z-index: 1300;
-  background: #FFFFFF;
-  color: #111111;
+  background: var(--color-base-100);
+  color: var(--color-base-content);
   padding: 10px 18px;
   min-height: 44px;
   display: inline-flex;
@@ -202,29 +317,23 @@ p, li {
   font-weight: 600;
   font-size: 0.9375rem;
   letter-spacing: -0.01em;
-  border: 1px solid #EAEAEA;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid var(--color-base-300);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: top 150ms ease;
 }
+
 .skip-link:focus,
 .skip-link:focus-visible {
   top: 8px;
-  outline: 3px solid #111111;
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
-  box-shadow: 0 0 0 5px #FCFCF9, 0 0 0 8px #111111, 0 8px 24px rgba(0,0,0,0.12);
-}
-[data-theme="dark"] .skip-link {
-  background: #111111;
-  color: #FFFFFF;
-  border-color: #333333;
-}
-[data-theme="dark"] .skip-link:focus,
-[data-theme="dark"] .skip-link:focus-visible {
-  outline-color: #FFFFFF;
-  box-shadow: 0 0 0 5px #0A0A0A, 0 0 0 8px #FFFFFF, 0 8px 24px rgba(0,0,0,0.4);
+  box-shadow:
+    0 0 0 5px var(--focus-ring-offset),
+    0 0 0 8px var(--focus-ring),
+    0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* Respect users who prefer reduced motion — kill animations/transitions AND decorative transforms */
+/* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;
@@ -237,19 +346,9 @@ p, li {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  /* Neutralize decorative hover/active lifts (functional transforms e.g. switch knob untouched) */
-  .MuiCard-root:hover,
-  .MuiCard-root:active,
-  .MuiButton-root:hover,
-  .MuiButton-root:active,
-  .MuiIconButton-root:hover,
-  .MuiIconButton-root:active,
   .footer-link:hover,
   .footer-link:active {
     transform: none !important;
-  }
-  .MuiCard-root {
-    box-shadow: none !important;
   }
 }
 
@@ -264,23 +363,83 @@ output,
 }
 
 /* ---------- Blog article body (SSR HTML, SEO semantic) ---------- */
-.blog-body { color: inherit; line-height: 1.8; font-size: 1.02rem; }
-.blog-body h2 { font-size: 1.6rem; font-weight: 800; margin: 2.5rem 0 1rem; scroll-margin-top: 110px; letter-spacing: -0.02em; line-height: 1.25; }
-.blog-body h3 { font-size: 1.2rem; font-weight: 700; margin: 1.75rem 0 0.75rem; scroll-margin-top: 110px; }
-.blog-body p { margin: 0 0 1.1rem; max-width: 68ch; }
-.blog-body ul, .blog-body ol { margin: 0 0 1.25rem; padding-left: 1.5rem; }
-.blog-body li { margin-bottom: 0.5rem; line-height: 1.7; }
-.blog-body li::marker { font-weight: 700; }
-.blog-body strong { font-weight: 700; }
-.blog-body a { color: #0b57d0; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-.blog-body table { width: 100%; border-collapse: collapse; margin: 1.25rem 0 1.75rem; font-size: 0.92rem; display: block; overflow-x: auto; }
-.blog-body thead th { text-align: left; background: rgba(0,0,0,0.04); }
-.blog-body th, .blog-body td { border: 1px solid rgba(0,0,0,0.12); padding: 10px 12px; vertical-align: top; white-space: normal; }
-.blog-body blockquote.tip { border-left: 4px solid #111; background: rgba(0,0,0,0.03); padding: 14px 18px; border-radius: 0 12px 12px 0; margin: 1.5rem 0; }
-.blog-body .cta-box { border: 1px solid rgba(0,0,0,0.12); border-radius: 14px; padding: 20px; margin: 1.75rem 0; background: rgba(0,0,0,0.02); }
-[data-theme="dark"] .blog-body a { color: #8ab4f8; }
-[data-theme="dark"] .blog-body thead th { background: rgba(255,255,255,0.06); }
-[data-theme="dark"] .blog-body th, [data-theme="dark"] .blog-body td { border-color: rgba(255,255,255,0.14); }
+.blog-body {
+  color: inherit;
+  line-height: 1.8;
+  font-size: 1.02rem;
+}
+.blog-body h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1rem;
+  scroll-margin-top: 110px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.blog-body h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.75rem;
+  scroll-margin-top: 110px;
+}
+.blog-body p {
+  margin: 0 0 1.1rem;
+  max-width: 68ch;
+}
+.blog-body ul,
+.blog-body ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.5rem;
+}
+.blog-body li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+.blog-body li::marker {
+  font-weight: 600;
+}
+.blog-body strong {
+  font-weight: 600;
+}
+.blog-body a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.blog-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.92rem;
+  display: block;
+  overflow-x: auto;
+}
+.blog-body thead th {
+  text-align: left;
+  background: var(--color-base-200);
+}
+.blog-body th,
+.blog-body td {
+  border: 1px solid var(--color-base-300);
+  padding: 10px 12px;
+  vertical-align: top;
+  white-space: normal;
+}
+.blog-body blockquote.tip {
+  border-left: 4px solid var(--color-base-content);
+  background: var(--color-base-200);
+  padding: 14px 18px;
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+}
+.blog-body .cta-box {
+  border: 1px solid var(--color-base-300);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 1.75rem 0;
+  background: var(--color-base-200);
+}
 
 /* Print: show only the document being exported (invoice / resume / docs) */
 @media print {
@@ -338,8 +497,7 @@ output,
 @media (max-width: 768px) {
   input,
   select,
-  textarea,
-  .MuiInputBase-input {
+  textarea {
     font-size: 16px !important;
   }
 }
