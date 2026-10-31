@@ -1,16 +1,8 @@
 import React from "react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import BlogArticle, { BlogJsonLd } from "@/components/blog/BlogArticle";
 import { getClusterPost } from "@/lib/blog-registry";
-
-vi.mock("next/link", () => ({
-  default: ({ href, children, ...rest }: any) => (
-    <a href={typeof href === "string" ? href : "#"} {...rest}>
-      {children}
-    </a>
-  ),
-}));
 
 const mortgage = getClusterPost("mortgage-calculator-guide", "how-to-calculate-mortgage-payment")!;
 const bmi = getClusterPost("bmi-calculator-guide", "how-bmi-is-calculated")!;
