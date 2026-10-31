@@ -246,7 +246,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
   const primaryShort = esPrimaryTool?.short ?? primaryTool?.short ?? "";
 
   return (
-    <Container maxWidth="lg" className="py-12 md:py-20 px-4 md:px-8">
+    <Container maxWidth="xl" className="py-10 md:py-16 px-4 sm:px-6 lg:px-8">
       <BlogJsonLd post={post} locale={locale} />
       <Breadcrumbs className="mb-4" aria-label="breadcrumb">
         <Link href={locale === "es" ? "/es" : "/"} style={{ color: "inherit", textDecoration: "none" }}>{locale === "es" ? "Inicio" : "Home"}</Link>
@@ -332,7 +332,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
           </Box>
           <Link
             href={primaryHref}
-            style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minHeight: 48, padding: "12px 24px", borderRadius: 12, background: "var(--brand-gradient, #1976d2)", color: "#fff", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap" }}
+            className="btn btn-primary min-h-[44px] px-6 rounded-lg text-sm font-semibold tracking-[-0.01em] shadow-sm hover:opacity-90 no-underline whitespace-nowrap"
           >
             {locale === "es" ? <>Abrir {primaryTitle} →</> : <>Open {primaryTool.title} →</>}
           </Link>
@@ -349,35 +349,24 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
         />
       )}
 
-      <Box className="grid grid-cols-[1fr] md:grid-cols-[240px_1fr] gap-8 items-start">
-        {/* TOC — after body on mobile (order 2) so answer-first H1+intro stays above fold; sticky sidebar on md+ */}
-        <Box component="nav" aria-label={locale === "es" ? "Índice" : "Table of contents"} className="md:sticky md:top-[100px] p-5 border border-base-300 rounded-[12px] bg-base-100 md:[order:0]" style={{ order: "2" }}>
-          <Typography variant="subtitle2" className="font-extrabold mb-3 tracking-[0.04em] uppercase text-[0.75rem]">
-            {locale === "es" ? "En esta página" : "On this page"}
-          </Typography>
-          <Box component="ul" className="m-0 p-0 list-none flex flex-col gap-1">
-            {post.toc.map((t) => (
-              <Box component="li" key={t.id} style={{ paddingLeft: t.level === 3 ? "16px" : "0px" }}>
-                <Link href={`#${t.id}`} style={{ textDecoration: "none", fontSize: t.level === 3 ? "0.85rem" : "0.9rem", fontWeight: t.level === 2 ? 600 : 400, color: "inherit", display: "block", padding: "6px 0", lineHeight: 1.4 }}>
-                  {t.text}
-                </Link>
-              </Box>
-            ))}
-          </Box>
-        </Box>
-
-        {/* Body */}
-        <Box color="text.primary">
+      <Box className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-10 items-start">
+        {/* Main Article Content (Column 1 on desktop, order-2 on mobile) */}
+        <Box color="text.primary" className="min-w-0 order-2 lg:order-1">
           <article className="blog-body" dangerouslySetInnerHTML={{ __html: post.html }} />
           <BlogSources pillar={post.pillar} />
           {secondaryTools.length > 0 && (
-            <Box className="mt-8 p-6 rounded-[12px] border border-base-300 bg-base-200/50">
+            <Box className="mt-8 p-6 rounded-xl border border-base-300 bg-base-200/50">
               <Typography variant="h2" className="text-[1.1rem] font-bold mb-2">
                 {locale === "es" ? "Herramientas gratis relacionadas" : "Related free tools"}
               </Typography>
               <Box className="flex flex-wrap gap-2">
                 {secondaryTools.map((t) => (
-                  <Link key={t!.slug} href={`/${t!.slug}`} style={{ display: "inline-flex", minHeight: 44, alignItems: "center", padding: "8px 16px", borderRadius: 999, border: "1px solid var(--mui-palette-divider)", textDecoration: "none", fontSize: "0.875rem", fontWeight: 600 }}>
+                  <Link
+                    key={t!.slug}
+                    href={`/${t!.slug}`}
+                    className="inline-flex min-h-[40px] items-center px-4 py-2 rounded-full border border-base-300 text-sm font-semibold hover:border-base-content transition-colors"
+                    style={{ textDecoration: "none" }}
+                  >
                     {t!.title} →
                   </Link>
                 ))}
@@ -391,7 +380,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
                 {locale === "es" ? "Preguntas frecuentes" : "Frequently asked questions"}
               </Typography>
               {validFaqs.map((f, i) => (
-                <Accordion key={i} elevation={0} className="border border-base-300 before:hidden mb-2">
+                <Accordion key={i} elevation={0} className="border border-base-300 before:hidden mb-2 rounded-xl">
                   <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                     <Typography component="span" className="font-semibold text-[1rem]">
                       {f.question}
@@ -406,7 +395,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
           )}
 
           {primaryTool && primaryHref && (
-            <Box className="mt-10 p-8 rounded-[16px] text-center border border-base-300 bg-base-100">
+            <Box className="mt-10 p-8 rounded-xl text-center border border-base-300 bg-base-100">
               <Typography variant="h2" className="text-[1.4rem] font-extrabold mb-2">
                 {locale === "es" ? (
                   <>Terminaste de leer — abre {primaryTitle}</>
@@ -421,12 +410,41 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
                   <>{primaryTool.short} — free in your browser, no signup.</>
                 )}
               </Typography>
-              <Link href={primaryHref} style={{ display: "inline-flex", minHeight: 48, alignItems: "center", padding: "12px 28px", borderRadius: 12, background: "var(--brand-gradient, #1976d2)", color: "#fff", fontWeight: 700, textDecoration: "none" }}>
+              <Link
+                href={primaryHref}
+                className="btn btn-primary min-h-[48px] px-8 rounded-lg text-sm font-bold tracking-[-0.01em] shadow-sm hover:opacity-90 no-underline inline-flex items-center"
+              >
                 {locale === "es" ? <>Abrir {primaryTitle} →</> : <>Open {primaryTool.title} →</>}
               </Link>
             </Box>
           )}
         </Box>
+
+        {/* Sticky TOC Sidebar (Column 2 on desktop, order-1 on mobile) */}
+        {post.toc && post.toc.length > 0 && (
+          <Box
+            component="nav"
+            aria-label={locale === "es" ? "Índice" : "Table of contents"}
+            className="order-1 lg:order-2 lg:sticky lg:top-24 p-5 border border-base-300 rounded-xl bg-base-100/90 backdrop-blur-sm"
+          >
+            <Typography variant="subtitle2" className="font-extrabold mb-3 tracking-[0.04em] uppercase text-[0.75rem] text-base-content/70">
+              {locale === "es" ? "En esta página" : "On this page"}
+            </Typography>
+            <Box component="ul" className="m-0 p-0 list-none flex flex-col gap-1">
+              {post.toc.map((t) => (
+                <Box component="li" key={t.id} style={{ paddingLeft: t.level === 3 ? "16px" : "0px" }}>
+                  <Link
+                    href={`#${t.id}`}
+                    className="block py-1 text-[0.875rem] leading-snug text-base-content/70 hover:text-base-content hover:underline transition-colors"
+                    style={{ textDecoration: "none", fontWeight: t.level === 2 ? 600 : 400 }}
+                  >
+                    {t.text}
+                  </Link>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        )}
       </Box>
 
       {/* Sibling silo mesh */}
@@ -439,7 +457,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
             <Link
               key={`${r.pillar}/${r.slug}`}
               href={r.kind === "pillar" ? `/blog/${r.pillar}` : `/blog/${r.pillar}/${r.slug}`}
-              style={{ textDecoration: "none", color: "inherit", display: "block", padding: 20, borderRadius: 12, border: "1px solid var(--mui-palette-divider)" }}
+              style={{ textDecoration: "none", color: "inherit", display: "block", padding: 20, borderRadius: 12, border: "1px solid var(--color-base-300)" }}
             >
               <Typography variant="subtitle2" color="primary" className="font-bold mb-1 text-[0.75rem] uppercase tracking-[0.05em]">
                 {r.kind === "pillar"
