@@ -121,7 +121,7 @@ export default function PayslipGeneratorTool() {
         <Alert severity="warning">Illustration only, not proof of employment. Verify with payroll records.</Alert>
       </ToolPaper>
 
-      <Paper id="payslip-print" className="p-6 sm:p-10 mt-6 max-w-[800px] mx-auto bg-[#fff] text-[#000]">
+      <Paper id="payslip-print" style={{ backgroundColor: "#ffffff", color: "#0f172a" }} className="p-6 sm:p-10 mt-6 max-w-[800px] mx-auto !bg-white !text-slate-900 border border-slate-200">
         <Typography variant="h4" className="font-extrabold text-[#0f172a]">
           Payslip — {month || "Month"}
         </Typography>

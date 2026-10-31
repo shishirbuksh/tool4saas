@@ -257,7 +257,8 @@ export default function CoverLetterBuilderTool() {
       <Paper
         id="cover-letter-print"
         variant="outlined"
-        className="p-6 sm:p-10 max-w-[800px] mx-auto bg-[#fff] text-[#000] min-h-[520px]"
+        style={{ backgroundColor: "#ffffff", color: "#0f172a" }}
+        className="p-6 sm:p-10 max-w-[800px] mx-auto !bg-white !text-slate-900 border border-slate-200 min-h-[520px]"
       >
         {/* Header */}
         <Box className="mb-6">

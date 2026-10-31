@@ -13,7 +13,9 @@ export const Paper = forwardRef<HTMLDivElement, PaperProps>(function Paper(
   const shadowClass = variant === "outlined" || elevation === 0 ? "shadow-none" : elevation >= 3 ? "shadow-md" : "shadow-xs";
   const borderClass = "border border-base-300";
 
-  const classes = ["bg-base-100 rounded-xl", shadowClass, borderClass, className].filter(Boolean).join(" ");
+  const hasCustomBg = /\bbg-/.test(className) || Boolean(style && (style.background || style.backgroundColor));
+  const bgClass = hasCustomBg ? "" : "bg-base-100";
+  const classes = [bgClass, "rounded-xl", shadowClass, borderClass, className].filter(Boolean).join(" ");
     
   return (
     <div ref={ref} className={classes} style={style} {...props}>

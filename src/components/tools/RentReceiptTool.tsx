@@ -151,7 +151,7 @@ export default function RentReceiptTool() {
         </Alert>
       </ToolPaper>
 
-      <Paper id="rent-receipt-print" className="p-6 sm:p-10 mt-6 max-w-[800px] mx-auto bg-[#fff] text-[#000]">
+      <Paper id="rent-receipt-print" style={{ backgroundColor: "#ffffff", color: "#0f172a" }} className="p-6 sm:p-10 mt-6 max-w-[800px] mx-auto !bg-white !text-slate-900 border border-slate-200">
         <Typography variant="h4" className="font-extrabold text-[#0f172a]">
           Rent Receipt
         </Typography>

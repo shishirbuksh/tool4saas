@@ -144,7 +144,7 @@ export default function OfferLetterGeneratorTool() {
         <Alert severity="warning">Template only, not legal advice. Have HR or counsel review before use.</Alert>
       </ToolPaper>
 
-      <Paper id="offer-letter-print" className="p-6 sm:p-10 mt-6 max-w-[800px] mx-auto bg-[#fff] text-[#000]">
+      <Paper id="offer-letter-print" style={{ backgroundColor: "#ffffff", color: "#0f172a" }} className="p-6 sm:p-10 mt-6 max-w-[800px] mx-auto !bg-white !text-slate-900 border border-slate-200">
         <Typography variant="h4" className="font-extrabold text-[#0f172a]">
           {company || "Company"}
         </Typography>
