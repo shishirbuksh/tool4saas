@@ -27,7 +27,7 @@ function getTypeColor(type: string): string {
     case "string":
       return "#2e7d32";
     case "number":
-      return "#1565c0";
+      return "#0d74ce";
     case "boolean":
       return "#6a1b9a";
     case "null":

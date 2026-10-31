@@ -88,7 +88,7 @@ export default function EmbedToolSnippet({ slug, title, locale = "en" }: EmbedTo
       <Collapse in={open} timeout="auto" unmountOnExit>
         <Box
           id={`embed-section-${slug}`}
-          className="mt-4 p-6 border border-base-300 rounded-[12px] bg-base-100" style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}
+          className="mt-4 p-6 border border-base-300 rounded-xl bg-base-100"
         >
           <Typography variant="body2" color="text.secondary" className="mb-4 leading-[1.6]">
             {t.desc}

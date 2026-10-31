@@ -25,7 +25,7 @@ export default function ToolSeo({ view }: { view: ToolView }) {
             <Accordion
               key={i}
               elevation={0}
-              className="bg-base-100 border border-base-300 before:hidden mb-2"
+              className="bg-base-100 border border-base-300 before:hidden mb-2 rounded-xl"
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography component="span" className="font-semibold text-[1rem]">

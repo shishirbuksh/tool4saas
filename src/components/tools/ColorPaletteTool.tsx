@@ -100,7 +100,7 @@ export default function ColorPaletteTool() {
               type="button"
               onClick={() => copy(s.hex)}
               style={{
-                border: "1px solid var(--mui-palette-divider)",
+                border: "1px solid var(--color-base-300)",
                 borderRadius: 8,
                 overflow: "hidden",
                 cursor: "pointer",

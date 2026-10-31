@@ -129,7 +129,7 @@ export default function ToolPageShell({ view, children }: { view: ToolView; chil
           {/* TL;DR answer box: 40-60w citable definition above the tool UI
               for answer engines + voice (see speakable .tldr-passage). */}
           <Box
-            className="mb-6 p-5 rounded-[12px] border border-base-300 bg-base-100"
+            className="mb-6 p-5 rounded-xl border border-base-300 bg-base-100"
           >
             <Typography color="text.primary" className="tldr-passage speakable-answer-first leading-[1.7]" >
               {locale === "es" ? (
@@ -159,7 +159,7 @@ export default function ToolPageShell({ view, children }: { view: ToolView; chil
       <Box
         component="section"
         aria-label={locale === "es" ? "Sobre el autor" : locale === "fr" ? "À propos de l'auteur" : "About the author"}
-        className="mt-8 p-6 border border-base-300 rounded-[12px] bg-base-100"
+        className="mt-8 p-6 border border-base-300 rounded-xl bg-base-100"
       >
         <Typography variant="h2" className="text-[1.125rem] mb-2">
           {locale === "es" ? "Sobre el autor" : locale === "fr" ? "À propos de l'auteur" : "About the author"}
