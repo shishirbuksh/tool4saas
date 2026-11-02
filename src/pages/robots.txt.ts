@@ -25,6 +25,7 @@ export function GET() {
     body += `User-agent: ${bot}\nAllow: /\nDisallow: /api/\nDisallow: /*?target=*\n\n`;
   }
   body += `Sitemap: ${base}/sitemap.xml\n`;
+  body += `Sitemap: ${base}/sitemap-index.xml\n`;
 
   return new Response(body, {
     headers: {

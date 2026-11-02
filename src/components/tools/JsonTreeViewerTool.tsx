@@ -120,7 +120,7 @@ export default function JsonTreeViewerTool() {
       : 0;
 
     return (
-      <Box key={path} className="py-0.3" style={{ marginLeft: "calc((depth * 2) * 8px)", borderLeft: depth > 0 ? "1px dashed #e0e0e0" : "none", paddingLeft: "calc((depth > 0 ? 1.2 : 0) * 8px)" }}>
+      <Box key={path} className="py-0.3" style={{ marginLeft: `${depth * 16}px`, borderLeft: depth > 0 ? "1px dashed #e0e0e0" : "none", paddingLeft: depth > 0 ? "10px" : "0px" }}>
         <Stack direction="row" spacing={0.5} className="items-center flex-wrap gap-1">
           {isExpandable ? (
             <Button

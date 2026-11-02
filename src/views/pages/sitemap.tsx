@@ -397,7 +397,7 @@ export default function SitemapView({
               198 Guides &amp; Workflow Tutorials
             </Typography>
           </Box>
-          <Link href="/guides" style={{ fontWeight: 700, fontSize: "0.95rem" }}>
+          <Link href="/blog" style={{ fontWeight: 700, fontSize: "0.95rem" }}>
             Explore Guides Library →
           </Link>
         </Box>

@@ -97,11 +97,6 @@ export function sitemap(): SitemapItem[] {
       lastModified: BLOG_MODIFIED,
       images: [`${base}/og/static-blog.png`],
     },
-    {
-      url: `${base}/guides`,
-      lastModified: getPageModifiedIso("guides") ?? BLOG_MODIFIED,
-      images: [`${base}/og/static-guides.png`],
-    },
   ];
 
   const blogPillars: SitemapItem[] = BLOG_PILLARS.map((p) => ({

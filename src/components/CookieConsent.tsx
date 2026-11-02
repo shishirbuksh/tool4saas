@@ -265,7 +265,7 @@ export default function CookieConsent() {
       role="region"
       aria-label="Cookie consent"
       aria-describedby="t4s-consent-desc"
-      className="fixed left-[16px] right-[16px] bottom-[max(16px,_env(safe-area-inset-bottom))] flex justify-center" style={{ zIndex: (theme) => theme.zIndex.drawer - 10, pointerEvents: "none" }}
+      className="fixed left-[16px] right-[16px] bottom-[max(16px,_env(safe-area-inset-bottom))] flex justify-center" style={{ zIndex: 1190, pointerEvents: "none" }}
     >
       <Paper elevation={0} className="max-w-[720px] w-full p-4 sm:p-6 border border-base-300 rounded-[12px]" style={{ pointerEvents: "auto" }}>
         <Typography component="p" variant="subtitle1" className="font-bold mb-2">

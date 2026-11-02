@@ -1,4 +1,4 @@
-import { Container, Typography, Box } from "@/components/ds";
+import { Container, Typography, Box, Breadcrumbs } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
@@ -6,8 +6,39 @@ import { getPageModifiedIso, formatIsoHuman } from "@/lib/dates";
 
 export default function AboutView() {
   const lastUpdatedIso = getPageModifiedIso("about") ?? "";
+  const base = siteConfig.url.replace(/\/$/, "");
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": `${base}/about`,
+        name: `About ${siteConfig.name}`,
+        url: `${base}/about`,
+        description: `Meet the ${siteConfig.name} team, our local-first mission, testing rig and contact.`,
+        isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+          { "@type": "ListItem", position: 2, name: "About", item: `${base}/about` },
+        ],
+      },
+    ],
+  };
   return (
     <Container maxWidth="md" className="py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
+      <Breadcrumbs className="mb-4" aria-label="breadcrumb">
+        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
+          Home
+        </Link>
+        <Typography color="text.primary">About</Typography>
+      </Breadcrumbs>
       <Typography variant="h1" className="text-[2.25rem] mb-4">About <span translate="no">{siteConfig.name}</span></Typography>
       <Typography variant="body2" color="text.secondary" className="mb-6">
         Last updated: <time dateTime={lastUpdatedIso}>{formatIsoHuman(lastUpdatedIso)}</time>

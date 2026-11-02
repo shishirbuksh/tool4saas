@@ -1,10 +1,42 @@
-import { Container, Typography, Box } from "@/components/ds";
+import { Container, Typography, Box, Breadcrumbs } from "@/components/ds";
 
+import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
 
 export default function TermsView() {
+  const base = siteConfig.url.replace(/\/$/, "");
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${base}/terms`,
+        name: "Terms of Service",
+        url: `${base}/terms`,
+        description: "Terms of service and acceptable use disclaimers for Tool4SaaS.",
+        isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+          { "@type": "ListItem", position: 2, name: "Terms of Service", item: `${base}/terms` },
+        ],
+      },
+    ],
+  };
   return (
     <Container maxWidth="md" className="py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
+      <Breadcrumbs className="mb-4" aria-label="breadcrumb">
+        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
+          Home
+        </Link>
+        <Typography color="text.primary">Terms of Service</Typography>
+      </Breadcrumbs>
       <Typography variant="h1" className="text-[2.25rem] mb-4">Terms of Service</Typography>
       <Box className="text-base-content/70 leading-[1.8]">
         <Typography className="block mb-2"><strong>Last updated:</strong> <time dateTime="2026-09-09">September 9, 2026</time></Typography>

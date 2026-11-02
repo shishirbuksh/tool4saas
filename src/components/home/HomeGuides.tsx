@@ -27,7 +27,7 @@ export default function HomeGuides() {
               Practical walkthroughs. Each guide links back to a free tool.
             </Typography>
           </Box>
-          <Link href="/guides" style={{ fontWeight: 600, fontSize: "0.875rem" }}>
+          <Link href="/blog" style={{ fontWeight: 600, fontSize: "0.875rem" }}>
             All guides →
           </Link>
         </Box>

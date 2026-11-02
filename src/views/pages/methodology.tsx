@@ -1,4 +1,4 @@
-import { Container, Typography, Box } from "@/components/ds";
+import { Container, Typography, Box, Breadcrumbs } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
@@ -23,8 +23,39 @@ const CATEGORY_UPDATES: [string, string][] = (
 
 export default function MethodologyView() {
   const lastUpdatedIso = getPageModifiedIso("methodology") ?? "";
+  const base = siteConfig.url.replace(/\/$/, "");
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${base}/methodology`,
+        name: "How We Test Tools",
+        url: `${base}/methodology`,
+        description: "Testing methodology, verification fixtures, and verification changelog for all Tool4SaaS tools.",
+        isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+          { "@type": "ListItem", position: 2, name: "How We Test Tools", item: `${base}/methodology` },
+        ],
+      },
+    ],
+  };
   return (
     <Container maxWidth="md" className="py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
+      <Breadcrumbs className="mb-4" aria-label="breadcrumb">
+        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
+          Home
+        </Link>
+        <Typography color="text.primary">How We Test Tools</Typography>
+      </Breadcrumbs>
       <Typography variant="h1" className="text-[2.25rem] mb-4">How We Test Tools</Typography>
       <Typography variant="body2" color="text.secondary" className="mb-6">
         Last updated: <time dateTime={lastUpdatedIso}>{formatIsoHuman(lastUpdatedIso)}</time>

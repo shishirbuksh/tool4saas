@@ -31,8 +31,8 @@ function lastWordOf(title: string): string {
 }
 
 function expectHealthy(title: string, label: string) {
-  expect(title.length, `${label} length=${title.length}`).toBeGreaterThanOrEqual(30);
-  expect(title.length, `${label} length=${title.length}`).toBeLessThanOrEqual(70);
+  expect(title.length, `${label} length=${title.length}`).toBeGreaterThanOrEqual(50);
+  expect(title.length, `${label} length=${title.length}`).toBeLessThanOrEqual(60);
   expect(title, `${label} trailing punctuation`).not.toMatch(/[,;:|—–-]$/);
   expect(STOPWORDS.has(lastWordOf(title)), `${label} ends with stopword: "${title}"`).toBe(false);
 }
@@ -48,7 +48,7 @@ const blogTitles = [
 ];
 
 describe("seo-title", () => {
-  it("keeps every tool meta title 30-70 characters and branded", () => {
+  it("keeps every tool meta title 50-60 characters and branded", () => {
     for (const tool of tools) {
       const title = toolMetaTitle(tool.title, tool.short, tool.seoTitle);
       expectHealthy(title, `tool:${tool.slug}`);
@@ -56,7 +56,7 @@ describe("seo-title", () => {
     }
   });
 
-  it("keeps every blog meta title 30-70 characters without a trailing stopword", () => {
+  it("keeps every blog meta title 50-60 characters without a trailing stopword", () => {
     for (const post of blogTitles) {
       expectHealthy(blogMetaTitle(post.title), post.label);
     }
@@ -68,17 +68,17 @@ describe("seo-title", () => {
     expect(title).toContain("How Long Should a Blog Post Be?");
   });
 
-  it("prefers a complete title over a shortened one when it fits", () => {
+  it("fits titles cleanly within 50-60 characters", () => {
     const title = blogMetaTitle("Mortgage Calculator Guide: Payments, PMI & Amortization");
-    expect(title).toContain("Mortgage Calculator Guide: Payments, PMI & Amortization");
-    expect(title.length).toBeLessThanOrEqual(70);
+    expectHealthy(title, "mortgage-guide");
   });
 
-  it("uses an explicit seoTitle when supplied", () => {
+  it("uses an explicit seoTitle when supplied and ensures 50-60 characters", () => {
     const title = blogMetaTitle(
       "A very long H1 that would otherwise be shortened for search results",
-      "Short SEO Title for Search",
+      "Comprehensive Online Search SEO Guide",
     );
-    expect(title).toBe("Short SEO Title for Search | Tool4SaaS");
+    expectHealthy(title, "explicit-seo-title");
+    expect(title).toContain("Comprehensive Online Search SEO Guide");
   });
 });

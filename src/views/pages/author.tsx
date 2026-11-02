@@ -1,4 +1,4 @@
-import { Container, Typography, Box, Avatar } from "@/components/ds";
+import { Container, Typography, Box, Avatar, Breadcrumbs } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
@@ -46,21 +46,33 @@ export default function AuthorView() {
   const base = siteConfig.url.replace(/\/$/, "");
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    url: `${base}/author`,
-    mainEntity: {
-      "@type": "Organization",
-      name: siteConfig.author,
-      url: base,
-      member: reviewers.map((r) => ({
-        "@type": "Person",
-        name: `${r.name} — ${siteConfig.authorRole}`,
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": `${base}/author`,
         url: `${base}/author`,
-        jobTitle: r.role,
-        knowsAbout: r.knowsAbout,
-        description: r.bio,
-      })),
-    },
+        mainEntity: {
+          "@type": "Organization",
+          name: siteConfig.author,
+          url: base,
+          member: reviewers.map((r) => ({
+            "@type": "Person",
+            name: `${r.name} — ${siteConfig.authorRole}`,
+            url: `${base}/author`,
+            jobTitle: r.role,
+            knowsAbout: r.knowsAbout,
+            description: r.bio,
+          })),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+          { "@type": "ListItem", position: 2, name: "Our Authors", item: `${base}/author` },
+        ],
+      },
+    ],
   };
 
   return (
@@ -69,6 +81,12 @@ export default function AuthorView() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
+      <Breadcrumbs className="mb-4" aria-label="breadcrumb">
+        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
+          Home
+        </Link>
+        <Typography color="text.primary">Our Authors</Typography>
+      </Breadcrumbs>
       <Typography variant="h1" className="text-[2.25rem] mb-4">
         Our authors
       </Typography>

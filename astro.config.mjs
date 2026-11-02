@@ -1,5 +1,6 @@
 import { defineConfig, fontProviders } from "astro/config";
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
@@ -53,7 +54,25 @@ export default defineConfig({
   // with `try_files $uri $uri.html $uri/ =404`.
   trailingSlash: "never",
   build: { format: "file" },
-  integrations: [react()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) =>
+        !page.includes("/404") &&
+        !page.includes("/probe") &&
+        !page.includes("/pdf-compress") &&
+        !page.includes("/fancy-text-generator") &&
+        !page.includes("/compress-pdf-1mb-email"),
+      i18n: {
+        defaultLocale: "en",
+        locales: {
+          en: "en",
+          es: "es",
+          fr: "fr",
+        },
+      },
+    }),
+  ],
   fonts: [
     {
       provider: fontProviders.fontsource(),
@@ -81,7 +100,7 @@ export default defineConfig({
   redirects: Object.fromEntries(
     Object.entries(REDIRECT_MAP).map(([source, destination]) => [
       source,
-      { status: 308, destination },
+      { status: 301, destination },
     ]),
   ),
   vite: {

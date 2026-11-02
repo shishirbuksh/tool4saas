@@ -241,6 +241,10 @@ export const REDIRECTS = [
   [
     "/svg-to-png-converter",
     "/image-format-converter"
+  ],
+  [
+    "/guides",
+    "/blog"
   ]
 ];
 

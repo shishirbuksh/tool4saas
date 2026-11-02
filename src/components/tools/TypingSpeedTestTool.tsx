@@ -162,7 +162,7 @@ export default function TypingSpeedTestTool() {
               <Box
                 key={i}
                 component="span"
-                className="rounded-[4px]" style={{ color: color, backgroundColor: bg, paddingLeft: "calc((bg ? 0.25 : 0) * 8px)", paddingRight: "calc((bg ? 0.25 : 0) * 8px)" }}
+                className="rounded-[4px]" style={{ color: color, backgroundColor: bg, paddingLeft: bg ? "2px" : "0px", paddingRight: bg ? "2px" : "0px" }}
               >
                 {ch}
               </Box>

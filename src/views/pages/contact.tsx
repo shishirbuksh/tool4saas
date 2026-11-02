@@ -1,12 +1,43 @@
-import { Container, Typography, Box, Button } from "@/components/ds";
+import { Container, Typography, Box, Button, Breadcrumbs } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
 import ContactForm, { CopyEmailButton } from "@/components/ContactForm";
 
 export default function ContactView() {
+  const base = siteConfig.url.replace(/\/$/, "");
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": `${base}/contact`,
+        name: "Contact Us",
+        url: `${base}/contact`,
+        description: `Questions, feedback, or bug reports? Contact the ${siteConfig.name} team.`,
+        isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+          { "@type": "ListItem", position: 2, name: "Contact Us", item: `${base}/contact` },
+        ],
+      },
+    ],
+  };
   return (
     <Container maxWidth="md" className="py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
+      <Breadcrumbs className="mb-4" aria-label="breadcrumb">
+        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
+          Home
+        </Link>
+        <Typography color="text.primary">Contact Us</Typography>
+      </Breadcrumbs>
       <Typography variant="h1" className="text-[2.25rem] mb-4">Contact Us</Typography>
       <Typography variant="body2" color="text.secondary" className="mb-6">
         Last updated: <time dateTime="2026-09-09">September 9, 2026</time>

@@ -14,7 +14,6 @@ const URLS_TO_SUBMIT = [
   `${BASE_URL}/es`,
   `${BASE_URL}/fr`,
   `${BASE_URL}/blog`,
-  `${BASE_URL}/guides`,
   // 16 Core Tools (EN, ES, FR)
   `${BASE_URL}/invoice-generator`,
   `${BASE_URL}/es/invoice-generator`,

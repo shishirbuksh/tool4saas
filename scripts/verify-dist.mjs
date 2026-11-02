@@ -8,7 +8,7 @@ function check(name, pass, detail) {
 
 const html = fs.readFileSync("dist/index.html", "utf8");
 check("dist/index.html exists", html.length > 0, `${html.length} bytes`);
-check("Emotion SSR CSS", html.includes("data-emotion"), "Critical styles extracted to head");
+check("Tailwind/DaisyUI CSS", html.includes(".css"), "Tailwind CSS bundle linked in head");
 check("Site JSON-LD Schema", html.includes("application/ld+json"), "Schema.org graph embedded");
 check("Canonical tag", html.includes('rel="canonical"'), "Canonical link present");
 check("OpenGraph metadata", html.includes('property="og:title"'), "og:title tag present");

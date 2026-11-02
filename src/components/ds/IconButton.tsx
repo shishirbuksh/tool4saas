@@ -2,7 +2,7 @@ import React, { forwardRef, type ButtonHTMLAttributes } from "react";
 
 export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "small" | "medium" | "large";
-  color?: "primary" | "secondary" | "error" | "inherit";
+  color?: "primary" | "secondary" | "error" | "warning" | "default" | "inherit";
   edge?: "start" | "end" | false;
   ref?: any;
 }
@@ -12,7 +12,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
   ref
 ) {
   const sizeClass = size === "small" ? "btn-sm w-8 h-8 min-h-0" : size === "large" ? "btn-lg w-12 h-12" : "w-10 h-10";
-  const colorClass = color === "primary" ? "text-primary" : color === "secondary" ? "text-secondary" : color === "error" ? "text-error" : "";
+  const colorClass = color === "primary" ? "text-primary" : color === "secondary" ? "text-secondary" : color === "error" ? "text-error" : color === "warning" ? "text-warning" : "";
 
   const classes = ["btn btn-ghost btn-circle", sizeClass, colorClass, className].filter(Boolean).join(" ");
     

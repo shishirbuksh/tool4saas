@@ -112,6 +112,21 @@ export function buildToolViewBySlug(slug: string, locale: Locale = "en"): ToolVi
   return buildToolView(tool, locale);
 }
 
+const CATEGORY_APPLICATION_MAP: Record<string, string> = {
+  business: "BusinessApplication",
+  developer: "DeveloperApplication",
+  finance: "FinanceApplication",
+  health: "HealthApplication",
+  "images-design": "DesignApplication",
+  calculators: "UtilitiesApplication",
+  converters: "UtilitiesApplication",
+  generators: "UtilitiesApplication",
+  pdf: "UtilitiesApplication",
+  "text-documents": "UtilitiesApplication",
+  seo: "UtilitiesApplication",
+  time: "UtilitiesApplication",
+};
+
 // JSON-LD graph for a tool page. Rendered into <head> by AppPage.astro instead
 // of the body, so it does not need to be part of the hydration payload.
 export function buildToolJsonLd(tool: Tool, locale: Locale) {
@@ -123,7 +138,6 @@ export function buildToolJsonLd(tool: Tool, locale: Locale) {
   const dateModified = getDateModifiedIso(tool.slug);
 
   const faq = validFaq(tool);
-  const howTo = validHowTo(tool);
   const homeUrl = locale === "en" ? base : `${base}/${locale}`;
   const crumbItems: { name: string; item: string | undefined }[] = [
     { name: locale === "es" ? "Inicio" : locale === "fr" ? "Accueil" : "Home", item: homeUrl },
@@ -140,7 +154,7 @@ export function buildToolJsonLd(tool: Tool, locale: Locale) {
         name: tool.title,
         description: tool.description,
         url,
-        applicationCategory: "UtilitiesApplication",
+        applicationCategory: CATEGORY_APPLICATION_MAP[tool.category] || "UtilitiesApplication",
         operatingSystem: "Any",
         browserRequirements: "Requires JavaScript",
         isAccessibleForFree: true,
@@ -181,29 +195,6 @@ export function buildToolJsonLd(tool: Tool, locale: Locale) {
                 "@type": "Question",
                 name: f.question.trim(),
                 acceptedAnswer: { "@type": "Answer", text: f.answer.trim() },
-              })),
-            },
-          ]
-        : []),
-      ...(howTo.length
-        ? [
-            {
-              "@type": "HowTo",
-              name:
-                locale === "es"
-                  ? `Cómo usar ${tool.title}`
-                  : locale === "fr"
-                    ? `Comment utiliser ${tool.title}`
-                    : `How to use ${tool.title}`,
-              totalTime: "PT3M",
-              estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "0" },
-              tool: [{ "@type": "HowToTool", name: tool.title }],
-              step: howTo.map((s, i) => ({
-                "@type": "HowToStep",
-                position: i + 1,
-                name: s.name.trim(),
-                text: s.text.trim(),
-                url: `${url}#howto-step-${i + 1}`,
               })),
             },
           ]

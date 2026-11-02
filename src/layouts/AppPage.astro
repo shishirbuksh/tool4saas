@@ -34,6 +34,7 @@ const { html, css, ids } = renderReactPage(
 // Serialized once for hydration. `<` is escaped so a string in tool copy can
 // never terminate the JSON script tag early.
 const propsJson = JSON.stringify(props).replace(/</g, "\\u003c");
+const isHome = pathname === "/" || pathname === "/es" || pathname === "/fr";
 ---
 
 <BaseLayout
@@ -42,7 +43,7 @@ const propsJson = JSON.stringify(props).replace(/</g, "\\u003c");
   pathname={pathname}
   css={css}
   ids={ids}
-  jsonLd={[siteJsonLd(), ...jsonLd]}
+  jsonLd={isHome ? [siteJsonLd(), ...jsonLd] : jsonLd}
 >
   <script type="application/json" id="app-props" set:html={propsJson} />
   <div id="app" data-view={viewKey} data-locale={locale} data-pathname={pathname} set:html={html}></div>

@@ -2,14 +2,9 @@
 import { Font } from "astro:assets";
 import "@/styles/globals.css";
 import { siteConfig } from "@/lib/site";
-import {
-  DEFAULT_ROBOTS,
-  googleBotContent,
-  resolveTitle,
-  robotsContent,
-  type PageMeta,
-} from "@/lib/seo";
+import type { PageMeta } from "@/lib/seo";
 import type { Locale } from "@/lib/i18n-core";
+import SEO from "@/components/SEO.astro";
 
 interface Props {
   meta?: PageMeta;
@@ -24,21 +19,8 @@ const {
   meta = {},
   locale = "en",
   pathname = "/",
-  css = "",
-  ids = [],
   jsonLd = [],
 } = Astro.props;
-
-const title = resolveTitle(meta);
-const og = meta.openGraph;
-const description = meta.description ?? og?.description ?? siteConfig.description;
-const canonical = meta.alternates?.canonical ?? siteConfig.url;
-const languages = meta.alternates?.languages ?? {};
-const robots = meta.robots ?? DEFAULT_ROBOTS;
-const twitter = meta.twitter;
-const ogImages = og?.images ?? [];
-const verification = meta.verification;
-const graphs = jsonLd.filter(Boolean);
 
 const skipLabel = locale === "es" ? "Saltar al contenido" : locale === "fr" ? "Aller au contenu" : "Skip to content";
 
@@ -49,8 +31,6 @@ function gtag(){dataLayer.push(arguments);}
 gtag('consent', 'default', { ad_storage: 'denied', analytics_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', wait_for_update: 500 });`;
 
 const fundingChoicesBootstrap = `(function(){function s(){if(!window.frames['googlefcPresent']){if(document.body){var i=document.createElement('iframe');i.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';i.style.display='none';i.name='googlefcPresent';document.body.appendChild(i);}else{setTimeout(s,0);}}}s();})();`;
-
-const jsonLdScripts = graphs.map((graph) => JSON.stringify(graph).replace(/</g, "\\u003c"));
 ---
 
 <!doctype html>
@@ -63,53 +43,8 @@ const jsonLdScripts = graphs.map((graph) => JSON.stringify(graph).replace(/</g, 
     <Font cssVariable="--font-inter" preload />
     <Font cssVariable="--font-jetbrains" />
 
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
-    <meta name="application-name" content={meta.applicationName ?? siteConfig.name} />
-    <meta name="author" content={meta.authors?.[0]?.name ?? siteConfig.author} />
-    <meta name="creator" content={meta.creator ?? siteConfig.author} />
-    <meta name="robots" content={robotsContent(robots)} />
-    <meta name="googlebot" content={googleBotContent(robots)} />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content={meta.appleWebApp?.title ?? siteConfig.name} />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content={meta.appleWebApp?.statusBarStyle ?? "default"}
-    />
-
-    {og && (
-      <>
-        <meta property="og:type" content={og.type ?? "website"} />
-        {og.locale && <meta property="og:locale" content={og.locale} />}
-        {og.alternateLocale?.map((alt) => (
-          <meta property="og:locale:alternate" content={alt} />
-        ))}
-        <meta property="og:url" content={og.url ?? canonical} />
-        <meta property="og:site_name" content={og.siteName ?? siteConfig.name} />
-        <meta property="og:title" content={og.title ?? title} />
-        {og.description && <meta property="og:description" content={og.description} />}
-        {ogImages.map((image) => (
-          <>
-            <meta property="og:image" content={image.url} />
-            {image.width && <meta property="og:image:width" content={String(image.width)} />}
-            {image.height && <meta property="og:image:height" content={String(image.height)} />}
-            {image.alt && <meta property="og:image:alt" content={image.alt} />}
-          </>
-        ))}
-        {og.publishedTime && <meta property="article:published_time" content={og.publishedTime} />}
-        {og.modifiedTime && <meta property="article:modified_time" content={og.modifiedTime} />}
-        {og.authors?.map((author) => <meta property="article:author" content={author} />)}
-      </>
-    )}
-
-    {twitter && (
-      <>
-        <meta name="twitter:card" content={twitter.card ?? "summary_large_image"} />
-        <meta name="twitter:title" content={twitter.title ?? title} />
-        {twitter.description && <meta name="twitter:description" content={twitter.description} />}
-        {twitter.images?.map((image) => <meta name="twitter:image" content={image} />)}
-      </>
-    )}
+    <!-- Unified SEO: title, description, canonical, robots, OG, Twitter, hreflang & JSON-LD -->
+    <SEO meta={meta} locale={locale} pathname={pathname} jsonLd={jsonLd} />
 
     <link rel="icon" href="/favicon.ico" sizes="48x48" type="image/x-icon" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -117,18 +52,9 @@ const jsonLdScripts = graphs.map((graph) => JSON.stringify(graph).replace(/</g, 
     <link rel="icon" href="/icon-512.png" sizes="512x512" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" type="image/png" />
     <link rel="manifest" href={meta.manifest ?? "/manifest.webmanifest"} />
-    {robots.index && <link rel="canonical" href={canonical} />}
-    {Object.entries(languages).map(([hreflang, href]) => (
-      href && <link rel="alternate" hreflang={hreflang} href={href} />
-    ))}
     {locale === "en" && (
       <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} Blog`} href="/rss.xml" />
     )}
-    {verification?.google && <meta name="google-site-verification" content={verification.google} />}
-    {verification?.other &&
-      Object.entries(verification.other).map(([name, value]) => (
-        <meta name={name} content={value} />
-      ))}
 
     <script is:inline set:html={themeScript} />
     <script is:inline set:html={consentDefault} />
@@ -142,9 +68,6 @@ const jsonLdScripts = graphs.map((graph) => JSON.stringify(graph).replace(/</g, 
         <script is:inline set:html={fundingChoicesBootstrap} />
       </>
     )}
-    {jsonLdScripts.map((json) => (
-      <script type="application/ld+json" set:html={json} />
-    ))}
   </head>
   <body>
     <a href="#main" class="skip-link">{skipLabel}</a>

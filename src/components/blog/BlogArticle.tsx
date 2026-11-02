@@ -105,26 +105,6 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
   // Filter malformed/empty FAQs so FAQPage always has Question +
   // acceptedAnswer Answer text (1:1 with visible copy below).
   const validFaqs = validBlogFaqs(post);
-  // HowTo from TOC: every pillar/cluster has an h2 how-to spine; expose it
-  // as HowTo steps (name = TOC text, url = anchor) with totalTime so
-  // AI/voice can cite ordered steps, not just prose. `text` is extracted
-  // from the section body (first ~300 chars of visible text after the h2)
-  // so steps stay valid per Google (HowToStep requires name + text).
-  const sectionText = (html: string, id: string): string | undefined => {
-    const start = html.indexOf(`id="${id}"`);
-    if (start < 0) return undefined;
-    const bodyStart = html.indexOf(">", html.indexOf("<h2", Math.max(0, start - 200)));
-    const nextH2 = html.indexOf("<h2", start + 1);
-    const raw = html.slice(bodyStart + 1, nextH2 > 0 ? nextH2 : undefined);
-    const text = raw
-      .replace(/<[^>]+>/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-    return text.length > 0 ? text.slice(0, 300) : undefined;
-  };
-  const howToSteps = Array.isArray(post.toc)
-    ? post.toc.filter((t) => t.level === 2)
-    : [];
   const ogImage = blogOgImage(post);
   const pillarMeta = getPillarMeta(post.pillar);
   // ES pilot has no translated pillar page yet: pillar crumb falls back to the
@@ -145,6 +125,25 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
           { "@type": "ListItem", position: 3, name: pillarMeta?.title ?? post.pillar, item: pillarUrl },
           { "@type": "ListItem", position: 4, name: post.title, item: canonical },
         ];
+  const ymylType = getBlogYMYLType(post);
+  const reviewerRole =
+    ymylType === "finance"
+      ? "Finance Reviewer"
+      : ymylType === "health"
+        ? "Health Reviewer"
+        : "Tools Reviewer";
+
+  const authorPerson = {
+    "@type": "Person",
+    name: `${reviewerRole} — ${siteConfig.authorRole}`,
+    jobTitle: reviewerRole,
+    url: `${base}/author`,
+    worksFor: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: base,
+    },
+  };
   const citations = getGuideCitationUrls(post.pillar);
   const jsonLd = {
     "@context": "https://schema.org",
@@ -156,8 +155,8 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
         url: canonical,
         image: ogImage,
         inLanguage: locale === "es" ? "es" : "en",
-        author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
-        reviewer: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
+        author: authorPerson,
+        reviewer: authorPerson,
         publisher: {
           "@type": "Organization",
           name: siteConfig.name,
@@ -196,26 +195,6 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
             },
           ]
         : []),
-      ...(howToSteps.length
-        ? [
-            {
-              "@type": "HowTo",
-              name: post.title,
-              totalTime: `PT${Math.max(3, post.readingMinutes)}M`,
-              tool: post.toolSlugs[0]
-                ? [{ "@type": "HowToTool", name: post.toolSlugs[0] }]
-                : undefined,
-              step: howToSteps
-                .map((t, i) => ({
-                  "@type": "HowToStep",
-                  position: i + 1,
-                  name: t.text,
-                  text: sectionText(post.html, t.id) ?? t.text,
-                  url: `${canonical}#${t.id}`,
-                })),
-            },
-          ]
-        : []),
     ],
   };
   return (
@@ -237,6 +216,12 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
   const publishedIso = getBlogPostDatePublishedIso(post.pillar, post.slug, post.published);
   const modifiedIso = getBlogPostDateModifiedIso(post.pillar, post.slug, post.updated);
   const ymylType = getBlogYMYLType(post);
+  const reviewerRole =
+    ymylType === "finance"
+      ? "Finance Reviewer"
+      : ymylType === "health"
+        ? "Health Reviewer"
+        : "Tools Reviewer";
   // ES pilot: primary CTA deep-links /es/<slug> with the native ES title/short
   // when a transcreation exists; siblings/secondary stay EN (exist only in EN).
   const esPrimaryTool = locale === "es" && post.toolSlugs[0] ? getEsTool(post.toolSlugs[0]) : undefined;
@@ -271,7 +256,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
         <Typography variant="body2" color="text.secondary">
           {locale === "es" ? (
             <>
-              Por <Link href="/author" style={{ fontWeight: 600 }}>{siteConfig.author} Editorial Team</Link>
+              Por <Link href="/author" style={{ fontWeight: 600 }}>{reviewerRole} ({siteConfig.authorRole})</Link>
               {" · "}
               <time dateTime={publishedIso}>Publicado {formatIsoHuman(publishedIso)}</time>
               {" · Actualizado "}<time dateTime={modifiedIso}>{formatIsoHuman(modifiedIso)}</time>
@@ -279,7 +264,7 @@ export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; l
             </>
           ) : (
             <>
-              By <Link href="/author" style={{ fontWeight: 600 }}>{siteConfig.author} Editorial Team</Link>
+              By <Link href="/author" style={{ fontWeight: 600 }}>{reviewerRole} ({siteConfig.authorRole})</Link>
               {" · "}
               <time dateTime={publishedIso}>Published {formatIsoHuman(publishedIso)}</time>
               {" · Updated "}<time dateTime={modifiedIso}>{formatIsoHuman(modifiedIso)}</time>

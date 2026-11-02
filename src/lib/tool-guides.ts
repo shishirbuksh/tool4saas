@@ -368,14 +368,14 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
   // ---- Age & Date/Time arithmetic silo ----
   "age-calculator": [
     { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
-    { href: "/blog/age-calculator-guide/calculate-exact-age", title: "Calculate exact age: years, months, days and leap years" },
-    { href: "/blog/age-calculator-guide/age-difference", title: "Calculate age difference between two people" },
-    { href: "/blog/age-calculator-guide/age-in-days", title: "Convert age to total days, weeks and hours" },
+    { href: "/blog/age-calculator-guide/how-to-calculate-age", title: "Calculate exact age: years, months, days and leap years" },
+    { href: "/blog/age-calculator-guide/age-difference-between-dates", title: "Calculate age difference between two people" },
+    { href: "/blog/age-calculator-guide/age-in-days-hours-minutes", title: "Convert age to total days, weeks and hours" },
   ],
   "date-calculator": [
     { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
-    { href: "/blog/age-calculator-guide/date-difference", title: "Calculate days between two dates: elapsed vs dates touched" },
-    { href: "/blog/age-calculator-guide/date-add-subtract", title: "Add or subtract days, weeks, months and years" },
+    { href: "/blog/age-calculator-guide/date-difference-calculation", title: "Calculate days between two dates: elapsed vs dates touched" },
+    { href: "/blog/age-calculator-guide/add-subtract-dates", title: "Add or subtract days, weeks, months and years" },
     { href: "/blog/age-calculator-guide/leap-year-birthdays", title: "Leap year birthday math and February 29 rules" },
   ],
   "timezone-converter": [
@@ -384,7 +384,7 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
   ],
   "timestamp-converter": [
     { href: "/blog/age-calculator-guide", title: "Age Calculator Guide: Exact Age, Dates & Time Zones (pillar)" },
-    { href: "/blog/age-calculator-guide/unix-timestamp", title: "Unix timestamps: seconds vs milliseconds and ISO 8601" },
+    { href: "/blog/age-calculator-guide/unix-timestamp-conversion", title: "Unix timestamps: seconds vs milliseconds and ISO 8601" },
   ],
   // ---- Debt payoff silo ----
   "debt-payoff-calculator": [
