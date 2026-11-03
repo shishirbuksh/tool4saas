@@ -12,12 +12,15 @@ export function getStaticPaths() {
     .map((p) => ({ params: { pillar: p.pillar, cluster: p.cluster as string } }));
 }
 
+import { getRelatedPosts } from "@/lib/blog-registry";
+
 const pillar = Astro.params.pillar!;
 const cluster = Astro.params.cluster!;
 const post = getClusterPost(pillar, cluster);
 if (!post) {
   return Astro.redirect("/404");
 }
+const related = getRelatedPosts(post, 4);
 
 let meta: PageMeta = blogMetadataFor(post);
 if (isNoindexCluster(pillar, cluster)) {
@@ -28,7 +31,7 @@ if (isNoindexCluster(pillar, cluster)) {
 <AppPage
   View={BlogClusterView}
   viewKey="pages/blog-cluster"
-  props={{ pillar, cluster }}
+  props={{ pillar, cluster, post, related }}
   meta={meta}
   locale="en"
   pathname={`/blog/${pillar}/${cluster}`}

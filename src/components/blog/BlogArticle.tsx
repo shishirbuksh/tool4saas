@@ -2,11 +2,11 @@ import Link from "@/lib/astro/navigation";import { Container, Box, Typography, B
 
 import { ExpandMore as ExpandMoreIcon } from "@/components/ds/icons";
 import { siteConfig } from "@/lib/site";
-import { getTool } from "@/lib/tools";
+import { liteGetTool } from "@/lib/tools/catalog-lite";
 import { getEsTool } from "@/lib/i18n";
 import { isEsBlogPilot } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
-import { getPillarMeta, getRelatedPosts } from "@/lib/blog-registry";
+import { getPillarMeta } from "@/lib/blog-pillars";
 import type { BlogPost } from "@/lib/blog";
 import { blogMetaTitle } from "@/lib/seo-title";
 import {
@@ -205,13 +205,21 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
   );
 }
 
-export default function BlogArticle({ post, locale = "en" }: { post: BlogPost; locale?: Locale }) {
+export default function BlogArticle({
+  post,
+  locale = "en",
+  related: passedRelated,
+}: {
+  post: BlogPost;
+  locale?: Locale;
+  related?: BlogPost[];
+}) {
   const base = siteConfig.url.replace(/\/$/, "");
   void base;
   const pillarMeta = getPillarMeta(post.pillar);
-  const related = getRelatedPosts(post, 4);
-  const primaryTool = post.toolSlugs[0] ? getTool(post.toolSlugs[0]) : undefined;
-  const secondaryTools = post.toolSlugs.slice(1).map((s) => getTool(s)).filter(Boolean);
+  const related = passedRelated ?? [];
+  const primaryTool = post.toolSlugs[0] ? liteGetTool(post.toolSlugs[0]) : undefined;
+  const secondaryTools = post.toolSlugs.slice(1).map((s) => liteGetTool(s)).filter(Boolean);
   const validFaqs = validBlogFaqs(post);
   const publishedIso = getBlogPostDatePublishedIso(post.pillar, post.slug, post.published);
   const modifiedIso = getBlogPostDateModifiedIso(post.pillar, post.slug, post.updated);

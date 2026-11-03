@@ -1,11 +1,15 @@
 import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Grid, Breadcrumbs } from "@/components/ds";
 
 import { siteConfig } from "@/lib/site";
-import { BLOG_PILLARS, getClustersForPillar, getPillarPost } from "@/lib/blog-registry";
-import { isNoindexCluster } from "@/lib/blog/noindex";
-import { countWords } from "@/lib/blog";
+import { BLOG_PILLARS } from "@/lib/blog-pillars";
 
-export default function BlogIndexView() {
+type BlogSection = {
+  meta: (typeof BLOG_PILLARS)[number];
+  words: number;
+  clusters: { slug: string; pillar: string; title: string }[];
+};
+
+export default function BlogIndexView({ sections = [] }: { sections?: BlogSection[] }) {
   const base = siteConfig.url.replace(/\/$/, "");
   const jsonLd = {
     "@context": "https://schema.org",
@@ -67,10 +71,10 @@ export default function BlogIndexView() {
         ))}
       </Box>
       <Grid container spacing={3}>
-        {BLOG_PILLARS.map((p) => {
-          const pillar = getPillarPost(p.pillar);
-          const clusters = getClustersForPillar(p.pillar).filter((c) => !isNoindexCluster(c.pillar, c.slug));
-          const words = pillar ? countWords(pillar.html) : 0;
+        {sections.map((s) => {
+          const p = s.meta;
+          const clusters = s.clusters;
+          const words = s.words;
           return (
             <Grid size={{ xs: 12, md: 6 }} key={p.pillar}>
               <Box id={p.pillar} className="p-8 rounded-xl border border-base-300 bg-base-100 hover:border-base-content/30 transition-colors h-full scroll-mt-[96px]">
@@ -86,12 +90,11 @@ export default function BlogIndexView() {
                   {p.description}
                 </Typography>
                 <Box component="ul" className="m-0 pl-6 mb-6 text-base-content/70">
-                  {clusters.slice(0, 5).map((c) => (
+                  {clusters.map((c) => (
                     <li key={c.slug} style={{ marginBottom: 4 }}>
                       <Link href={`/blog/${c.pillar}/${c.slug}`} style={{ fontWeight: 500 }}>{c.title}</Link>
                     </li>
                   ))}
-                  {clusters.length > 5 && <li>…and {clusters.length - 5} more tutorials in the silo</li>}
                 </Box>
                 <Box className="flex gap-4 flex-wrap">
                   <Link href={`/blog/${p.pillar}`} style={{ fontWeight: 700 }}>Read the pillar guide →</Link>

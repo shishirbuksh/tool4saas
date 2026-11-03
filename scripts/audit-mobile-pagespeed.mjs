@@ -1,4 +1,4 @@
-import { chromium, devices } from '@playwright/test';
+import { chromium } from '@playwright/test';
 
 const TARGETS = [
   { url: 'https://tool4saas.com/', label: 'Homepage' },

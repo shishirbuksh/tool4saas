@@ -110,7 +110,7 @@ export const businessTools: Tool[] = [
       },
       {
         question: "Which GST split should I apply for Indian billing?",
-        answer: "Apply an equal split of 9% CGST and 9% SGST for intrastate transactions within the same state, or 18% IGST for interstate transactions. Read our detailed [GST invoice guide](/blog/invoice-generator-guide/gst-invoice-format-rules) and verify percentages using the [GST calculator](/gst-calculator)."
+        answer: "Apply an equal split of 9% CGST and 9% SGST for intrastate transactions within the same state, or 18% IGST for interstate transactions. Read our detailed [GST invoice guide](/blog/invoice-generator-guide/gst-invoice-format-india) and verify percentages using the [GST calculator](/gst-calculator)."
       },
       {
         question: "What payment terms should I specify on my invoice?",
@@ -162,7 +162,7 @@ export const businessTools: Tool[] = [
       },
       {
         heading: "Invoice worked example, limits, and best practices",
-        body: "Consider a consulting invoice INV-2026-001 issued to Acme Retail. Line one itemizes 20 hours of software consulting at $120 per hour ($2,400 subtotal). Applying a 10% sales tax ($240) and deducting a $100 early-retainer credit yields a final balance due of $2,540 payable on Net 30 terms. Client-side browser generation ensures sensitive vendor financial records never touch cloud databases. Note that this browser utility generates formatted PDF documents locally; it does not replace automated enterprise ERP ledgers or submit government e-invoices. For related business records, use our [Document Generator](/document-generator) to draft quotes, [GST Calculator](/gst-calculator) to check rates, or review our [GST invoice guide](/blog/invoice-generator-guide/gst-invoice-format-rules)."
+        body: "Consider a consulting invoice INV-2026-001 issued to Acme Retail. Line one itemizes 20 hours of software consulting at $120 per hour ($2,400 subtotal). Applying a 10% sales tax ($240) and deducting a $100 early-retainer credit yields a final balance due of $2,540 payable on Net 30 terms. Client-side browser generation ensures sensitive vendor financial records never touch cloud databases. Note that this browser utility generates formatted PDF documents locally; it does not replace automated enterprise ERP ledgers or submit government e-invoices. For related business records, use our [Document Generator](/document-generator) to draft quotes, [GST Calculator](/gst-calculator) to check rates, or review our [GST invoice guide](/blog/invoice-generator-guide/gst-invoice-format-india)."
       }
     ]
   },

@@ -1,4 +1,4 @@
-import type { BlogPost, BlogPillarMeta } from "@/lib/blog";
+import type { BlogPost } from "@/lib/blog";
 import { isNoindexCluster } from "@/lib/blog/noindex";
 import { invoicePillar } from "@/content/blog/invoice-pillar";
 import { invoiceHowToCreate } from "@/content/blog/invoice-c1-how-to-create";
@@ -198,178 +198,10 @@ import { markdownPreview } from "@/content/blog/word-c13-markdown-preview";
 import { wcagContrast } from "@/content/blog/image-c14-color-contrast";
 import { aiTokenCost } from "@/content/blog/json-c17-ai-token-cost";
 
-export const BLOG_PILLARS: BlogPillarMeta[] = [
-  {
-    pillar: "invoice-generator-guide",
-    title: "Free Invoice Generator Guide: Create Professional Invoices Fast",
-    shortLabel: "Invoice Guide",
-    description:
-      "The complete free invoice generator guide — what to include, GST rules, templates, numbering, payment terms and how to create a PDF invoice in minutes with no signup.",
-    toolSlug: "invoice-generator",
-    keywords: ["free invoice generator", "invoice maker", "create invoice online free", "gst invoice format", "freelancer invoice"],
-    updated: "2026-09-18",
-  },
-  {
-    pillar: "qr-code-generator-guide",
-    title: "Free QR Code Generator Guide: Create Scannable QR Codes Fast",
-    shortLabel: "QR Code Guide",
-    description:
-      "The complete free QR code generator guide — WiFi, UPI, menus, vCards, print sizing, static vs dynamic and scan fixes. No signup, no expiry.",
-    toolSlug: "qr-code-generator",
-    keywords: ["free qr code generator", "qr code maker", "wifi qr code", "upi qr code", "qr code size print"],
-    updated: "2026-09-22",
-  },
-  {
-    pillar: "resume-builder-guide",
-    title: "Free Resume Builder Guide: Build a Job-Winning Resume Fast",
-    shortLabel: "Resume Guide",
-    description:
-      "The complete free resume builder guide — sections, fresher vs experienced, ATS rules, India/US/UK formats, cover letters, offer letters + PDF export.",
-    toolSlug: "resume-builder",
-    keywords: ["free resume builder", "resume maker", "ats friendly resume", "resume format india", "fresher resume"],
-    updated: "2026-09-23",
-  },
-  {
-    pillar: "mortgage-calculator-guide",
-    title: "Mortgage Calculator Guide: Payments, PMI & Amortization",
-    shortLabel: "Mortgage Guide",
-    description:
-      "The complete mortgage calculator guide — PITI, formula with $240k example, amortization, 15-vs-30, refinance, India EMI + rent-vs-buy. Free calculator.",
-    toolSlug: "mortgage-calculator",
-    keywords: ["mortgage calculator guide", "home loan calculator guide", "house payment estimator", "piti vs principal and interest", "home loan emi calculator india"],
-    updated: "2026-09-24",
-  },
-  {
-    pillar: "password-generator-guide",
-    title: "How to Generate a Strong Password (Free Offline Tool)",
-    shortLabel: "Password Guide",
-    description:
-      "Generate strong passwords free and offline: settings, entropy table, passphrases, manager + 2FA pairing, breach basics. No signup, nothing uploads.",
-    toolSlug: "password-generator",
-    keywords: ["how to generate strong password", "password generator guide", "offline password generator", "passphrase vs password", "password manager 2fa guide"],
-    updated: "2026-09-25",
-  },
-  {
-    pillar: "word-counter-guide",
-    title: "Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup",
-    shortLabel: "Word Count Guide",
-    description:
-      "Count words free with no signup: reading-time math, Flesch formulas, density without myths, length-by-intent + India limits. Local and private.",
-    toolSlug: "word-counter",
-    keywords: ["word counter guide", "how to check word count", "reading time calculator", "flesch reading ease", "keyword density checker"],
-    updated: "2026-09-26",
-  },
-  {
-    pillar: "image-compressor-guide",
-    title: "Compress Images for Web Without Losing Quality: 80% Guide",
-    shortLabel: "Image Guide",
-    description:
-      "The complete image optimization guide — 80% quality rule, JPG vs PNG vs WebP, exact resize presets, 100KB portal method, EXIF privacy + image SEO.",
-    toolSlug: "image-compressor",
-    keywords: ["how to compress images for web", "compress images without losing quality", "jpg vs png vs webp", "resize image exact pixels", "remove exif before upload"],
-    updated: "2026-10-07",
-  },
-  {
-    pillar: "pdf-merge-guide",
-    title: "Manage PDFs Offline: Merge, Split, Compress Without Uploading",
-    shortLabel: "PDF Guide",
-    description:
-      "The complete PDF workflow guide — merge in order, range extraction, 1MB compression, scans to PDF, JPG export, text vs OCR, rotate + watermark.",
-    toolSlug: "pdf-merge",
-    keywords: ["how to manage pdf files offline", "merge split compress pdf private", "pdf tools without upload", "jpg scans to single pdf", "extract text from pdf without ocr"],
-    updated: "2026-10-07",
-  },
-  {
-    pillar: "json-formatter-guide",
-    title: "Debug API Responses Locally: JSON, Base64, JWT, Regex Guide",
-    shortLabel: "Developer Guide",
-    description:
-      "The complete local debugging guide — JSON errors, Base64 modes, SHA-256 vs MD5, UUID seeding, regex flags, JWT expiry + URL encoding. No uploads.",
-    toolSlug: "json-formatter",
-    keywords: ["how to debug api json responses locally", "json parse errors line column", "jwt expiry check without trust"],
-    updated: "2026-10-07",
-  },
-  {
-    pillar: "seo-analyzer-guide",
-    title: "Score 80+ On-Page SEO Without a Plugin: 11 Checks",
-    shortLabel: "SEO Guide",
-    description:
-      "The complete on-page SEO workflow — 11 weighted checks, density truth, pixel titles, crawl plumbing, social cards + honest AI checks. Free analyzer.",
-    toolSlug: "seo-analyzer",
-    keywords: ["how to score 80 on page seo without plugin", "11 checks title slug density headings alt", "600 words 1-2 percent density", "rankmath vs yoast audit free", "core web vitals vs on page"],
-    updated: "2026-10-07",
-  },
-  {
-    pillar: "sip-calculator-guide",
-    title: "SIP vs FD vs PPF: Where Should ₹5,000/Month Go (2026)",
-    shortLabel: "Wealth Guide",
-    description:
-      "The complete India wealth guide — SIP vs FD vs PPF numbers, compounding frequency, tax regimes, real returns, goal math + LTCG. Free calculators.",
-    toolSlug: "sip-calculator",
-    keywords: ["sip vs lumpsum returns comparison", "ppf vs fd tax free comparison", "step-up sip vs flat sip", "real vs nominal return after inflation"],
-    updated: "2026-10-07",
-  },
-  {
-    pillar: "percentage-calculator-guide",
-    title: "Percentage Calculator Guide: Formulas, Discounts & Real-Life Uses",
-    shortLabel: "Percentage Guide",
-    description:
-      "The complete percentage guide - percent of a number, increase and decrease, discounts, markup vs margin, reverse percentages, error, and percentage points.",
-    toolSlug: "percentage-calculator",
-    keywords: ["percentage calculator guide", "how to calculate percentage", "percentage increase calculator", "discount calculator", "percentage points vs percent"],
-    updated: "2026-10-22",
-  },
-  {
-    pillar: "bmi-calculator-guide",
-    title: "BMI Calculator Guide: Healthy Weight, Calories & Water Needs",
-    shortLabel: "BMI Guide",
-    description:
-      "The complete BMI guide - formula and charts, women vs men, healthy weight range, calorie deficits, water intake, athletes, and BMI for children.",
-    toolSlug: "bmi-calculator",
-    keywords: ["bmi calculator guide", "how is bmi calculated", "healthy weight for height", "bmi for women", "bmi for men"],
-    updated: "2026-10-22",
-  },
-  {
-    pillar: "age-calculator-guide",
-    title: "Age Calculator Guide: Exact Age, Dates & Time Zones",
-    shortLabel: "Age Guide",
-    description:
-      "The complete age and date guide - exact age in years, months and days, date differences, time zones, Unix timestamps, leap years and date math.",
-    toolSlug: "age-calculator",
-    keywords: ["age calculator guide", "how to calculate age", "age difference calculator", "date difference calculator", "unix timestamp converter"],
-    updated: "2026-10-22",
-  },
-  {
-    pillar: "signature-maker-guide",
-    title: "Signature Maker Guide: Draw, Type & Download a Transparent PNG",
-    shortLabel: "Signature Guide",
-    description:
-      "Create a signature online: draw with mouse, touch or pen, type in cursive fonts, then export a transparent PNG for PDFs, forms and email.",
-    toolSlug: "signature-maker",
-    keywords: ["signature maker guide", "how to make a signature online", "transparent signature png", "draw signature online", "typed signature cursive font"],
-    updated: "2026-10-22",
-  },
-  {
-    pillar: "debt-payoff-guide",
-    title: "Debt Payoff Guide: Snowball vs Avalanche Methods",
-    shortLabel: "Debt Guide",
-    description:
-      "Compare snowball and avalanche debt payoff, see how minimums roll forward, and use two worked examples to plan your debt-free date.",
-    toolSlug: "debt-payoff-calculator",
-    keywords: ["debt payoff guide", "debt snowball vs avalanche", "how to pay off debt", "debt payoff calculator", "minimum payment rollover"],
-    updated: "2026-10-22",
-  },
-  {
-    pillar: "grade-calculator-guide",
-    title: "Grade Calculator Guide: Weighted Grades & Final Exam Score",
-    shortLabel: "Grade Guide",
-    description:
-      "Learn how weighted grades work, calculate your current average, and find the final exam score needed for your target, with checked examples.",
-    toolSlug: "grade-calculator",
-    keywords: ["grade calculator guide", "weighted grade calculator", "final exam grade needed", "how to calculate grades", "course grade formula"],
-    updated: "2026-10-22",
-  },
-];
+import { BLOG_PILLARS, getPillarMeta } from "./blog-pillars";
+export { BLOG_PILLARS, getPillarMeta };
+
+// Single flat list of every registered post
 
 // Single flat list of every registered post (pillars + clusters). Exported for
 // the RSS feed; page-level lookups still go through the typed helpers below.
@@ -573,10 +405,6 @@ export const ALL_POSTS: BlogPost[] = [
   aiTokenCost,
 ];
 
-export function getPillarMeta(pillar: string): BlogPillarMeta | undefined {
-  return BLOG_PILLARS.find((p) => p.pillar === pillar);
-}
-
 export function getPillarPost(pillar: string): BlogPost | undefined {
   return ALL_POSTS.find((p) => p.pillar === pillar && p.kind === "pillar");
 }
@@ -601,17 +429,44 @@ export function getAllBlogStaticParams(): { pillar: string; cluster?: string }[]
 }
 
 export function getRelatedPosts(post: BlogPost, limit = 3): BlogPost[] {
-  const siblings = getClustersForPillar(post.pillar).filter(
-    (p) => p.slug !== post.slug && !isNoindexCluster(post.pillar, p.slug)
+  const allClusters = getClustersForPillar(post.pillar).filter(
+    (p) => !isNoindexCluster(post.pillar, p.slug)
   );
-  // Prefer explicitly related slugs first, then fill with the rest.
-  const ordered = [
-    ...siblings.filter((s) => post.relatedSlugs.includes(s.slug)),
-    ...siblings.filter((s) => !post.relatedSlugs.includes(s.slug)),
-  ];
-  if (post.kind === "pillar") return ordered.slice(0, limit);
+  const siblings = allClusters.filter((p) => p.slug !== post.slug);
+
+  if (post.kind === "pillar") {
+    const explicit = (post.relatedSlugs || [])
+      .map((slug) => siblings.find((s) => s.slug === slug))
+      .filter((p): p is BlogPost => !!p);
+    const explicitSlugs = new Set(explicit.map((e) => e.slug));
+    const rest = siblings.filter((s) => !explicitSlugs.has(s.slug));
+    return [...explicit, ...rest].slice(0, limit);
+  }
+
+  // Ring mesh topology for cluster posts: rotate sibling candidates starting after the
+  // current post's index so every sibling cluster in the silo receives inbound links from adjacent peers.
+  const currentIndex = allClusters.findIndex((p) => p.slug === post.slug);
+  const rotatedSiblings: BlogPost[] = [];
+  if (currentIndex >= 0 && allClusters.length > 1) {
+    for (let i = 1; i < allClusters.length; i++) {
+      const candidate = allClusters[(currentIndex + i) % allClusters.length];
+      if (candidate.slug !== post.slug) {
+        rotatedSiblings.push(candidate);
+      }
+    }
+  } else {
+    rotatedSiblings.push(...siblings);
+  }
+
+  const explicit = (post.relatedSlugs || [])
+    .map((slug) => allClusters.find((c) => c.slug === slug))
+    .filter((p): p is BlogPost => !!p && p.slug !== post.slug);
+  const explicitSlugs = new Set(explicit.map((e) => e.slug));
+  const remaining = rotatedSiblings.filter((p) => !explicitSlugs.has(p.slug));
+  const ordered = [...explicit, ...remaining];
+
   const pillar = getPillarPost(post.pillar);
-  const rest = ordered.filter((p) => p.slug !== post.slug).slice(0, Math.max(0, limit - (pillar ? 1 : 0)));
+  const rest = ordered.slice(0, Math.max(0, limit - (pillar ? 1 : 0)));
   return [...(pillar ? [pillar] : []), ...rest].slice(0, limit);
 }
 

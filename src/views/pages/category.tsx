@@ -1,17 +1,17 @@
 import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Breadcrumbs, Grid } from "@/components/ds";
 
 import ToolCard from "@/components/ToolCard";
-import { getCategory, toolsByCategoryCached, NOINDEX_SLUGS } from "@/lib/tools";
+import { CATEGORIES } from "@/lib/tools/categories";
+import { LITE_TOOLS, liteToolsByCategory } from "@/lib/tools/catalog-lite";
+import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { introForCategory, faqContentForCategory } from "@/lib/category-content";
 import { siteConfig } from "@/lib/site";
 
 export default function CategoryView({ id }: { id: string }) {
-  const category = getCategory(id);
+  const category = CATEGORIES.find((c) => c.id === id);
   if (!category) return null;
-  const allGroups = toolsByCategoryCached();
-  const currentGroup = allGroups.find((g) => g.category.id === id);
-  const tools = currentGroup?.tools ?? [];
-  const visibleTools = tools.filter((t) => !NOINDEX_SLUGS.has(t.slug));
+  const allGroups = liteToolsByCategory();
+  const visibleTools = LITE_TOOLS.filter((t) => t.category === id && !NOINDEX_SLUGS.has(t.slug));
   const base = siteConfig.url.replace(/\/$/, "");
   const categoryUrl = `${base}/category/${id}`;
   const faqContent = faqContentForCategory(id);

@@ -1,15 +1,12 @@
 import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Grid } from "@/components/ds";
 
 import { siteConfig } from "@/lib/site";
-import { BLOG_PILLARS, getPillarPost, getClustersForPillar } from "@/lib/blog-registry";
-import { isNoindexCluster } from "@/lib/blog/noindex";
+import { BLOG_PILLARS } from "@/lib/blog-pillars";
 
 export default function GuidesView() {
   const base = siteConfig.url.replace(/\/$/, "");
   const sections = BLOG_PILLARS.map((p) => {
-    const pillar = getPillarPost(p.pillar);
-    const clusters = getClustersForPillar(p.pillar).filter((c) => !isNoindexCluster(c.pillar, c.slug));
-    return { meta: p, pillar, clusters };
+    return { meta: p, pillar: null as any, clusters: [] as any[] };
   });
   const totalGuides = sections.reduce(
     (sum, s) => sum + s.clusters.length + (s.pillar ? 1 : 0),

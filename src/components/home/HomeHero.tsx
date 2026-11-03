@@ -10,6 +10,11 @@ const QUICK_LINKS = [
   { slug: "word-counter", label: "Word counter" },
   { slug: "json-formatter", label: "JSON formatter" },
   { slug: "pdf-merge", label: "PDF merge" },
+  { slug: "image-compressor", label: "Image compressor" },
+  { slug: "mortgage-calculator", label: "Mortgage" },
+  { slug: "emi-calculator", label: "EMI calculator" },
+  { slug: "bmi-calculator", label: "BMI calculator" },
+  { slug: "percentage-calculator", label: "Percentage" },
 ];
 
 // Hero — one keyword-led H1, one search field, five quick links.

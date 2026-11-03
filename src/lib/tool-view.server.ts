@@ -56,21 +56,30 @@ function validHowTo(tool: Tool) {
 // payload embedded in #app-props.
 export function buildToolView(tool: Tool, locale: Locale): ToolView {
   const cat = getCategory(tool.category);
-  const seeAlso = tools
-    .filter(
-      (t) =>
-        t.category === tool.category && t.slug !== tool.slug && !NOINDEX_SLUGS.has(t.slug),
-    )
+  const validSameCat = tools.filter(
+    (t) => t.category === tool.category && !NOINDEX_SLUGS.has(t.slug),
+  );
+  const toolIdx = validSameCat.findIndex((t) => t.slug === tool.slug);
+  const rotatedSameCat: Tool[] = [];
+  if (toolIdx >= 0 && validSameCat.length > 1) {
+    for (let i = 1; i < validSameCat.length; i++) {
+      const candidate = validSameCat[(toolIdx + i) % validSameCat.length];
+      if (candidate.slug !== tool.slug) {
+        rotatedSameCat.push(candidate);
+      }
+    }
+  } else {
+    rotatedSameCat.push(...validSameCat.filter((t) => t.slug !== tool.slug));
+  }
+
+  const seeAlso = rotatedSameCat
     .slice(0, 2)
     .map(({ slug, title, short }) => ({ slug, title, short }));
 
-  const sameCat = tools.filter(
-    (t) => t.category === tool.category && t.slug !== tool.slug && !NOINDEX_SLUGS.has(t.slug),
-  );
   const crossCat = tools.filter(
     (t) => t.category !== tool.category && t.slug !== tool.slug && !NOINDEX_SLUGS.has(t.slug),
   );
-  const relatedTools = [...sameCat, ...crossCat]
+  const relatedTools = [...rotatedSameCat, ...crossCat]
     .slice(0, 6)
     .map(({ slug, title, short }) => ({ slug, title, short }));
 
@@ -99,7 +108,12 @@ export function buildToolView(tool: Tool, locale: Locale): ToolView {
     ymylType: getYMYLType(tool),
     relatedTools,
     relatedToolsHeading: `More ${cat?.label ?? "tools"}`,
-    guides: GUIDES_BY_TOOL[tool.slug] ?? [],
+    guides: locale === "es" && tool.slug === "qr-code-generator"
+      ? [
+          { href: "/es/blog/qr-code-generator-guide/qr-code-size-print-guide", title: "Guía de tamaños de códigos QR para impresión y distancia" },
+          ...(GUIDES_BY_TOOL[tool.slug] ?? []).filter((g) => !g.href.includes("qr-code-size-print-guide")),
+        ]
+      : GUIDES_BY_TOOL[tool.slug] ?? [],
     validFaq: validFaq(tool),
     validHowTo: validHowTo(tool),
     guideSections,

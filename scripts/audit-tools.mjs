@@ -32,7 +32,7 @@ async function auditTools() {
 
   // 2. Load YMYL registry
   const ymylModule = await import("../src/lib/ymyl.ts");
-  const getToolYMYLType = ymylModule.getToolYMYLType;
+  const getToolYMYLType = ymylModule.getYMYLType;
 
   // 3. Check tool-view.server module
   const toolViewServer = await import("../src/lib/tool-view.server.ts");

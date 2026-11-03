@@ -12,7 +12,7 @@ function cleanKeywords(text) {
   // Consume the closing "], " explicitly and rebuild exactly one "]," — the
   // earlier version matched only `[...]` and re-appended a bracket, stacking
   // "]" layers on each rerun.
-  return text.replace(/keywords:\s*\[([\s\S]*?)\]\s*,?/g, (m, inner) => {
+  return text.replace(/keywords:\s*\[([\s\S]*?)\]\s*,?/g, (_, inner) => {
     const entries = [];
     const re = /("([^"\\]|\\.)*")/g;
     let match;

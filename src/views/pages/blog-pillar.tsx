@@ -1,22 +1,30 @@
-import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Grid } from "@/components/ds";
-
+import Link from "@/lib/astro/navigation";
+import { Container, Box, Typography, Grid } from "@/components/ds";
 import { siteConfig } from "@/lib/site";
-import { getTool } from "@/lib/tools";
-import { getPillarMeta, getPillarPost, getClustersForPillar } from "@/lib/blog-registry";
-import { isNoindexCluster } from "@/lib/blog/noindex";
+import { liteGetTool } from "@/lib/tools/catalog-lite";
+import { getPillarMeta } from "@/lib/blog-pillars";
 import BlogArticle from "@/components/blog/BlogArticle";
+import type { BlogPost } from "@/lib/blog";
 
-export default function BlogPillarView({ pillar }: { pillar: string }) {
+export default function BlogPillarView({
+  pillar,
+  post,
+  clusters = [],
+  related,
+}: {
+  pillar: string;
+  post: BlogPost;
+  clusters: BlogPost[];
+  related?: BlogPost[];
+}) {
   const meta = getPillarMeta(pillar);
-  const post = getPillarPost(pillar);
   if (!meta || !post) return null;
-  const clusters = getClustersForPillar(pillar).filter((c) => !isNoindexCluster(c.pillar, c.slug));
-  const tool = getTool(meta.toolSlug);
+  const tool = liteGetTool(meta.toolSlug);
   const base = siteConfig.url.replace(/\/$/, "");
 
   return (
     <Box>
-      <BlogArticle post={post} />
+      <BlogArticle post={post} related={related} />
       <Container maxWidth="xl" className="pb-20 px-4 sm:px-6 lg:px-8">
         <Box component="section" className="mt-4 p-8 rounded-xl border border-base-300 bg-base-100">
           <Typography variant="h2" className="text-[1.4rem] font-extrabold mb-2">

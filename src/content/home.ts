@@ -1,6 +1,3 @@
-import { getClusterPost } from "@/lib/blog-registry";
-import { getBlogPostDatePublishedIso } from "@/lib/dates";
-
 export type Guide = {
   title: string;
   desc: string;
@@ -11,28 +8,30 @@ export type Guide = {
 
 export type Faq = { q: string; a: string };
 
-// Featured homepage cards are derived from the blog registry so the visible
-// title/description/date can never drift from the actual article. Order here
-// is the display order.
-const FEATURED_GUIDES: { pillar: string; slug: string; label: string }[] = [
-  { pillar: "resume-builder-guide", slug: "ats-resume-guide", label: "Resume Guide" },
-  { pillar: "qr-code-generator-guide", slug: "upi-payment-qr-code-india", label: "QR Code Guide" },
-  { pillar: "invoice-generator-guide", slug: "gst-invoice-format-india", label: "Invoice Guide" },
+// Featured homepage guides — static client-safe projection without importing the full blog registry.
+export const HOME_GUIDES: Guide[] = [
+  {
+    title: "ATS-Friendly Resume: Format & Beat Applicant Tracking Systems",
+    desc: "Format and test your resume so applicant tracking systems read your work history accurately.",
+    label: "Resume Guide",
+    date: "2026-09-23",
+    href: "/blog/resume-builder-guide/ats-resume-guide",
+  },
+  {
+    title: "UPI Payment QR Code (India): Setup, Rules & Safety",
+    desc: "Generate static and dynamic UPI QR codes for instant payments with zero transaction charges.",
+    label: "QR Code Guide",
+    date: "2026-09-22",
+    href: "/blog/qr-code-generator-guide/upi-payment-qr-code-india",
+  },
+  {
+    title: "GST Invoice Format in India: Mandatory Fields, HSN & Rules",
+    desc: "Understand mandatory GST invoice components, HSN codes, and tax breakdowns under Indian rules.",
+    label: "Invoice Guide",
+    date: "2026-09-18",
+    href: "/blog/invoice-generator-guide/gst-invoice-format-india",
+  },
 ];
-
-export const HOME_GUIDES: Guide[] = FEATURED_GUIDES.flatMap((ref) => {
-  const post = getClusterPost(ref.pillar, ref.slug);
-  if (!post) return [];
-  return [
-    {
-      title: post.title,
-      desc: post.description,
-      label: ref.label,
-      date: getBlogPostDatePublishedIso(post.pillar, post.slug, post.published),
-      href: `/blog/${post.pillar}/${post.slug}`,
-    },
-  ];
-});
 
 export const FAQS: Faq[] = [
   {

@@ -29,6 +29,9 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
     { href: "/blog/invoice-generator-guide/small-business-invoicing", title: "Small business invoicing without paid software" },
     { href: "/blog/invoice-generator-guide/freelancer-invoice-guide", title: "Freelancer invoice guide: get paid on time" },
+    { href: "/blog/invoice-generator-guide/credit-note-vs-debit-note", title: "Credit note vs debit note: differences and rules" },
+    { href: "/blog/invoice-generator-guide/international-client-invoicing", title: "Invoicing international clients: currencies and taxes" },
+    { href: "/blog/invoice-generator-guide/proforma-vs-tax-invoice", title: "Proforma vs tax invoice: legal differences" },
   ],
   "discount-calculator": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
@@ -37,6 +40,8 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
   "percentage-calculator": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
     { href: "/blog/invoice-generator-guide/gst-invoice-format-india", title: "GST invoice format India: fields, HSN & sample" },
+    { href: "/blog/percentage-calculator-guide/percentage-error", title: "Calculate percentage error: theoretical vs experimental" },
+    { href: "/blog/percentage-calculator-guide/tip-calculator-bill-split", title: "Calculate tip and split restaurant bills evenly" },
   ],
   "currency-converter": [
     { href: "/blog/invoice-generator-guide", title: "Free Invoice Generator Guide (pillar)" },
@@ -72,6 +77,9 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
     { href: "/blog/qr-code-generator-guide/vcard-contact-qr-code", title: "vCard QR code: digital business card in 5 seconds" },
     { href: "/blog/qr-code-generator-guide/wifi-qr-code-guide", title: "WiFi QR code: share guest WiFi with one scan" },
     { href: "/blog/qr-code-generator-guide/qr-code-not-scanning-fix", title: "QR code not scanning? 5 causes & fixes" },
+    { href: "/blog/qr-code-generator-guide/qr-code-google-forms", title: "Create QR code for Google Forms: event check-ins" },
+    { href: "/blog/qr-code-generator-guide/qr-code-google-reviews", title: "Create QR code for Google reviews: tap & scan tips" },
+    { href: "/blog/qr-code-generator-guide/qr-code-restaurant-menu", title: "Restaurant menu QR code: PDF vs website linking" },
   ],
   "qr-scanner": [
     { href: "/blog/qr-code-generator-guide", title: "Free QR Code Generator Guide (pillar)" },
@@ -92,6 +100,7 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
     { href: "/blog/resume-builder-guide/resume-mistakes", title: "7 resume mistakes that kill interviews" },
     { href: "/blog/resume-builder-guide/ats-resume-guide", title: "ATS-friendly resume: beat tracking software" },
     { href: "/blog/resume-builder-guide/resume-vs-cv", title: "Resume vs CV vs biodata: differences & when to use each" },
+    { href: "/blog/resume-builder-guide/resume-skills-section", title: "Resume skills section: hard vs soft skills with examples" },
   ],
   "ats-resume-checker": [
     { href: "/blog/resume-builder-guide", title: "Free Resume Builder Guide (pillar)" },
@@ -172,6 +181,7 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
     { href: "/blog/word-counter-guide/flesch-reading-ease-score-explained", title: "Flesch Reading Ease: formula and bands" },
     { href: "/blog/word-counter-guide/keyword-density-seo-check", title: "Keyword density: check and fix stuffing" },
     { href: "/blog/word-counter-guide/grammar-check-before-publish", title: "Grammar check before you publish" },
+    { href: "/blog/word-counter-guide/twitter-character-counter", title: "Twitter and X character counter: 280-character limit guide" },
   ],
   "text-summarizer": [
     { href: "/blog/word-counter-guide", title: "Word Counter Guide (pillar)" },
@@ -209,6 +219,7 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
     { href: "/blog/image-compressor-guide/resize-image-exact-pixels", title: "Resize images to exact pixels without blur" },
     { href: "/blog/image-compressor-guide/crop-passport-photos", title: "Crop passport photos to exact size" },
     { href: "/blog/image-compressor-guide/strip-exif-before-upload", title: "Strip EXIF data before uploading" },
+    { href: "/blog/image-compressor-guide/instagram-image-resize", title: "Instagram image dimensions and aspect ratios guide" },
   ],
   "image-format-converter": [
     { href: "/blog/image-compressor-guide", title: "Image Optimization Guide: 80% rule, formats, 100KB portals (pillar)" },
@@ -230,6 +241,7 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
     { href: "/blog/pdf-merge-guide/extract-pages-range", title: "Extract pages by range: 1-3,5 syntax" },
     { href: "/blog/pdf-merge-guide/fix-sideways-scans", title: "Fix sideways scans: rotate upright" },
     { href: "/blog/pdf-merge-guide/add-draft-watermark", title: "Add DRAFT watermark readably" },
+    { href: "/blog/pdf-merge-guide/merge-pdfs-on-android", title: "How to merge PDF files on Android and iPhone offline" },
   ],
   "image-to-pdf": [
     { href: "/blog/pdf-merge-guide", title: "PDF Workflow Guide: merge, split, compress offline (pillar)" },
@@ -276,10 +288,13 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
     { href: "/blog/seo-analyzer-guide/fix-score-60-to-80", title: "Fix SEO score from 60 to 80" },
     { href: "/blog/seo-analyzer-guide/title-meta-length-2026", title: "Title and meta lengths that avoid truncation" },
     { href: "/blog/seo-analyzer-guide/geo-checklist-ai-citations", title: "GEO checklist: get cited by AI search" },
+    { href: "/blog/seo-analyzer-guide/canonical-tag-guide", title: "Canonical tags: fix duplicate content and self-referencing rules" },
+    { href: "/blog/seo-analyzer-guide/internal-linking-guide", title: "Internal linking strategy for SEO: silo and anchor tips" },
   ],
   "meta-tag-generator": [
     { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
     { href: "/blog/seo-analyzer-guide/title-meta-length-2026", title: "Title and meta lengths that avoid truncation" },
+    { href: "/blog/seo-analyzer-guide/meta-description-guide", title: "Meta descriptions that drive clicks: CTR and length limits" },
   ],
   "serp-preview": [
     { href: "/blog/seo-analyzer-guide", title: "SEO Publishing Guide: 11 checks, no plugin (pillar)" },
@@ -320,6 +335,7 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
   "compound-interest-calculator": [
     { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
     { href: "/blog/sip-calculator-guide/lumpsum-compounding-frequency", title: "Lump sum compounding frequency" },
+    { href: "/blog/sip-calculator-guide/monthly-vs-yearly-compounding", title: "Monthly vs yearly compounding: interest difference compared" },
   ],
   "fd-calculator": [
     { href: "/blog/sip-calculator-guide", title: "SIP vs FD vs PPF: where ₹5,000/month goes (pillar)" },
@@ -355,6 +371,7 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
     { href: "/blog/bmi-calculator-guide/healthy-weight-range", title: "Healthy weight range for your height" },
     { href: "/blog/bmi-calculator-guide/bmi-for-women", title: "BMI for women: body fat and distribution differences" },
     { href: "/blog/bmi-calculator-guide/bmi-for-men", title: "BMI for men: muscle mass vs fat percentage" },
+    { href: "/blog/bmi-calculator-guide/bmi-for-children-teens", title: "BMI percentiles for children and teens" },
   ],
   "calorie-calculator": [
     { href: "/blog/bmi-calculator-guide", title: "BMI Calculator Guide: Healthy Weight, Calories & Water Needs (pillar)" },
@@ -438,5 +455,24 @@ export const GUIDES_BY_TOOL: Record<string, { href: string; title: string }[]> =
   "image-to-base64": [
     { href: "/blog/image-compressor-guide", title: "Compress Images for Web Without Losing Quality: 80% Guide (pillar)" },
     { href: "/blog/image-compressor-guide/image-to-base64-data-url", title: "Convert images to Base64 data URLs: when to inline" },
+  ],
+  "us-sales-tax-calculator": [
+    { href: "/blog/percentage-calculator-guide/sales-tax-on-a-price", title: "How to calculate sales tax on a price before or after" },
+  ],
+  "cron-parser": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/cron-expression-guide", title: "Cron expression syntax: 5 vs 6 field schedules" },
+  ],
+  "ai-token-counter": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/estimate-ai-token-cost", title: "Estimate LLM prompt and completion token costs" },
+  ],
+  "csv-viewer": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/inspect-csv-before-import", title: "Inspect and validate CSV files before database import" },
+  ],
+  "slug-generator": [
+    { href: "/blog/json-formatter-guide", title: "Developer Toolkit Guide: JSON, Base64, JWT, regex (pillar)" },
+    { href: "/blog/json-formatter-guide/url-slug-rules", title: "URL slug best practices: lowercase, hyphens and stop words" },
   ],
 };
