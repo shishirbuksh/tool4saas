@@ -1,15 +1,35 @@
+import React from "react";
 import { Box, Typography, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
-
 import { ExpandMore as ExpandMoreIcon } from "@/components/ds/icons";
 import type { ToolView } from "@/lib/tool-view";
 
-// Real dates per-tool from git history — see src/lib/dates.ts
-// (shared with ToolPageShell visible <time> and sitemap lastmod).
+function renderRichText(text: string): React.ReactNode {
+  if (!text || !text.includes("[")) return text;
+  const parts: (string | React.JSX.Element)[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    const label = match[1];
+    const href = match[2];
+    parts.push(
+      <a key={match.index} href={href} className="text-primary hover:underline font-medium">
+        {label}
+      </a>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts;
+}
 
 export default function ToolSeo({ view }: { view: ToolView }) {
   const { tool, locale } = view;
-  // FAQ/HowTo/guide copy is pre-validated on the server; JSON-LD is emitted
-  // into <head> by AppPage.astro from src/lib/tool-view.server.ts.
   const validFaq = view.validFaq;
   const validHowTo = view.validHowTo;
   const guideSections = view.guideSections;
@@ -34,7 +54,7 @@ export default function ToolSeo({ view }: { view: ToolView }) {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography color="text.secondary" className="faq-passage speakable-answer-first">
-                  {f.answer}
+                  {renderRichText(f.answer)}
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -53,7 +73,7 @@ export default function ToolSeo({ view }: { view: ToolView }) {
                 <Typography component="span" color="text.primary" className="font-semibold">
                   {s.name}:{" "}
                 </Typography>
-                <Typography component="span">{s.text}</Typography>
+                <Typography component="span">{renderRichText(s.text)}</Typography>
               </li>
             ))}
           </Box>
@@ -69,7 +89,7 @@ export default function ToolSeo({ view }: { view: ToolView }) {
             if (typeof entry === "string") {
               return (
                 <Typography key={i} color="text.secondary" className="leading-[1.8] mb-4">
-                  {entry}
+                  {renderRichText(entry)}
                 </Typography>
               );
             }
@@ -81,6 +101,7 @@ export default function ToolSeo({ view }: { view: ToolView }) {
               content?: unknown;
               text?: unknown;
               paragraphs?: unknown;
+              table?: { caption?: string; headers: string[]; rows: (string | number)[][] };
             };
             const heading =
               (typeof section?.heading === "string" && section.heading) ||
@@ -96,6 +117,9 @@ export default function ToolSeo({ view }: { view: ToolView }) {
                   section?.content,
                   section?.text,
                 ].filter((p): p is string => typeof p === "string" && p.trim().length > 0);
+
+            const table = section?.table;
+
             return (
               <Box key={i} className="mt-6">
                 <Typography variant="h3" className="text-[1.25rem] md:text-[1.5rem] mb-2">
@@ -103,9 +127,40 @@ export default function ToolSeo({ view }: { view: ToolView }) {
                 </Typography>
                 {paragraphs.map((p, j) => (
                   <Typography key={j} color="text.secondary" className="leading-[1.8] mb-3">
-                    {p}
+                    {renderRichText(p)}
                   </Typography>
                 ))}
+                {table && Array.isArray(table.headers) && Array.isArray(table.rows) && (
+                  <div className="overflow-x-auto my-4 rounded-xl border border-base-300 bg-base-100">
+                    <table className="table table-zebra w-full text-sm">
+                      {table.caption && (
+                        <caption className="p-3 text-xs font-semibold text-base-content/70 text-left bg-base-200/40">
+                          {table.caption}
+                        </caption>
+                      )}
+                      <thead className="bg-base-200/80 font-semibold text-base-content">
+                        <tr>
+                          {table.headers.map((h, k) => (
+                            <th key={k} className="py-2.5 px-4 text-left font-semibold">
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {table.rows.map((row, rIdx) => (
+                          <tr key={rIdx} className="hover:bg-base-200/50">
+                            {row.map((cell, cIdx) => (
+                              <td key={cIdx} className="py-2 px-4">
+                                {typeof cell === "string" ? renderRichText(cell) : cell}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
               </Box>
             );
           })}

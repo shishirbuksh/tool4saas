@@ -102,38 +102,439 @@ export const calculatorsTools: Tool[] = [
   },
   {
     slug: "grade-calculator",
-    title: "Final Grade Calculator",
-    short: "What final do I need?",
-    description: "Calculate weighted average and required final score to earn an A, B or pass from course assessments. Grades compute offline and stay fully private.",
+    title: "Grade Calculator",
+    seoTitle: "Grade Calculator - Final Exam & Weighted Grade | Tool4SaaS",
+    short: "Weighted average & final exam grade",
+    description:
+      "Grade calculator calculates weighted course grades, assignment averages, and required final exam scores to reach your target letter grade on Tool4SaaS.",
     icon: "BarChart",
-    keywords: ["grade calculator", "what do i need on my final", "weighted grade calculator", "82 40 percent offline", "final exam grade free", "weighted average goal threshold formula", "final grade vs gpa projection", "target b no signup"],
+    keywords: [
+        "grade calculator",
+        "final grade calculator",
+        "weighted grade calculator",
+        "college grade calculator",
+        "exam grade calculator",
+        "final exam score needed",
+        "calculate course grade",
+        "semester grade calculator"
+],
     category: "calculators",
-    faq: [{ question: "How is required final score derived from weights?", answer: "Need equals goal minus held times rest over final share across three weighted parts precisely. Eighty-two held with forty final needs seventy for eighty aim with formula shown. Raising aim to ninety demands ninety-five with recalculation. Entering shares in-tab offline preserves privacy at any time." }, { question: "Do assessment entries remain private during planning?", answer: "Final sums stay in-tab alone without sharing or sign-in linkage for confidential modeling. Four courses with twelve rows process net-off with no dispatch or retention. Scores remain local, work offline, and clear on close automatically. No login is needed for grade modeling at any time." }, { question: "What final secures a B with forty percent weight?", answer: "Eighty-two percent current with forty percent final needs seventy percent on exam for eighty percent B, from required equals target minus current times one minus weight over weight. Verifying weight totals one hundred prevents distortion and misestimation. Adjusting aim previews stretch scenarios and feasibility clearly." }, { question: "How do dropped lowest scores alter needed final?", answer: "Removing weakest quiz raises held average before final computation, lowering threshold meaningfully. Eighty-two held becomes eighty-five after dropping sixty, so seventy on forty-percent final now secures eighty-two overall versus eighty previously. Confirming instructor drop policy before modeling avoids optimistic bias and disappointment." }, { question: "When does required score exceed one hundred percent?", answer: "Goals beyond mathematical reach flag above one hundred, signaling extra credit or reweight request needed promptly. Eighty-two held with forty final needing ninety aim demands 102, impossible without curve or bonus. Pursuing five course points earlier or negotiating weighting restores feasibility and motivation effectively." }],
-    howTo: [{ name: "Add assessments", text: "Enter midterm 82 with 30 percent weight example, confirming weighted contribution 24.6 points appears correctly." }, { name: "Add homework", text: "Add homework 90 with 30 percent weight, observing combined 51.6 held points before final calculation." }, { name: "Set target", text: "Pick 80 target for B grade goal, verifying total weights sum to 100 percent including 40 final." }, { name: "View need", text: "See required 70 percent on 40 percent final, then test 90 aim to reveal 102 stretch flag." }],
-    guide: [{ heading: "What final-need forecasting tells", body: "Final-need forecasting shows test score required to earn A, B, or pass from weighted assessments with transparent threshold math. Holding eighty-two percent with forty percent final needs seventy percent for eighty B in one read. Classes weight midterm thirty, coursework thirty, final forty across three parts with one hundred points total. Reference table maps aims precisely | Held average | Final weight | Target grade | Required final | 82 held | 40 percent | 80 B | 70.0 | 82 held | 40 percent | 90 A | 95.0 | 75 held | 40 percent | 80 B | 87.5 | 88 held | 30 percent | 90 A | 94.7. Edge case above one hundred flags stretch requiring curve. Limitation excludes dropped quizzes and extra credit. Verify seventy need on forty final and 102 flag to confirm aim math accurately." }, { heading: "How weights and thresholds blend methodically", body: "Mean sums grade times share over one hundred in two steps, need equals goal minus held times rest over final share in one pass with algebraic clarity. Eighty-two held with forty final needs seventy for eighty aim, raising aim to ninety needs ninety-five. Second case at seventy-five held needs 87.5 for eighty B, third at eighty-eight with thirty final needs 94.7 for ninety. Calculation table shows mechanics stepwise | Component | Weighted math | Resulting points | Midterm 82 at 30 percent | 82 times 0.30 | 24.6 | Homework 90 at 30 percent | 90 times 0.30 | 27.0 | Held total interim | 51.6 over 60 weight | 86.0 average. Edge case above one hundred flags hard, so lift five course points early. Limitation ignores extra credit scaling and curved distributions. Retest two aims within five seconds to confirm live math. For term averages see /gpa-calculator with cumulative logic." }, { heading: "Final grade worked example: 82 held needs 70 on 40 percent final", body: "Add midterm eighty-two at thirty percent, homework ninety at thirty percent, set eighty aim to see seventy need on forty final with full breakdown and formula exposition. Push aim to ninety to see 102 need across two tries, signaling mathematical impossibility without curve or reweight. Copy three rows for study plan and prioritize high-weight chapters like cumulative final units. Test alternate scenario at seventy-five held needing 87.5 for eighty B to internalize sensitivity. Edge case of missing weight normalization distorts need, so confirm weights sum to one hundred precisely. Limitation covers score math only, excluding curves, drops, extra credit, participation bonuses for ten courses. Check shares first and trial midterm eighty-two and homework ninety for eighty aim needing seventy then ninety aim to lock reasoning confidently." }],
+    faq: [
+        {
+              "question": "How do you calculate a weighted course grade?",
+              "answer": "Multiply each assignment category score by its syllabus weight percentage, sum the weighted values, and divide by the total accumulated weight percentage."
+        },
+        {
+              "question": "How do I calculate what score I need on my final exam?",
+              "answer": "Subtract your current weighted points from your target grade points, then divide that remainder by the percentage weight assigned to your final exam."
+        },
+        {
+              "question": "What happens if the required final exam score exceeds 100%?",
+              "answer": "A required score over 100% indicates your goal is mathematically unachievable under current syllabus weights without extra credit points or an instructor curve."
+        },
+        {
+              "question": "How do dropped lowest assignment grades affect the calculation?",
+              "answer": "Dropping the lowest quiz or homework score removes that assignment from both earned points and total possible points, lifting your pre-final baseline average."
+        },
+        {
+              "question": "Are my assignment grades or course names saved to any server?",
+              "answer": "No. All grade weighting and required final exam projections execute locally in your browser memory; zero academic coursework data leaves your personal device."
+        }
+],
+    howTo: [
+        {
+              "name": "Enter completed coursework",
+              "text": "Input each completed assignment, quiz, project, or midterm exam along with earned scores and syllabus percentage weights."
+        },
+        {
+              "name": "Set your target letter grade",
+              "text": "Choose your desired overall course grade target, such as 90% for an A or 80% for a B."
+        },
+        {
+              "name": "Specify final exam weight",
+              "text": "Enter the syllabus percentage weight allocated to your upcoming final examination."
+        },
+        {
+              "name": "Review required final score",
+              "text": "Evaluate the exact final exam score needed to attain your target, alongside stretch and safety margin projections."
+        }
+],
+    guide: [
+        {
+              "heading": "Syllabus weighting models, grade thresholds, and academic achievement benchmarks",
+              "body": "Collegiate and secondary academic courses evaluate student mastery using weighted assessment frameworks rather than simple arithmetic score averages. Under a weighted system, distinct grading categories—such as weekly homework problem sets, laboratory practicals, pop quizzes, midterm examinations, and cumulative final assessments—carry unequal percentage values toward the final grade calculation. For example, earning an 80% score on a comprehensive final exam weighted at 40% contributes 32 full percentage points toward your course total, whereas an 80% on a homework assignment weighted at 10% yields only 8 points. In addition to semester letter benchmarks, academic institutions monitor unweighted collegiate grade point averages (GPA), honors course weight bumps (such as 0.5 quality points for honors or 1.0 for Advanced Placement / International Baccalaureate courses), pass/fail grading minimums, and academic probation warning thresholds. Navigating semester benchmarks requires tracking accumulated category weights, understanding pre-final baseline averages, accounting for instructor late deduction penalties, and determining the minimum final exam threshold necessary to secure desired course outcomes."
+        },
+        {
+              "heading": "Weighted grading formulas, letter grade standards, and required exam matrix",
+              "body": "Calculating weighted course standing involves two core algebraic relationships. Current course standing equals the sum of each category percentage score multiplied by its decimal weight, divided by total completed weight. Deriving the required final exam score subtracts held points from target points and divides by the final exam decimal weight: Required = [Target - (Current × (1 - Weight))] / Weight. Academic departments occasionally implement grading adjustments, including linear point additions, standard deviation bell curve redistributions, or square root curves where adjusted score equals 10 multiplied by the square root of raw score. The table below details common university grading scales, assessment weight categories, and required final exam thresholds across sample course standings.",
+              "table": {
+                    "caption": "Final Exam Score Required Across Baseline Course Standings and Weight Scenarios",
+                    "headers": [
+                          "Held Course Average",
+                          "Completed Weight",
+                          "Final Exam Weight",
+                          "Target Course Grade",
+                          "Required Final Score",
+                          "Feasibility Assessment"
+                    ],
+                    "rows": [
+                          [
+                                "82.0% (Current B)",
+                                "60% (0.60)",
+                                "40% (0.40)",
+                                "80.0% (Letter B)",
+                                "77.0%",
+                                "Comfortable achievable passing target"
+                          ],
+                          [
+                                "82.0% (Current B)",
+                                "60% (0.60)",
+                                "40% (0.40)",
+                                "90.0% (Letter A)",
+                                "102.0%",
+                                "Exceeds 100%; requires curve or bonus credit"
+                          ],
+                          [
+                                "75.0% (Current C)",
+                                "70% (0.70)",
+                                "30% (0.30)",
+                                "80.0% (Letter B)",
+                                "91.7%",
+                                "Challenging stretch threshold requiring mastery"
+                          ],
+                          [
+                                "88.0% (Current B+)",
+                                "70% (0.70)",
+                                "30% (0.30)",
+                                "90.0% (Letter A)",
+                                "94.7%",
+                                "Competitive attainable threshold"
+                          ],
+                          [
+                                "93.0% (Current A)",
+                                "75% (0.75)",
+                                "25% (0.25)",
+                                "90.0% (Letter A)",
+                                "81.0%",
+                                "High safety cushion margin"
+                          ],
+                          [
+                                "68.0% (Current D)",
+                                "60% (0.60)",
+                                "40% (0.40)",
+                                "70.0% (Letter C)",
+                                "73.0%",
+                                "Attainable course pass requirement"
+                          ],
+                          [
+                                "91.0% (Current A-)",
+                                "80% (0.80)",
+                                "20% (0.20)",
+                                "93.0% (Letter A)",
+                                "101.0%",
+                                "Exceeds 100%; requires bonus points or curve"
+                          ],
+                          [
+                                "70.0% (Current C-)",
+                                "50% (0.50)",
+                                "50% (0.50)",
+                                "75.0% (Letter C)",
+                                "80.0%",
+                                "Balanced final weighting with moderate target"
+                          ]
+                    ]
+              }
+        },
+        {
+              "heading": "Worked example: Calculating final exam threshold for an organic chemistry course",
+              "body": "Consider a college student enrolled in organic chemistry with four syllabus grading components: Homework Problem Sets (20% weight, score 90%), Laboratory Practicals (20% weight, score 85%), Midterm Examination (20% weight, score 76%), and a Comprehensive Final Exam (40% weight). The student has completed 60% of total coursework, holding 50.2 weighted points [(90 × 0.20) + (85 × 0.20) + (76 × 0.20) = 18.0 + 17.0 + 15.2 = 50.2 points]. Dividing 50.2 by 0.60 reveals a current pre-final average of 83.67% (grade B). To earn an overall course grade of 80.0% (B), the student needs to secure 29.8 remaining points from the 40% final exam [(80.0 - 50.2) / 0.40 = 74.5%]. Conversely, aspiring to an overall course grade of 90.0% (A) demands 39.8 points [(90.0 - 50.2) / 0.40 = 99.5%], signaling an ambitious study schedule involving reviewing past midterm exams, attending instructor office hours, and organizing focused peer study sprints. Limitations: This tool calculates linear weighted averages based on instructor-supplied percentages; it does not predict subjective curve distributions or attendance deduction policies. To evaluate semester GPA standing, visit [GPA Calculator](/gpa-calculator), or manage study review blocks with [Pomodoro Timer](/pomodoro-timer)."
+        }
+]
   },
   {
     slug: "concrete-calculator",
     title: "Concrete Calculator",
-    short: "Yards + bags needed",
-    description: "Estimate concrete volume in cubic yards and 80lb bags for slabs, footings and columns from dimensions. Dimensions stay on your device with offline math.",
+    seoTitle: "Concrete Calculator - Cubic Yards & Bags Estimate | Tool4SaaS",
+    short: "Cubic yards & concrete bag estimator",
+    description:
+      "Concrete calculator estimates required cubic yards, cubic feet, and 60lb or 80lb bags for slabs, footings, and cylindrical columns on Tool4SaaS.",
     icon: "Straighten",
-    keywords: ["concrete calculator", "cubic yards calculator", "10x10 slab offline", "80lb bags instantly", "concrete slab estimator free", "cubic feet yards 80lb sacks", "yards estimator no signup"],
+    keywords: [
+        "concrete calculator",
+        "cubic yards calculator",
+        "concrete slab calculator",
+        "concrete bag calculator",
+        "cement calculator",
+        "concrete volume estimator",
+        "post hole concrete calculator",
+        "cubic yards to bags"
+],
     category: "calculators",
-    faq: [{ question: "How many eighty-pound sacks fill one cubic yard?", answer: "About forty-five eighty-pound sacks fill one cubic yard of poured concrete. Ten feet by ten feet by four inches needs 1.24 yards or fifty-six sacks in one read. Results round upward with waste in one pass. Each yard sum runs on-device net-off privately without uploads." }, { question: "Do dimension entries remain private on site?", answer: "Yard sums stay in-tab alone without sending or sign-in linkage for confidential job costing. Three slabs with nine dimensions compute on-device offline instantly with no retention. Sizes hold local, need no network, and erase on close automatically. No account is requested for estimation at any time." }, { question: "What waste margin prevents short loads?", answer: "Order five to ten percent extra for spillage, uneven subgrade, and form absorption. Ten by ten by four-inch slab at 1.24 yards or fifty-six sacks becomes sixty-two sacks with ten percent buffer. Over-excavated edges consume surplus quickly. Confirming supplier minimums avoids second delivery fees." }, { question: "How do footing versus slab shapes differ volumetrically?", answer: "Footings multiply linear length by width by depth for trench volumes, while slabs multiply area by thickness. Twenty-foot trench twelve inches wide twelve inches deep needs 0.74 yards versus 1.24 for patio slab. Cylindrical columns use pi times radius squared times height. Selecting shape before dimensions prevents unit errors." }, { question: "When should sixty-pound versus eighty-pound bags be chosen?", answer: "Eighty-pound sacks suit large pours with fewer bags and lower per-yard cost, while sixty-pound sacks ease lifting for solo workers. One cubic yard needs forty-five eighty-pound versus sixty sixty-pound sacks. Comparing 1.24-yard patio at fifty-six eighties versus seventy-five sixties guides back strain versus trips tradeoff." }],
-    howTo: [{ name: "Pick shape", text: "Choose slab, footing, or column shape, verifying dimension labels switch to length-width-depth versus diameter-height correctly." }, { name: "Enter size", text: "Type 10 feet by 10 feet by 4 inches slab example, converting thickness to 0.33 feet automatically." }, { name: "View volume", text: "See 1.24 cubic yards and 56 eighty-pound bags with cubic-feet intermediate and rounding logic shown." }, { name: "Add waste", text: "Add 10 percent waste buffer for 62 bags ordered, accounting for spillage and uneven subgrade absorption." }],
-    guide: [{ heading: "What yardage and sack counts provide", body: "Yardage converts slab dimensions into orderable pour volumes and sack purchases with waste buffering. Ten feet by ten feet by four inches shows 1.24 yards and fifty-six eighty-pound sacks in one read. Crews pouring five yards daily and retailers stocking forty-five sacks per yard depend on accuracy. Reference table benchmarks pours comprehensively | Dimensions | Cubic feet | Yards | Eighty-pound sacks | 10 by 10 by 4 inches | 33.3 | 1.24 | 56 | 12 by 12 by 4 inches | 48.0 | 1.78 | 80 | 20-foot footing 12 by 12 inches | 20.0 | 0.74 | 34. Edge case of irregular subgrade eats extra volume unexpectedly. Limitation excludes rebar displacement and form expansion. Try three sizes to build ordering confidence and see /unit-converter for length conversions." }, { heading: "How dimensions convert to cubic yards", body: "Length times width times depth gives cubic feet over three dimensions, feet divided by twenty-seven give yards in one split. Ten by ten by 0.33 feet gives 33.3 feet or 1.24 yards, sacks divide yards by forty-five per eighty-pound unit. Second example at twelve by twelve by 0.33 gives 48 feet or 1.78 yards for eighty sacks. Conversion table shows math stepwise | Step | Formula pattern | Substitution example | Volume feet | 10 times 10 times 0.33 | 33.3 cubic feet | Yards | 33.3 divided by 27 | 1.24 yards | Sacks | 1.24 times 45 | 56 sacks. Edge case of rough excavation demands five to ten percent surplus for safety. Limitation ignores slump and aggregate ratios. Add waste before calling supplier to avoid short loads." }, { heading: "Concrete worked example: 10 by 10 slab is 1.24 yards validated", body: "Pick slab, type ten feet by ten feet by four inches to see 1.24 yards and fifty-six sacks with intermediate cubic feet displayed. Add ten percent waste to buy sixty-two sacks in two clicks, covering spillage and absorption. Test twelve-foot span for 1.78 yards and eighty sacks to scale intuition across sizes. Verify footing trench at twenty feet for 0.74 yards as alternate shape. Edge case of cold joints requires continuous pour planning beyond volume calculations. Limitation covers pour sums only, excluding rebar, mix design, or soil proof for twenty yards. Order spare mix and verify thickness with screed. Check ten by ten by four inches for 1.24 yards then ten percent waste for sixty-two to lock ordering confidently." }],
+    faq: [
+        {
+              "question": "How many 80-pound bags of concrete are in one cubic yard?",
+              "answer": "It takes 45 bags of 80-pound pre-mixed concrete (or 60 bags of 60-pound mix) to yield one cubic yard of poured concrete."
+        },
+        {
+              "question": "How do I calculate concrete volume for a rectangular slab?",
+              "answer": "Multiply length in feet by width in feet by depth in feet, then divide the total cubic feet by 27 to obtain cubic yards."
+        },
+        {
+              "question": "Why should I add a waste margin to concrete orders?",
+              "answer": "Contractors recommend adding a 5% to 10% contingency buffer to account for uneven subgrades, form deflection, spillage, and excavation irregularities."
+        },
+        {
+              "question": "How do you calculate concrete required for round post holes?",
+              "answer": "Calculate volume using the cylinder formula pi × radius squared × depth, convert cubic inches to cubic feet, and divide by 27 for cubic yards."
+        },
+        {
+              "question": "Are my project measurements or job site estimates stored anywhere?",
+              "answer": "No. All volumetric and bag calculations execute entirely on your device using client-side JavaScript; no structural specifications leave your computer."
+        }
+],
+    howTo: [
+        {
+              "name": "Select project structure",
+              "text": "Choose whether you are pouring a flat slab, a foundation footing trench, or circular post holes."
+        },
+        {
+              "name": "Enter dimensional measurements",
+              "text": "Input length, width, and thickness in feet or inches, or enter diameter and depth for cylindrical pours."
+        },
+        {
+              "name": "Include waste contingency margin",
+              "text": "Add a 5% to 10% allowance to prevent running short due to subgrade depth variations or spillage."
+        },
+        {
+              "name": "Review volume and bag counts",
+              "text": "Inspect total cubic yards, cubic feet, and exact counts of 60-pound and 80-pound pre-mix bags required."
+        }
+],
+    guide: [
+        {
+              "heading": "Structural concrete estimating, volumetric standards, and ASTM aggregate ratios",
+              "body": "Accurate volumetric estimating is essential for residential patios, sidewalk pavements, foundation footings, and structural masonry columns. Ready-mix concrete suppliers sell batch deliveries measured in cubic yards (one cubic yard equals 27 cubic feet, or 46,656 cubic inches). When undertaking smaller residential masonry projects, homeowners and builders frequently purchase pre-mixed dry concrete bags conforming to ASTM C387 standards. In addition to volume, structural civil engineers evaluate compressive strength ratings measured in pounds per square inch (PSI): residential footing trenches typically specify 2,500 PSI, outdoor walkway sidewalks and patio pavements require 3,000 to 4,000 PSI, and heavy vehicular garage slabs demand 4,500 PSI. Structural hydration requires adhering to curing timelines—attaining approximately 70% design compressive strength by day 7, with full 28-day hydration maturity—alongside incorporating air-entrainment admixtures to endure harsh winter freeze-thaw thermal expansion cycles. Accounting for dimensional variables, conversion factors between inches and feet, subgrade settlement, and formwork deflection ensures smooth structural pours without material shortfalls."
+        },
+        {
+              "heading": "Concrete volume formulas, bag yield rates, and slab dimension standards",
+              "body": "Rectangular slab and trench calculations convert depth from inches into fractional feet by dividing by 12, then multiplying length, width, and depth to yield total cubic feet. Cylindrical post holes apply the geometric formula: Volume = π × (Diameter / 2)² × Depth. On-site consistency is evaluated using a slump cone test (typically 3 to 5-inch slump for residential flatwork), maintaining a water-cement ratio between 0.45 and 0.50 for optimal aggregate bond without bleeding. One standard 80-pound concrete bag yields approximately 0.60 cubic feet of wet concrete (requiring 45 bags per cubic yard), while a 60-pound bag yields roughly 0.45 cubic feet (requiring 60 bags per cubic yard). The table below outlines standard project dimensions, cubic volume equivalents, and bag counts incorporating an 8% waste contingency allowance.",
+              "table": {
+                    "caption": "Concrete Estimating Benchmarks for Slabs, Footings, and Post Holes with 8% Waste Buffer",
+                    "headers": [
+                          "Project Type",
+                          "Dimensions (Length × Width × Depth)",
+                          "Cubic Feet Volume",
+                          "Cubic Yards Needed",
+                          "80-Pound Bags (with 8% Waste)",
+                          "60-Pound Bags (with 8% Waste)"
+                    ],
+                    "rows": [
+                          [
+                                "Patio Slab",
+                                "10 ft × 10 ft × 4 in (0.333 ft)",
+                                "33.3 cu ft",
+                                "1.23 cu yd",
+                                "60 bags",
+                                "80 bags"
+                          ],
+                          [
+                                "Driveway Slab",
+                                "12 ft × 20 ft × 4 in (0.333 ft)",
+                                "80.0 cu ft",
+                                "2.96 cu yd",
+                                "144 bags",
+                                "192 bags"
+                          ],
+                          [
+                                "Sidewalk Walkway",
+                                "4 ft × 25 ft × 4 in (0.333 ft)",
+                                "33.3 cu ft",
+                                "1.23 cu yd",
+                                "60 bags",
+                                "80 bags"
+                          ],
+                          [
+                                "Garage Foundation",
+                                "20 ft × 20 ft × 5 in (0.417 ft)",
+                                "166.7 cu ft",
+                                "6.17 cu yd",
+                                "300 bags (order ready-mix truck)",
+                                "400 bags"
+                          ],
+                          [
+                                "Trench Footing",
+                                "30 ft × 16 in × 12 in (1.00 ft)",
+                                "40.0 cu ft",
+                                "1.48 cu yd",
+                                "72 bags",
+                                "96 bags"
+                          ],
+                          [
+                                "Fence Post Holes (4 posts)",
+                                "10 in diameter × 36 in depth",
+                                "6.54 cu ft",
+                                "0.24 cu yd",
+                                "12 bags",
+                                "16 bags"
+                          ],
+                          [
+                                "Garage Floor Slab",
+                                "24 ft × 24 ft × 6 in (0.500 ft)",
+                                "288.0 cu ft",
+                                "10.67 cu yd",
+                                "520 bags (order ready-mix truck)",
+                                "693 bags"
+                          ],
+                          [
+                                "Deck Post Piers (6 piers)",
+                                "12 in diameter × 48 in depth",
+                                "22.62 cu ft",
+                                "0.84 cu yd",
+                                "41 bags",
+                                "55 bags"
+                          ]
+                    ]
+              }
+        },
+        {
+              "heading": "Worked example: Pouring a 10 ft by 12 ft outdoor backyard patio slab",
+              "body": "Consider a homeowner constructing a backyard dining patio measuring 10 feet wide by 12 feet long with a standard residential depth of 4 inches (0.3333 feet). Multiplying the dimensions yields net cubic volume: 10 ft × 12 ft × (4 / 12 ft) = 40.0 cubic feet. Dividing 40.0 cubic feet by 27 yields 1.481 cubic yards. Adding a prudent 10% contingency allowance for ground unevenness and spillage brings total required volume to 1.630 cubic yards (44.0 cubic feet). Sourcing 80-pound pre-mixed concrete bags: 44.0 cubic feet divided by 0.60 cubic feet per bag equals 73.3 bags, rounding up to 74 bags. If choosing 60-pound bags (0.45 cubic feet per bag): 44.0 divided by 0.45 equals 97.8 bags, rounding up to 98 bags. Preparation includes laying compacted crushed gravel subbase, positioning polyethylene moisture vapor retarders, placing welded wire mesh chairs, screeding with a straightedge 2x4, and bull-floating before final broom finishing. For volumes exceeding 2 to 3 cubic yards, ordering a commercial ready-mix concrete truck is significantly more cost-effective and structurally cohesive than mixing bags by hand. Limitations: Calculations do not adjust for internal rebar volume displacement or structural wire mesh reinforcement. To convert unit measurements, explore [Unit Converter](/unit-converter), or model materials cost margins with [Percentage Calculator](/percentage-calculator)."
+        }
+]
   },
   {
     slug: "us-sales-tax-calculator",
     title: "US Sales Tax Calculator",
-    short: "State tax + total",
-    description: "Apply a California, New York City, Texas, Florida or Washington preset, or a custom combined rate, to a subtotal and see tax and total. Runs locally.",
+    seoTitle: "US Sales Tax Calculator - State & Local Rates | Tool4SaaS",
+    short: "Calculate state & local US sales tax",
+    description:
+      "US sales tax calculator computes state, county, and local sales taxes across preset jurisdictions and custom combined rates online on Tool4SaaS.",
     icon: "AttachMoney",
-    keywords: ["us sales tax calculator", "sales tax by state", "ca ny tx offline", "100 and tax instantly", "california 7.25 free", "state county district combined rate", "sales tax vs vat vs gst", "state rate no signup"],
+    keywords: [
+        "us sales tax calculator",
+        "sales tax calculator",
+        "state sales tax rates",
+        "california sales tax",
+        "local sales tax calculator",
+        "retail sales tax",
+        "combined sales tax rate",
+        "sales tax by state"
+],
     category: "calculators",
-    faq: [{ question: "Which state rates are preset?", answer: "Five presets: California 7.25%, New York City 8.875%, Texas 6.25%, Florida 6% and Washington 10.35%. For any other state, county or city combination, choose Custom and type the combined rate. Presets are starting points, not a ZIP lookup." }, { question: "Does it look up my local rate?", answer: "No. There is no address or ZIP lookup. The result depends only on the subtotal and the single rate selected. Check the state tax authority or your register for the combined rate that applies to the ship-to location and product." }, { question: "Why does the register total differ?", answer: "Each preset is one combined rate for a named place. Counties, cities and special districts can add their own percentages, and some products are exempt. Add those layers yourself, then enter the combined rate in Custom. The tool does not itemize them." }, { question: "How do exemptions and shipping work?", answer: "The tool taxes the full subtotal you enter. If groceries, prescriptions or resale purchases are exempt, subtract them first. Shipping rules vary, so include taxable delivery charges in the subtotal only when your state requires it." }, { question: "Is this tax advice?", answer: "No. It is arithmetic for planning. Rates, sourcing rules and product taxability vary by jurisdiction and change over time. Verify the current combined rate and consult a tax professional for filing or collection decisions." }],
-    howTo: [{ name: "Enter subtotal", text: "Type 100 as the taxable amount. Subtract exempt groceries or other untaxed items before entering the figure." }, { name: "Pick rate", text: "Choose the California 7.25% preset, or select Custom and enter a combined 8.5% rate for county and city layers." }, { name: "View total", text: "Read the tax and total for the chosen single rate. At 7.25% on 100, the tax is 7.25 and the total is 107.25." }, { name: "Compare states", text: "Switch to Texas 6.25% to see a 6.25 tax and 106.25 total against the California baseline. Nothing is itemized." }],
-    guide: [{ heading: "What state-level totals clarify", body: "State totals add retail levy to a pre-tax price for one jurisdiction at a time. Typing one hundred dollars with California 7.25 percent shows 7.25 tax and 107.25 due in one second. Buyers checking twenty monthly carts and sellers quoting fifty bills need rapid presets. Comparison table shows divergence clearly | State preset | Rate applied | Tax on 100 | Total due | California | 7.25 percent | 7.25 | 107.25 | Texas | 6.25 percent | 6.25 | 106.25 | Custom district | 8.50 percent | 8.50 | 108.50. Edge case of origin versus destination sourcing changes applicable rate. Limitation excludes grocery exemptions and holidays. Retest two states within five seconds and see /terms. This is general information only, not tax advice." }, { heading: "How base and local district stacks", body: "Base levy equals price times state rate over one hundred in one pass, due adds price and base. The tool does not add local layers; combine them yourself and enter one rate. One hundred at 7.25 percent gives 107.25 before town adds, Texas 6.25 gives 106.25. Second example at 250 dollars shows 268.13 California versus 265.63 Texas. Stacking table details layers methodically | Layer applied | Math operation | Result on 100 base | State 7.25 | 100 times 0.0725 | 7.25 levy | County 1.00 | 100 times 0.01 | 1.00 levy | Combined 8.25 | 100 and 8.25 | 108.25 due. Edge case of special transit districts lifts due past base, so check county chart. Limitation omits product-specific exemptions. Enter 100 at California 7.25 for 107.25 then Texas 6.25 for 106.25 to lock totals. This is general information only, not tax advice. See /terms." }, { heading: "US tax worked example: 100 dollars at California 7.25 percent is 107.25 validated", body: "Enter one hundred, choose California 7.25 percent to see 107.25, flip to Texas 6.25 for 106.25 across two runs with tax and total. Type 8.5 percent custom for a combined city rate at 108.50 with the single-rate result shown. Test 250-dollar cart for 268.13 California versus 265.63 Texas to scale intuition across basket sizes. Verify 80 taxable and 20 exempt groceries for 105.80 to understand base adjustments. Edge case of tax holidays suspends levy on clothing under threshold, requiring date check before purchase. Limitation covers math aid only, excluding filing or county proof for fifty states. A single combined rate cannot reproduce item-by-item taxability, so build the subtotal from taxable lines before estimating. Keep a dated note of the rate source, the ZIP code and the product category beside each quote; those details explain discrepancies when a customer checks the register. For VAT use /gst-calculator. Verify rate before quoting. This is general information only, not tax advice. See /terms. Try three rates to solidify interstate comparison confidently." }],
+    faq: [
+        {
+              "question": "How do state and local sales tax jurisdictions stack in the United States?",
+              "answer": "Retail sales tax combines a mandatory state base rate with optional county, municipal city, and special transit or school district tax levies."
+        },
+        {
+              "question": "What is the difference between origin-based and destination-based sales tax sourcing?",
+              "answer": "Origin-based states calculate tax where the seller is located, while destination-based states assess tax based on where the buyer receives the product."
+        },
+        {
+              "question": "Which major state sales tax presets are included in this calculator?",
+              "answer": "Presets include California (7.25% state base), New York City (8.875% combined), Texas (6.25% base), Florida (6.0% base), and Washington (10.35% combined)."
+        },
+        {
+              "question": "Are essential goods like groceries and prescription drugs subject to sales tax?",
+              "answer": "Most states exempt unprocessed grocery foods, prescription medications, and medical devices from retail sales tax or tax them at reduced rates."
+        },
+        {
+              "question": "Does this calculator provide official legal tax filing advice?",
+              "answer": "No. This tool provides arithmetic planning estimates only; businesses must verify nexus and local tax rules with state revenue departments or a CPA."
+        }
+],
+    howTo: [
+        {
+              "name": "Enter pre-tax purchase subtotal",
+              "text": "Input the taxable invoice or retail cart amount before taxes and shipping fees."
+        },
+        {
+              "name": "Select state preset or custom rate",
+              "text": "Choose a major state benchmark or select Custom Rate to enter a specific local combined percentage."
+        },
+        {
+              "name": "Calculate tax and gross total",
+              "text": "Review the calculated tax amount and total transaction price with clear mathematical breakdown."
+        },
+        {
+              "name": "Compare multi-state liabilities",
+              "text": "Switch between state presets to model tax variances for interstate e-commerce shipping."
+        }
+],
+    guide: [
+        {
+              "heading": "United States retail sales tax frameworks, multi-jurisdiction stacks, and economic nexus",
+              "body": "Unlike value-added tax (VAT) or goods and services tax (GST) systems adopted internationally, the United States does not enforce a national federal consumption tax. Instead, retail sales taxes are enacted independently at the state and municipal government levels across 45 states and the District of Columbia (Alaska, Delaware, Montana, New Hampshire, and Oregon impose no statewide general sales tax). In most taxing jurisdictions, consumer purchases encounter a combined tax rate comprising a state baseline levy, county levies, municipal city surcharges, and special purpose district taxes (such as regional transportation or stadium authorities). Following the Supreme Court ruling in South Dakota v. Wayfair, remote online merchants and e-commerce platforms must calculate destination-based sales tax once transaction thresholds (typically $100,000 in gross annual sales or 200 transactions) establish economic nexus. Tax Disclaimer: Sales tax calculations provide mathematical estimates for planning purposes only. Rules governing product exemptions, local tax rates, and digital goods change regularly across state departments of revenue. Consult a certified public accountant (CPA) or tax attorney for corporate nexus compliance and tax filing. Reviewed by the [Tool4SaaS Financial Review Board](/author) in accordance with Streamlined Sales Tax (SST) standards."
+        },
+        {
+              "heading": "State sales tax benchmarks, local district rate ranges, and tax sourcing rules",
+              "body": "Tax liability depends heavily on whether a transaction follows origin-based sourcing (taxed according to the physical location of the vendor) or destination-based sourcing (taxed based on the delivery destination of the purchaser). Furthermore, grocery food items, digital SaaS subscriptions, prescription healthcare items, and clothing carry state-specific exemption rules. The table below illustrates state base rates, typical local district additive ranges, combined tax benchmarks, and primary sourcing rules for major commercial jurisdictions.",
+              "table": {
+                    "caption": "United States Sales Tax Comparison by State Baseline, Local Additions, and Sourcing Rules",
+                    "headers": [
+                          "Jurisdiction",
+                          "State Base Tax Rate",
+                          "Average Local District Additions",
+                          "Typical Combined Tax Benchmark",
+                          "Tax Sourcing Mechanism",
+                          "Major Product Exemptions"
+                    ],
+                    "rows": [
+                          [
+                                "California",
+                                "7.25% (highest state base)",
+                                "0.15% to 3.50%",
+                                "7.75% to 10.75%",
+                                "Mixed (Modified Origin / District Destination)",
+                                "Unprepared groceries, prescription drugs"
+                          ],
+                          [
+                                "Texas",
+                                "6.25%",
+                                "0.00% to 2.00%",
+                                "6.25% to 8.25% (capped at 8.25%)",
+                                "Origin-based (in-state orders)",
+                                "Groceries, prescription medications"
+                          ],
+                          [
+                                "New York (NYC)",
+                                "4.00%",
+                                "4.00% NYC + 0.875% MCTD",
+                                "8.875% (combined NYC benchmark)",
+                                "Destination-based",
+                                "Groceries, clothing under $110 per item"
+                          ],
+                          [
+                                "Florida",
+                                "6.00%",
+                                "0.50% to 1.50% county surtax",
+                                "6.50% to 7.50%",
+                                "Destination-based",
+                                "Unprocessed groceries, medical medicines"
+                          ],
+                          [
+                                "Washington",
+                                "6.50%",
+                                "0.50% to 3.90%",
+                                "7.00% to 10.40%",
+                                "Destination-based",
+                                "Groceries, prescription pharmaceuticals"
+                          ],
+                          [
+                                "Illinois",
+                                "6.25%",
+                                "0.00% to 4.75%",
+                                "6.25% to 11.00% (high municipal Chicago)",
+                                "Destination-based (remote sellers)",
+                                "1% reduced rate on qualifying groceries"
+                          ]
+                    ]
+              }
+        },
+        {
+              "heading": "Worked example: Calculating destination sales tax on an e-commerce invoice",
+              "body": "Consider a customer purchasing $150.00 worth of taxable consumer electronics for delivery to an address in Los Angeles County, California. The applicable sales tax components include California state tax (7.25%), Los Angeles county tax (0.25%), Los Angeles city tax (1.00%), and regional transit transportation district taxes (1.00%), culminating in a combined local sales tax rate of 9.50%. Multiplying the taxable subtotal by the combined tax rate yields: $150.00 × 0.0950 = $14.25 in sales tax due. Adding this levy to the subtotal produces an invoice total of $164.25 ($150.00 + $14.25). If the same customer ordered the identical $150.00 electronics package shipped to Dallas, Texas, subject to an 8.25% combined Texas rate (6.25% state + 2.00% local transit), sales tax equals $12.38 ($150.00 × 0.0825), generating a total checkout price of $162.38. Limitations: This calculator computes single combined rates; it does not verify individual postal code boundaries, delivery shipping charge taxability, or state tax holiday exemptions. To calculate commercial trade margins, visit [Discount Calculator](/discount-calculator), or manage international value-added levies with [GST Calculator](/gst-calculator)."
+        }
+]
   },
 ];

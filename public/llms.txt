@@ -1,5 +1,5 @@
 # Tool4SaaS (125 free tools across 12 categories + guides)
-> Updated: 2026-11-02 · visible count excludes 2 NOINDEX pages (pdf-compress, fancy-text-generator).
+> Updated: 2026-11-03 · visible count excludes 2 NOINDEX pages (pdf-compress, fancy-text-generator).
 
 > Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 125 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
 
@@ -30,24 +30,24 @@
 - [Word Counter](https://tool4saas.com/word-counter): Count words, characters & reading time
 - [Text Tools: Clean, Convert & Reverse](https://tool4saas.com/text-tools): Clean, convert, sort & reverse text
 - [Text Diff Checker](https://tool4saas.com/text-diff): Compare two texts word by word
-- [Text to Speech](https://tool4saas.com/text-to-speech): Listen to your text aloud
-- [Email Extractor](https://tool4saas.com/email-extractor): Pull emails from any text
-- [Markdown Editor](https://tool4saas.com/markdown-editor): Write & preview markdown
-- [Text Summarizer](https://tool4saas.com/text-summarizer): Extractive summary
-- [Grammar Checker](https://tool4saas.com/grammar-checker): Find grammar issues
-- [AI Detector](https://tool4saas.com/ai-detector): Detect AI-written text
-- [Plagiarism Checker](https://tool4saas.com/plagiarism-checker): 800 words 96% unique free
-- [Typing Speed Test](https://tool4saas.com/typing-speed-test): 62 WPM free 60-sec test
-- [Speech to Text](https://tool4saas.com/speech-to-text): Free voice typing
+- [Text to Speech Reader](https://tool4saas.com/text-to-speech): Listen to your text aloud
+- [Email Extractor](https://tool4saas.com/email-extractor): Extract email addresses from text
+- [Markdown Editor](https://tool4saas.com/markdown-editor): Write Markdown & preview HTML
+- [Text Summarizer](https://tool4saas.com/text-summarizer): Summarize long articles & text
+- [Grammar & Spell Checker](https://tool4saas.com/grammar-checker): Catch typos, grammar & punctuation
+- [AI Content Detector](https://tool4saas.com/ai-detector): Check text for AI writing patterns
+- [Plagiarism Checker](https://tool4saas.com/plagiarism-checker): Scan text for internal duplicates
+- [Typing Speed Test](https://tool4saas.com/typing-speed-test): Test typing speed in WPM with accuracy
+- [Speech to Text Converter](https://tool4saas.com/speech-to-text): Transcribe speech to text with mic
 
 ## Business & Writing
-- [Document Generator](https://tool4saas.com/document-generator): Quotes, receipts & slips
+- [Business Document Generator](https://tool4saas.com/document-generator): Generate quotations, POs & receipts
 - [Invoice Generator](https://tool4saas.com/invoice-generator): Free PDF with GST & logo
 - [Resume Builder](https://tool4saas.com/resume-builder): Build a clean resume and export to PDF
 - [Commission Calculator](https://tool4saas.com/commission-calculator): Calculate sales commission
-- [ATS Resume Checker](https://tool4saas.com/ats-resume-checker): Check resume vs job
-- [Signature Maker](https://tool4saas.com/signature-maker): Draw & type signature
-- [Cover Letter Builder](https://tool4saas.com/cover-letter-builder): Build cover letters
+- [ATS Resume Checker](https://tool4saas.com/ats-resume-checker): Check resume keyword match for ATS
+- [Online Signature Maker](https://tool4saas.com/signature-maker): Draw or type digital signatures
+- [Cover Letter Builder](https://tool4saas.com/cover-letter-builder): Create tailored job cover letters
 
 ## Developer Tools
 - [JSON Formatter](https://tool4saas.com/json-formatter): Format, view & convert JSON and YAML
@@ -57,33 +57,33 @@
 - [HTML Entity Encoder](https://tool4saas.com/html-entities): Encode & decode HTML entities
 - [Regex Tester](https://tool4saas.com/regex-tester): Test JavaScript regular expressions
 - [JWT Decoder](https://tool4saas.com/jwt-decoder): Decode JSON Web Tokens safely
-- [MIME Type Lookup](https://tool4saas.com/mime-type-lookup): File extension ↔ MIME
-- [Credit Card Validator](https://tool4saas.com/credit-card-validator): Free Luhn test – 4111 safe
-- [Password Strength Checker](https://tool4saas.com/password-strength): Rate your password
-- [Code Formatter & Minifier](https://tool4saas.com/code-minifier): Format HTML, minify CSS & JS
-- [Screen Resolution](https://tool4saas.com/screen-resolution): Detect screen metrics
-- [XML Formatter](https://tool4saas.com/xml-formatter): Format & validate XML
-- [Cron Parser](https://tool4saas.com/cron-parser): Explain cron expressions
-- [SSL Checker](https://tool4saas.com/ssl-checker): Check SSL certificate
-- [SQL Formatter](https://tool4saas.com/sql-formatter): Format SQL queries
-- [Subnet Calculator](https://tool4saas.com/subnet-calculator): IPv4 network calc
-- [Chmod Calculator](https://tool4saas.com/chmod-calculator): Octal + symbolic
-- [Code to Image](https://tool4saas.com/code-to-image): Pretty code PNG
-- [AES Encryptor](https://tool4saas.com/aes-encryptor): Encrypt with password
-- [OTP Generator (TOTP 2FA)](https://tool4saas.com/otp-generator): 30-sec 2FA codes
-- [AI Token Counter](https://tool4saas.com/ai-token-counter): Tokens + API cost
+- [MIME Type Lookup](https://tool4saas.com/mime-type-lookup): Look up MIME types & extensions
+- [Credit Card Validator](https://tool4saas.com/credit-card-validator): Check card validity using Luhn algorithm
+- [Password Strength Checker](https://tool4saas.com/password-strength): Score password strength & entropy
+- [Code Minifier & Formatter](https://tool4saas.com/code-minifier): Minify & beautify HTML, CSS, JS
+- [Screen Resolution Detector](https://tool4saas.com/screen-resolution): Detect screen resolution & viewport
+- [XML Formatter](https://tool4saas.com/xml-formatter): Format, validate & minify XML
+- [Cron Expression Parser](https://tool4saas.com/cron-parser): Parse & explain cron expressions
+- [SSL Certificate Checker](https://tool4saas.com/ssl-checker): Check domain SSL certificate expiry
+- [SQL Formatter](https://tool4saas.com/sql-formatter): Format, beautify & indent SQL queries
+- [Subnet Calculator](https://tool4saas.com/subnet-calculator): Calculate IPv4 subnets, CIDR & hosts
+- [Chmod Calculator](https://tool4saas.com/chmod-calculator): Calculate Linux file permissions & octal
+- [Code to Image Converter](https://tool4saas.com/code-to-image): Generate beautiful code snippet screenshots
+- [AES Encryptor](https://tool4saas.com/aes-encryptor): Encrypt & decrypt text with AES-256
+- [OTP Generator (TOTP 2FA)](https://tool4saas.com/otp-generator): Time-based one-time password 2FA generator
+- [AI Token Counter](https://tool4saas.com/ai-token-counter): Estimate LLM prompt tokens & API pricing
 
 ## Converters
 - [Unit & File Size Converter](https://tool4saas.com/unit-converter): km, kg, C, and bytes to MB
 - [JSON ↔ CSV Converter](https://tool4saas.com/json-csv): Convert between JSON and CSV
-- [URL Parser](https://tool4saas.com/url-parser): Break down any URL
-- [Number to Words & Code Converter](https://tool4saas.com/number-to-words): Words, Roman numerals, ASCII & base
-- [Image to Base64](https://tool4saas.com/image-to-base64): Encode & decode image data URLs
-- [CSV Viewer](https://tool4saas.com/csv-viewer): View, sort & filter CSV
-- [Morse Code Translator](https://tool4saas.com/morse-translator): Text ↔ Morse code
-- [JSON to Excel](https://tool4saas.com/json-to-excel): JSON → XLS download
-- [ZIP Creator](https://tool4saas.com/zip-creator): Create ZIP files
-- [Currency Converter](https://tool4saas.com/currency-converter): Live rates + offline
+- [URL Parser](https://tool4saas.com/url-parser): Parse URL components & parameters
+- [Number to Words Converter](https://tool4saas.com/number-to-words): Convert numbers to English words
+- [Image to Base64 Converter](https://tool4saas.com/image-to-base64): Convert images to Base64 data URLs
+- [CSV Viewer & Table Grid](https://tool4saas.com/csv-viewer): View, filter & sort CSV files
+- [Morse Code Translator](https://tool4saas.com/morse-translator): Encode & decode Morse code
+- [JSON to Excel Converter](https://tool4saas.com/json-to-excel): Convert JSON arrays to Excel sheets
+- [ZIP File Creator](https://tool4saas.com/zip-creator): Bundle and compress files into ZIP
+- [Currency Converter](https://tool4saas.com/currency-converter): Convert currencies with live forex rates
 
 ## Generators
 - [Password & Passphrase Generator](https://tool4saas.com/password-generator): Strong passwords & passphrases
@@ -91,29 +91,29 @@
 - [Slug Generator](https://tool4saas.com/slug-generator): Turn titles into URL slugs
 - [Random Number, String & UUID Generator](https://tool4saas.com/random-number): Numbers, strings & UUIDs
 - [Coin Flip & Dice Roller](https://tool4saas.com/coin-flip): Flip a coin or roll dice
-- [Barcode Generator](https://tool4saas.com/barcode-generator): CODE128, EAN13, UPC
-- [Fake Data Generator](https://tool4saas.com/fake-data-generator): Generate test data
-- [Business Name Generator](https://tool4saas.com/business-name-generator): Ideas & filters
+- [Barcode Generator](https://tool4saas.com/barcode-generator): Generate CODE128, EAN13 & UPC
+- [Fake Data Generator](https://tool4saas.com/fake-data-generator): Generate mock data for software testing
+- [Business Name Generator](https://tool4saas.com/business-name-generator): Generate creative business & brand names
 
 ## Images & Design
 - [QR Code Generator](https://tool4saas.com/qr-code-generator): Generate QR codes for links, text & more
 - [Image Editor: Compress, Resize, Crop & Border](https://tool4saas.com/image-compressor): Compress, resize, crop & border
 - [Color Studio](https://tool4saas.com/color-converter): HEX, RGB, CMYK, palettes & shades
 - [Color Contrast Checker](https://tool4saas.com/color-contrast): WCAG contrast for any two colors
-- [CSS Gradient & Effects Studio](https://tool4saas.com/gradient-generator): Gradients, shadows, radius & clip-path
-- [Favicon Generator](https://tool4saas.com/favicon-generator): Make a favicon from text or emoji
-- [Image Format Converter: JPG, PNG & WebP](https://tool4saas.com/image-format-converter): JPG, PNG & WebP
-- [SVG Optimizer](https://tool4saas.com/svg-optimizer): Shrink SVG files
-- [EXIF Viewer](https://tool4saas.com/exif-viewer): Read image metadata
-- [YouTube Thumbnail Downloader](https://tool4saas.com/youtube-thumbnail-downloader): Grab YT thumbnails
-- [Image Color Extractor](https://tool4saas.com/image-color-extractor): Extract 5 colors
-- [QR Scanner](https://tool4saas.com/qr-scanner): Scan QR from image
+- [CSS Gradient & Shape Generator](https://tool4saas.com/gradient-generator): Build CSS gradients and shapes
+- [Favicon Generator](https://tool4saas.com/favicon-generator): Create custom site favicons
+- [Image Format Converter](https://tool4saas.com/image-format-converter): Convert JPG, PNG & WebP images
+- [SVG Optimizer](https://tool4saas.com/svg-optimizer): Optimize, clean & minify SVG code
+- [EXIF Metadata Viewer](https://tool4saas.com/exif-viewer): Inspect hidden image EXIF metadata
+- [YouTube Thumbnail Downloader](https://tool4saas.com/youtube-thumbnail-downloader): Download HD YouTube video thumbnails
+- [Image Color Extractor](https://tool4saas.com/image-color-extractor): Extract dominant image color palettes
+- [QR Code Scanner](https://tool4saas.com/qr-scanner): Scan QR codes from camera or image
 
 ## PDF Tools
-- [Image to PDF](https://tool4saas.com/image-to-pdf): Images → PDF
-- [PDF Merge & Organizer](https://tool4saas.com/pdf-merge): Merge, split, rotate & watermark
-- [PDF to JPG](https://tool4saas.com/pdf-to-jpg): Pages to JPG images
-- [PDF to Text](https://tool4saas.com/pdf-to-text): Extract selectable text
+- [Image to PDF Converter](https://tool4saas.com/image-to-pdf): Convert JPG & PNG images to PDF
+- [PDF Merge & Splitter](https://tool4saas.com/pdf-merge): Merge, split & organize PDF pages
+- [PDF to JPG Converter](https://tool4saas.com/pdf-to-jpg): Convert PDF pages to JPG images
+- [PDF to Text](https://tool4saas.com/pdf-to-text): Extract selectable text from PDF documents
 
 ## Calculators
 - [Percentage Calculator](https://tool4saas.com/percentage-calculator): Percent of, change & difference
@@ -124,56 +124,56 @@
 - [GPA Calculator](https://tool4saas.com/gpa-calculator): Grade point average
 - [Scientific Calculator](https://tool4saas.com/scientific-calculator): Trig, logs, powers
 - [Fraction Calculator](https://tool4saas.com/fraction-calculator): Add, subtract fractions
-- [Final Grade Calculator](https://tool4saas.com/grade-calculator): What final do I need?
-- [Concrete Calculator](https://tool4saas.com/concrete-calculator): Yards + bags needed
-- [US Sales Tax Calculator](https://tool4saas.com/us-sales-tax-calculator): State tax + total
+- [Grade Calculator](https://tool4saas.com/grade-calculator): Weighted average & final exam grade
+- [Concrete Calculator](https://tool4saas.com/concrete-calculator): Cubic yards & concrete bag estimator
+- [US Sales Tax Calculator](https://tool4saas.com/us-sales-tax-calculator): Calculate state & local US sales tax
 
 ## Finance & Money
 - [Mortgage Calculator](https://tool4saas.com/mortgage-calculator): EMI & amortization schedule
-- [Compound Interest & CAGR Calculator](https://tool4saas.com/compound-interest-calculator): Growth, maturity & CAGR
-- [Salary & US Paycheck Calculator](https://tool4saas.com/salary-calculator): Take-home pay, US withholding
-- [Profit Margin Calculator](https://tool4saas.com/profit-margin-calculator): Calculate margin & markup
-- [Income Tax Calculator (US Demo)](https://tool4saas.com/income-tax-calculator): US demo net pay
-- [Inflation Calculator](https://tool4saas.com/inflation-calculator): Future purchasing power
-- [SIP Calculator](https://tool4saas.com/sip-calculator): SIP maturity & gains
-- [Retirement Calculator](https://tool4saas.com/retirement-calculator): Plan your savings goal
-- [Rent vs Buy Calculator](https://tool4saas.com/rent-vs-buy-calculator): Rent or buy?
-- [Freelance Rate Calculator](https://tool4saas.com/freelance-rate-calculator): Hourly & project rates
-- [Home Affordability Calculator](https://tool4saas.com/home-affordability-calculator): How much house?
-- [Refinance Calculator](https://tool4saas.com/refinance-calculator): Break-even refi
-- [Loan & EMI Calculator](https://tool4saas.com/emi-calculator): EMI, auto loan & simple interest
-- [Home Loan Eligibility India](https://tool4saas.com/home-loan-eligibility-india): Max loan by salary
-- [Mortgage Overpayment Calculator](https://tool4saas.com/mortgage-overpayment-calculator): Extra pay savings
-- [In-Hand Salary Calculator India FY 2026-27](https://tool4saas.com/in-hand-salary-india): CTC to monthly in-hand
-- [FD Calculator India](https://tool4saas.com/fd-calculator): FD maturity quarterly
-- [PPF Calculator India 7.1%](https://tool4saas.com/ppf-calculator): PPF 15-year maturity
-- [Debt Payoff Calculator](https://tool4saas.com/debt-payoff-calculator): Snowball vs avalanche
-- [Capital Gains Tax Calculator India](https://tool4saas.com/capital-gains-tax-india): LTCG STCG and cess
+- [Compound Interest Calculator](https://tool4saas.com/compound-interest-calculator): Project compound interest & CAGR
+- [Salary & Paycheck Calculator](https://tool4saas.com/salary-calculator): Estimate take-home pay & paycheck
+- [Profit Margin Calculator](https://tool4saas.com/profit-margin-calculator): Calculate profit, margin & markup
+- [US Income Tax Calculator](https://tool4saas.com/income-tax-calculator): Calculate US federal income tax
+- [Inflation Calculator](https://tool4saas.com/inflation-calculator): Calculate inflation & purchasing power
+- [SIP Calculator](https://tool4saas.com/sip-calculator): Calculate mutual fund SIP returns
+- [Retirement Calculator](https://tool4saas.com/retirement-calculator): Plan retirement corpus & monthly savings
+- [Rent vs Buy Calculator](https://tool4saas.com/rent-vs-buy-calculator): Compare financial costs of renting vs buying
+- [Freelance Rate Calculator](https://tool4saas.com/freelance-rate-calculator): Calculate profitable freelance hourly & day rates
+- [Home Affordability Calculator](https://tool4saas.com/home-affordability-calculator): Calculate home affordability with 28/36 rule
+- [Mortgage Refinance Calculator](https://tool4saas.com/refinance-calculator): Calculate refinance break-even & savings
+- [Loan & EMI Calculator](https://tool4saas.com/emi-calculator): Loan EMI & amortization schedule calculator
+- [Home Loan Eligibility Calculator India](https://tool4saas.com/home-loan-eligibility-india): Calculate max home loan eligibility by salary
+- [Mortgage Overpayment Calculator](https://tool4saas.com/mortgage-overpayment-calculator): Calculate interest savings from extra mortgage pay
+- [In-Hand Salary Calculator India](https://tool4saas.com/in-hand-salary-india): CTC to monthly take-home salary calculator India
+- [FD Calculator India](https://tool4saas.com/fd-calculator): Calculate fixed deposit maturity & interest India
+- [PPF Calculator India](https://tool4saas.com/ppf-calculator): Calculate PPF 15-year maturity & tax-free interest
+- [Debt Payoff Calculator](https://tool4saas.com/debt-payoff-calculator): Compare debt snowball vs avalanche payoff methods
+- [Capital Gains Tax Calculator India](https://tool4saas.com/capital-gains-tax-india): Calculate LTCG & STCG tax for FY 2024-25 & FY 2025-26
 
 ## Health & Fitness
-- [Calorie & Macro Calculator](https://tool4saas.com/calorie-calculator): BMR, TDEE & macro splits
-- [Water Intake Calculator](https://tool4saas.com/water-intake-calculator): Daily water needs
-- [Pregnancy Calculator](https://tool4saas.com/pregnancy-calculator): Due date & trimesters
-- [Sleep Calculator](https://tool4saas.com/sleep-cycle-calculator): Best bedtime & wake
-- [Period & Ovulation Calculator](https://tool4saas.com/period-calculator): Next period + fertile window
-- [One-Rep Max Calculator](https://tool4saas.com/one-rep-max-calculator): Epley + Brzycki
+- [Calorie & Macro Calculator](https://tool4saas.com/calorie-calculator): Calculate daily calories & macros
+- [Water Intake Calculator](https://tool4saas.com/water-intake-calculator): Estimate daily water intake
+- [Pregnancy Due Date Calculator](https://tool4saas.com/pregnancy-calculator): Estimate due date & trimesters
+- [Sleep Cycle Calculator](https://tool4saas.com/sleep-cycle-calculator): Calculate optimal bedtime & wake-up times
+- [Period & Ovulation Calculator](https://tool4saas.com/period-calculator): Cycle tracker & fertile window predictor
+- [One-Rep Max Calculator](https://tool4saas.com/one-rep-max-calculator): 1RM strength estimator & training zones
 
 ## SEO & Marketing
-- [Sitemap Generator](https://tool4saas.com/sitemap-generator): XML sitemap builder
-- [Robots.txt Generator](https://tool4saas.com/robots-txt-generator): Generate robots.txt
-- [SERP & Open Graph Preview](https://tool4saas.com/serp-preview): Google snippet + social card
-- [UTM Builder](https://tool4saas.com/utm-builder): GA4 campaign links
-- [Meta Tag Generator](https://tool4saas.com/meta-tag-generator): SEO + OG tags
-- [FAQ Schema Generator](https://tool4saas.com/faq-schema-generator): JSON-LD FAQs
-- [SEO Analyzer](https://tool4saas.com/seo-analyzer): RankMath-style SEO score
+- [XML Sitemap Generator](https://tool4saas.com/sitemap-generator): Build valid XML sitemaps from URLs
+- [Robots.txt Generator](https://tool4saas.com/robots-txt-generator): Create custom robots.txt files
+- [SERP & Social Preview](https://tool4saas.com/serp-preview): Preview Google & social cards
+- [GA4 UTM Builder](https://tool4saas.com/utm-builder): Build GA4 campaign tracking links
+- [Meta Tag Generator](https://tool4saas.com/meta-tag-generator): Generate HTML meta tags & social cards
+- [FAQ Schema Generator](https://tool4saas.com/faq-schema-generator): Generate FAQPage JSON-LD structured data
+- [On-Page SEO Analyzer](https://tool4saas.com/seo-analyzer): Audit on-page SEO factors with instant score
 
 ## Time & Date
 - [Age Calculator](https://tool4saas.com/age-calculator): Find your exact age & next birthday
 - [Timestamp Converter](https://tool4saas.com/timestamp-converter): Epoch ↔ human-readable date
-- [Date, Countdown & Duration Calculator](https://tool4saas.com/date-calculator): Date math, countdowns, work days
-- [Timezone & World Clock Converter](https://tool4saas.com/timezone-converter): Convert times + live city clocks
-- [Stopwatch Timer](https://tool4saas.com/stopwatch): Accurate online stopwatch
-- [Pomodoro Timer](https://tool4saas.com/pomodoro-timer): Focus & break cycles
+- [Date Calculator](https://tool4saas.com/date-calculator): Date math, countdowns, work days
+- [Timezone Converter](https://tool4saas.com/timezone-converter): Convert times across world timezones
+- [Online Stopwatch](https://tool4saas.com/stopwatch): Time laps with millisecond precision
+- [Pomodoro Timer](https://tool4saas.com/pomodoro-timer): Focus work sprints & break timer
 
 ## Guides & Blog
 - [All Guides](https://tool4saas.com/blog): View all long-form tool guides and tutorials.

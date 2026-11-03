@@ -3,86 +3,601 @@ import type { Tool } from "../types";
 export const seoTools: Tool[] = [
   {
     slug: "sitemap-generator",
-    title: "Sitemap Generator",
-    short: "XML sitemap builder",
-    description: "Build a valid XML sitemap from a URL list. Validate 1200 URLs with weekly changefreq and 0.8 priority, free offline, no signup.",
+    title: "XML Sitemap Generator",
+    seoTitle: "XML Sitemap Generator Online - Google Protocol | Tool4SaaS",
+    short: "Build valid XML sitemaps from URLs",
+    description:
+      "Generate valid XML sitemaps from URL lists with customizable change frequencies, last modified dates, and priority tags online on Tool4SaaS.",
     icon: "Code",
-    keywords: ["sitemap generator", "xml sitemap", "generate sitemap online", "xml sitemap generator 50000 urls", "free sitemap generator", "urlset 50k 50mb limit", "sitemap vs robots txt guide", "sitemap generator for google"],
+    keywords: [
+      "sitemap generator",
+      "xml sitemap generator",
+      "create sitemap online",
+      "google sitemap generator",
+      "xml sitemap creator",
+      "generate sitemap xml",
+      "sitemap format protocol"
+    ],
     category: "seo",
-    faq: [{"question":"What URLs are allowed?","answer":"Only absolute https URLs qualify, one per line, validated through URL parsing. For instance, 1,200 product links such as https://example.com/shoes/red pass cleanly, while relative /blog slugs trigger warnings. Strip tracking parameters, unify trailing slashes, correct percent encoding, then export UTF-8 XML ready for Search Console submission."},{"question":"Is my URL list uploaded when I use this Sitemap Generator?","answer":"No. Assembly happens completely in your browser, so 1,200 pasted addresses never travel outward. Processing continues after initial load without accounts, generates UTF-8 urlset instantly, and disappears when you close the tab. Download the file directly for site root deployment."},{"question":"Which limits constrain large sitemaps?","answer":"Output follows Google urlset schema with loc, lastmod, changefreq and priority per entry. Capacity caps at 50,000 addresses or 50MB uncompressed; a 120,000-item catalog therefore needs three splits. Assign weekly to blogs, monthly to evergreen guides, 0.8 to bestsellers, 0.3 to thin archives."},{"question":"When should changefreq be weekly versus monthly?","answer":"Choose weekly for frequently refreshed inventory, editorial blogs, or price-sensitive listings where crawlers benefit from rapid revisits. Select monthly for stable documentation, about pages, or evergreen tutorials that rarely shift. Daily suits news homepages, yearly fits archived legal notices. Align frequency with genuine modification cadence rather than wishful crawling."},{"question":"Why does Search Console reject my sitemap?","answer":"Rejections usually stem from relative paths, 404 targets, blocked robots rules, or incorrect content type instead of XML. Verify every loc returns 200, permits crawling, uses absolute https, and stays under size thresholds. Resubmit after correcting encoding errors, removing session IDs, and confirming the Sitemap directive placement."}],
-    howTo: [{"name":"Paste URLs","text":"Paste up to 1,200 absolute https addresses, one per line, like https://example.com/shoes/red for instant syntax validation checks."},{"name":"Set options","text":"Select weekly changefreq, 0.8 priority for products and today lastmod date for accurate freshness signals."},{"name":"Validate list","text":"Review flagged relative paths or 404 candidates among 1,200 rows, fixing slashes and encoding before export."},{"name":"Copy or download","text":"Download UTF-8 sitemap.xml under 50,000 URLs, upload to domain root, then reference via robots file."}],
-    guide: [{ heading: "What the sitemap generator does", body: "Build a clean XML sitemap from a pasted URL list without server roundtrips, ideal for shops, blogs, and documentation hubs launching fresh sections. Paste one absolute https address per line, for example 1,200 product links including https://example.com/shoes/red and https://example.com/shoes/blue, then assign weekly changefreq, 0.8 priority and today lastmod. Validation flags relative /blog paths, missing schemes, spaces, and duplicate slashes instantly. Reference table guides priorities: homepage daily 1.0 https://example.com/ | flagship product weekly 0.8 https://example.com/shoes/red | tutorial blog weekly 0.6 https://example.com/blog/lacing-guide | help article monthly 0.4 https://example.com/help/returns | legal archive yearly 0.3 https://example.com/legal/terms. Example one converts a 1,200-row launch list into UTF-8 urlset in seconds, ready for domain root upload. Edge handling trims blank lines and normalizes percent encoding automatically before export." }, { heading: "How urlset, changefreq and priority work", body: "Output adheres to Google urlset schema where each url entry carries loc, lastmod, changefreq and priority, serialized as UTF-8 XML for crawler consumption. Use daily for news homepages, weekly for evolving catalogs, monthly for stable tutorials, yearly for legal archives; match stated cadence to actual modification history to preserve trust. Assign 0.8 to 1.0 for revenue drivers, 0.5 to 0.6 for supporting blogs, 0.3 to 0.4 for thin tag filters. Example two upgrades a 3,500-post magazine: homepage daily 1.0, fresh reviews weekly 0.7, evergreen guides monthly 0.5, author archives monthly 0.3, keeping total under 50,000 URLs and 50MB raw. Splitting a 120,000-address marketplace into three files prevents truncation. Edge behavior rejects non-http schemes like ftp, highlights double-encoded ampersands, and preserves query strings only when canonical." }, { heading: "Sitemap worked example: 1200 URLs weekly 0.8 priority", body: "Paste 1,200 https URLs one per line, select weekly changefreq, 0.8 priority and today lastmod, then correct flagged relative paths before downloading sitemap.xml for domain root deployment. Upload to https://example.com/sitemap.xml, confirm 200 status with XML content type, then submit via Search Console for discovery. Limitations include inability to auto-crawl sites, detect orphan pages, guarantee indexing, or bypass 50,000 URL and 50MB ceilings; very large estates still require index sitemaps and manual audits. Dynamic parameters and session IDs should be canonicalized beforehand to avoid duplication. For crawler Allow and Disallow control and Sitemap directive placement, continue with our robots file builder at /robots-txt-generator to complete discovery setup efficiently. A second validation pass catches double slashes, trailing spaces and mixed http variants before final export preparation." }],
+    faq: [
+      {
+        question: "What URL formats are permitted in an XML sitemap?",
+        answer: "All URLs must be fully qualified canonical URLs starting with standard http:// or https:// protocol prefixes, matching your canonical web addresses exactly."
+      },
+      {
+        question: "Is my proprietary URL list or site structure uploaded to any server?",
+        answer: "No. All URL parsing, XML schema validation, and file generation execute 100% locally in your browser memory; zero URLs or domains leave your device."
+      },
+      {
+        question: "What are the protocol size limits for a single XML sitemap file?",
+        answer: "According to the sitemaps.org standard, a single sitemap XML file cannot exceed 50,000 URLs or 50MB uncompressed; larger sites must use a sitemap index."
+      },
+      {
+        question: "How do search engines use changefreq and priority tags?",
+        answer: "They serve as advisory hints to search engine crawlers regarding indexing priority and update frequencies, though Google prioritizes real lastmod dates."
+      },
+      {
+        question: "Where should the generated sitemap.xml file be deployed on a web server?",
+        answer: "Upload sitemap.xml to the root directory of your web host (e.g. https://example.com/sitemap.xml) and reference its URL path inside your robots.txt file."
+      }
+    ],
+    howTo: [
+      {
+        name: "Paste URL list",
+        text: "Paste a list of absolute website URLs, one per line, into the input editor box."
+      },
+      {
+        name: "Configure sitemap parameters",
+        text: "Select default change frequency (e.g. weekly or monthly) and default crawl priority (e.g. 0.8)."
+      },
+      {
+        name: "Generate XML markup",
+        text: "Click Generate to assemble a fully compliant XML sitemap adhering strictly to the sitemaps.org schema."
+      },
+      {
+        name: "Download or copy sitemap",
+        text: "Copy the raw XML code to your clipboard or download sitemap.xml directly for web server deployment."
+      }
+    ],
+    guide: [
+      {
+        heading: "Search engine crawlability and the XML sitemap protocol",
+        body: "An XML sitemap is a standardized machine-readable document that lists every essential page of a website, serving as an architectural roadmap for search engine crawlers like Googlebot and Bingbot. Established in 2005 through a joint initiative between Google, Yahoo, and Microsoft, the Sitemaps.org protocol enables webmasters to inform search engines about new, deeply nested, or media-rich URLs that might otherwise be missed by conventional hyperlink crawling. Sitemaps provide valuable metadata about each URL, including when the page was last updated (lastmod), how frequently content changes (changefreq), and its relative importance compared to other internal site pages (priority). Generating and maintaining a clean, error-free XML sitemap is a mandatory foundation of technical SEO."
+      },
+      {
+        heading: "Sitemaps.org XML schema specifications and crawler limits",
+        body: "To ensure reliable crawler ingestion, XML sitemaps must adhere to strict XML namespace declarations and document formatting standards. Sitemaps containing broken URLs, redirect loops, or non-canonical duplicate addresses waste search engine crawl budgets and trigger Google Search Console errors. The table below outlines core Sitemaps.org XML schema parameters, tag requirements, and SEO best practices.",
+        table: {
+          caption: "Sitemaps.org Protocol Specifications and Search Engine Limits",
+          headers: ["Sitemap Parameter", "XML Protocol Tag", "Permitted Value Range", "Search Engine Handling", "Recommended SEO Practice"],
+          rows: [
+            ["URL Location", "<loc>", "Absolute canonical URL (https)", "Mandatory for indexing", "Must match canonical tag exactly, no redirects"],
+            ["Last Modified", "<lastmod>", "W3C Datetime (YYYY-MM-DD)", "Critical for crawl scheduling", "Update only when substantial content changes"],
+            ["Change Frequency", "<changefreq>", "always, hourly, daily, weekly, monthly", "Informational hint to bot", "Use weekly for blogs, monthly for static pages"],
+            ["Priority Weight", "<priority>", "0.0 to 1.0 (default 0.5)", "Relative priority within site", "1.0 for homepage, 0.8 for primary landing tools"],
+            ["Sitemap Size Limits", "File Constraints", "Max 50,000 URLs / 50MB uncompressed", "Hard crawler ingestion limit", "Split into sitemap index when exceeding limits"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Generating a sitemap for an ecommerce store",
+        body: "Consider a webmaster creating a sitemap for an ecommerce store with 1,200 product and category URLs. Pasting the list into the generator configures weekly changefreq and a 0.8 priority tag, with the homepage given a priority of 1.0 and today's date assigned to lastmod. The generator wraps the entries in compliant '<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">' markup, validating that every entry uses HTTPS. Downloading sitemap.xml and uploading it to the server root makes it available at 'https://example.com/sitemap.xml', ready to submit via Google Search Console. Limitations: This tool generates static XML from supplied lists; it does not crawl live domains across the web or check HTTP status codes. To create crawler access directives, use [Robots.txt Generator](/robots-txt-generator), or format XML with [XML Formatter](/xml-formatter)."
+      }
+    ]
   },
   {
     slug: "robots-txt-generator",
     title: "Robots.txt Generator",
-    short: "Generate robots.txt",
-    description: "Create a valid robots.txt to guide Googlebot and other crawlers. Set Allow, Disallow, Crawl-delay and Sitemap paths, then copy or download the file offline.",
+    seoTitle: "Robots.txt Generator - Search Crawler Rules | Tool4SaaS",
+    short: "Create custom robots.txt files",
+    description:
+      "Generate custom robots.txt files to manage web crawler indexing with user-agent rules, disallow paths, and sitemap tags online on Tool4SaaS.",
     icon: "Code",
-    keywords: ["robots.txt generator", "generate robots.txt", "robots.txt maker", "robots.txt generator googlebot", "free robots.txt generator", "allow disallow crawl-delay sitemap", "robots txt vs sitemap indexing", "create robots.txt allow disallow"],
+    keywords: [
+      "robots txt generator",
+      "create robots txt online",
+      "robots exclusion protocol",
+      "googlebot disallow",
+      "robots txt creator",
+      "search engine crawler rules",
+      "sitemap path in robots txt"
+    ],
     category: "seo",
-    faq: [{"question":"What is robots.txt?","answer":"It is a plain-text directive file placed at domain root telling polite crawlers which paths they may fetch. For example, Disallow /admin shields dashboards while Allow / opens public catalogs and Sitemap https://example.com/sitemap.xml invites discovery. Syntax uses User-agent, Allow, Disallow, Crawl-delay and absolute sitemap references."},{"question":"Is my robots rules uploaded when I use this Robots.txt Generator?","answer":"No. Construction occurs entirely within your browser tab, so Allow, Disallow and Sitemap entries never leave the device. Generation works after initial load without accounts, produces UTF-8 text under 500KB instantly, and vanishes on tab close. Copy results directly for root deployment."},{"question":"Where do I install robots.txt?","answer":"Place the UTF-8 file at https://example.com/robots.txt, keeping size below 500KB for reliable parsing. For example, combine User-agent star, Disallow /admin, Allow / and Sitemap https://example.com/sitemap.xml across four lines. Validate with Search Console tester after deployment for syntax confidence and confirm directive ordering carefully."},{"question":"When does Crawl-delay help small servers?","answer":"Introduce Crawl-delay 5 to 10 when shared hosting buckles under aggressive polite bots fetching thousands of images. For example, a vintage catalog with 8,000 thumbnails benefits from pacing, while Google ignores the directive and prefers Search Console rate controls. Bing and Yandex still honor delays, so retain modest values without expecting universal throttling."},{"question":"Why do blocked pages still appear indexed?","answer":"Blocked URLs can remain indexed when external links point toward them, because Disallow prevents crawling but not index retention. For example, /admin/login hidden from fetching may still show title-only entries. Add noindex meta or authentication for genuine removal, then request Search Console clearing for sensitive endpoints."}],
-    howTo: [{"name":"Pick user-agent","text":"Choose star for every crawler or Googlebot for search-only control during initial setup and Bing preview testing."},{"name":"Add rules","text":"Enter Disallow /admin to shield dashboards, Allow / for catalogs and Crawl-delay 5 for pacing."},{"name":"Add sitemap","text":"Append absolute Sitemap https://example.com/sitemap.xml covering 1,200 product URLs for complete discovery guidance signals and faster recrawls."},{"name":"Copy or download","text":"Copy UTF-8 text under 500KB, place at domain root robots.txt, then verify via tester before public launch."}],
-    guide: [{ heading: "What the robots.txt generator builds", body: "Create a valid robots.txt guiding Googlebot and polite crawlers through Allow, Disallow, Crawl-delay and Sitemap directives without server uploads. Select User-agent star for universal coverage or Googlebot for search-specific tuning, then block /admin while opening public sections. Reference table clarifies intent: User-agent star Disallow /admin shields logins | Allow / permits catalog browsing | Crawl-delay 5 paces image fetching | Sitemap https://example.com/sitemap.xml advertises 1,200 URLs | Disallow /checkout?sort= avoids faceted duplication. Example one protects a boutique shop: star, Disallow /admin, Disallow /cart, Allow /, Sitemap product index, deployed under 500KB. Edge handling trims trailing spaces, normalizes capitalization of directives, and flags missing colons immediately before file generation completes smoothly. Administrators preview line endings and UTF-8 encoding consistency for reliable crawler parsing worldwide." }, { heading: "How Allow, Disallow and crawl-delay work", body: "Rules match path prefixes from domain root, so Disallow /admin conceals /admin/login and /admin/reports while Allow / reopens public siblings for nuanced governance. Crawl-delay 5 instructs courteous visitors to pause seconds between hits, easing fragile shared hosts during image-heavy crawls, although Google disregards pacing and expects Search Console throttling instead. Keep files plain UTF-8 below 500KB because oversized directives truncate and squander crawl budgets. Example two calms a recipe blog: star, Disallow /wp-admin, Allow /recipes, Crawl-delay 8, Sitemap https://example.com/sitemap.xml with 2,400 posts, reducing timeouts noticeably. Edge cases include case-sensitive paths where /Admin differs from /admin, query strings requiring explicit Disallow patterns and conflicting Allow Disallow precedence resolved by longest match evaluation. Testers validate User-agent spelling, slash placement and absolute sitemap URLs before production release cycles." }, { heading: "Robots worked example: star Disallow admin Allow root", body: "Enter User-agent star, Disallow /admin, Allow /, Crawl-delay 5 and Sitemap https://example.com/sitemap.xml, then download the four-line file for https://example.com/robots.txt deployment in one action. Confirm syntax through Search Console tester, checking status 200 and correct text/plain UTF-8 headers for crawler acceptance. Limitations confine influence to cooperative bots only; malicious scanners ignore directives, sensitive URLs remain discoverable via external links, and ranking guarantees never follow. Authentication and noindex remains mandatory for genuine privacy. For XML discovery covering 1,200 product URLs with weekly changefreq and 0.8 priority, advance with our sitemap builder at /sitemap-generator to finalize crawl pathways cohesively. Re-audit quarterly after redesigns, migrations and staging exposures to prevent accidental Disallow inheritance. Document every Allow Disallow amendment with dates and owners for transparent SEO governance continuity." }],
+    faq: [
+      {
+        question: "What is a robots.txt file and what role does it serve in SEO?",
+        answer: "A robots.txt file is a plain-text configuration file placed in a website's root directory that instructs automated web crawlers which pages they are allowed or disallowed to crawl."
+      },
+      {
+        question: "Does disallowing a page in robots.txt prevent it from appearing in Google search results?",
+        answer: "No. Disallowing prevents crawlers from scanning page content, but Google may still index the bare URL if external websites link to it; use a 'noindex' meta tag to prevent indexing."
+      },
+      {
+        question: "Where should the robots.txt file be uploaded on a web server?",
+        answer: "The robots.txt file must reside in the top-level root directory of your website domain (e.g. https://example.com/robots.txt) using UTF-8 text encoding."
+      },
+      {
+        question: "Are my internal directory paths or crawler rules uploaded to any server?",
+        answer: "No. All rule definitions, user-agent mappings, and file generation execute 100% locally in your browser memory; zero website paths leave your computer."
+      },
+      {
+        question: "How do I specify the location of my XML sitemap inside robots.txt?",
+        answer: "Add a line declaring the absolute URL of your sitemap: 'Sitemap: https://example.com/sitemap.xml', enabling search crawlers to discover all indexable pages automatically."
+      }
+    ],
+    howTo: [
+      {
+        name: "Select target user-agents",
+        text: "Apply rules universally to all web robots ('User-agent: *') or specify specific crawlers like Googlebot."
+      },
+      {
+        name: "Define disallow paths",
+        text: "Specify sensitive or low-value directories to block from crawling (e.g. /admin/, /checkout/, /tmp/)."
+      },
+      {
+        name: "Add sitemap reference",
+        text: "Include the absolute URL to your XML sitemap so crawlers can discover your indexable pages efficiently."
+      },
+      {
+        name: "Copy or download file",
+        text: "Copy the generated robots.txt text to your clipboard or download the plain-text file for server deployment."
+      }
+    ],
+    guide: [
+      {
+        heading: "The Robots Exclusion Protocol and crawler governance (RFC 9309)",
+        body: "The Robots Exclusion Protocol—first created by Martijn Koster in 1994 and formally codified as an Internet standard under RFC 9309 by the IETF in 2022—governs how ethical search engine spiders, commercial crawlers, and AI agents interact with web servers. Placed at the exact root of a web domain, the robots.txt file outlines crawling permissions before any web content is requested. By disallowing private administrative directories, backend checkout funnels, internal search query results, and duplicate faceted navigation filters, webmasters conserve server bandwidth and optimize search engine crawl budgets. However, syntax errors like accidental wildcard disallows can de-index entire web domains overnight. This generator constructs clean, validated robots.txt files following strict RFC 9309 standards."
+      },
+      {
+        heading: "Robots.txt syntax directives and search engine compliance",
+        body: "Robots.txt directives are processed line by line in discrete blocks grouped under specific User-agent headers. Modern crawlers like Googlebot and Bingbot evaluate rules using longest-match precedence, allowing webmasters to carve out specific Allow exceptions within broadly disallowed parent directories. The table below details standard robots.txt directives, syntax requirements, and crawler handling behaviors.",
+        table: {
+          caption: "Robots Exclusion Protocol Directives and Crawler Behavior (RFC 9309)",
+          headers: ["Directive Name", "Syntax Format", "Search Engine Support", "Crawler Interpretation", "Standard Production Use Case"],
+          rows: [
+            ["User-agent", "User-agent: <bot-token>", "Universally supported", "Designates rule target bot", "'*' applies to all crawlers; 'Googlebot' targets Google"],
+            ["Disallow", "Disallow: /path/", "Universally supported", "Blocks crawling of matching URLs", "Disallow: /admin/ or /checkout/ to prevent wasted crawl budget"],
+            ["Allow", "Allow: /path/file.ext", "Google, Bing, Yandex", "Exceptions inside disallowed folders", "Allow: /wp-admin/admin-ajax.php inside blocked admin directory"],
+            ["Sitemap", "Sitemap: https://domain/sitemap.xml", "Google, Bing, Yahoo", "Declares primary index locations", "Always specify absolute canonical URL to sitemap XML"],
+            ["Crawl-delay", "Crawl-delay: <seconds>", "Bing, Yandex (ignored by Google)", "Throttles request frequencies", "Protects fragile legacy servers from crawling spikes"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Scaffolding a production robots.txt file",
+        body: "Consider a webmaster launching a new website. The robots.txt must permit all search engines to crawl public content while protecting administrative folders and customer shopping carts. The generator produces a clean 6-line file: 'User-agent: *', followed by 'Disallow: /admin/', 'Disallow: /checkout/', 'Allow: /admin/login.css', and concludes with 'Sitemap: https://example.com/sitemap.xml'. Testing this file validates that crawlers can reach the public storefront while ignoring private backend pathways. Limitations: Robots.txt governs crawler access; it is not a security access-control system and does not prevent malicious bots from scraping content. To generate complete URL manifests for search engines, use [Sitemap Generator](/sitemap-generator), or format XML feeds with [XML Formatter](/xml-formatter)."
+      }
+    ]
   },
   {
     slug: "serp-preview",
-    title: "SERP & Open Graph Preview",
-    short: "Google snippet + social card",
-    description: "Preview Google snippets at 580px titles and 920px descriptions, and how links unfurl as Open Graph cards on social. Tune 50-60 char titles offline.",
+    title: "SERP & Social Preview",
+    seoTitle: "Google SERP & Open Graph Preview Tool Online | Tool4SaaS",
+    short: "Preview Google & social cards",
+    description:
+      "Preview Google search snippet results and social Open Graph share cards with pixel width limits and character counters online on Tool4SaaS.",
     icon: "Search",
-    keywords: ["serp preview", "google snippet", "open graph preview", "social card preview", "search preview", "google snippet preview 580px", "free serp preview", "title description length checker"],
+    keywords: [
+      "serp preview",
+      "google serp simulator",
+      "open graph preview",
+      "meta tag preview",
+      "google snippet preview",
+      "social share preview",
+      "seo title pixel counter",
+      "meta description length"
+    ],
     category: "seo",
-    faq: [{"question":"What are pixel limits?","answer":"Desktop truncates titles around 580px and descriptions near 920px, measured by rendered glyph widths. For example, a 55-char headline near 540px displays fully while 72 chars near 660px collapses with ellipsis. Narrow i consumes less space than wide W, so character counts alone mislead."},{"question":"Is my title and description uploaded when I use this SERP Preview?","answer":"No. Snippet mocks and 580px and 920px calculations execute entirely within your browser tab without external transmission. Entries clear on close while visual warnings remain immediate for confident pre-publish iteration cycles."},{"question":"Which lengths avoid truncation?","answer":"Retain titles between 50 to 60 characters near 580px and descriptions from 150 to 160 characters near 920px. For example, 55 chars near 540px and 155 chars near 880px render fully using slug best-running-shoes. Exceeding 70-char headlines invites ellipsis that buries keywords."},{"question":"When does mobile truncation differ from desktop?","answer":"Mobile viewports clip earlier than desktop because narrower screens compress available pixels and wrap favicons differently. For example, a 58-char title safe at 560px desktop may still ellipsis on phones. Preview both contexts, prioritize leading keywords within first 40 characters, then verify via Search Console screenshots."},{"question":"Why do rewritten titles appear despite perfect lengths?","answer":"Google rewrites snippets when queries, brands, or dates better satisfy intent than supplied tags. For example, a precise 55-char headline may be replaced by H1 and breadcrumbs for location searches. Maintain clear H1 alignment, avoid keyword stuffing and supply compelling 150-char descriptions to reduce rewrite frequency."}],
-    howTo: [{"name":"Type title","text":"Enter a 55-char headline near 540px while monitoring the 580px width indicator for desktop truncation safety."},{"name":"Type description","text":"Compose a 155-char summary near 880px while tracking the 920px limit bar for complete SERP visibility assurance."},{"name":"Edit slug","text":"Craft lowercase-hyphen slug best-running-shoes avoiding underscores and stopword clutter for crawler readability and sharing clarity."},{"name":"Fix warnings","text":"Shorten red-flagged phrases, front-load keywords, then assemble final tags elsewhere using Meta Tag Generator for head deployment."}],
-    guide: [{ heading: "What the SERP preview checks", body: "Preview Google snippets with live pixel meters at 580px titles and 920px descriptions for rapid pre-publish iteration. Type a 55-char headline near 540px and 155-char summary near 880px to confirm full display without ellipsis. Reference table maps safety: 50-char title 480px safe green | 55-char title 540px safe green | 62-char title 595px caution amber | 70-char title 650px truncated red | 155-char description 880px safe | 175-char description 980px truncated. Example one tunes a running-shoe review: 56-char headline, 152-char benefit summary, slug best-running-shoes, achieving dual green bars. Edge awareness notes narrow i versus wide W distort character estimates, requiring pixel validation. Bloggers refine listicles, merchants polish product blurbs and developers verify hyphenated slugs before deployment deadlines consistently every sprint." }, { heading: "How pixel widths and truncation work", body: "Title measurement relies on pixel rendering rather than raw characters, so identical 55-char strings diverge when capitals, pipes, or emojis expand width. Maintain 50 to 60 characters under 580px and 150 to 160 characters under 920px for desktop safety; mobile clips sooner, demanding front-loaded keywords within opening 40 characters. Example two rescues an overlong guide: 72-char headline near 660px truncated, revised to 57 chars near 545px fully visible, while 178-char description near 990px shortened to 154 chars near 875px. Edge complications include favicon and date stamps consuming horizontal room, double-width CJK glyphs inflating totals and dynamic location insertions shifting breakpoints unexpectedly. Re-check after template font changes. Content teams log pixel histories, compare serif versus without impacts and archive winning headline formulas for reuse." }, { heading: "SERP worked example: 55-char title 580px green bar", body: "Enter 55-char title, 155-char description and slug best-running-shoes, observe 580px and 920px bars glowing green, then trim reds to eliminate ellipsis before publication. Copy compliant phrasing into CMS title and meta fields, preserving hyphenated slugs and keyword order. Limitations confine output to static mocks; live fetching, personalized rewrites, mobile versus desktop variability and ranking forecasts stay excluded. Google may substitute H1 or breadcrumbs despite ideal lengths. For full head construction including 55-char title, 155-char description, canonical, viewport, Open Graph 1200x630 and Twitter cards, continue with our tag builder at /meta-tag-generator to deploy markup correctly. Revisit quarterly after algorithm display tweaks. Editors document truncation patterns, share screenshot evidence and train writers on front-loaded keyword placement consistently across seasonal campaigns every month." }],
+    faq: [
+      {
+        question: "What are the recommended Google title tag and meta description lengths?",
+        answer: "Title tags should stay between 50 and 60 characters (approximately 580 to 600 pixels), while meta descriptions should measure between 140 and 160 characters (approx 960 pixels)."
+      },
+      {
+        question: "Why does Google truncate titles by pixel width instead of character count?",
+        answer: "Google renders search snippets using proportional fonts (like Arial or Roboto), meaning wide capital letters like 'W' consume more pixel space than narrow letters like 'i'."
+      },
+      {
+        question: "How do Open Graph preview cards simulate social media sharing?",
+        answer: "The tool renders how your og:title, og:description, and og:image tags unfurl as rich media cards across Facebook, LinkedIn, Twitter/X, and messaging apps."
+      },
+      {
+        question: "Are my draft web page titles, URLs, or SEO descriptions uploaded online?",
+        answer: "No. All pixel width calculations, character counting, and card simulations execute 100% locally in your browser memory; zero SEO metadata leaves your device."
+      },
+      {
+        question: "Does Google always display the exact meta description I provide in HTML?",
+        answer: "No. Google frequently rewrites meta descriptions dynamically based on the user's specific search query if it believes on-page copy better matches search intent."
+      }
+    ],
+    howTo: [
+      {
+        name: "Input page title and URL",
+        text: "Type your target page title (50–60 characters recommended) and canonical web address URL."
+      },
+      {
+        name: "Enter meta description",
+        text: "Draft a compelling meta description between 140 and 160 characters with clear user benefit."
+      },
+      {
+        name: "Verify pixel width gauges",
+        text: "Inspect real-time pixel width bars to ensure your title and description will not truncate with ellipses (...)."
+      },
+      {
+        name: "Preview social Open Graph card",
+        text: "Add an og:image URL to preview how the link unfurls as a rich preview card on Twitter and Facebook."
+      }
+    ],
+    guide: [
+      {
+        heading: "Search engine presentation and click-through rate (CTR) optimization",
+        body: "Search Engine Results Pages (SERPs) are the primary digital storefront for organic web traffic. Even if a webpage achieves a top-three ranking on Google search, an unappealing, truncated, or vague snippet will suffer from depressed Click-Through Rates (CTR). A standard search snippet consists of three core visual components: the breadcrumb navigation URL, the clickable title tag (rendered as a blue hyperlink), and the informative snippet description. Crafting title tags that place primary keywords first while remaining strictly within Google's display pixel boundaries ensures that titles communicate immediate value without being abruptly truncated with an ellipsis (...). Simulating snippet presentation before publishing content is a core technical SEO workflow."
+      },
+      {
+        heading: "Display specifications across Google SERP and social Open Graph cards",
+        body: "Search engines and social media networks enforce strict display dimensions for web links. Because desktop and mobile viewports render snippets at differing widths, webmasters must optimize metadata to satisfy both environments simultaneously. The table below outlines standard display constraints, pixel limits, and recommended character lengths across Google SERPs and social sharing platforms.",
+        table: {
+          caption: "Search Engine and Social Media Display Specifications and Pixel Limits",
+          headers: ["Platform / Surface", "Display Element", "Max Pixel Width", "Ideal Character Length", "Trunking / Formatting Rule"],
+          rows: [
+            ["Google Desktop SERP", "SEO Title Tag", "580 – 600 Pixels", "50 – 60 Characters", "Truncates with '...' if exceeding 600px width"],
+            ["Google Desktop SERP", "Meta Description", "960 – 990 Pixels", "140 – 160 Characters", "Truncates after roughly two lines of text"],
+            ["Google Mobile SERP", "SEO Title Tag", "550 – 580 Pixels", "50 – 55 Characters", "May wrap to two lines on mobile screens"],
+            ["Google Mobile SERP", "Meta Description", "680 – 720 Pixels", "110 – 130 Characters", "Shorter snippet display to conserve screen real estate"],
+            ["Facebook / LinkedIn", "Open Graph Card", "1200 × 630 Pixels", "40 – 80 Chars (Title)", "Renders 1.91:1 aspect ratio high-resolution image banner"],
+            ["Twitter / X Card", "Summary Large Image", "1200 × 600 Pixels", "50 – 70 Chars (Title)", "Full-width image card with title and site domain"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Optimizing a SaaS landing page snippet",
+        body: "Consider a marketer optimizing a page title: 'Invoice Generator — Free Online Invoice Maker & Billing Software for Small Business Owners'. At 86 characters and 720 pixels, Google truncates the title to: 'Invoice Generator — Free Online Invoice Maker & Billing...'. Shortening the title to: 'Invoice Generator: Free Online Billing Templates | Tool4SaaS' measures exactly 58 characters and 564 pixels—fitting cleanly within the 600px threshold while highlighting the brand. Next, drafting a 152-character description: 'Create and download professional invoices in seconds with custom logo, tax rates, and currency formatting. Free in your browser on Tool4SaaS.' fits within 940 pixels without truncation. Limitations: This tool simulates standard Google presentation; it does not predict query-specific dynamic title rewrites by Google. To generate XML sitemaps for Googlebot, use [Sitemap Generator](/sitemap-generator), or configure crawler access with [Robots.txt Generator](/robots-txt-generator)."
+      }
+    ]
   },
   {
     slug: "utm-builder",
-    title: "UTM Builder",
-    short: "GA4 campaign links",
-    description: "Build clean GA4 UTM campaign links in seconds. Add source, medium, campaign and optional term and content with auto-encoding and one-click copy offline.",
+    title: "GA4 UTM Builder",
+    seoTitle: "GA4 UTM Builder - Campaign URL Link Generator | Tool4SaaS",
+    short: "Build GA4 campaign tracking links",
+    description:
+      "Generate standardized Google Analytics 4 (GA4) campaign tracking links with automatic URL encoding and custom UTM parameters online on Tool4SaaS.",
     icon: "Link",
-    keywords: ["utm builder", "utm link generator", "campaign url builder", "ga4 campaign url builder", "free utm builder", "source medium campaign term content", "newsletter utm generator"],
+    keywords: [
+      "utm builder",
+      "ga4 utm generator",
+      "google analytics campaign url builder",
+      "create utm link",
+      "utm tag generator",
+      "campaign tracking link",
+      "utm code generator",
+      "marketing campaign url"
+    ],
     category: "seo",
-    faq: [{"question":"Which UTMs does GA4 require?","answer":"GA4 mandates source, medium and campaign; term and content remain optional for granular paid differentiation. For example, source newsletter, medium email, campaign spring-sale attributes opens accurately. Omitting required fields fragments reports, so validate presence before distribution across newsletters and social placements."},{"question":"Is my campaign URL uploaded when I use this UTM Builder?","answer":"No. Base addresses and source, medium, campaign values encode strictly entirely in your browser; nothing is sent to a server. Compose https://example.com/sale with spring-sale after initial load without accounts. Results clear on close while copied links remain ready for newsletters and paid social placements accurately."},{"question":"What characters are safe in UTM values?","answer":"Prefer lowercase letters, numerals and hyphens without spaces for durable tracking. For example, term running-shoes and content header-button distinguishes variants cleanly. Maintain full URLs below 2,000 characters to prevent clipping; percent-encoding converts spaces and ampersands automatically across email clients and browsers consistently."},{"question":"When should term and content be added?","answer":"Append term for paid keyword differentiation and content for creative variation testing. For example, term running-shoes isolates search queries while content header-button versus footer-link contrasts placements. Skip both for organic newsletters where source medium campaign suffices. Review GA4 comparisons after sufficient click volume accumulates."},{"question":"Why do GA4 reports show unassigned traffic?","answer":"Unassigned entries arise from missing source, inconsistent capitalization like Email versus email, or malformed separators breaking parsing. For example, Spring-Sale versus spring-sale splits identical campaigns. Standardize lowercase hyphenated values, confirm required trio presence, then inspect realtime diagnostics for correction validation."}],
-    howTo: [{"name":"Paste base URL","text":"Paste canonical https://example.com/sale without existing query strings for clean parameter appending and reliable GA4 attribution."},{"name":"Fill required tags","text":"Enter source newsletter, medium email and campaign spring-sale using lowercase hyphenated conventions for consistent channel grouping."},{"name":"Add optional tags","text":"Add term running-shoes and content header-button for paid variant differentiation testing across ad sets and placements."},{"name":"Copy clean link","text":"Copy the auto-encoded GA4-ready URL under 2,000 characters for newsletter deployment and campaign performance monitoring."}],
-    guide: [{ heading: "What the UTM builder creates", body: "Assemble tidy GA4 campaign links with automatic percent-encoding and one-click copying for newsletters, ads and social launches. Paste base https://example.com/sale, append source newsletter, medium email, campaign spring-sale, optionally term running-shoes and content header-button. Reference table organizes usage: newsletter email spring-sale tracks product launches | paid-search cpc winter-clearance isolates queries | social paid instagram-story contrasts creatives | affiliate partner summer-guide attributes referrals | internal banner homepage-promo ignores external reports. Example one builds newsletter spring-sale in seconds, yielding encoded URL ready for distribution. Edge handling converts spaces to %20, preserves existing fragments and rejects malformed base addresses lacking https schemes. Marketers compare channel ROI, creators validate link integrity and analysts confirm parameter order before mass sends during seasonal pushes consistently every week." }, { heading: "How source, medium and campaign work", body: "Source identifies origin like newsletter, medium classifies channel like email, campaign names initiative like spring-sale for structured GA4 reporting. Term captures paid keywords such as running-shoes, content distinguishes placements like header-button versus footer-link for creative testing. Enforce lowercase hyphenated values below 2,000 total characters; auto-encoding safeguards spaces and symbols. Example two differentiates paid variants: base https://example.com/shoes, source google, medium cpc, campaign winter-clearance, term running-shoes, content header-button, revealing winning creative after 500 clicks. Edge intricacies involve existing query strings requiring ampersand appending and signs misread as spaces and duplicate parameters where last value prevails. Audit case consistency because Email versus email fractures attribution. Teams maintain naming dictionaries, document abbreviations and review parameter hygiene monthly for trustworthy insights across all regions continuously." }, { heading: "UTM worked example: newsletter email spring-sale link", body: "Fill source newsletter, medium email, campaign spring-sale and optional term content, copy GA4-ready link, then embed across newsletters and ads for unified measurement. Verify realtime GA4 acquisition reports display expected trio before full rollout. Limitations include tagging scope only; traffic generation, ranking boosts and conversion guarantees remain absent without analytics property linkage. Over-tagged internal links inflate sessions, so reserve UTMs for external placements. For on-page relevance scoring covering focus keywords, titles and density toward 80-plus readiness, advance with our page evaluator at /seo-analyzer to complement campaign tracking strategically. Archive every tagged URL with dates and owners. Document naming conventions, purge stale campaigns quarterly and educate collaborators on lowercase hyphen discipline for lasting accuracy across expanding channel portfolios every quarter." }],
+    faq: [
+      {
+        question: "What are the core UTM tracking parameters in Google Analytics 4 (GA4)?",
+        answer: "The primary parameters are utm_source (referrer like 'google' or 'newsletter'), utm_medium (marketing channel like 'cpc' or 'email'), and utm_campaign (campaign name like 'spring_sale')."
+      },
+      {
+        question: "Does this UTM builder automatically URL-encode spaces and special characters?",
+        answer: "Yes. Spaces, ampersands, and punctuation are automatically encoded into RFC 3986 compliant query strings to prevent broken URLs in tracking links."
+      },
+      {
+        question: "Why should UTM parameter values always use lowercase letters?",
+        answer: "Google Analytics is case-sensitive; using 'Email' and 'email' splits campaign traffic into two separate reporting buckets, fragmenting performance attribution."
+      },
+      {
+        question: "Are my confidential marketing campaigns, landing pages, or partner links tracked?",
+        answer: "No. All URL parsing, parameter concatenation, and query encoding execute 100% locally in your browser memory; zero campaign links leave your device."
+      },
+      {
+        question: "What is the difference between utm_term and utm_content?",
+        answer: "utm_term tracks paid search keywords, whereas utm_content differentiates links or ad variations pointing to the same URL (ideal for A/B split testing)."
+      }
+    ],
+    howTo: [
+      {
+        name: "Enter destination website URL",
+        text: "Input the full web page address (including https://) where you want campaign visitors to land."
+      },
+      {
+        name: "Specify campaign source and medium",
+        text: "Add utm_source (e.g. 'linkedin' or 'newsletter') and utm_medium (e.g. 'cpc', 'social', or 'email')."
+      },
+      {
+        name: "Add campaign name and identifiers",
+        text: "Enter utm_campaign (e.g. 'summer_promo') and optional utm_content for creative A/B testing."
+      },
+      {
+        name: "Copy encoded campaign URL",
+        text: "Click Copy Link to transfer your fully encoded, validated GA4 campaign link directly to your ads or emails."
+      }
+    ],
+    guide: [
+      {
+        heading: "Marketing campaign attribution and the Urchin Tracking Module (UTM)",
+        body: "Accurate marketing attribution is the foundation of data-driven digital advertising, content marketing, and customer acquisition. Developed originally by Urchin Software Corporation (acquired by Google in 2005 to form Google Analytics), Urchin Tracking Module (UTM) parameters are five standardized query string tags appended to destination URLs. When prospective customers click a UTM-tagged hyperlink from an email newsletter, sponsored social post, partner influencer blog, or pay-per-click ad, Google Analytics 4 (GA4) extracts these query tokens to attribute sessions, user conversions, and revenue accurately. Unstructured, inconsistent tagging—such as mixing uppercase and lowercase words or forgetting channel mediums—corrupts analytics data and blinds marketing teams. This browser UTM builder standardizes link generation with automated encoding and zero tracking telemetry."
+      },
+      {
+        heading: "GA4 UTM parameter specifications and standard channel groupings",
+        body: "To ensure that incoming web traffic maps cleanly into Google Analytics 4's default channel groupings (such as Paid Search, Organic Social, Email, and Referral), marketing teams must adhere to standard naming conventions. Parameters should be strictly lowercase, use hyphens or underscores instead of spaces, and follow established medium taxonomies. The table below details official GA4 UTM parameters, syntax conventions, and recommended channel grouping values.",
+        table: {
+          caption: "Google Analytics 4 UTM Parameter Taxonomy and Channel Grouping Standards",
+          headers: ["UTM Parameter", "Query Parameter Key", "Requirement Level", "Recommended Value Examples", "GA4 Default Channel Grouping"],
+          rows: [
+            ["Campaign Source", "utm_source", "Mandatory", "google, newsletter, linkedin, twitter", "Identifies the specific platform or publisher"],
+            ["Campaign Medium", "utm_medium", "Mandatory", "cpc, email, social, referral, display", "Maps traffic into GA4 default channel groups"],
+            ["Campaign Name", "utm_campaign", "Mandatory", "spring_sale_2026, product_launch", "Groups all marketing assets under one campaign"],
+            ["Campaign Term", "utm_term", "Optional", "best_invoicing_software, saas_tools", "Tracks targeted search keywords in paid search ads"],
+            ["Campaign Content", "utm_content", "Optional", "cta_button_blue, hero_banner_v2", "Differentiates creative variants in A/B split testing"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Building a tracking link for an email newsletter launch",
+        body: "Consider a growth marketer launching a promo campaign for an invoice generator via a weekly email newsletter. The base URL is 'https://tool4saas.com/invoice-generator'. The marketer inputs Source: 'weekly_digest', Medium: 'email', Campaign: 'q4_feature_launch', and Content: 'header_cta_button'. The tool automatically constructs the encoded URL: 'https://tool4saas.com/invoice-generator?utm_source=weekly_digest&utm_medium=email&utm_campaign=q4_feature_launch&utm_content=header_cta_button'. In GA4, incoming clicks automatically populate the 'Email' channel grouping under the 'q4_feature_launch' campaign, providing clear ROI visibility. Limitations: UTM tags track incoming session origins; they do not persist if a user navigates between internal site pages. To simulate search engine snippets, explore [SERP Preview](/serp-preview), or generate crawler rules with [Robots.txt Generator](/robots-txt-generator)."
+      }
+    ]
   },
   {
     slug: "meta-tag-generator",
     title: "Meta Tag Generator",
-    short: "SEO + OG tags",
-    description: "Generate SEO title, 150-160 char meta description, canonical and Open Graph and Twitter Card tags. Copy the full head block and paste into your page.",
+    seoTitle: "Meta Tag Generator Online - SEO & Open Graph Tags | Tool4SaaS",
+    short: "Generate HTML meta tags & social cards",
+    description:
+      "Generate SEO title tags, meta descriptions, Open Graph cards, and Twitter meta code with instant search preview snippets online on Tool4SaaS.",
     icon: "Code",
-    keywords: ["meta tag generator", "meta description generator", "og tags generator", "meta description 150-160 chars", "free meta tag generator", "canonical viewport twitter card tags", "meta vs og title description", "og twitter card tags generator"],
+    keywords: [
+      "meta tag generator",
+      "online meta tag generator",
+      "open graph tag generator",
+      "twitter card generator",
+      "seo meta description generator",
+      "html meta tags builder",
+      "social share tag maker",
+      "free meta tag generator"
+    ],
     category: "seo",
-    faq: [{"question":"What length avoids truncation?","answer":"Maintain titles from 50 to 60 characters near 580px and descriptions 150 to 160 characters near 920px. For example, 55 chars near 540px and 155 chars near 880px display fully. Longer 75-char headlines truncate, hiding keywords behind ellipsis across desktop search results."},{"question":"Is my title and tags uploaded when I use this Meta Tag Generator?","answer":"No. Head elements assemble purely entirely in your browser; nothing is sent to a server. Craft 55-char titles and 1200x630 visuals after initial load without accounts. Drafts disappear on close while copying remains immediate for deployment across staging and production environments."},{"question":"Which tags are included?","answer":"Exports SEO title, 150 to 160 char meta description, canonical, viewport, Open Graph with 1200x630 image and Twitter summary_large_image. For example, embed https://example.com/post block covering search and social. Paste once near head top for unified discovery and consistent unfurl presentation everywhere."},{"question":"When should canonical differ from og:url?","answer":"Separate canonical from og:url when translated variants, paginated series, or campaign parameters require distinct search consolidation versus social sharing targets. For example, canonical points to clean https://example.com/post while og:url carries ?utm storytelling. Align both for standard articles to avoid conflicting signals."},{"question":"Why does viewport matter for SEO?","answer":"Viewport meta ensures responsive rendering, preventing mobile usability penalties that suppress rankings despite flawless titles. For example, width=device-width initial-scale=1 adapts 1200x630 heroes gracefully. Omit it and smartphones shrink desktop layouts, inflating bounce rates. Include alongside charset and description for complete head hygiene."}],
-    howTo: [{"name":"Fill title and description","text":"Enter 55-char title near 540px and 155-char description near 880px for balanced coverage and search click appeal."},{"name":"Add URL and image","text":"Supply canonical https://example.com/post and 1200x630 JPG URL for social readiness across Facebook LinkedIn and X networks."},{"name":"Preview mocks","text":"Inspect title length, description truncation, canonical accuracy and OG Twitter completeness before final head insertion steps."},{"name":"Copy tag block","text":"Copy complete head snippet, paste near top for crawler and social parsing then validate via external testers."}],
-    guide: [{ heading: "What the meta tag generator builds", body: "Construct complete head markup covering SEO title, 150 to 160 char description, canonical, viewport, Open Graph 1200x630 and Twitter large image for unified discovery. Set 55-char title near 540px and 155-char summary near 880px, add https://example.com/post canonical and hero visual. Reference table details purpose: title drives rankings clicks | meta description influences CTR | canonical consolidates duplicates | viewport enables mobile | og:title image controls sharing. Example one outfits a product launch: 58-char title, 152-char benefit, canonical post URL, 1200x630 hero, pasted atop head. Edge handling escapes ampersands, enforces absolute image URLs and warns on missing viewport before export. Bloggers accelerate publishing, merchants unify branding and developers standardize templates across hundreds of pages efficiently during rapid growth phases every quarter." }, { heading: "How title, description, OG and Twitter tags work", body: "Titles near 55 characters balance keyword inclusion with 580px visibility, while 150 to 160 char descriptions maximize 920px SERP real estate without ellipsis. Open Graph requires absolute 1200x630 imagery for Facebook LinkedIn prominence; Twitter summary_large_image reuses hero for expansive tweets. Canonical designates primary URL among duplicates, viewport width=device-width ensures mobile scaling. Example two repairs a travel guide: 74-char title truncated to 58 chars, 182-char description shortened to 154 chars and relative image corrected to absolute https, restoring previews. Edge subtleties involve quote escaping in attributes, trailing slash canonical mismatches and duplicate viewport declarations confusing parsers. Validate charset ordering first. Specialists audit pixel widths, compare serif impacts and document high CTR phrasing patterns for editorial reuse across seasonal content calendars yearly." }, { heading: "Meta worked example: 55-char title 155-char head block", body: "Type 55-char title near 540px and 155-char description near 880px, attach https://example.com/post and 1200x630 JPG, then copy unified head block for immediate insertion. Position near head start after charset, verify no duplicate titles and confirm image returns 200. Limitations include generation scope only; ranking assurance, live crawl verification and platform cache invalidation remain external. Incorrect canonicals can harm consolidation despite flawless syntax. For pixel-perfect truncation checks at 580px titles and 920px descriptions before deployment, continue with our snippet preview at /serp-preview to validate display accurately. Revisit after rebrands and image refreshes. Teams archive tag versions, annotate character counts and screenshot social renders for governance continuity across launches and maintain changelog discipline consistently every release without exception each quarter reliably always." }],
+    faq: [
+      {
+        question: "What are the recommended character lengths for SEO title tags and meta descriptions?",
+        answer: "Maintain title tags between 50 and 60 characters (approximately 580 pixels) and meta descriptions between 150 and 160 characters (approximately 920 pixels) to avoid truncation in Google search results."
+      },
+      {
+        question: "What is the difference between standard HTML meta tags and Open Graph (OG) tags?",
+        answer: "Standard HTML meta tags (title, description, robots, canonical) inform search engine crawlers, while Open Graph tags (og:title, og:image, og:url) control how URLs render as rich preview cards on social networks."
+      },
+      {
+        question: "Which image dimensions are optimal for Open Graph and Twitter Card visuals?",
+        answer: "The industry standard dimension is 1200 × 630 pixels with a 1.91:1 aspect ratio, ensuring crisp and uncropped preview displays across high-resolution desktop and mobile feeds."
+      },
+      {
+        question: "Are my website URLs, meta descriptions, or draft tags uploaded to any server?",
+        answer: "No. All meta tag generation and real-time snippet previews execute 100% locally in your browser memory; zero website data leaves your device."
+      },
+      {
+        question: "Where should generated meta tags be placed within an HTML document?",
+        answer: "Paste all generated meta tags inside the <head> container of your HTML document, positioned high in the source code before external stylesheets or blocking scripts."
+      }
+    ],
+    howTo: [
+      {
+        name: "Enter page title and description",
+        text: "Provide your target page title (50-60 characters) and concise meta description (150-160 characters)."
+      },
+      {
+        name: "Configure social preview assets",
+        text: "Input canonical URL, Open Graph title, 1200x630 image URL, and select Twitter summary card format."
+      },
+      {
+        name: "Review real-time search snippet",
+        text: "Check the simulated Google SERP snippet and social media card previews for visual truncation."
+      },
+      {
+        name: "Copy and deploy HTML code",
+        text: "Click Copy to capture the full <head> block and paste it directly into your website source code."
+      }
+    ],
+    guide: [
+      {
+        heading: "HTML metadata architecture, search indexing, and social unfurl protocols",
+        body: "Document metadata provides search engines and social platforms with essential contextual information about your web pages. When Google crawls an HTML page, its ranking algorithms evaluate the <title> tag and meta description to understand document topicality, generate clickable search snippets, and match user query intent. Similarly, social media platforms (Facebook, LinkedIn, Discord, Slack, and X) rely on Open Graph (OG) protocol meta tags and Twitter Card specifications to assemble attractive visual preview cards whenever users share links. Without properly structured metadata, search engines may rewrite titles unpredictably, while social platforms display broken image thumbnails or generic fallbacks that depress organic click-through rates. This browser generator produces production-ready head metadata adhering strictly to modern search and social specifications."
+      },
+      {
+        heading: "Core meta tags, character limits, pixel boundaries, and attributes reference",
+        body: "Balancing character count and pixel density prevents unwanted truncation across mobile and desktop search engine result pages. Search engines measure text width in proportional typography; while a 60-character title using wide uppercase letters may truncate prematurely, a concise 55-character headline displays reliably. Responsive viewport tags are mandatory for mobile-friendly indexing. The table below outlines primary HTML metadata elements, syntax patterns, length benchmarks, and targeted platform behaviors.",
+        table: {
+          caption: "Essential HTML Meta Tags, Recommended Boundaries, and Platform Targets",
+          headers: ["Tag Attribute / Property", "Syntax Example", "Recommended Length / Dimensions", "Primary Target Platform", "Search / Social Function"],
+          rows: [
+            ["<title>", "<title>My SaaS - Fast Invoicing</title>", "50–60 characters (~580px)", "Google, Bing, Yahoo", "Primary clickable headline in organic search results"],
+            ["meta description", '<meta name="description" content="..." />', "150–160 characters (~920px)", "Google, Bing, DuckDuckGo", "Contextual summary snippet beneath search title"],
+            ["canonical link", '<link rel="canonical" href="..." />', "Absolute HTTPS URL", "All search engine crawlers", "Consolidates duplicate URLs and ranking equity"],
+            ["Open Graph Title", '<meta property="og:title" content="..." />', "40–70 characters", "Facebook, LinkedIn, Slack", "Headline rendered in social card previews"],
+            ["Open Graph Image", '<meta property="og:image" content="..." />', "1200 × 630 px (1.91:1)", "Social platforms, chat apps", "Hero image displayed in rich social unfurls"],
+            ["Twitter Card Type", '<meta name="twitter:card" content="..." />', "summary_large_image", "X (formerly Twitter)", "Specifies full-width card rendering on feeds"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Generating complete metadata for a SaaS launch page",
+        body: "Consider a marketing lead preparing a landing page for an automated billing tool at 'https://example.com/invoicing'. Entering the title 'Automated Invoice Generator - Create Invoices | Example' (58 characters) and description 'Create professional PDF invoices with automated sales tax calculations, client itemization, and instant download online on Example.' (144 characters) establishes clean SERP previews. Adding an absolute canonical URL, Open Graph title, and a high-resolution 1200×630 OG image completes the card. Clicking Copy generates a unified <head> block that is ready for instant deployment. Limitations: This tool generates valid client-side HTML markup; it does not automatically update your remote content management system (CMS) or verify remote image CDN headers. For SERP testing, explore [SERP Preview Tool](/serp-preview), or build valid structured data with [FAQ Schema Generator](/faq-schema-generator)."
+      }
+    ]
   },
   {
     slug: "faq-schema-generator",
     title: "FAQ Schema Generator",
-    short: "JSON-LD FAQs",
-    description: "Build valid FAQPage JSON-LD structured data for Google rich results. Add questions and answers, preview formatted JSON and paste the script before body end.",
+    seoTitle: "FAQ Schema Generator - JSON-LD Structured Data | Tool4SaaS",
+    short: "Generate FAQPage JSON-LD structured data",
+    description:
+      "Generate valid Google FAQPage JSON-LD structured data markup with instant syntax validation and Rich Results compliance online on Tool4SaaS.",
     icon: "Code",
-    keywords: ["faq schema generator", "json-ld generator", "faq structured data", "faqpage json-ld generator", "free faq schema generator", "faqpage question acceptedanswer json-ld", "faq vs howto schema markup", "faq structured data rich results"],
+    keywords: [
+      "faq schema generator",
+      "faq json ld generator",
+      "faq structured data",
+      "faqpage schema markup",
+      "google rich results faq",
+      "json ld generator",
+      "schema org faq generator",
+      "free faq schema generator"
+    ],
     category: "seo",
-    faq: [{"question":"Will this guarantee rich results?","answer":"Eligibility never ensures display; valid FAQPage markup merely qualifies pages for consideration. For example, four substantive Question and acceptedAnswer pairs addressing shipping, returns, warranty and pricing may earn expandable listings while thin replies remain plain. Google selects winners by quality and relevance."},{"question":"Is my FAQ content uploaded when I use this FAQ Schema Generator?","answer":"No. JSON-LD assembly transpires entirely in your browser; nothing is sent to a server. Shape two to ten pairs within seconds after initial load without accounts. Entries is cleared when you close the tab on close while copyable script remains prepared for body-end insertion and Rich Results validation readiness."},{"question":"What JSON-LD spec does it output?","answer":"Emits schema.org FAQPage context with two to ten Question entities each wrapping acceptedAnswer text. For example, craft four queries answered in two to three sentences near fifty words apiece. Escaping handles quotes, trailing commas flag instantly and placement before body end aids parsing."},{"question":"When should FAQ schema be avoided?","answer":"Skip FAQPage when answers duplicate visible copy verbatim excessively, promote self-serving advertising, or conceal content from users. For example, hidden divs stuffed with keywords violate guidelines and risk manual actions. Reserve markup for genuine visitor questions like pricing and troubleshooting already displayed openly."},{"question":"Why does validator flag trailing commas?","answer":"Trailing commas break strict JSON parsing, preventing crawlers from interpreting Question arrays correctly. For example, a comma after final acceptedAnswer invalidates entire FAQPage block. Remove terminal punctuation, balance brackets, then retest via Rich Results Test for green confirmation before deployment."}],
-    howTo: [{"name":"Add questions","text":"Compose four genuine questions with two-sentence fifty-word answers covering shipping specifics and returns details for shoppers."},{"name":"Preview JSON-LD","text":"Inspect generated FAQPage context, Question array and acceptedAnswer formatting clarity for syntax confidence before deployment."},{"name":"Validate JSON","text":"Confirm balanced brackets, quoted keys and zero trailing commas via instant checks and proper entity escaping."},{"name":"Install script","text":"Paste validated script immediately before body end, then test via Rich Results Test for eligibility confirmation steps."}],
-    guide: [{ heading: "What FAQ schema builds", body: "Assemble valid FAQPage JSON-LD enabling rich-result eligibility through structured Question and acceptedAnswer pairs for Google surfaces. Add two to ten authentic queries answered in two to three sentences near fifty words, preview formatted context, then copy script. Reference table illustrates composition: shipping query 48 words eligible | returns query 52 words eligible | warranty query 46 words eligible | pricing query 50 words eligible | single-line stub 12 words ineligible. Example one marks a boutique: shipping duration, return window, warranty coverage and discount stacking, generating green validation. Edge handling escapes double quotes, strips smart punctuation and normalizes line breaks before serialization. Bloggers clarify tutorials, merchants reduce support tickets and educators structure course queries efficiently across growing knowledge bases every week." }, { heading: "How Question and Answer pairs work", body: "Each Question object contains name and acceptedAnswer containing text; crawlers expect visible parity between markup and page copy. Sustain forty to sixty words per answer, shun promotional superlatives, avoid duplicated boilerplate and ensure queries reflect genuine searcher language. Example two structures SaaS pricing: plan cost, seat limits, trial duration and cancellation policy, each near fifty words, passing checks without warnings. Edge complexities involve apostrophes requiring escaping, emoji inflating character counts and multiline answers demanding proper newline encoding. Position script just before body end so parsers encounter primary content first. Audit question uniqueness because near-duplicate prompts trigger quality filters. Editors review readability scores, trim jargon and align answers with support macros for consistency across help centers and documentation hubs monthly always." }, { heading: "FAQ schema worked example: 4 questions JSON-LD block", body: "Add four concise queries with fifty-word replies, preview JSON-LD, eliminate trailing commas, paste before body end, then confirm via Rich Results Test for eligibility. Monitor Search Console enhancements report for warnings after deployment. Limitations bound output to syntax generation; display guarantees, ranking improvements and click assurances remain impossible because Google alone decides rendering. Hidden markup violates policies and invites penalties. For holistic on-page evaluation covering focus terms, titles, density, headings and alt attributes toward eighty-plus scores, proceed with our content evaluator at /seo-analyzer to complement structured data efforts. Schedule quarterly markup audits. Document question sources, track impression changes and refresh stale answers to sustain relevance across evolving catalogs and seasonal inventory cycles consistently every quarter without fail each year." }],
+    faq: [
+      {
+        question: "Does implementing FAQ schema guarantee expandable rich results on Google?",
+        answer: "No. Valid schema makes pages technically eligible for rich snippets; Google algorithms determine display based on domain authority, query intent, and spam compliance."
+      },
+      {
+        question: "What are Google eligibility guidelines for FAQPage structured data?",
+        answer: "Google requires that all questions and answers marked up in FAQ schema must be visibly readable to human visitors on the hosting page, prohibiting hidden or misleading text."
+      },
+      {
+        question: "Where should the generated JSON-LD script tag be placed in HTML?",
+        answer: "Paste the <script type=\"application/ld+json\"> block inside the <head> section or right before the closing </body> tag of your HTML document."
+      },
+      {
+        question: "Are my FAQ questions, answers, or website details sent to any server?",
+        answer: "No. All JSON-LD syntax tree construction and Schema.org serialization occur strictly on your client device using browser JavaScript; zero structured data is dispatched across any network."
+      },
+      {
+        question: "Can I include basic HTML formatting inside FAQ schema answers?",
+        answer: "Yes. Google permits basic HTML formatting tags (such as <a> links, <b> bold, <i> italics, and lists) within acceptedAnswer text, while forbidding promotional affiliate links."
+      }
+    ],
+    howTo: [
+      {
+        name: "Add question and answer pairs",
+        text: "Input your first question and its complete, informative answer matching your visible page copy."
+      },
+      {
+        name: "Add additional FAQ items",
+        text: "Click Add Question to expand your structured data list with up to 10 relevant questions."
+      },
+      {
+        name: "Validate JSON-LD syntax",
+        text: "Review the formatted JSON code editor for syntax errors, unescaped quotes, or missing brackets."
+      },
+      {
+        name: "Copy and test script",
+        text: "Click Copy to copy the <script> snippet, then test it via Google Rich Results Test before publishing."
+      }
+    ],
+    guide: [
+      {
+        heading: "Semantic search, Schema.org vocabularies, and FAQPage structured data",
+        body: "Structured data enables search engines to interpret the semantic meaning of web content rather than parsing plain unstructured text alone. The Schema.org consortium, established jointly by Google, Microsoft, Yahoo, and Yandex, provides universal schemas that categorize entities, relationships, products, reviews, and questions. Specifically, the FAQPage vocabulary communicates that a page contains a collection of frequently asked questions and official authoritative answers. Incorporating FAQPage JSON-LD helps search engines parse customer service information, product documentation, and technical support topics, often powering rich interactive search results. This browser generator produces syntactically valid JSON-LD structured data adhering strictly to Google Search Central guidelines."
+      },
+      {
+        heading: "Schema.org FAQPage specification, JSON-LD schema properties, and guidelines",
+        body: "Strict syntax adherence is essential when generating JSON-LD structured data. A single unescaped quotation mark or trailing comma invalidates the entire script block, causing search engine parsers to ignore the markup. Google requires a one-to-one correspondence between structured data entities and human-visible text on the page. Fabricating FAQ items inside hidden DOM containers violates Search Essentials spam policies. The table below outlines the core properties, hierarchy, and validation rules governing FAQPage markup.",
+        table: {
+          caption: "Schema.org FAQPage Specification, Property Hierarchy, and Compliance Rules",
+          headers: ["Property Name", "JSON-LD Path", "Expected Schema Type", "Requirement Level", "Compliance Guideline"],
+          rows: [
+            ["@context", "Root", "URL (https://schema.org)", "Mandatory", "Must declare schema.org namespace exactly"],
+            ["@type", "Root", "Text ('FAQPage')", "Mandatory", "Identifies the document as an FAQ collection"],
+            ["mainEntity", "Root", "Array of Question objects", "Mandatory", "Wraps all Question entities in the document"],
+            ["Question", "mainEntity[]", "Object ('Question')", "Mandatory", "Defines an individual user inquiry"],
+            ["name", "mainEntity[].name", "Text string", "Mandatory", "The exact question text displayed visibly on page"],
+            ["acceptedAnswer", "mainEntity[].acceptedAnswer", "Object ('Answer')", "Mandatory", "Container for the authoritative solution"],
+            ["text", "mainEntity[].acceptedAnswer.text", "HTML / Text string", "Mandatory", "The full answer text visible to human readers"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Generating FAQPage markup for a SaaS pricing page",
+        body: "Consider a SaaS founder adding structured data to a subscription pricing page. The founder inputs three questions: 'Can I cancel my subscription at any time?', 'Which payment methods are accepted?', and 'Do you offer annual discounts?'. The tool formats the answers into a clean JSON-LD object wrapping each item in a Question and acceptedAnswer node. The founder copies the generated snippet, pastes it into their website template, and verifies it with Google Rich Results Test without syntax warnings. Limitations: This tool generates syntactically valid JSON-LD code; it does not force search engines to display rich expandable accordions in search results. For page head metadata, explore [Meta Tag Generator](/meta-tag-generator), or preview SERP appearance with [SERP Preview Tool](/serp-preview)."
+      }
+    ]
   },
   {
     slug: "seo-analyzer",
-    title: "SEO Analyzer",
-    short: "RankMath-style SEO score",
-    description: "Score any page like RankMath: focus keyword, title, slug, description, density, headings and alt checks with 0-100 score and fix hints, all private.",
+    title: "On-Page SEO Analyzer",
+    seoTitle: "SEO Analyzer Online - On-Page SEO Audit & Score | Tool4SaaS",
+    short: "Audit on-page SEO factors with instant score",
+    description:
+      "Audit on-page SEO factors, keyword density, meta title lengths, header structures, and internal linking with instant scoring online on Tool4SaaS.",
     icon: "Search",
-    keywords: ["seo analyzer", "rankmath style checker", "on page seo score", "seo score checker 100", "free seo analyzer", "density headings alt 11 checks", "rankmath vs yoast onpage audit", "website seo audit online"],
+    keywords: [
+      "seo analyzer",
+      "on page seo audit",
+      "seo score checker",
+      "website seo checker",
+      "seo content analyzer",
+      "keyword density checker",
+      "free seo audit tool",
+      "page seo grader"
+    ],
     category: "seo",
-    faq: [{"question":"How is the score calculated?","answer":"Eleven weighted audits examine title presence, length, slug match, description, density, headings and alt coverage totaling 100. For example, vegan protein powder earns points for 55-char titles, slug inclusion and 1.2 percent density. Red flags supply actionable hints; eighty-plus signals publish readiness."},{"question":"Is my content uploaded?","answer":"No. All eleven evaluations execute entirely in your browser with nothing sent to any server. Paste 600-plus words and headings after initial load without accounts. Drafts is cleared when you close the tab on close while instant 0 to 100 scoring and fix hints remain available for confident iterative improvement."},{"question":"What score and length should I target?","answer":"Pursue eighty-plus with 600-plus words and 1 to 2 percent density for balanced optimization. For example, vegan protein powder twelve times in 1,000 words equals 1.2 percent ideal. Prioritize red title and H1 remedies first; 200-word thin pages seldom pass without expanded headings and alt enrichment."},{"question":"When should analysis rerun during editing?","answer":"Reassess after each substantial revision involving titles, slugs, headings, or 100-word additions to track trajectory. For example, initial 62 climbs to 84 after H1 and alt corrections. Frequent checks prevent regressions, confirm density stability and validate fixes before publication deadlines arrive."},{"question":"Why do perfect scores still underperform?","answer":"Perfect on-page marks cannot overcome weak backlinks, mismatched intent, or sluggish Core Web Vitals suppressing visibility. For example, an 88 scoring guide may trail competitors with superior authority. Treat eighty-plus as editorial readiness, then pursue links, speed and intent alignment for holistic growth."}],
-    howTo: [{"name":"Enter focus keyword","text":"Specify single focus phrase vegan protein powder for consistent audit targeting across title slug and headings."},{"name":"Paste SEO fields","text":"Supply 55-char title, hyphenated slug, 155-char description and 600 words minimum for comprehensive eleven-check evaluation."},{"name":"Run 11 checks","text":"Execute weighted audits covering density, headings, alt text and length to 100 and review red alerts."},{"name":"Fix reds","text":"Enrich H1, alt attributes and introduction with keyword to exceed 80 and achieve publish-ready status."}],
-    guide: [{ heading: "What the SEO analyzer scores", body: "Evaluate pages RankMath-style through eleven weighted audits spanning focus terms, titles, slugs, descriptions, density, headings and alt coverage culminating in 0 to 100. Enter vegan protein powder, add 55-char title, hyphenated slug, 155-char summary and 650 words to watch reds shift green. Reference table weights impact: title presence 15 points critical | description length 12 points high | slug match 10 points high | density 1-2 percent 12 points high | H1 usage 10 points medium | alt coverage 8 points medium. Example one grades a supplement post at 68 due missing H1 and thin alt, guiding targeted fixes. Edge handling tolerates stopwords in slugs, ignores case variations and normalizes unicode before matching. Bloggers polish drafts, merchants repair listings and students strengthen essays systematically." }, { heading: "How 11 checks and density work", body: "Each audit carries distinct influence: title inclusion and 50 to 60 char length near 580px, slug keyword mirroring, 150 to 160 char description near 920px, 1 to 2 percent density, single H1 and logical H2 progression and descriptive alt coverage. Twelve mentions in 1,000 words equals 1.2 percent ideal, whereas 5 percent triggers stuffing alerts. Example two lifts a protein guide from 72 to 86 by inserting keyword into H1, opening paragraph, one subhead and two alt attributes while trimming overuse. Edge subtleties include hyphen versus underscore distinctions, multi-word synonym recognition limits and image-free pages where alt checks remain neutral. Prioritize red title and H1 remedies for maximal gains. Analysts export score histories, benchmark competitors and schedule re-audits after template migrations for stability." }, { heading: "SEO worked example: vegan powder 600 words score 72 to 85", body: "Paste vegan protein powder with title, slug, description and 600 words, execute eleven checks revealing 72, enrich H1 and alt to attain 85. Copy fix list into editorial workflow for systematic resolution. Limitations restrict insight to on-page factors; backlinks, site speed, crawl anomalies and search intent alignment remain unmeasured. Thin 200-word drafts rarely surpass 60 despite flawless tags. For full head assembly including 55-char title, 155-char description, canonical, viewport, Open Graph 1200x630 and Twitter cards, advance with our tag builder at /meta-tag-generator to implement recommendations precisely. Re-audit after major rewrites and image additions. Teams log score trajectories, celebrate eighty-plus milestones and integrate checks into pre-publish checklists for consistency across blogs shops and documentation portals monthly without exception each quarter." }],
+    faq: [
+      {
+        question: "Which on-page SEO ranking factors does this analyzer evaluate?",
+        answer: "Title tag length (50-60 chars), meta description length (150-160 chars), focus keyword placement, heading hierarchy (H1, H2, H3), keyword density, image alt text, and word count."
+      },
+      {
+        question: "How is the 0 to 100 SEO health score calculated?",
+        answer: "The score weights essential on-page technical factors: title and meta hygiene (25%), content substance and keyword density (35%), heading structure (20%), and internal linking/media assets (20%)."
+      },
+      {
+        question: "What is an ideal target keyword density for on-page content?",
+        answer: "A natural keyword density between 1.0% and 2.5% signals strong topical relevance without triggering search engine penalties for keyword stuffing."
+      },
+      {
+        question: "Are my proprietary draft articles, URLs, or target keywords sent to any server?",
+        answer: "No. All HTML parsing, lexical analysis, and SEO scoring compute on your local device; zero draft content is shared across the network."
+      },
+      {
+        question: "Can I paste raw HTML or draft markdown text for pre-publication audits?",
+        answer: "Yes. You can paste raw HTML markup, published web text, or draft copy along with your focus keyword to audit content before going live."
+      }
+    ],
+    howTo: [
+      {
+        name: "Enter target focus keyword",
+        text: "Input the primary keyword phrase you wish to rank for in search engine results."
+      },
+      {
+        name: "Paste page content or HTML",
+        text: "Provide your draft text, blog article, or rendered HTML source code."
+      },
+      {
+        name: "Execute on-page audit",
+        text: "The analyzer scans title tags, headings, keyword occurrences, and readability benchmarks."
+      },
+      {
+        name: "Review prioritized recommendations",
+        text: "View your overall 0-100 score and implement specific high-impact fixes."
+      }
+    ],
+    guide: [
+      {
+        heading: "On-page SEO optimization, crawlability, and search relevance",
+        body: "On-page search engine optimization is the discipline of optimizing individual web page elements—including HTML metadata, content architecture, keyword distribution, and media assets—to earn higher search engine rankings and attract qualified organic traffic. While off-page factors like backlinks establish domain authority, on-page factors communicate topical relevance and user intent alignment to search engine ranking algorithms like Google Search. When algorithms evaluate a document, they analyze title tags for primary subject matter, heading tags (H1, H2, H3) for logical outline hierarchy, and body copy for comprehensive query resolution. This on-page SEO analyzer evaluates critical ranking signals client-side without transmitting unpublished drafts to external servers."
+      },
+      {
+        heading: "On-page SEO audit criteria, benchmark targets, and score weighting",
+        body: "Achieving top organic search rankings requires satisfying both algorithmic relevance requirements and human readability benchmarks. A page stuffed with repetitive keywords damages user experience and triggers algorithmic demotions under Google Search Essentials spam policies. Conversely, a well-structured article with descriptive headings, balanced keyword density, comprehensive body length, and optimized metadata earns higher click-through rates. The table below details primary on-page SEO audit checkpoints, recommended target thresholds, scoring weight allocations, and common optimization pitfalls.",
+        table: {
+          caption: "On-Page SEO Audit Checkpoints, Target Thresholds, and Algorithmic Weighting",
+          headers: ["Audit Checkpoint", "Target Threshold", "Scoring Weight", "Search Ranking Influence", "Common Failure Reason"],
+          rows: [
+            ["Title Tag Length", "50 – 60 characters (~580px)", "15%", "Primary CTR & relevance signal", "Truncated by search engines (>65 chars)"],
+            ["Meta Description", "150 – 160 characters (~920px)", "10%", "SERP snippet click-through rate", "Too short (<100 chars) or missing entirely"],
+            ["H1 Tag Structure", "Exactly one H1 with keyword", "15%", "Establishes primary topical entity", "Multiple H1s or missing primary keyword"],
+            ["Keyword Density", "1.0% – 2.5% of body words", "20%", "Relevance without spam penalties", "Keyword stuffing (>3.5%) or keyword dilution"],
+            ["Content Depth", "800+ substantive words", "20%", "Comprehensive user query satisfaction", "Thin content (<300 words) failing intent"],
+            ["Image Alt Attributes", "100% of images have alt tags", "10%", "Image SEO and screen-reader a11y", "Missing alt text or filename placeholders"],
+            ["Internal Links", "2 – 5 contextual internal links", "10%", "Distributes PageRank and crawl depth", "Orphaned page without outbound internal paths"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Elevating a blog post SEO score from 62 to 94",
+        body: "Consider a content marketer auditing a draft article targeting the focus keyword 'invoice generator'. The initial audit returns a mediocre score of 62/100 due to several critical deficiencies: the title tag was 74 characters (truncated in SERPs), the meta description was only 88 characters, the primary H1 heading lacked the focus keyword, and keyword density was thin at 0.4%. The marketer makes four quick adjustments: trims the title to 56 characters, expands the description to 154 characters, includes 'Invoice Generator' in the H1, and incorporates natural variations into the first 100 words. Re-running the audit yields an exceptional 94/100 score, ready for publication. Limitations: Evaluates on-page content and metadata signals; does not monitor live backlink profiles or Google Search Console indexing states. To generate head tags, explore [Meta Tag Generator](/meta-tag-generator), or generate rich snippets with [FAQ Schema Generator](/faq-schema-generator)."
+      }
+    ]
   },
 ];

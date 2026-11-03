@@ -8,6 +8,19 @@ export type Category = {
   description: string;
 };
 
+export type GuideTable = {
+  caption?: string;
+  headers: string[];
+  rows: (string | number)[][];
+};
+
+export type GuideSection = {
+  heading: string;
+  body: string;
+  paragraphs?: string[];
+  table?: GuideTable;
+};
+
 export type Tool = {
   slug: string;
   title: string;
@@ -20,7 +33,7 @@ export type Tool = {
   category: Category["id"];
   faq: { question: string; answer: string }[];
   howTo: { name: string; text: string }[];
-  // Optional rich guide pilot: 3 sections per tool (What it is / How it works / Worked example + limitations).
-  // Optional so existing tools without guides still validate.
-  guide?: { heading: string; body: string }[];
+  // Rich guide: sections covering what it is, how it works, tables, worked example + limitations.
+  // Optional so tools without guides still validate.
+  guide?: GuideSection[];
 };

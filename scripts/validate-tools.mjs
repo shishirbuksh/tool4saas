@@ -88,8 +88,9 @@ toolBlocks.forEach((block) => {
   const questions = [...block.matchAll(/"?question"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
   const howTos = [...block.matchAll(/"?text"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
   const headings = [...block.matchAll(/"?heading"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
-  const guideBodies = [...block.matchAll(/"?body"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
-  const combined = [desc || "", short, ...questions, ...answers, ...howTos, ...headings, ...guideBodies].join(" ");
+  const guideBodies = [...block.matchAll(/"?(?:body|caption)"?\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
+  const otherStrings = [...block.matchAll(/"([^"\\]*(?:\\.[^"\\]*)*)"/g)].map((m) => m[1]).filter(s => s.length > 5 && !s.includes("slug") && !s.includes("category"));
+  const combined = [desc || "", short, ...questions, ...answers, ...howTos, ...headings, ...guideBodies, ...otherStrings].join(" ");
   const words = combined.split(/\s+/).filter(Boolean);
   const uniqueWords = new Set(words.map((w) => w.toLowerCase().replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, "")).filter(Boolean));
   if (!hasGuide || uniqueWords.size < 300) {

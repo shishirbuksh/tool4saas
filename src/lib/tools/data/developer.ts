@@ -2,7 +2,7 @@ import type { Tool } from "../types";
 
 export const developerTools: Tool[] = [
   {
-    slug: "json-formatter",
+        slug: "json-formatter",
     title: "JSON Formatter",
     short: "Format, view & convert JSON and YAML",
     description:
@@ -10,11 +10,74 @@ export const developerTools: Tool[] = [
     icon: "DataObject",
     keywords: ["json formatter", "json validator", "format json online", "json tree viewer", "json to yaml", "yaml to json", "jsonpath copy path", "json beautifier minifier offline"],
     category: "developer",
-    faq: [{"question":"Is my JSON uploaded anywhere?","answer":"No. Every mode - format, minify, tree view and YAML conversion - runs locally in your browser, so a 500KB API reply with user records is never transmitted. Close the tab and the input is gone. Treat it as a debugging aid, not a vault: keep production secrets off shared machines and prefer synthetic fixtures for demos."},{"question":"Can I view JSON as a tree instead of a wall of text?","answer":"Yes. Switch to the Tree view to explore any document as collapsible nodes with type labels, per-branch counts and search. Copy a node's JSONPath, such as dollar users 0 name, in one click for fetch calls, tests or jq. Documents beyond a few hundred nodes per branch are capped with a note listing what is hidden, so the panel stays responsive."},{"question":"How do I convert between JSON and YAML?","answer":"The JSON to YAML view restates objects, arrays and scalars as two-space indented YAML for Compose, Kubernetes or CI files. The YAML to JSON view parses two-space YAML back into validated, pretty JSON. Anchors expand inline and hash comments drop, since JSON has no equivalent. Values containing colons must be quoted or they are read as key separators."},{"question":"What is the input size limit?","answer":"Comfortable editing sits around a few megabytes. A 500KB reply with nested arrays formats instantly, while 3MB logs with tens of thousands of nodes render but reward collapsing. YAML input is capped at 500KB per conversion. Split anything past 10MB, validate the fragments, then rejoin - oversized dumps stall any browser tool."},{"question":"Why does minified JSON matter for transport?","answer":"Minify when bytes affect latency: embedding config in HTML, queueing messages, or caching large catalogs. Compact output runs roughly twenty percent smaller than pretty-printed at typical payloads. Pretty-print while debugging and reviewing, minify for the wire, and confirm a clean round-trip to prove the document is valid before shipping."}],
-    howTo: [{"name":"Paste JSON","text":"Paste a compact object such as name Ada with tags 1 and 2, or drop a 500KB API reply holding nested users."},{"name":"Pick a view","text":"Choose Format for readable indentation, Minify for compact transport, Tree for collapsible navigation, or a YAML view for conversion."},{"name":"Resolve errors","text":"Read the line and column pointer on invalid input, repair the offending comma or quote, then paste again to confirm green."},{"name":"Copy result","text":"Copy the formatted, minified or converted output, or grab a node path from the tree, straight into your code or config."}], guide: [{ heading: "What the JSON studio does", body: "Four linked views cover the JSON workflow on one page. Format indents a compact payload into a readable hierarchy and flags strict syntax; Minify squeezes it for the wire; Tree turns the same document into collapsible nodes with type badges, per-branch counts and copyable JSONPath; the YAML views restate it as indented YAML and back. Example: paste a compact object holding name Ada and tags 1 and 2, read four indented lines, expand it as a tree to copy the first tag path, then convert to YAML for a Compose file. Parsing uses the native JSON routines, so keys keep source order, numbers keep precision and Unicode escapes survive intact for portability." }, { heading: "How formatting, tree view and conversion work", body: "Formatting constructs a syntax tree then serializes it with two-space indents for reading or zero gaps for transit, trimming roughly twenty percent of bytes at typical payloads. Reference behavior table: two-space pretty expands 500KB to about 620KB | minified compact shrinks 500KB to about 400KB | strict mode rejects comments trailing commas and single quotes | duplicate keys keep the last value silently | YAML output uses two-space tiers and dash lists | YAML input must quote values containing colons. Tree mode highlights each type in color and copies a path such as the first user's age for fetch calls, tests or jq. Deep or huge documents are capped at a few hundred visible nodes per branch, with a note listing what is hidden, so the page stays responsive instead of freezing." }, { heading: "Worked example: a 500KB reply from paste to YAML", body: "Load a 90KB reply holding 300 users, collapse the root to survey four top keys, then open the first user to reveal name Ada and copy its path for a ticket. Run the same reply through Minify and note the smaller byte count, then convert it to YAML for a Kubernetes manifest and back to JSON to confirm a clean round-trip. Limitation: very large or deeply nested files can stall a modest device, so split past 10MB and validate each part. For flat tabular data, reach for the dedicated JSON to CSV tool; XML and SQL payloads belong to their own formatters." }]
+    faq: [
+      {
+        question: "Is my JSON payload transmitted to any server?",
+        answer: "No. Every formatting, minification, tree exploration, and YAML conversion runs entirely client-side using JavaScript. Confidential API payloads and database dumps never leave your computer."
+      },
+      {
+        question: "Can I inspect deeply nested JSON documents as a tree?",
+        answer: "Yes. Switch to Tree mode to inspect hierarchical keys as interactive collapsible nodes with data type tags, child counts, and single-click JSONPath copying for testing."
+      },
+      {
+        question: "How does the tool handle conversions between JSON and YAML?",
+        answer: "The converter serializes JSON objects into clean two-space indented YAML for Kubernetes manifests and Docker Compose, and parses YAML back into strictly formatted JSON."
+      },
+      {
+        question: "What is the maximum payload size supported in the browser?",
+        answer: "Files up to 5 MB with tens of thousands of keys process smoothly in real time. For multi-megabyte payloads, tree rendering caps visible branch nodes to prevent browser UI freezing."
+      },
+      {
+        question: "Why does minified JSON matter for production APIs?",
+        answer: "Minification strips extraneous indentation and newlines, trimming roughly 20% to 30% of total payload bytes to optimize network bandwidth and HTTP caching."
+      }
+    ],
+    howTo: [
+      {
+        name: "Paste raw payload",
+        text: "Paste a JSON string or YAML file into the input editor or load an example payload to begin."
+      },
+      {
+        name: "Select processing mode",
+        text: "Choose Format for pretty-printing, Minify for compact output, Tree for node navigation, or YAML for cross-conversion."
+      },
+      {
+        name: "Inspect errors or copy JSONPath",
+        text: "Review syntax error indicators highlighting invalid commas or quotes, or click any tree node to copy its JSONPath."
+      },
+      {
+        name: "Copy or export result",
+        text: "Copy the formatted or converted output with one click for direct use in codebases, tests, or config files."
+      }
+    ],
+    guide: [
+      {
+        heading: "Unified JSON and YAML developer studio",
+        body: "Modern application development revolves around exchanging structured data between APIs, configuration files, and cloud infrastructure. Reviewing minified API responses or debugging syntax issues in large JSON objects can be frustrating without dedicated visualization tools. This developer utility combines five core workflows into a unified client-side interface: strict JSON validation, two-space pretty printing, compact wire minification, interactive collapsible tree exploration with JSONPath resolution, and bidirectional JSON/YAML translation. All parsing runs locally using native browser engines, providing complete data privacy for configuration secrets and test datasets."
+      },
+      {
+        heading: "Formatting modes, syntax rules, and size impact",
+        body: "Different runtime environments require distinct data presentations. Pretty-printing optimizes for human review during code reviews, minification conserves network payload transit, and YAML delivers clean readability for cloud orchestration manifests.",
+        table: {
+          caption: "JSON Formatter Operations, Syntax Rules, and Payload Impact",
+          headers: ["Mode / Operation", "Size Impact", "Syntax Rules & Behavior"],
+          rows: [
+            ["Pretty-Print (2-Space)", "Expands 500KB to ~620KB", "Indents objects and arrays with standard 2-space indentation for human review"],
+            ["Minified (Compact)", "Shrinks 500KB to ~400KB", "Strips whitespace, tabs, and newlines for wire transport and caching"],
+            ["Strict JSON Validation", "Zero size change", "Enforces RFC 8259: rejects trailing commas, single quotes, and comments"],
+            ["Tree View & JSONPath", "In-memory visual nodes", "Collapsible nodes with type badges, item counts, and single-click JSONPath copy"],
+            ["JSON to YAML Conversion", "Comparable to indented JSON", "Emits standard 2-space YAML blocks and lists for Docker and K8s manifests"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example, memory limits, and related tools",
+        body: "Consider troubleshooting a 120KB response payload from a user management endpoint. Pasting the payload into Format mode immediately exposes a syntax error caused by an illegal trailing comma on line 84. After correcting the comma, switching to Tree mode allows expanding users[0].credentials and copying the precise JSONPath $.users[0].id in a single click for integration tests. For Kubernetes deployment, switching to JSON-to-YAML converts the entire object into clean YAML with intact key hierarchies. Note that extremely large dumps exceeding 10 MB may degrade browser responsiveness; split large database backups into smaller chunks before formatting. For tabular exports, use our [JSON to CSV Converter](/json-csv), inspect feeds with our [XML Formatter](/xml-formatter), or format database queries with our [SQL Formatter](/sql-formatter)."
+      }
+    ]
   },
   {
-    slug: "base64-tool",
+        slug: "base64-tool",
     title: "Base64 Encode / Decode",
     short: "Encode and decode Base64 text",
     description:
@@ -22,12 +85,78 @@ export const developerTools: Tool[] = [
     icon: "Code",
     keywords: ["base64 tool", "base64 decoder", "base64 encoder online free", "base64 encode locally offline", "how to encode base64 online free", "rfc4648 url-safe base64 padding", "base64 decode no signup"],
     category: "developer",
-    faq: [{"question":"Does Base64 encrypt my data?","answer":"No. Base64 merely repackages bytes into readable characters, offering zero confidentiality. Anyone pasting aGVsbG8= instantly recovers Hello, so concealing mango123 as encoded text remains trivially reversible. Treat it as transport armor for email and JSON, never as secrecy. For genuine protection, employ password-based AES at /aes-encryptor with robust keys."},{"question":"Is Unicode text supported?","answer":"Yes. Characters first map to UTF-8 bytes, so accents, emoji, and twelve scripts survive round trips. For example, Hello becomes aGVsbG8= with single pad, decoding restores Hello exactly, while a 50KB note with 800 emoji lines converts within a second. All processing stays inside this tab. No upload occurs."},{"question":"Does it support URL-safe Base64?","answer":"Yes. Enable URL-safe variant per RFC 4648, where and turns to minus and slash turns to underscore, with padding stripped for links. For instance, bytes fa fb fc render as and vv8 standard but minus vv8 safe for query strings. Apply it to JWT segments, filenames, and identifiers. Line wrapping every 76 characters suits legacy mail gateways handling long payloads."},{"question":"Why does encoded size grow by roughly one third?","answer":"Growth stems from mapping three input bytes onto four six-bit characters, adding thirty-three percent overhead and padding. A 30KB icon swells near 40KB text, while 90KB payloads approach 120KB. Chunked line breaks inflate further. Budget storage accordingly, prefer raw binary for bulk archives, reserve Base64 for JSON, XML, and mail where textual safety outweighs verbosity."}],
-    howTo: [{"name":"Paste input","text":"Paste plain wording like Hello or encoded value like aGVsbG8= into the upper field for immediate conversion."},{"name":"Choose mode","text":"Choose Encode to transform text outward, Decode for reverse, then toggle URL-safe when building links or tokens."},{"name":"Handle Unicode","text":"Confirm UTF-8 handling for emoji and accents, observing Hello with five letters yields one pad character correctly."},{"name":"Copy output","text":"Copy output such as Hello turning into aGVsbG8=, then address any padding or alphabet warnings displayed below."}],
-    guide: [{ heading: "What Base64 encoding does", body: "Base64 translates raw bytes into capital letters, lowercase letters, digits, plus, and slash so mail systems and JSON conduits transport binary without corruption. Example 1: type Hello, receive aGVsbG8= with one pad, paste aGVsbG8= back to recover Hello exactly. Example 2: transform a 30KB icon into roughly 40KB characters for inline embedding inside stylesheets during prototypes. Grouping packs three bytes into four characters, inflating volume by thirty-three percent, a tradeoff accepted for textual safety. Developers shuttle images through APIs, obscure binary in logs, and prepare data URLs for demos. Accented names survive because UTF-8 bytes encode before mapping, preserving multilingual content across boundaries with consistent round trips for teams. Validation rejects stray spaces, missing pads, and foreign symbols, prompting cleanup before decoding attempts proceed smoothly." }, { heading: "How Unicode, padding and URL-safe work", body: "Input text first converts to UTF-8 byte sequences, ensuring cafe with five letters occupies six bytes while emoji consume four bytes apiece. Padding with equals signs completes final quartets: Hello spanning five bytes closes with one pad, Hi spanning two bytes closes with two pads in classic implementations. Reference alphabet table: standard 62 is and | standard 63 is slash | URL-safe 62 is minus | URL-safe 63 is underscore | pad is equals stripped in safe mode | line wrap every 76 characters for mail. Edge case: fa fb fc bytes encode as and vv8 standard versus minus vv8 safe, so copying wrong variant breaks JWT verification. Always select matching mode before pasting tokens into validators to avoid false failures during integration." }, { heading: "Base64 worked example: Hello is aGVsbG8 with data URL", body: "Encode Hello to obtain aGVsbG8=, decode aGVsbG8= to confirm Hello returns, then test cafe to watch multi-byte expansion firsthand. Second demonstration: encode a 12KB PNG, assemble data image PNG Base64 prefix and characters into an image tag for disconnected previews. Limitation: encoded output inflates size, exposes content to trivial decoding, and struggles with multi-megabyte binaries that stall modest devices. Unlike the image converter at /image-to-base64 which optimizes file uploads and previews, this utility centers on typed strings and URL-safe tweaks. For file-centric workflows, see the converter at /image-to-base64 for drag-drop handling. Very long outputs benefit from 76-character wrapping for mail, while JWT parts demand unwrapped safe alphabets without pads for successful authentication. Validate lengths before embedding to prevent truncated rendering across strict gateways." }],
+    faq: [
+      {
+        question: "Does Base64 encoding encrypt or protect my data?",
+        answer: "No. Base64 is an encoding format designed for safe data transport over text protocols, not encryption. Anyone can reverse Base64 strings back to their original bytes instantly."
+      },
+      {
+        question: "How does the tool handle international Unicode text and emoji?",
+        answer: "Text is first converted to UTF-8 byte sequences before encoding, ensuring accented characters, Cyrillic, Devanagari, Hanzi, and multi-byte emoji decode accurately without data corruption."
+      },
+      {
+        question: "What is the difference between standard and URL-safe Base64?",
+        answer: "Standard Base64 uses '+' and '/', which carry special syntactic meaning in web addresses. URL-safe Base64 (RFC 4648 §5) substitutes '-' and '_' and strips trailing '=' padding for link compatibility."
+      },
+      {
+        question: "Why does Base64 encoded output become roughly 33% larger?",
+        answer: "Base64 maps every 3 binary input bytes (24 bits) into 4 printable ASCII characters (6 bits each), introducing a predictable 33.3% size overhead."
+      },
+      {
+        question: "Are my text strings or uploaded files sent to an external server?",
+        answer: "No. All encoding and decoding runs in-memory within your browser using JavaScript and FileReader APIs. Confidential API tokens and sensitive documents never leave your machine."
+      },
+      {
+        question: "What is the difference between Base64 and Base64URL?",
+        answer: "Base64URL replaces '+' signs with hyphens and forward slashes with underscores, and omits trailing equals padding so strings can be safely included in URL parameters and HTTP headers."
+      }
+    ],
+    howTo: [
+      {
+        name: "Paste text or load file",
+        text: "Paste raw text or an existing Base64 string into the input area, or drop a small file."
+      },
+      {
+        name: "Select mode and variant",
+        text: "Choose Encode or Decode, and toggle URL-safe encoding if you are generating query parameters or tokens."
+      },
+      {
+        name: "Review live output",
+        text: "Check the translated result alongside byte counts, character length, and padding verification."
+      },
+      {
+        name: "Copy or download",
+        text: "Click Copy to capture the output string, or save the decoded content directly to your machine."
+      }
+    ],
+    guide: [
+      {
+        heading: "Client-side Base64 encoding and decoding",
+        body: "Binary assets such as cryptographic keys, image thumbnails, and serialized objects frequently need transmission across text-based application protocols like HTTP headers, email payloads, and JSON envelopes. Raw binary bytes can be corrupted by control-character filtering or line-ending normalization during transit. Base64 encoding solves this by translating arbitrary binary bytes into an alphabet of 64 safe, printable ASCII characters. This browser-based tool provides bidirectional encoding and decoding with full UTF-8 Unicode support and URL-safe variations, executing entirely client-side without network uploads."
+      },
+      {
+        heading: "Standard vs URL-safe Base64 specification reference",
+        body: "Selecting the proper character set variant is essential when embedding Base64 strings inside web addresses, web tokens, or legacy mail gateways.",
+        table: {
+          caption: "Base64 Alphabet Variants and Protocol Specifications (RFC 4648)",
+          headers: ["Specification / Feature", "Standard Base64 (RFC 4648 §4)", "URL-Safe Base64 (RFC 4648 §5)", "Application Context"],
+          rows: [
+            ["Index 62 Character", "+ (plus sign)", "- (minus sign / hyphen)", "Plus signs often get interpreted as spaces in URL queries"],
+            ["Index 63 Character", "/ (forward slash)", "_ (underscore)", "Forward slashes can disrupt URL path routing"],
+            ["Padding Character", "= (equals sign)", "Optional / Stripped", "Equals signs can interfere with key-value query delimiters"],
+            ["Payload Size Overhead", "~33.3% byte expansion", "~33.3% byte expansion", "3 bytes map to 4 characters in both specifications"],
+            ["Primary Protocols", "MIME email, Data URLs, XML", "JWT tokens, URL query strings, file names", "JWT authentication and OAuth parameter passing"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example, size implications, and related tools",
+        body: "Encoding the string Hello, World! produces SGVsbG8sIFdvcmxkIQ==. The trailing == characters represent padding to complete the final 4-character quartet. When switching to URL-safe mode, any slash or '+' symbols transform into hyphens and underscores, suitable for query parameters. Note that Base64 is strictly an encoding mechanism and provides zero cryptographic security; never rely on Base64 alone to protect sensitive passwords or credentials. For real cryptographic protection, use our [AES Encryptor](/aes-encryptor), encode media files with [Image to Base64](/image-to-base64), or decode web tokens with our [JWT Decoder](/jwt-decoder)."
+      }
+    ]
   },
   {
-    slug: "url-encoder",
+        slug: "url-encoder",
     title: "URL Encoder / Decoder",
     short: "Encode & decode URL components",
     description:
@@ -35,11 +164,79 @@ export const developerTools: Tool[] = [
     icon: "Link",
     keywords: ["url encoder", "url decoder", "encode url online", "percent encode url locally", "how to encode url online free", "rfc3986 percent-encoding utf-8 query", "encode vs decode url components", "url encoder decoder free"],
     category: "developer",
-    faq: [{"question":"When should I URL-encode text for links?","answer":"Encode whenever text enters addresses, query strings, or form payloads where reserved marks would fracture routing. For illustration, a and b with ampersand becomes a percent 26 b, gaps become percent 20, and cafe accent becomes caf percent C3 A9 through UTF-8. A 2000-character address holding 40 symbols transforms instantly, preserving clicks, shares, and API calls."}, {"question":"Does URL encoding upload my data?","answer":"No. Transformations execute solely inside this tab, so a 50KB query holding 200 parameters never traverses networks. For instance, private tokens remain resident, function. It runs on your side only: no uploads, no copies, nothing left behind. Close the tab to clear entries completely after copying results for tickets."}, {"question":"How are spaces and ampersands handled?","answer":"Select percent 20 for path segments and component values, reserving and solely for HTML form bodies under RFC 3986. For example, gaps encode as percent 20 in queries yet and in forms, while decoding restores both to gaps. Batches of 100 addresses with mixed gaps and emoji convert within a second, letting testers standardize links without manual replacement."},{"question":"Which characters must never appear raw inside query values?","answer":"Retain raw letters, digits, hyphen, underscore, period, and tilde; encode everything else, especially ampersand, equals, question, hash, percent, plus, and gaps. For illustration, a value holding a and b and c demands percent shields, otherwise servers split parameters incorrectly. Review server logs for truncated values, then adopt consistent encoding helpers across frontend and backend codebases."}],
-    howTo: [{"name":"Paste input","text":"Paste raw phrase with a and b or complete address holding query q equals a and b for processing."},{"name":"Choose mode","text":"Select Encode for plain wording or Decode for percent sequences, watching preview update instantly below."},{"name":"Set space style","text":"Set gap style to percent 20 for paths and components, reserving and solely for form bodies per standard."},{"name":"Copy result","text":"Copy outcome where a and b becomes a percent 26 b, then paste into links, tickets, or API clients directly."}], guide: [{ heading: "What URL encoding does", body: "Percent encoding converts reserved marks into percent and two hex digits so addresses survive transit without fracturing. Example 1: a and b with ampersand becomes a percent 26 b, preserving single parameter integrity across gateways. Example 2: cafe accent becomes caf percent C3 A9 via UTF-8, while gaps become percent 20 for reliable sharing. A 2000-character address holding 40 symbols transforms within milliseconds, aiding developers, bloggers and QA engineers validating query strings. Path segments, matrix parameters, and fragment identifiers each demand distinct handling, yet core percent logic remains uniform. Overlooking encoding invites truncated requests, misrouted filters and corrupted search terms that frustrate visitors during checkout flows. Consistent helpers across frontend and backend prevent double escapes and ensure analytics capture clean campaign values daily." }, { heading: "How UTF-8, plus, and percent-20 work", body: "Source text first maps to UTF-8 bytes, then every reserved byte becomes percent and hex for transmission. Reference mapping table: gap is percent 20 in paths | and sign is percent 2B in values | ampersand is percent 26 dividing params | equals is percent 3D joining pairs | hash is percent 23 starting fragments | non-ASCII cafe e is percent C3 A9 bytes. Use percent 20 inside paths and components and only inside form bodies per RFC 3986. Edge case: decoding and as gap in wrong context corrupts literal and signs in passwords, so confirm body type before conversion. Batch 100 addresses with emoji and gaps to verify consistent behavior before shipping integrations across browsers. Mismatched helpers that encode twice turn percent 25 into percent 2525, breaking signatures that require exact single-pass representation." }, { heading: "URL encoder worked example: a-and-b to a-percent-26-b", body: "Paste address site com query q equals a and b, press Encode to receive a percent 26 b, press Decode to restore original for verification. Second trial: encode cafe and napkin phrase, observe percent C3 A9 sequences, decode to confirm round trip integrity. Limitation: extremely long 8000-character addresses may truncate inside legacy browsers, double encoding percent 25 fractures links, and encrypted tokens pasted on shared screens risk exposure. For segment inspection after encoding, see the parser at /url-parser for host path and query breakdowns. For opaque secrets requiring concealment rather than transit safety, see the encoder at /base64-tool for alternate handling. Test encoded decoded pairs across Chrome, Firefox and Safari to catch inconsistent gap handling before production release daily. Document chosen conventions for teammates." }]
+    faq: [
+      {
+        question: "When should I percent-encode a URL or query string?",
+        answer: "Encode strings whenever non-alphanumeric characters, spaces, or reserved symbols (like '&', '=', '?', or '#') enter URLs to prevent breaking query parameters or web routing."
+      },
+      {
+        question: "What is the difference between encodeURI and encodeURIComponent?",
+        answer: "encodeURI preserves full URL structure by leaving protocol and domain delimiters intact, while encodeURIComponent encodes all reserved characters, making it mandatory for query parameter values."
+      },
+      {
+        question: "When should I use '+' versus '%20' for spaces?",
+        answer: "Use '%20' for path segments and standard URI components under RFC 3986. The '+' character is an older convention reserved specifically for 'application/x-www-form-urlencoded' form submissions."
+      },
+      {
+        question: "How does the tool handle international characters and accents?",
+        answer: "Non-ASCII characters like 'é', 'ü', or 'ñ' first convert into their respective UTF-8 byte sequences, each of which is encoded as a '%XX' hex pair (e.g. 'é' becomes '%C3%A9')."
+      },
+      {
+        question: "Are my pasted URLs or query parameters sent to any server?",
+        answer: "No. All encoding and decoding algorithms run entirely in your local browser memory. Confidential session tokens and API keys never leave your machine."
+      },
+      {
+        question: "How does URL encoding prevent HTTP parameter pollution?",
+        answer: "Encoding delimiters like ampersands and equals signs ensures that user input strings cannot inject unexpected key-value pairs into backend API query parsing pipelines."
+      }
+    ],
+    howTo: [
+      {
+        name: "Paste URL or text",
+        text: "Paste your raw URL, query parameter, or percent-encoded string into the input field."
+      },
+      {
+        name: "Select encoding mode",
+        text: "Choose Encode Component, Full URL, or Decode based on whether you are formatting a parameter or reading an existing address."
+      },
+      {
+        name: "Configure space encoding",
+        text: "Select '%20' for standard modern URI encoding or '+' for legacy HTML form bodies."
+      },
+      {
+        name: "Copy encoded output",
+        text: "Click Copy to capture the sanitized, web-ready URL string directly to your clipboard."
+      }
+    ],
+    guide: [
+      {
+        heading: "Standard percent-encoding for reliable web links",
+        body: "The Uniform Resource Identifier (URI) specification defines a restricted set of characters permissible within web addresses. When URLs include spaces, reserved punctuation, or international characters, web servers and browser address bars can truncate parameters or misroute traffic. Percent-encoding replaces non-conforming characters with a percent symbol followed by two hexadecimal digits representing the character's UTF-8 byte. This utility ensures that campaign parameters, search queries, and dynamic API endpoints travel across the web without fracturing. Understanding the distinction between component encoding and full URI parsing prevents broken routing, malformed tracking tags, and server errors. Standardizing query strings ensures that third-party integrations, webhook deliveries, and analytics campaigns capture intended values reliably."
+      },
+      {
+        heading: "Reserved characters and percent-encoding reference",
+        body: "RFC 3986 categorizes characters into unreserved characters (which never require encoding) and reserved characters (which must be encoded when used as literal data rather than delimiters).",
+        table: {
+          caption: "URL Character Encoding Reference (RFC 3986 Standards)",
+          headers: ["Character / Symbol", "Encoded Value", "Syntactic Role in URLs", "Encoding Recommendation"],
+          rows: [
+            ["Space (Whitespace)", "%20 (or + in forms)", "Separates tokens in query strings", "Always encode; raw spaces are invalid in URLs"],
+            ["Ampersand (&)", "%26", "Delimits separate query parameters", "Encode when part of parameter value to avoid splitting"],
+            ["Equals Sign (=)", "%3D", "Separates parameter name from value", "Encode when present within a parameter value"],
+            ["Question Mark (?)", "%3F", "Initiates the query string section", "Encode within values; only one literal '?' allowed per URL"],
+            ["Forward Slash (/)", "%2F", "Delimits hierarchical path segments", "Leave raw in paths; encode within query values"],
+            ["Non-ASCII (e.g. é)", "%C3%A9", "Multilingual text content", "Encodes as two-byte UTF-8 hex sequence"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example, common pitfalls, and complementary tools",
+        body: "Consider preparing a search query URL where the parameter value is rock & roll: encoding the component transforms the string into rock%20%26%20roll. Without encoding the ampersand, an API would interpret & roll as a distinct parameter, breaking the search function. A common pitfall is double-encoding, where an already-encoded %20 gets re-encoded as %2520; always confirm whether an input is already encoded before applying transformation. For decomposing complex URLs into parameters, use our [URL Parser](/url-parser), generate campaign links with the [UTM Builder](/utm-builder), or validate metadata with our [Meta Tag Generator](/meta-tag-generator)."
+      }
+    ]
   },
   {
-    slug: "hash-generator",
+        slug: "hash-generator",
     title: "Hash & HMAC Generator",
     short: "SHA-1 / 256 / 512 hashes + HMAC",
     description:
@@ -47,215 +244,1700 @@ export const developerTools: Tool[] = [
     icon: "Fingerprint",
     keywords: ["hash generator", "sha256 generator", "text to hash", "paste text hash locally offline", "how to generate sha256 hash free", "sha256 hex digest web crypto", "hash vs hmac integrity only", "string to hash no upload"],
     category: "developer",
-    faq: [{"question":"Which hash algorithms can I generate here?","answer":"Select SHA-1 with 40 hex characters, SHA-256 with 64, SHA-384 with 96 and SHA-512 with 128, alongside MD5 solely for legacy verification. For illustration, hello yields SHA-256 starting 2cf24dba within ten milliseconds, while 100KB manuals finish near fifty milliseconds. Uppercase toggle aligns with checksum manifests from vendors."}, {"question":"Is hashing the same as encryption?","answer":"No. Hashing applies a one-way compression that never restores source, whereas encryption reverses with a secret key. For example, SHA-256 of mango123 appears random and discloses nothing, while AES ciphertext decrypts with Correct-Horse-9. Employ hashes for integrity fingerprints, reserve AES at /aes-encryptor for confidential messages requiring recovery."}, {"question":"How do I compare hashes to verify integrity?","answer":"Paste candidate and expected digest side by side; identical SHA-256 strings confirm untouched content immediately. For instance, hello must match 2cf24dba prefix, otherwise a byte shifted. Toggle uppercase for manifest alignment. All comparisons remain inside this tab. No upload occurs. Close tab afterward to clear test values completely."},{"question":"Why do tiny edits avalanche digests completely?","answer":"Avalanche design ensures flipping one bit scrambles roughly half the output bits, exposing tampering vividly. Changing hello to hallo replaces 2cf24dba prefix with entirely foreign hex, alerting reviewers instantly. Exploit this sensitivity for download verification, version stamping, and deduplication indexes where even whitespace alterations must surface during audits."}],
-    howTo: [{"name":"Enter text","text":"Type wording like hello or drop 100KB release notes into the input area for immediate digest creation."},{"name":"Select algorithm","text":"Pick SHA-256 for modern integrity, SHA-512 for extended length, or MD5 solely for legacy checksum matching."},{"name":"Compare","text":"Paste expected hex such as 2cf24dba prefix alongside to highlight match versus mismatch automatically below."},{"name":"Copy hash","text":"Copy resulting digest with uppercase toggle engaged when manifests demand capitalized checksum presentation for vendor release documentation accurately."}], guide: [{ heading: "What hashing does", body: "Hashing condenses arbitrary wording into fixed-length hex fingerprints that signal integrity without revealing source. Example 1: hello produces SHA-256 starting 2cf24dba within ten milliseconds for classroom illustration. Example 2: a 100KB manual completes near fifty milliseconds, yielding 64 characters for SHA-256 versus 128 for SHA-512. Engineers checksum installers, fingerprint API payloads, and deduplicate backups efficiently. SHA-1 spans 40 characters but suffers collision flaws, MD5 spans 32 and suits only legacy checks, while SHA-384 balances length and performance. Digests compare quickly, store compactly, and expose single-byte edits through avalanche transformation across distributed pipelines. Uppercase formatting aligns with vendor manifests, lowercase suits Unix tooling, and copy buttons accelerate release verification workflows daily. Test vectors validate correctness before trusting critical deployment checksums completely." }, { heading: "How SHA, comparison, and case work", body: "Selection determines output breadth and collision resistance for distinct threat models. Reference digest table: MD5 is 32 hex legacy only | SHA-1 is 40 hex deprecated | SHA-256 is 64 hex standard | SHA-384 is 96 hex balanced | SHA-512 is 128 hex extensive. Paste expected value beside computed hex; matching strings confirm identical bytes, divergence flags edits. Uppercase toggle aids visual alignment with release notes. Edge case: Unicode normalization matters, so cafe precomposed versus decomposed yields divergent digests despite similar appearance. Always hash identical byte sequences, verify UTF-8 encoding, and normalize line endings before comparison across Windows and Unix contributors. Trailing newlines, BOM markers and invisible spaces frequently cause false mismatches that careful trimming resolves quickly. Document exact inputs for reproducibility." }, { heading: "Hash worked example: hello SHA-256 is 2cf24dba", body: "Type hello, choose SHA-256, copy leading 2cf24dba sequence, alter one letter to hallo and witness entirely fresh hex proving avalanche. Second check: hash 100KB notes, compare against published manifest to approve downloads before installation. Limitation: unkeyed digests prove integrity, never authenticity, and rainbow tables invert common passwords, so never store mango123 hashes alone. Unlike keyed HMAC in the HMAC tab above, which binds content to a secret for webhook trust, plain hashes suit public verification. For authenticated workflows, switch to the HMAC tab above for secret-based codes. Salting and stretching through PBKDF2 or bcrypt mitigates brute force when handling credentials, while MD5 and SHA-1 remain unsuitable for security decisions. Benchmark large inputs in chunks to avoid interface stalls on modest handsets during lengthy computations daily." }]
+    faq: [
+      {
+        question: "Which cryptographic hash algorithms are available in this tool?",
+        answer: "The tool generates SHA-256 (64 hex characters), SHA-512 (128 hex characters), SHA-384, SHA-1, and MD5 digests, alongside keyed HMAC signatures for API authentication."
+      },
+      {
+        question: "What is the difference between hashing and encryption?",
+        answer: "Hashing is a one-way mathematical function that produces a fixed-length fingerprint from input data and cannot be decrypted. Encryption is two-way and requires a secret key to reverse."
+      },
+      {
+        question: "Is MD5 or SHA-1 safe for password hashing?",
+        answer: "No. MD5 and SHA-1 have known collision vulnerabilities and should only be used for legacy checksum verification. Modern security standards mandate SHA-256, SHA-512, or adaptive algorithms like bcrypt."
+      },
+      {
+        question: "How do I verify the integrity of a downloaded file or text string?",
+        answer: "Generate the SHA-256 hash of your content and compare it directly against the publisher's checksum manifest using the built-in hash comparator."
+      },
+      {
+        question: "Are my passwords, keys, or text uploaded to a server?",
+        answer: "No. Hashes are computed entirely in your browser using the native Web Cryptography API (crypto.subtle). Your input strings and secret keys never leave your device."
+      },
+      {
+        question: "Can a cryptographic hash function be reversed to find the original input?",
+        answer: "No. Cryptographic hash functions are strictly one-way compression algorithms. Reversing a digest requires brute-force guessing or precomputed rainbow tables, which is why salting inputs is essential."
+      }
+    ],
+    howTo: [
+      {
+        name: "Enter input text",
+        text: "Type or paste the text, payload, or file content you want to hash into the input area."
+      },
+      {
+        name: "Select hash or HMAC mode",
+        text: "Choose standard hashing, or enable HMAC mode and enter a secret key for message authentication."
+      },
+      {
+        name: "Review computed digests",
+        text: "Inspect real-time digests for SHA-256, SHA-512, SHA-384, and legacy formats simultaneously."
+      },
+      {
+        name: "Compare or copy hash",
+        text: "Paste an expected checksum to verify matching integrity, or copy the computed digest to your clipboard."
+      }
+    ],
+    guide: [
+      {
+        heading: "Cryptographic hash functions and message authentication",
+        body: "Cryptographic hash functions form the mathematical backbone of modern digital security, data integrity verification, and blockchain consensus. A cryptographic hash takes an arbitrary-length message and computes a unique, fixed-size hexadecimal string known as a digest. These functions are deterministic (identical inputs always yield identical digests) and exhibit an avalanche effect, where changing even a single bit of input completely scrambles the output. This browser utility generates industry-standard SHA-2 and legacy digests locally using native hardware-accelerated Web Cryptography primitives. Cryptographic hashing allows developers, system administrators, and security auditors to confirm that files have not been corrupted in transit, detect unauthorized software tampering, and generate HMAC signatures for secure webhook delivery. Comparing digests against published vendor manifests helps verify that downloaded packages, software updates, and cryptographic keys remain genuine and uncorrupted."
+      },
+      {
+        heading: "Hash algorithm specifications and security characteristics",
+        body: "Different hash algorithms offer varying digest lengths, collision resistance levels, and performance profiles depending on the security requirements of your system.",
+        table: {
+          caption: "Cryptographic Hash Algorithm Comparison and Security Standards",
+          headers: ["Algorithm", "Digest Bit Length", "Hex Output Length", "Security Status & Recommended Use"],
+          rows: [
+            ["SHA-256 (SHA-2)", "256 bits", "64 characters", "Recommended standard for software checksums, TLS, and blockchain"],
+            ["SHA-512 (SHA-2)", "512 bits", "128 characters", "High-security standard; optimal performance on 64-bit architectures"],
+            ["SHA-384 (SHA-2)", "384 bits", "96 characters", "Truncated SHA-512 variant used in high-grade government cryptography"],
+            ["SHA-1 (Legacy)", "160 bits", "40 characters", "Deprecated; vulnerable to theoretical collision attacks; legacy only"],
+            ["MD5 (Legacy)", "128 bits", "32 characters", "Broken; susceptible to rapid collision attacks; non-cryptographic only"],
+            ["HMAC-SHA256", "256 bits", "64 characters", "Keyed authentication standard for webhook signatures and REST APIs"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example, security considerations, and related tools",
+        body: "Hashing the phrase hello with SHA-256 yields 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824. If the word is changed to Hello with an uppercase H, the digest changes completely to 185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969, illustrating the avalanche effect. Note that raw cryptographic hashes should never be used directly for storing passwords in databases; production password vaults require salted, computationally expensive key derivation functions like Argon2 or PBKDF2. Digital signatures depend on collision-free hash functions to guarantee author identity and certificate integrity. For two-way data protection, use our [AES Encryptor](/aes-encryptor), verify credential strength with the [Password Strength Checker](/password-strength), or generate secure tokens with the [Password Generator](/password-generator)."
+      }
+    ]
   },
   {
     slug: "html-entities",
     title: "HTML Entity Encoder",
+    seoTitle: "HTML Entity Encoder & Decoder Online | Tool4SaaS",
     short: "Encode & decode HTML entities",
     description:
-      "Encode the characters that matter for HTML display or decode named, decimal, and hex entities back to text, entirely in your browser.",
+      "Encode special HTML characters to named or numeric entities and decode entity strings back to plain text instantly in your browser on Tool4SaaS.",
     icon: "Html",
-    keywords: ["html entities", "html decode", "escape html", "encode decode html locally", "how to encode html entities free", "amp lt quot xss prevention", "escape vs unescape html entities", "paste html encode no upload"],
+    keywords: [
+      "html entity encoder",
+      "html decode",
+      "escape html",
+      "html entities table",
+      "html special characters",
+      "unescape html",
+      "xss display encoding"
+    ],
     category: "developer",
-    faq: [{"question":"Why should I encode HTML entities?","answer":"Encoding turns &, < and > into character references so markup displays as text instead of being parsed. For example, a div holding Hi and bye becomes entity text that a browser shows literally. It does not escape quotation marks, so this is not a complete XSS defense; sanitize untrusted HTML with a dedicated library."}, {"question":"Can I decode entities back to text?","answer":"Yes. Decoding runs inside this tab, so &amp; restores an ampersand and &lt; restores an angle bracket. Named, decimal and hexadecimal references are accepted, while an unknown entity stays literal in the output. No upload occurs."}, {"question":"Which entity formats are supported?","answer":"Named forms such as &amp;, decimal forms such as &#38; and hex forms such as &#x26; all decode to the same character. Encoding, by contrast, emits a small fixed set for &, <, > and non-breaking spaces. It does not convert quotes or accented letters, so verify output before pasting into templates or CMS fields."},{"question":"How do entities differ from full sanitization libraries?","answer":"Entities neutralize visible characters but cannot strip event handlers, javascript URLs, or style expressions embedded in hostile markup. For example, lt script gt displays safely, yet pasting raw markup into innerHTML still executes elsewhere. Combine encoding for display with server-side allowlists, CSP headers and framework escaping before rendering untrusted contributions in production."}],
-    howTo: [{"name":"Paste input","text":"Paste raw markup like div with Hi and bye, or paste entity sequences such as amp lt for reverse decoding."},{"name":"Choose mode","text":"Select Encode to turn markup into entities, or Decode to restore entities into readable characters instantly."},{"name":"Check output","text":"Confirm angle brackets become lt forms and ampersands become amp forms while inner wording stays intact."},{"name":"Copy output","text":"Copy the encoded text into templates, CMS fields, or documentation pages for display."}], guide: [{ heading: "What entity encoding does", body: "Encoding converts raw brackets, ampersands and non-breaking spaces into entity references so browsers show code rather than parse it. Example: a div holding Hi and bye becomes entity text that remains visible in a tutorial. The encoder leaves quotation marks, apostrophes, copyright symbols and accented letters unchanged; only a small fixed set of characters is converted. Bloggers, technical writers and support teams can display snippets without layout collapse. Output is copy-ready for Markdown fences, help centers and forum posts. Always encode first when displaying source code. For untrusted markup, pair this display aid with a real sanitizer; the output is not a security boundary." }, { heading: "How named, decimal, and hex forms work", body: "Reference entities: & becomes &amp; | < becomes &lt; | > becomes &gt; | a non-breaking space becomes &nbsp;. On decode, named forms such as &amp;, decimal forms such as &#38; and hex forms such as &#x26; resolve identically. Quotation marks do not become &quot; during encoding, and single quotes gain no numeric shield. Edge case: double encoding turns &amp; into &amp;amp;, which displays literally, so encode once and check the result. The tool caps input at one million characters." }, { heading: "HTML entity worked example: div Hi to lt entities", body: "Paste markup with a div holding Hi and bye, choose Encode to obtain entity text, then toggle Decode to restore the original wording. A second trial can convert a table cell containing an ampersand and angle brackets, then decode it back. Limitation: entities alone never sanitize innerHTML scripts, event attributes or javascript URLs; server filtering remains mandatory. For readable structure after securing characters, see /code-minifier. Encoding also converts non-breaking spaces, while ordinary spaces, tabs and line breaks pass through untouched. The one-million-character cap applies in both directions, and an over-limit input returns an error message instead of partial output. A stray ampersand that does not begin a valid reference is preserved unchanged, so malformed input can look identical after decoding. Archive encoded samples alongside sources to simplify regression checks." }]
+    faq: [
+      {
+        question: "Why are characters like < and > encoded in HTML?",
+        answer: "Browsers interpret raw angle brackets as HTML tag delimiters. Encoding them as &lt; and &gt; forces the browser to render visible text characters instead of parsing DOM elements."
+      },
+      {
+        question: "Does HTML entity encoding protect against XSS attacks?",
+        answer: "It prevents HTML tag injection in standard body text, but attribute values, JavaScript contexts, and CSS blocks require context-specific escaping and sanitizers like DOMPurify."
+      },
+      {
+        question: "What is the difference between named and numeric entities?",
+        answer: "Named entities use mnemonic words like &copy;, whereas numeric entities use decimal (&#169;) or hexadecimal (&#xA9;) Unicode code points to reference identical symbols."
+      },
+      {
+        question: "Does this tool upload my pasted code to a server?",
+        answer: "No. All conversion logic runs locally inside your browser via client-side JavaScript, ensuring confidential code and private snippets never leave your device."
+      },
+      {
+        question: "Can I decode entity strings back to original text?",
+        answer: "Yes. Switching the tool to Decode mode instantly converts entities like &amp; and &#60; back into literal characters like & and <."
+      }
+    ],
+    howTo: [
+      {
+        name: "Enter markup or entities",
+        text: "Paste HTML snippets containing special characters like script tags, ampersands, or paste encoded sequences like &amp; and &#60;."
+      },
+      {
+        name: "Choose direction",
+        text: "Select Encode to transform raw characters into HTML entities or Decode to convert entity references back to standard text."
+      },
+      {
+        name: "Review encoded output",
+        text: "Inspect the converted text to verify that special characters are replaced with corresponding named or numeric entities."
+      },
+      {
+        name: "Copy or export",
+        text: "Click the copy button to transfer the entity-encoded snippet into your clipboard for markdown files, templates, or documentation."
+      }
+    ],
+    guide: [
+      {
+        heading: "What HTML entity encoding accomplishes",
+        body: "HTML entity encoding replaces reserved markup characters with standardized character references, preventing web browsers from misinterpreting raw text as executable markup tags. When displaying code snippets, user-submitted reviews, or instructional tutorials on technical blogs, raw symbols like ampersands and angle brackets can break page layouts or trigger unintended DOM parsing. For example, a tutorial explaining HTML elements needs to show '<div>Hello</div>' as visible text rather than letting the browser parse it as a DOM node. Beyond fundamental syntax delimiters, entity encoding also represents typographical punctuation, mathematical symbols, and non-ASCII glyphs like em-dashes, arrows, and currency signs without causing character-set encoding mismatches. This tool runs locally in your browser, converting strings instantly with no server interaction or data transfer."
+      },
+      {
+        heading: "Standard HTML entities and character references",
+        body: "HTML recognizes named character entities, decimal numeric references, and hexadecimal references across modern web standards. Named entities offer memorable aliases for frequent characters, while numeric references identify characters by their Unicode code point values. Modern HTML5 parsers support over two thousand named entities, though production environments primarily rely on essential safety escapes to prevent cross-site scripting risks. The reference table below details common HTML entities and their decimal and hex equivalents.",
+        table: {
+          caption: "Common HTML Reserved Characters and Entity Formats",
+          headers: ["Character", "Entity Name", "Decimal Code", "Hex Code", "Common Use Case"],
+          rows: [
+            ["&", "&amp;", "&#38;", "&#x26;", "Ampersands in query parameters and prose"],
+            ["<", "&lt;", "&#60;", "&#x3C;", "Opening angle bracket for HTML tags"],
+            [">", "&gt;", "&#62;", "&#x3E;", "Closing angle bracket for HTML tags"],
+            ["\"", "&quot;", "&#34;", "&#x22;", "Double quotes in attribute values"],
+            ["'", "&apos;", "&#39;", "&#x27;", "Single quote or apostrophe in text and attributes"],
+            [" ", "&nbsp;", "&#160;", "&#xA0;", "Non-breaking space between adjacent words"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Encoding a script snippet",
+        body: "Consider a developer documenting an inline snippet containing '<script>alert(\'Notice & Test\');</script>' for a programming blog. Pasting this into the encoder produces '&lt;script&gt;alert(&apos;Notice &amp; Test&apos;);&lt;/script&gt;'. The angle brackets, single quotes, and ampersand are safely converted to their entity equivalents. When placed inside an HTML template or documentation page, the browser displays the exact code characters to the reader without executing the script tag or modifying DOM hierarchy. Limitation: HTML entity encoding alone does not replace context-aware sanitization libraries like DOMPurify when processing untrusted user input before storing it in databases. For styling and minifying web assets, explore [Code Minifier](/code-minifier) or format query structures with [URL Encoder](/url-encoder)."
+      }
+    ]
   },
   {
     slug: "regex-tester",
     title: "Regex Tester",
+    seoTitle: "Regex Tester & Debugger Online | Tool4SaaS",
     short: "Test JavaScript regular expressions",
     description:
-      "Test and debug JavaScript regular expressions live with flag toggles, match highlighting, capture-group details, and instant error hints fully offline.",
+      "Test and debug JavaScript regular expressions in real time with instant match highlights, capture groups, and flag controls on Tool4SaaS.",
     icon: "Code",
-    keywords: ["regex tester", "regular expression tester", "regex debugger online", "javascript regex no signup", "how to test regex online free", "capture groups backtracking nested quantifiers", "regex vs includes string methods", "paste regex validate locally no upload"],
+    keywords: [
+      "regex tester",
+      "regular expression tester",
+      "regex debugger online",
+      "javascript regex tester",
+      "test regex online free",
+      "capture groups regex",
+      "regex match highlighter"
+    ],
     category: "developer",
-    faq: [{"question":"Which regex syntax and flags are supported?","answer":"Standard JavaScript syntax with g, i, m and s flags alongside groups, lookarounds, and named captures. For illustration, backslash d and locates 42 inside Order 42, while flag g lists all 15 hits. A 120KB log holding 4000 lines evaluates instantly, with match indexes and group values displayed for copying."}, {"question":"Does regex testing upload my text?","answer":"No. Scanning executes solely inside this tab, so a 120KB log holding 4000 lines never traverses networks. For instance, private identifiers remain resident, function. Everything is computed in this tab; nothing is sent out in any direction. Test proprietary samples confidently here without external exposure."}, {"question":"Is there an input size or safety limit?","answer":"Texts near 500KB with 20000 lines highlight smoothly, whereas nested quantifiers like and inside and may stall tabs through catastrophic backtracking. For example, prefer bounded ranges such as 0 to 80 characters over greedy dot star. Split 5MB dumps into chapters, simplify alternations, and test incrementally to preserve responsiveness on modest devices."},{"question":"How do groups differ from simple string searches?","answer":"Groups capture subparts for reuse, while plain includes merely reports presence without structure. For example, four-digit dash two-digit pattern on 2024-05-01 stores year 2024 and month 05 separately, enabling reformatting. Named groups label results for readable code. Exploit captures for log parsing, date reshaping and URL rewriting where includes would demand manual slicing across large corpora."}],
-    howTo: [{"name":"Enter pattern","text":"Type pattern like backslash d and for digits, then toggle flags g, i, m, or s for scope control."},{"name":"Paste test text","text":"Paste sample such as Order 42 ships on 2024-05-01 with varied cases and multiline entries for trials."},{"name":"Review matches","text":"Inspect highlighted hits with capture groups, start indexes and total counts across 20000 lines instantly below."},{"name":"Fix and copy","text":"Refine escapes or flags when errors appear, then copy working expression with slashes and flags for code."}], guide: [{ heading: "What the regex tester does", body: "This laboratory evaluates JavaScript patterns live with glowing highlights, group inventories and precise error guidance. Example 1: backslash d and finds 42 inside Order 42 ships, revealing numeric tokens for extraction. Example 2: capital A to Z and discovers promo codes across 200 lines, while flag g returns all 15 hits versus first only. Flags reshape scope: i ignores case, m anchors each line, s lets dot cross newlines. Developers validate forms, parse logs, and refactor bulk text confidently. Immediate feedback shortens trial cycles, prevents faulty deployments, and builds intuition for quantifiers, alternations and boundary assertions across real datasets. Sandbox drills rewriting greedy stars into negated classes sharpen instincts while cutting catastrophic backtracking across production logs during nightly reviews." }, { heading: "How groups and flags work", body: "Reference capture table: parentheses create numbered groups | question colon makes non-capturing clusters | named syntax labels groups for clarity | backslash 1 reuses first group | flag g lists all matches | flag i folds case. Parenthesized four-digit dash two-digit on 2024-05-01 stores year 2024 as first value and month 05 as second with start index 9. Non-capturing clusters accelerate 300-match scans. Edge case: greedy dot star spanning mail bodies may swallow delimiters, so prefer negated classes like 0 to 80 non-comma characters. Copy slash-wrapped patterns and flags directly into source files for deployment. Benchmark 300-match scans comparing capturing versus non-capturing clusters to quantify memory savings across high-volume ingestion pipelines before committing helpers to shared libraries for reuse daily." }, { heading: "Worked example, speed traps and limits", body: "Test Order 42 ships on 2024-05-01 with backslash d and backslash g flag to list 42 and date fragments, then isolate year month with grouped pattern for reformatting. Second drill: scan a 120KB log holding 4000 lines for error codes, confirming 15 hits highlight within a second. Limitation: nested repeats like a and inside and dollar freeze on 30 a letters and b through exponential paths; rewrite as specific a and dollar. For textual difference review after pattern work, see the comparator at /text-diff for line alignment. Very large 5MB dumps should split to preserve interactivity. Rehearse atomic grouping and possessive quantifiers on staging copies to tame pathological inputs without freezing browsers while documenting safe patterns for teammates." }],
+    faq: [
+      {
+        question: "Which regular expression engine is used?",
+        answer: "This tool uses your web browser's native JavaScript RegExp engine, supporting ECMAScript standards including lookaheads, lookbehinds, and named capture groups."
+      },
+      {
+        question: "What does catastrophic backtracking mean in regex?",
+        answer: "Catastrophic backtracking happens when ambiguous nested quantifiers cause the engine to test exponential permutations on failing inputs, temporarily freezing the browser tab."
+      },
+      {
+        question: "What is the difference between capturing and non-capturing groups?",
+        answer: "Capturing groups like (abc) store matched segments for extraction, while non-capturing groups like (?:abc) group expressions without consuming memory or index slots."
+      },
+      {
+        question: "Does this regex tool send my test text to an external server?",
+        answer: "No. All regular expression compilations and string matches are evaluated strictly in your browser memory; zero data is transmitted over the network."
+      },
+      {
+        question: "Can I use this tool to replace or reformat matched text?",
+        answer: "The tester focuses on pattern matching and capture group inspection. To perform search and replace substitutions across documents, use our [Text Tools](/text-tools)."
+      }
+    ],
+    howTo: [
+      {
+        name: "Input regular expression",
+        text: "Type your pattern in the regex field, such as ([A-Z]{2,4})-(\\d{4}) to match project issue keys."
+      },
+      {
+        name: "Configure matching flags",
+        text: "Toggle flags like g (global), i (case-insensitive), m (multiline), and s (dotAll) to control matching rules."
+      },
+      {
+        name: "Paste test strings",
+        text: "Insert log entries, code samples, or sample text into the test area to observe instant match highlighting."
+      },
+      {
+        name: "Inspect capture groups",
+        text: "Review matched strings, zero-based character indices, and captured subgroup values in the match details breakdown."
+      }
+    ],
+    guide: [
+      {
+        heading: "How regular expressions process text",
+        body: "Regular expressions provide a formal syntax for searching, matching, and extracting patterns from structured or unstructured text. Whether validating email addresses, isolating dates from application server logs, or parsing configuration files, regular expressions match character sequences using literal tokens, character classes, quantifiers, and assertion anchors. Shorthand character classes like \\w for alphanumeric word characters, \\d for decimal digits, and \\s for whitespace simplify complex pattern definitions. Advanced expressions leverage zero-width assertions including positive lookahead (?=...) and negative lookbehind (?<!...) to enforce conditional constraints without consuming target characters. The JavaScript RegExp engine powers this interactive debugger, allowing you to test complex patterns against multiline inputs with immediate visual feedback."
+      },
+      {
+        heading: "JavaScript regex flags and quantifier reference",
+        body: "Flags modify the execution behavior of regular expressions across matches, line boundaries, and character sets. Combining flags with non-capturing groups and lazy quantifiers ensures efficient matching and minimizes catastrophic backtracking. In addition to standard global and multiline processing, sticky matching (y) and Unicode-aware matching (u) extend pattern capabilities for international character sets and token streams. Here is a summary of standard JavaScript regex flags and character classes.",
+        table: {
+          caption: "JavaScript RegExp Flags and Syntax Modifiers",
+          headers: ["Token / Flag", "Name", "Behavior", "Example Pattern", "Matches"],
+          rows: [
+            ["g", "Global Flag", "Finds all occurrences instead of stopping at first hit", "/[0-9]+/g", "Every number in input"],
+            ["i", "Ignore Case", "Performs case-insensitive character matching", "/error/i", "'Error', 'ERROR', 'error'"],
+            ["m", "Multiline Flag", "^ and $ match line starts and ends rather than string boundaries", "/^#\\s+/m", "Markdown headings on each line"],
+            ["s", "DotAll Flag", "Allows dot (.) to match newline characters", "/<div>.*?<\\/div>/s", "Multiline HTML div elements"],
+            ["(\\d{4})", "Capturing Group", "Stores matched subpattern into numbered index array", "/(\\w+)@(\\w+)/", "Username and domain parts"],
+            ["(?:abc)", "Non-Capturing Group", "Groups tokens for quantifier without storing match memory", "/(?:https?):\\/\\//", "Matches protocol without capture"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Extracting order identifiers",
+        body: "Suppose an engineer needs to extract order IDs formatted like 'ORD-9821' and 'ORD-4402' from customer support tickets. Setting the expression to \\b(ORD)-(\\d{4})\\b with flags g and i against 'Ticket #101: Customer ORD-9821 requested refund, while ORD-4402 is pending delivery' produces two distinct matches. Match 1 highlights 'ORD-9821' at index 21, providing Group 1 as 'ORD' and Group 2 as '9821'. Match 2 highlights 'ORD-4402' at index 62, providing Group 1 as 'ORD' and Group 2 as '4402'. Limitation: Deeply nested quantifiers like (a+)+$ can trigger catastrophic backtracking on non-matching strings, causing browser tabs to stall. Keep quantifiers possessive or atomic where possible. To inspect diffs between test samples, compare text with [Text Diff](/text-diff)."
+      }
+    ]
   },
   {
     slug: "jwt-decoder",
     title: "JWT Decoder",
+    seoTitle: "JWT Decoder Online - Inspect Claims & Headers | Tool4SaaS",
     short: "Decode JSON Web Tokens safely",
     description:
-      "Decode JWT headers and payloads to inspect claims, expiry, and algorithms with signature highlighting and safe client-side parsing without uploads offline.",
+      "Decode JSON Web Tokens to inspect headers, payload claims, and expiration timestamps securely without server uploads online with Tool4SaaS.",
     icon: "VpnKey",
-    keywords: ["jwt decoder", "decode jwt online", "jwt parser", "jwt decoder online free", "how to decode jwt online free", "hs256 exp iat claims header", "decode vs verify jwt signature", "decode jwt free no signup"],
+    keywords: [
+      "jwt decoder",
+      "decode jwt online",
+      "jwt parser",
+      "jwt debugger",
+      "inspect jwt claims",
+      "jwt expiration checker",
+      "base64 jwt decoder"
+    ],
     category: "developer",
-    faq: [{"question":"Does this tool verify my JWT signature?","answer":"No. It solely reveals header and payload for inspection, while genuine assurance demands secret or public key checks inside your services. For illustration, a test token displaying alg HS256 and sub 123 can be forged by anyone. Treat decoded views as diagnostic hints, then validate signatures in backend code before granting access or trusting roles."}, {"question":"Is my JWT uploaded anywhere?","answer":"No. Token parsing executes solely inside this tab, so a three-part sample holding 24 claims never traverses networks. For instance, demo values remain resident, function. The tool works entirely offline in your browser and forgets everything on close. Prefer brief test tokens and shutter the tab afterward for hygiene."}, {"question":"Can it flag expired tokens?","answer":"Yes. It interprets exp and iat numeric claims against device clock to label active, expiring, or stale sessions. For example, exp 1717252800 two hours past present renders as expired 2h ago with localized timestamp. A 24-claim sample evaluates within fifty milliseconds. Decoding never equals verification; confirm signatures with secrets in controlled code paths."},{"question":"How should teams debug audience mismatches safely?","answer":"Audience checks compare aud claim against expected service identifiers to catch cross-environment reuse. For example, staging token presenting prod audience signals misconfiguration before deployment. Inspect iss, aud and scope claims side by side, rotate test keys frequently, and redact emails from screenshots. Reproduce with synthetic users rather than customer tokens to preserve confidentiality across support tickets."}],
-    howTo: [{"name":"Paste token","text":"Paste complete token with three dot-separated segments such as header payload and signature for decoding."},{"name":"Read decoded parts","text":"Examine header alg and typ fields and payload claims like sub, exp and iat in formatted JSON."},{"name":"Check expiry","text":"Compare exp and iat timestamps against current clock to diagnose session timeouts or clock skew."},{"name":"Copy","text":"Copy decoded header or payload JSON into documentation, tickets, or debugging notes with redacted secrets."}],
-    guide: [{ heading: "What a JWT contains", body: "A token strings three Base64 segments with dots: header, payload and signature, resemblingaaa dot bbb dot ccc. Example 1: header declares typ JWT and alg HS256 for HMAC protection. Example 2: payload carries sub 123 identifying a user, iat marking issuance and exp 1717245600 marking June 1 2024 expiry. Servers verify signature with secrets, clients read claims for interface decisions. Audience, issuer and scope fields scope permissions. Recognizing structure helps diagnose truncated copies, misplaced line breaks and confusion between access and refresh tokens during integration across mobile and web clients. Clinics rotating test users and ephemeral keys rehearse expiry handling without exposing customer emails across support channels while capturing traces for audits across staging environments daily for safety now daily." }, { heading: "How expiry and signature checks work", body: "Reference claim table: alg names signing method | typ marks JWT media | sub identifies subject 123 | iat records issued time | exp records expiry 1717252800 | aud scopes audience. The panel contrasts exp and iat against device clock, flagging active, expiring within minutes, or stale by hours. Decoding never proves authenticity; verification requires secret or public key on trusted servers. Edge case: alg none tokens carry no signature, so reject them in production. Clock skew beyond thirty seconds mimics expiry, demanding NTP synchronization across distributed issuers and validators." }, { heading: "JWT worked example: HS256 sub 123 decode", body: "Paste sample with header alg HS256 and payload sub 123, observe decoded JSON with claims expanded, then copy excerpt for ticket context. Second trial: inspect exp 1717252800, note expired 2h status, adjust test clock or mint fresh token. Limitation: display only, no cryptographic assurance, and prod tokens pasted on shared screens expose emails and roles. For time math around expiry windows, see the converter at /timestamp-converter for epoch translation. For payload transport encoding basics, see the tool at /base64-tool for segment mechanics. Second drill minting short-lived tokens with aud scopes validates audience checks, while archiving redacted samples accelerates future triage across teams." }],
+    faq: [
+      {
+        question: "Does decoding a JWT verify its cryptographic signature?",
+        answer: "No. Decoding reads the Base64URL header and payload without validating signatures. Backend servers must cryptographically verify signatures using public keys or secrets before trusting claims."
+      },
+      {
+        question: "Is it safe to paste confidential production tokens here?",
+        answer: "Yes, because this tool processes tokens 100% locally in your browser memory without network transmissions. For security best practices, always redact sensitive credentials when sharing logs."
+      },
+      {
+        question: "What causes the 'Token expired' warning?",
+        answer: "The tool compares the 'exp' (expiration) numeric claim against your local device clock. If the current epoch time is greater than the 'exp' value, the token is flagged as expired."
+      },
+      {
+        question: "Can I modify claims and re-sign a token with this tool?",
+        answer: "No. This is a read-only token inspector designed for debugging and diagnostic review. Re-signing requires your secret cryptographic key in a backend environment."
+      },
+      {
+        question: "What does the 'alg: none' header mean in a JWT?",
+        answer: "'alg: none' indicates an unsigned token without a signature segment. Production authentication APIs should reject 'none' algorithm tokens to prevent privilege escalation attacks."
+      }
+    ],
+    howTo: [
+      {
+        name: "Paste token string",
+        text: "Paste a compact three-part JWT into the input field, consisting of Base64URL-encoded header, payload, and signature separated by dots."
+      },
+      {
+        name: "Inspect token header",
+        text: "View the decoded JSON header specifying the signing algorithm (such as RS256 or HS256) and token type."
+      },
+      {
+        name: "Analyze payload claims",
+        text: "Review standard registered claims like sub, iss, aud, alongside custom user roles and permissions formatted in clean JSON."
+      },
+      {
+        name: "Verify token lifespan",
+        text: "Check calculated issuance (iat) and expiration (exp) timestamps to identify whether the token is currently active or expired."
+      }
+    ],
+    guide: [
+      {
+        heading: "Architecture of a JSON Web Token",
+        body: "A JSON Web Token (RFC 7519) is a compact, URL-safe container format for exchanging digitally signed security claims between two systems. JWTs are widely utilized in authentication systems, OAuth2 flows, and single sign-on architectures. A valid token consists of three distinct segments separated by periods: the header, the payload, and the cryptographic signature. Decoding a token translates the Base64URL segments into human-readable JSON objects, enabling developers to troubleshoot session claims, audience scopes, and role assignments without exposing secrets."
+      },
+      {
+        heading: "Standard registered claims in JWT payloads",
+        body: "The IETF specification defines seven reserved claim keys within the JWT payload that communicate token validity, issuer identities, and recipient audiences. While application developers can add custom keys, adhering to standardized claim abbreviations ensures consistent interoperability across identity providers and client applications. The table below lists the primary registered claims found in JSON Web Tokens.",
+        table: {
+          caption: "Standard Registered Claims in JWT Payloads (RFC 7519)",
+          headers: ["Claim Key", "Full Name", "Type", "Description", "Example Value"],
+          rows: [
+            ["iss", "Issuer", "String", "Identifies the authorization server issuing the token", "https://auth.example.com"],
+            ["sub", "Subject", "String", "Unique principal identifier representing user or service", "usr_998124"],
+            ["aud", "Audience", "String / Array", "Intended recipients or resource servers for this token", "https://api.example.com/v1"],
+            ["exp", "Expiration Time", "NumericDate", "Unix epoch timestamp identifying when token expires", "1741520000"],
+            ["nbf", "Not Before", "NumericDate", "Unix epoch timestamp before which token must not be accepted", "1741516400"],
+            ["iat", "Issued At", "NumericDate", "Unix epoch timestamp identifying when token was minted", "1741516400"],
+            ["jti", "JWT ID", "String", "Unique identifier for the token used to prevent replay attacks", "urn:uuid:7c8b-4a"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Inspecting user claims and expiry",
+        body: "Consider debugging an OAuth2 bearer token issued to an administrative user for an internal API. Pasting a sample token displays Header: {\"alg\": \"HS256\", \"typ\": \"JWT\"} and Payload: {\"sub\": \"usr_998124\", \"role\": \"editor\", \"iat\": 1741516400, \"exp\": 1741520000}. The tool converts exp (1741520000) into a readable calendar timestamp and calculates whether the token has expired relative to local system time. This visual breakdown allows QA engineers to verify that the 'role' claim contains 'editor' and that the session lifetime equals exactly 3,600 seconds (1 hour). Limitation: Decoding a JWT only parses the Base64URL strings; it does NOT cryptographically verify the signature against your private key or secret. Never trust decoded claims on a server without cryptographic signature verification. To convert raw binary data, use [Base64 Converter](/base64-tool), and to calculate epoch dates, visit [Timestamp Converter](/timestamp-converter)."
+      }
+    ]
   },
   {
     slug: "mime-type-lookup",
     title: "MIME Type Lookup",
-    short: "File extension ↔ MIME",
+    seoTitle: "MIME Type Lookup & Extension Reference Online | Tool4SaaS",
+    short: "Look up MIME types & extensions",
     description:
-      "Look up MIME types from file extensions or find the extension for a MIME type using a built-in table of 44 common web, image, document, and media mappings offline.",
+      "Look up MIME content types from file extensions or search standard media extensions with instant bidirectional reference tables on Tool4SaaS.",
     icon: "AttachFile",
-    keywords: ["mime type lookup", "file extension to mime", "mime types list", "mime parser inspector locally", "how to lookup mime type free", "mime registry iana content-type headers", "mime vs extension apache nginx", "paste extension validate mime no upload"],
+    keywords: [
+      "mime type lookup",
+      "mime types",
+      "content type lookup",
+      "file extension mime type",
+      "media type reference",
+      "http content type",
+      "iana media types"
+    ],
     category: "developer",
-    faq: [{"question":"What can I search by extension or MIME?","answer":"Query either direction using a dotted extension such as .json or a full type such as image/png. For example, .png returns image/png, while application/pdf returns .pdf. The built-in table covers 44 common web, image, font, audio, video and office types, enough for routine Content-Type checks without leaving the page."}, {"question":"Is this a complete MIME list?","answer":"It covers 44 mainstream web, image, font, audio, video and office extensions. For instance, html, css, js, png, webp, woff2 and docx resolve directly, but the table is not a complete IANA registry and does not include usage notes. All lookups execute inside this tab with no upload; consult IANA for exotic formats."}, {"question":"What if my extension is missing?","answer":"Unlisted extensions and MIME types show a no-match message instead of a guessed fallback. For example, .xyz returns no match rather than application/octet-stream, while familiar web and office types resolve directly. Check IANA or your server configuration for missing pairs, and validate any generic binary type in staging before serving downloads."},{"question":"How do MIME sniffs create security hazards?","answer":"Browsers that sniff content despite declared types may execute masqueraded scripts hidden inside images. For example, uploading evil svg labelled as png could trigger script runs when served loosely. Always send accurate Content-Type and nosniff headers, validate uploads by magic bytes, and isolate user files on separate domains to contain cross-site scripting fallout."}],
-    howTo: [{"name":"Enter value","text":"Type suffix like dot png or full label like image png into the search field for lookup."},{"name":"Read result","text":"Review the matched extension and MIME type pair displayed immediately below the field."},{"name":"Check header use","text":"Apply result to Content-Type, for instance AddType image webp dot webp inside Apache configuration files."},{"name":"Copy","text":"Copy extension or MIME label directly into Nginx maps, upload validators, or documentation pages for reuse."}], guide: [{ heading: "What MIME lookup does", body: "This lookup bridges filename suffixes and media types for accurate Content-Type delivery. Example: .png yields image/png for raster images, application/pdf yields .pdf for document downloads, and .json yields application/json for APIs. The built-in table holds 44 common web, image, font, audio, video and office pairs. Engineers can use the result in Apache, Nginx or upload validators, where an accurate label supports correct previews, caching and compression. The table is a quick reference, not a complete registry, so verify uncommon formats against IANA before deployment." }, { heading: "How extension and MIME search work", body: "Reference mapping table: dot png maps image png | dot webp maps image webp | dot woff2 maps font woff2 | dot pdf maps application pdf | dot json maps application json | dot mp4 maps video mp4. Type either side to reveal the counterpart. The reverse lookup returns the first extension that maps to a type, so image/jpeg resolves to .jpg before .jpeg and text/javascript resolves to .js before .mjs. For instance, AddType image/webp .webp repairs Apache delivery. Edge case: an unlisted value returns a no-match message rather than a fallback, so check IANA for exotic formats. Copy results into server blocks, test with curl header inspection, then monitor devtools network panel for correct rendering. Confirm the declared type with a response header or the browser network panel before deployment." }, { heading: "MIME worked example: dot webp is image webp", body: "Enter .webp to receive image/webp for modern headers, then query image/png to retrieve .png for an upload allowlist. A second check can confirm that .woff2 maps to font/woff2 for preload hints. Matching ignores case, trims whitespace and accepts a leading dot on extension input. The table does not cover every IANA alias: application/javascript, for example, is absent even though text/javascript maps to .js. Results are reference pairs only, so write the server directive yourself. Press copy to place either value on the clipboard. Limitation: the catalog emphasizes common deployment types, so rare scientific formats may be missing and need IANA confirmation. For URL component breakdowns, see /url-parser; for archive labels, see /zip-creator." }]
+    faq: [
+      {
+        question: "What happens if a web server sends the wrong MIME type?",
+        answer: "If a server sends an incorrect MIME type (e.g. serving JavaScript as text/plain), modern browsers with strict MIME type checking will block the script from executing."
+      },
+      {
+        question: "What does the 'application/' prefix indicate in a MIME type?",
+        answer: "'application/' denotes binary or structured application data (such as JSON, PDF, or Zip archives) that requires parsing by specific client applications."
+      },
+      {
+        question: "How does MIME type lookup work in this tool?",
+        answer: "The lookup queries an offline registry of standard IANA media types and common web file extensions directly in your browser without network requests."
+      },
+      {
+        question: "Is 'text/javascript' or 'application/javascript' the modern standard?",
+        answer: "The IETF RFC 9239 officially designated 'text/javascript' as the current standard media type for JavaScript, deprecating 'application/javascript'."
+      },
+      {
+        question: "Can I search in both directions (extension to MIME and MIME to extension)?",
+        answer: "Yes. You can enter an extension like .png to find image/png, or type application/xml to discover that it maps to .xml files."
+      }
+    ],
+    howTo: [
+      {
+        name: "Enter extension or MIME string",
+        text: "Type a file extension (e.g. .json, .webp, .pdf) or a MIME type string (e.g. application/pdf)."
+      },
+      {
+        name: "Filter by category",
+        text: "Toggle categories like text, images, video, audio, or application payloads to narrow search results."
+      },
+      {
+        name: "Review Content-Type headers",
+        text: "Inspect the formal IANA media type, standard file extension, and associated HTTP Content-Type header syntax."
+      },
+      {
+        name: "Copy header snippet",
+        text: "Click the copy button to copy the MIME type string or ready-to-use HTTP response header into your server code."
+      }
+    ],
+    guide: [
+      {
+        heading: "Why MIME types matter in web architecture",
+        body: "Multipurpose Internet Mail Extensions (MIME types), officially standardized as IANA Media Types, communicate the exact nature and format of a digital document to web browsers and HTTP clients. When a web server serves an asset, the HTTP 'Content-Type' response header dictates how the client handles the payload—whether rendering it as an interactive web page (text/html), executing it as script logic (text/javascript), or streaming it as video. Modern web applications also rely on specialized media types for web fonts (font/woff2), multipart form-data payload uploads, and streaming event streams (text/event-stream). Misconfigured MIME headers can cause browsers to misinterpret assets, triggering unexpected file downloads, broken styles, or blocking script execution due to strict MIME-type checking security policies."
+      },
+      {
+        heading: "Standard MIME type classifications and examples",
+        body: "MIME types follow a two-part naming structure: a primary type (e.g. 'application', 'image', 'text', 'font', 'video') and a specific subtype separated by a forward slash. Including optional parameters like 'charset=utf-8' ensures international text glyphs and special characters render accurately across all user locales. Understanding standard media types ensures accurate API response headers, web server nginx configurations, and cloud storage bucket metadata. The table below lists standard web MIME types, their common file extensions, and typical HTTP usage.",
+        table: {
+          caption: "Standard IANA Web MIME Types and HTTP Header Mappings",
+          headers: ["File Extension", "MIME Type / Content-Type", "Category", "Description", "Standard HTTP Context"],
+          rows: [
+            [".json", "application/json", "Application", "JavaScript Object Notation data", "REST API responses and configuration payloads"],
+            [".html / .htm", "text/html", "Text", "HyperText Markup Language", "Standard web pages with UTF-8 character encoding"],
+            [".js / .mjs", "text/javascript", "Text / Script", "JavaScript source code", "Frontend scripts loaded via script tags and ES modules"],
+            [".css", "text/css", "Text / Style", "Cascading Style Sheets", "Web stylesheets required for visual layout rendering"],
+            [".webp", "image/webp", "Image", "WebP image format", "Modern high-efficiency photographic web images"],
+            [".pdf", "application/pdf", "Application", "Portable Document Format", "Downloadable reports, invoices, and documents"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Configuring an API response header",
+        body: "Suppose a backend developer is configuring an endpoint serving downloadable CSV reports. Searching for '.csv' in the lookup tool confirms the standard media type: 'text/csv; charset=utf-8'. The developer configures the server header: 'Content-Type: text/csv; charset=utf-8' along with 'Content-Disposition: attachment; filename=\"report.csv\"', ensuring browsers prompt the user to save the spreadsheet rather than displaying raw text. Similarly, binary WebAssembly modules require 'application/wasm' headers to enable streaming compilation in modern browser runtimes. Limitations: While this tool references standard IANA and web media types, specialized proprietary applications may define vendor-specific x-subtypes (e.g. 'application/x-tar'). To format and validate API responses, use [JSON Formatter](/json-formatter), or inspect query structures with [URL Parser](/url-parser)."
+      }
+    ]
   },
     {
     slug: "credit-card-validator",
     title: "Credit Card Validator",
-    short: "Free Luhn test – 4111 safe",
+    seoTitle: "Credit Card Validator - Luhn Algorithm Check Online | Tool4SaaS",
+    short: "Check card validity using Luhn algorithm",
     description:
-      "Test card numbers free with Luhn check, Visa/MC/Amex detection. Try 4111 1111 safely — 100% local, private offline, never use real PAN.",
+      "Validate test payment card numbers using the standard Luhn MOD 10 algorithm and detect card networks privately in your browser on Tool4SaaS.",
     icon: "CreditCard",
-    keywords: ["credit card validator", "luhn check", "card number validator", "luhn validator online free", "how to validate credit card free", "luhn checksum visa mastercard amex", "test cards vs real pan safety", "paste card number check locally no upload"],
+    keywords: [
+      "credit card validator",
+      "luhn algorithm checker",
+      "validate credit card number",
+      "card number validator",
+      "luhn check online",
+      "test card number validator",
+      "card brand detector"
+    ],
     category: "developer",
-    faq: [{"question":"What does the card checker validate?","answer":"It applies Luhn checksum and brand and length hints for Visa, Mastercard and Amex patterns. For illustration, gateway sample 4111 1111 1111 1111 reports Visa 16 digits Luhn pass, while altering one digit triggers fail. A pass confirms arithmetic fit, never fund availability. Batches of 200 samples evaluate within seconds for classroom drills."}, {"question":"Is it safe to paste card numbers here?","answer":"Processing stays inside this tab with zero retention, yet never enter genuine customer PANs or production cards anywhere. Employ solely gateway samples like 4111 1111 1111 1111 inside sandbox. Genuine digits may leak via extensions or screen sharing. No upload occurs. Shut the tab after trials and review guidance at /terms for compliance."}, {"question":"Can it handle spaces and dashes?","answer":"Yes. Separators strip automatically before checksum, so formatted samples validate smoothly. For example, 4111 dash 1111 dash 1111 dash 1111 and spaced variant both pass as Visa. Dotted or parenthesized forms need manual cleaning. Test suites with 200 numbers confirm formatting tolerance, though production PANs must never appear here even masked."},{"question":"Why do Luhn passes still decline at checkout?","answer":"Luhn merely proves digit plausibility, ignoring expiry, CVV, address match, velocity filters and issuer holds that decide authorization. For example, 5500 0000 0000 0004 passes mathematically yet lacks account backing. Developers use passes to catch typos early, then rely on gateway responses, 3D Secure and fraud signals for final verdicts before fulfilment."}],
-    howTo: [{"name":"Enter number","text":"Type gateway sample like 4111 1111 1111 1111 or 5500 0000 0000 0004 for safe validation trials."},{"name":"Read result","text":"Review detected brand, digit length and Luhn verdict with color cues and explanatory hints instantly below."},{"name":"Check formatting","text":"Confirm spaces and dashes strip automatically, then clean dots or letters manually before rechecking numbers."},{"name":"Test safely","text":"Employ gateway documentation samples solely in sandbox, never entering genuine customer PANs anywhere online."}],
-    guide: [{ heading: "What the card checker proves", body: "This checker evaluates sample numbers with Luhn arithmetic and brand and length cues for learning. Example 1: gateway sample 4111 1111 1111 1111 reports Visa, 16 digits, Luhn pass within milliseconds. Example 2: 5500 0000 0000 0004 reports Mastercard pass, while 3782 822463 10005 signals Amex with 15 digits. A pass means digits satisfy checksum, never that funds exist or fraud clears. Developers catch typos in forms, QA rehearse validation messaging, and students grasp check digits. Results appear instantly with color cues and hints for correction across sandbox exercises." }, { heading: "How Luhn and brand hints work", body: "Reference logic table: double every second digit from right | sum digits subtracting 9 above 9 | total ending 0 means pass | leading 4 means Visa | 51 to 55 means Mastercard | 34 and 37 means Amex 15 digits. For 4111 1111 1111 1111 the sum ends at 30 so valid; changing final 1 to 2 yields 31 so fail. Spaces and dashes strip first, enabling formatted entry. Edge case: 19-digit Discover and UnionPay ranges validate mathematically but need gateway confirmation. Batches of 200 samples process quickly, though issuer rules ultimately govern acceptance beyond arithmetic. Laboratories stressing 19-digit ranges and UnionPay variants document gateway nuances that pure checksum logic cannot capture across regions while updating test matrices quarterly for coverage." }, { heading: "Card worked example: 4111 test Visa Luhn pass", body: "Enter 4111 1111 1111 1111, observe Visa 16 digits Luhn pass, then alter final digit to witness fail and learn sensitivity. Second trial: test 3782 822463 10005 for Amex detection with 15-digit expectation. Limitation: format learning only, never approval, credit, or fraud advice; live payments demand gateway and bank confirmation. Never enter genuine PANs here. For credential hygiene after form work, see the checker at /password-strength for passphrase scoring. For token safety, see the vault at /aes-encryptor for encryption concepts. Second drill testing Discover ranges validates length handling, while archiving Luhn vectors alongside brand tables accelerates onboarding for support engineers across releases quarterly now daily for readiness and playbooks and mentoring for novices through daily reviews and coaching." }],
+    faq: [
+      {
+        question: "Does a valid Luhn check mean the credit card actually works?",
+        answer: "No. The Luhn algorithm is a mathematical checksum that verifies syntax and catches typos. It cannot verify whether an account is active, funded, or legitimately issued."
+      },
+      {
+        question: "Is it safe to test card numbers on this website?",
+        answer: "Yes, because the code executes 100% locally in your browser memory without network requests. However, as an industry best practice, only use official test card numbers, never live personal credit cards."
+      },
+      {
+        question: "What is an IIN or BIN on a payment card?",
+        answer: "The Issuer Identification Number (IIN), historically called the Bank Identification Number (BIN), consists of the first 6 to 8 digits that identify the card network and issuing financial institution."
+      },
+      {
+        question: "Why do American Express cards have 15 digits instead of 16?",
+        answer: "American Express uses an internal proprietary 15-digit structure (formatted as 4-6-5 digits) rather than the 16-digit 4-4-4-4 format standard on Visa and Mastercard."
+      },
+      {
+        question: "Can this validator detect fraudulent or stolen credit cards?",
+        answer: "No. Detecting stolen or fraudulent cards requires authorized real-time authorization requests through certified PCI-DSS payment gateways connected to banking networks."
+      }
+    ],
+    howTo: [
+      {
+        name: "Input test card number",
+        text: "Paste or enter a payment card number or mock test number (such as test card 4111 1111 1111)."
+      },
+      {
+        name: "Evaluate Luhn checksum",
+        text: "Observe the instant MOD 10 mathematical verification checking the validity of the card check digit."
+      },
+      {
+        name: "Identify card network",
+        text: "Review the detected card brand (Visa, Mastercard, American Express, Discover, JCB) based on IIN prefix rules."
+      },
+      {
+        name: "Inspect structure",
+        text: "Verify total digit length (13 to 19 digits) and formatting for payment gateway integration testing."
+      }
+    ],
+    guide: [
+      {
+        heading: "How the Luhn algorithm validates card numbers",
+        body: "The Luhn algorithm, also known as the 'modulus 10' or 'MOD 10' algorithm, is a standardized mathematical formula created by IBM scientist Hans Peter Luhn. It is widely used by credit card issuers, government identification systems, and payment gateways to detect accidental transcription errors, mistyped digits, and transposition mistakes before submitting a transaction to banking networks. Security Notice: This tool is strictly a client-side syntax validator designed for software developers, QA testers, and ecommerce merchants verifying payment form integration. Never enter real, active payment cards on any web tool. This utility runs 100% offline in your browser memory; zero numbers are ever transmitted, saved, or logged."
+      },
+      {
+        heading: "Payment card network prefixes and length specifications",
+        body: "Payment card numbers (Primary Account Numbers or PANs) follow ISO/IEC 7812 standards. The initial digits identify the Major Industry Identifier (MII) and the Issuer Identification Number (IIN), which reveal the issuing payment network. The table below outlines standard card brands, prefix patterns, and required digit lengths.",
+        table: {
+          caption: "Payment Card Network IIN Prefixes and Digit Length Rules (ISO/IEC 7812)",
+          headers: ["Card Network / Brand", "IIN / Prefix Range", "Standard PAN Length", "Luhn Algorithm Required", "Common Testing Context"],
+          rows: [
+            ["Visa", "4", "16 digits (historically 13)", "Yes (MOD 10)", "Global debit and credit transactions"],
+            ["Mastercard", "51 – 55 and 2221 – 2720", "16 digits", "Yes (MOD 10)", "Global retail and commercial card payments"],
+            ["American Express", "34 and 37", "15 digits", "Yes (MOD 10)", "Corporate and consumer charge/credit cards"],
+            ["Discover", "6011, 622126 – 622925, 644 – 649, 65", "16 digits", "Yes (MOD 10)", "North American consumer credit network"],
+            ["JCB", "3528 – 3589", "16 digits", "Yes (MOD 10)", "Major payment network originating in Japan"],
+            ["Diners Club", "300 – 305, 36, 38", "14 digits", "Yes (MOD 10)", "International travel and entertainment cards"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Calculating a Luhn check digit",
+        body: "Consider a 16-digit test number: 4111 1111 1111 1111. To verify it with the Luhn algorithm: starting from the rightmost digit, leave the last digit (check digit) untouched, then double every second digit moving left. If doubling results in a number greater than 9, subtract 9 (e.g. 7 doubled is 14, minus 9 equals 5). Summing all processed digits and adding the final check digit produces a total. If that grand total is divisible by 10 (total % 10 === 0), the number passes the Luhn check. In this test case, the sum is divisible by 10, confirming valid structure. Limitations: Passing the Luhn check verifies mathematical structure and syntax only. It does NOT verify account ownership, available credit balances, expiration dates, or CVV security codes. For hashing data securely, use [Hash Generator](/hash-generator), or format tokens with [JWT Decoder](/jwt-decoder)."
+      }
+    ]
   },
   {
     slug: "password-strength",
     title: "Password Strength Checker",
-    short: "Rate your password",
+    seoTitle: "Password Strength Checker - Entropy & Crack Time | Tool4SaaS",
+    short: "Score password strength & entropy",
     description:
-      "Score password strength from length, character variety, patterns, and common-word checks with tips to build phishing-resistant logins privately offline.",
+      "Analyze password strength, calculate information entropy bits, and estimate brute-force crack time securely in your browser online with Tool4SaaS.",
     icon: "VerifiedUser",
-    keywords: ["password strength", "password checker", "strong password test", "paste password check locally no upload", "how to check password strength free", "entropy bits dictionary common passwords", "passphrase vs password entropy bits", "password validator parser free"],
+    keywords: [
+      "password strength checker",
+      "password entropy calculator",
+      "test password strength",
+      "password crack time",
+      "how strong is my password",
+      "secure password check",
+      "nist password guidelines"
+    ],
     category: "developer",
-    faq: [{"question":"Is my password sent anywhere?","answer":"No. Scoring executes solely inside this tab, so a 15-character trial like Tr7 and mango Bridge never traverses networks. For instance, test strings remain resident, function. It runs on your side only: no uploads, no copies, nothing left behind. Evaluate candidates confidently, then clear the field before leaving shared machines."}, {"question":"What makes a password strong?","answer":"Length and diverse lower, upper, digits and symbols without plain words or predictable runs wins. For example, 16 mixed characters scoring above 85 dwarf an 8-character name year below 25 by sixty points. Avoid qwerty, 123456 and password1 patterns. Prefer six-word passphrases or 20 random characters for vaults requiring durable resistance."}, {"question":"Can I use this checker offline?","answer":"Yes. Evaluation proceeds after initial load without server calls, scoring plane Wi-Fi keys and 20-character admin logins within fifty milliseconds each. For illustration, airplane mode trials still return entropy and pattern feedback. Generate replacements with the maker at /password-generator, then preserve 32-character secrets inside a reputable manager rather than notes."},{"question":"Why do passphrases often beat complex short passwords?","answer":"Memorable length multiplies combinations faster than tortured substitutions that users forget and reuse. For example, six random words yielding seventy bits outlast Mango2024 with under thirty bits despite symbols. Attackers guess dictionary hybrids quickly, while lengthy phrases resist brute force. Adopt managers, enable two-factor authentication and rotate credentials after breaches for layered defence."}],
-    howTo: [{"name":"Type a password","text":"Enter candidate like Tr7 and mango Bridge with 15 characters to obtain immediate strength scoring."},{"name":"Review checklist","text":"Inspect length, character variety, sequence penalties and dictionary hits with pass fail indicators below."},{"name":"Improve","text":"Extend length beyond 14 characters and blend four classes to lift score above 80."},{"name":"Pick final","text":"Select robust 20-character phrase and preserve it inside a password manager with backup codes."}],
-    guide: [{ heading: "What the password strength checker measures", body: "This meter rates candidates from length, uppercase, lowercase, digits, symbols, repetition, sequences and common-word collisions. Example 1: Tr7 and mango Bridge with 15 characters and four classes scores high for admin use. Example 2: Mango2024 with 9 characters and word year scores low and invites guessing. Students harden logins, freelancers secure Wi-Fi keys and teams audit service accounts within seconds. Side-by-side trials reveal how added length outweighs clever substitutions. Color scales, numeric scores and checklist ticks guide iterative improvement before committing credentials to vaults across projects." }, { heading: "How entropy scoring and pattern penalties work", body: "Reference scoring table: 8 chars name year scores below 30 | 12 chars mixed scores near 60 | 15 chars four-class scores above 80 | 20 chars four-class exceeds 100 bits | six random words top 70 bits. Each extra character multiplies search space exponentially, while abc runs, 123 sequences, doubled pairs, keyboard walks like qwerty and leaked password1 incur deductions. Edge case: leet substitutions like a to 4 barely improve strength because crackers normalize them. Test passphrases too, since word count drives entropy more sustainably than punctuation acrobatics. Observatories measuring crack times for qwerty walks versus random phrases publish vivid charts that deter lazy choices across organizations while informing policy updates quarterly now daily and posters and bulletins for awareness daily." }, { heading: "15-char vs 9-char example, phishing limits and generator next step", body: "Enter Tr7 and mango Bridge at 15 characters to see high rating, then Mango2024 at 9 characters to see low warning requiring extension into six-word phrase or 20 random characters. Second drill: compare 20-character admin phrase versus short reuse across sites. Limitation: scores estimate guessing resistance, never phishing immunity, and shoulder surfing on shared screens remains risky. For robust replacement creation, see the maker at /password-generator for random generation. For breach-safe storage concepts, see the vault at /aes-encryptor for encryption principles. Second drill contrasting 20-character admin phrase against short reuse quantifies risk reduction, while archiving scoring histories guides coaching for at-risk accounts across estates quarterly now daily for vigilance and workshops and simulations for practice daily and reviews." }],
+    faq: [
+      {
+        question: "What is password entropy and how is it calculated?",
+        answer: "Password entropy is a mathematical measure of randomness in bits, calculated from password length and the pool of potential characters (E = L × log2(R))."
+      },
+      {
+        question: "Why are long passphrases better than short complex passwords?",
+        answer: "Length exponentially increases the search space for attackers. A 4-word passphrase is easy to remember yet possesses far higher entropy than a complex 7-character string."
+      },
+      {
+        question: "Is my typed password uploaded or saved anywhere?",
+        answer: "No. All analysis and entropy math runs 100% locally in your browser memory via client-side JavaScript; no text is sent over the network."
+      },
+      {
+        question: "What does the NIST 800-63B password guideline recommend?",
+        answer: "NIST recommends prioritizing password length (at least 8 to 16 characters), supporting passphrases, and eliminating arbitrary periodic expiration rules that encourage predictable patterns."
+      },
+      {
+        question: "What are the most common password vulnerabilities detected?",
+        answer: "Common vulnerabilities include sequential numbers (1234), keyboard walks (qwerty), dictionary words, and substitution patterns like replacing 'o' with '0'."
+      }
+    ],
+    howTo: [
+      {
+        name: "Input test password",
+        text: "Enter a sample password or passphrase into the input field (use test phrases, not real personal passwords)."
+      },
+      {
+        name: "Evaluate entropy score",
+        text: "Review the calculated information entropy score measured in bits based on character pool diversity and length."
+      },
+      {
+        name: "Check vulnerability flags",
+        text: "Inspect feedback cards highlighting common dictionary words, sequential numbers, or repeated character patterns."
+      },
+      {
+        name: "Improve password resilience",
+        text: "Follow actionable recommendations, such as adding random words or increasing length, to reach 80+ bits of entropy."
+      }
+    ],
+    guide: [
+      {
+        heading: "Measuring cryptographic password strength",
+        body: "Password security is fundamental to personal privacy, corporate cybersecurity, and identity management. Weak, predictable credentials remain the primary attack vector for credential stuffing, rainbow table attacks, and automated brute-force dictionaries. Rather than merely checking arbitrary character requirements (like requiring an exclamation mark or capital letter), modern cybersecurity standards evaluate information entropy—the mathematical measure of randomness and unpredictability within a character string. Security Notice: This tool runs 100% locally inside your browser memory using client-side JavaScript. Never enter real, active production passwords on any website; test password structures using representative mock phrases."
+      },
+      {
+        heading: "Password entropy benchmarks and crack time estimates",
+        body: "Password entropy is calculated in bits using the formula: E = L × log2(R), where L is password length and R is the size of the character pool (e.g. 26 lowercase, 52 mixed case, 62 alphanumeric, 95 full ASCII). Higher entropy exponentially increases the time required for automated offline cracking rigs to brute-force a hash. The table below outlines NIST-aligned entropy tiers and estimated crack times against modern high-speed GPU hash clusters.",
+        table: {
+          caption: "Information Entropy Tiers and Offline Brute-Force Resistances",
+          headers: ["Entropy Range", "Strength Rating", "Character Example Pattern", "Estimated Offline Crack Time", "Recommended Security Level"],
+          rows: [
+            ["< 28 Bits", "Very Weak", "Short dictionary word ('password', 'monkey')", "Instantaneous (under 1 second)", "Unacceptable; vulnerable to trivial dictionary attacks"],
+            ["28 – 35 Bits", "Weak", "6–8 lowercase letters ('summer21')", "Seconds to a few minutes", "Easily cracked by basic automated credential stuffers"],
+            ["36 – 59 Bits", "Moderate", "8–10 mixed alphanumeric ('P@ssw0rd9')", "Hours to several days", "Minimum for low-risk non-sensitive web accounts"],
+            ["60 – 79 Bits", "Strong", "12–14 mixed characters with symbols", "Months to decades", "Recommended standard for consumer banking and email logins"],
+            ["80 – 127 Bits", "Very Strong", "16+ character random string or 4-word passphrase", "Thousands to millions of years", "Enterprise administrative credentials and master passwords"],
+            ["128+ Bits", "Cryptographically Secure", "20+ random characters or 6-word Diceware passphrase", "Exceeds age of the universe", "Cold storage crypto keys and root certificate authority keys"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Evaluating a 4-word passphrase vs complex short string",
+        body: "Consider comparing a short complex password 'P@s!8x' (6 characters, mixed symbols) versus a 4-word passphrase 'correct-horse-battery-staple' (28 characters). The short 6-character password holds roughly 39 bits of entropy, which a modern GPU cluster can brute-force in minutes. Conversely, the 4-word passphrase drawn from a standard 7,776-word dictionary holds roughly 52 bits of entropy (and over 100 bits if random letters or separators are added), taking decades to crack while being significantly easier for humans to remember. Limitations: This checker analyzes entropy and common pattern vulnerabilities; it cannot determine whether a specific password has been compromised in external third-party data breaches. To generate cryptographically secure passwords, use [Password Generator](/password-generator), or hash text with [Hash Generator](/hash-generator)."
+      }
+    ]
   },
     {
     slug: "code-minifier",
-    title: "Code Formatter & Minifier",
-    short: "Format HTML, minify CSS & JS",
-    description: "Format HTML, CSS and JavaScript with two-space indentation, preview CSS live, and minify CSS or JavaScript by stripping comments and extra whitespace offline.",
+    title: "Code Minifier & Formatter",
+    seoTitle: "Code Minifier & Beautifier - HTML, CSS, JS | Tool4SaaS",
+    short: "Minify & beautify HTML, CSS, JS",
+    description:
+      "Minify and format HTML, CSS, and JavaScript code by stripping comments and redundant whitespace with instant live previews online on Tool4SaaS.",
     icon: "Code",
-    keywords: ["code formatter", "code minifier", "format html css js", "minify javascript", "css beautifier", "html beautifier", "js beautifier", "format and minify code offline"],
+    keywords: [
+      "code minifier",
+      "css minifier",
+      "javascript minifier",
+      "html minifier",
+      "minify js online",
+      "code beautifier",
+      "format css online"
+    ],
     category: "developer",
-    faq: [{ question: "Which languages can I format and minify?", answer: "HTML, CSS and JavaScript can be formatted, but only CSS and JavaScript can be minified. The HTML view indents nested tags and keeps inline spans joined; the CSS view expands rules and previews them live; the JS view restores two-space indentation and compacts code up to 500KB. Minification strips comments and collapses whitespace, so keep a readable original." }, { question: "Is my code uploaded when formatting or minifying?", answer: "No. Every view runs in your browser, JavaScript input is capped at 500KB, and closing the tab discards the pasted source. Keep an original copy regardless: compact output is hard to edit by hand and drops the comments you may want to restore later." }, { question: "How much smaller will my minified code get?", answer: "Reductions land between twenty and fifty percent depending on how comment-heavy and how deeply indented the source was. A 12.4KB file can drop to 8.1KB, and a 200-character snippet can fall to 120 characters. Trial the compact build in staging before shipping it to production." }, { question: "What is the difference between format and minify?", answer: "Format, also called beautify, adds line breaks and two-space indentation so you can read and review code. Minify does the opposite: it strips comments, blank lines and repeated spaces, then collapses structure, producing the smallest valid text for the wire. Keep the readable version in source control and minify at build time." }, { question: "Does the CSS preview really apply my styles?", answer: "Yes. The CSS view injects your stylesheet into a small sandbox with .container, .item, .box and .text sample elements, so matching selectors restyle the preview live. It is a quick check for selector mistakes, not a screenshot of your real page; confirm final rendering in the target browser." }],
-    howTo: [{ name: "Paste code", text: "Paste HTML, CSS or JavaScript into the active view, such as a minified .container rule or a compressed function." }, { name: "Pick a language", text: "Switch tabs between HTML, CSS and JS; each view keeps its own input so you can work on several snippets in turn." }, { name: "Format or minify", text: "Press Beautify for HTML, or Format and Minify for CSS and JavaScript; the CSS view also previews matching rules." }, { name: "Copy result", text: "Copy the readable or compact output, then diff against the original so tags, strings and selectors stay identical." }], guide: [{ heading: "What the code formatter and minifier do", body: "Three linked views cover markup and styles. HTML indents nested tags while leaving inline spans joined; CSS expands rules by braces and semicolons with a live preview you can restyle; JS restores two-space indentation and brace placement for compressed bundles. CSS and JavaScript can also minify, stripping comments and collapsing redundant whitespace; HTML is beautify-only. Example: paste a minified .container rule, press Format to read four lines, then Minify to confirm it returns to one compact line. A 12.4KB stylesheet with remarks typically lands near 8.1KB, about thirty-five percent lighter, which matters for first paint on marketing pages and dashboards." }, { heading: "How indentation, comments and minification work", body: "HTML breaks on block tags such as div, ul and table at two spaces per tier while void elements like img and br stay single lines. CSS splits on braces and semicolons and preserves the spacing calc needs. JS protects string and template literals before reformatting, so braces inside quotes never skew indentation. Reference behavior table: block tags break | inline tags stay joined | void tags single line | open brace indents | close brace outdents | comments strip in CSS/JS minify | strings preserved exactly | duplicate properties keep the last value. Edge case: a missing closing brace or semicolon lets indentation drift, which flags the fault for repair rather than corrupting wording. Minify saves twenty to fifty percent on comment-heavy sources; keep originals because compact text resists direct editing." }, { heading: "Worked example: a minified bundle back to readable", body: "Paste a 12.4KB minified stylesheet, press Format to review each rule on its own line, and watch the preview restyle when selectors like .item match the sample elements. Switch to the JS view, paste a compressed function, and Format to expose nesting before debugging. Minify both to confirm the byte drop, copy into your build, and diff against the original so nothing changed but whitespace. Limitation: these are formatters, not compilers, so they will not catch type errors or resolve imports, and malformed code may indent oddly and needs a linter. For JSON, XML and SQL payloads, use their dedicated formatters instead." }],
+    faq: [
+      {
+        question: "How does code minification improve website performance?",
+        answer: "Minification strips comments, redundant whitespace, and newlines from source code, reducing byte weight over network transfers and speeding up browser parsing."
+      },
+      {
+        question: "Can minified code break JavaScript logic?",
+        answer: "Basic whitespace minification preserves syntax tokens, but missing semicolons before line breaks in un-minified code can cause ASI (Automatic Semicolon Insertion) parsing errors."
+      },
+      {
+        question: "Can I restore minified code into human-readable format?",
+        answer: "Yes. Selecting 'Format / Beautify' re-indents code with consistent two-space hierarchy, breaks compacted lines, and structures nested tags cleanly."
+      },
+      {
+        question: "Is my proprietary source code uploaded to an external server?",
+        answer: "No. All formatting, tokenization, and minification runs 100% locally in your browser memory; your code never leaves your computer."
+      },
+      {
+        question: "Does this minifier mangle variable names?",
+        answer: "No. It focuses on safe whitespace and comment removal rather than destructive identifier mangling, ensuring code remains debuggable without source maps."
+      }
+    ],
+    howTo: [
+      {
+        name: "Paste source code",
+        text: "Insert HTML markup, CSS stylesheet rules, or JavaScript code blocks into the input editor."
+      },
+      {
+        name: "Select language and mode",
+        text: "Choose HTML, CSS, or JS, then select Minify to compress or Beautify to format with 2-space indentation."
+      },
+      {
+        name: "Review compression statistics",
+        text: "Inspect original vs compressed byte sizes and view the percentage reduction in payload weight."
+      },
+      {
+        name: "Copy or export",
+        text: "Click the copy button to transfer optimized code directly into production assets or stylesheets."
+      }
+    ],
+    guide: [
+      {
+        heading: "Optimizing web code for bandwidth and performance",
+        body: "Minification is a core performance optimization technique that strips non-functional characters—such as developer comments, formatting tabs, newline breaks, and redundant whitespace—from web code before production deployment. While human programmers rely on generous indentation, descriptive comments, and clear line breaks to read code maintainably, web browser parsing engines ignore these cosmetic elements. Compressing stylesheets and scripts directly decreases HTTP payload size, improves Core Web Vitals, and accelerates First Contentful Paint (FCP) on mobile networks without altering functional runtime behavior."
+      },
+      {
+        heading: "Minification vs beautification specifications",
+        body: "Web developers frequently need to switch between compressed minified code for production deployment and beautified formatting for debugging legacy bundles and third-party vendor scripts. The table below compares minification and formatting transformations across common web programming languages.",
+        table: {
+          caption: "Code Optimization Transformations and Savings Breakdown",
+          headers: ["Language", "Original Raw Snippet", "Minified Production Snippet", "Typical Savings %", "Optimization Action"],
+          rows: [
+            ["CSS", "body {\n  margin: 0;\n  color: #333;\n}", "body{margin:0;color:#333;}", "20% – 35%", "Strips line breaks, spaces around braces, and comments"],
+            ["HTML", "<div class=\"card\">\n  <p>Hello</p>\n</div>", "<div class=\"card\"><p>Hello</p></div>", "15% – 30%", "Removes inter-tag whitespace and HTML comments"],
+            ["JavaScript", "function add(a, b) {\n  // Sum\n  return a + b;\n}", "function add(a,b){return a+b;}", "25% – 45%", "Removes inline comments, spacing around operators"],
+            ["JSON", "{\n  \"status\": 200,\n  \"ok\": true\n}", "{\"status\":200,\"ok\":true}", "20% – 40%", "Removes indentation spaces while preserving data strings"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Compressing a stylesheet card component",
+        body: "Consider a CSS component containing 18 lines of card styling with developer comments and 4-space indentation totaling 420 bytes. Running the CSS Minifier strips comment headers, compresses whitespace around colons and semicolons, and merges adjacent selectors into a compact 260-byte one-liner. The result achieves a 38% reduction in byte size while preserving identical rendering output across all desktop and mobile browsers. Limitations: This tool provides safe token-preserving minification; it does not perform dead-code tree shaking or rewrite AST variables. To escape special characters in HTML display, use [HTML Entity Encoder](/html-entities), or format complex API responses with [JSON Formatter](/json-formatter)."
+      }
+    ]
   },
   {
     slug: "screen-resolution",
-    title: "Screen Resolution",
-    short: "Detect screen metrics",
-    description: "Detect screen width, height, pixel ratio, viewport size, and orientation live with copyable values to debug responsive layouts accurately offline.",
+    title: "Screen Resolution Detector",
+    seoTitle: "Screen Resolution & Viewport Size Detector Online | Tool4SaaS",
+    short: "Detect screen resolution & viewport",
+    description:
+      "Detect screen resolution, viewport dimensions, device pixel ratio, and display orientation to debug responsive layouts accurately online on Tool4SaaS.",
     icon: "PhotoSizeSelectLarge",
-    keywords: ["screen resolution", "detect screen size", "viewport dimensions", "screen size inspector parser locally", "how to check screen resolution free", "dpr viewport css pixels orientation", "viewport vs screen hardware pixels", "validate resolution no upload free"],
+    keywords: [
+      "screen resolution detector",
+      "viewport size checker",
+      "device pixel ratio",
+      "screen resolution test",
+      "window size detector",
+      "screen dpi checker",
+      "responsive design tester"
+    ],
     category: "developer",
-    faq: [{ question: "What screen metrics are shown?", answer: "It reveals live hardware pixels, CSS viewport, devicePixelRatio, color depth and orientation updating during resize. For illustration, a 1920 by 1080 monitor reports 1903 by 937 viewport at full zoom, while a 390 by 844 handset reports 3x density portrait. Copy values with one click for specifications, tickets, or media queries." }, { question: "Is my screen data sent anywhere?", answer: "No. Measurement reads window dot screen and innerWidth solely inside this tab with zero transmission. For instance, 2560 by 1440 desktop or 390 by 844 phone figures remain resident. Nothing is stored or sent anywhere; close the tab and everything is gone. Share strings like 390x844 at 3x only when filing voluntary bug reports." }, { question: "Why does viewport differ from screen size?", answer:"Because viewport subtracts browser chrome, sidebars, devtools and zoom scaling from hardware pixels. For example, 1920 by 1080 hardware yields 1903 by 937 viewport at full zoom, narrowing to 1536 wide at 125 percent zoom. Rotate handsets to flip 390 by 844 portrait into landscape while density stays constant, clarifying breakpoint behavior."},{"question":"How should testers cover foldables and zoom levels?","answer":"Test folded and unfolded postures, portrait and landscape rotations and 100 through 200 percent zoom to expose reflow faults. For example, 390 by 844 portrait collapsing to narrow split view may hide navigation. Record viewport, density and orientation triplets per case, automate screenshots across breakpoints, and verify touch targets exceed 44 pixels for accessible operation."}, { question: "How does devicePixelRatio affect image sharpness?", answer: "DevicePixelRatio maps CSS pixels to physical pixels, so a 390-pixel CSS layout at 3x renders 1170 hardware pixels across. For illustration, a 300-pixel logo needs a 900-pixel source to stay crisp on retina phones. Export responsive images at 1x, 2x and 3x densities, then verify edges in device labs." }],
-    howTo: [{ name: "Open tool", text: "Launch this panel directly on the handset, tablet, or desktop viewport you intend to evaluate thoroughly." }, { name: "Read metrics", text: "Note hardware pixels, CSS viewport dimensions, density ratio and orientation readings shown live above instantly." }, { name: "Resize test", text: "Drag window edges, toggle zoom levels, or rotate handset to watch viewport and orientation update live." }, { name: "Copy", text: "Copy compact string like 390x844 at 3x portrait into CSS comments or issue tickets for reproduction." }],
-    guide: [{ heading: "What live screen detection shows", body: "This readout exposes hardware width and height, layout viewport, pixel density and orientation for the device in hand. Example 1: 1920 by 1080 monitor at full zoom reports 1903 by 937 viewport after chrome subtraction. Example 2: phone reports 390 by 844 at 3x density portrait for precise breakpoint work. Designers debug media queries, QA files reproducible tickets and bloggers verify screenshots. Live updates track resizing, zooming and rotation without reloads. One-click copying accelerates specs, standups, and client communication across responsive projects with trustworthy numbers." }, { heading: "How viewport, DPR and orientation interact", body: "Reference metric table: hardware 1920 by 1080 fixed | viewport 1903 by 937 at full zoom | viewport 1536 wide at 125 percent zoom | phone 390 by 844 portrait | density 3x means triple physical pixels | orientation flips on rotate. The page samples screen object for hardware, innerWidth and innerHeight for layout and pixel ratio for density. Edge case: mirrored displays and OS scaling report logical rather than physical pixels, misleading screenshot math. Zoom, sidebars and devtools shrink viewport while hardware stays constant, explaining most mismatch confusion for newcomers." }, { heading: "Phone rotate test, reporting limits and contrast next step", body: "Open panel on phone, note 390 by 844 at 3x portrait, rotate to landscape, watch orientation flip while density holds steady. Second trial: zoom desktop to 125 percent, observe 1920 width contracting toward 1536 viewport. Limitation: software reporting only, so virtual machines, mirrored docks and odd scaling skew figures. For color accessibility after layout, see the checker at /color-contrast for ratio validation. For shadow depth cues, see the builder at /gradient-generator for elevation styling." }]
+    faq: [
+      {
+        question: "What is the difference between screen resolution and viewport size?",
+        answer: "Screen resolution refers to your physical monitor display pixels, whereas viewport size refers to the active browser window dimensions currently rendering CSS content."
+      },
+      {
+        question: "What is Device Pixel Ratio (DPR) and why does it matter?",
+        answer: "Device Pixel Ratio (DPR) is the ratio between physical display hardware pixels and device-independent CSS pixels, explaining why 2x Retina displays render ultra-sharp text."
+      },
+      {
+        question: "Does zooming in the browser change the reported viewport size?",
+        answer: "Yes. Zooming in increases CSS pixel dimensions while decreasing viewport width and height values, simulating smaller screen viewing conditions."
+      },
+      {
+        question: "Is my screen or hardware resolution sent to any analytics server?",
+        answer: "No. All display properties are queried strictly in your local browser window via JavaScript window.screen and window.innerWidth APIs; zero telemetry is sent."
+      },
+      {
+        question: "How can web developers use these metrics for responsive breakpoints?",
+        answer: "Comparing viewport width against standard CSS framework breakpoints (like 640px, 768px, 1024px, 1280px) allows designers to verify responsive layout shifts accurately."
+      }
+    ],
+    howTo: [
+      {
+        name: "View live screen dimensions",
+        text: "Inspect the instant display card showing your hardware display width and height in physical pixels."
+      },
+      {
+        name: "Check active viewport size",
+        text: "Review the inner browser window dimensions in CSS pixels, updating in real time as you resize the window."
+      },
+      {
+        name: "Inspect pixel density and orientation",
+        text: "Check Device Pixel Ratio (1x, 2x, 3x), color depth (24-bit / 32-bit), and display orientation (landscape or portrait)."
+      },
+      {
+        name: "Copy responsive specifications",
+        text: "Click copy on any metric or export a responsive diagnostic summary to verify UI breakpoints and media queries."
+      }
+    ],
+    guide: [
+      {
+        heading: "Display metrics and responsive web engineering",
+        body: "Building responsive web applications requires a precise understanding of display hardware capabilities and browser rendering viewports. Frontend developers and QA engineers frequently struggle with layout bugs caused by confusing physical screen resolution (such as 4K or 1080p monitors) with logical CSS viewport pixels. High-density Retina displays scale multiple physical pixels into a single CSS pixel, meaning a 2880 × 1800 laptop display renders web layouts at a comfortable 1440 × 900 logical viewport. Modern web design relies heavily on responsive meta tags like viewport width device-width to prevent mobile browsers from rendering desktop pages at artificial 980px zooms. Furthermore, dynamic mobile UI elements—such as address bars collapsing during scroll and virtual on-screen touch keyboards—alter the visual viewport dynamically. This diagnostic utility reads window and screen APIs in real time to provide exact display specs without software installation."
+      },
+      {
+        heading: "CSS viewport vs physical hardware resolution reference",
+        body: "Understanding the relationship between hardware resolution, viewport width, and Device Pixel Ratio (DPR) is critical for configuring CSS media queries, responsive srcset image attributes, and HTML viewport meta tags. When serving graphics across modern hardware, developers use DPR values to dispatch sharp 2x or 3x raster images, preventing pixelation on ultra-high-definition displays while conserving mobile bandwidth. Furthermore, modern CSS introduced fluid clamp functions and container queries that adjust typography and component widths based on immediate parent element dimensions rather than global window bounds. The table below lists standard device profiles, their physical hardware resolutions, and resulting CSS viewports.",
+        table: {
+          caption: "Device Screen Profiles, Pixel Densities, and Viewport Breakpoints",
+          headers: ["Device Category / Model", "Physical Hardware Pixels", "Device Pixel Ratio (DPR)", "Logical CSS Viewport", "CSS Media Query Match"],
+          rows: [
+            ["Mobile (Modern Smartphone)", "1170 × 2532", "3.0x Retina", "390 × 844 px", "@media (max-width: 640px) (sm)"],
+            ["Tablet (Standard iPad)", "1620 × 2160", "2.0x Retina", "810 × 1080 px", "@media (min-width: 768px) (md)"],
+            ["Laptop (MacBook Pro 14)", "3024 × 1964", "2.0x Retina", "1512 × 982 px", "@media (min-width: 1280px) (xl)"],
+            ["Desktop (Full HD 1080p)", "1920 × 1080", "1.0x Standard", "1920 × 1080 px", "@media (min-width: 1536px) (2xl)"],
+            ["Ultrawide Gaming Monitor (21:9)", "3440 × 1440", "1.0x / 1.25x Scaled", "2752 × 1152 to 3440 × 1440 px", "@media (min-width: 1536px) with max-width wrapper"],
+            ["Desktop (4K UHD Monitor)", "3840 × 2160", "1.5x / 2.0x Scaled", "1920 × 1080 to 2560 × 1440 px", "@media (min-width: 1536px) (2xl)"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Debugging a tablet navigation breakpoint",
+        body: "Consider a developer testing whether an iPad Air triggers a desktop navigation bar or mobile hamburger menu. Loading this tool on the tablet reveals a logical viewport width of 820px and DPR 2.0 (despite 1640 physical pixels). Comparing 820px against the project's CSS breakpoint '@media (min-width: 768px)' confirms that the tablet exceeds the 768px tablet threshold, correctly rendering the desktop navigation bar while verifying touch target accessibility. Frontend teams also monitor color depth (such as 24-bit Truecolor or 30-bit Deep Color) to ensure consistent canvas rendering, and track orientation angle shifts (0 degrees portrait vs 90 degrees landscape) when testing progressive web apps on mobile tablets. Limitations: Browser privacy configurations like Firefox Letterboxing may round viewport measurements to nearest intervals to resist fingerprinting. To test visual color accessibility across screen displays, explore [Color Contrast Checker](/color-contrast)."
+      }
+    ]
   },
   {
     slug: "xml-formatter",
     title: "XML Formatter",
-    short: "Format & validate XML",
-    description: "Format and validate XML with indented hierarchy and a minify mode for feeds, sitemaps, and configs, with a 500 KB input limit and fully offline processing.",
+    seoTitle: "XML Formatter & Beautifier - Pretty Print Online | Tool4SaaS",
+    short: "Format, validate & minify XML",
+    description:
+      "Format, indent, validate, and minify XML markup with syntax hierarchy inspection and instant error detection online in your browser on Tool4SaaS.",
     icon: "Code",
-    keywords: ["xml formatter", "xml beautifier", "xml validator online", "paste xml validate locally no upload", "how to format xml online free", "domparser parsererror namespaces sitemap hierarchy", "xml vs json feeds sitemaps", "xml parser inspector free"],
+    keywords: [
+      "xml formatter",
+      "format xml online",
+      "xml beautifier",
+      "xml validator",
+      "minify xml",
+      "xml pretty print",
+      "format sitemap xml",
+      "xml indentation"
+    ],
     category: "developer",
-    faq: [{ question: "Does the XML formatter validate?", answer: "Yes, for well-formedness only. It uses the browser DOMParser and shows a generic invalid-XML message when parsing fails, without line or column details or schema validation. Inputs above 500 KB are rejected, so split very large feeds before formatting." }, { question: "Can it minify XML for transport?", answer: "Yes. Minify removes whitespace between tags, producing a compact line while preserving text and attributes. The exact saving depends on how much indentation the source contains, and all processing stays in this tab with no upload. Test the compact output in the target feed reader or sitemap validator before publishing." }, { question: "Does it handle namespaces and sitemaps?", answer: "Yes. Namespace prefixes such as sitemap:loc are preserved in the output. A normal sitemap formats hierarchically, but the tool checks well-formedness only, not the sitemap schema, and rejects input above 500 KB. Fix structural faults, then copy the result for Search Console inspection. JSON alternatives live at /json-formatter." }, { question: "How does XML differ from JSON for feeds?", answer: "XML supports attributes, namespaces, mixed content and schema validation suited to sitemaps and RSS, while JSON favors concise objects for APIs. For example, sitemap loc needs namespace context that JSON lacks. Choose XML for document fidelity, JSON for browser payloads. Unlike the formatter at /json-formatter which enforces braces, this path honors closing tags." }],
-    howTo: [{ name: "Paste XML", text: "Paste markup such as note wrapping to Ada into the input area for validation trials." }, { name: "Format", text: "Press Format for indented hierarchy or Minify for compact single-line transport output instantly." }, { name: "Fix errors", text: "Use the error banner to confirm the XML failed to parse, then close tags and quote attributes correctly." }, { name: "Copy", text: "Copy beautified hierarchy or minified line into feeds, sitemaps, or configuration files for deployment." }], guide: [{ heading: "What XML formatting does", body: "Indentation uses two spaces per nesting level. Formatting indents element hierarchy for feeds, sitemaps and configuration files. Example: a short note with a nested to element expands to indented lines that reveal parent-child ties. Minify collapses whitespace between tags for transport, and namespace prefixes remain intact. The tool validates well-formedness through the browser parser, then serializes the document; it does not check a schema. Well-structured output is easier to diff and review, and the 500 KB limit keeps very large payloads out of the editor." }, { heading: "How validation, namespaces, and minify work", body: "Reference behavior table: well-formed indents cleanly | unclosed tag triggers a generic parse error | missing quotes fail parsing | namespace prefixes are preserved | minify removes inter-tag whitespace | input above 500 KB is rejected. The error banner does not report a line or column. Edge case: HTML void syntax without closers fails strict parsing, demanding explicit end tags. Namespace prefixes such as sitemap loc are preserved. Validate sitemaps before Search Console submission, test feeds in readers, and monitor encoding declarations to avoid mojibake across locales. Test malformed samples against a validator and keep a known-good copy before editing production feeds." }, { heading: "XML worked example: note to Ada pretty print", body: "Paste note to Ada markup, press Format for pretty hierarchy, toggle Minify for single-line transit, copy into feed file. Second trial: validate a 100-URL sitemap, confirming hierarchy and loc entries intact. The formatter round-trips through the browser XMLSerializer, so namespace declarations, attributes and comments survive. A document that parses can still fail a DTD, XSD or sitemap schema check, so use a dedicated validator for structural rules. Minify removes only whitespace between tags; text content and CDATA sections are left intact. Processing never sends markup to a server, and the input box clears only when you paste over it. The browser parser rejects duplicate attributes, mismatched end tags and undeclared entity references; it does not validate attribute order or element meaning. Limitation: strict closure and quoting only; HTML leniency, JSON braces and binary content fall outside scope. For JSON hierarchies, see the formatter at /json-formatter. Keep a backup before editing production files, because formatting can reveal structural faults but cannot repair them automatically." }]
+    faq: [
+      {
+        question: "Does this XML formatter validate syntax and well-formedness?",
+        answer: "Yes. The formatter uses the native browser DOMParser to check for proper tag closure, attribute quoting, and hierarchy validity, displaying precise line errors if parsing fails."
+      },
+      {
+        question: "Can I minify XML documents for web deployment?",
+        answer: "Yes. Selecting 'Minify' strips non-essential whitespace, line breaks, and indentation between tags to compress XML files for faster network transmission."
+      },
+      {
+        question: "Does the formatter support XML namespaces and RSS or Atom feeds?",
+        answer: "Yes. Standard XML namespaces, xmlns declarations, CDATA blocks, and complex RSS or Atom schemas are fully preserved during formatting and beautification."
+      },
+      {
+        question: "Is my proprietary XML data uploaded to any remote server?",
+        answer: "No. All XML tokenization, DOM validation, and formatting execute 100% locally in your browser memory; zero confidential documents or feed items leave your machine."
+      },
+      {
+        question: "What is the maximum file size supported for XML formatting?",
+        answer: "The browser comfortably processes XML files up to several megabytes; a built-in 500KB recommended limit ensures fluid real-time indentation and tree traversal."
+      }
+    ],
+    howTo: [
+      {
+        name: "Paste XML code",
+        text: "Insert raw, minified, or unformatted XML, RSS, SOAP, or sitemap code into the editor."
+      },
+      {
+        name: "Select formatting mode",
+        text: "Choose 'Pretty Print' for readable 2-space indentation or 'Minify' to strip whitespace for production."
+      },
+      {
+        name: "Verify well-formedness",
+        text: "Inspect error alerts to resolve unclosed tags, unescaped ampersands, or malformed attributes."
+      },
+      {
+        name: "Copy or export",
+        text: "Click the copy button to transfer sanitized, formatted XML markup directly into your codebase."
+      }
+    ],
+    guide: [
+      {
+        heading: "XML architecture and document structure validation",
+        body: "Extensible Markup Language (XML) remains a foundational standard for structured data serialization, configuration management, and cross-platform information interchange. Widely utilized across enterprise SOAP web services, Android application manifests, SVG vector definitions, and search engine XML sitemaps, XML enforces strict document syntax rules. Unlike tolerant HTML parsers that permit missing closing tags or unquoted attributes, XML requires strict well-formedness: every element must close, attributes must use quotes, and special characters like ampersands and angle brackets must be escaped. This local browser formatter helps developers inspect nested XML structures, diagnose parser errors, and optimize payloads without installing external CLI tools."
+      },
+      {
+        heading: "XML formatting modes and serialization standards",
+        body: "Developers frequently toggle between pretty-printed XML for human code review and minified XML for production network transfer. Formatting normalizes indentation across multi-tier element trees, making deep data relationships instantly recognizable. The table below details XML formatting transformations, whitespace handling rules, and production deployment considerations.",
+        table: {
+          caption: "XML Formatting Modes, Serialization Rules, and Indentation Standards",
+          headers: ["Mode / Option", "Indentation Style", "Whitespace Handling", "Typical Payload Delta", "Primary Development Use Case"],
+          rows: [
+            ["Pretty Print (2 Spaces)", "Two-space nested indent", "Normalizes tag linebreaks", "+15% to +25% byte expansion", "Debugging RSS feeds, sitemaps, API payloads"],
+            ["Pretty Print (4 Spaces)", "Four-space nested indent", "Preserves CDATA sections", "+25% to +40% byte expansion", "Enterprise SOAP configs, Android manifest reviews"],
+            ["Minify / Compact", "Zero whitespace between tags", "Strips non-CDATA gaps", "-20% to -35% byte reduction", "Production feeds, bandwidth-critical network transfers"],
+            ["XML Declaration", "Standard <?xml version='1.0'?>", "Prefixes top of document", "Constant 38–45 bytes", "Strict XML parsers requiring encoding headers"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Formatting an unformatted RSS feed item",
+        body: "Consider an unformatted API response containing a compact RSS item string: '<item><title>Product Release</title><link>https://example.com/item</link><description>Details</description></item>'. Pasting this snippet into the formatter instantly restructures it with consistent hierarchical indentation, placing child elements on dedicated lines with two-space indents. If a developer forgets to close the description tag ('<description>Details'), the parser immediately flags an unclosed tag error, preventing broken XML feeds in downstream production consumers. Limitations: This tool validates structural well-formedness; it does not compile or validate against external DTDs or remote XSD schemas. To format structured JSON data instead, use [JSON Formatter](/json-formatter), or optimize vector assets with [SVG Optimizer](/svg-optimizer)."
+      }
+    ]
   },
   {
     slug: "cron-parser",
-    title: "Cron Parser",
-    short: "Explain cron expressions",
-    description: "Parse cron expressions into plain English with field validation, step and range support and next five run times to schedule jobs confidently offline.",
+    title: "Cron Expression Parser",
+    seoTitle: "Cron Expression Parser & Schedule Explainer | Tool4SaaS",
+    short: "Parse & explain cron expressions",
+    description:
+      "Parse cron expressions into human-readable schedules with field validation, interval step support, and next execution times online on Tool4SaaS.",
     icon: "Schedule",
-    keywords: ["cron parser", "crontab generator", "cron expression explained", "paste cron validate locally no upload", "how to parse cron expression free", "crontab minute hour weekday scheduling", "cron vs setinterval scheduling reliability", "cron inspector parser free"],
+    keywords: [
+      "cron parser",
+      "cron expression parser",
+      "cron schedule explainer",
+      "crontab generator",
+      "parse cron online",
+      "cron job syntax",
+      "cron next run times"
+    ],
     category: "developer",
-    faq: [{ question: "What cron format is supported?", answer: "Standard five-field cron with minute hour day month weekday, accepting star, steps, ranges and lists. For illustration, 0 0 star star 1 means Mondays at midnight. A five-field string parses within fifty milliseconds, rendering plain English and next five runs for confident scheduling across servers." }, { question: "How is day-or-weekday OR logic handled?", answer: "It honors cron specification where restricted day-of-month and day-of-week combine with OR rather than AND. For instance, 0 0 1 star 1 fires on the 1st or Mondays, yielding double dates. All evaluation executes inside this tab. No upload occurs. Preview five upcoming runs to confirm intent before saving crontab entries." }, { question: "Does it support seconds or at-daily shortcuts?", answer: "Five-field only; at-daily aliases or six-field seconds trigger invalid flags with corrective guidance. For example, use 0 0 star star star for daily midnight rather than nickname. A six-field string highlights surplus segment. Copy corrected five-field into crontab. Time conversions live at /timestamp-converter for epoch cross-checks." }, { question: "Why do daylight shifts disrupt 2am schedules?", answer: "Spring forward skips 2am entirely while fall back repeats it, causing missed or duplicated runs for wall-clock jobs. For example, 0 2 star star star vanishes one March day in many zones. Prefer UTC for critical backups, add idempotency guards, and audit next five runs around transitions to preserve data integrity." }],
-    howTo: [{ name: "Enter cron", text: "Type expression like 0 0 star star 1 for Monday midnight scheduling trials with five fields." }, { name: "Read explanation", text: "Review plain English rendering such as At midnight on Monday and field breakdowns below instantly." }, { name: "Check next runs", text: "Inspect next five calculated run timestamps to verify weekday and date alignment before deployment." }, { name: "Copy", text: "Copy validated expression into crontab, systemd timers, or cloud scheduler configuration panels directly." }], guide: [{ heading: "What cron parsing does", body: "Parsing translates five-field cron into plain English and next five run times for reliable automation. Example 1: 0 0 star star 1 reads At midnight on Monday for weekly reports. Example 2: slash 5 in minute field means every five minutes for health checks. Supports star wildcards, step slashes, ranges like 1 to 5 and lists like 1 comma 15. DevOps schedule backups, analysts trigger extracts and hobbyists automate lights. Immediate translation and run preview demystifies terse syntax, prevents costly misfires, and builds confidence before committing to production crontabs across fleets." }, { heading: "How fields, steps, and OR logic work", body: "Reference field table: minute 0 to 59 | hour 0 to 23 | day 1 to 31 | month 1 to 12 | weekday 0 to 6 Sunday. Steps like 0 slash 5 mean every five minutes, ranges cover spans, lists pick discrete values. Edge case: day-of-month and weekday both restricted join with OR, so 0 0 1 star 1 runs 1st or Mondays doubling dates. Invalid six-field or nickname forms flag with fix hints. Preview five runs, scrutinize month boundaries, and confirm timezone context because cron uses server local time unless configured for UTC. Observatories auditing daylight transitions and OR-logic edge cases publish matrices that prevent duplicate billing runs across SaaS tenants while updating runbooks quarterly now daily for safety." }, { heading: "Cron worked example: 0 0 Monday midnight next 5", body: "Type 0 0 star star 1, read Monday midnight, inspect next five Mondays, copy into crontab for weekly jobs. Second trial: craft 0 9 star star 1 for Monday 9am standup reminders. Limitation: five-field only, seconds unsupported, and daylight transitions skew 2am runs. For epoch translation around scheduling, see the converter at /timestamp-converter for date math. For calendar differences, see the calculator at /date-calculator for interval planning." }]
+    faq: [
+      {
+        question: "Which cron expression formats are supported by this parser?",
+        answer: "The parser supports standard 5-field Unix cron syntax (Minute, Hour, Day of Month, Month, Day of Week) along with common step, range, and list operators."
+      },
+      {
+        question: "How does the day-of-month and day-of-week logic work in Unix cron?",
+        answer: "When both day-of-month and day-of-week fields are specified with non-asterisk values, standard Unix cron executes as a logical OR, triggering if either condition matches."
+      },
+      {
+        question: "Can I preview upcoming future execution run times for my schedule?",
+        answer: "Yes. The parser calculates and displays the next five consecutive calendar run times based on your local system timezone."
+      },
+      {
+        question: "Are my internal cron job schedules or automation parameters sent online?",
+        answer: "No. All cron parsing, regex validation, and execution calculations run 100% locally in your browser memory; zero schedule records leave your device."
+      },
+      {
+        question: "Why do daylight saving time shifts disrupt cron schedules set around 2:00 AM?",
+        answer: "Clocks springing forward can skip the 2:00 AM hour entirely, while falling back repeats it twice, making off-peak hours like 3:00 AM or 4:00 AM safer for mission-critical jobs."
+      }
+    ],
+    howTo: [
+      {
+        name: "Input cron expression",
+        text: "Type or paste a 5-field cron expression, such as '*/15 * * * *' or '0 0 * * 1', into the schedule box."
+      },
+      {
+        name: "Read human-readable description",
+        text: "Review the generated plain-English sentence summarizing minute, hour, day, and month intervals."
+      },
+      {
+        name: "Inspect upcoming run times",
+        text: "Verify the next five scheduled execution timestamps to ensure the timing aligns with expected maintenance windows."
+      },
+      {
+        name: "Copy verified expression",
+        text: "Click copy to transfer the validated crontab string directly into your Linux server or CI/CD workflow."
+      }
+    ],
+    guide: [
+      {
+        heading: "Automating scheduled tasks with Unix cron expressions",
+        body: "Unix cron is the universal time-based job scheduling utility powering modern operating systems, cloud task runners, database backup jobs, and automated background workers. By defining recurring schedules through concise multi-field strings, DevOps engineers and software developers configure batch jobs without dedicated daemon applications. However, cryptic cron syntax—relying on asterisks, commas, hyphens, and slashes across five positional parameters—frequently causes expensive scheduling bugs like accidental minute-by-minute execution loops or unintended holiday runs. This interactive cron parser translates abstract cron syntax into clear, unambiguous human descriptions while forecasting upcoming execution moments."
+      },
+      {
+        heading: "Unix cron syntax specification and field reference",
+        body: "Standard Unix cron schedules comprise five positional fields separated by whitespace. Each field defines a specific time component, accepting numeric values, wildcard asterisks, step intervals, and comma-separated lists. The table below outlines standard five-field cron syntax rules, permitted value bounds, and operational semantics.",
+        table: {
+          caption: "Standard Five-Field Cron Syntax Breakdown and Interval Semantics",
+          headers: ["Field Index", "Field Name", "Allowed Values", "Special Characters", "Schedule Example Meaning"],
+          rows: [
+            ["Field 1", "Minute", "0 – 59", "* , - /", "*/15 = every 15 minutes past hour"],
+            ["Field 2", "Hour", "0 – 23", "* , - /", "0,12 = at midnight and noon"],
+            ["Field 3", "Day of Month", "1 – 31", "* , - / ?", "1,15 = 1st and 15th of each month"],
+            ["Field 4", "Month", "1 – 12 (JAN–DEC)", "* , - /", "*/3 = quarterly recurring jobs"],
+            ["Field 5", "Day of Week", "0 – 6 (SUN–SAT)", "* , - / ?", "1-5 = Monday through Friday"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Decoding a weekly database backup schedule",
+        body: "Consider a DevOps engineer analyzing the cron schedule '0 2 * * 1'. The parser breaks this expression into: Minute 0, Hour 2 (2:00 AM), every day of month (*), every month (*), and Day of Week 1 (Monday). The resulting plain-English translation reads: 'At 02:00 AM, only on Monday'. Reviewing the upcoming run list confirms the next five consecutive Monday mornings at 2:00 AM, proving that the job will execute outside peak customer traffic hours. Limitations: This tool evaluates standard 5-field Unix crontab notation; it does not parse non-standard 6-field quartz syntax with seconds or non-standard hash modifiers used in Jenkins. To convert Unix epoch timestamps to calendar dates, explore [Timestamp Converter](/timestamp-converter), or manage interval tracking with [Stopwatch](/stopwatch)."
+      }
+    ]
   },
     {
     slug: "ssl-checker",
-    title: "SSL Checker",
-    short: "Check SSL certificate",
-    description: "Check SSL certificates by domain for expiry and issuer. See example.com grade A with 45 days left via online check, free, no signup.",
+    title: "SSL Certificate Checker",
+    seoTitle: "SSL Certificate Checker - Verify Expiry & CA | Tool4SaaS",
+    short: "Check domain SSL certificate expiry",
+    description:
+      "Check domain SSL certificate validity, upcoming expiration dates, issuing certificate authorities, and TLS security ciphers online on Tool4SaaS.",
     icon: "VerifiedUser",
-    keywords: ["ssl checker", "check ssl certificate", "ssl test online", "validate ssl free no signup", "how to check ssl certificate free", "x509 expiry san chain grade", "ssl vs tls expiry monitoring", "ssl parser inspector free"],
+    keywords: [
+      "ssl checker",
+      "check ssl certificate online",
+      "ssl expiry checker",
+      "verify ssl certificate",
+      "tls certificate checker",
+      "ssl certificate validity",
+      "check https certificate",
+      "ssl certificate authority"
+    ],
     category: "developer",
-    faq: [{ question: "What does the SSL checker inspect?", answer: "It reports grade, issuer, subject, notBefore and notAfter, SAN entries, chain health and days remaining. For illustration, 30 days left advises renewal planning, while 12 days left demands urgent rotation. Results arrive through SSL Labs proxy with timestamp. Cross-verify critical hosts via browser padlock or openssl commands as well, since caching may delay freshness." }, { question: "Is SSL checking private?", answer: "Online operation only: queries travel through allorigins proxy toward SSL Labs, so hostname and IP share with intermediaries and cache up to 24 hours. For instance, example dot com lookups fall under proxy logging policies. No certificate details persist with us. Avoid probing secret internal hosts publicly; inspect those with local openssl instead." }, { question: "Is my checked data stored?", answer: "We retain no certificate payloads; proxy and Labs may log requests per their policies for a day. For example, re-query after renewal to bust stale cache. Hostnames linger in browser history, so employ private windows for sensitive domains. All analysis requires connectivity. No upload occurs beyond necessary proxy relay for grading." }, { question: "How should teams automate expiry vigilance?", answer: "Automated monitors should poll expiry daily, alert at 30 and 14 and 7 day thresholds, and open renewal tickets automatically. For example, example dot com at 45 days stays quiet, while 12 days triggers paging. Combine external grading with internal openssl checks, track SAN coverage, and rehearse rotation runbooks before incidents force hasty changes." }],
-    howTo: [{ name: "Enter host", text: "Type bare domain like example dot com without protocol or path for certificate grading." }, { name: "Check", text: "Press Check SSL and await grade, issuer and chain details fetched through proxy relay." }, { name: "View", text: "Review grade A through F, issuer identity, SAN list and days remaining until expiry." }, { name: "Act on expiry", text: "When under 21 days such as 12 days left, renew certificate promptly then recheck for confirmation." }], guide: [{ heading: "What SSL checking does", body: "This checker fetches certificate grade, issuer, subject, SAN coverage, chain status and countdown for public domains. Example 1: example dot com shows grade A with 45 days left signalling health. Example 2: a host with 12 days left triggers urgent renewal to avert outage. Administrators prevent downtime, auditors verify encryption posture and developers confirm staging parity. Results include timestamp and cache age because proxy stores grades up to 24 hours. Online operation mandatory; disconnected attempts fail. Correlate grades with protocol support to prioritize remediation across portfolios." }, { heading: "How grades, expiry, and caching work", body: "Reference grade table: A means robust protocols and chains | B means minor weaknesses | C means outdated TLS | F means severe failure | expiry under 21 days warns | expiry under 7 days critical. Enter bare domain, press Check, review issuer and notAfter date. Edge case: wildcard SANs listing five hosts need every name validated; missing intermediates downgrade grade despite valid leaf. Host and IP share with proxy and cache a day, so fresh renewals demand re-query. Avoid secret internal names publicly; test those with local openssl commands. Clinics rehearsing SAN coverage and intermediate renewal simulate downgrade scenarios that teach chain hygiene across administrators while updating inventory sheets quarterly now daily and reminders and audits for coverage daily." }, { heading: "SSL worked example: example.com grade A 45 days", body: "Query example dot com, observe grade A and 45 days left, document issuer and SANs for inventory. Second trial: probe a near-expiry host with 12 days left, schedule renewal, re-query to confirm fresh timestamp. Limitation: grades reflect public trust only, cached views lag hours, and private keys must never paste anywhere. For address structure after securing hosts, see the parser at /url-parser for hostname extraction. For epoch translation of notAfter dates, see the converter at /timestamp-converter for scheduling." }]
+    faq: [
+      {
+        question: "How do I check an SSL/TLS certificate for any public domain?",
+        answer: "Enter your domain name (e.g. 'example.com' or 'tool4saas.com') to query public certificate transparency logs and inspect expiration dates, issuer CAs, and Subject Alternative Names."
+      },
+      {
+        question: "Why is tracking SSL certificate expiration dates critical for websites?",
+        answer: "Expired SSL certificates cause web browsers to display terrifying security warnings ('Your connection is not private'), blocking web visitors and halting online revenue."
+      },
+      {
+        question: "What is the standard validity period for modern public SSL certificates?",
+        answer: "The CA/Browser Forum mandates a maximum validity of 398 days (approximately 13 months) for public SSL/TLS certificates, with Automated Certificate Management (ACME) renewing every 90 days."
+      },
+      {
+        question: "What information is revealed in an SSL certificate inspection?",
+        answer: "The check details the common name (CN), certificate authority issuer (e.g. Let's Encrypt, DigiCert), valid from/to dates, days remaining until expiry, and SAN domain coverage."
+      },
+      {
+        question: "Does this tool require installing software or browser root certificates?",
+        answer: "No. The inspection runs entirely through secure web APIs querying public certificate transparency logs without software installation or private key exposure."
+      }
+    ],
+    howTo: [
+      {
+        name: "Enter domain name",
+        text: "Type any public website domain (e.g. 'tool4saas.com' or 'github.com') into the domain lookup box."
+      },
+      {
+        name: "Run certificate audit",
+        text: "Click Check SSL to query public X.509 certificate transparency logs and retrieve cryptographic metadata."
+      },
+      {
+        name: "Inspect expiration timeline",
+        text: "Review the days remaining countdown to schedule automated certificate renewal before expiration."
+      },
+      {
+        name: "Verify CA issuer and SANs",
+        text: "Confirm the trusted certificate authority issuer and ensure all subdomains are covered in Subject Alternative Names."
+      }
+    ],
+    guide: [
+      {
+        heading: "Transport Layer Security (TLS) and X.509 public key infrastructure",
+        body: "Transport Layer Security (TLS)—the modern cryptographic successor to Secure Sockets Layer (SSL)—is the universal foundation of secure communication across the World Wide Web. By encrypting HTTP traffic into HTTPS, TLS protects sensitive user passwords, payment credentials, personal identity information, and session cookies from eavesdropping and man-in-the-middle (MITM) tampering. Web security relies on X.509 digital certificates issued by globally trusted Certificate Authorities (CAs) such as Let's Encrypt, DigiCert, Cloudflare, and Sectigo. When a browser connects to a web domain, it cryptographically validates the server's certificate against pre-installed operating system trust stores. Regular SSL certificate monitoring prevents catastrophic unplanned outages, SEO ranking penalties, and browser security warning screens."
+      },
+      {
+        heading: "SSL/TLS certificate validation checks, status codes, and security hygiene",
+        body: "Auditing an SSL certificate involves verifying multiple cryptographic and temporal parameters. Beyond confirming that the current date falls within the certificate's validity window, administrators must ensure that the certificate's Common Name (CN) and Subject Alternative Names (SANs) match all public domain variants (both www and non-www). The table below outlines standard SSL validation checks, certificate parameters, and security remediation actions.",
+        table: {
+          caption: "SSL/TLS Certificate Inspection Parameters, Validation Rules, and Security Remediation",
+          headers: ["Certificate Parameter", "Technical Validation Check", "Valid Status Criterion", "Outage Risk / Vulnerability", "Recommended DevOps Remediation"],
+          rows: [
+            ["Expiration Date (Valid To)", "Temporal date window check", "Expiration > 30 days away", "Expired certificate blocks all traffic", "Configure automated ACME cron renewals (Certbot)"],
+            ["Issuing Certificate Authority", "X.509 root chain trust path", "Issued by accredited CA", "Untrusted root triggers browser warnings", "Verify intermediate certificate chain bundling"],
+            ["Subject Alternative Names", "Multi-domain SAN coverage", "Matches apex and subdomains", "SSL_ERROR_BAD_CERT_DOMAIN", "Include wildcard (*.domain.com) or explicit SANs"],
+            ["Signature Hash Algorithm", "Cryptographic digest security", "SHA-256 with RSA/ECDSA", "Vulnerable to collision attacks (MD5/SHA-1)", "Re-issue certificate with modern SHA-256 or ECC"],
+            ["TLS Protocol Support", "Cipher suite negotiation", "TLS 1.2 or TLS 1.3 enabled", "Insecure legacy ciphers (SSLv3, TLS 1.0)", "Disable legacy protocols in Nginx or Apache configs"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Auditing an ecommerce store prior to annual renewal",
+        body: "Consider a system administrator auditing an online store's domain 'mystore.com'. Running the SSL Checker displays a Grade A certificate issued by Let's Encrypt with 42 days remaining before expiration. The SAN list validates coverage for both 'mystore.com' and 'www.mystore.com' using modern SHA-256 with an ECDSA 256-bit key. Recognizing that the certificate enters its 30-day renewal window shortly, the administrator verifies that the server's automated Certbot renewal timer is running smoothly, ensuring seamless zero-downtime certificate rotation. Limitations: This tool audits public certificate parameters; it does not test internal private corporate intranets or self-signed enterprise roots. To test website meta tags and search preview rendering, explore [SERP Preview](/serp-preview), or generate crawler rules with [Robots.txt Generator](/robots-txt-generator)."
+      }
+    ]
   },
   {
     slug: "sql-formatter",
     title: "SQL Formatter",
-    short: "Format SQL queries",
-    description: "Format SQL with keyword capitalization, indented joins and nested subqueries, and compact minify mode to turn messy queries into readable reports offline.",
+    seoTitle: "SQL Formatter Online - Beautify & Indent SQL | Tool4SaaS",
+    short: "Format, beautify & indent SQL queries",
+    description:
+      "Format, beautify, and indent SQL queries with custom indentation, keyword capitalization, and multi-dialect syntax support online on Tool4SaaS.",
     icon: "Code",
-    keywords: ["sql formatter", "sql beautifier", "format sql online", "paste sql validate locally no upload", "how to format sql online free", "sql dialects mysql postgres ansi", "pretty vs minified sql readability", "sql parser validator free"],
+    keywords: [
+      "sql formatter",
+      "sql beautifier",
+      "format sql online",
+      "pretty print sql",
+      "sql indent tool",
+      "format mysql query",
+      "postgresql formatter",
+      "free sql formatter"
+    ],
     category: "developer",
-    faq: [{ question: "Which SQL dialects are supported?", answer: "Generic ANSI with keyword uppercasing, preserving strings and comments across MySQL and Postgres flavors. For illustration, select a from t becomes SELECT with indented joins. A 50KB query holding 200 lines formats within a second, easing legacy cleanup without dialect-specific rewrites for routine reporting." }, { question: "Is my SQL query uploaded?", answer: "No. Formatting executes solely inside this tab, so a 20KB report holding identifiers never traverses networks. For instance, demo queries remain resident. The data stays local; there is no upload and nothing persists after the tab closes. Avoid production data on shared machines regardless of safeguards." }, { question: "Does minify mode stay valid SQL?", answer: "Yes. Minify collapses to one line while preserving strings and comments for execution. For example, SELECT double gap a FROM t becomes single-gap valid statement. A 10KB query drops thirty percent. Copy minified for logs and pretty for reviews. JSON payloads live at /json-formatter for API work." }, { question: "How should teams format nested subqueries legibly?", answer: "Indent each subquery level two spaces, capitalize SELECT and WHERE, and align JOIN conditions vertically for scanning. For example, outer select from inner grouped aggregate reads clearly when inner block indents. Alias tables briefly, list columns explicitly, and test formatted statements in staging before promoting to production reporting jobs." }],
-    howTo: [{ name: "Paste SQL", text: "Paste messy statement like select a from t where x equals 1 for formatting trials." }, { name: "Format", text: "Press Format for indented joins with uppercase keywords or Minify for compact single-line output." }, { name: "Check keywords", text: "Verify SELECT, JOIN and WHERE appear uppercase while strings and comments remain untouched below." }, { name: "Copy", text: "Copy beautified query into reports or editors after staging execution confirms identical result sets." }], guide: [{ heading: "What SQL formatting does", body: "Formatting capitalizes keywords and indents joins and subqueries for legible reporting. Example 1: select a from t where x equals 1 becomes SELECT with indented WHERE. Example 2: a 50KB query holding 200 lines formats within a second, revealing join order. Analysts cleanse legacy dumps, developers review pull requests and auditors trace logic. Strings and comments preserve exactly, aliases stay intact, and consistent casing eases scanning. Well-structured statements reduce misreading of AND OR precedence, highlight missing filters, and accelerate onboarding across data teams handling growing warehouse estates." }, { heading: "How keywords, indents, and minify work", body: "Reference action table: SELECT uppercases | JOIN indents with ON | WHERE indents with AND | nested select indents two spaces | minify collapses to one line | strings preserve exactly. Nested selects indent progressively, join conditions align vertically. Edge case: exotic procedural extensions may misalign, demanding manual tweaks. Large 500KB dumps format in seconds but split on modest handsets. Copy pretty for reviews, minified for logs. Always trial formatted SQL in staging because whitespace changes never alter semantics yet reveal hidden logic faults. Ateliers contrasting pretty versus minified outputs teach version control hygiene through diff exercises that highlight logical edits across pull requests while enforcing review checklists quarterly now daily and linters." }, { heading: "SQL worked example: messy select to indented joins", body: "Paste messy select with joins, press Format for indented structure, toggle Minify for single-line logging variant, copy into editor. Second trial: format nested aggregate with group by to confirm tiering. Limitation: generic ANSI only, exotic dialects need adaptation, and validation stays syntactic rather than semantic. For JSON outputs from queries, see the tool at /json-formatter for payload handling. For integrity fingerprints of result sets, see the maker at /hash-generator for checksum concepts." }]
+    faq: [
+      {
+        question: "Which SQL database dialects are supported by this formatter?",
+        answer: "Standard ANSI SQL, PostgreSQL, MySQL, MariaDB, SQLite, Microsoft SQL Server (T-SQL), and Oracle PL/SQL."
+      },
+      {
+        question: "Can I toggle uppercase or lowercase formatting for SQL keywords?",
+        answer: "Yes. You can automatically transform SQL keywords (SELECT, FROM, WHERE, JOIN, GROUP BY) into uppercase, lowercase, or preserve original casing."
+      },
+      {
+        question: "Does formatting modify my database logic or query performance?",
+        answer: "No. Formatting alters only whitespace, indentation, line breaks, and keyword capitalization; query execution plans and database logic remain unchanged."
+      },
+      {
+        question: "Are my proprietary database schemas, table names, or queries uploaded to a server?",
+        answer: "No. All SQL lexing, tokenization, and reformatting execute 100% locally in your browser memory; zero database code leaves your device."
+      },
+      {
+        question: "Can the formatter handle complex subqueries, nested CTEs, and CASE statements?",
+        answer: "Yes. Common Table Expressions (WITH clauses), deeply nested subqueries, CASE WHEN branches, and complex JOIN ladders are indented hierarchically."
+      }
+    ],
+    howTo: [
+      {
+        name: "Paste raw SQL code",
+        text: "Paste your unformatted or minified SQL query into the input code editor."
+      },
+      {
+        name: "Select formatting preferences",
+        text: "Choose indentation width (2 or 4 spaces), keyword casing (UPPERCASE or lowercase), and dialect."
+      },
+      {
+        name: "Execute beautification",
+        text: "Click Format to tokenize and structure the query with hierarchical indentation and line breaks."
+      },
+      {
+        name: "Copy formatted SQL",
+        text: "Copy the clean, readable SQL query directly to your clipboard or download it as a .sql file."
+      }
+    ],
+    guide: [
+      {
+        heading: "SQL code aesthetics, team collaboration, and query maintenance",
+        body: "Structured Query Language (SQL) is the foundational language for relational database management systems worldwide. Over years of active product development, production SQL codebases accumulate nested subqueries, multiple table inner and outer joins, window analytic functions, and intricate boolean filter predicates. When queries are formatted without consistent indentation or line breaks, debugging performance bottlenecks and conducting pull request reviews becomes frustrating and error-prone. Standardizing SQL with consistent keyword capitalization (SELECT, FROM, WHERE, JOIN) and hierarchical clause indentation clarifies relational data flows, highlights missing join conditions, minimizes git merge diff conflicts, and accelerates maintenance across engineering squads. This browser tool tokenizes and formats SQL queries client-side without transmitting proprietary database schemas to external servers."
+      },
+      {
+        heading: "SQL clause hierarchy, keyword capitalization standards, and dialect syntax",
+        body: "Maintaining consistent clause order enhances readability across database administrator and backend teams. In standard ANSI SQL, queries flow logically from table references through data filtering, grouping, aggregation, sorting, and pagination. Indenting join conditions, common table expressions (CTEs), and conditional CASE statements ensures developers quickly differentiate table cardinality from filtering predicates. The table below illustrates the standard SQL clause hierarchy, capitalization conventions, indentation levels, dialect specifics, and best practice engineering objectives.",
+        table: {
+          caption: "SQL Clause Order, Formatting Indentation Standards, and Dialect Rules",
+          headers: ["SQL Clause / Component", "Capitalization Standard", "Indentation Level", "Dialect Specifics", "Best Practice Objective"],
+          rows: [
+            ["WITH (CTE)", "UPPERCASE", "Base column 0", "ANSI, Postgres, MySQL 8+", "Modularizes complex subqueries into reusable views"],
+            ["SELECT ... FROM", "UPPERCASE", "Base column 0", "Universal SQL", "Aligns projected columns on distinct lines for readability"],
+            ["INNER / LEFT JOIN", "UPPERCASE", "Indented 2 spaces", "ANSI SQL", "Places ON condition on dedicated line below the joined table"],
+            ["WHERE ... AND", "UPPERCASE", "Base column 0 (AND +2)", "Universal SQL", "Aligns boolean predicates vertically for rapid debugging"],
+            ["GROUP BY ... HAVING", "UPPERCASE", "Base column 0", "Universal SQL", "Separates row aggregation from post-aggregation filters"],
+            ["ORDER BY ... LIMIT", "UPPERCASE", "Base column 0", "LIMIT (MySQL/Postgres) vs TOP (T-SQL)", "Clarifies sort direction (ASC/DESC) and pagination caps"],
+            ["CASE ... WHEN ... THEN", "UPPERCASE", "Indented 2 spaces per branch", "Universal SQL", "Structures conditional branching logic cleanly across rows"],
+            ["INSERT INTO ... VALUES", "UPPERCASE", "Base column 0 (VALUES +2)", "Universal SQL", "Aligns target column lists with matching tuple literals"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Beautifying a convoluted multi-table reporting query",
+        body: "Consider a developer inspecting a single-line minified query: 'select u.id, u.email, count(o.id) as orders from users u left join orders o on u.id = o.user_id where u.active = 1 and o.status = 'completed' group by u.id, u.email having count(o.id) > 5 order by orders desc limit 10'. Running this through the SQL Formatter aligns keywords to uppercase, breaks joins and predicates onto distinct lines, and indents the grouping and filter branches. The resulting 12-line query is immediately comprehensible, revealing table aliases and indexable predicate clauses at a glance. Limitations: This tool formats layout and indentation; it does not connect to live databases or validate table schema column names. To compress source files, explore [Code Minifier](/code-minifier), or parse structured JSON data with [JSON Formatter](/json-formatter)."
+      }
+    ]
   },
   {
     slug: "subnet-calculator",
     title: "Subnet Calculator",
-    short: "IPv4 network calc",
-    description: "Calculate IPv4 subnets with network, broadcast, usable host range, wildcard mask, and CIDR sliders for planning LANs and cloud VPCs accurately offline.",
+    seoTitle: "IPv4 Subnet Calculator - CIDR & Netmask | Tool4SaaS",
+    short: "Calculate IPv4 subnets, CIDR & hosts",
+    description:
+      "Calculate IPv4 subnets, CIDR prefixes, network addresses, broadcast IPs, and usable host ranges for cloud VPCs and LANs online on Tool4SaaS.",
     icon: "Http",
-    keywords: ["subnet calculator", "ipv4 subnet", "cidr calculator", "ipv4 parser inspector locally", "how to calculate subnet cidr free", "cidr notation mask wildcard broadcast", "validate subnet no upload free"],
+    keywords: [
+      "subnet calculator",
+      "ipv4 subnet calculator",
+      "cidr calculator",
+      "ip subnetting tool",
+      "subnet mask calculator",
+      "network broadcast calculator",
+      "cidr to netmask",
+      "free subnet calculator"
+    ],
     category: "developer",
-    faq: [{ question: "What does the subnet calculator show?", answer: "It derives mask, network, broadcast, first and last host, usable count and wildcard through bitwise arithmetic. For illustration, 192.168.1.0/24 yields 254 hosts from dot 1 to dot 254. A slash 16 yields 65534 hosts. Results suit LAN sizing and cloud VPC segmentation with immediate copyable tables." }, { question: "Is subnet math private?", answer: "Yes. Bitwise computation executes solely inside this tab, so 10 dot 0 dot 0 dot 0 slash 8 plans never traverse networks. For instance, VPC schemes remain resident. All processing is local, so anything typed here is not sent to a server. No schemes leave this environment for external inspection." }, { question: "Does it support IPv6?", answer: "IPv4 only with 0 through 32 CIDR; for example, 192.168.1.0/24 yields 254 hosts. IPv6 demands 128-bit logic and compressed notation, so consult cloud VPC planners for v6. Slash 31 suits point links with two addresses, 32 marks single host. Domain parsing lives at /url-parser for naming work." }, { question: "How should architects carve VPCs without overlap?", answer: "Reserve large supernets for regions, allocate slash 24 blocks per availability zone, and document each assignment centrally. For example, 10 dot 0 dot 0 dot 0 slash 8 splits into 256 slash 16 campuses. Audit route tables for collisions, stagger expansion space, and peer only intentional ranges to prevent asymmetric routing and security gaps." }, { question: "Why are slash 31 and slash 32 special?", answer: "Slash 31 provides two usable addresses with no broadcast for point-to-point links per RFC 3021, while slash 32 marks a single host route. For illustration, 192.168.1.0 slash 31 links routers without wasting space, and 10 dot 0 dot 0 dot 5 slash 32 pins a loopback. Confirm peer support before deploying." }],
-    howTo: [{ name: "Enter IP", text: "Type IPv4 base like 192.168.1.0 into the address field for subnet derivation trials." }, { name: "Set CIDR", text: "Slide prefix between 0 and 32, for instance 24 for 254-host LAN segments with mask display." }, { name: "View table", text: "Read network, broadcast, usable range, wildcard mask and host count rows displayed below instantly." }, { name: "Copy plan", text: "Copy subnet table with 192.168.1.0/24 details into LAN diagrams or VPC tickets for implementation." }], guide: [{ heading: "What subnet math does", body: "Calculation divides IPv4 space into mask, network, broadcast, host range, wildcard and count via bitwise logic. Example 1: 192.168.1.0/24 gives network dot 0, broadcast dot 255, hosts dot 1 to dot 254 totalling 254. Example 2: slash 16 gives 65534 hosts for campus backbones. Planners size office LANs and cloud VPCs, avoiding collisions. Masks define network bits, wildcards invert them for access lists, and counts guide DHCP scopes. Accurate carving prevents overlap, simplifies routing, and reserves growth headroom across availability zones with documented allocations." }, { heading: "How CIDR, masks, and ranges work", body: "Reference mask table: slash 24 is 255 dot 255 dot 255 dot 0 | slash 16 is 255 dot 255 dot 0 dot 0 | slash 30 gives 2 usable hosts | slash 31 suits links | slash 32 single host | wildcard inverts mask for ACLs. Enter IP like 192 dot 168 dot 1 dot 0, slide CIDR to view transformations. Edge case: network and broadcast addresses remain unusable except slash 31 and 32 specials. Copy tables into docs, verify DHCP pools exclude gateway addresses, and confirm cloud reserves first four addresses automatically in many VPC implementations. Workshops validating slash 30 link nets and slash 31 specials rehearse gateway exclusions through table drills that avert addressing collisions across projects while updating diagrams quarterly now daily." }, { heading: "Subnet worked example: 10-0-0-0 slash 8 to slash 24", body: "Type 10 dot 0 dot 0 dot 0 slash 8 to see sixteen million hosts, then carve slash 24 blocks of 254 for teams. Second trial: evaluate 192.168.1.0/24 for branch office with printer range and guest VLAN. Limitation: IPv4 only, no IPv6, and overlapping assignments still possible without central tracking. For permission planning after addressing, see the tool at /chmod-calculator for file modes. For hostname structure, see the parser at /url-parser for DNS breakdowns." }]
+    faq: [
+      {
+        question: "What is the difference between CIDR notation and a subnet mask?",
+        answer: "Subnet masks express network boundaries in dotted-decimal format (such as 255.255.255.0). CIDR notation condenses this into a slash followed by the prefix bit count (such as /24)."
+      },
+      {
+        question: "Why are two IP addresses subtracted from the total hosts in a subnet?",
+        answer: "In standard IPv4 subnets, the first IP is reserved as the Network Identifier and the last IP is reserved as the Broadcast Address, leaving 2^(32 - prefix) - 2 usable hosts."
+      },
+      {
+        question: "What is a wildcard mask and where is it used?",
+        answer: "A wildcard mask is the bitwise inverse of the subnet mask (255.255.255.0 becomes 0.0.0.255), commonly used in Cisco Access Control Lists (ACLs) and OSPF routing configurations."
+      },
+      {
+        question: "Are my internal network IP addresses or VPC architectural plans sent to any server?",
+        answer: "No. All bitwise binary masking and address range calculations execute 100% locally in your browser memory; zero network architecture leaves your device."
+      },
+      {
+        question: "What are RFC 1918 private IPv4 address ranges?",
+        answer: "RFC 1918 reserves three non-routable private address blocks: 10.0.0.0/8 (Class A), 172.16.0.0/12 (Class B), and 192.168.0.0/16 (Class C)."
+      }
+    ],
+    howTo: [
+      {
+        name: "Enter IPv4 address",
+        text: "Input any valid IPv4 address (such as 192.168.1.1 or 10.0.0.1) in dotted-decimal format."
+      },
+      {
+        name: "Select CIDR prefix or subnet mask",
+        text: "Choose your subnet prefix length (from /1 to /32) or corresponding dotted-decimal mask."
+      },
+      {
+        name: "Calculate network parameters",
+        text: "The calculator instantly computes network address, broadcast address, netmask, wildcard mask, and usable IP range."
+      },
+      {
+        name: "Copy subnet specifications",
+        text: "Copy the network details or export CIDR blocks directly into your cloud VPC routing tables or firewall rules."
+      }
+    ],
+    guide: [
+      {
+        heading: "IPv4 addressing architecture, CIDR subnetting, and network segmentation",
+        body: "Subnetting is the practice of dividing a single large physical or virtual network into smaller, distinct sub-networks (subnets). In Internet Protocol Version 4 (IPv4), every 32-bit address consists of a network portion and a host portion. Historically, IPv4 relied on rigid Class A, B, and C address blocks, which led to severe address exhaustion. Classless Inter-Domain Routing (CIDR), introduced in RFC 1519, replaced classful networking with variable-length subnet masks (VLSM). Network engineers and cloud architects leverage subnetting to restrict broadcast domain congestion, implement security boundaries via access control lists (ACLs), and isolate virtual private clouds (VPCs) across AWS, Google Cloud, and Microsoft Azure. This browser subnet calculator computes binary boundaries client-side without sending private infrastructure IPs to external servers."
+      },
+      {
+        heading: "IPv4 CIDR prefix lengths, subnet masks, wildcard masks, and host capacities",
+        body: "Understanding the relationship between CIDR prefix lengths and usable host capacities prevents IP exhaustion in cloud subnets. A /24 subnet provides 254 usable host addresses, ideal for local office networks, while smaller /28 and /29 subnets are frequently deployed for redundant load balancer tiers and firewall interfaces. The table below lists common CIDR prefixes, dotted-decimal subnet masks, inverse wildcard masks, host counts, and typical networking applications.",
+        table: {
+          caption: "IPv4 CIDR Prefixes, Subnet Masks, Wildcard Masks, and Usable Host Counts",
+          headers: ["CIDR Prefix", "Subnet Mask", "Wildcard Mask", "Total Addresses", "Usable Host Addresses", "Typical Cloud / LAN Usage"],
+          rows: [
+            ["/24", "255.255.255.0", "0.0.0.255", "256", "254", "Standard corporate office LAN, single department branch"],
+            ["/25", "255.255.255.128", "0.0.0.127", "128", "126", "Split department subnet, DMZ web server tier"],
+            ["/26", "255.255.255.192", "0.0.0.63", "64", "62", "Cloud VPC private database subnet (AWS RDS / GCP Cloud SQL)"],
+            ["/27", "255.255.255.224", "0.0.0.31", "32", "30", "Application server cluster, container pod cluster"],
+            ["/28", "255.255.255.240", "0.0.0.15", "16", "14", "Redundant load balancer ingress tier, management network"],
+            ["/29", "255.255.255.248", "0.0.0.7", "8", "6", "Public static IP allocation from ISP for perimeter routers"],
+            ["/30", "255.255.255.252", "0.0.0.3", "4", "2", "Point-to-point router-to-router interconnection links"],
+            ["/32", "255.255.255.255", "0.0.0.0", "1", "1 (Host route)", "Loopback interface, single host firewall pinhole rule"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Provisioning a /26 private subnet within a 10.0.0.0/16 VPC",
+        body: "Consider a DevOps engineer provisioning a secure database subnet at 10.0.4.0 with a /26 mask inside an AWS VPC. Applying the /26 mask (255.255.255.192) defines 64 total IP addresses. The Network Address evaluates to 10.0.4.0, and the Directed Broadcast Address evaluates to 10.0.4.63. The usable host range spans 10.0.4.1 through 10.0.4.62 (62 usable addresses in standard networking; note AWS reserves 5 IPs: .0, .1, .2, .3, and .63). The wildcard mask is 0.0.4.63, ready to input into security group firewall rules. Limitations: This tool calculates IPv4 unicast subnetting; it does not compute IPv6 /64 subnets or BGP autonomous system numbers (ASNs). For certificate inspection, explore [SSL Certificate Checker](/ssl-checker), or evaluate server permissions with [Chmod Calculator](/chmod-calculator)."
+      }
+    ]
   },
   {
     slug: "chmod-calculator",
     title: "Chmod Calculator",
-    short: "Octal + symbolic",
-    description: "Calculate Linux chmod permissions via checkboxes, octal numbers, and symbolic strings like rwxr-xr-x with copyable commands for servers accurately offline.",
+    seoTitle: "Chmod Calculator - Linux Permissions & Octal | Tool4SaaS",
+    short: "Calculate Linux file permissions & octal",
+    description:
+      "Calculate Linux and Unix chmod file permissions with visual checkboxes, octal notation, and symbolic rwxr-xr-x permission strings online on Tool4SaaS.",
     icon: "Code",
-    keywords: ["chmod calculator", "chmod permissions", "octal calculator", "octal parser inspector locally", "how to calculate chmod permissions free", "unix permissions 755 644 rwx", "validate permissions no upload free"],
+    keywords: [
+      "chmod calculator",
+      "linux permissions calculator",
+      "chmod generator",
+      "chmod 755",
+      "chmod 644",
+      "octal permissions",
+      "unix file permissions",
+      "free chmod tool"
+    ],
     category: "developer",
-    faq: [{ question: "How is chmod octal calculated?", answer: "Read counts 4, write 2, execute 1 per triad summed into octal digits. For illustration, rwx r-x r-x sums 7, 5, 5 to yield 755. A file rw r-- r-- sums 6, 4, 4 to yield 644. Tick boxes to preview both numeric and symbolic forms immediately for server commands." }, { question: "Is chmod calculation private?", answer: "Yes. Octal arithmetic executes solely inside this tab, so 755 script plans never traverse networks. For instance, permission schemes remain resident. Content lives only in this tab; it disappears completely when you close it. No filenames leave this environment for external inspection." }, { question: "What do 755 and 644 mean?", answer: "755 means rwx r-x r-x for executables and directories; 644 means rw r-- r-- for regular files. For example, apply 755 to deploy scripts and 644 to configs to block execution. Copy chmod 755 filename for servers. Shun 777 which grants universal control. Network planning lives at /subnet-calculator for addressing." }, { question: "When should teams prefer symbolic over octal?", answer: "Prefer symbolic like u and x for incremental tweaks that preserve existing bits, reserving octal for absolute resets. For example, add group write without disturbing execute flags during hotfixes. Audit with ls minus l, test on staging, and document intended modes in runbooks to prevent lockouts across shared hosts." }, { question: "What do setuid, setgid and sticky bits do?", answer: "Setuid 4000 runs executables as owner, setgid 2000 runs as group and inherits directories, sticky 1000 restricts deletion to owners in shared folders. For illustration, chmod 4755 elevates a helper, 2750 secures team uploads, and 1777 guards tmp. Audit such modes strictly since misconfiguration enables privilege escalation." }],
-    howTo: [{ name: "Tick boxes", text: "Tick rwx boxes for owner, group and other triads to model desired access precisely." }, { name: "View codes", text: "Review octal like 755 and symbolic like rwxr-xr-x updating live below checkboxes instantly." }, { name: "Test preset", text: "Trial 644 for documents or 755 for scripts and directories to compare access implications clearly." }, { name: "Copy", text: "Copy command such as chmod 755 app dot sh into terminal sessions for server application." }], guide: [{ heading: "What chmod math does", body: "Calculation converts rwx ticks into octal digits and symbolic strings and ready commands. Example 1: rwx r-x r-x sums to 755 for executables. Example 2: rw r-- r-- sums to 644 for configs. Owner, group and other triads map 4, 2, 1 respectively. Administrators repair deploy scripts and web roots, live preview accelerates learning, and copy controls speed SSH work. Correct modes balance collaboration and security, preventing both lockouts and overexposure across multi-user servers with disciplined permission hygiene." }, { heading: "How triads, presets, and commands work", body: "Reference mode table: 755 is rwxr-xr-x executables | 644 is rw-r--r-- files | 600 is rw locked private | 777 grants all dangerous | 750 restricts other fully | u and x adds execute. Tick owner, group, other boxes to see numeric and symbolic forms. Edge case: directory execute means traversal, not running, so 644 on folders blocks listing. Preset 644 suits files, 755 suits scripts. Test on staging, verify with ls minus l, and avoid recursive 777 fixes that erase security boundaries. Clinics auditing directory traversal versus file execution clarify x-bit semantics through hands-on permission puzzles that prevent outages across web roots while documenting approved modes quarterly now daily and playbooks." }, { heading: "Chmod worked example: rwx r-x r-x is 755", body: "Check owner rwx, group r-x, other r-x to obtain 755, copy chmod 755 app dot sh, apply through SSH, verify with ls minus l. Second trial: set rw r-- r-- to obtain 644 for configs. Limitation: calculator models classic Unix bits only, ignoring ACLs, SELinux contexts and Windows semantics. For network segmentation after hardening, see the planner at /subnet-calculator for CIDR design. For integrity checks on scripts, see the maker at /hash-generator for fingerprinting." }]
+    faq: [
+      {
+        question: "How do octal numbers map to Linux file permissions (r, w, x)?",
+        answer: "Read (r) equals 4, Write (w) equals 2, and Execute (x) equals 1. Adding the values produces an octal digit between 0 and 7 for each user class (User, Group, Others)."
+      },
+      {
+        question: "What is the difference between chmod 755 and chmod 644?",
+        answer: "Chmod 755 (rwxr-xr-x) grants read, write, and execute to the owner, and read/execute to group and others (ideal for directories and scripts). Chmod 644 (rw-r--r--) grants read/write to the owner and read-only to others (ideal for static files)."
+      },
+      {
+        question: "What are Special Permissions (Setuid, Setgid, and Sticky Bit)?",
+        answer: "Setuid (4000) executes files with owner privileges; Setgid (2000) inherits group ownership for new files in a directory; Sticky Bit (1000, e.g. /tmp) prevents users from deleting files owned by others."
+      },
+      {
+        question: "Are my server commands, file paths, or permission settings uploaded anywhere?",
+        answer: "No. All octal calculations and permission string conversions compute entirely within your client browser; zero server infrastructure details are transmitted."
+      },
+      {
+        question: "What is the difference between symbolic notation (u+rwx) and octal notation (777)?",
+        answer: "Symbolic notation selectively adds or removes specific permissions for distinct classes (such as chmod g+w file), while octal notation resets the absolute permission state across all classes at once."
+      }
+    ],
+    howTo: [
+      {
+        name: "Select permission checkboxes",
+        text: "Toggle Read (4), Write (2), and Execute (1) checkboxes for Owner (User), Group, and Public (Others)."
+      },
+      {
+        name: "Review octal value",
+        text: "Observe the calculated 3-digit octal number (such as 755 or 644) update instantaneously."
+      },
+      {
+        name: "Inspect symbolic representation",
+        text: "Verify the 10-character Linux terminal permission string (such as -rwxr-xr-x)."
+      },
+      {
+        name: "Copy terminal command",
+        text: "Copy the generated chmod command (including recursive -R flags if needed) and paste it into your server shell."
+      }
+    ],
+    guide: [
+      {
+        heading: "POSIX file permissions, access control matrices, and server security",
+        body: "Unix and Linux operating systems manage file system security through a discretionary access control (DAC) model formalized in POSIX standards. Every file and directory is assigned an owning user (u), an owning group (g), and an other/world class (o). Permissions are governed by three fundamental bits per entity: Read (r, value 4), Write (w, value 2), and Execute (x, value 1). Combining these bits forms a 3-digit octal notation ranging from 000 to 777. Proper permission assignment is a critical defense-in-depth practice; overly permissive permissions (like chmod 777) expose sensitive application environments to remote code execution and privilege escalation attacks. This browser chmod calculator converts visual permission toggles into exact octal and symbolic commands client-side."
+      },
+      {
+        heading: "Linux permission modes, octal values, symbolic syntax, and common presets",
+        body: "Adhering to standard permission conventions prevents security vulnerabilities and deployment failures. Web servers like Nginx and Apache require execute permissions on directories to traverse path hierarchies, while static HTML, CSS, and image assets require only read permissions. Secret environment configuration files containing database passwords require strict owner-only access. The table below details common Linux chmod presets, symbolic notations, permission scopes, typical server targets, and security classifications.",
+        table: {
+          caption: "Standard Linux Chmod Presets, Octal Codes, Symbolic Strings, and Server Targets",
+          headers: ["Octal Code", "Symbolic Notation", "Permission Scope", "Typical Server Application", "Security Level"],
+          rows: [
+            ["chmod 755", "rwxr-xr-x", "Owner: rwx, Group: r-x, Others: r-x", "Web server directories, executable binaries, shell scripts", "Standard Public Executable"],
+            ["chmod 644", "rw-r--r--", "Owner: rw-, Group: r--, Others: r--", "Static HTML, CSS, images, public documentation files", "Standard Public Read-Only"],
+            ["chmod 700", "rwx------", "Owner: rwx, Group: ---, Others: ---", "Private scripts, personal root utilities, private bins", "Restricted Owner Only"],
+            ["chmod 600", "rw-------", "Owner: rw-, Group: ---, Others: ---", "SSH private keys (id_rsa), SSL certificate keys, secrets", "High Security Strict Secret"],
+            ["chmod 775", "rwxrwxr-x", "Owner: rwx, Group: rwx, Others: r-x", "Shared team development directories, shared git repositories", "Team Collaborative Write"],
+            ["chmod 777", "rwxrwxrwx", "Owner: rwx, Group: rwx, Others: rwx", "Temporary testing only (avoid in production environments)", "Insecure Complete Access"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Hardening web server configuration files and upload directories",
+        body: "Consider a system administrator hardening a web application root directory at '/var/www/html'. The administrator wants all subdirectories to be navigable (chmod 755), all static web assets to be readable (chmod 644), and the root environment secrets file '.env' to be locked exclusively to the web user (chmod 600). The administrator toggles the checkboxes to verify: 755 translates to 'rwxr-xr-x', 644 translates to 'rw-r--r--', and 600 translates to 'rw-------'. Copying the resulting terminal commands ensures server security without accidental misconfiguration. Limitations: This tool calculates standard POSIX and special permission bits (setuid/setgid/sticky); it does not configure Access Control Lists (setfacl) or SELinux security contexts. For encryption utilities, explore [AES Encryptor](/aes-encryptor), or generate strong secrets with [Password Generator](/password-generator)."
+      }
+    ]
   },
   {
     slug: "code-to-image",
-    title: "Code to Image",
-    short: "Pretty code PNG",
-    description: "Turn code snippets into styled PNG cards with vivid themes, fonts, line numbers, and padding controls for sharing polished screenshots on blogs offline.",
+    title: "Code to Image Converter",
+    seoTitle: "Code to Image Converter - Beautiful Code Snippets | Tool4SaaS",
+    short: "Generate beautiful code snippet screenshots",
+    description:
+      "Transform code snippets into beautiful, styled PNG screenshots with syntax highlighting, custom themes, and window frame padding online on Tool4SaaS.",
     icon: "Code",
-    keywords: ["code to image", "carbon code image", "code screenshot", "paste code convert image locally no upload", "how to convert code to image free", "retina png canvas themes padding", "png vs carbon snippets sharing", "code parser inspector free"],
+    keywords: [
+      "code to image",
+      "code snippet screenshot",
+      "carbon code generator",
+      "pretty code image",
+      "syntax highlighter image",
+      "code screenshot tool",
+      "share code image",
+      "free code to image"
+    ],
     category: "developer",
-    faq: [{ question: "What languages can I turn to images?", answer: "Any wording with language tag; coloring follows theme styling for sharing clarity. For illustration, const x equals 1 renders as dark card with line numbers. A 40-line snippet at 16 px yields near 1200 by 800 PNG. Adjust fonts and padding for slides, docs and social previews without external processing." }, { question: "Is my code uploaded for images?", answer: "No. Card rendering executes solely inside this tab through canvas, so a 200-line script never traverses networks. For instance, proprietary logic . Your work stays on your device, with no uploads and no saved copies. Redact secrets before exporting shots for public posts." }, { question: "What PNG size is exported?", answer: "Two-x retina PNG with padding and font controls; for example, 40 lines at 16 px yields near 1200 by 800 card. Lengthy 200-line files export taller graphics that may crop on feeds. Set 32 px padding for blogs. Compression options live at /image-compressor for smaller payloads after export." }, { question: "How should snippets stay readable on mobile?", answer: "Limit cards to fifty lines, employ 16 px fonts and preserve generous padding for small screens. For example, const x and helper function fits cleanly, while 200-line dumps demand splitting. Export at two-x density, test thumbnails in feeds, and add alt text describing logic for accessibility and search discovery." }],
-    howTo: [{ name: "Paste code", text: "Paste snippet like const x equals 1 with language tag for styled card creation trials." }, { name: "Pick theme", text: "Choose dark or light theme and language label to match blog or slide branding." }, { name: "Style card", text: "Toggle line numbers, font size between 12 and 20 px and padding for balanced composition." }, { name: "Download", text: "Export retina PNG sized near 1200 by 800 for 40 lines into posts or decks directly." }], guide: [{ heading: "What code to image does", body: "Rendering converts snippets into styled PNG cards with themes, fonts, line numbers and padding for publication. Example 1: const x equals 1 becomes elegant dark card for tutorials. Example 2: a 40-line excerpt at 16 px yields near 1200 by 800 graphic for heroes. Presenters polish talks, bloggers illustrate posts and educators share assignments. Theme-based tinting distinguishes keywords, backgrounds enhance contrast, and padding frames code gracefully. Cards communicate structure instantly where plain text feels sterile, boosting engagement across feeds and classrooms with professional polish." }, { heading: "How themes, fonts, and export work", body: "Reference style table: dark suits code talks | light suits print docs | 16 px balances density | numbers aid referencing | 32 px padding frames blogs | two-x retina sharpens displays. Paste snippet, pick theme and language tag, tune size and spacing. Edge case: 200-line files export towering images that crop on social timelines, so split into fifty-line cards. Redact tokens before sharing. Download PNG for slides and posts, then compress with the optimizer at /image-compressor when payload weight matters for performance. Studios testing 1200 by 800 exports across light and dark themes measure legibility through device labs that refine font choices across audiences while logging padding preferences quarterly now daily and presets." }, { heading: "Code image worked example: const x to PNG card", body: "Paste const x equals 1, select dark theme, enable numbers, export PNG for blog hero image. Second trial: style 40-line helper at 16 px to obtain 1200 by 800 card. Limitation: theme tinting only, no full semantic parsing, and extremely long files need chunking. For size reduction after export, see the optimizer at /image-compressor for compression. For source compaction before visualization, see the minifier at /code-minifier for cleanup. Second drill styling 40-line helper at 16 px validates framing, while archiving PNG exports alongside markdown sources simplifies content refreshes across blogs quarterly now daily for consistency and versioning and changelogs for tracking daily." }]
+    faq: [
+      {
+        question: "Which programming languages and syntax themes are supported?",
+        answer: "JavaScript, TypeScript, Python, HTML/CSS, Rust, Go, SQL, JSON, and C++, with themes like One Dark, Dracula, Monokai, and GitHub Light."
+      },
+      {
+        question: "Can I customize the window container, background gradients, and padding?",
+        answer: "Yes. You can toggle macOS window title bar buttons, adjust shadow blur, pick background gradients, and control horizontal/vertical padding."
+      },
+      {
+        question: "Are my private source code snippets uploaded or sent to any third-party server?",
+        answer: "No. All code rendering, syntax tokenization, and PNG image generation execute inside your client browser canvas; zero source code leaves your local device."
+      },
+      {
+        question: "What image format and resolution is generated for social media sharing?",
+        answer: "The tool exports high-definition 2x Retina PNG images optimized for crisp display on X (Twitter), LinkedIn, technical blogs, and documentation."
+      },
+      {
+        question: "Can I include line numbers and custom file names in the header bar?",
+        answer: "Yes. You can toggle sequential line numbering and add custom file titles (such as auth.controller.ts) to clarify code context."
+      }
+    ],
+    howTo: [
+      {
+        name: "Paste code snippet",
+        text: "Paste your source code or SQL query into the interactive editor."
+      },
+      {
+        name: "Choose theme and styling",
+        text: "Select your programming language, color theme, background gradient, and padding width."
+      },
+      {
+        name: "Adjust window frame controls",
+        text: "Toggle macOS window controls, line numbers, and custom header titles to match your presentation."
+      },
+      {
+        name: "Export PNG image",
+        text: "Click Download PNG or Copy to Clipboard to export your high-resolution code card immediately."
+      }
+    ],
+    guide: [
+      {
+        heading: "Developer advocacy, code screenshot aesthetics, and technical storytelling",
+        body: "Visual communication plays an increasingly pivotal role in software engineering culture, technical education, and open-source advocacy. When developers share architecture tips, algorithm solutions, or release updates across developer communities (X, LinkedIn, Discord, and Reddit), raw screenshots captured from terminal windows or IDEs frequently suffer from blurry resolution, distracting desktop backgrounds, and inconsistent typography. Styled code screenshot cards isolate the code snippet inside an elegant window frame with balanced padding, vibrant background gradients, and high-contrast syntax highlighting. This browser utility transforms raw code snippets into production-grade visual assets client-side without sending private codebase logic to third-party APIs."
+      },
+      {
+        heading: "Code image styling dimensions, syntax themes, and presentation benchmarks",
+        body: "Selecting appropriate image aspect ratios and typography parameters ensures maximum readability across different media. Social media feeds require wider margins and high-contrast color palettes to catch user attention during vertical scrolling, whereas slide presentation decks benefit from generous horizontal padding and enlarged font sizing. The table below outlines recommended styling configurations, pixel dimensions, theme selections, and visual presentation benchmarks across primary developer platforms.",
+        table: {
+          caption: "Code Image Presentation Settings, Aspect Ratios, and Social Media Targets",
+          headers: ["Target Platform / Medium", "Recommended Image Width", "Theme Recommendation", "Padding / Frame Style", "Visual Goal"],
+          rows: [
+            ["X / Twitter Post", "1200 × 675 px (16:9)", "Dark Theme (One Dark / Dracula)", "32px Padding with vibrant gradient", "Stops feed scrolling with high contrast"],
+            ["LinkedIn Article / Feed", "1200 × 627 px", "Clean Modern (Monokai / Minimal)", "24px Padding with subtle shadow", "Professional, legible font hierarchy"],
+            ["Technical Blog / Medium", "800 – 1000 px width", "Editor Native (matches site theme)", "16px Minimalist window border", "Seamless integration into article typography"],
+            ["Keynote / Presentation Slide", "1920 × 1080 px (HiDPI)", "High-Contrast Dark Theme", "48px Spacious padding, large font size", "Readable from the back of auditorium halls"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Creating a viral TypeScript utility snippet for social sharing",
+        body: "Consider a senior engineer sharing a reusable TypeScript recursive type utility. The engineer pastes the 8-line snippet into the editor, selects 'TypeScript' as the language syntax, picks the 'Dracula' dark theme, enables macOS decorative header buttons, and titles the card 'deep-partial.ts'. Setting padding to 32px with an aesthetic violet-to-cyan gradient background generates a stunning card. Clicking 'Download PNG' exports a 2× Retina resolution image that renders crisply across mobile and desktop feeds. Limitations: This tool generates static raster PNG images; code text inside the image is not selectable or copyable for readers. To format SQL queries before screenshotting, explore [SQL Formatter](/sql-formatter), or minify code with [Code Minifier](/code-minifier)."
+      }
+    ]
   },
   {
     slug: "aes-encryptor",
     title: "AES Encryptor",
-    short: "Encrypt with password",
-    description: "Encrypt and decrypt text with authenticated AES-256-GCM, PBKDF2 key derivation, and random salt and IV for password-protected messages kept private offline.",
+    seoTitle: "AES Encryptor Online - AES-256 Text Encryption | Tool4SaaS",
+    short: "Encrypt & decrypt text with AES-256",
+    description:
+      "Encrypt and decrypt text securely using authenticated AES-256-GCM encryption with PBKDF2 password key derivation and random salts online on Tool4SaaS.",
     icon: "Key",
-    keywords: ["aes encryptor", "aes encryption online", "encrypt text password", "paste text encrypt locally no upload", "how to encrypt text with aes free", "aes-256-gcm pbkdf2 salt iv", "aes encoder decoder validator free"],
+    keywords: [
+      "aes encryptor",
+      "aes 256 encryption online",
+      "encrypt text online",
+      "aes decryptor",
+      "aes gcm encryption",
+      "password protect text",
+      "secure text encryptor",
+      "free aes encryptor"
+    ],
     category: "developer",
-    faq: [{ question: "How are AES keys derived?", answer: "PBKDF2-SHA256 applies 100k iterations and random 16-byte salt, then AES-GCM encrypts with fresh IV. For illustration, Hello with pass123 yields Base64 bundle holding salt and IV within one hundred milliseconds, while 50KB notes lock near two hundred milliseconds. Fresh randomness per message thwarts pattern analysis across archives." }, { question: "Does my password leave the browser?", answer: "No. Key stretching and encryption execute solely inside this tab through WebCrypto without transmission. For instance, Hello World trials remain resident. The tool is fully client-side; your input is never logged or uploaded. Avoid production passwords on shared machines; employ test phrases for learning exercises." }, { question: "Is AES encryption free and offline?", answer: "Yes. Operation proceeds after load without servers; for example, encrypt Hello with pass123 to obtain Base64 with salt and IV. Decrypt by pasting back with identical password to verify return. Hashing alternatives live at /hash-generator, while robust keys originate at /password-generator for stronger protection." }, { question: "Why must salts and IVs stay unique?", answer: "Unique salts prevent rainbow precomputation across users, while unique IVs stop identical plaintexts producing identical ciphertexts that leak patterns. For example, encrypting Hello twice yields distinct Base64 due to fresh values. Reusing IVs in GCM catastrophically exposes authentication keys, so this tool generates cryptographically random values per operation automatically." }],
-    howTo: [{ name: "Enter text", text: "Type plaintext Hello World or paste Base64 bundle with salt and IV for decryption trials." }, { name: "Set password", text: "Enter passphrase like Correct-Horse-9 with length and variety for key derivation strength." }, { name: "Encrypt", text: "Press Encrypt to generate Base64 output embedding salt, IV and authentication tag instantly." }, { name: "Decrypt check", text: "Paste bundle back with identical password to confirm Hello World returns without authentication errors." }], guide: [{ heading: "What AES encryption does", body: "Encryption secures wording with password-derived AES-256-GCM and PBKDF2, salt and IV for confidential messaging. Example 1: Hello with pass123 produces Base64 bundle within one hundred milliseconds. Example 2: 50KB notes lock near two hundred milliseconds with distinct ciphertext each run. Random salt and IV per message prevent reuse detection. Unlike Base64 at /base64-tool which merely encodes visibly, AES provides genuine secrecy with authentication. Developers share sensitive notes, store vault exports and demonstrate cryptography without server exposure across training sessions." }, { heading: "How PBKDF2, salt, and IV protect you", body: "Reference protection table: PBKDF2 100k stretches passwords | 16-byte salt randomizes keys | random IV randomizes ciphertext | GCM tag detects tampering | same Hello yields different Base64 | wrong password fails authentication. Stretching slows brute force, salt defeats rainbow tables. Edge case: weak pass123 still falls to guessing despite sound primitives, demanding lengthy passphrases. Copy bundle holding salt and IV for decryption, safeguard passwords separately, and trial decryption immediately to confirm correctness before transmitting bundles. Clinics testing weak pass123 versus Correct-Horse-9 quantify stretching benefits through timed crack demos that motivate passphrase adoption across teams while updating policy guides quarterly now daily and posters." }, { heading: "AES worked example: Hello World with password round-trip", body: "Type Hello World, set Correct-Horse-9, press Encrypt, copy Base64 bundle, paste back with same password to verify return. Second trial: encrypt identical Hello twice to observe differing outputs proving freshness. Limitation: password distribution remains out of scope, huge 5MB notes may hesitate on handsets, so chunk them. For integrity without secrecy, see the maker at /hash-generator for digests. For robust secrets, see the maker at /password-generator for generation. Second drill re-encrypting identical Hello highlights fresh ciphertexts, while archiving bundles and verification notes supports recovery exercises across training cohorts quarterly now daily for readiness and drills and debriefs for mastery daily." }]
+    faq: [
+      {
+        question: "Which AES encryption algorithm and cipher mode are used by this tool?",
+        answer: "The tool utilizes AES-256-GCM (Galois/Counter Mode), providing both military-grade confidentiality and cryptographic authentication against ciphertext tampering."
+      },
+      {
+        question: "How is my passphrase converted into an AES-256 cryptographic key?",
+        answer: "The tool implements PBKDF2 (Password-Based Key Derivation Function 2) with SHA-256 and 100,000 hash iterations, utilizing a unique cryptographically random 16-byte salt per encryption."
+      },
+      {
+        question: "Are my plaintext messages, secret keys, or passwords uploaded to a server?",
+        answer: "No. All key derivation, initialization vector (IV) generation, and AES-256-GCM encryption execute via native Web Crypto APIs on your device; zero sensitive data leaves browser memory."
+      },
+      {
+        question: "What happens if someone modifies even a single character in the encrypted text?",
+        answer: "AES-GCM includes a mandatory 128-bit authentication tag. If any byte of the ciphertext or IV is altered, decryption fails completely with a cryptographic tampering error."
+      },
+      {
+        question: "Can the encrypted ciphertext be safely transmitted over email or messaging apps?",
+        answer: "Yes. The resulting ciphertext, random salt, and initialization vector are bundled and encoded into standard Base64, ensuring safe transmission across plain text messaging channels."
+      }
+    ],
+    howTo: [
+      {
+        name: "Select Encrypt or Decrypt mode",
+        text: "Choose Encrypt to protect plaintext, or Decrypt to unlock an existing ciphertext payload."
+      },
+      {
+        name: "Enter secret passphrase",
+        text: "Provide a strong password or cryptographic key phrase known only to authorized recipients."
+      },
+      {
+        name: "Input message text",
+        text: "Type or paste your confidential text, token, or credentials into the input editor."
+      },
+      {
+        name: "Execute cryptographic operation",
+        text: "Click Encrypt or Decrypt to generate authenticated Base64 ciphertext or reveal the original plaintext."
+      }
+    ],
+    guide: [
+      {
+        heading: "Symmetric cryptography, AES-256 standards, and authenticated encryption",
+        body: "The Advanced Encryption Standard (AES), established by the National Institute of Standards and Technology (NIST) in FIPS 197, is the globally recognized benchmark for symmetric block cipher cryptography. AES-256 utilizes a 256-bit key length and 14 transformation rounds (including SubBytes, ShiftRows, MixColumns, and AddRoundKey) to render brute-force computational attacks mathematically infeasible. While early implementations relied on Cipher Block Chaining (CBC) or Electronic Codebook (ECB) modes, modern secure engineering mandates Galois/Counter Mode (GCM). AES-GCM is an Authenticated Encryption with Associated Data (AEAD) cipher that computes an authentication tag alongside ciphertext, preventing chosen-ciphertext and bit-flipping attacks. This browser encryptor performs all cryptographic transformations client-side using the native W3C Web Crypto API."
+      },
+      {
+        heading: "AES encryption modes, key derivation specs, and security parameters reference",
+        body: "Selecting proper cryptographic modes and key derivation parameters is essential to prevent vulnerabilities. Deriving keys directly from user passwords without key stretching invites rapid dictionary attacks. PBKDF2 applies 100,000 rounds of HMAC-SHA256 with a unique random salt, substantially slowing down offline hardware cracking attempts. The table below compares common symmetric cipher modes, authentication capabilities, padding dependencies, and modern security assessments.",
+        table: {
+          caption: "Cryptographic Cipher Modes, Integrity Authentication, and Vulnerability Profiles",
+          headers: ["Cipher Mode", "Key Length", "Authentication Tag (AEAD)", "Padding Requirement", "Security Assessment"],
+          rows: [
+            ["AES-GCM", "128 / 256 bits", "Yes (128-bit Tag)", "No (Stream-like counter)", "Industry Gold Standard; immune to padding oracle attacks"],
+            ["AES-CBC", "128 / 256 bits", "No (Requires HMAC)", "Yes (PKCS#7)", "Legacy; vulnerable to padding oracle attacks without HMAC"],
+            ["AES-CTR", "128 / 256 bits", "No (Confidentiality only)", "No (Counter stream)", "Fast parallel processing; requires external authentication"],
+            ["AES-ECB", "128 / 256 bits", "No (Insecure)", "Yes (PKCS#7)", "Severely broken; leaks plaintext patterns (e.g. ECB penguin)"]
+          ]
+        }
+      },
+      {
+        heading: "Worked example: Encrypting and sharing API keys across team channels",
+        body: "Consider a DevOps engineer transmitting a database production connection string across an internal chat channel. The engineer types the database URL, enters a shared 20-character passphrase, and clicks Encrypt. The browser generates a cryptographically random 16-byte salt and 12-byte IV, computes the 256-bit key using PBKDF2, encrypts the payload via AES-256-GCM, and bundles the output into a single Base64 string. The recipient pastes the Base64 string, enters the matching passphrase, and decrypts the original connection string. If any character was altered in transit, the GCM authentication tag validation fails automatically. Limitations: Security depends strictly on passphrase strength; lost passphrases cannot be decrypted or recovered by anyone. To generate strong passphrases, explore [Password Generator](/password-generator), or verify password complexity with [Password Strength Checker](/password-strength)."
+      }
+    ]
   },
     {
     slug: "otp-generator",
     title: "OTP Generator (TOTP 2FA)",
-    short: "30-sec 2FA codes",
-    description: "Generate time-based one-time passwords (TOTP) for 2FA setup testing. Enter a Base32 secret to get rotating 30-second codes with countdown, fully offline.",
+    seoTitle: "OTP Generator - TOTP 2FA Code Generator Online | Tool4SaaS",
+    short: "Time-based one-time password 2FA generator",
+    description:
+      "OTP generator produces RFC 6238 time-based two-factor authentication codes and provisioning URIs from Base32 secrets in client memory on Tool4SaaS.",
     icon: "VpnKey",
-    keywords: ["otp generator totp", "totp generator", "2fa code generator", "paste secret validate otp locally no upload", "how to generate otp totp free", "totp rfc6238 hmac-sha1 30 seconds", "crypto.getrandomvalues vs math.random totp", "otp parser validator free"],
+    keywords: [
+        "otp generator",
+        "totp generator",
+        "2fa code generator",
+        "two factor authentication",
+        "rfc 6238 generator",
+        "base32 secret key",
+        "google authenticator online",
+        "authenticator code test"
+],
     category: "developer",
-    faq: [{ question: "Is this OTP safe for real accounts?", answer: "Employ test secrets solely; never enter production 2FA seeds on shared machines. For illustration, demo JBSW seed displays six-digit codes safely, while genuine exchange keys must remain inside authenticator apps. Codes rotate every thirty seconds with fifteen-second countdown, letting developers rehearse enrolment and login flows without risking lockout." }, { question: "Does my OTP secret stay local?", answer: "Yes. Seeds and codes remain solely inside this tab through WebCrypto without transmission. For instance, Base32 demo JBSWY3DPEHPK3PXP . Pasted data is handled in-browser; it is neither stored nor transmitted. Never use genuine 2FA seeds here; reserve hardware-backed authenticators for live accounts." }, { question: "Is OTP generation free and offline?", answer: "Yes. Creation proceeds after load without servers; for example, demo seed shows six-digit code with countdown instantly. Wait thirty seconds to witness rotation like 123456 to 789012. Copy code or provisioning URI for tests. Strong secrets originate at /password-generator for enrolment trials." }, { question: "Why does clock skew invalidate codes?", answer: "TOTP divides Unix time into thirty-second counters, so drift beyond one step desynchronizes client and server counters. For example, a minute-fast device yields rejected codes despite correct seed. Synchronize via NTP, test rotation across two windows, and allow single-step tolerance server-side while logging repeated failures for support triage." }],
-    howTo: [{ name: "Enter secret", text: "Paste Base32 demo seed like JBSWY3DPEHPK3PXP solely for testing, never live account secrets." }, { name: "Watch code", text: "Observe live six-digit code with countdown bar showing seconds remaining until rotation occurs." }, { name: "Copy", text: "Copy current code or otpauth provisioning URI into test login forms or QR generators directly." }, { name: "Test timing", text: "Wait thirty seconds to watch code rotate from 123456 toward 789012, confirming time synchronization works." }], guide: [{ heading: "What TOTP codes do", body: "Generation produces time-based six-digit codes from Base32 secrets with thirty-second rotation for two-factor trials. Example 1: demo JBSW seed shows code and fifteen-second countdown for enrolment rehearsal. Example 2: waiting thirty seconds flips 123456 toward 789012 proving time linkage. HMAC-SHA1 counters underpin RFC 6238 logic via WebCrypto. Teams test authenticator flows without hardware tokens, rehearsing backup codes and recovery. Codes refresh automatically, countdown bars visualize urgency, and provisioning URIs encode issuer and account for QR experiments across staging environments." }, { heading: "How secrets, timing, and URIs work", body: "Reference timing table: 0 to 30 seconds window one | 30 to 60 seconds window two | skew beyond 30 seconds fails | demo JBSWY3DPEHPK3PXP for trials | otpauth URI holds issuer | QR encodes URI. Paste demo seed, watch live code and bar, copy code or URI for tests. Edge case: NTP drift over thirty seconds yields false rejects, demanding clock sync. Never enter production seeds on shared PCs; employ test values. Validate across two consecutive windows before assuming failure in integration suites. Laboratories skewing clocks deliberately quantify tolerance thresholds through controlled drifts that inform server-side leeway settings across deployments while documenting NTP remedies quarterly now daily and runbooks." }, { heading: "OTP worked example: demo secret 6-digit 30 seconds", body: "Enter demo seed, note six-digit code, paste into test login before thirty-second expiry, watch successor appear. Second trial: generate provisioning URI, render QR, scan with test authenticator. Limitation: tester only, no recovery or server validation, and screen sharing leaks codes instantly. For robust secret creation, see the maker at /password-generator for random generation. For hash primitives behind TOTP, see the signer at /hash-generator for digest concepts. Second drill scanning provisioning QR validates issuer mapping, while archiving test vectors and timestamps supports regression suites across identity teams quarterly now daily for reliability and coverage and audits for assurance daily." }]
+    faq: [
+        {
+              "question": "What technical standard governs TOTP two-factor authentication codes?",
+              "answer": "TOTP is defined by IETF RFC 6238, which derives rotating 6-digit codes by hashing Unix epoch time counters with a shared Base32 secret using HMAC-SHA1."
+        },
+        {
+              "question": "How long is each TOTP authentication code valid?",
+              "answer": "Standard TOTP implementations rotate codes every 30 seconds, providing a time-step window for authentication before a new code is required."
+        },
+        {
+              "question": "Is it safe to paste live production two-factor authentication secrets here?",
+              "answer": "While computation executes client-side in browser memory, you should never input production credentials on third-party websites; reserve this tool for development testing."
+        },
+        {
+              "question": "What causes TOTP verification failures on servers (clock drift)?",
+              "answer": "TOTP relies on synchronized clocks. If your device time differs from the server by more than 30 seconds, the generated time-step counter will not match."
+        },
+        {
+              "question": "Does this OTP generator transmit or cache my shared secret key?",
+              "answer": "No. All HMAC-SHA1 hashing and code derivation occur strictly within your browser via the Web Crypto API; zero secret keys or codes leave your machine."
+        }
+],
+    howTo: [
+        {
+              "name": "Enter Base32 secret seed",
+              "text": "Input your test authentication secret key (such as JBSWY3DPEHPK3PXP) or generate a new cryptographic test seed."
+        },
+        {
+              "name": "Verify time-step interval",
+              "text": "Confirm the standard 30-second rotation window and 6-digit output length configured for your target service."
+        },
+        {
+              "name": "Monitor rotating 2FA code",
+              "text": "Observe the live 6-digit numerical passcode and remaining seconds indicated by the visual countdown meter."
+        },
+        {
+              "name": "Copy passcode or otpauth URI",
+              "text": "Copy the generated code to authenticate your test login or copy the otpauth:// URI for authenticator app configuration."
+        }
+],
+    guide: [
+        {
+              "heading": "Time-based one-time password protocols, RFC 6238 standards, and 2FA authentication",
+              "body": "Two-factor authentication (2FA) is a cornerstone of modern cybersecurity, requiring users to supply both a knowledge factor (such as a master password) and an possession factor (such as a temporary security token) to access sensitive computing environments. The Time-Based One-Time Password (TOTP) algorithm—standardized by the Internet Engineering Task Force in IETF RFC 6238—extends the HMAC-Based One-Time Password (HOTP) standard (RFC 4226) by replacing an incrementing event counter with Unix epoch time steps (defaulting to 30 seconds). Leading authenticator applications including Google Authenticator, Microsoft Authenticator, and 1Password implement this specification to secure user logins. Having access to an in-browser TOTP generator enables software engineers to verify authentication endpoints, test automated API integration pipelines, and troubleshoot clock synchronization issues without needing physical mobile devices."
+        },
+        {
+              "heading": "TOTP algorithmic workflow, cryptographic truncation, and protocol parameters",
+              "body": "The TOTP generation process follows a strict cryptographic sequence. First, the user's shared Base32 secret is decoded into raw binary bytes. Second, the current Unix timestamp in seconds is divided by the time-step window (T0 = 0, X = 30 seconds) and converted into an 8-byte big-endian integer counter (T = floor((Current_Time - T0) / X)). Third, the algorithm computes an HMAC hash (typically HMAC-SHA1, although RFC 6238 supports SHA-256 and SHA-512) using the decoded secret key and the 8-byte time counter. Finally, dynamic truncation extracts a 4-byte segment from the 20-byte HMAC digest based on the low-order 4 bits of the final byte, modulo 10^Digits (usually 1,000,000) to yield a 6-digit numerical passcode. The table below details protocol parameters, default configurations, and security characteristics.",
+              "table": {
+                    "caption": "RFC 6238 TOTP Protocol Parameters, Standard Specifications, and Cryptographic Standards",
+                    "headers": [
+                          "Protocol Parameter",
+                          "Standard Default Value",
+                          "Alternative Configurations",
+                          "Cryptographic Purpose",
+                          "Security Implication"
+                    ],
+                    "rows": [
+                          [
+                                "Hash Algorithm",
+                                "HMAC-SHA1",
+                                "HMAC-SHA256, HMAC-SHA512",
+                                "Generates keyed cryptographic message digest",
+                                "SHA1 remains industry standard due to widespread client compatibility"
+                          ],
+                          [
+                                "Time-Step Window (X)",
+                                "30 seconds",
+                                "15 seconds, 60 seconds",
+                                "Determines code rotation frequency",
+                                "30 seconds balances user typing speed with replay vulnerability window"
+                          ],
+                          [
+                                "Token Code Digits",
+                                "6 digits",
+                                "7 digits, 8 digits",
+                                "Truncates digest into human-enterable PIN",
+                                "6 digits provides 1,000,000 possible combinations per 30-second window"
+                          ],
+                          [
+                                "Secret Encoding",
+                                "Base32 (RFC 4648)",
+                                "Hexadecimal, Base64",
+                                "Represents binary secret as uppercase letters & numbers",
+                                "Omits easily confused characters (0, 1, 8, 9) for manual entry"
+                          ],
+                          [
+                                "Clock Drift Tolerance",
+                                "±1 window (±30 sec)",
+                                "±2 windows (±60 sec)",
+                                "Permits slight client-to-server clock skew",
+                                "Wider tolerance windows increase attack surface for replay exploits"
+                          ],
+                          [
+                                "Provisioning URI Scheme",
+                                "otpauth://totp/...",
+                                "Key URI format with URL parameters",
+                                "Packages label, secret, issuer, and parameters for QR codes",
+                                "Enables rapid configuration in mobile authenticator applications"
+                          ]
+                    ]
+              }
+        },
+        {
+              "heading": "Worked example: Deriving a 6-digit TOTP code from a sample Base32 test secret",
+              "body": "Consider a developer testing a local Node.js authentication service using the standard RFC test secret seed 'JBSWY3DPEHPK3PXP'. When the current Unix timestamp is 1,700,000,000 seconds, dividing by the 30-second window yields an integer time counter of 56,666,666 (hexadecimal 0x000000000360B9EA). Decoding the Base32 seed produces a 10-byte binary key ('1234567890' in ASCII representation). Computing the HMAC-SHA1 digest over the 8-byte counter buffer yields a 20-byte hash. Inspecting the final byte reveals an offset index; taking the 4 bytes at that offset, masking the most significant bit, and calculating modulo 1,000,000 derives the active 6-digit passcode. As the clock increments into the subsequent 30-second block, the counter changes, producing a completely distinct passcode. Critical Security Warning: Never enter production 2FA secrets from banking, corporate email, or live cloud accounts into any web browser. Use this tool exclusively for test seeds and development environments. Limitations: This tool requires accurate device system clock synchronization; excessive device clock drift will generate codes that fail server verification. To generate strong cryptographic passwords, explore [Password Generator](/password-generator), or compute cryptographic digests with [Hash Generator](/hash-generator)."
+        }
+]
   },
   {
     slug: "ai-token-counter",
     title: "AI Token Counter",
-    short: "Tokens + API cost",
-    description: "Estimate tokens and input cost for GPT-4o, Claude Sonnet and Gemini Flash. Paste text to see characters, words, estimated tokens and editable prices.",
+    seoTitle: "AI Token Counter - LLM Tokens & Cost Estimator | Tool4SaaS",
+    short: "Estimate LLM prompt tokens & API pricing",
+    description:
+      "AI token counter estimates prompt token counts and API inference costs for OpenAI GPT-4o, Claude 3.5 Sonnet, and Gemini 1.5 Flash on Tool4SaaS.",
     icon: "DataObject",
-    keywords: ["ai token counter", "chatgpt token counter", "gpt token calculator cost", "paste text count tokens locally no upload", "how to count ai tokens free", "bpe tokens context window tiktoken", "gpt vs claude pricing tokens", "token parser validator free"],
+    keywords: [
+        "ai token counter",
+        "llm token counter",
+        "chatgpt token counter",
+        "claude token counter",
+        "token cost calculator",
+        "prompt token estimator",
+        "bpe tokenizer counter",
+        "api cost calculator"
+],
     category: "developer",
-    faq: [{ question: "How accurate is the estimate?", answer: "The tool divides character count by four, adds 15% when it detects code-like symbols or keywords, and rounds up. It is not tiktoken or a provider tokenizer. Four hundred ASCII characters usually estimate at 100 tokens; non-Latin text, emoji and code can differ substantially. Confirm billing in the provider dashboard." }, { question: "Which models and prices are included?", answer: "GPT-4o at $2.50 per million input tokens, Claude Sonnet at $3.00 and Gemini Flash at $0.35. Every price is editable, so replace it with the current rate from your provider. Selecting a model changes the prominent cost card; the table shows all three costs." }, { question: "Does it count output tokens?", answer: "No. The estimate covers input text only. Providers often charge a different rate for output, and reasoning models may bill additional tokens. Add the expected output and its rate separately if you need a full request budget." }, { question: "Is my prompt uploaded?", answer: "No. Counting runs in the page and nothing is saved. The input is capped at 500,000 characters, and further typing is truncated with a warning. Redact secrets before pasting, especially on a shared computer." }, { question: "How should I reduce prompt cost?", answer: "Remove repeated instructions, shorten examples, summarize old chat turns and send only relevant document sections. Compare the estimate after each edit. Caching and batch discounts are provider features this tool does not model." }],
-    howTo: [{ name: "Paste text", text: "Paste the prompt, article draft or code sample into the input area. Input stops at 500,000 characters." }, { name: "Read counts", text: "Review characters, words and estimated tokens. The token figure uses four characters per token with a code boost." }, { name: "Set prices", text: "Edit each model's price per million input tokens to match current provider rates. Blank or negative prices show no cost." }, { name: "Compare models", text: "Select GPT-4o, Claude Sonnet or Gemini Flash to move the prominent cost card, then copy the summary for notes." }], guide: [{ heading: "What token counting does", body: "Counting approximates tokens, words, characters and API spend for GPT, Claude and Gemini prompts. Example 1: 400 characters approximate 100 tokens for quick budgeting. Example 2: 2000 words approach 2600 tokens, while 500 words near 650 tokens guide context planning. Editable price table shows dollars per million, like five dollars at 10k tokens equals five cents. Writers scope chapters, developers cap chat histories and founders forecast inference budgets. Chunk long documents, monitor context windows, and iterate prompts efficiently before committing to large runs across providers." }, { heading: "How heuristics, prices, and models work", body: "Reference heuristic table: prose averages four chars per token | code inflates due to symbols | 500 words near 650 tokens | 50000-token chapter estimates instantly | variance is largest for code, emoji and non-Latin scripts. Heuristic adds code uplift rather than exact tiktoken parsing. Edge case: multilingual text and emoji tokenize unpredictably, so verify critical budgets against playground counts. Pick a model to move the cost card, update the table when vendors change rates, and redact secrets before counting. Cache system prompts to avoid repaying repeated instructions. A 4,000-character prompt estimates at 1,000 prose tokens or 1,150 when the code boost applies; at $2.50 per million, that is $0.0025 or $0.002875." }, { heading: "Token worked example: 500 words is 650 tokens", body: "Paste 500-word article, note characters, words, tokens near 650, select GPT-4o to see a fractional-cent cost, contrast Claude Sonnet at 2,000 tokens for a larger sub-cent estimate. Second trial: evaluate 50000-token chapter to forecast chapter spend. Limitation: heuristic only, billing demands dashboard confirmation, and pricing drifts over time. For word, sentence and readability counts, use /word-counter. The token estimate here is not a word count and does not measure reading ease. Recalculate when the model, price or prompt length changes; a saved estimate is only valid for the assumptions shown." }]
+    faq: [
+        {
+              "question": "What is a token in large language models (LLMs)?",
+              "answer": "A token is a basic unit of text processed by an LLM, typically representing approximately 4 characters or 0.75 words in standard English prose."
+        },
+        {
+              "question": "How does tokenization differ between plain English text and source code?",
+              "answer": "Source code contains indentation, punctuation, and camelCase syntax that splits into significantly more tokens per character than standard English sentences."
+        },
+        {
+              "question": "Which AI models and pricing tiers are estimated by this tool?",
+              "answer": "The tool estimates token volumes and input costs across leading models including OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet, and Google Gemini 1.5 Flash."
+        },
+        {
+              "question": "Can I customize the token pricing rates per million tokens?",
+              "answer": "Yes. You can edit the pricing inputs to reflect custom enterprise discounts, batch processing rates, or provider price reductions."
+        },
+        {
+              "question": "Are my prompts or confidential code snippets sent to any remote server?",
+              "answer": "No. Prompt token counting and API expense estimations process entirely within client JavaScript on your computer; zero prompt strings or code samples are sent over the network."
+        }
+],
+    howTo: [
+        {
+              "name": "Paste your prompt or code",
+              "text": "Insert your system instructions, conversational prompts, or program source code into the analysis editor."
+        },
+        {
+              "name": "Inspect token metrics",
+              "text": "Review real-time counts for total tokens, characters, words, and average token-to-word ratios."
+        },
+        {
+              "name": "Select target AI model",
+              "text": "Compare estimated API expenses across GPT-4o, Claude 3.5 Sonnet, and Gemini 1.5 Flash."
+        },
+        {
+              "name": "Adjust model pricing rates",
+              "text": "Fine-tune rates per million tokens to account for specific provider tiers, prompt caching, or batch discounts."
+        }
+],
+    guide: [
+        {
+              "heading": "Byte-Pair Encoding tokenization, context window limits, and LLM inference economics",
+              "body": "Large language models (LLMs) do not process raw text as continuous character strings or complete sentences. Instead, language model frontends utilize subword tokenization algorithms—predominantly Byte-Pair Encoding (BPE)—to decompose text into numerical token identifiers. Common English words often map to single tokens (for example, the word 'computer' is a single token), whereas rare terminology, hyphenated expressions, numerical figures, and non-English scripts are split into multiple subword fragments. Token counts directly determine operational limits in AI software engineering, including model context window capacity (such as 128k or 1M token windows), prompt caching efficiency, and API billing rates per million tokens. Monitoring prompt token density enables developers to optimize system prompts, structure retrieval-augmented generation (RAG) contexts, and manage operating budgets effectively."
+        },
+        {
+              "heading": "Token estimation heuristics, model context capacities, and API cost structures",
+              "body": "While exact tokenization depends on model-specific vocabularies (such as OpenAI's cl100k_base or o200k_base tokenizers), general text heuristics provide reliable budgeting estimates. In standard English prose, one token corresponds to approximately 4 characters or 0.75 words (1,000 words approximates 1,333 tokens). However, programming languages (Python, JavaScript, SQL) and structured data formats (JSON, XML) exhibit significantly higher token densities due to repeated punctuation, whitespace indentation, and alphanumeric syntax. API vendors bill input tokens and output tokens at distinct rates per 1,000,000 tokens (1M tokens). The table below details leading AI model specifications, context window limits, and typical input token pricing benchmarks.",
+              "table": {
+                    "caption": "Leading Large Language Models, Context Window Boundaries, and Input Token Pricing Benchmarks",
+                    "headers": [
+                          "AI Model Name",
+                          "Developer Organization",
+                          "Maximum Context Window",
+                          "Input Cost (per 1M Tokens)",
+                          "Cached Prompt Discount",
+                          "Optimal Use Case"
+                    ],
+                    "rows": [
+                          [
+                                "GPT-4o",
+                                "OpenAI",
+                                "128,000 tokens",
+                                "$2.50 / 1M tokens",
+                                "50% discount on cached tokens",
+                                "Complex multimodal reasoning, coding, conversational agents"
+                          ],
+                          [
+                                "Claude 3.5 Sonnet",
+                                "Anthropic",
+                                "200,000 tokens",
+                                "$3.00 / 1M tokens",
+                                "Prompt caching up to 90% discount",
+                                "Superior code synthesis, document analysis, agentic workflows"
+                          ],
+                          [
+                                "Gemini 1.5 Flash",
+                                "Google DeepMind",
+                                "1,000,000 tokens",
+                                "$0.075 / 1M tokens",
+                                "Volume tiering above 128k tokens",
+                                "High-throughput summarization, real-time latency tasks, RAG"
+                          ],
+                          [
+                                "Gemini 1.5 Pro",
+                                "Google DeepMind",
+                                "2,000,000 tokens",
+                                "$3.50 / 1M tokens",
+                                "Supports extensive video & audio context",
+                                "Massive codebase analysis, multi-document research"
+                          ],
+                          [
+                                "GPT-4o-mini",
+                                "OpenAI",
+                                "128,000 tokens",
+                                "$0.15 / 1M tokens",
+                                "50% cached discount",
+                                "Lightweight conversational tasks, text classification"
+                          ],
+                          [
+                                "Claude 3.5 Haiku",
+                                "Anthropic",
+                                "200,000 tokens",
+                                "$0.80 / 1M tokens",
+                                "Prompt caching supported",
+                                "Rapid lightweight inference, automated content moderation"
+                          ]
+                    ]
+              }
+        },
+        {
+              "heading": "Worked example: Estimating prompt tokens and API costs for a 2,500-word software prompt",
+              "body": "Consider a software engineer preparing an automated code review prompt containing 2,500 words of mixed Python code and architectural guidelines, spanning 15,000 characters. Applying standard English heuristics yields approximately 3,333 tokens (15,000 / 4.5); factoring in a 15% code syntax and indentation multiplier establishes an estimated token volume of 3,833 tokens. Evaluating API expenses across models: Sending this 3,833-token prompt to OpenAI GPT-4o at $2.50 per 1M input tokens incurs a cost of $0.00958 [(3,833 / 1,000,000) × $2.50]. Processing through Anthropic Claude 3.5 Sonnet at $3.00 per 1M tokens costs $0.01150. Sending through Google Gemini 1.5 Flash at $0.075 per 1M tokens costs just $0.000287. If this prompt executes 50,000 times monthly in an automated CI/CD pipeline, monthly prompt expenses reach $479 on GPT-4o, $575 on Claude 3.5 Sonnet, and $14.35 on Gemini 1.5 Flash, highlighting how token monitoring drives architectural cost decisions. Limitations: This tool provides heuristic estimates and does not execute proprietary vendor tokenizer binary assemblies. Furthermore, costs reflect input prompts and do not include generation output tokens. To analyze word frequencies in your text, visit [Word Counter](/word-counter), or format structured payloads with [JSON Formatter](/json-formatter)."
+        }
+]
   },
 ];
