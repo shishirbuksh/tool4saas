@@ -2,6 +2,7 @@
 import AppPage from "@/layouts/AppPage.astro";
 import TermsView from "@/views/pages/terms";
 import { staticPageMetadata } from "@/lib/metadata";
+import { termsJsonLd } from "@/lib/seo/jsonld";
 
 const meta = staticPageMetadata({
   title: "Terms of Service — Fair Use & Disclaimers",
@@ -16,4 +17,4 @@ const meta = staticPageMetadata({
   props={{}}
   meta={meta}
   pathname="/terms"
-/>
+jsonLd={[termsJsonLd()]} />

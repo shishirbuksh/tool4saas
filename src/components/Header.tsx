@@ -28,7 +28,7 @@ export default function Header() {
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const categoriesRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const homeHref = pathname?.startsWith("/es") ? "/es" : pathname?.startsWith("/fr") ? "/fr" : "/";
+  const homeHref = "/";
   const { mode, toggle } = useThemeMode();
 
   useEffect(() => {

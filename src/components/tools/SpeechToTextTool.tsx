@@ -176,6 +176,10 @@ export default function SpeechToTextTool() {
   return (
     <ToolPaper>
       <Stack spacing={2}>
+        <Alert severity="info">
+          <strong>Privacy Note:</strong> Voice transcription uses your browser&apos;s built-in Web Speech API. While Tool4SaaS servers never receive or store your audio, your browser vendor (e.g. Google or Apple) transcribes audio using their speech recognition cloud servers in accordance with their privacy policy.
+        </Alert>
+
         <FormControl fullWidth className="max-w-[320px]">
           <InputLabel id="stt-language-label">Language</InputLabel>
           <Select

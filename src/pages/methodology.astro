@@ -2,6 +2,7 @@
 import AppPage from "@/layouts/AppPage.astro";
 import MethodologyView from "@/views/pages/methodology";
 import { staticPageMetadata } from "@/lib/metadata";
+import { methodologyJsonLd } from "@/lib/seo/jsonld";
 
 const meta = staticPageMetadata({
   title: "How We Test Tools — Accuracy You Can Verify",
@@ -17,4 +18,4 @@ const meta = staticPageMetadata({
   props={{}}
   meta={meta}
   pathname="/methodology"
-/>
+jsonLd={[methodologyJsonLd()]} />

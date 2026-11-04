@@ -1,9 +1,9 @@
 ---
 import AppPage from "@/layouts/AppPage.astro";
 import BlogClusterView from "@/views/pages/blog-cluster";
-import { getAllBlogStaticParams, getClusterPost } from "@/lib/blog-registry";
+import { getAllBlogStaticParams, getClusterPost, getRelatedPosts } from "@/lib/blog-registry";
 import { isNoindexCluster } from "@/lib/blog/noindex";
-import { blogMetadataFor } from "@/components/blog/BlogArticle";
+import { blogMetadataFor, buildBlogJsonLd } from "@/components/blog/BlogArticle";
 import type { PageMeta } from "@/lib/seo";
 
 export function getStaticPaths() {
@@ -11,8 +11,6 @@ export function getStaticPaths() {
     .filter((p) => p.cluster)
     .map((p) => ({ params: { pillar: p.pillar, cluster: p.cluster as string } }));
 }
-
-import { getRelatedPosts } from "@/lib/blog-registry";
 
 const pillar = Astro.params.pillar!;
 const cluster = Astro.params.cluster!;
@@ -34,4 +32,5 @@ if (isNoindexCluster(pillar, cluster)) {
   props={{ pillar, cluster, post, related }}
   meta={meta}
   pathname={`/blog/${pillar}/${cluster}`}
+  jsonLd={[buildBlogJsonLd(post)]}
 />

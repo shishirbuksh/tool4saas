@@ -20,7 +20,7 @@ type CreatedPdfDoc = {
 
 type PDFDocumentStatic = {
   load: (data: Uint8Array) => Promise<LoadedPdfDoc>;
-  create: () => CreatedPdfDoc;
+  create: () => Promise<CreatedPdfDoc>;
 };
 
 function parsePageRanges(input: string, pageCount: number): number[] {
@@ -139,7 +139,7 @@ export default function PdfSplitTool() {
         return;
       }
 
-      const out = PDFDocument.create();
+      const out = await PDFDocument.create();
       const copied = await out.copyPages(src, indices);
       for (const page of copied) {
         out.addPage(page);

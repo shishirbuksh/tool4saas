@@ -6,7 +6,7 @@ import ToolPageShell from "@/components/ToolPageShell";
 
 describe("ToolPageShell – central YMYL injection", () => {
   it("renders the finance banner for mortgage-calculator", () => {
-    const view = buildToolView(getTool("mortgage-calculator")!, "en");
+    const view = buildToolView(getTool("mortgage-calculator")!);
     render(
       <ToolPageShell view={view}>
         <div>tool ui</div>
@@ -19,7 +19,7 @@ describe("ToolPageShell – central YMYL injection", () => {
   });
 
   it("renders the health banner for bmi-calculator (category override)", () => {
-    const view = buildToolView(getTool("bmi-calculator")!, "en");
+    const view = buildToolView(getTool("bmi-calculator")!);
     render(
       <ToolPageShell view={view}>
         <div>tool ui</div>
@@ -31,7 +31,7 @@ describe("ToolPageShell – central YMYL injection", () => {
   });
 
   it("renders no banner for word-counter", () => {
-    const view = buildToolView(getTool("word-counter")!, "en");
+    const view = buildToolView(getTool("word-counter")!);
     render(
       <ToolPageShell view={view}>
         <div>tool ui</div>
@@ -42,7 +42,7 @@ describe("ToolPageShell – central YMYL injection", () => {
   });
 
   it("renders exactly one banner (no doubles)", () => {
-    const view = buildToolView(getTool("tip-calculator")!, "en");
+    const view = buildToolView(getTool("tip-calculator")!);
     const { container } = render(
       <ToolPageShell view={view}>
         <div>tool ui</div>
@@ -53,7 +53,7 @@ describe("ToolPageShell – central YMYL injection", () => {
   });
 
   it("keeps a single h1 + labelled breadcrumb nav", () => {
-    const view = buildToolView(getTool("qr-code-generator")!, "en");
+    const view = buildToolView(getTool("qr-code-generator")!);
     const { container } = render(
       <ToolPageShell view={view}>
         <div>tool ui</div>

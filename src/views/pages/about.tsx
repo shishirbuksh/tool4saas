@@ -6,33 +6,8 @@ import { getPageModifiedIso, formatIsoHuman } from "@/lib/dates";
 
 export default function AboutView() {
   const lastUpdatedIso = getPageModifiedIso("about") ?? "";
-  const base = siteConfig.url.replace(/\/$/, "");
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "AboutPage",
-        "@id": `${base}/about`,
-        name: `About ${siteConfig.name}`,
-        url: `${base}/about`,
-        description: `Meet the ${siteConfig.name} team, our local-first mission, testing rig and contact.`,
-        isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
-          { "@type": "ListItem", position: 2, name: "About", item: `${base}/about` },
-        ],
-      },
-    ],
-  };
   return (
     <Container maxWidth="md" className="py-12">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
-      />
       <Breadcrumbs className="mb-4" aria-label="breadcrumb">
         <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
           Home

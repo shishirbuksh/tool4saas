@@ -21,7 +21,7 @@ type CreatedPdfDoc = {
 
 type PDFDocumentStatic = {
   load: (data: Uint8Array, opts?: { ignoreEncryption?: boolean }) => Promise<LoadedPdfDoc>;
-  create: () => CreatedPdfDoc;
+  create: () => Promise<CreatedPdfDoc>;
 };
 
 export default function PdfMergeTool() {
@@ -83,7 +83,7 @@ export default function PdfMergeTool() {
         setError('Could not load PDF engine. Check your connection and retry.');
         return;
       }
-      const out = PDFDocument.create();
+      const out = await PDFDocument.create();
       let totalPages = 0;
       for (const f of files) {
         const bytes = new Uint8Array(await f.arrayBuffer());

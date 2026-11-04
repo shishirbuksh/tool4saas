@@ -1,0 +1,962 @@
+[
+  {
+    "originalUrl": "https://tool4saas.com/es",
+    "expectedDestination": "/",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr",
+    "expectedDestination": "/",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/blog/qr-code-generator-guide/qr-code-size-print-guide",
+    "expectedDestination": "/blog/qr-code-generator-guide/qr-code-size-print-guide",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/invoice-generator",
+    "expectedDestination": "/invoice-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/qr-code-generator",
+    "expectedDestination": "/qr-code-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/credit-card-validator",
+    "expectedDestination": "/credit-card-validator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/unit-converter",
+    "expectedDestination": "/unit-converter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/typing-speed-test",
+    "expectedDestination": "/typing-speed-test",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/plagiarism-checker",
+    "expectedDestination": "/plagiarism-checker",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/word-counter",
+    "expectedDestination": "/word-counter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/mortgage-calculator",
+    "expectedDestination": "/mortgage-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/resume-builder",
+    "expectedDestination": "/resume-builder",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/password-generator",
+    "expectedDestination": "/password-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/image-compressor",
+    "expectedDestination": "/image-compressor",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/pdf-merge",
+    "expectedDestination": "/pdf-merge",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/json-formatter",
+    "expectedDestination": "/json-formatter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/sip-calculator",
+    "expectedDestination": "/sip-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/emi-calculator",
+    "expectedDestination": "/emi-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/es/bmi-calculator",
+    "expectedDestination": "/bmi-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/invoice-generator",
+    "expectedDestination": "/invoice-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/qr-code-generator",
+    "expectedDestination": "/qr-code-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/credit-card-validator",
+    "expectedDestination": "/credit-card-validator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/unit-converter",
+    "expectedDestination": "/unit-converter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/typing-speed-test",
+    "expectedDestination": "/typing-speed-test",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/plagiarism-checker",
+    "expectedDestination": "/plagiarism-checker",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/word-counter",
+    "expectedDestination": "/word-counter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/mortgage-calculator",
+    "expectedDestination": "/mortgage-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/resume-builder",
+    "expectedDestination": "/resume-builder",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/password-generator",
+    "expectedDestination": "/password-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/image-compressor",
+    "expectedDestination": "/image-compressor",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/pdf-merge",
+    "expectedDestination": "/pdf-merge",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/json-formatter",
+    "expectedDestination": "/json-formatter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/sip-calculator",
+    "expectedDestination": "/sip-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/emi-calculator",
+    "expectedDestination": "/emi-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/fr/bmi-calculator",
+    "expectedDestination": "/bmi-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/json-to-yaml",
+    "expectedDestination": "/json-formatter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/yaml-to-json",
+    "expectedDestination": "/json-formatter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/json-tree-viewer",
+    "expectedDestination": "/json-formatter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/html-beautifier",
+    "expectedDestination": "/code-minifier",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/css-beautifier",
+    "expectedDestination": "/code-minifier",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/js-beautifier",
+    "expectedDestination": "/code-minifier",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/loan-calculator",
+    "expectedDestination": "/emi-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/auto-loan-calculator",
+    "expectedDestination": "/emi-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/simple-interest-calculator",
+    "expectedDestination": "/emi-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/cagr-calculator",
+    "expectedDestination": "/compound-interest-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/percentage-change",
+    "expectedDestination": "/percentage-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/percentage-difference",
+    "expectedDestination": "/percentage-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/cmyk-converter",
+    "expectedDestination": "/color-converter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/color-palette",
+    "expectedDestination": "/color-converter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/color-shades-generator",
+    "expectedDestination": "/color-converter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/random-hex-color",
+    "expectedDestination": "/color-converter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/css-box-shadow-generator",
+    "expectedDestination": "/gradient-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/css-border-radius-generator",
+    "expectedDestination": "/gradient-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/css-clip-path-generator",
+    "expectedDestination": "/gradient-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/random-string",
+    "expectedDestination": "/random-number",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/uuid-generator",
+    "expectedDestination": "/random-number",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/random-passphrase",
+    "expectedDestination": "/password-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/dice-roller",
+    "expectedDestination": "/coin-flip",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/pdf-split",
+    "expectedDestination": "/pdf-merge",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/pdf-rotate",
+    "expectedDestination": "/pdf-merge",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/pdf-watermark",
+    "expectedDestination": "/pdf-merge",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/image-resizer",
+    "expectedDestination": "/image-compressor",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/image-cropper",
+    "expectedDestination": "/image-compressor",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/image-border",
+    "expectedDestination": "/image-compressor",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/freelance-gst-invoice-generator",
+    "expectedDestination": "/invoice-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/quotation-generator",
+    "expectedDestination": "/document-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/purchase-order-generator",
+    "expectedDestination": "/document-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/receipt-generator",
+    "expectedDestination": "/document-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/rent-receipt-generator",
+    "expectedDestination": "/document-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/payslip-generator",
+    "expectedDestination": "/document-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/offer-letter-generator",
+    "expectedDestination": "/document-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/wifi-qr-generator",
+    "expectedDestination": "/qr-code-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/hmac-generator",
+    "expectedDestination": "/hash-generator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/text-reverser",
+    "expectedDestination": "/text-tools",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/case-converter",
+    "expectedDestination": "/text-tools",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/text-cleaner",
+    "expectedDestination": "/text-tools",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/text-list",
+    "expectedDestination": "/text-tools",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/text-find-replace",
+    "expectedDestination": "/text-tools",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/keyword-density",
+    "expectedDestination": "/word-counter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/readability-checker",
+    "expectedDestination": "/word-counter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/roman-numeral",
+    "expectedDestination": "/number-to-words",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/ascii-converter",
+    "expectedDestination": "/number-to-words",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/base-converter",
+    "expectedDestination": "/number-to-words",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/file-size-converter",
+    "expectedDestination": "/unit-converter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/open-graph-preview",
+    "expectedDestination": "/serp-preview",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/world-clock",
+    "expectedDestination": "/timezone-converter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/countdown-timer",
+    "expectedDestination": "/date-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/work-days-calculator",
+    "expectedDestination": "/date-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/time-duration-calculator",
+    "expectedDestination": "/date-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/ideal-weight-calculator",
+    "expectedDestination": "/bmi-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/body-fat-calculator",
+    "expectedDestination": "/bmi-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/macro-calculator",
+    "expectedDestination": "/calorie-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/ovulation-calculator",
+    "expectedDestination": "/period-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/us-paycheck-calculator",
+    "expectedDestination": "/salary-calculator",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/svg-to-png-converter",
+    "expectedDestination": "/image-format-converter",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  },
+  {
+    "originalUrl": "https://tool4saas.com/guides",
+    "expectedDestination": "/blog",
+    "configuredStatus": 301,
+    "actualLiveStatus": "unknown",
+    "actualLiveLocationHeader": "None (Meta-refresh stub)",
+    "finalDestinationStatus": 200,
+    "redirectChainLength": 1,
+    "chainStatus": "CLEAN_1_HOP"
+  }
+]

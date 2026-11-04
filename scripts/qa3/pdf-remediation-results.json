@@ -1,0 +1,62 @@
+{
+  "testDate": "2026-11-04T07:53:27.307Z",
+  "tests": [
+    {
+      "testName": "PDF Merge Valid Workflow",
+      "expectedResult": "Merged PDF downloads, opens cleanly via PDFDocument.load(), pageCount === 3",
+      "actualResult": "Downloaded 1291 bytes; valid PDF; page count: 3; alert visible: true",
+      "status": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "testName": "PDF Merge Empty/0-File Disabled Guard",
+      "expectedResult": "Button is disabled when files.length < 2",
+      "actualResult": "Merge 0 PDFs button disabled: true",
+      "status": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "testName": "PDF Merge Corrupt/Invalid Magic Byte Rejection",
+      "expectedResult": "File validation rejects non-PDF buffer without %PDF- header",
+      "actualResult": "Corrupt alert visible: true",
+      "status": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "testName": "PDF Split Valid Range Extraction (1-2)",
+      "expectedResult": "Split PDF downloads, opens cleanly, pageCount === 2",
+      "actualResult": "Downloaded 1078 bytes; valid PDF; page count: 2; alert visible: true",
+      "status": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "testName": "PDF Split Single Page Extraction (page 3)",
+      "expectedResult": "Extracted PDF has exactly 1 page",
+      "actualResult": "Page count: 1",
+      "status": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "testName": "PDF Split Input Range Error Handling",
+      "expectedResult": "Catches out-of-bounds, non-numeric, and inverted ranges with clear error banners",
+      "actualResult": "outOfBounds: true, malformed: true, inverted: true",
+      "status": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "testName": "PDF File Size Limit Guard (> 10MB)",
+      "expectedResult": "Rejects files larger than MAX_PDF_SIZE with clear warning",
+      "actualResult": "Oversized warning alert visible: true",
+      "status": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "testName": "Zero Uncaught JS Console Errors",
+      "expectedResult": "0 uncaught runtime exceptions in page console",
+      "actualResult": "Uncaught errors count: 0",
+      "status": "PASS",
+      "severity": "CRITICAL"
+    }
+  ],
+  "overallStatus": "PASSED"
+}

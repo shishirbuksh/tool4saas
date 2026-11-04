@@ -2,6 +2,7 @@
 import AppPage from "@/layouts/AppPage.astro";
 import ContactView from "@/views/pages/contact";
 import { staticPageMetadata } from "@/lib/metadata";
+import { contactJsonLd } from "@/lib/seo/jsonld";
 
 const meta = staticPageMetadata({
   title: "Contact Tool4SaaS — Help, Feedback & Bugs",
@@ -17,4 +18,4 @@ const meta = staticPageMetadata({
   props={{}}
   meta={meta}
   pathname="/contact"
-/>
+jsonLd={[contactJsonLd()]} />

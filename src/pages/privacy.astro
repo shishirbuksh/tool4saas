@@ -2,6 +2,7 @@
 import AppPage from "@/layouts/AppPage.astro";
 import PrivacyView from "@/views/pages/privacy";
 import { staticPageMetadata } from "@/lib/metadata";
+import { privacyJsonLd } from "@/lib/seo/jsonld";
 
 const meta = staticPageMetadata({
   title: "Privacy Policy — Data Stays in Your Browser",
@@ -17,4 +18,4 @@ const meta = staticPageMetadata({
   props={{}}
   meta={meta}
   pathname="/privacy"
-/>
+jsonLd={[privacyJsonLd()]} />

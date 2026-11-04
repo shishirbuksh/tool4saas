@@ -24,7 +24,7 @@ export default function OpenGraphPreviewTool() {
   const [description, setDescription] = useState(
     "A compelling description that appears when your link is shared on social media. Keep it under 160 characters for best results."
   );
-  const [imageUrl, setImageUrl] = useState("https://via.placeholder.com/1200x630.png?text=1200x630+OG+Image");
+  const [imageUrl, setImageUrl] = useState("https://tool4saas.com/og/home.png");
   const [url, setUrl] = useState("https://example.com/page");
   const [type, setType] = useState<(typeof OG_TYPES)[number]>("website");
   const [copied, setCopied] = useState(false);
@@ -337,7 +337,7 @@ export default function OpenGraphPreviewTool() {
             setDescription(
               "A compelling description that appears when your link is shared on social media. Keep it under 160 characters for best results."
             );
-            setImageUrl("https://via.placeholder.com/1200x630.png?text=1200x630+OG+Image");
+            setImageUrl("https://tool4saas.com/og/home.png");
             setUrl("https://example.com/page");
             setType("website");
             setImgError(false);

@@ -2,14 +2,13 @@
 import AppPage from "@/layouts/AppPage.astro";
 import BlogPillarView from "@/views/pages/blog-pillar";
 import { BLOG_PILLARS, getPillarPost } from "@/lib/blog-registry";
-import { blogMetadataFor } from "@/components/blog/BlogArticle";
+import { blogMetadataFor, buildBlogJsonLd } from "@/components/blog/BlogArticle";
+import { getClustersForPillar, getRelatedPosts } from "@/lib/blog-registry";
+import { isNoindexCluster } from "@/lib/blog/noindex";
 
 export function getStaticPaths() {
   return BLOG_PILLARS.map((p) => ({ params: { pillar: p.pillar } }));
 }
-
-import { getClustersForPillar, getRelatedPosts } from "@/lib/blog-registry";
-import { isNoindexCluster } from "@/lib/blog/noindex";
 
 const pillar = Astro.params.pillar!;
 const post = getPillarPost(pillar);
@@ -28,4 +27,5 @@ const meta = blogMetadataFor(post);
   props={{ pillar, post, clusters, related }}
   meta={meta}
   pathname={`/blog/${pillar}`}
+  jsonLd={[buildBlogJsonLd(post)]}
 />

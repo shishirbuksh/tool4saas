@@ -1,0 +1,866 @@
+[
+  {
+    "src": "/es",
+    "expectedDst": "/",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr",
+    "expectedDst": "/",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/blog/qr-code-generator-guide/qr-code-size-print-guide",
+    "expectedDst": "/blog/qr-code-generator-guide/qr-code-size-print-guide",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/blog/qr-code-generator-guide/qr-code-size-print-guide",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/invoice-generator",
+    "expectedDst": "/invoice-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/invoice-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/qr-code-generator",
+    "expectedDst": "/qr-code-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/qr-code-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/credit-card-validator",
+    "expectedDst": "/credit-card-validator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/credit-card-validator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/unit-converter",
+    "expectedDst": "/unit-converter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/unit-converter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/typing-speed-test",
+    "expectedDst": "/typing-speed-test",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/typing-speed-test",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/plagiarism-checker",
+    "expectedDst": "/plagiarism-checker",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/plagiarism-checker",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/word-counter",
+    "expectedDst": "/word-counter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/word-counter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/mortgage-calculator",
+    "expectedDst": "/mortgage-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/mortgage-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/resume-builder",
+    "expectedDst": "/resume-builder",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/resume-builder",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/password-generator",
+    "expectedDst": "/password-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/password-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/image-compressor",
+    "expectedDst": "/image-compressor",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/image-compressor",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/pdf-merge",
+    "expectedDst": "/pdf-merge",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/pdf-merge",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/json-formatter",
+    "expectedDst": "/json-formatter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/json-formatter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/sip-calculator",
+    "expectedDst": "/sip-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/sip-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/emi-calculator",
+    "expectedDst": "/emi-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/emi-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/es/bmi-calculator",
+    "expectedDst": "/bmi-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/bmi-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/invoice-generator",
+    "expectedDst": "/invoice-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/invoice-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/qr-code-generator",
+    "expectedDst": "/qr-code-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/qr-code-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/credit-card-validator",
+    "expectedDst": "/credit-card-validator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/credit-card-validator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/unit-converter",
+    "expectedDst": "/unit-converter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/unit-converter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/typing-speed-test",
+    "expectedDst": "/typing-speed-test",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/typing-speed-test",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/plagiarism-checker",
+    "expectedDst": "/plagiarism-checker",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/plagiarism-checker",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/word-counter",
+    "expectedDst": "/word-counter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/word-counter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/mortgage-calculator",
+    "expectedDst": "/mortgage-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/mortgage-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/resume-builder",
+    "expectedDst": "/resume-builder",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/resume-builder",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/password-generator",
+    "expectedDst": "/password-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/password-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/image-compressor",
+    "expectedDst": "/image-compressor",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/image-compressor",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/pdf-merge",
+    "expectedDst": "/pdf-merge",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/pdf-merge",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/json-formatter",
+    "expectedDst": "/json-formatter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/json-formatter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/sip-calculator",
+    "expectedDst": "/sip-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/sip-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/emi-calculator",
+    "expectedDst": "/emi-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/emi-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/fr/bmi-calculator",
+    "expectedDst": "/bmi-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/bmi-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/json-to-yaml",
+    "expectedDst": "/json-formatter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/json-formatter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/yaml-to-json",
+    "expectedDst": "/json-formatter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/json-formatter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/json-tree-viewer",
+    "expectedDst": "/json-formatter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/json-formatter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/html-beautifier",
+    "expectedDst": "/code-minifier",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/code-minifier",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/css-beautifier",
+    "expectedDst": "/code-minifier",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/code-minifier",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/js-beautifier",
+    "expectedDst": "/code-minifier",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/code-minifier",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/loan-calculator",
+    "expectedDst": "/emi-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/emi-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/auto-loan-calculator",
+    "expectedDst": "/emi-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/emi-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/simple-interest-calculator",
+    "expectedDst": "/emi-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/emi-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/cagr-calculator",
+    "expectedDst": "/compound-interest-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/compound-interest-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/percentage-change",
+    "expectedDst": "/percentage-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/percentage-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/percentage-difference",
+    "expectedDst": "/percentage-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/percentage-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/cmyk-converter",
+    "expectedDst": "/color-converter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/color-converter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/color-palette",
+    "expectedDst": "/color-converter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/color-converter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/color-shades-generator",
+    "expectedDst": "/color-converter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/color-converter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/random-hex-color",
+    "expectedDst": "/color-converter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/color-converter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/css-box-shadow-generator",
+    "expectedDst": "/gradient-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/gradient-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/css-border-radius-generator",
+    "expectedDst": "/gradient-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/gradient-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/css-clip-path-generator",
+    "expectedDst": "/gradient-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/gradient-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/random-string",
+    "expectedDst": "/random-number",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/random-number",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/uuid-generator",
+    "expectedDst": "/random-number",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/random-number",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/random-passphrase",
+    "expectedDst": "/password-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/password-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/dice-roller",
+    "expectedDst": "/coin-flip",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/coin-flip",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/pdf-split",
+    "expectedDst": "/pdf-merge",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/pdf-merge",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/pdf-rotate",
+    "expectedDst": "/pdf-merge",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/pdf-merge",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/pdf-watermark",
+    "expectedDst": "/pdf-merge",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/pdf-merge",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/image-resizer",
+    "expectedDst": "/image-compressor",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/image-compressor",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/image-cropper",
+    "expectedDst": "/image-compressor",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/image-compressor",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/image-border",
+    "expectedDst": "/image-compressor",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/image-compressor",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/freelance-gst-invoice-generator",
+    "expectedDst": "/invoice-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/invoice-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/quotation-generator",
+    "expectedDst": "/document-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/document-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/purchase-order-generator",
+    "expectedDst": "/document-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/document-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/receipt-generator",
+    "expectedDst": "/document-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/document-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/rent-receipt-generator",
+    "expectedDst": "/document-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/document-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/payslip-generator",
+    "expectedDst": "/document-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/document-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/offer-letter-generator",
+    "expectedDst": "/document-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/document-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/wifi-qr-generator",
+    "expectedDst": "/qr-code-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/qr-code-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/hmac-generator",
+    "expectedDst": "/hash-generator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/hash-generator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/text-reverser",
+    "expectedDst": "/text-tools",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/text-tools",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/case-converter",
+    "expectedDst": "/text-tools",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/text-tools",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/text-cleaner",
+    "expectedDst": "/text-tools",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/text-tools",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/text-list",
+    "expectedDst": "/text-tools",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/text-tools",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/text-find-replace",
+    "expectedDst": "/text-tools",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/text-tools",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/keyword-density",
+    "expectedDst": "/word-counter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/word-counter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/readability-checker",
+    "expectedDst": "/word-counter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/word-counter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/roman-numeral",
+    "expectedDst": "/number-to-words",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/number-to-words",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/ascii-converter",
+    "expectedDst": "/number-to-words",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/number-to-words",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/base-converter",
+    "expectedDst": "/number-to-words",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/number-to-words",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/file-size-converter",
+    "expectedDst": "/unit-converter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/unit-converter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/open-graph-preview",
+    "expectedDst": "/serp-preview",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/serp-preview",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/world-clock",
+    "expectedDst": "/timezone-converter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/timezone-converter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/countdown-timer",
+    "expectedDst": "/date-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/date-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/work-days-calculator",
+    "expectedDst": "/date-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/date-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/time-duration-calculator",
+    "expectedDst": "/date-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/date-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/ideal-weight-calculator",
+    "expectedDst": "/bmi-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/bmi-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/body-fat-calculator",
+    "expectedDst": "/bmi-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/bmi-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/macro-calculator",
+    "expectedDst": "/calorie-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/calorie-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/ovulation-calculator",
+    "expectedDst": "/period-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/period-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/us-paycheck-calculator",
+    "expectedDst": "/salary-calculator",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/salary-calculator",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/svg-to-png-converter",
+    "expectedDst": "/image-format-converter",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/image-format-converter",
+    "is301": false,
+    "finalStatus": null
+  },
+  {
+    "src": "/guides",
+    "expectedDst": "/blog",
+    "status": 200,
+    "location": null,
+    "metaRefreshDst": "/blog",
+    "is301": false,
+    "finalStatus": null
+  }
+]

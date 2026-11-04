@@ -69,7 +69,7 @@ export default function ConsentGatedGoogleScripts() {
   // Re-read on every consent tick (consent may change after the banner).
   void tick;
   const { ad, analytics } = readGrants();
-  const gaOk = analytics === "granted";
+  const gaOk = analytics === "granted" && Boolean(siteConfig.gaId);
   const adsOk = ad === "granted" || reviewBypass;
   if (!gaOk && !adsOk) return null;
 

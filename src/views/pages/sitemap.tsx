@@ -105,35 +105,8 @@ export default function SitemapView({
   const totalFilteredTools = filteredCategories.reduce((sum, c) => sum + c.tools.length, 0);
   const totalFilteredGuides = filteredPillars.reduce((sum, p) => sum + p.clusters.length + 1, 0);
 
-  const base = siteConfig.url.replace(/\/$/, "");
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "CollectionPage",
-        "@id": `${base}/sitemap`,
-        name: "HTML Sitemap — All Tools, Guides & Pages",
-        url: `${base}/sitemap`,
-        description: `Complete HTML sitemap directory of Tool4SaaS with ${totalTools} free online tools, ${totalGuides} guides.`,
-        isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
-          { "@type": "ListItem", position: 2, name: "Sitemap", item: `${base}/sitemap` },
-        ],
-      },
-    ],
-  };
-
   return (
     <Container maxWidth="xl" className="py-12 md:py-20 px-4 md:px-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
-      />
 
       {/* Header & Breadcrumbs */}
       <Box className="mb-8">

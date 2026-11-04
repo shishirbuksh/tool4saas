@@ -3,8 +3,8 @@
  * Submit URLs to IndexNow (Bing, Yandex, Naver, Seznam)
  * Protocol: https://www.indexnow.org/documentation
  *
- * Automatically pulls indexable URLs from dist/sitemap.xml (377 URLs),
- * ensuring every tool, pillar, cluster guide, and localized page is
+ * Automatically pulls indexable URLs from dist/sitemap.xml (342 canonical URLs),
+ * ensuring every tool, category, pillar, and cluster guide is
  * submitted for instant search engine indexing.
  */
 

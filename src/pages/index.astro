@@ -2,6 +2,8 @@
 import AppPage from "@/layouts/AppPage.astro";
 import HomeView from "@/views/pages/home";
 import { homeMetadata } from "@/lib/metadata";
+import { homeJsonLd } from "@/lib/seo/jsonld";
+import { FAQS } from "@/content/home";
 
 const meta = homeMetadata();
 ---
@@ -12,4 +14,5 @@ const meta = homeMetadata();
   props={{}}
   meta={meta}
   pathname="/"
+  jsonLd={homeJsonLd(FAQS)}
 />

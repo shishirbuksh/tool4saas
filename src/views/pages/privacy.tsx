@@ -1,36 +1,10 @@
 import { Container, Typography, Box, Breadcrumbs } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
-import { siteConfig } from "@/lib/site";
 
 export default function PrivacyView() {
-  const base = siteConfig.url.replace(/\/$/, "");
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${base}/privacy`,
-        name: "Privacy Policy",
-        url: `${base}/privacy`,
-        description: "Privacy policy for Tool4SaaS: local-first processing, cookies, and data retention.",
-        isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
-          { "@type": "ListItem", position: 2, name: "Privacy Policy", item: `${base}/privacy` },
-        ],
-      },
-    ],
-  };
   return (
     <Container maxWidth="md" className="py-12">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
-      />
       <Breadcrumbs className="mb-4" aria-label="breadcrumb">
         <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
           Home

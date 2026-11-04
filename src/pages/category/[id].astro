@@ -3,6 +3,7 @@ import AppPage from "@/layouts/AppPage.astro";
 import CategoryView from "@/views/pages/category";
 import { CATEGORIES, getCategory } from "@/lib/tools";
 import { seoTitleForCategory } from "@/lib/category-content";
+import { categoryJsonLd } from "@/lib/seo/jsonld";
 import { siteConfig } from "@/lib/site";
 import type { PageMeta } from "@/lib/seo";
 
@@ -20,9 +21,10 @@ const base = siteConfig.url.replace(/\/$/, "");
 const canonical = `${base}/category/${id}`;
 const ogImage = `${base}/og/category-${id}`;
 const seoTitle = seoTitleForCategory(id, category.label);
+const fullCategoryTitle = `${seoTitle} | ${siteConfig.name}`;
 
 const meta: PageMeta = {
-  title: seoTitle,
+  title: { absolute: fullCategoryTitle },
   description: category.description,
   alternates: { canonical, languages: { en: canonical, "x-default": canonical } },
   robots: {
@@ -41,13 +43,13 @@ const meta: PageMeta = {
     locale: siteConfig.locale,
     url: canonical,
     siteName: siteConfig.name,
-    title: seoTitle,
+    title: fullCategoryTitle,
     description: category.description,
     images: [{ url: ogImage, width: 1200, height: 630, alt: `${category.label} — ${siteConfig.name}` }],
   },
   twitter: {
     card: "summary_large_image",
-    title: seoTitle,
+    title: fullCategoryTitle,
     description: category.description,
     images: [ogImage],
   },
@@ -60,4 +62,5 @@ const meta: PageMeta = {
   props={{ id }}
   meta={meta}
   pathname={`/category/${id}`}
+  jsonLd={[categoryJsonLd(id)]}
 />

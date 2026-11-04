@@ -2,6 +2,7 @@
 import AppPage from "@/layouts/AppPage.astro";
 import BlogIndexView from "@/views/pages/blog-index";
 import { staticPageMetadata } from "@/lib/metadata";
+import { blogIndexJsonLd } from "@/lib/seo/jsonld";
 
 import { BLOG_PILLARS, getPillarPost, getClustersForPillar } from "@/lib/blog-registry";
 import { isNoindexCluster } from "@/lib/blog/noindex";
@@ -32,4 +33,5 @@ const sections = BLOG_PILLARS.map((p) => {
   props={{ sections }}
   meta={meta}
   pathname="/blog"
+  jsonLd={[blogIndexJsonLd()]}
 />

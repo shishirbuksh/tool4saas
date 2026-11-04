@@ -23,33 +23,8 @@ const CATEGORY_UPDATES: [string, string][] = (
 
 export default function MethodologyView() {
   const lastUpdatedIso = getPageModifiedIso("methodology") ?? "";
-  const base = siteConfig.url.replace(/\/$/, "");
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${base}/methodology`,
-        name: "How We Test Tools",
-        url: `${base}/methodology`,
-        description: "Testing methodology, verification fixtures, and verification changelog for all Tool4SaaS tools.",
-        isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
-          { "@type": "ListItem", position: 2, name: "How We Test Tools", item: `${base}/methodology` },
-        ],
-      },
-    ],
-  };
   return (
     <Container maxWidth="md" className="py-12">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
-      />
       <Breadcrumbs className="mb-4" aria-label="breadcrumb">
         <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
           Home

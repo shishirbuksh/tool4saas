@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@source "../views";
+@source "../components";
+@source "../pages";
+@source "../layouts";
 
 /* ------------------------------------------------------------------
    daisyUI 5 — Expo design system

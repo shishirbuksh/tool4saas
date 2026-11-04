@@ -23,13 +23,15 @@ const {
 
 const isSpecial = pathname === "/404" || pathname === "/probe";
 const rawTitle = resolveTitle(meta);
-const title = isSpecial
+const isExplicitAbsolute = typeof meta.title === "object" && Boolean(meta.title.absolute);
+const isHome = pathname === "/";
+const title = isSpecial || isExplicitAbsolute || isHome
   ? rawTitle
   : fitMetaTitle(rawTitle.replace(/\s*\|\s*Tool4SaaS$/, "").replace(/\s*—\s*Tool4SaaS.*$/, "").trim());
 
 const og = meta.openGraph;
 const rawDescription = meta.description ?? og?.description ?? siteConfig.description;
-const description = isSpecial ? rawDescription : fitMetaDescription(rawDescription);
+const description = isSpecial || Boolean(meta.description) ? rawDescription : fitMetaDescription(rawDescription);
 
 const canonical = meta.alternates?.canonical ?? (pathname === "/" ? siteConfig.url : `${siteConfig.url.replace(/\/$/, "")}${pathname}`);
 const robots = meta.robots ?? DEFAULT_ROBOTS;

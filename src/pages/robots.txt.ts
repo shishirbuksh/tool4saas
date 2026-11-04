@@ -20,9 +20,9 @@ export function GET() {
     "Bytespider",
   ];
 
-  let body = `User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /*?target=*\n\n`;
+  let body = `User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /probe\nDisallow: /*?target=*\n\n`;
   for (const bot of aiBots) {
-    body += `User-agent: ${bot}\nAllow: /\nDisallow: /api/\nDisallow: /*?target=*\n\n`;
+    body += `User-agent: ${bot}\nAllow: /\nDisallow: /api/\nDisallow: /probe\nDisallow: /*?target=*\n\n`;
   }
   body += `Sitemap: ${base}/sitemap.xml\n`;
 

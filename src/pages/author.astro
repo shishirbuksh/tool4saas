@@ -2,6 +2,7 @@
 import AppPage from "@/layouts/AppPage.astro";
 import AuthorView from "@/views/pages/author";
 import { staticPageMetadata } from "@/lib/metadata";
+import { authorJsonLd } from "@/lib/seo/jsonld";
 
 const meta = staticPageMetadata({
   title: "Our Authors — Tool4SaaS Editorial Team",
@@ -17,4 +18,4 @@ const meta = staticPageMetadata({
   props={{}}
   meta={meta}
   pathname="/author"
-/>
+jsonLd={[authorJsonLd()]} />

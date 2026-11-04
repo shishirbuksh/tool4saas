@@ -2,6 +2,7 @@
 import AppPage from "@/layouts/AppPage.astro";
 import AboutView from "@/views/pages/about";
 import { staticPageMetadata } from "@/lib/metadata";
+import { aboutJsonLd } from "@/lib/seo/jsonld";
 
 const meta = staticPageMetadata({
   title: "About Tool4SaaS — Team & How We Test",
@@ -17,4 +18,5 @@ const meta = staticPageMetadata({
   props={{}}
   meta={meta}
   pathname="/about"
+  jsonLd={[aboutJsonLd()]}
 />

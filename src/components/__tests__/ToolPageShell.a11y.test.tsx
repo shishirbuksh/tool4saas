@@ -10,7 +10,7 @@ const EXCLUDED = ["color-contrast"];
 describe("ToolPageShell – axe accessibility", () => {
   for (const slug of ["mortgage-calculator", "bmi-calculator", "word-counter"]) {
     it(`has no axe violations on ${slug}`, async () => {
-      const view = buildToolView(getTool(slug)!, "en");
+      const view = buildToolView(getTool(slug)!);
       const { container } = render(
         <ToolPageShell view={view}>
           <div>tool ui</div>

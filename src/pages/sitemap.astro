@@ -2,6 +2,7 @@
 import AppPage from "@/layouts/AppPage.astro";
 import SitemapView, { type SitemapViewProps } from "@/views/pages/sitemap";
 import { staticPageMetadata } from "@/lib/metadata";
+import { sitemapJsonLd } from "@/lib/seo/jsonld";
 import { toolsByCategoryCached } from "@/lib/tools";
 import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { BLOG_PILLARS, getClustersForPillar } from "@/lib/blog-registry";
@@ -59,7 +60,7 @@ const sitemapProps: SitemapViewProps = {
 const meta = staticPageMetadata({
   title: "HTML Sitemap — All Tools, Guides & Pages",
   description:
-    "Complete directory of all 125 free online tools, 198 guides and company resources on Tool4SaaS.",
+    `Complete directory of all ${VISIBLE_TOOL_COUNT} free online tools, ${totalGuidesCount} guides and company resources on Tool4SaaS.`,
   path: "/sitemap",
 });
 ---
@@ -70,4 +71,5 @@ const meta = staticPageMetadata({
   props={sitemapProps}
   meta={meta}
   pathname="/sitemap"
+  jsonLd={[sitemapJsonLd(VISIBLE_TOOL_COUNT, totalGuidesCount)]}
 />

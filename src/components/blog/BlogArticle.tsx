@@ -78,7 +78,7 @@ export function validBlogFaqs(post: BlogPost) {
     : [];
 }
 
-export function BlogJsonLd({ post }: { post: BlogPost }) {
+export function buildBlogJsonLd(post: BlogPost) {
   const base = siteConfig.url.replace(/\/$/, "");
   const canonical = canonicalFor(post);
   const publishedIso = getBlogPostDatePublishedIso(post.pillar, post.slug, post.published);
@@ -120,7 +120,7 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
     },
   };
   const citations = getGuideCitationUrls(post.pillar);
-  const jsonLd = {
+  return {
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -177,7 +177,10 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
         : []),
     ],
   };
+}
 
+export function BlogJsonLd({ post }: { post: BlogPost }) {
+  const jsonLd = buildBlogJsonLd(post);
   return (
     <script
       type="application/ld+json"
@@ -189,9 +192,11 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
 export default function BlogArticle({
   post,
   related: passedRelated,
+  skipJsonLd = true,
 }: {
   post: BlogPost;
   related?: BlogPost[];
+  skipJsonLd?: boolean;
 }) {
   const pillarMeta = getPillarMeta(post.pillar);
   const related = passedRelated ?? [];
@@ -211,7 +216,7 @@ export default function BlogArticle({
 
   return (
     <Container maxWidth="xl" className="py-10 md:py-16 px-4 sm:px-6 lg:px-8">
-      <BlogJsonLd post={post} />
+      {!skipJsonLd && <BlogJsonLd post={post} />}
       <Breadcrumbs className="mb-4" aria-label="breadcrumb">
         <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>Home</Link>
         <Link href="/blog" style={{ color: "inherit", textDecoration: "none" }}>Blog</Link>

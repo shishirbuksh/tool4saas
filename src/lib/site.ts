@@ -28,8 +28,8 @@ const rawSameAs = (ENV.PUBLIC_SAME_AS ?? ENV.NEXT_PUBLIC_SAME_AS ?? "").trim();
 
 export const siteConfig = {
   name: "Tool4SaaS",
-  title: `${VISIBLE_TOOL_COUNT} Free Online Tools for Work, Money & Code | Tool4SaaS`,
-  description: `${VISIBLE_TOOL_COUNT} free browser tools for invoices, QR codes, resumes, PDFs, images, code and money. No signup; most run privately on your device.`,
+  title: `${VISIBLE_TOOL_COUNT} Free Online Tools – PDF, Image, Text & Calculators | Tool4SaaS`,
+  description: `Use ${VISIBLE_TOOL_COUNT} free online tools for PDFs, images, text, coding and calculations. No signup required. Most tools process your data locally in your browser.`,
   keywords: [
     "free online tools",
     "invoice generator",

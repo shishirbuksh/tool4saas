@@ -5,15 +5,13 @@ import { CATEGORIES } from "@/lib/tools/categories";
 import { LITE_TOOLS, liteToolsByCategory } from "@/lib/tools/catalog-lite";
 import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { introForCategory, faqContentForCategory } from "@/lib/category-content";
-import { siteConfig } from "@/lib/site";
+
 
 export default function CategoryView({ id }: { id: string }) {
   const category = CATEGORIES.find((c) => c.id === id);
   if (!category) return null;
   const allGroups = liteToolsByCategory();
   const visibleTools = LITE_TOOLS.filter((t) => t.category === id && !NOINDEX_SLUGS.has(t.slug));
-  const base = siteConfig.url.replace(/\/$/, "");
-  const categoryUrl = `${base}/category/${id}`;
   const faqContent = faqContentForCategory(id);
   const categoryFaqs = [
     {
@@ -42,56 +40,9 @@ export default function CategoryView({ id }: { id: string }) {
       link: { slug: faqContent[4].linkSlug, label: faqContent[4].linkLabel },
     },
   ];
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
-          { "@type": "ListItem", position: 2, name: category.label, item: categoryUrl },
-        ],
-      },
-      {
-        "@type": "CollectionPage",
-        "@id": categoryUrl,
-        name: category.label,
-        url: categoryUrl,
-        description: category.description,
-        isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
-        author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
-        speakable: {
-          "@type": "SpeakableSpecification",
-          cssSelector: [".faq-passage", ".category-answer-first"],
-        },
-        mainEntity: {
-          "@type": "ItemList",
-          itemListElement: visibleTools.map((t, i) => ({
-            "@type": "ListItem",
-            position: i + 1,
-            item: `${base}/${t.slug}`,
-            name: t.title,
-          })),
-        },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${categoryUrl}#faq`,
-        mainEntity: categoryFaqs.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
-      },
-    ],
-  };
 
   return (
     <Container maxWidth="xl" className="py-16 md:py-24 px-4 md:px-8 overflow-x-clip">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
-      />
       <Breadcrumbs className="mb-4" aria-label="breadcrumb">
         <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
           Home

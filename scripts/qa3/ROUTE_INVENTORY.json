@@ -1,0 +1,4423 @@
+[
+  {
+    "url": "https://tool4saas.com",
+    "routePath": "/",
+    "classification": "Homepage",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/index.html"
+  },
+  {
+    "url": "https://tool4saas.com/about",
+    "routePath": "/about",
+    "classification": "Static Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/about.html"
+  },
+  {
+    "url": "https://tool4saas.com/privacy",
+    "routePath": "/privacy",
+    "classification": "Static Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/privacy.html"
+  },
+  {
+    "url": "https://tool4saas.com/terms",
+    "routePath": "/terms",
+    "classification": "Static Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/terms.html"
+  },
+  {
+    "url": "https://tool4saas.com/contact",
+    "routePath": "/contact",
+    "classification": "Static Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/contact.html"
+  },
+  {
+    "url": "https://tool4saas.com/author",
+    "routePath": "/author",
+    "classification": "Static Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/author.html"
+  },
+  {
+    "url": "https://tool4saas.com/methodology",
+    "routePath": "/methodology",
+    "classification": "Static Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/methodology.html"
+  },
+  {
+    "url": "https://tool4saas.com/sitemap",
+    "routePath": "/sitemap",
+    "classification": "Static Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/sitemap.html"
+  },
+  {
+    "url": "https://tool4saas.com/category/text-documents",
+    "routePath": "/category/text-documents",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/text-documents.html",
+    "notes": "Category: Text & Documents"
+  },
+  {
+    "url": "https://tool4saas.com/category/business",
+    "routePath": "/category/business",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/business.html",
+    "notes": "Category: Business & Writing"
+  },
+  {
+    "url": "https://tool4saas.com/category/developer",
+    "routePath": "/category/developer",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/developer.html",
+    "notes": "Category: Developer Tools"
+  },
+  {
+    "url": "https://tool4saas.com/category/converters",
+    "routePath": "/category/converters",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/converters.html",
+    "notes": "Category: Converters"
+  },
+  {
+    "url": "https://tool4saas.com/category/generators",
+    "routePath": "/category/generators",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/generators.html",
+    "notes": "Category: Generators"
+  },
+  {
+    "url": "https://tool4saas.com/category/images-design",
+    "routePath": "/category/images-design",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/images-design.html",
+    "notes": "Category: Images & Design"
+  },
+  {
+    "url": "https://tool4saas.com/category/pdf",
+    "routePath": "/category/pdf",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/pdf.html",
+    "notes": "Category: PDF Tools"
+  },
+  {
+    "url": "https://tool4saas.com/category/calculators",
+    "routePath": "/category/calculators",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/calculators.html",
+    "notes": "Category: Calculators"
+  },
+  {
+    "url": "https://tool4saas.com/category/finance",
+    "routePath": "/category/finance",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/finance.html",
+    "notes": "Category: Finance & Money"
+  },
+  {
+    "url": "https://tool4saas.com/category/health",
+    "routePath": "/category/health",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/health.html",
+    "notes": "Category: Health & Fitness"
+  },
+  {
+    "url": "https://tool4saas.com/category/seo",
+    "routePath": "/category/seo",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/seo.html",
+    "notes": "Category: SEO & Marketing"
+  },
+  {
+    "url": "https://tool4saas.com/category/time",
+    "routePath": "/category/time",
+    "classification": "Category Page",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/category/time.html",
+    "notes": "Category: Time & Date"
+  },
+  {
+    "url": "https://tool4saas.com/invoice-generator",
+    "routePath": "/invoice-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/invoice-generator.html",
+    "notes": "Category: business, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/qr-code-generator",
+    "routePath": "/qr-code-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/qr-code-generator.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/resume-builder",
+    "routePath": "/resume-builder",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/resume-builder.html",
+    "notes": "Category: business, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/word-counter",
+    "routePath": "/word-counter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/word-counter.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/password-generator",
+    "routePath": "/password-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/password-generator.html",
+    "notes": "Category: generators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/json-formatter",
+    "routePath": "/json-formatter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/json-formatter.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/text-tools",
+    "routePath": "/text-tools",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/text-tools.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/image-compressor",
+    "routePath": "/image-compressor",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/image-compressor.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/lorem-ipsum",
+    "routePath": "/lorem-ipsum",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/lorem-ipsum.html",
+    "notes": "Category: generators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/unit-converter",
+    "routePath": "/unit-converter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/unit-converter.html",
+    "notes": "Category: converters, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/age-calculator",
+    "routePath": "/age-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/age-calculator.html",
+    "notes": "Category: time, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/color-converter",
+    "routePath": "/color-converter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/color-converter.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/base64-tool",
+    "routePath": "/base64-tool",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/base64-tool.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/url-encoder",
+    "routePath": "/url-encoder",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/url-encoder.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/text-diff",
+    "routePath": "/text-diff",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/text-diff.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/hash-generator",
+    "routePath": "/hash-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/hash-generator.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/slug-generator",
+    "routePath": "/slug-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/slug-generator.html",
+    "notes": "Category: generators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/random-number",
+    "routePath": "/random-number",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/random-number.html",
+    "notes": "Category: generators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/percentage-calculator",
+    "routePath": "/percentage-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/percentage-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/timestamp-converter",
+    "routePath": "/timestamp-converter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/timestamp-converter.html",
+    "notes": "Category: time, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/html-entities",
+    "routePath": "/html-entities",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/html-entities.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/regex-tester",
+    "routePath": "/regex-tester",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/regex-tester.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/jwt-decoder",
+    "routePath": "/jwt-decoder",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/jwt-decoder.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/json-csv",
+    "routePath": "/json-csv",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/json-csv.html",
+    "notes": "Category: converters, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/date-calculator",
+    "routePath": "/date-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/date-calculator.html",
+    "notes": "Category: time, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/bmi-calculator",
+    "routePath": "/bmi-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/bmi-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/tip-calculator",
+    "routePath": "/tip-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/tip-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/color-contrast",
+    "routePath": "/color-contrast",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/color-contrast.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/text-to-speech",
+    "routePath": "/text-to-speech",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/text-to-speech.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/url-parser",
+    "routePath": "/url-parser",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/url-parser.html",
+    "notes": "Category: converters, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/number-to-words",
+    "routePath": "/number-to-words",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/number-to-words.html",
+    "notes": "Category: converters, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/image-to-base64",
+    "routePath": "/image-to-base64",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/image-to-base64.html",
+    "notes": "Category: converters, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/gradient-generator",
+    "routePath": "/gradient-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/gradient-generator.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/email-extractor",
+    "routePath": "/email-extractor",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/email-extractor.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/mime-type-lookup",
+    "routePath": "/mime-type-lookup",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/mime-type-lookup.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/favicon-generator",
+    "routePath": "/favicon-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/favicon-generator.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/timezone-converter",
+    "routePath": "/timezone-converter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/timezone-converter.html",
+    "notes": "Category: time, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/discount-calculator",
+    "routePath": "/discount-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/discount-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/credit-card-validator",
+    "routePath": "/credit-card-validator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/credit-card-validator.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/password-strength",
+    "routePath": "/password-strength",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/password-strength.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/stopwatch",
+    "routePath": "/stopwatch",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/stopwatch.html",
+    "notes": "Category: time, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/gst-calculator",
+    "routePath": "/gst-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/gst-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/code-minifier",
+    "routePath": "/code-minifier",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/code-minifier.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/coin-flip",
+    "routePath": "/coin-flip",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/coin-flip.html",
+    "notes": "Category: generators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/commission-calculator",
+    "routePath": "/commission-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/commission-calculator.html",
+    "notes": "Category: business, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/screen-resolution",
+    "routePath": "/screen-resolution",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/screen-resolution.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/mortgage-calculator",
+    "routePath": "/mortgage-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/mortgage-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/compound-interest-calculator",
+    "routePath": "/compound-interest-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/compound-interest-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/image-format-converter",
+    "routePath": "/image-format-converter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/image-format-converter.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/markdown-editor",
+    "routePath": "/markdown-editor",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/markdown-editor.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/xml-formatter",
+    "routePath": "/xml-formatter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/xml-formatter.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/cron-parser",
+    "routePath": "/cron-parser",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/cron-parser.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/csv-viewer",
+    "routePath": "/csv-viewer",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/csv-viewer.html",
+    "notes": "Category: converters, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/morse-translator",
+    "routePath": "/morse-translator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/morse-translator.html",
+    "notes": "Category: converters, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/svg-optimizer",
+    "routePath": "/svg-optimizer",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/svg-optimizer.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/calorie-calculator",
+    "routePath": "/calorie-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/calorie-calculator.html",
+    "notes": "Category: health, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/salary-calculator",
+    "routePath": "/salary-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/salary-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/profit-margin-calculator",
+    "routePath": "/profit-margin-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/profit-margin-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/sitemap-generator",
+    "routePath": "/sitemap-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/sitemap-generator.html",
+    "notes": "Category: seo, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/robots-txt-generator",
+    "routePath": "/robots-txt-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/robots-txt-generator.html",
+    "notes": "Category: seo, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/water-intake-calculator",
+    "routePath": "/water-intake-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/water-intake-calculator.html",
+    "notes": "Category: health, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/exif-viewer",
+    "routePath": "/exif-viewer",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/exif-viewer.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/barcode-generator",
+    "routePath": "/barcode-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/barcode-generator.html",
+    "notes": "Category: generators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/pregnancy-calculator",
+    "routePath": "/pregnancy-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/pregnancy-calculator.html",
+    "notes": "Category: health, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/pomodoro-timer",
+    "routePath": "/pomodoro-timer",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/pomodoro-timer.html",
+    "notes": "Category: time, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/text-summarizer",
+    "routePath": "/text-summarizer",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/text-summarizer.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/grammar-checker",
+    "routePath": "/grammar-checker",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/grammar-checker.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/serp-preview",
+    "routePath": "/serp-preview",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/serp-preview.html",
+    "notes": "Category: seo, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/income-tax-calculator",
+    "routePath": "/income-tax-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/income-tax-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/gpa-calculator",
+    "routePath": "/gpa-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/gpa-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/ats-resume-checker",
+    "routePath": "/ats-resume-checker",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/ats-resume-checker.html",
+    "notes": "Category: business, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/signature-maker",
+    "routePath": "/signature-maker",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/signature-maker.html",
+    "notes": "Category: business, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/youtube-thumbnail-downloader",
+    "routePath": "/youtube-thumbnail-downloader",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/youtube-thumbnail-downloader.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/inflation-calculator",
+    "routePath": "/inflation-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/inflation-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/sip-calculator",
+    "routePath": "/sip-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/sip-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/image-color-extractor",
+    "routePath": "/image-color-extractor",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/image-color-extractor.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/json-to-excel",
+    "routePath": "/json-to-excel",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/json-to-excel.html",
+    "notes": "Category: converters, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/document-generator",
+    "routePath": "/document-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/document-generator.html",
+    "notes": "Category: business, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/cover-letter-builder",
+    "routePath": "/cover-letter-builder",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/cover-letter-builder.html",
+    "notes": "Category: business, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/fake-data-generator",
+    "routePath": "/fake-data-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/fake-data-generator.html",
+    "notes": "Category: generators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/qr-scanner",
+    "routePath": "/qr-scanner",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/qr-scanner.html",
+    "notes": "Category: images-design, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/zip-creator",
+    "routePath": "/zip-creator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/zip-creator.html",
+    "notes": "Category: converters, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/ai-detector",
+    "routePath": "/ai-detector",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/ai-detector.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/plagiarism-checker",
+    "routePath": "/plagiarism-checker",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/plagiarism-checker.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/ssl-checker",
+    "routePath": "/ssl-checker",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/ssl-checker.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/image-to-pdf",
+    "routePath": "/image-to-pdf",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/image-to-pdf.html",
+    "notes": "Category: pdf, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/pdf-merge",
+    "routePath": "/pdf-merge",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/pdf-merge.html",
+    "notes": "Category: pdf, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/pdf-compress",
+    "routePath": "/pdf-compress",
+    "classification": "Noindex Tool",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/pdf-compress.html",
+    "notes": "Category: pdf, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/scientific-calculator",
+    "routePath": "/scientific-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/scientific-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/utm-builder",
+    "routePath": "/utm-builder",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/utm-builder.html",
+    "notes": "Category: seo, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/meta-tag-generator",
+    "routePath": "/meta-tag-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/meta-tag-generator.html",
+    "notes": "Category: seo, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/currency-converter",
+    "routePath": "/currency-converter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/currency-converter.html",
+    "notes": "Category: converters, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/sql-formatter",
+    "routePath": "/sql-formatter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/sql-formatter.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/sleep-cycle-calculator",
+    "routePath": "/sleep-cycle-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/sleep-cycle-calculator.html",
+    "notes": "Category: health, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/typing-speed-test",
+    "routePath": "/typing-speed-test",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/typing-speed-test.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/business-name-generator",
+    "routePath": "/business-name-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/business-name-generator.html",
+    "notes": "Category: generators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/retirement-calculator",
+    "routePath": "/retirement-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/retirement-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/fraction-calculator",
+    "routePath": "/fraction-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/fraction-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/faq-schema-generator",
+    "routePath": "/faq-schema-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/faq-schema-generator.html",
+    "notes": "Category: seo, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/subnet-calculator",
+    "routePath": "/subnet-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/subnet-calculator.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/pdf-to-jpg",
+    "routePath": "/pdf-to-jpg",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/pdf-to-jpg.html",
+    "notes": "Category: pdf, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/chmod-calculator",
+    "routePath": "/chmod-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/chmod-calculator.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/speech-to-text",
+    "routePath": "/speech-to-text",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/speech-to-text.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/rent-vs-buy-calculator",
+    "routePath": "/rent-vs-buy-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/rent-vs-buy-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/code-to-image",
+    "routePath": "/code-to-image",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/code-to-image.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/freelance-rate-calculator",
+    "routePath": "/freelance-rate-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/freelance-rate-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/aes-encryptor",
+    "routePath": "/aes-encryptor",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/aes-encryptor.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/seo-analyzer",
+    "routePath": "/seo-analyzer",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/seo-analyzer.html",
+    "notes": "Category: seo, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/home-affordability-calculator",
+    "routePath": "/home-affordability-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/home-affordability-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/refinance-calculator",
+    "routePath": "/refinance-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/refinance-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/grade-calculator",
+    "routePath": "/grade-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/grade-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/period-calculator",
+    "routePath": "/period-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/period-calculator.html",
+    "notes": "Category: health, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/concrete-calculator",
+    "routePath": "/concrete-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/concrete-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/fancy-text-generator",
+    "routePath": "/fancy-text-generator",
+    "classification": "Noindex Tool",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/fancy-text-generator.html",
+    "notes": "Category: text-documents, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/one-rep-max-calculator",
+    "routePath": "/one-rep-max-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/one-rep-max-calculator.html",
+    "notes": "Category: health, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/otp-generator",
+    "routePath": "/otp-generator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/otp-generator.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/ai-token-counter",
+    "routePath": "/ai-token-counter",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/ai-token-counter.html",
+    "notes": "Category: developer, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/pdf-to-text",
+    "routePath": "/pdf-to-text",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/pdf-to-text.html",
+    "notes": "Category: pdf, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/us-sales-tax-calculator",
+    "routePath": "/us-sales-tax-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/us-sales-tax-calculator.html",
+    "notes": "Category: calculators, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/emi-calculator",
+    "routePath": "/emi-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/emi-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/home-loan-eligibility-india",
+    "routePath": "/home-loan-eligibility-india",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/home-loan-eligibility-india.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/mortgage-overpayment-calculator",
+    "routePath": "/mortgage-overpayment-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/mortgage-overpayment-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/in-hand-salary-india",
+    "routePath": "/in-hand-salary-india",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/in-hand-salary-india.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/fd-calculator",
+    "routePath": "/fd-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/fd-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/ppf-calculator",
+    "routePath": "/ppf-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/ppf-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/debt-payoff-calculator",
+    "routePath": "/debt-payoff-calculator",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/debt-payoff-calculator.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/capital-gains-tax-india",
+    "routePath": "/capital-gains-tax-india",
+    "classification": "Indexable Tool",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/capital-gains-tax-india.html",
+    "notes": "Category: finance, Name: undefined"
+  },
+  {
+    "url": "https://tool4saas.com/blog",
+    "routePath": "/blog",
+    "classification": "Blog Index",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog.html"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide",
+    "routePath": "/blog/invoice-generator-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide.html",
+    "notes": "Pillar: Free Invoice Generator Guide: Create Professional Invoices Fast"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide",
+    "routePath": "/blog/qr-code-generator-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide.html",
+    "notes": "Pillar: Free QR Code Generator Guide: Create Scannable QR Codes Fast"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide",
+    "routePath": "/blog/resume-builder-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide.html",
+    "notes": "Pillar: Free Resume Builder Guide: Build a Job-Winning Resume Fast"
+  },
+  {
+    "url": "https://tool4saas.com/blog/mortgage-calculator-guide",
+    "routePath": "/blog/mortgage-calculator-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/mortgage-calculator-guide.html",
+    "notes": "Pillar: Mortgage Calculator Guide: Payments, PMI & Amortization"
+  },
+  {
+    "url": "https://tool4saas.com/blog/password-generator-guide",
+    "routePath": "/blog/password-generator-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/password-generator-guide.html",
+    "notes": "Pillar: How to Generate a Strong Password (Free Offline Tool)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide",
+    "routePath": "/blog/word-counter-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide.html",
+    "notes": "Pillar: Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide",
+    "routePath": "/blog/image-compressor-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide.html",
+    "notes": "Pillar: Compress Images for Web Without Losing Quality: 80% Guide"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide",
+    "routePath": "/blog/pdf-merge-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide.html",
+    "notes": "Pillar: Manage PDFs Offline: Merge, Split, Compress Without Uploading"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide",
+    "routePath": "/blog/json-formatter-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide.html",
+    "notes": "Pillar: Debug API Responses Locally: JSON, Base64, JWT, Regex Guide"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide",
+    "routePath": "/blog/seo-analyzer-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide.html",
+    "notes": "Pillar: Score 80+ On-Page SEO Without a Plugin: 11 Checks"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide",
+    "routePath": "/blog/sip-calculator-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide.html",
+    "notes": "Pillar: SIP vs FD vs PPF: Where Should ₹5,000/Month Go (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide",
+    "routePath": "/blog/percentage-calculator-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide.html",
+    "notes": "Pillar: Percentage Calculator Guide: Formulas, Discounts & Real-Life Uses"
+  },
+  {
+    "url": "https://tool4saas.com/blog/bmi-calculator-guide",
+    "routePath": "/blog/bmi-calculator-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/bmi-calculator-guide.html",
+    "notes": "Pillar: BMI Calculator Guide: Healthy Weight, Calories & Water Needs"
+  },
+  {
+    "url": "https://tool4saas.com/blog/age-calculator-guide",
+    "routePath": "/blog/age-calculator-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/age-calculator-guide.html",
+    "notes": "Pillar: Age Calculator Guide: Exact Age, Dates & Time Zones"
+  },
+  {
+    "url": "https://tool4saas.com/blog/signature-maker-guide",
+    "routePath": "/blog/signature-maker-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/signature-maker-guide.html",
+    "notes": "Pillar: Signature Maker Guide: Draw, Type & Download a Transparent PNG"
+  },
+  {
+    "url": "https://tool4saas.com/blog/debt-payoff-guide",
+    "routePath": "/blog/debt-payoff-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/debt-payoff-guide.html",
+    "notes": "Pillar: Debt Payoff Guide: Snowball vs Avalanche Methods"
+  },
+  {
+    "url": "https://tool4saas.com/blog/grade-calculator-guide",
+    "routePath": "/blog/grade-calculator-guide",
+    "classification": "Blog Pillar",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/grade-calculator-guide.html",
+    "notes": "Pillar: Grade Calculator Guide: Weighted Grades & Final Exam Score"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/how-to-create-invoice-online",
+    "routePath": "/blog/invoice-generator-guide/how-to-create-invoice-online",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/how-to-create-invoice-online.html",
+    "notes": "Cluster: How to Create an Invoice Online Free in 5 Steps (PDF, No Signup)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/gst-invoice-format-india",
+    "routePath": "/blog/invoice-generator-guide/gst-invoice-format-india",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/gst-invoice-format-india.html",
+    "notes": "Cluster: GST Invoice Format India: Mandatory Fields, HSN & Sample (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/freelancer-invoice-guide",
+    "routePath": "/blog/invoice-generator-guide/freelancer-invoice-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/freelancer-invoice-guide.html",
+    "notes": "Cluster: Freelancer Invoice Guide: What to Include & Get Paid on Time"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/small-business-invoicing",
+    "routePath": "/blog/invoice-generator-guide/small-business-invoicing",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/small-business-invoicing.html",
+    "notes": "Cluster: Small Business Invoicing Without Paid Software: Complete Setup"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/invoice-template-formats",
+    "routePath": "/blog/invoice-generator-guide/invoice-template-formats",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/invoice-template-formats.html",
+    "notes": "Cluster: Free Invoice Template Guide: Word, Excel, PDF & Printable (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt",
+    "routePath": "/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt.html",
+    "notes": "Cluster: Invoice vs Quotation vs Receipt vs Purchase Order: Key Differences"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/invoice-numbering",
+    "routePath": "/blog/invoice-generator-guide/invoice-numbering",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/invoice-numbering.html",
+    "notes": "Cluster: Invoice Numbering: GST-Compliant Formats, HSN & Tax Fields (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/payment-terms-and-followups",
+    "routePath": "/blog/invoice-generator-guide/payment-terms-and-followups",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/payment-terms-and-followups.html",
+    "notes": "Cluster: Invoice Payment Terms + Follow-Up Scripts That Get You Paid Faster"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/invoicing-mistakes-to-avoid",
+    "routePath": "/blog/invoice-generator-guide/invoicing-mistakes-to-avoid",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/invoicing-mistakes-to-avoid.html",
+    "notes": "Cluster: 12 Invoice Mistakes That Delay Payment (and How to Fix Them)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/proforma-vs-tax-invoice",
+    "routePath": "/blog/invoice-generator-guide/proforma-vs-tax-invoice",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/proforma-vs-tax-invoice.html",
+    "notes": "Cluster: Proforma Invoice vs Tax Invoice: Key Differences"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/credit-note-vs-debit-note",
+    "routePath": "/blog/invoice-generator-guide/credit-note-vs-debit-note",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/credit-note-vs-debit-note.html",
+    "notes": "Cluster: Credit Note vs Debit Note: When to Use Each"
+  },
+  {
+    "url": "https://tool4saas.com/blog/invoice-generator-guide/international-client-invoicing",
+    "routePath": "/blog/invoice-generator-guide/international-client-invoicing",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/invoice-generator-guide/international-client-invoicing.html",
+    "notes": "Cluster: Invoice International Clients: Currency, Tax & Terms"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/how-to-create-qr-code",
+    "routePath": "/blog/qr-code-generator-guide/how-to-create-qr-code",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/how-to-create-qr-code.html",
+    "notes": "Cluster: How to Create a QR Code Free in 60 Seconds (PNG, No Signup)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/wifi-qr-code-guide",
+    "routePath": "/blog/qr-code-generator-guide/wifi-qr-code-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/wifi-qr-code-guide.html",
+    "notes": "Cluster: WiFi QR Code: Share Guest WiFi With One Scan (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/qr-code-for-business",
+    "routePath": "/blog/qr-code-generator-guide/qr-code-for-business",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/qr-code-for-business.html",
+    "notes": "Cluster: QR Codes for Small Business: 6 Placements That Pay (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/qr-code-vs-barcode",
+    "routePath": "/blog/qr-code-generator-guide/qr-code-vs-barcode",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/qr-code-vs-barcode.html",
+    "notes": "Cluster: QR Code vs Barcode: Differences & When to Use Each (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/qr-code-size-print-guide",
+    "routePath": "/blog/qr-code-generator-guide/qr-code-size-print-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/qr-code-size-print-guide.html",
+    "notes": "Cluster: QR Code Print Size: cm, Inches & Pixels Chart (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/qr-code-not-scanning-fix",
+    "routePath": "/blog/qr-code-generator-guide/qr-code-not-scanning-fix",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/qr-code-not-scanning-fix.html",
+    "notes": "Cluster: QR Code Not Scanning? 5 Causes & Fixes That Work (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/vcard-contact-qr-code",
+    "routePath": "/blog/qr-code-generator-guide/vcard-contact-qr-code",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/vcard-contact-qr-code.html",
+    "notes": "Cluster: vCard QR Code: Digital Business Card That Saves in 5 Seconds"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/upi-payment-qr-code-india",
+    "routePath": "/blog/qr-code-generator-guide/upi-payment-qr-code-india",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/upi-payment-qr-code-india.html",
+    "notes": "Cluster: UPI QR Code for Payments: Setup, Counter Tips & Safety (India)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes",
+    "routePath": "/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes.html",
+    "notes": "Cluster: Static vs Dynamic QR Codes: Which to Choose (Honest Guide)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/qr-code-google-reviews",
+    "routePath": "/blog/qr-code-generator-guide/qr-code-google-reviews",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/qr-code-google-reviews.html",
+    "notes": "Cluster: Google Review QR Code: Get More Reviews"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/qr-code-restaurant-menu",
+    "routePath": "/blog/qr-code-generator-guide/qr-code-restaurant-menu",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/qr-code-restaurant-menu.html",
+    "notes": "Cluster: Restaurant Menu QR Code: Setup & Best Practices"
+  },
+  {
+    "url": "https://tool4saas.com/blog/qr-code-generator-guide/qr-code-google-forms",
+    "routePath": "/blog/qr-code-generator-guide/qr-code-google-forms",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/qr-code-generator-guide/qr-code-google-forms.html",
+    "notes": "Cluster: QR Code for Google Forms: Share a Survey Fast"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/how-to-make-resume",
+    "routePath": "/blog/resume-builder-guide/how-to-make-resume",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/how-to-make-resume.html",
+    "notes": "Cluster: How to Make a Resume in 15 Minutes + Tailor It Per Job (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/resume-format-guide",
+    "routePath": "/blog/resume-builder-guide/resume-format-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/resume-format-guide.html",
+    "notes": "Cluster: Resume Format Guide: Sections, Order & India/US/UK Norms (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/ats-resume-guide",
+    "routePath": "/blog/resume-builder-guide/ats-resume-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/ats-resume-guide.html",
+    "notes": "Cluster: ATS-Friendly Resume: Beat Applicant Tracking Software (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/fresher-resume-guide",
+    "routePath": "/blog/resume-builder-guide/fresher-resume-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/fresher-resume-guide.html",
+    "notes": "Cluster: Fresher Resume Guide: Get Interviews With Zero Experience (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/experienced-resume-guide",
+    "routePath": "/blog/resume-builder-guide/experienced-resume-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/experienced-resume-guide.html",
+    "notes": "Cluster: Resume for Experienced Professionals: Positioning That Wins (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/resume-vs-cv",
+    "routePath": "/blog/resume-builder-guide/resume-vs-cv",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/resume-vs-cv.html",
+    "notes": "Cluster: Resume vs CV vs Biodata: Differences & When to Use Each (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/cover-letter-guide",
+    "routePath": "/blog/resume-builder-guide/cover-letter-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/cover-letter-guide.html",
+    "notes": "Cluster: Cover Letter Guide: 4-Paragraph Format That Wins Shortlists (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/resume-mistakes",
+    "routePath": "/blog/resume-builder-guide/resume-mistakes",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/resume-mistakes.html",
+    "notes": "Cluster: 7 Resume Mistakes That Kill Interviews (With Before/After Fixes)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/offer-letter-guide",
+    "routePath": "/blog/resume-builder-guide/offer-letter-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/offer-letter-guide.html",
+    "notes": "Cluster: Offer Letter Guide: CTC Math, Clauses & Negotiation (India, 2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/resume-summary-examples",
+    "routePath": "/blog/resume-builder-guide/resume-summary-examples",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/resume-summary-examples.html",
+    "notes": "Cluster: Resume Summary Examples for Every Experience Level"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/resume-skills-section",
+    "routePath": "/blog/resume-builder-guide/resume-skills-section",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/resume-skills-section.html",
+    "notes": "Cluster: Resume Skills Section: What to List and What to Cut"
+  },
+  {
+    "url": "https://tool4saas.com/blog/resume-builder-guide/career-change-resume",
+    "routePath": "/blog/resume-builder-guide/career-change-resume",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/resume-builder-guide/career-change-resume.html",
+    "notes": "Cluster: Career Change Resume: Transferable Skills That Land"
+  },
+  {
+    "url": "https://tool4saas.com/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment",
+    "routePath": "/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/mortgage-calculator-guide/how-to-calculate-mortgage-payment.html",
+    "notes": "Cluster: How to Calculate Mortgage Payment: Formula + Examples (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/mortgage-calculator-guide/how-much-house-can-i-afford",
+    "routePath": "/blog/mortgage-calculator-guide/how-much-house-can-i-afford",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/mortgage-calculator-guide/how-much-house-can-i-afford.html",
+    "notes": "Cluster: How Much House Can I Afford? 28/36 Rule Explained (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/mortgage-calculator-guide/15-vs-30-year-mortgage",
+    "routePath": "/blog/mortgage-calculator-guide/15-vs-30-year-mortgage",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/mortgage-calculator-guide/15-vs-30-year-mortgage.html",
+    "notes": "Cluster: 15 vs 30 Year Mortgage: Interest, Payoff & When 15 Wins (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage",
+    "routePath": "/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage.html",
+    "notes": "Cluster: Should I Refinance? Break-Even Rule + Checklist (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment",
+    "routePath": "/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment.html",
+    "notes": "Cluster: Extra Mortgage Payments: Interest Saved & 10% Rules (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india",
+    "routePath": "/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india.html",
+    "notes": "Cluster: Home Loan EMI & Eligibility India: CIBIL, FOIR, Prepayment (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/mortgage-calculator-guide/mortgage-amortization-schedule",
+    "routePath": "/blog/mortgage-calculator-guide/mortgage-amortization-schedule",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/mortgage-calculator-guide/mortgage-amortization-schedule.html",
+    "notes": "Cluster: Mortgage Amortization Schedule: How Payments Split (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/mortgage-calculator-guide/down-payment-pmi-cost",
+    "routePath": "/blog/mortgage-calculator-guide/down-payment-pmi-cost",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/mortgage-calculator-guide/down-payment-pmi-cost.html",
+    "notes": "Cluster: Down Payment & PMI: 20% Rule, Costs & Strategy (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/mortgage-calculator-guide/rent-vs-buy-house",
+    "routePath": "/blog/mortgage-calculator-guide/rent-vs-buy-house",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/mortgage-calculator-guide/rent-vs-buy-house.html",
+    "notes": "Cluster: Rent vs Buy a House: 5% Rule + Break-Even Math (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/password-generator-guide/how-to-create-strong-password",
+    "routePath": "/blog/password-generator-guide/how-to-create-strong-password",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/password-generator-guide/how-to-create-strong-password.html",
+    "notes": "Cluster: How to Create a Strong Password: The 16-Character Rule (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/password-generator-guide/what-makes-password-strong",
+    "routePath": "/blog/password-generator-guide/what-makes-password-strong",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/password-generator-guide/what-makes-password-strong.html",
+    "notes": "Cluster: What Makes a Password Strong? Length, Entropy & Blacklists (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/password-generator-guide/password-strength-tester",
+    "routePath": "/blog/password-generator-guide/password-strength-tester",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/password-generator-guide/password-strength-tester.html",
+    "notes": "Cluster: Password Strength Tester: Check Without Uploading (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/password-generator-guide/passphrase-vs-password",
+    "routePath": "/blog/password-generator-guide/passphrase-vs-password",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/password-generator-guide/passphrase-vs-password.html",
+    "notes": "Cluster: Passphrase vs Password: When 5 Words Beat 12 Characters (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/password-generator-guide/how-to-remember-passwords",
+    "routePath": "/blog/password-generator-guide/how-to-remember-passwords",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/password-generator-guide/how-to-remember-passwords.html",
+    "notes": "Cluster: How to Remember Passwords Without Reusing Them (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/password-generator-guide/random-password-ideas",
+    "routePath": "/blog/password-generator-guide/random-password-ideas",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/password-generator-guide/random-password-ideas.html",
+    "notes": "Cluster: Random Password Ideas: Patterns to Generate (Never Copy) 2026"
+  },
+  {
+    "url": "https://tool4saas.com/blog/password-generator-guide/what-to-do-after-data-breach",
+    "routePath": "/blog/password-generator-guide/what-to-do-after-data-breach",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/password-generator-guide/what-to-do-after-data-breach.html",
+    "notes": "Cluster: What to Do After a Data Breach: 7-Step Checklist (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/password-generator-guide/2fa-vs-passkeys",
+    "routePath": "/blog/password-generator-guide/2fa-vs-passkeys",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/password-generator-guide/2fa-vs-passkeys.html",
+    "notes": "Cluster: 2FA vs Passkeys: Strength Ladder + Setup Order (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/password-generator-guide/wifi-router-password",
+    "routePath": "/blog/password-generator-guide/wifi-router-password",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/password-generator-guide/wifi-router-password.html",
+    "notes": "Cluster: Strong Wi-Fi & Router Passwords: Practical Setup (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/how-to-count-words-online",
+    "routePath": "/blog/word-counter-guide/how-to-count-words-online",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/how-to-count-words-online.html",
+    "notes": "Cluster: How to Count Words Online Free (No Signup)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/ideal-blog-post-length-seo",
+    "routePath": "/blog/word-counter-guide/ideal-blog-post-length-seo",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/ideal-blog-post-length-seo.html",
+    "notes": "Cluster: How Long Should a Blog Post Be? Intent, Coverage and Limits"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/flesch-reading-ease-score-explained",
+    "routePath": "/blog/word-counter-guide/flesch-reading-ease-score-explained",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/flesch-reading-ease-score-explained.html",
+    "notes": "Cluster: Flesch Reading Ease Score Explained: Formula and Bands"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/keyword-density-seo-check",
+    "routePath": "/blog/word-counter-guide/keyword-density-seo-check",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/keyword-density-seo-check.html",
+    "notes": "Cluster: Keyword Density Explained: How to Check and Fix Stuffing"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/how-to-summarize-text-fast",
+    "routePath": "/blog/word-counter-guide/how-to-summarize-text-fast",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/how-to-summarize-text-fast.html",
+    "notes": "Cluster: How to Summarize Text Fast: Extractive Method"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/lorem-ipsum-generator-use",
+    "routePath": "/blog/word-counter-guide/lorem-ipsum-generator-use",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/lorem-ipsum-generator-use.html",
+    "notes": "Cluster: Lorem Ipsum: When to Use Placeholder Text"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/typing-speed-test-practice-tips",
+    "routePath": "/blog/word-counter-guide/typing-speed-test-practice-tips",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/typing-speed-test-practice-tips.html",
+    "notes": "Cluster: Reading and Typing Speed: WPM Math and Practice Tips"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/grammar-check-before-publish",
+    "routePath": "/blog/word-counter-guide/grammar-check-before-publish",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/grammar-check-before-publish.html",
+    "notes": "Cluster: Grammar Check Before You Publish: Self-Editing Checklist"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/text-to-speech-proofreading-use",
+    "routePath": "/blog/word-counter-guide/text-to-speech-proofreading-use",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/text-to-speech-proofreading-use.html",
+    "notes": "Cluster: Proofread by Listening: Text-to-Speech Workflow"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/twitter-character-counter",
+    "routePath": "/blog/word-counter-guide/twitter-character-counter",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/twitter-character-counter.html",
+    "notes": "Cluster: Twitter/X Character Counter: What Actually Counts"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/pages-per-1000-words",
+    "routePath": "/blog/word-counter-guide/pages-per-1000-words",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/pages-per-1000-words.html",
+    "notes": "Cluster: Pages per 1,000 Words: Formatting and Examples"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/compare-two-texts-word-diff",
+    "routePath": "/blog/word-counter-guide/compare-two-texts-word-diff",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/compare-two-texts-word-diff.html",
+    "notes": "Cluster: Compare Two Texts Word by Word"
+  },
+  {
+    "url": "https://tool4saas.com/blog/word-counter-guide/markdown-preview-before-publishing",
+    "routePath": "/blog/word-counter-guide/markdown-preview-before-publishing",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/word-counter-guide/markdown-preview-before-publishing.html",
+    "notes": "Cluster: Markdown Preview: Check Formatting Before Publishing"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/compress-jpg-100kb-portal",
+    "routePath": "/blog/image-compressor-guide/compress-jpg-100kb-portal",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/compress-jpg-100kb-portal.html",
+    "notes": "Cluster: Compress JPG to 100KB for Online Forms (UPSC/SSC Guide)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/png-vs-jpg-vs-webp",
+    "routePath": "/blog/image-compressor-guide/png-vs-jpg-vs-webp",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/png-vs-jpg-vs-webp.html",
+    "notes": "Cluster: PNG vs JPG vs WebP: Which Format to Use"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/resize-image-exact-pixels",
+    "routePath": "/blog/image-compressor-guide/resize-image-exact-pixels",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/resize-image-exact-pixels.html",
+    "notes": "Cluster: Resize Images to Exact Pixels Without Blur"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/png-to-webp-transparency",
+    "routePath": "/blog/image-compressor-guide/png-to-webp-transparency",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/png-to-webp-transparency.html",
+    "notes": "Cluster: PNG to WebP Without Losing Transparency"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/optimize-svg-logos",
+    "routePath": "/blog/image-compressor-guide/optimize-svg-logos",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/optimize-svg-logos.html",
+    "notes": "Cluster: Optimize SVG Logos Without Breaking Them"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/strip-exif-before-upload",
+    "routePath": "/blog/image-compressor-guide/strip-exif-before-upload",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/strip-exif-before-upload.html",
+    "notes": "Cluster: Strip EXIF Data Before Uploading Photos"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/image-seo-size-alt",
+    "routePath": "/blog/image-compressor-guide/image-seo-size-alt",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/image-seo-size-alt.html",
+    "notes": "Cluster: Image SEO: Size, Alt Text and Dimensions"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/crop-passport-photos",
+    "routePath": "/blog/image-compressor-guide/crop-passport-photos",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/crop-passport-photos.html",
+    "notes": "Cluster: Crop Passport Photos to Exact Size at Home"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/compress-jpg-20kb",
+    "routePath": "/blog/image-compressor-guide/compress-jpg-20kb",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/compress-jpg-20kb.html",
+    "notes": "Cluster: Compress JPG to 20KB: Pass Strict Upload Limits"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/compress-jpg-200kb",
+    "routePath": "/blog/image-compressor-guide/compress-jpg-200kb",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/compress-jpg-200kb.html",
+    "notes": "Cluster: Compress JPG to 200KB Without Visible Quality Loss"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/instagram-image-resize",
+    "routePath": "/blog/image-compressor-guide/instagram-image-resize",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/instagram-image-resize.html",
+    "notes": "Cluster: Instagram Image Size 2026: Resize Without Cropping"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/jpg-to-png",
+    "routePath": "/blog/image-compressor-guide/jpg-to-png",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/jpg-to-png.html",
+    "notes": "Cluster: JPG to PNG: Convert Without Losing Quality"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/image-to-base64-data-url",
+    "routePath": "/blog/image-compressor-guide/image-to-base64-data-url",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/image-to-base64-data-url.html",
+    "notes": "Cluster: Image to Base64: Data URLs in Practice"
+  },
+  {
+    "url": "https://tool4saas.com/blog/image-compressor-guide/wcag-contrast-check",
+    "routePath": "/blog/image-compressor-guide/wcag-contrast-check",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/image-compressor-guide/wcag-contrast-check.html",
+    "notes": "Cluster: WCAG Contrast Checker: Pass AA and AAA"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/merge-multiple-pdfs-order",
+    "routePath": "/blog/pdf-merge-guide/merge-multiple-pdfs-order",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/merge-multiple-pdfs-order.html",
+    "notes": "Cluster: Merge PDFs in Reading Order: Limits and What Survives"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/jpg-scans-single-pdf",
+    "routePath": "/blog/pdf-merge-guide/jpg-scans-single-pdf",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/jpg-scans-single-pdf.html",
+    "notes": "Cluster: JPG Scans to Single PDF: A4 Size and Order Guide"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/extract-pages-range",
+    "routePath": "/blog/pdf-merge-guide/extract-pages-range",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/extract-pages-range.html",
+    "notes": "Cluster: Extract PDF Pages by Range: 1-3,5 Syntax Guide"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/compress-pdf-1mb-email",
+    "routePath": "/blog/pdf-merge-guide/compress-pdf-1mb-email",
+    "classification": "Noindex Blog Guide",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/compress-pdf-1mb-email.html",
+    "notes": "Cluster: Reduce PDF File Size Without a Browser Compressor"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/pdf-pages-high-quality-jpg",
+    "routePath": "/blog/pdf-merge-guide/pdf-pages-high-quality-jpg",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/pdf-pages-high-quality-jpg.html",
+    "notes": "Cluster: Convert PDF Pages to JPG Images"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/fix-sideways-scans",
+    "routePath": "/blog/pdf-merge-guide/fix-sideways-scans",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/fix-sideways-scans.html",
+    "notes": "Cluster: Fix Sideways Scans: Rotate PDF Pages Upright"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/add-draft-watermark",
+    "routePath": "/blog/pdf-merge-guide/add-draft-watermark",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/add-draft-watermark.html",
+    "notes": "Cluster: Add DRAFT Watermark to PDF Without Blocking Text"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/extract-text-without-ocr",
+    "routePath": "/blog/pdf-merge-guide/extract-text-without-ocr",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/extract-text-without-ocr.html",
+    "notes": "Cluster: Extract Text From PDF Without OCR (When It Works)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/merge-pdfs-on-iphone",
+    "routePath": "/blog/pdf-merge-guide/merge-pdfs-on-iphone",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/merge-pdfs-on-iphone.html",
+    "notes": "Cluster: Merge PDFs on iPhone Without an App"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/merge-pdfs-on-android",
+    "routePath": "/blog/pdf-merge-guide/merge-pdfs-on-android",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/merge-pdfs-on-android.html",
+    "notes": "Cluster: Merge PDFs on Android in Your Browser"
+  },
+  {
+    "url": "https://tool4saas.com/blog/pdf-merge-guide/combine-pdf-and-images",
+    "routePath": "/blog/pdf-merge-guide/combine-pdf-and-images",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/pdf-merge-guide/combine-pdf-and-images.html",
+    "notes": "Cluster: Combine PDF and Images Into One File"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/json-parse-errors",
+    "routePath": "/blog/json-formatter-guide/json-parse-errors",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/json-parse-errors.html",
+    "notes": "Cluster: Why JSON.parse Fails: Trailing Commas and Quotes"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/base64-url-safe-vs-standard",
+    "routePath": "/blog/json-formatter-guide/base64-url-safe-vs-standard",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/base64-url-safe-vs-standard.html",
+    "notes": "Cluster: Base64 URL-Safe vs Standard: Padding and Modes"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/sha256-vs-md5-hashes",
+    "routePath": "/blog/json-formatter-guide/sha256-vs-md5-hashes",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/sha256-vs-md5-hashes.html",
+    "notes": "Cluster: SHA-256 vs MD5: When to Use Which Hash"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/uuid-seed-test-database",
+    "routePath": "/blog/json-formatter-guide/uuid-seed-test-database",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/uuid-seed-test-database.html",
+    "notes": "Cluster: Seed Test Databases With UUIDs: Math and Workflow"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/regex-flags-capture-groups",
+    "routePath": "/blog/json-formatter-guide/regex-flags-capture-groups",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/regex-flags-capture-groups.html",
+    "notes": "Cluster: Regex Flags and Capture Groups That Work"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/jwt-expiry-without-trust",
+    "routePath": "/blog/json-formatter-guide/jwt-expiry-without-trust",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/jwt-expiry-without-trust.html",
+    "notes": "Cluster: Check JWT Expiry Without Trusting the Token"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/url-encoding-spaces-symbols",
+    "routePath": "/blog/json-formatter-guide/url-encoding-spaces-symbols",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/url-encoding-spaces-symbols.html",
+    "notes": "Cluster: URL Encoding: Spaces, Symbols and Double-Escape Bugs"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/json-to-csv",
+    "routePath": "/blog/json-formatter-guide/json-to-csv",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/json-to-csv.html",
+    "notes": "Cluster: JSON to CSV: Convert Flat Arrays Correctly"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/format-sql-queries",
+    "routePath": "/blog/json-formatter-guide/format-sql-queries",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/format-sql-queries.html",
+    "notes": "Cluster: Format SQL Queries: Readable Joins and Clauses"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/cron-expression-guide",
+    "routePath": "/blog/json-formatter-guide/cron-expression-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/cron-expression-guide.html",
+    "notes": "Cluster: Cron Expression Guide: 5 Fields and Next Runs"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/format-xml-sitemaps-feeds",
+    "routePath": "/blog/json-formatter-guide/format-xml-sitemaps-feeds",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/format-xml-sitemaps-feeds.html",
+    "notes": "Cluster: Format XML for Sitemaps, Feeds and Configs"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/html-entities-encode-decode",
+    "routePath": "/blog/json-formatter-guide/html-entities-encode-decode",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/html-entities-encode-decode.html",
+    "notes": "Cluster: HTML Entities: Encode and Decode Without Breaking Markup"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/url-slug-rules",
+    "routePath": "/blog/json-formatter-guide/url-slug-rules",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/url-slug-rules.html",
+    "notes": "Cluster: URL Slugs: Rules for Readable, Stable Links"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/mime-type-content-type",
+    "routePath": "/blog/json-formatter-guide/mime-type-content-type",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/mime-type-content-type.html",
+    "notes": "Cluster: MIME Types: What Content-Type Actually Controls"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/inspect-csv-before-import",
+    "routePath": "/blog/json-formatter-guide/inspect-csv-before-import",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/inspect-csv-before-import.html",
+    "notes": "Cluster: Inspect a CSV File Before You Import It"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/minify-css-js-safely",
+    "routePath": "/blog/json-formatter-guide/minify-css-js-safely",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/minify-css-js-safely.html",
+    "notes": "Cluster: Minify CSS and JavaScript Without a Build Step"
+  },
+  {
+    "url": "https://tool4saas.com/blog/json-formatter-guide/estimate-ai-token-cost",
+    "routePath": "/blog/json-formatter-guide/estimate-ai-token-cost",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/json-formatter-guide/estimate-ai-token-cost.html",
+    "notes": "Cluster: Estimate AI Token Cost Before Sending a Prompt"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/fix-score-60-to-80",
+    "routePath": "/blog/seo-analyzer-guide/fix-score-60-to-80",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/fix-score-60-to-80.html",
+    "notes": "Cluster: Fix SEO Score From 60 to 80: Worked Example"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/title-meta-length-2026",
+    "routePath": "/blog/seo-analyzer-guide/title-meta-length-2026",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/title-meta-length-2026.html",
+    "notes": "Cluster: Title and Meta Lengths That Avoid Truncation (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/split-large-sitemap",
+    "routePath": "/blog/seo-analyzer-guide/split-large-sitemap",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/split-large-sitemap.html",
+    "notes": "Cluster: Split Large Sitemaps for Search Console Correctly"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/robots-vs-noindex",
+    "routePath": "/blog/seo-analyzer-guide/robots-vs-noindex",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/robots-vs-noindex.html",
+    "notes": "Cluster: Robots.txt vs Noindex: When to Use Each"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/stale-og-image-fix",
+    "routePath": "/blog/seo-analyzer-guide/stale-og-image-fix",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/stale-og-image-fix.html",
+    "notes": "Cluster: Fix Stale LinkedIn and Social Preview Images"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/utm-naming-governance",
+    "routePath": "/blog/seo-analyzer-guide/utm-naming-governance",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/utm-naming-governance.html",
+    "notes": "Cluster: Name UTM Campaigns Without Splitting Reports"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/ai-content-false-positives",
+    "routePath": "/blog/seo-analyzer-guide/ai-content-false-positives",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/ai-content-false-positives.html",
+    "notes": "Cluster: Check AI Content Without False Positives"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/geo-checklist-ai-citations",
+    "routePath": "/blog/seo-analyzer-guide/geo-checklist-ai-citations",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/geo-checklist-ai-citations.html",
+    "notes": "Cluster: GEO Checklist: Get Cited by AI Search in 2026"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/meta-description-guide",
+    "routePath": "/blog/seo-analyzer-guide/meta-description-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/meta-description-guide.html",
+    "notes": "Cluster: Meta Description Guide: Write Snippets That Earn Clicks"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/canonical-tag-guide",
+    "routePath": "/blog/seo-analyzer-guide/canonical-tag-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/canonical-tag-guide.html",
+    "notes": "Cluster: Canonical Tags: Fix Duplicate URLs Safely"
+  },
+  {
+    "url": "https://tool4saas.com/blog/seo-analyzer-guide/internal-linking-guide",
+    "routePath": "/blog/seo-analyzer-guide/internal-linking-guide",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/seo-analyzer-guide/internal-linking-guide.html",
+    "notes": "Cluster: Internal Linking: Build a Crawlable Topic Map"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide/sip-5000-10-years",
+    "routePath": "/blog/sip-calculator-guide/sip-5000-10-years",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide/sip-5000-10-years.html",
+    "notes": "Cluster: ₹5,000 SIP for 10, 15 and 20 Years at 12%"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide/lumpsum-compounding-frequency",
+    "routePath": "/blog/sip-calculator-guide/lumpsum-compounding-frequency",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide/lumpsum-compounding-frequency.html",
+    "notes": "Cluster: Lump Sum Compounding: Annual vs Monthly Rests"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide/fd-quarterly-tds",
+    "routePath": "/blog/sip-calculator-guide/fd-quarterly-tds",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide/fd-quarterly-tds.html",
+    "notes": "Cluster: FD Interest, TDS and Quarterly Compounding (2026)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide/ppf-extend-15-years",
+    "routePath": "/blog/sip-calculator-guide/ppf-extend-15-years",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide/ppf-extend-15-years.html",
+    "notes": "Cluster: PPF After 15 Years: Extend, Withdraw or Close"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide/old-vs-new-regime-2026",
+    "routePath": "/blog/sip-calculator-guide/old-vs-new-regime-2026",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide/old-vs-new-regime-2026.html",
+    "notes": "Cluster: Old vs New Tax Regime for Salaried in 2026"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide/real-return-inflation",
+    "routePath": "/blog/sip-calculator-guide/real-return-inflation",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide/real-return-inflation.html",
+    "notes": "Cluster: Real vs Nominal Returns: Inflation-Adjusted Math"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide/sip-1-crore-goal",
+    "routePath": "/blog/sip-calculator-guide/sip-1-crore-goal",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide/sip-1-crore-goal.html",
+    "notes": "Cluster: SIP Needed for ₹1 Crore by Age 60"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide/equity-ltcg-vs-fd-tax",
+    "routePath": "/blog/sip-calculator-guide/equity-ltcg-vs-fd-tax",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide/equity-ltcg-vs-fd-tax.html",
+    "notes": "Cluster: Equity LTCG vs FD Tax: Post-Tax Keep Rates"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide/budget-2026-verdict-salaried",
+    "routePath": "/blog/sip-calculator-guide/budget-2026-verdict-salaried",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide/budget-2026-verdict-salaried.html",
+    "notes": "Cluster: Budget 2026 Verdict: What Changed for Salaried Savers"
+  },
+  {
+    "url": "https://tool4saas.com/blog/sip-calculator-guide/monthly-vs-yearly-compounding",
+    "routePath": "/blog/sip-calculator-guide/monthly-vs-yearly-compounding",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/sip-calculator-guide/monthly-vs-yearly-compounding.html",
+    "notes": "Cluster: Monthly vs Yearly Compounding: The Real Gap"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide/percent-of-a-number",
+    "routePath": "/blog/percentage-calculator-guide/percent-of-a-number",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide/percent-of-a-number.html",
+    "notes": "Cluster: How to Calculate Percent of a Number (With Examples)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide/percentage-increase-decrease",
+    "routePath": "/blog/percentage-calculator-guide/percentage-increase-decrease",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide/percentage-increase-decrease.html",
+    "notes": "Cluster: Percentage Increase and Decrease: Formula & Examples"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide/discount-and-sale-price",
+    "routePath": "/blog/percentage-calculator-guide/discount-and-sale-price",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide/discount-and-sale-price.html",
+    "notes": "Cluster: Discount Calculator: Sale Price and Savings Explained"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide/markup-vs-margin",
+    "routePath": "/blog/percentage-calculator-guide/markup-vs-margin",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide/markup-vs-margin.html",
+    "notes": "Cluster: Markup vs Margin: Formula, Examples & Pricing"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide/percentage-difference",
+    "routePath": "/blog/percentage-calculator-guide/percentage-difference",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide/percentage-difference.html",
+    "notes": "Cluster: Percentage Difference vs Change: When to Use Each"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide/reverse-percentage",
+    "routePath": "/blog/percentage-calculator-guide/reverse-percentage",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide/reverse-percentage.html",
+    "notes": "Cluster: Reverse Percentage: Find the Original Price or Number"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide/percentage-error",
+    "routePath": "/blog/percentage-calculator-guide/percentage-error",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide/percentage-error.html",
+    "notes": "Cluster: Percentage Error Formula: Measure Accuracy Correctly"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide/percentage-points-vs-percent",
+    "routePath": "/blog/percentage-calculator-guide/percentage-points-vs-percent",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide/percentage-points-vs-percent.html",
+    "notes": "Cluster: Percentage Points vs Percent: Avoid the Classic Mistake"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide/tip-calculator-bill-split",
+    "routePath": "/blog/percentage-calculator-guide/tip-calculator-bill-split",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide/tip-calculator-bill-split.html",
+    "notes": "Cluster: Tip Calculator: How to Split a Bill Fairly"
+  },
+  {
+    "url": "https://tool4saas.com/blog/percentage-calculator-guide/sales-tax-on-a-price",
+    "routePath": "/blog/percentage-calculator-guide/sales-tax-on-a-price",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/percentage-calculator-guide/sales-tax-on-a-price.html",
+    "notes": "Cluster: Sales Tax on a Price: Formula and Examples"
+  },
+  {
+    "url": "https://tool4saas.com/blog/bmi-calculator-guide/how-bmi-is-calculated",
+    "routePath": "/blog/bmi-calculator-guide/how-bmi-is-calculated",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/bmi-calculator-guide/how-bmi-is-calculated.html",
+    "notes": "Cluster: How BMI Is Calculated: Formula, Metric & Imperial"
+  },
+  {
+    "url": "https://tool4saas.com/blog/bmi-calculator-guide/bmi-for-women",
+    "routePath": "/blog/bmi-calculator-guide/bmi-for-women",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/bmi-calculator-guide/bmi-for-women.html",
+    "notes": "Cluster: BMI for Women: Ranges, Limitations & Better Metrics"
+  },
+  {
+    "url": "https://tool4saas.com/blog/bmi-calculator-guide/bmi-for-men",
+    "routePath": "/blog/bmi-calculator-guide/bmi-for-men",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/bmi-calculator-guide/bmi-for-men.html",
+    "notes": "Cluster: BMI for Men: What the Number Does and Doesn't Tell You"
+  },
+  {
+    "url": "https://tool4saas.com/blog/bmi-calculator-guide/healthy-weight-range",
+    "routePath": "/blog/bmi-calculator-guide/healthy-weight-range",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/bmi-calculator-guide/healthy-weight-range.html",
+    "notes": "Cluster: Healthy Weight Range for Your Height (BMI Chart)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/bmi-calculator-guide/calorie-deficit-for-weight-loss",
+    "routePath": "/blog/bmi-calculator-guide/calorie-deficit-for-weight-loss",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/bmi-calculator-guide/calorie-deficit-for-weight-loss.html",
+    "notes": "Cluster: Calorie Deficit for Weight Loss: Safe Starting Point"
+  },
+  {
+    "url": "https://tool4saas.com/blog/bmi-calculator-guide/daily-water-intake",
+    "routePath": "/blog/bmi-calculator-guide/daily-water-intake",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/bmi-calculator-guide/daily-water-intake.html",
+    "notes": "Cluster: Daily Water Intake: Formula, Exercise & Climate"
+  },
+  {
+    "url": "https://tool4saas.com/blog/bmi-calculator-guide/bmi-for-athletes",
+    "routePath": "/blog/bmi-calculator-guide/bmi-for-athletes",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/bmi-calculator-guide/bmi-for-athletes.html",
+    "notes": "Cluster: Why BMI Misreads Athletes (and What to Use Instead)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/bmi-calculator-guide/bmi-for-children-teens",
+    "routePath": "/blog/bmi-calculator-guide/bmi-for-children-teens",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/bmi-calculator-guide/bmi-for-children-teens.html",
+    "notes": "Cluster: BMI for Children and Teens: Percentiles, Not Cutoffs"
+  },
+  {
+    "url": "https://tool4saas.com/blog/age-calculator-guide/how-to-calculate-age",
+    "routePath": "/blog/age-calculator-guide/how-to-calculate-age",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/age-calculator-guide/how-to-calculate-age.html",
+    "notes": "Cluster: How to Calculate Exact Age in Years, Months & Days"
+  },
+  {
+    "url": "https://tool4saas.com/blog/age-calculator-guide/age-difference-between-dates",
+    "routePath": "/blog/age-calculator-guide/age-difference-between-dates",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/age-calculator-guide/age-difference-between-dates.html",
+    "notes": "Cluster: Age Difference Between Two Dates (With Examples)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/age-calculator-guide/date-difference-calculation",
+    "routePath": "/blog/age-calculator-guide/date-difference-calculation",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/age-calculator-guide/date-difference-calculation.html",
+    "notes": "Cluster: Date Difference Calculator: Days, Weeks & Months"
+  },
+  {
+    "url": "https://tool4saas.com/blog/age-calculator-guide/timezone-conversion",
+    "routePath": "/blog/age-calculator-guide/timezone-conversion",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/age-calculator-guide/timezone-conversion.html",
+    "notes": "Cluster: Time Zone Converter: Schedule Across Zones Without Errors"
+  },
+  {
+    "url": "https://tool4saas.com/blog/age-calculator-guide/unix-timestamp-conversion",
+    "routePath": "/blog/age-calculator-guide/unix-timestamp-conversion",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/age-calculator-guide/unix-timestamp-conversion.html",
+    "notes": "Cluster: Unix Timestamp Converter: Seconds, Milliseconds & Dates"
+  },
+  {
+    "url": "https://tool4saas.com/blog/age-calculator-guide/leap-year-birthdays",
+    "routePath": "/blog/age-calculator-guide/leap-year-birthdays",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/age-calculator-guide/leap-year-birthdays.html",
+    "notes": "Cluster: Leap Year Birthdays: How Age and Dates Work"
+  },
+  {
+    "url": "https://tool4saas.com/blog/age-calculator-guide/add-subtract-dates",
+    "routePath": "/blog/age-calculator-guide/add-subtract-dates",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/age-calculator-guide/add-subtract-dates.html",
+    "notes": "Cluster: Add or Subtract Days From a Date (Including Weekends)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/age-calculator-guide/age-in-days-hours-minutes",
+    "routePath": "/blog/age-calculator-guide/age-in-days-hours-minutes",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/age-calculator-guide/age-in-days-hours-minutes.html",
+    "notes": "Cluster: Age in Days, Hours and Minutes: Exact Conversion"
+  },
+  {
+    "url": "https://tool4saas.com/blog/signature-maker-guide/how-to-create-signature-online",
+    "routePath": "/blog/signature-maker-guide/how-to-create-signature-online",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/signature-maker-guide/how-to-create-signature-online.html",
+    "notes": "Cluster: How to Create a Signature Online (Step-by-Step)"
+  },
+  {
+    "url": "https://tool4saas.com/blog/signature-maker-guide/transparent-signature-png",
+    "routePath": "/blog/signature-maker-guide/transparent-signature-png",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/signature-maker-guide/transparent-signature-png.html",
+    "notes": "Cluster: Transparent Signature PNG: Clean Edges, No White Box"
+  },
+  {
+    "url": "https://tool4saas.com/blog/signature-maker-guide/signature-size-for-pdf",
+    "routePath": "/blog/signature-maker-guide/signature-size-for-pdf",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/signature-maker-guide/signature-size-for-pdf.html",
+    "notes": "Cluster: Signature Size for PDF: Dimensions, DPI and Scaling"
+  },
+  {
+    "url": "https://tool4saas.com/blog/signature-maker-guide/drawn-vs-typed-signature",
+    "routePath": "/blog/signature-maker-guide/drawn-vs-typed-signature",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/signature-maker-guide/drawn-vs-typed-signature.html",
+    "notes": "Cluster: Drawn vs Typed Signature: Which Should You Use?"
+  },
+  {
+    "url": "https://tool4saas.com/blog/signature-maker-guide/sign-pdf-without-printing",
+    "routePath": "/blog/signature-maker-guide/sign-pdf-without-printing",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/signature-maker-guide/sign-pdf-without-printing.html",
+    "notes": "Cluster: How to Sign a PDF Without Printing: Image Method"
+  },
+  {
+    "url": "https://tool4saas.com/blog/signature-maker-guide/signature-image-for-email",
+    "routePath": "/blog/signature-maker-guide/signature-image-for-email",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/signature-maker-guide/signature-image-for-email.html",
+    "notes": "Cluster: Signature Image for Email: Size, PNG and Alt Text"
+  },
+  {
+    "url": "https://tool4saas.com/blog/signature-maker-guide/electronic-signature-validity",
+    "routePath": "/blog/signature-maker-guide/electronic-signature-validity",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/signature-maker-guide/electronic-signature-validity.html",
+    "notes": "Cluster: Electronic Signature Validity: ESIGN, eIDAS and India"
+  },
+  {
+    "url": "https://tool4saas.com/blog/signature-maker-guide/signature-for-exam-forms",
+    "routePath": "/blog/signature-maker-guide/signature-for-exam-forms",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/signature-maker-guide/signature-for-exam-forms.html",
+    "notes": "Cluster: Signature for Exam Forms: 20-50KB and 140x60 Rules"
+  },
+  {
+    "url": "https://tool4saas.com/blog/debt-payoff-guide/snowball-vs-avalanche",
+    "routePath": "/blog/debt-payoff-guide/snowball-vs-avalanche",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/debt-payoff-guide/snowball-vs-avalanche.html",
+    "notes": "Cluster: Snowball vs Avalanche: Which Debt Payoff Method Fits?"
+  },
+  {
+    "url": "https://tool4saas.com/blog/debt-payoff-guide/how-to-pay-off-credit-card-debt",
+    "routePath": "/blog/debt-payoff-guide/how-to-pay-off-credit-card-debt",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/debt-payoff-guide/how-to-pay-off-credit-card-debt.html",
+    "notes": "Cluster: How to Pay Off Credit Card Debt: Order, APR and Minimums"
+  },
+  {
+    "url": "https://tool4saas.com/blog/debt-payoff-guide/debt-avalanche-method",
+    "routePath": "/blog/debt-payoff-guide/debt-avalanche-method",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/debt-payoff-guide/debt-avalanche-method.html",
+    "notes": "Cluster: Debt Avalanche Method: Steps, Example and Rolled Payments"
+  },
+  {
+    "url": "https://tool4saas.com/blog/debt-payoff-guide/debt-snowball-method",
+    "routePath": "/blog/debt-payoff-guide/debt-snowball-method",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/debt-payoff-guide/debt-snowball-method.html",
+    "notes": "Cluster: Debt Snowball Method: Steps, Example and Limits"
+  },
+  {
+    "url": "https://tool4saas.com/blog/debt-payoff-guide/minimum-payment-trap",
+    "routePath": "/blog/debt-payoff-guide/minimum-payment-trap",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/debt-payoff-guide/minimum-payment-trap.html",
+    "notes": "Cluster: The Minimum Payment Trap: Why Balances Stall"
+  },
+  {
+    "url": "https://tool4saas.com/blog/debt-payoff-guide/extra-payment-strategy",
+    "routePath": "/blog/debt-payoff-guide/extra-payment-strategy",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/debt-payoff-guide/extra-payment-strategy.html",
+    "notes": "Cluster: Extra Payment Strategy: Monthly vs Lump Sum"
+  },
+  {
+    "url": "https://tool4saas.com/blog/debt-payoff-guide/debt-consolidation-vs-payoff",
+    "routePath": "/blog/debt-payoff-guide/debt-consolidation-vs-payoff",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/debt-payoff-guide/debt-consolidation-vs-payoff.html",
+    "notes": "Cluster: Debt Consolidation vs Payoff: Key Trade-Offs"
+  },
+  {
+    "url": "https://tool4saas.com/blog/debt-payoff-guide/debt-free-date",
+    "routePath": "/blog/debt-payoff-guide/debt-free-date",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/debt-payoff-guide/debt-free-date.html",
+    "notes": "Cluster: Debt-Free Date: How to Read Your Payoff Timeline"
+  },
+  {
+    "url": "https://tool4saas.com/blog/grade-calculator-guide/weighted-grade-calculation",
+    "routePath": "/blog/grade-calculator-guide/weighted-grade-calculation",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/grade-calculator-guide/weighted-grade-calculation.html",
+    "notes": "Cluster: Weighted Grade Calculation: How Weights Shape Your Score"
+  },
+  {
+    "url": "https://tool4saas.com/blog/grade-calculator-guide/final-exam-grade-needed",
+    "routePath": "/blog/grade-calculator-guide/final-exam-grade-needed",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/grade-calculator-guide/final-exam-grade-needed.html",
+    "notes": "Cluster: Final Exam Grade Needed: Formula, Targets & Examples"
+  },
+  {
+    "url": "https://tool4saas.com/blog/grade-calculator-guide/percentage-to-gpa",
+    "routePath": "/blog/grade-calculator-guide/percentage-to-gpa",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/grade-calculator-guide/percentage-to-gpa.html",
+    "notes": "Cluster: Percentage to GPA: Conversion Tables and Caveats"
+  },
+  {
+    "url": "https://tool4saas.com/blog/grade-calculator-guide/gpa-vs-cgpa",
+    "routePath": "/blog/grade-calculator-guide/gpa-vs-cgpa",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/grade-calculator-guide/gpa-vs-cgpa.html",
+    "notes": "Cluster: GPA vs CGPA: Term, Cumulative and Scale Differences"
+  },
+  {
+    "url": "https://tool4saas.com/blog/grade-calculator-guide/semester-gpa-calculation",
+    "routePath": "/blog/grade-calculator-guide/semester-gpa-calculation",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/grade-calculator-guide/semester-gpa-calculation.html",
+    "notes": "Cluster: Semester GPA Calculation: Credits, Grades and Examples"
+  },
+  {
+    "url": "https://tool4saas.com/blog/grade-calculator-guide/cumulative-gpa-calculation",
+    "routePath": "/blog/grade-calculator-guide/cumulative-gpa-calculation",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/grade-calculator-guide/cumulative-gpa-calculation.html",
+    "notes": "Cluster: Cumulative GPA: Formula, Prior Credits and Examples"
+  },
+  {
+    "url": "https://tool4saas.com/blog/grade-calculator-guide/how-to-raise-gpa",
+    "routePath": "/blog/grade-calculator-guide/how-to-raise-gpa",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/grade-calculator-guide/how-to-raise-gpa.html",
+    "notes": "Cluster: How to Raise GPA: Realistic Math and Recovery Steps"
+  },
+  {
+    "url": "https://tool4saas.com/blog/grade-calculator-guide/weighted-vs-unweighted-gpa",
+    "routePath": "/blog/grade-calculator-guide/weighted-vs-unweighted-gpa",
+    "classification": "Indexable Blog Guide",
+    "isIndexable": true,
+    "isInSitemap": true,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/blog/grade-calculator-guide/weighted-vs-unweighted-gpa.html",
+    "notes": "Cluster: Weighted vs Unweighted GPA: How Schools Calculate"
+  },
+  {
+    "url": "https://tool4saas.com/404",
+    "routePath": "/404",
+    "classification": "Error/Utility Page",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/404.html",
+    "notes": "HTTP 404 error template"
+  },
+  {
+    "url": "https://tool4saas.com/probe",
+    "routePath": "/probe",
+    "classification": "Error/Utility Page",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": true,
+    "distHtmlPath": "dist/probe.html",
+    "notes": "System health probe"
+  },
+  {
+    "url": "https://tool4saas.com/es",
+    "routePath": "/es",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/",
+    "notes": "Permanent HTTP 301 redirect to /"
+  },
+  {
+    "url": "https://tool4saas.com/fr",
+    "routePath": "/fr",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/",
+    "notes": "Permanent HTTP 301 redirect to /"
+  },
+  {
+    "url": "https://tool4saas.com/es/blog/qr-code-generator-guide/qr-code-size-print-guide",
+    "routePath": "/es/blog/qr-code-generator-guide/qr-code-size-print-guide",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/blog/qr-code-generator-guide/qr-code-size-print-guide",
+    "notes": "Permanent HTTP 301 redirect to /blog/qr-code-generator-guide/qr-code-size-print-guide"
+  },
+  {
+    "url": "https://tool4saas.com/es/invoice-generator",
+    "routePath": "/es/invoice-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/invoice-generator",
+    "notes": "Permanent HTTP 301 redirect to /invoice-generator"
+  },
+  {
+    "url": "https://tool4saas.com/es/qr-code-generator",
+    "routePath": "/es/qr-code-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/qr-code-generator",
+    "notes": "Permanent HTTP 301 redirect to /qr-code-generator"
+  },
+  {
+    "url": "https://tool4saas.com/es/credit-card-validator",
+    "routePath": "/es/credit-card-validator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/credit-card-validator",
+    "notes": "Permanent HTTP 301 redirect to /credit-card-validator"
+  },
+  {
+    "url": "https://tool4saas.com/es/unit-converter",
+    "routePath": "/es/unit-converter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/unit-converter",
+    "notes": "Permanent HTTP 301 redirect to /unit-converter"
+  },
+  {
+    "url": "https://tool4saas.com/es/typing-speed-test",
+    "routePath": "/es/typing-speed-test",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/typing-speed-test",
+    "notes": "Permanent HTTP 301 redirect to /typing-speed-test"
+  },
+  {
+    "url": "https://tool4saas.com/es/plagiarism-checker",
+    "routePath": "/es/plagiarism-checker",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/plagiarism-checker",
+    "notes": "Permanent HTTP 301 redirect to /plagiarism-checker"
+  },
+  {
+    "url": "https://tool4saas.com/es/word-counter",
+    "routePath": "/es/word-counter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/word-counter",
+    "notes": "Permanent HTTP 301 redirect to /word-counter"
+  },
+  {
+    "url": "https://tool4saas.com/es/mortgage-calculator",
+    "routePath": "/es/mortgage-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/mortgage-calculator",
+    "notes": "Permanent HTTP 301 redirect to /mortgage-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/es/resume-builder",
+    "routePath": "/es/resume-builder",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/resume-builder",
+    "notes": "Permanent HTTP 301 redirect to /resume-builder"
+  },
+  {
+    "url": "https://tool4saas.com/es/password-generator",
+    "routePath": "/es/password-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/password-generator",
+    "notes": "Permanent HTTP 301 redirect to /password-generator"
+  },
+  {
+    "url": "https://tool4saas.com/es/image-compressor",
+    "routePath": "/es/image-compressor",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/image-compressor",
+    "notes": "Permanent HTTP 301 redirect to /image-compressor"
+  },
+  {
+    "url": "https://tool4saas.com/es/pdf-merge",
+    "routePath": "/es/pdf-merge",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/pdf-merge",
+    "notes": "Permanent HTTP 301 redirect to /pdf-merge"
+  },
+  {
+    "url": "https://tool4saas.com/es/json-formatter",
+    "routePath": "/es/json-formatter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/json-formatter",
+    "notes": "Permanent HTTP 301 redirect to /json-formatter"
+  },
+  {
+    "url": "https://tool4saas.com/es/sip-calculator",
+    "routePath": "/es/sip-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/sip-calculator",
+    "notes": "Permanent HTTP 301 redirect to /sip-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/es/emi-calculator",
+    "routePath": "/es/emi-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/emi-calculator",
+    "notes": "Permanent HTTP 301 redirect to /emi-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/es/bmi-calculator",
+    "routePath": "/es/bmi-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/bmi-calculator",
+    "notes": "Permanent HTTP 301 redirect to /bmi-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/fr/invoice-generator",
+    "routePath": "/fr/invoice-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/invoice-generator",
+    "notes": "Permanent HTTP 301 redirect to /invoice-generator"
+  },
+  {
+    "url": "https://tool4saas.com/fr/qr-code-generator",
+    "routePath": "/fr/qr-code-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/qr-code-generator",
+    "notes": "Permanent HTTP 301 redirect to /qr-code-generator"
+  },
+  {
+    "url": "https://tool4saas.com/fr/credit-card-validator",
+    "routePath": "/fr/credit-card-validator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/credit-card-validator",
+    "notes": "Permanent HTTP 301 redirect to /credit-card-validator"
+  },
+  {
+    "url": "https://tool4saas.com/fr/unit-converter",
+    "routePath": "/fr/unit-converter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/unit-converter",
+    "notes": "Permanent HTTP 301 redirect to /unit-converter"
+  },
+  {
+    "url": "https://tool4saas.com/fr/typing-speed-test",
+    "routePath": "/fr/typing-speed-test",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/typing-speed-test",
+    "notes": "Permanent HTTP 301 redirect to /typing-speed-test"
+  },
+  {
+    "url": "https://tool4saas.com/fr/plagiarism-checker",
+    "routePath": "/fr/plagiarism-checker",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/plagiarism-checker",
+    "notes": "Permanent HTTP 301 redirect to /plagiarism-checker"
+  },
+  {
+    "url": "https://tool4saas.com/fr/word-counter",
+    "routePath": "/fr/word-counter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/word-counter",
+    "notes": "Permanent HTTP 301 redirect to /word-counter"
+  },
+  {
+    "url": "https://tool4saas.com/fr/mortgage-calculator",
+    "routePath": "/fr/mortgage-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/mortgage-calculator",
+    "notes": "Permanent HTTP 301 redirect to /mortgage-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/fr/resume-builder",
+    "routePath": "/fr/resume-builder",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/resume-builder",
+    "notes": "Permanent HTTP 301 redirect to /resume-builder"
+  },
+  {
+    "url": "https://tool4saas.com/fr/password-generator",
+    "routePath": "/fr/password-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/password-generator",
+    "notes": "Permanent HTTP 301 redirect to /password-generator"
+  },
+  {
+    "url": "https://tool4saas.com/fr/image-compressor",
+    "routePath": "/fr/image-compressor",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/image-compressor",
+    "notes": "Permanent HTTP 301 redirect to /image-compressor"
+  },
+  {
+    "url": "https://tool4saas.com/fr/pdf-merge",
+    "routePath": "/fr/pdf-merge",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/pdf-merge",
+    "notes": "Permanent HTTP 301 redirect to /pdf-merge"
+  },
+  {
+    "url": "https://tool4saas.com/fr/json-formatter",
+    "routePath": "/fr/json-formatter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/json-formatter",
+    "notes": "Permanent HTTP 301 redirect to /json-formatter"
+  },
+  {
+    "url": "https://tool4saas.com/fr/sip-calculator",
+    "routePath": "/fr/sip-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/sip-calculator",
+    "notes": "Permanent HTTP 301 redirect to /sip-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/fr/emi-calculator",
+    "routePath": "/fr/emi-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/emi-calculator",
+    "notes": "Permanent HTTP 301 redirect to /emi-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/fr/bmi-calculator",
+    "routePath": "/fr/bmi-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/bmi-calculator",
+    "notes": "Permanent HTTP 301 redirect to /bmi-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/json-to-yaml",
+    "routePath": "/json-to-yaml",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/json-formatter",
+    "notes": "Permanent HTTP 301 redirect to /json-formatter"
+  },
+  {
+    "url": "https://tool4saas.com/yaml-to-json",
+    "routePath": "/yaml-to-json",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/json-formatter",
+    "notes": "Permanent HTTP 301 redirect to /json-formatter"
+  },
+  {
+    "url": "https://tool4saas.com/json-tree-viewer",
+    "routePath": "/json-tree-viewer",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/json-formatter",
+    "notes": "Permanent HTTP 301 redirect to /json-formatter"
+  },
+  {
+    "url": "https://tool4saas.com/html-beautifier",
+    "routePath": "/html-beautifier",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/code-minifier",
+    "notes": "Permanent HTTP 301 redirect to /code-minifier"
+  },
+  {
+    "url": "https://tool4saas.com/css-beautifier",
+    "routePath": "/css-beautifier",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/code-minifier",
+    "notes": "Permanent HTTP 301 redirect to /code-minifier"
+  },
+  {
+    "url": "https://tool4saas.com/js-beautifier",
+    "routePath": "/js-beautifier",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/code-minifier",
+    "notes": "Permanent HTTP 301 redirect to /code-minifier"
+  },
+  {
+    "url": "https://tool4saas.com/loan-calculator",
+    "routePath": "/loan-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/emi-calculator",
+    "notes": "Permanent HTTP 301 redirect to /emi-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/auto-loan-calculator",
+    "routePath": "/auto-loan-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/emi-calculator",
+    "notes": "Permanent HTTP 301 redirect to /emi-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/simple-interest-calculator",
+    "routePath": "/simple-interest-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/emi-calculator",
+    "notes": "Permanent HTTP 301 redirect to /emi-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/cagr-calculator",
+    "routePath": "/cagr-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/compound-interest-calculator",
+    "notes": "Permanent HTTP 301 redirect to /compound-interest-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/percentage-change",
+    "routePath": "/percentage-change",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/percentage-calculator",
+    "notes": "Permanent HTTP 301 redirect to /percentage-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/percentage-difference",
+    "routePath": "/percentage-difference",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/percentage-calculator",
+    "notes": "Permanent HTTP 301 redirect to /percentage-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/cmyk-converter",
+    "routePath": "/cmyk-converter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/color-converter",
+    "notes": "Permanent HTTP 301 redirect to /color-converter"
+  },
+  {
+    "url": "https://tool4saas.com/color-palette",
+    "routePath": "/color-palette",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/color-converter",
+    "notes": "Permanent HTTP 301 redirect to /color-converter"
+  },
+  {
+    "url": "https://tool4saas.com/color-shades-generator",
+    "routePath": "/color-shades-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/color-converter",
+    "notes": "Permanent HTTP 301 redirect to /color-converter"
+  },
+  {
+    "url": "https://tool4saas.com/random-hex-color",
+    "routePath": "/random-hex-color",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/color-converter",
+    "notes": "Permanent HTTP 301 redirect to /color-converter"
+  },
+  {
+    "url": "https://tool4saas.com/css-box-shadow-generator",
+    "routePath": "/css-box-shadow-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/gradient-generator",
+    "notes": "Permanent HTTP 301 redirect to /gradient-generator"
+  },
+  {
+    "url": "https://tool4saas.com/css-border-radius-generator",
+    "routePath": "/css-border-radius-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/gradient-generator",
+    "notes": "Permanent HTTP 301 redirect to /gradient-generator"
+  },
+  {
+    "url": "https://tool4saas.com/css-clip-path-generator",
+    "routePath": "/css-clip-path-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/gradient-generator",
+    "notes": "Permanent HTTP 301 redirect to /gradient-generator"
+  },
+  {
+    "url": "https://tool4saas.com/random-string",
+    "routePath": "/random-string",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/random-number",
+    "notes": "Permanent HTTP 301 redirect to /random-number"
+  },
+  {
+    "url": "https://tool4saas.com/uuid-generator",
+    "routePath": "/uuid-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/random-number",
+    "notes": "Permanent HTTP 301 redirect to /random-number"
+  },
+  {
+    "url": "https://tool4saas.com/random-passphrase",
+    "routePath": "/random-passphrase",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/password-generator",
+    "notes": "Permanent HTTP 301 redirect to /password-generator"
+  },
+  {
+    "url": "https://tool4saas.com/dice-roller",
+    "routePath": "/dice-roller",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/coin-flip",
+    "notes": "Permanent HTTP 301 redirect to /coin-flip"
+  },
+  {
+    "url": "https://tool4saas.com/pdf-split",
+    "routePath": "/pdf-split",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/pdf-merge",
+    "notes": "Permanent HTTP 301 redirect to /pdf-merge"
+  },
+  {
+    "url": "https://tool4saas.com/pdf-rotate",
+    "routePath": "/pdf-rotate",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/pdf-merge",
+    "notes": "Permanent HTTP 301 redirect to /pdf-merge"
+  },
+  {
+    "url": "https://tool4saas.com/pdf-watermark",
+    "routePath": "/pdf-watermark",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/pdf-merge",
+    "notes": "Permanent HTTP 301 redirect to /pdf-merge"
+  },
+  {
+    "url": "https://tool4saas.com/image-resizer",
+    "routePath": "/image-resizer",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/image-compressor",
+    "notes": "Permanent HTTP 301 redirect to /image-compressor"
+  },
+  {
+    "url": "https://tool4saas.com/image-cropper",
+    "routePath": "/image-cropper",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/image-compressor",
+    "notes": "Permanent HTTP 301 redirect to /image-compressor"
+  },
+  {
+    "url": "https://tool4saas.com/image-border",
+    "routePath": "/image-border",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/image-compressor",
+    "notes": "Permanent HTTP 301 redirect to /image-compressor"
+  },
+  {
+    "url": "https://tool4saas.com/freelance-gst-invoice-generator",
+    "routePath": "/freelance-gst-invoice-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/invoice-generator",
+    "notes": "Permanent HTTP 301 redirect to /invoice-generator"
+  },
+  {
+    "url": "https://tool4saas.com/quotation-generator",
+    "routePath": "/quotation-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/document-generator",
+    "notes": "Permanent HTTP 301 redirect to /document-generator"
+  },
+  {
+    "url": "https://tool4saas.com/purchase-order-generator",
+    "routePath": "/purchase-order-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/document-generator",
+    "notes": "Permanent HTTP 301 redirect to /document-generator"
+  },
+  {
+    "url": "https://tool4saas.com/receipt-generator",
+    "routePath": "/receipt-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/document-generator",
+    "notes": "Permanent HTTP 301 redirect to /document-generator"
+  },
+  {
+    "url": "https://tool4saas.com/rent-receipt-generator",
+    "routePath": "/rent-receipt-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/document-generator",
+    "notes": "Permanent HTTP 301 redirect to /document-generator"
+  },
+  {
+    "url": "https://tool4saas.com/payslip-generator",
+    "routePath": "/payslip-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/document-generator",
+    "notes": "Permanent HTTP 301 redirect to /document-generator"
+  },
+  {
+    "url": "https://tool4saas.com/offer-letter-generator",
+    "routePath": "/offer-letter-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/document-generator",
+    "notes": "Permanent HTTP 301 redirect to /document-generator"
+  },
+  {
+    "url": "https://tool4saas.com/wifi-qr-generator",
+    "routePath": "/wifi-qr-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/qr-code-generator",
+    "notes": "Permanent HTTP 301 redirect to /qr-code-generator"
+  },
+  {
+    "url": "https://tool4saas.com/hmac-generator",
+    "routePath": "/hmac-generator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/hash-generator",
+    "notes": "Permanent HTTP 301 redirect to /hash-generator"
+  },
+  {
+    "url": "https://tool4saas.com/text-reverser",
+    "routePath": "/text-reverser",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/text-tools",
+    "notes": "Permanent HTTP 301 redirect to /text-tools"
+  },
+  {
+    "url": "https://tool4saas.com/case-converter",
+    "routePath": "/case-converter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/text-tools",
+    "notes": "Permanent HTTP 301 redirect to /text-tools"
+  },
+  {
+    "url": "https://tool4saas.com/text-cleaner",
+    "routePath": "/text-cleaner",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/text-tools",
+    "notes": "Permanent HTTP 301 redirect to /text-tools"
+  },
+  {
+    "url": "https://tool4saas.com/text-list",
+    "routePath": "/text-list",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/text-tools",
+    "notes": "Permanent HTTP 301 redirect to /text-tools"
+  },
+  {
+    "url": "https://tool4saas.com/text-find-replace",
+    "routePath": "/text-find-replace",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/text-tools",
+    "notes": "Permanent HTTP 301 redirect to /text-tools"
+  },
+  {
+    "url": "https://tool4saas.com/keyword-density",
+    "routePath": "/keyword-density",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/word-counter",
+    "notes": "Permanent HTTP 301 redirect to /word-counter"
+  },
+  {
+    "url": "https://tool4saas.com/readability-checker",
+    "routePath": "/readability-checker",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/word-counter",
+    "notes": "Permanent HTTP 301 redirect to /word-counter"
+  },
+  {
+    "url": "https://tool4saas.com/roman-numeral",
+    "routePath": "/roman-numeral",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/number-to-words",
+    "notes": "Permanent HTTP 301 redirect to /number-to-words"
+  },
+  {
+    "url": "https://tool4saas.com/ascii-converter",
+    "routePath": "/ascii-converter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/number-to-words",
+    "notes": "Permanent HTTP 301 redirect to /number-to-words"
+  },
+  {
+    "url": "https://tool4saas.com/base-converter",
+    "routePath": "/base-converter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/number-to-words",
+    "notes": "Permanent HTTP 301 redirect to /number-to-words"
+  },
+  {
+    "url": "https://tool4saas.com/file-size-converter",
+    "routePath": "/file-size-converter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/unit-converter",
+    "notes": "Permanent HTTP 301 redirect to /unit-converter"
+  },
+  {
+    "url": "https://tool4saas.com/open-graph-preview",
+    "routePath": "/open-graph-preview",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/serp-preview",
+    "notes": "Permanent HTTP 301 redirect to /serp-preview"
+  },
+  {
+    "url": "https://tool4saas.com/world-clock",
+    "routePath": "/world-clock",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/timezone-converter",
+    "notes": "Permanent HTTP 301 redirect to /timezone-converter"
+  },
+  {
+    "url": "https://tool4saas.com/countdown-timer",
+    "routePath": "/countdown-timer",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/date-calculator",
+    "notes": "Permanent HTTP 301 redirect to /date-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/work-days-calculator",
+    "routePath": "/work-days-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/date-calculator",
+    "notes": "Permanent HTTP 301 redirect to /date-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/time-duration-calculator",
+    "routePath": "/time-duration-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/date-calculator",
+    "notes": "Permanent HTTP 301 redirect to /date-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/ideal-weight-calculator",
+    "routePath": "/ideal-weight-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/bmi-calculator",
+    "notes": "Permanent HTTP 301 redirect to /bmi-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/body-fat-calculator",
+    "routePath": "/body-fat-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/bmi-calculator",
+    "notes": "Permanent HTTP 301 redirect to /bmi-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/macro-calculator",
+    "routePath": "/macro-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/calorie-calculator",
+    "notes": "Permanent HTTP 301 redirect to /calorie-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/ovulation-calculator",
+    "routePath": "/ovulation-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/period-calculator",
+    "notes": "Permanent HTTP 301 redirect to /period-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/us-paycheck-calculator",
+    "routePath": "/us-paycheck-calculator",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/salary-calculator",
+    "notes": "Permanent HTTP 301 redirect to /salary-calculator"
+  },
+  {
+    "url": "https://tool4saas.com/svg-to-png-converter",
+    "routePath": "/svg-to-png-converter",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/image-format-converter",
+    "notes": "Permanent HTTP 301 redirect to /image-format-converter"
+  },
+  {
+    "url": "https://tool4saas.com/guides",
+    "routePath": "/guides",
+    "classification": "Legacy Redirect Stub",
+    "isIndexable": false,
+    "isInSitemap": false,
+    "distHtmlExists": false,
+    "redirectTarget": "/blog",
+    "notes": "Permanent HTTP 301 redirect to /blog"
+  }
+]

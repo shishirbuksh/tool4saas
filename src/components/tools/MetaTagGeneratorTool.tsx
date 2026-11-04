@@ -31,7 +31,7 @@ export default function MetaTagGeneratorTool() {
     "Discover free online tools for developers, SEO experts and creators. Fast, private and easy to use — no sign-up required."
   );
   const [url, setUrl] = useState("https://example.com/your-page");
-  const [image, setImage] = useState("https://via.placeholder.com/1200x630.png?text=1200x630+OG+Image");
+  const [image, setImage] = useState("https://tool4saas.com/og/home.png");
   const [type, setType] = useState<OgType>("website");
   const [copied, setCopied] = useState(false);
   const [imgError, setImgError] = useState(false);
@@ -101,7 +101,7 @@ export default function MetaTagGeneratorTool() {
       "Discover free online tools for developers, SEO experts and creators. Fast, private and easy to use — no sign-up required."
     );
     setUrl("https://example.com/your-page");
-    setImage("https://via.placeholder.com/1200x630.png?text=1200x630+OG+Image");
+    setImage("https://tool4saas.com/og/home.png");
     setType("website");
     setImgError(false);
     setCopied(false);

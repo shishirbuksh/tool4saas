@@ -159,7 +159,7 @@ export function fitMetaTitle(primary: string, suffix: string = BRAND_SUFFIX): st
  */
 export function fitMetaDescription(desc: string): string {
   const text = normalize(desc);
-  if (text.length >= 140 && text.length <= 160) return text;
+  if (text.length >= 60 && text.length <= 160) return text;
 
   // If too long (> 160 chars), cut cleanly
   if (text.length > 160) {
@@ -175,10 +175,10 @@ export function fitMetaDescription(desc: string): string {
     return candidate.slice(0, 157).trim() + "...";
   }
 
-  // If too short (< 140 chars), append high-value benefit phrase
+  // If extremely short (< 60 chars), append high-value benefit phrase
   for (const pad of DESC_BENEFIT_PADS) {
     const candidate = text.endsWith(".") ? `${text.slice(0, -1)}.${pad}` : `${text}.${pad}`;
-    if (candidate.length >= 140 && candidate.length <= 160) {
+    if (candidate.length >= 60 && candidate.length <= 160) {
       return candidate;
     }
   }
