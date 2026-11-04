@@ -20,7 +20,6 @@ const STATIC_ROUTES = new Set([
 function resolves(href: string): boolean {
   const clean = href.split("#")[0].split("?")[0].replace(/\/$/, "") || "/";
   if (STATIC_ROUTES.has(clean)) return true;
-  if (clean.startsWith("/es/") || clean.startsWith("/fr/")) return true;
   if (clean.startsWith("/category/")) return true;
   if (clean.startsWith("/blog/")) {
     const [pillar, cluster, ...rest] = clean.split("/").filter(Boolean).slice(1);

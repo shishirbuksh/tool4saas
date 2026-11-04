@@ -39,11 +39,6 @@ const COMPANY = [
   { href: "/sitemap", label: "HTML Sitemap" },
 ];
 
-const LANGUAGES = [
-  { href: "/", label: "English", hrefLang: "en" },
-  { href: "/es", label: "Español", hrefLang: "es" },
-  { href: "/fr", label: "Français", hrefLang: "fr" },
-];
 
 const linkStyle = {
   display: "inline-flex",
@@ -114,32 +109,7 @@ export default function Footer() {
               >
                 {siteConfig.email}
               </Button>
-              <Box
-                component="nav"
-                aria-label="Languages"
-                className="flex items-center flex-wrap gap-3"
-              >
-                <Typography variant="body2" color="text.secondary" className="font-semibold">
-                  Languages:
-                </Typography>
-                {LANGUAGES.map((l) => (
-                  <Link
-                    key={l.href}
-                    href={l.href}
-                    hrefLang={l.hrefLang}
-                    lang={l.hrefLang}
-                    className="footer-link"
-                    style={linkStyle}
-                  >
-                    <Typography
-                      variant="body2"
-                      className="text-base-content/70 hover:text-primary" style={{ transition: "color 150ms ease" }}
-                    >
-                      {l.label}
-                    </Typography>
-                  </Link>
-                ))}
-              </Box>
+              
             </Stack>
           </Grid>
 

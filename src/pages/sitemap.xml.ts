@@ -11,17 +11,6 @@ import {
   SITE_PUBLISHED_ISO,
 } from "@/lib/dates";
 import { isNoindexCluster } from "@/lib/blog/noindex";
-import {
-  BLOG_PILOT_LOCALES,
-  ES_BLOG_PILOTS,
-  getPilotLocales,
-  hreflangHubLanguages,
-  hreflangLanguages,
-  HUB_LOCALES,
-  isEsBlogPilot,
-  NON_DEFAULT_LOCALES,
-  pilotSlugsForLocale,
-} from "@/lib/i18n";
 
 export type SitemapItem = {
   url: string;
@@ -41,12 +30,6 @@ function escapeXml(value: string): string {
     .replace(/'/g, "&apos;");
 }
 
-const blogPilotLanguages = (base: string, pillar: string, slug: string): Record<string, string> => ({
-  en: `${base}/blog/${pillar}/${slug}`,
-  es: `${base}/es/blog/${pillar}/${slug}`,
-  "x-default": `${base}/blog/${pillar}/${slug}`,
-});
-
 export function sitemap(): SitemapItem[] {
   const base = siteConfig.url.replace(/\/$/, "");
 
@@ -55,7 +38,6 @@ export function sitemap(): SitemapItem[] {
       url: base,
       lastModified: HOME_MODIFIED,
       images: [`${base}/og/home.png`],
-      alternates: { languages: hreflangHubLanguages(base, "en") },
     },
   ];
 
@@ -88,7 +70,6 @@ export function sitemap(): SitemapItem[] {
       url: `${base}/${t.slug}`,
       lastModified: getDateModifiedIso(t.slug),
       images: [`${base}/og/${t.slug}.png`],
-      ...(getPilotLocales(t.slug).length ? { alternates: { languages: hreflangLanguages(base, t.slug) } } : {}),
     }));
 
   const blogIndex: SitemapItem[] = [
@@ -112,43 +93,7 @@ export function sitemap(): SitemapItem[] {
         url: `${base}/blog/${c.pillar}/${c.slug}`,
         lastModified: getBlogPostDateModifiedIso(c.pillar, c.slug, c.updated),
         images: [`${base}/og/blog/${c.pillar}/${c.slug}.png`],
-        ...(isEsBlogPilot(c.pillar, c.slug) ? { alternates: { languages: blogPilotLanguages(base, c.pillar, c.slug) } } : {}),
       }))
-  );
-
-  const esPilotRoutes: SitemapItem[] = NON_DEFAULT_LOCALES.flatMap((locale) => [
-    ...(HUB_LOCALES.includes(locale)
-      ? [
-          {
-            url: `${base}/${locale}`,
-            lastModified: BLOG_MODIFIED >= HOME_MODIFIED ? BLOG_MODIFIED : HOME_MODIFIED,
-            images: [`${base}/og/home.png`],
-            alternates: { languages: hreflangHubLanguages(base, locale) },
-          },
-        ]
-      : []),
-    ...tools
-      .filter((t) => pilotSlugsForLocale(locale).has(t.slug) && !NOINDEX_SLUGS.has(t.slug))
-      .map((t) => ({
-        url: `${base}/${locale}/${t.slug}`,
-        lastModified: getDateModifiedIso(t.slug),
-        images: [`${base}/og/${t.slug}.png`],
-        alternates: { languages: hreflangLanguages(base, t.slug) },
-      })),
-  ]);
-
-  const esBlogRoutes: SitemapItem[] = BLOG_PILOT_LOCALES.flatMap((locale) =>
-    [...ES_BLOG_PILOTS].map((key) => {
-      const [pillar, slug] = key.split("/");
-      const clusters = getClustersForPillar(pillar);
-      const cluster = clusters.find((c) => c.slug === slug);
-      return {
-        url: `${base}/${locale}/blog/${pillar}/${slug}`,
-        lastModified: cluster ? getBlogPostDateModifiedIso(cluster.pillar, cluster.slug, cluster.updated) : SITE_PUBLISHED_ISO,
-        images: [`${base}/og/blog/${pillar}/${slug}.png`],
-        alternates: { languages: blogPilotLanguages(base, pillar, slug) },
-      };
-    })
   );
 
   const allItems: SitemapItem[] = [
@@ -159,8 +104,6 @@ export function sitemap(): SitemapItem[] {
     ...blogIndex,
     ...blogPillars,
     ...blogClusters,
-    ...esPilotRoutes,
-    ...esBlogRoutes,
   ];
 
   return allItems;

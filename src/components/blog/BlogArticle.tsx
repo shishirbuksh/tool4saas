@@ -1,11 +1,8 @@
-import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Breadcrumbs, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
-
+import Link from "@/lib/astro/navigation";
+import { Container, Box, Typography, Breadcrumbs, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
 import { ExpandMore as ExpandMoreIcon } from "@/components/ds/icons";
 import { siteConfig } from "@/lib/site";
 import { liteGetTool } from "@/lib/tools/catalog-lite";
-import { getEsTool } from "@/lib/i18n";
-import { isEsBlogPilot } from "@/lib/i18n";
-import type { Locale } from "@/lib/i18n";
 import { getPillarMeta } from "@/lib/blog-pillars";
 import type { BlogPost } from "@/lib/blog";
 import { blogMetaTitle } from "@/lib/seo-title";
@@ -14,21 +11,17 @@ import {
   getBlogPostDateModifiedIso,
   getBlogPostDatePublishedIso,
 } from "@/lib/dates";
-import EmbeddedTool from "@/components/blog/EmbeddedTool";
 import BlogSources from "@/components/blog/BlogSources";
 import { getGuideCitationUrls } from "@/lib/blog-sources";
 import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import { getBlogYMYLType } from "@/lib/ymyl";
 
-function canonicalFor(post: BlogPost, locale: Locale = "en"): string {
+function canonicalFor(post: BlogPost): string {
   const base = siteConfig.url.replace(/\/$/, "");
-  const prefix = locale === "en" ? "" : `/${locale}`;
-  if (post.kind === "pillar") return `${base}${prefix}/blog/${post.pillar}`;
-  return `${base}${prefix}/blog/${post.pillar}/${post.slug}`;
+  if (post.kind === "pillar") return `${base}/blog/${post.pillar}`;
+  return `${base}/blog/${post.pillar}/${post.slug}`;
 }
 
-// Per-post OG card rendered by /og/blog/[...parts] from the same registry the
-// page renders, so the share image title/description always match the article.
 function blogOgImage(post: BlogPost): string {
   const base = siteConfig.url.replace(/\/$/, "");
   return post.kind === "pillar"
@@ -36,28 +29,17 @@ function blogOgImage(post: BlogPost): string {
     : `${base}/og/blog/${post.pillar}/${post.slug}`;
 }
 
-export function blogMetadataFor(post: BlogPost, locale: Locale = "en") {
-  const canonical = canonicalFor(post, locale);
-  const base = siteConfig.url.replace(/\/$/, "");
-  const enCanonical = canonicalFor(post, "en");
+export function blogMetadataFor(post: BlogPost) {
+  const canonical = canonicalFor(post);
   const publishedIso = getBlogPostDatePublishedIso(post.pillar, post.slug, post.published);
   const modifiedIso = getBlogPostDateModifiedIso(post.pillar, post.slug, post.updated);
-  // Per-post OG: the article's own card from /og/blog/[...parts], so shares
-  // show the guide title instead of reusing the funnel tool's card.
   const ogImage = blogOgImage(post);
   const fullTitle = blogMetaTitle(post.title, post.seoTitle);
-  // Bidirectional hreflang for ES blog pilots (EN <-> /es/blog/...).
-  // Non-pilot posts keep {en, x-default} to avoid pointing at 404s.
-  const languages =
-    locale === "en"
-      ? isEsBlogPilot(post.pillar, post.slug)
-        ? { en: canonical, es: `${base}/es/blog/${post.pillar}/${post.slug}`, "x-default": canonical }
-        : { en: canonical, "x-default": canonical }
-      : { es: canonical, en: enCanonical, "x-default": enCanonical };
+
   return {
     title: { absolute: fullTitle },
     description: post.description,
-    alternates: { canonical, languages },
+    alternates: { canonical, languages: { en: canonical, "x-default": canonical } },
     robots: {
       index: true,
       follow: true,
@@ -65,8 +47,7 @@ export function blogMetadataFor(post: BlogPost, locale: Locale = "en") {
     },
     openGraph: {
       type: "article" as const,
-      locale: locale === "es" ? "es_ES" : siteConfig.locale,
-      ...(locale === "es" ? { alternateLocale: ["en_US"] } : {}),
+      locale: siteConfig.locale,
       url: canonical,
       siteName: siteConfig.name,
       title: fullTitle,
@@ -97,30 +78,24 @@ export function validBlogFaqs(post: BlogPost) {
     : [];
 }
 
-export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: Locale }) {
+export function BlogJsonLd({ post }: { post: BlogPost }) {
   const base = siteConfig.url.replace(/\/$/, "");
-  const canonical = canonicalFor(post, locale);
+  const canonical = canonicalFor(post);
   const publishedIso = getBlogPostDatePublishedIso(post.pillar, post.slug, post.published);
   const modifiedIso = getBlogPostDateModifiedIso(post.pillar, post.slug, post.updated);
-  // Filter malformed/empty FAQs so FAQPage always has Question +
-  // acceptedAnswer Answer text (1:1 with visible copy below).
   const validFaqs = validBlogFaqs(post);
   const ogImage = blogOgImage(post);
   const pillarMeta = getPillarMeta(post.pillar);
-  // ES pilot has no translated pillar page yet: pillar crumb falls back to the
-  // EN pillar URL (exists) instead of a 404 /es/blog/<pillar>.
   const pillarUrl = `${base}/blog/${post.pillar}`;
-  const homeName = locale === "es" ? "Inicio" : "Home";
-  const homeUrl = locale === "es" ? `${base}/es` : `${base}/`;
   const crumbs =
     post.kind === "pillar"
       ? [
-          { "@type": "ListItem", position: 1, name: homeName, item: homeUrl },
+          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
           { "@type": "ListItem", position: 2, name: "Blog", item: `${base}/blog` },
           { "@type": "ListItem", position: 3, name: post.title, item: canonical },
         ]
       : [
-          { "@type": "ListItem", position: 1, name: homeName, item: homeUrl },
+          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
           { "@type": "ListItem", position: 2, name: "Blog", item: `${base}/blog` },
           { "@type": "ListItem", position: 3, name: pillarMeta?.title ?? post.pillar, item: pillarUrl },
           { "@type": "ListItem", position: 4, name: post.title, item: canonical },
@@ -147,14 +122,15 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
   const citations = getGuideCitationUrls(post.pillar);
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [      {
+    "@graph": [
+      {
         "@type": "BlogPosting",
         "@id": `${canonical}#article`,
         headline: post.title,
         description: post.description,
         url: canonical,
         image: ogImage,
-        inLanguage: locale === "es" ? "es" : "en",
+        inLanguage: "en",
         author: authorPerson,
         reviewer: authorPerson,
         publisher: {
@@ -170,33 +146,38 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
         },
         datePublished: publishedIso,
         dateModified: modifiedIso,
-        mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-        // Voice/AEO hook: selectors below match visible classes
-        // (.faq-passage on FAQ answers, .blog-answer-first on the lede).
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": canonical,
+        },
         speakable: {
           "@type": "SpeakableSpecification",
-          cssSelector: [".faq-passage", ".blog-answer-first"],
+          cssSelector: [".blog-answer-first", ".faq-passage", ".howto-passage"],
         },
-        ...(post.keywords.length ? { keywords: post.keywords.join(", ") } : {}),
-        wordCount: post.html ? post.html.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length : undefined,
-        timeRequired: `PT${Math.max(3, post.readingMinutes)}M`,
-        ...(citations.length ? { citation: citations } : {}),
+        ...(citations.length > 0 ? { citation: citations } : {}),
       },
-      { "@type": "BreadcrumbList", itemListElement: crumbs },
-      ...(validFaqs.length
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: crumbs,
+      },
+      ...(validFaqs.length > 0
         ? [
             {
               "@type": "FAQPage",
               mainEntity: validFaqs.map((f) => ({
                 "@type": "Question",
                 name: f.question.trim(),
-                acceptedAnswer: { "@type": "Answer", text: f.answer.trim() },
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: f.answer.trim(),
+                },
               })),
             },
           ]
         : []),
     ],
   };
+
   return (
     <script
       type="application/ld+json"
@@ -207,15 +188,11 @@ export function BlogJsonLd({ post, locale = "en" }: { post: BlogPost; locale?: L
 
 export default function BlogArticle({
   post,
-  locale = "en",
   related: passedRelated,
 }: {
   post: BlogPost;
-  locale?: Locale;
   related?: BlogPost[];
 }) {
-  const base = siteConfig.url.replace(/\/$/, "");
-  void base;
   const pillarMeta = getPillarMeta(post.pillar);
   const related = passedRelated ?? [];
   const primaryTool = post.toolSlugs[0] ? liteGetTool(post.toolSlugs[0]) : undefined;
@@ -230,19 +207,13 @@ export default function BlogArticle({
       : ymylType === "health"
         ? "Health Reviewer"
         : "Tools Reviewer";
-  // ES pilot: primary CTA deep-links /es/<slug> with the native ES title/short
-  // when a transcreation exists; siblings/secondary stay EN (exist only in EN).
-  const esPrimaryTool = locale === "es" && post.toolSlugs[0] ? getEsTool(post.toolSlugs[0]) : undefined;
-  const primaryHref =
-    locale === "es" && esPrimaryTool ? `/es/${post.toolSlugs[0]}` : primaryTool ? `/${primaryTool.slug}` : undefined;
-  const primaryTitle = esPrimaryTool?.title ?? primaryTool?.title ?? "";
-  const primaryShort = esPrimaryTool?.short ?? primaryTool?.short ?? "";
+  const primaryHref = primaryTool ? `/${primaryTool.slug}` : undefined;
 
   return (
     <Container maxWidth="xl" className="py-10 md:py-16 px-4 sm:px-6 lg:px-8">
-      <BlogJsonLd post={post} locale={locale} />
+      <BlogJsonLd post={post} />
       <Breadcrumbs className="mb-4" aria-label="breadcrumb">
-        <Link href={locale === "es" ? "/es" : "/"} style={{ color: "inherit", textDecoration: "none" }}>{locale === "es" ? "Inicio" : "Home"}</Link>
+        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>Home</Link>
         <Link href="/blog" style={{ color: "inherit", textDecoration: "none" }}>Blog</Link>
         {post.kind === "cluster" && pillarMeta && (
           <Link href={`/blog/${post.pillar}`} style={{ color: "inherit", textDecoration: "none" }}>
@@ -262,45 +233,18 @@ export default function BlogArticle({
       </Typography>
       <Box className="flex flex-wrap gap-4 items-center mb-8">
         <Typography variant="body2" color="text.secondary">
-          {locale === "es" ? (
-            <>
-              Por <Link href="/author" style={{ fontWeight: 600 }}>{reviewerRole} ({siteConfig.authorRole})</Link>
-              {" · "}
-              <time dateTime={publishedIso}>Publicado {formatIsoHuman(publishedIso)}</time>
-              {" · Actualizado "}<time dateTime={modifiedIso}>{formatIsoHuman(modifiedIso)}</time>
-              {" · "}{post.readingMinutes} min de lectura
-            </>
-          ) : (
-            <>
-              By <Link href="/author" style={{ fontWeight: 600 }}>{reviewerRole} ({siteConfig.authorRole})</Link>
-              {" · "}
-              <time dateTime={publishedIso}>Published {formatIsoHuman(publishedIso)}</time>
-              {" · Updated "}<time dateTime={modifiedIso}>{formatIsoHuman(modifiedIso)}</time>
-              {" · "}{post.readingMinutes} min read
-            </>
-          )}
+          By <Link href="/author" style={{ fontWeight: 600 }}>{reviewerRole} ({siteConfig.authorRole})</Link>
+          {" · "}
+          <time dateTime={publishedIso}>Published {formatIsoHuman(publishedIso)}</time>
+          {" · Updated "}<time dateTime={modifiedIso}>{formatIsoHuman(modifiedIso)}</time>
+          {" · "}{post.readingMinutes} min read
         </Typography>
-        {/* Visible language toggle mirroring the bidirectional hreflang
-            metadata above: only posts in the ES blog pilot registry render
-            it, so links never point at 404s. ES view links back to EN. */}
-        {isEsBlogPilot(post.pillar, post.slug) && (
-          <Typography variant="body2" color="text.secondary" className="w-full">
-            {locale === "es" ? "Also available in: " : "También disponible en: "}
-            <Link
-              href={locale === "es" ? `/blog/${post.pillar}/${post.slug}` : `/es/blog/${post.pillar}/${post.slug}`}
-              hrefLang={locale === "es" ? "en" : "es"}
-              style={{ fontWeight: 600 }}
-            >
-              {locale === "es" ? "English version →" : "versión en español →"}
-            </Link>
-          </Typography>
-        )}
       </Box>
 
       {/* YMYL disclaimer for financial and health pillars */}
       {ymylType && (
         <Box className="mb-8">
-          <YMYLDisclaimer type={ymylType} locale={locale} />
+          <YMYLDisclaimer type={ymylType} />
         </Box>
       )}
 
@@ -309,37 +253,19 @@ export default function BlogArticle({
         <Box className="p-6 mb-8 rounded-xl border border-base-300 bg-base-100 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
           <Box>
             <Typography variant="h2" className="text-[1.1rem] font-bold mb-1">
-              {locale === "es" ? (
-                <>Pruébala ahora — {primaryTitle}, gratis en tu navegador</>
-              ) : (
-                <>Try it now — {primaryTool.title}, free in your browser</>
-              )}
+              Try it now — {primaryTool.title}, free in your browser
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {locale === "es" ? (
-                <>{primaryShort} · Sin registro · Sin marca de agua · Gratis siempre.</>
-              ) : (
-                <>{primaryTool.short} · No signup · No watermark · Free forever.</>
-              )}
+              {primaryTool.short} · No signup · No watermark · Free forever.
             </Typography>
           </Box>
           <Link
             href={primaryHref}
             className="btn btn-primary min-h-[44px] px-6 rounded-lg text-sm font-semibold tracking-[-0.01em] shadow-sm hover:opacity-90 no-underline whitespace-nowrap"
           >
-            {locale === "es" ? <>Abrir {primaryTitle} →</> : <>Open {primaryTool.title} →</>}
+            Open {primaryTool.title} →
           </Link>
         </Box>
-      )}
-
-      {/* P0-2: working tool embedded in pillar guides (client-only, SSR stays lean) */}
-      {post.kind === "pillar" && primaryTool && (
-        <EmbeddedTool
-          pillar={post.pillar}
-          title={primaryTool.title}
-          short={primaryTool.short}
-          slug={primaryTool.slug}
-        />
       )}
 
       <Box className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-10 items-start">
@@ -350,7 +276,7 @@ export default function BlogArticle({
           {secondaryTools.length > 0 && (
             <Box className="mt-8 p-6 rounded-xl border border-base-300 bg-base-200/50">
               <Typography variant="h2" className="text-[1.1rem] font-bold mb-2">
-                {locale === "es" ? "Herramientas gratis relacionadas" : "Related free tools"}
+                Related free tools
               </Typography>
               <Box className="flex flex-wrap gap-2">
                 {secondaryTools.map((t) => (
@@ -370,7 +296,7 @@ export default function BlogArticle({
           {validFaqs.length > 0 && (
             <Box component="section" className="mt-10">
               <Typography variant="h2" className="text-[1.5rem] md:text-[1.75rem] font-extrabold mb-4">
-                {locale === "es" ? "Preguntas frecuentes" : "Frequently asked questions"}
+                Frequently asked questions
               </Typography>
               {validFaqs.map((f, i) => (
                 <Accordion key={i} elevation={0} className="border border-base-300 before:hidden mb-2 rounded-xl">
@@ -390,24 +316,16 @@ export default function BlogArticle({
           {primaryTool && primaryHref && (
             <Box className="mt-10 p-8 rounded-xl text-center border border-base-300 bg-base-100">
               <Typography variant="h2" className="text-[1.4rem] font-extrabold mb-2">
-                {locale === "es" ? (
-                  <>Terminaste de leer — abre {primaryTitle}</>
-                ) : (
-                  <>Done reading — open the {primaryTool.title}</>
-                )}
+                Done reading — open the {primaryTool.title}
               </Typography>
               <Typography color="text.secondary" className="mb-4">
-                {locale === "es" ? (
-                  <>{primaryShort} — gratis en tu navegador, sin registro.</>
-                ) : (
-                  <>{primaryTool.short} — free in your browser, no signup.</>
-                )}
+                {primaryTool.short} — free in your browser, no signup.
               </Typography>
               <Link
                 href={primaryHref}
                 className="btn btn-primary min-h-[48px] px-8 rounded-lg text-sm font-bold tracking-[-0.01em] shadow-sm hover:opacity-90 no-underline inline-flex items-center"
               >
-                {locale === "es" ? <>Abrir {primaryTitle} →</> : <>Open {primaryTool.title} →</>}
+                Open {primaryTool.title} →
               </Link>
             </Box>
           )}
@@ -417,11 +335,11 @@ export default function BlogArticle({
         {post.toc && post.toc.length > 0 && (
           <Box
             component="nav"
-            aria-label={locale === "es" ? "Índice" : "Table of contents"}
+            aria-label="Table of contents"
             className="order-1 lg:order-2 lg:sticky lg:top-24 p-5 border border-base-300 rounded-xl bg-base-100/90 backdrop-blur-sm"
           >
             <Typography variant="subtitle2" className="font-extrabold mb-3 tracking-[0.04em] uppercase text-[0.75rem] text-base-content/70">
-              {locale === "es" ? "En esta página" : "On this page"}
+              On this page
             </Typography>
             <Box component="ul" className="m-0 p-0 list-none flex flex-col gap-1">
               {post.toc.map((t) => (
@@ -443,7 +361,7 @@ export default function BlogArticle({
       {/* Sibling silo mesh */}
       <Box component="section" className="mt-12 pt-8 border-t border-base-300">
         <Typography variant="h2" className="text-[1.25rem] font-extrabold mb-4">
-          {locale === "es" ? "Sigue leyendo en esta guía" : "Keep reading in this guide"}
+          Keep reading in this guide
         </Typography>
         <Box className="grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr] gap-4">
           {related.map((r) => (
@@ -453,9 +371,7 @@ export default function BlogArticle({
               className="block p-5 rounded-xl border border-base-300 bg-base-100 hover:border-base-content/40 transition-colors no-underline text-inherit"
             >
               <Typography variant="subtitle2" color="primary" className="font-bold mb-1 text-[0.75rem] uppercase tracking-[0.05em]">
-                {r.kind === "pillar"
-                  ? locale === "es" ? "Guía pilar" : "Pillar guide"
-                  : locale === "es" ? "En este bloque" : "In this silo"}
+                {r.kind === "pillar" ? "Pillar guide" : "In this silo"}
               </Typography>
               <Typography variant="h3" className="text-[1rem] font-bold leading-[1.4]">
                 {r.title}

@@ -469,7 +469,8 @@ for (const p of ["contact", "author", "methodology"]) {
   const layout = readRel("src/layouts/BaseLayout.astro");
   const seo = readRel("src/lib/seo.ts");
   const layoutOk =
-    !!layout && layout.includes("resolveTitle");
+    (!!layout && layout.includes("resolveTitle")) ||
+    (!!readRel("src/components/SEO.astro")?.includes("resolveTitle"));
   const metaOk =
     !!seo && seo.includes("siteConfig.name");
   if (layoutOk && metaOk) {

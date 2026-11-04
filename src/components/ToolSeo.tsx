@@ -29,7 +29,7 @@ function renderRichText(text: string): React.ReactNode {
 }
 
 export default function ToolSeo({ view }: { view: ToolView }) {
-  const { tool, locale } = view;
+  const { tool } = view;
   const validFaq = view.validFaq;
   const validHowTo = view.validHowTo;
   const guideSections = view.guideSections;
@@ -39,7 +39,7 @@ export default function ToolSeo({ view }: { view: ToolView }) {
       {validFaq.length > 0 && (
         <>
           <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
-            {locale === "es" ? "Preguntas frecuentes" : locale === "fr" ? "Questions fréquentes" : "Frequently asked questions"}
+            Frequently asked questions
           </Typography>
           {validFaq.map((f, i) => (
             <Accordion
@@ -65,7 +65,7 @@ export default function ToolSeo({ view }: { view: ToolView }) {
       {validHowTo.length > 0 && (
         <Box component="section" className="mt-8">
           <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
-            {locale === "es" ? `Cómo usar ${tool.title}` : locale === "fr" ? `Comment utiliser ${tool.title}` : `How to use ${tool.title}`}
+            How to use {tool.title}
           </Typography>
           <Box component="ol" className="pl-6 text-base-content/70 [&_li]:mb-2">
             {validHowTo.map((s, i) => (
@@ -83,7 +83,7 @@ export default function ToolSeo({ view }: { view: ToolView }) {
       {guideSections.length > 0 && (
         <Box component="section" aria-label="In-depth guide" className="mt-8">
           <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
-            {locale === "es" ? "Guía en profundidad" : locale === "fr" ? "Guide approfondi" : "In-depth guide"}
+            In-depth guide
           </Typography>
           {guideSections.map((entry: unknown, i: number) => {
             if (typeof entry === "string") {

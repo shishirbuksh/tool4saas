@@ -3,12 +3,10 @@ import { Font } from "astro:assets";
 import "@/styles/globals.css";
 import { siteConfig } from "@/lib/site";
 import type { PageMeta } from "@/lib/seo";
-import type { Locale } from "@/lib/i18n-core";
 import SEO from "@/components/SEO.astro";
 
 interface Props {
   meta?: PageMeta;
-  locale?: Locale;
   pathname?: string;
   css?: string;
   ids?: string[];
@@ -17,12 +15,11 @@ interface Props {
 
 const {
   meta = {},
-  locale = "en",
   pathname = "/",
   jsonLd = [],
 } = Astro.props;
 
-const skipLabel = locale === "es" ? "Saltar al contenido" : locale === "fr" ? "Aller au contenu" : "Skip to content";
+const skipLabel = "Skip to content";
 
 const themeScript = `try{var m=localStorage.getItem('color-mode');if(m!=='light'&&m!=='dark')m=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',m==='dark'?'expo-dark':'expo-light');document.documentElement.style.colorScheme=m;var c=m==='dark'?'#0b0b0c':'#ffffff';var q=document.querySelector('meta[name="theme-color"]');if(q)q.setAttribute('content',c);else{var t=document.createElement('meta');t.name='theme-color';t.content=c;document.head.appendChild(t);}}catch(e){}`;
 
@@ -34,7 +31,7 @@ const fundingChoicesBootstrap = `(function(){function s(){if(!window.frames['goo
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -43,8 +40,8 @@ const fundingChoicesBootstrap = `(function(){function s(){if(!window.frames['goo
     <Font cssVariable="--font-inter" preload />
     <Font cssVariable="--font-jetbrains" />
 
-    <!-- Unified SEO: title, description, canonical, robots, OG, Twitter, hreflang & JSON-LD -->
-    <SEO meta={meta} locale={locale} pathname={pathname} jsonLd={jsonLd} />
+    <!-- Unified SEO: title, description, canonical, robots, OG, Twitter & JSON-LD -->
+    <SEO meta={meta} pathname={pathname} jsonLd={jsonLd} />
 
     <link rel="icon" href="/favicon.ico" sizes="48x48" type="image/x-icon" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -52,9 +49,7 @@ const fundingChoicesBootstrap = `(function(){function s(){if(!window.frames['goo
     <link rel="icon" href="/icon-512.png" sizes="512x512" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" type="image/png" />
     <link rel="manifest" href={meta.manifest ?? "/manifest.webmanifest"} />
-    {locale === "en" && (
-      <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} Blog`} href="/rss.xml" />
-    )}
+    <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} Blog`} href="/rss.xml" />
 
     <script is:inline set:html={themeScript} />
     <script is:inline set:html={consentDefault} />

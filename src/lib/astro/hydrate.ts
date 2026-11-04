@@ -1,7 +1,6 @@
 import { createElement } from "react";
 import { hydrateRoot } from "react-dom/client";
 import AppShell from "@/components/AppShell";
-import type { Locale } from "@/lib/i18n-core";
 import { VIEW_REGISTRY } from "./view-registry";
 
 // Hydrate the server-rendered React tree in #app. The view module is loaded
@@ -30,11 +29,10 @@ export async function hydrateApp(): Promise<void> {
 
   const mod = (await loader()) as { default?: unknown };
   const Component = (mod.default ?? mod) as Parameters<typeof createElement>[0];
-  const locale = (container.dataset.locale as Locale) || "en";
   const pathname = container.dataset.pathname || window.location.pathname;
 
   hydrateRoot(
     container,
-    createElement(AppShell, { locale, pathname }, createElement(Component, props)),
+    createElement(AppShell, { pathname }, createElement(Component, props)),
   );
 }

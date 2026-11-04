@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "@/lib/astro/navigation";
 import Drawer from "@/components/ds/Drawer";
 import ToolSearch from "@/components/ToolSearch";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
   ArrowDropDown as ArrowDropDownIcon,
   Brightness4 as Brightness4Icon,
@@ -149,8 +148,7 @@ export default function Header() {
 
         {/* Desktop utilities */}
         <div className="hidden items-center gap-1 lg:flex">
-          <LanguageSwitcher />
-          <div className="w-[208px] shrink-0">
+                    <div className="w-[208px] shrink-0">
             <ToolSearch className="w-full" />
           </div>
           <button
@@ -259,8 +257,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <LanguageSwitcher variant="drawer" onNavigate={() => setOpen(false)} />
-
+        
         <nav aria-label="Categories" className="mt-6">
           <p className="mb-2 px-2 text-[11px] font-bold uppercase tracking-[0.08em] text-base-content/55">
             Categories

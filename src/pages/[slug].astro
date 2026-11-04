@@ -16,7 +16,7 @@ const viewModules = import.meta.glob<{ default: any }>("../views/tools/*.tsx");
 const loadView = viewModules[`../views/tools/${slug}.tsx`];
 if (!loadView) throw new Error(`Missing view module for tool "${slug}"`);
 const View = (await loadView()).default;
-const view = buildToolViewBySlug(slug, "en");
+const view = buildToolViewBySlug(slug);
 ---
 
 <AppPage
@@ -24,7 +24,6 @@ const view = buildToolViewBySlug(slug, "en");
   viewKey={`tools/${slug}`}
   props={{ view }}
   meta={toolMetadata(slug)}
-  locale="en"
   pathname={`/${slug}`}
-  jsonLd={[buildToolJsonLd(view.tool, "en")]}
+  jsonLd={[buildToolJsonLd(view.tool)]}
 />

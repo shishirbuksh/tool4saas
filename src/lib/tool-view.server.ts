@@ -2,30 +2,9 @@ import { getTool, getCategory, tools, NOINDEX_SLUGS } from "@/lib/tools";
 import type { Tool } from "@/lib/tools/types";
 import { getYMYLType } from "@/lib/ymyl";
 import { getDateModifiedIso, getDatePublishedIso, formatIsoHuman } from "@/lib/dates";
-import {
-  getPilotLocales,
-  isPilotSlug,
-  LOCALE_LABEL,
-  type Locale,
-} from "@/lib/i18n-core";
 import { GUIDES_BY_TOOL } from "@/lib/tool-guides";
 import { siteConfig } from "@/lib/site";
 import type { ToolView } from "@/lib/tool-view";
-
-const SWITCHER_LEAD: Record<Locale, string> = {
-  en: "Also available in: ",
-  es: "También disponible en: ",
-  fr: "Aussi disponible en : ",
-};
-
-function switcherLabel(viewLocale: Locale, target: Locale): string {
-  if (target === "en") return viewLocale === "fr" ? "version anglaise" : "English version";
-  return LOCALE_LABEL[target];
-}
-
-function switcherHref(toolSlug: string, target: Locale): string {
-  return target === "en" ? `/${toolSlug}` : `/${target}/${toolSlug}`;
-}
 
 function validFaq(tool: Tool) {
   return Array.isArray(tool.faq)
@@ -54,7 +33,7 @@ function validHowTo(tool: Tool) {
 // Everything a tool page needs, resolved once at build time. The returned
 // object must stay JSON-serializable: it is both SSR input and the hydration
 // payload embedded in #app-props.
-export function buildToolView(tool: Tool, locale: Locale): ToolView {
+export function buildToolView(tool: Tool): ToolView {
   const cat = getCategory(tool.category);
   const validSameCat = tools.filter(
     (t) => t.category === tool.category && !NOINDEX_SLUGS.has(t.slug),
@@ -83,47 +62,30 @@ export function buildToolView(tool: Tool, locale: Locale): ToolView {
     .slice(0, 6)
     .map(({ slug, title, short }) => ({ slug, title, short }));
 
-  const pilotLocales = isPilotSlug(tool.slug) ? getPilotLocales(tool.slug) : [];
-  const localeLinks = (["en", ...pilotLocales] as Locale[])
-    .filter((l) => l !== locale)
-    .map((l) => ({
-      locale: l,
-      label: switcherLabel(locale, l),
-      href: switcherHref(tool.slug, l),
-    }));
-
   const dateModifiedIso = getDateModifiedIso(tool.slug);
   const guide = (tool as unknown as { guide?: unknown }).guide;
   const guideSections: unknown[] = Array.isArray(guide) ? guide : [];
 
   return {
     tool,
-    locale,
     category: cat ? { id: cat.id, label: cat.label } : null,
     seeAlso,
-    switcherLead: SWITCHER_LEAD[locale],
-    localeLinks,
     dateModifiedIso,
     dateModifiedDisplay: formatIsoHuman(dateModifiedIso),
     ymylType: getYMYLType(tool),
     relatedTools,
     relatedToolsHeading: `More ${cat?.label ?? "tools"}`,
-    guides: locale === "es" && tool.slug === "qr-code-generator"
-      ? [
-          { href: "/es/blog/qr-code-generator-guide/qr-code-size-print-guide", title: "Guía de tamaños de códigos QR para impresión y distancia" },
-          ...(GUIDES_BY_TOOL[tool.slug] ?? []).filter((g) => !g.href.includes("qr-code-size-print-guide")),
-        ]
-      : GUIDES_BY_TOOL[tool.slug] ?? [],
+    guides: GUIDES_BY_TOOL[tool.slug] ?? [],
     validFaq: validFaq(tool),
     validHowTo: validHowTo(tool),
     guideSections,
   };
 }
 
-export function buildToolViewBySlug(slug: string, locale: Locale = "en"): ToolView {
+export function buildToolViewBySlug(slug: string): ToolView {
   const tool = getTool(slug);
   if (!tool) throw new Error(`Unknown tool slug: ${slug}`);
-  return buildToolView(tool, locale);
+  return buildToolView(tool);
 }
 
 const CATEGORY_APPLICATION_MAP: Record<string, string> = {
@@ -143,18 +105,17 @@ const CATEGORY_APPLICATION_MAP: Record<string, string> = {
 
 // JSON-LD graph for a tool page. Rendered into <head> by AppPage.astro instead
 // of the body, so it does not need to be part of the hydration payload.
-export function buildToolJsonLd(tool: Tool, locale: Locale) {
+export function buildToolJsonLd(tool: Tool) {
   const cat = getCategory(tool.category);
   const base = siteConfig.url.replace(/\/$/, "");
-  const url = locale === "en" ? `${base}/${tool.slug}` : `${base}/${locale}/${tool.slug}`;
+  const url = `${base}/${tool.slug}`;
   const catUrl = cat ? `${base}/category/${cat.id}` : undefined;
   const datePublished = getDatePublishedIso(tool.slug);
   const dateModified = getDateModifiedIso(tool.slug);
 
   const faq = validFaq(tool);
-  const homeUrl = locale === "en" ? base : `${base}/${locale}`;
   const crumbItems: { name: string; item: string | undefined }[] = [
-    { name: locale === "es" ? "Inicio" : locale === "fr" ? "Accueil" : "Home", item: homeUrl },
+    { name: "Home", item: base },
     ...(cat ? [{ name: cat.label, item: catUrl }] : []),
     { name: tool.title, item: url },
   ];
@@ -174,7 +135,7 @@ export function buildToolJsonLd(tool: Tool, locale: Locale) {
         isAccessibleForFree: true,
         ...(tool.keywords?.length >= 3 ? { featureList: tool.keywords } : {}),
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-        inLanguage: locale,
+        inLanguage: "en",
         author: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
         reviewer: { "@type": "Organization", name: siteConfig.authorRole, url: `${base}/author` },
         datePublished,
@@ -186,7 +147,7 @@ export function buildToolJsonLd(tool: Tool, locale: Locale) {
         url,
         name: tool.title,
         description: tool.description,
-        inLanguage: locale,
+        inLanguage: "en",
         speakable: {
           "@type": "SpeakableSpecification",
           cssSelector: [".speakable-answer-first", ".faq-passage", ".howto-passage", ".tldr-passage"],

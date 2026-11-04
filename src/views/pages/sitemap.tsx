@@ -35,21 +35,12 @@ export interface SitemapGuidePillar {
   clusters: SitemapGuideCluster[];
 }
 
-export interface SitemapPilotItem {
-  slug: string;
-  title: string;
-  locale: "es" | "fr";
-  path: string;
-}
 
 export interface SitemapViewProps extends Record<string, unknown> {
   categories: SitemapCategoryGroup[];
   pillars: SitemapGuidePillar[];
-  pilotsEs: SitemapPilotItem[];
-  pilotsFr: SitemapPilotItem[];
   totalTools: number;
   totalGuides: number;
-  totalPilots: number;
 }
 
 const STATIC_PAGES = [
@@ -72,14 +63,11 @@ const MACHINE_FEEDS = [
 export default function SitemapView({
   categories = [],
   pillars = [],
-  pilotsEs = [],
-  pilotsFr = [],
   totalTools = 125,
   totalGuides = 198,
-  totalPilots = 32,
 }: SitemapViewProps) {
   const [query, setQuery] = useState("");
-  const [activeSection, setActiveSection] = useState<"all" | "tools" | "guides" | "pilots" | "company">("all");
+  const [activeSection, setActiveSection] = useState<"all" | "tools" | "guides" | "company">("all");
 
   const normalizedQuery = query.trim().toLowerCase();
 
@@ -114,20 +102,6 @@ export default function SitemapView({
       .filter((p) => p.title.toLowerCase().includes(normalizedQuery) || p.clusters.length > 0);
   }, [pillars, normalizedQuery]);
 
-  const filteredPilotsEs = useMemo(() => {
-    if (!normalizedQuery) return pilotsEs;
-    return pilotsEs.filter(
-      (p) => p.title.toLowerCase().includes(normalizedQuery) || p.slug.toLowerCase().includes(normalizedQuery)
-    );
-  }, [pilotsEs, normalizedQuery]);
-
-  const filteredPilotsFr = useMemo(() => {
-    if (!normalizedQuery) return pilotsFr;
-    return pilotsFr.filter(
-      (p) => p.title.toLowerCase().includes(normalizedQuery) || p.slug.toLowerCase().includes(normalizedQuery)
-    );
-  }, [pilotsFr, normalizedQuery]);
-
   const totalFilteredTools = filteredCategories.reduce((sum, c) => sum + c.tools.length, 0);
   const totalFilteredGuides = filteredPillars.reduce((sum, p) => sum + p.clusters.length + 1, 0);
 
@@ -141,7 +115,7 @@ export default function SitemapView({
         "@id": `${base}/sitemap`,
         name: "HTML Sitemap — All Tools, Guides & Pages",
         url: `${base}/sitemap`,
-        description: `Complete HTML sitemap directory of Tool4SaaS with ${totalTools} free online tools, ${totalGuides} guides, and ${totalPilots} multilingual pilots.`,
+        description: `Complete HTML sitemap directory of Tool4SaaS with ${totalTools} free online tools, ${totalGuides} guides.`,
         isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
       },
       {
@@ -198,7 +172,7 @@ export default function SitemapView({
           className="max-w-[840px] text-[1rem] md:text-[1.15rem] leading-[1.7] mb-6"
         >
           Explore the full ecosystem of {siteConfig.name}. Access all {totalTools} free browser-based tools
-          grouped across 12 categories, {totalGuides} workflow guides and tutorials, {totalPilots} multilingual pilots,
+          grouped across 12 categories, {totalGuides} workflow guides and tutorials,
           and public feeds.
         </Typography>
 
@@ -207,7 +181,6 @@ export default function SitemapView({
           <Chip label={`${totalTools} Free Tools`} color="primary" variant="outlined" className="font-semibold" />
           <Chip label="12 Categories" variant="outlined" className="font-semibold" />
           <Chip label={`${totalGuides} In-Depth Guides`} variant="outlined" className="font-semibold" />
-          <Chip label={`${totalPilots} Localized Tools (ES & FR)`} variant="outlined" className="font-semibold" />
           <Chip label="Zero Sign-up · Local First" variant="outlined" className="font-semibold" />
         </Stack>
 
@@ -250,7 +223,6 @@ export default function SitemapView({
             { id: "all", label: "Overview", href: "#" },
             { id: "tools", label: `Tools (${totalTools})`, href: "#tools" },
             { id: "guides", label: `Guides (${totalGuides})`, href: "#guides" },
-            { id: "multilingual", label: `Multilingual (${totalPilots})`, href: "#multilingual" },
             { id: "categories", label: "Category Hubs", href: "#categories" },
             { id: "company", label: "Company & Legal", href: "#company" },
             { id: "feeds", label: "Technical Feeds", href: "#feeds" },
@@ -448,128 +420,6 @@ export default function SitemapView({
               </Box>
             </Grid>
           ))}
-        </Grid>
-      </Box>
-
-      {/* SECTION 3: MULTILINGUAL TOOLS */}
-      <Box component="section" id="multilingual" className="mb-20 scroll-mt-[96px]">
-        <Box className="mb-6">
-          <Typography variant="overline" color="primary" className="font-bold">
-            INTERNATIONAL PILOTS
-          </Typography>
-          <Typography component="h2" variant="h2" className="text-[1.8rem] md:text-[2.3rem] font-extrabold">
-            32 Multilingual Tools (Español &amp; Français)
-          </Typography>
-          <Typography variant="body1" color="text.secondary" className="max-w-[760px] mt-2">
-            Localized, native-language editions of our most popular utilities with localized formatting, regional tax
-            support, and translated interfaces.
-          </Typography>
-        </Box>
-
-        <Grid container spacing={4}>
-          {/* Spanish Hub */}
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              className="p-7 rounded-xl border border-base-300 bg-base-100 h-full"
-            >
-              <Box className="flex items-center justify-between mb-4">
-                <Box className="flex items-center gap-3">
-                  <Typography className="text-[1.5rem]" aria-hidden="true">
-                    🇪🇸
-                  </Typography>
-                  <Typography component="h3" variant="h3" className="text-[1.3rem] font-bold">
-                    <Link href="/es" style={{ color: "inherit", textDecoration: "none" }}>
-                      Herramientas en Español
-                    </Link>
-                  </Typography>
-                </Box>
-                <Chip label={`${filteredPilotsEs.length} herramientas`} size="small" variant="outlined" />
-              </Box>
-              <Typography variant="body2" color="text.secondary" className="mb-5">
-                Versiones en español adaptadas para España y Latinoamérica con IVA, IRPF y soporte offline.
-              </Typography>
-              <Grid container spacing={1.5}>
-                {filteredPilotsEs.map((tool) => (
-                  <Grid size={{ xs: 12, sm: 6 }} key={tool.slug}>
-                    <Link
-                      href={tool.path}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        minHeight: 44,
-                        padding: "8px 12px",
-                        borderRadius: "8px",
-                        backgroundColor: "color-mix(in oklab, var(--color-base-content) 5%, transparent)",
-                        textDecoration: "none",
-                        color: "inherit",
-                        fontWeight: 600,
-                        fontSize: "0.875rem",
-                      }}
-                    >
-                      {tool.title}
-                    </Link>
-                  </Grid>
-                ))}
-              </Grid>
-              <Box className="mt-6 pt-4 border-base-300" style={{ borderTop: "1px dashed" }}>
-                <Link href="/es" style={{ fontWeight: 700, fontSize: "0.9rem" }}>
-                  Ver centro en español (/es) →
-                </Link>
-              </Box>
-            </Box>
-          </Grid>
-
-          {/* French Hub */}
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              className="p-7 rounded-xl border border-base-300 bg-base-100 h-full"
-            >
-              <Box className="flex items-center justify-between mb-4">
-                <Box className="flex items-center gap-3">
-                  <Typography className="text-[1.5rem]" aria-hidden="true">
-                    🇫🇷
-                  </Typography>
-                  <Typography component="h3" variant="h3" className="text-[1.3rem] font-bold">
-                    <Link href="/fr" style={{ color: "inherit", textDecoration: "none" }}>
-                      Outils en Français
-                    </Link>
-                  </Typography>
-                </Box>
-                <Chip label={`${filteredPilotsFr.length} outils`} size="small" variant="outlined" />
-              </Box>
-              <Typography variant="body2" color="text.secondary" className="mb-5">
-                Utilitaires en français adaptés pour la France, la Belgique, la Suisse et le Canada.
-              </Typography>
-              <Grid container spacing={1.5}>
-                {filteredPilotsFr.map((tool) => (
-                  <Grid size={{ xs: 12, sm: 6 }} key={tool.slug}>
-                    <Link
-                      href={tool.path}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        minHeight: 44,
-                        padding: "8px 12px",
-                        borderRadius: "8px",
-                        backgroundColor: "color-mix(in oklab, var(--color-base-content) 5%, transparent)",
-                        textDecoration: "none",
-                        color: "inherit",
-                        fontWeight: 600,
-                        fontSize: "0.875rem",
-                      }}
-                    >
-                      {tool.title}
-                    </Link>
-                  </Grid>
-                ))}
-              </Grid>
-              <Box className="mt-6 pt-4 border-base-300" style={{ borderTop: "1px dashed" }}>
-                <Link href="/fr" style={{ fontWeight: 700, fontSize: "0.9rem" }}>
-                  Voir le centre en français (/fr) →
-                </Link>
-              </Box>
-            </Box>
-          </Grid>
         </Grid>
       </Box>
 

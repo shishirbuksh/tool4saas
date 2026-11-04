@@ -8,18 +8,15 @@ import {
   type PageMeta,
 } from "@/lib/seo";
 import { fitMetaTitle, fitMetaDescription } from "@/lib/seo-title";
-import type { Locale } from "@/lib/i18n-core";
 
 interface Props {
   meta?: PageMeta;
-  locale?: Locale;
   pathname?: string;
   jsonLd?: unknown[];
 }
 
 const {
   meta = {},
-  locale = "en",
   pathname = "/",
   jsonLd = [],
 } = Astro.props;
@@ -35,36 +32,13 @@ const rawDescription = meta.description ?? og?.description ?? siteConfig.descrip
 const description = isSpecial ? rawDescription : fitMetaDescription(rawDescription);
 
 const canonical = meta.alternates?.canonical ?? (pathname === "/" ? siteConfig.url : `${siteConfig.url.replace(/\/$/, "")}${pathname}`);
-const languages = meta.alternates?.languages ?? {};
 const robots = meta.robots ?? DEFAULT_ROBOTS;
 const twitter = meta.twitter;
 const ogImages = og?.images ?? [];
 const verification = meta.verification;
 const graphs = jsonLd.filter(Boolean);
 
-// Hreflang rules (Google Search Central):
-// Emit self-referencing hreflang (en, es, fr + x-default) ONLY when a translation actually exists.
-// Single-language pages (e.g. tools with no ES/FR pilots) must NOT declare alternate clusters.
-const rawHreflangs = Object.entries(languages).filter(([_, href]) => Boolean(href));
-const hasTranslation = rawHreflangs.some(([lang]) => lang !== "en" && lang !== "x-default");
-const hreflangEntries = hasTranslation ? rawHreflangs : [];
-
-// Available alternate locales for Open Graph:
-const currentOgLocale = og?.locale ?? (locale === "es" ? "es_ES" : locale === "fr" ? "fr_FR" : "en_US");
-let alternateOgLocales: string[] = [];
-
-if (hasTranslation) {
-  const availableLocales = new Set<string>();
-  for (const [lang] of hreflangEntries) {
-    if (lang === "en" || lang === "x-default") availableLocales.add("en_US");
-    else if (lang === "es") availableLocales.add("es_ES");
-    else if (lang === "fr") availableLocales.add("fr_FR");
-  }
-  availableLocales.delete(currentOgLocale);
-  alternateOgLocales = Array.from(availableLocales);
-} else if (og?.alternateLocale && og.alternateLocale.length > 0) {
-  alternateOgLocales = og.alternateLocale.filter((alt) => alt !== currentOgLocale);
-}
+const currentOgLocale = og?.locale ?? "en_US";
 
 const jsonLdScripts = graphs.map((graph) =>
   JSON.stringify(graph).replace(/</g, "\\u003c")
@@ -87,17 +61,10 @@ const jsonLdScripts = graphs.map((graph) =>
 
 <link rel="canonical" href={canonical} />
 
-{hreflangEntries.map(([hreflang, href]) => (
-  <link rel="alternate" hreflang={hreflang} href={href} />
-))}
-
 {og && (
   <>
     <meta property="og:type" content={og.type ?? "website"} />
     <meta property="og:locale" content={currentOgLocale} />
-    {alternateOgLocales.map((alt) => (
-      <meta property="og:locale:alternate" content={alt} />
-    ))}
     <meta property="og:url" content={og.url ?? canonical} />
     <meta property="og:site_name" content={og.siteName ?? siteConfig.name} />
     <meta property="og:title" content={title} />

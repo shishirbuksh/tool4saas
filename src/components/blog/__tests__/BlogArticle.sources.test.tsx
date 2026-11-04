@@ -8,8 +8,8 @@ const mortgage = getClusterPost("mortgage-calculator-guide", "how-to-calculate-m
 const bmi = getClusterPost("bmi-calculator-guide", "how-bmi-is-calculated")!;
 const pdf = getClusterPost("pdf-merge-guide", "extract-pages-range")!;
 
-function postingJson(post: Parameters<typeof BlogJsonLd>[0]["post"], locale?: string) {
-  const { container } = render(<BlogJsonLd post={post} locale={locale as any} />);
+function postingJson(post: Parameters<typeof BlogJsonLd>[0]["post"]) {
+  const { container } = render(<BlogJsonLd post={post} />);
   const script = container.querySelector('script[type="application/ld+json"]');
   const json = JSON.parse(script!.textContent || "{}");
   return json["@graph"].find((n: any) => n["@type"] === "BlogPosting");

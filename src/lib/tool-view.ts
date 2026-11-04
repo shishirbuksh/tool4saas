@@ -1,5 +1,4 @@
 import type { Tool } from "@/lib/tools/types";
-import type { Locale } from "@/lib/i18n-core";
 import type { YMYLType } from "@/lib/ymyl";
 
 // Serializable view model for a tool page. Built on the server by
@@ -15,11 +14,8 @@ export type ToolLink = {
 
 export type ToolView = {
   tool: Tool;
-  locale: Locale;
   category: { id: string; label: string } | null;
   seeAlso: ToolLink[];
-  switcherLead: string;
-  localeLinks: { locale: Locale; label: string; href: string }[];
   dateModifiedIso: string;
   dateModifiedDisplay: string;
   ymylType: YMYLType | null;

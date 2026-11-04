@@ -5,14 +5,12 @@ import AppShell from "@/components/AppShell";
 import { renderReactPage } from "@/lib/astro/render";
 import { siteJsonLd } from "@/lib/seo/jsonld";
 import type { PageMeta } from "@/lib/seo";
-import type { Locale } from "@/lib/i18n-core";
 
 interface Props {
   View: ComponentType<any>;
   viewKey: string;
   props?: Record<string, unknown>;
   meta?: PageMeta;
-  locale?: Locale;
   pathname?: string;
   jsonLd?: unknown[];
 }
@@ -22,29 +20,27 @@ const {
   viewKey,
   props = {},
   meta = {},
-  locale = "en",
   pathname = "/",
   jsonLd = [],
 } = Astro.props;
 
 const { html, css, ids } = renderReactPage(
-  createElement(AppShell, { locale, pathname }, createElement(View, props)),
+  createElement(AppShell, { pathname }, createElement(View, props)),
 );
 
 // Serialized once for hydration. `<` is escaped so a string in tool copy can
 // never terminate the JSON script tag early.
 const propsJson = JSON.stringify(props).replace(/</g, "\\u003c");
-const isHome = pathname === "/" || pathname === "/es" || pathname === "/fr";
+const isHome = pathname === "/";
 ---
 
 <BaseLayout
   meta={meta}
-  locale={locale}
   pathname={pathname}
   css={css}
   ids={ids}
   jsonLd={isHome ? [siteJsonLd(), ...jsonLd] : jsonLd}
 >
   <script type="application/json" id="app-props" set:html={propsJson} />
-  <div id="app" data-view={viewKey} data-locale={locale} data-pathname={pathname} set:html={html}></div>
+  <div id="app" data-view={viewKey} data-pathname={pathname} set:html={html}></div>
 </BaseLayout>

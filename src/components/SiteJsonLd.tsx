@@ -4,11 +4,8 @@ import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
 import { HOME_GUIDES } from "@/content/home";
 import { HOME_MODIFIED } from "@/lib/edit-dates.generated";
 
-// Site-wide WebSite entity. `inLanguage` is the PRIMARY language (English) and
-// stays constant on every URL: the same `@id` must not report three different
-// languages (that contradicted the entity graph). Translated pages declare
-// their own language on their per-page WebPage/WebApplication/BlogPosting node
-// and via hreflang; `availableLanguage` lists the whole site's locales.
+// Site-wide WebSite entity. inLanguage is English ("en") site-wide.
+// ContactPoint declares availableLanguage: ["English"].
 export default function SiteJsonLd() {
   const base = siteConfig.url.replace(/\/$/, "");
   const jsonLd = {
@@ -35,7 +32,7 @@ export default function SiteJsonLd() {
           contactType: "customer support",
           email: siteConfig.email,
           url: `${base}/contact`,
-          availableLanguage: ["English", "Spanish", "French"],
+          availableLanguage: ["English"],
         },
         ...(siteConfig.sameAs.length ? { sameAs: siteConfig.sameAs } : {}),
       },

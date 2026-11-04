@@ -1,11 +1,10 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
-import { toolMetadata, homeMetadata, staticPageMetadata, localeToolMetadata } from "./metadata";
+import { toolMetadata, homeMetadata, staticPageMetadata } from "./metadata";
 import { tools, getTool } from "./tools";
 import { NOINDEX_SLUGS } from "./tools/noindex";
 import { siteConfig } from "./site";
-import { ES_PILOT_SLUGS, FR_PILOT_SLUGS, getLocaleTool } from "./i18n";
 
 const root = process.cwd();
 const base = siteConfig.url.replace(/\/$/, "");
@@ -67,10 +66,10 @@ describe("SEO metadata", () => {
     expect(canonical).toBe(base);
   });
 
-  it("EN home declares og:locale:alternate for every hub (es/fr)", () => {
+  it("home declares locale en_US and no alternateLocale", () => {
     const og = homeMetadata().openGraph as { locale?: string; alternateLocale?: string[] };
     expect(og.locale).toBe("en_US");
-    expect(og.alternateLocale).toEqual(["es_ES", "fr_FR"]);
+    expect(og.alternateLocale).toBeUndefined();
   });
 
   it("staticPageMetadata /contact canonical is base/contact", () => {
@@ -116,49 +115,19 @@ describe("SEO metadata", () => {
     expect(llms).toContain("/blog/percentage-calculator-guide/percent-of-a-number");
   }, 20000);
 
-  it("never emits a /fr/blog sitemap URL (FR publishes no blog)", async () => {
-    const src = fs.readFileSync(path.join(root, "src", "pages", "sitemap.xml.ts"), "utf8");
-    expect(src).toContain("BLOG_PILOT_LOCALES");
+  it("never emits non-English locale URLs in sitemap (site is English only)", async () => {
     const { default: sitemap } = await import("../pages/sitemap.xml");
     const urls = (sitemap() as { url: string }[]).map((e) => e.url);
-    expect(
-      urls.some((u) => u.includes("/es/blog/qr-code-generator-guide/qr-code-size-print-guide"))
-    ).toBe(true);
-    expect(urls.some((u) => u.includes("/fr/blog/"))).toBe(false);
+    expect(urls.some((u) => u.includes("/es/") || u.endsWith("/es"))).toBe(false);
+    expect(urls.some((u) => u.includes("/fr/") || u.endsWith("/fr"))).toBe(false);
   }, 20000);
 
-  it("EN toolMetadata declares og:locale:alternate for every pilot locale", () => {
+  it("toolMetadata declares no alternateLocale (single-language site)", () => {
     const alts = (slug: string) =>
       (toolMetadata(slug).openGraph as { alternateLocale?: string[] })?.alternateLocale;
-    // invoice-generator and resume-builder are pilots in both es and fr.
-    expect(alts("invoice-generator")).toEqual(["es_ES", "fr_FR"]);
-    expect(alts("resume-builder")).toEqual(["es_ES", "fr_FR"]);
-    // Non-pilot: field omitted.
-    expect(alts("fd-calculator")).toBeUndefined();
-  });
-
-  it("locale tool pages keep og:locale:alternate in sync with pilot overlap", () => {
-    for (const slug of FR_PILOT_SLUGS) {
-      const tool = getLocaleTool("fr", slug)!;
-      const meta = localeToolMetadata(tool, "fr");
-      const alt = meta.openGraph?.alternateLocale ?? [];
-      expect(alt, `FR ${slug} en`).toContain("en_US");
-      expect(alt, `FR ${slug} no self`).not.toContain("fr_FR");
-      if (ES_PILOT_SLUGS.has(slug)) expect(alt, `FR ${slug} should also offer es`).toContain("es_ES");
-    }
-    for (const slug of ES_PILOT_SLUGS) {
-      const tool = getLocaleTool("es", slug)!;
-      const meta = localeToolMetadata(tool, "es");
-      const alt = meta.openGraph?.alternateLocale ?? [];
-      expect(alt, `ES ${slug} en`).toContain("en_US");
-      expect(alt, `ES ${slug} no self`).not.toContain("es_ES");
-      if (FR_PILOT_SLUGS.has(slug)) expect(alt, `ES ${slug} should also offer fr`).toContain("fr_FR");
-    }
-    // Hubs cross-reference each other.
-    const esPage = fs.readFileSync(path.join(root, "src", "pages", "es", "index.astro"), "utf8");
-    const frPage = fs.readFileSync(path.join(root, "src", "pages", "fr", "index.astro"), "utf8");
-    expect(esPage).toContain('alternateLocale: ["en_US", "fr_FR"]');
-    expect(frPage).toContain('alternateLocale: ["en_US", "es_ES"]');
+    expect(alts("invoice-generator")).toBeUndefined();
+    expect(alts("resume-builder")).toBeUndefined();
+    expect(alts("word-counter")).toBeUndefined();
   });
 
   it("SiteJsonLd and ToolSeo conform to Schema.org standards (no speakableSpecification or WebSite availableLanguage)", () => {

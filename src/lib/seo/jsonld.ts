@@ -33,7 +33,7 @@ export function siteJsonLd() {
           contactType: "customer support",
           email: siteConfig.email,
           url: `${base}/contact`,
-          availableLanguage: ["English", "Spanish", "French"],
+          availableLanguage: ["English"],
         },
         ...(siteConfig.sameAs.length ? { sameAs: siteConfig.sameAs } : {}),
       },

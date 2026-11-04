@@ -6,8 +6,6 @@ import { toolsByCategoryCached } from "@/lib/tools";
 import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { BLOG_PILLARS, getClustersForPillar } from "@/lib/blog-registry";
 import { isNoindexCluster } from "@/lib/blog/noindex";
-import { pilotSlugsForLocale } from "@/lib/i18n-core";
-import { getLocaleTool } from "@/lib/i18n";
 import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
 
 // Assemble categories and indexed tools
@@ -49,46 +47,19 @@ const pillarsData = BLOG_PILLARS.map((p) => {
   };
 });
 
-// Assemble Spanish pilots
-const esSlugs = [...pilotSlugsForLocale("es")];
-const pilotsEs = esSlugs.map((slug) => {
-  const t = getLocaleTool("es", slug);
-  return {
-    slug,
-    title: t ? t.title : slug,
-    locale: "es" as const,
-    path: `/es/${slug}`,
-  };
-});
-
-// Assemble French pilots
-const frSlugs = [...pilotSlugsForLocale("fr")];
-const pilotsFr = frSlugs.map((slug) => {
-  const t = getLocaleTool("fr", slug);
-  return {
-    slug,
-    title: t ? t.title : slug,
-    locale: "fr" as const,
-    path: `/fr/${slug}`,
-  };
-});
-
 const totalGuidesCount = pillarsData.reduce((acc, p) => acc + p.clusters.length + 1, 0);
 
 const sitemapProps: SitemapViewProps = {
   categories: categoriesData,
   pillars: pillarsData,
-  pilotsEs,
-  pilotsFr,
   totalTools: VISIBLE_TOOL_COUNT,
   totalGuides: totalGuidesCount,
-  totalPilots: pilotsEs.length + pilotsFr.length,
 };
 
 const meta = staticPageMetadata({
   title: "HTML Sitemap — All Tools, Guides & Pages",
   description:
-    "Complete directory of all 125 free online tools, 198 guides, multilingual pilots and company resources on Tool4SaaS.",
+    "Complete directory of all 125 free online tools, 198 guides and company resources on Tool4SaaS.",
   path: "/sitemap",
 });
 ---
@@ -98,6 +69,5 @@ const meta = staticPageMetadata({
   viewKey="pages/sitemap"
   props={sitemapProps}
   meta={meta}
-  locale="en"
   pathname="/sitemap"
 />

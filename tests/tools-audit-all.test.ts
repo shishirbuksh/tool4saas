@@ -4,7 +4,6 @@ import path from "node:path";
 import { tools, CATEGORIES, ICON_NAMES, getTool } from "@/lib/tools";
 import { buildToolViewBySlug, buildToolJsonLd } from "@/lib/tool-view.server";
 import { getYMYLType } from "@/lib/ymyl";
-import { ES_PILOT_SLUGS, FR_PILOT_SLUGS } from "@/lib/i18n-core";
 
 const projectRoot = path.resolve(".");
 const viewsToolsDir = path.join(projectRoot, "src/views/tools");
@@ -44,10 +43,9 @@ describe("Comprehensive All-Tools & UI/UX Audit", () => {
 
   it("verifies buildToolViewBySlug and buildToolJsonLd succeed for all 127 tools", () => {
     for (const t of tools) {
-      const view = buildToolViewBySlug(t.slug, "en");
+      const view = buildToolViewBySlug(t.slug);
       expect(view).toBeDefined();
       expect(view.tool.slug).toBe(t.slug);
-      expect(view.locale).toBe("en");
       expect(view.category).toBeDefined();
       expect(Array.isArray(view.relatedTools)).toBe(true);
       expect(Array.isArray(view.validFaq)).toBe(true);
@@ -55,29 +53,13 @@ describe("Comprehensive All-Tools & UI/UX Audit", () => {
       expect(Array.isArray(view.validHowTo)).toBe(true);
       expect(view.validHowTo.length).toBeGreaterThanOrEqual(3);
 
-      const jsonLd = buildToolJsonLd(t, "en") as Record<string, any>;
+      const jsonLd = buildToolJsonLd(t) as Record<string, any>;
       const webApp = jsonLd["@graph"]?.find((item: any) => item["@type"] === "WebApplication");
       expect(webApp).toBeDefined();
       expect(webApp.name).toBe(t.title);
       expect(webApp.description).toBe(t.description);
       expect(webApp.applicationCategory).toBeDefined();
       expect(webApp.offers?.price).toBe("0");
-    }
-  });
-
-  it("verifies international pilot tools (ES & FR) resolve properly in buildToolViewBySlug", () => {
-    for (const slug of ES_PILOT_SLUGS) {
-      const view = buildToolViewBySlug(slug, "es");
-      expect(view.locale).toBe("es");
-      expect(view.tool.slug).toBe(slug);
-      expect(view.localeLinks.some((l) => l.locale === "en")).toBe(true);
-    }
-
-    for (const slug of FR_PILOT_SLUGS) {
-      const view = buildToolViewBySlug(slug, "fr");
-      expect(view.locale).toBe("fr");
-      expect(view.tool.slug).toBe(slug);
-      expect(view.localeLinks.some((l) => l.locale === "en")).toBe(true);
     }
   });
 
