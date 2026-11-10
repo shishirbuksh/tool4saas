@@ -22,19 +22,21 @@ export default function HomeHero() {
   return (
     <section
       aria-label="Free online tools"
-      className="relative overflow-hidden border-b border-base-300 pt-14 md:pt-22 pb-16 md:pb-24 dark:[background-image:radial-gradient(900px_380px_at_50%_-8%,_rgba(255,255,255,0.06),_transparent_72%)]" style={{ backgroundImage: "radial-gradient(900px 380px at 50% -8%, rgba(17,17,17,0.05), transparent 72%)" }}
+      className="relative overflow-hidden border-b border-base-300 pt-16 md:pt-24 pb-16 md:pb-24 dark:[background-image:radial-gradient(1000px_480px_at_50%_-12%,_rgba(71,194,255,0.12)_0%,_rgba(13,116,206,0.05)_50%,_transparent_80%)]"
+      style={{
+        backgroundImage:
+          "radial-gradient(1100px 520px at 50% -12%, rgba(207, 231, 255, 0.72) 0%, rgba(168, 200, 232, 0.24) 45%, transparent 75%)",
+      }}
     >
       <Container maxWidth="xl" className="px-4 md:px-8">
         <Stack
           spacing={{ xs: 2.5, md: 3 }}
           className="items-center text-center max-w-[780px] mx-auto"
         >
-          <Typography
-            variant="body2"
-            className="tracking-[0.08em] font-bold text-base-content/70 border border-base-300 px-4 py-1.5 rounded-full bg-base-100"
-          >
+          <div className="inline-flex items-center gap-2 rounded-full border border-base-300 bg-base-100/90 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-base-content/80 shadow-xs">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
             {VISIBLE_TOOL_COUNT} free tools · no sign-up · local-first
-          </Typography>
+          </div>
 
           <Typography
             variant="h1"
@@ -53,19 +55,16 @@ export default function HomeHero() {
 
           <div className="w-full max-w-[620px] pt-1 md:pt-2">
             <ToolSearch
+              id="hero-search"
               variant="hero"
               placeholder={`Search ${VISIBLE_TOOL_COUNT} tools — invoice, JSON, QR code…`}
             />
           </div>
 
-          <div
-            className="flex flex-wrap gap-2 justify-center pt-1"
-          >
+          <div className="flex flex-wrap gap-2 justify-center pt-1">
             {QUICK_LINKS.map((q) => (
               <Link key={q.slug} href={`/${q.slug}`} style={{ textDecoration: "none" }}>
-                <div
-                  className="inline-flex items-center min-h-[44px] px-4 rounded-full border border-base-300 bg-base-100 text-[0.875rem] font-semibold text-base-content hover:border-base-content hover:[transform:translateY(-1px)]" style={{ transition: "border-color 150ms ease, transform 150ms ease" }}
-                >
+                <div className="inline-flex items-center min-h-[38px] px-3.5 rounded-lg border border-base-300 bg-base-100 text-[0.875rem] font-medium text-base-content transition-all hover:border-base-content/30 hover:bg-base-200/50 hover:shadow-xs active:scale-[0.98]">
                   {q.label}
                 </div>
               </Link>

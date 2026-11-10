@@ -39,7 +39,7 @@ const html = `
 <li><strong>Tailor-and-resend speed:</strong> clone the base resume per application in minutes. Tailored resumes get 2–3× more callbacks — speed makes tailoring actually happen.</li>
 </ul>
 <h3>When should you pay for help?</h3>
-<p>The catch? A builder formats; it does not write your bullets or pick your strategy. CXO roles, career pivots with a story to tell, or consistent rejections after 50+ tailored applications — that is when a professional writer or coach earns the fee. For everyone else, the builder and the <a href="/blog/resume-builder-guide/ats-resume-guide">ATS guide</a> in this silo covers 90% of the game.</p>
+<p>The catch? A builder formats; it does not write your bullets or pick your strategy. CXO roles, career pivots with a story to tell, or consistent rejections after 50+ tailored applications — that is when a professional writer or coach earns the fee. For everyone else, the builder and the <a href="/blog/resume-builder-guide/ats-resume-guide">ATS guide</a> in this guide covers 90% of the game.</p>
 
 <h2 id="what-to-include">What to include: the anatomy of a resume that gets callbacks</h2>
 <p>Recruiters scan in an F-pattern: name, current role, then bullets. The same sections decide callbacks. Bold each of these on your page.</p>

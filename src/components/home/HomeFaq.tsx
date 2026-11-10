@@ -28,20 +28,20 @@ export default function HomeFaq() {
           <details
             key={f.q}
             open={i === 0}
-            className="mb-2 px-4 md:px-5 py-3.5 md:py-4 rounded-xl border border-base-300 bg-base-100 [&[open]]:border-[rgba(0,0,0,0.16)] dark:[&_[open]]:border-[rgba(255,255,255,0.2)]" style={{ contentVisibility: "auto", containIntrinsicSize: "auto 64px" }}
+            className="collapse collapse-arrow mb-3 rounded-xl border border-base-300 bg-base-100 transition-colors hover:border-base-content/20"
+            style={{ contentVisibility: "auto", containIntrinsicSize: "auto 64px" }}
           >
-            <Typography
-              component="summary"
-              className="text-[0.9375rem] md:text-[1rem] font-semibold cursor-pointer leading-[1.4] focus-visible:[outline:3px_solid] focus-visible:[outline-offset:4px]"
-            >
+            <summary className="collapse-title text-[0.9375rem] md:text-[1rem] font-semibold cursor-pointer py-4 px-5 list-none select-none [&::-webkit-details-marker]:hidden">
               {f.q}
-            </Typography>
-            <Typography
-              color="text.secondary"
-              className="speakable-faq-answer leading-[1.7] mt-2 text-[0.875rem] md:text-[0.9375rem]"
-            >
-              {f.a}
-            </Typography>
+            </summary>
+            <div className="collapse-content px-5 pb-4 pt-0">
+              <Typography
+                color="text.secondary"
+                className="speakable-faq-answer leading-[1.7] text-[0.875rem] md:text-[0.9375rem]"
+              >
+                {f.a}
+              </Typography>
+            </div>
           </details>
         ))}
       </Container>

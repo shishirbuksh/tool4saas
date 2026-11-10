@@ -7,7 +7,7 @@ import { CATEGORIES } from "@/lib/tools/categories";
 import { NOINDEX_SLUGS } from "@/lib/tools/noindex";
 import { liteToolsByCategory } from "@/lib/tools/catalog-lite";
 
-const CATEGORY_ICONS: Record<string, ComponentType<{ fontSize?: "small" | "medium" | "large"; className?: string }>> = {
+export const CATEGORY_ICONS: Record<string, ComponentType<{ fontSize?: "small" | "medium" | "large"; className?: string }>> = {
   "text-documents": TextSnippetIcon,
   business: ReceiptLongIcon,
   developer: CodeIcon,
@@ -61,11 +61,11 @@ export default function HomeCategories() {
                   style={{ textDecoration: "none", color: "inherit", display: "block", height: "100%" }}
                 >
                   <div
-                    className="h-full min-h-[84px] flex items-center gap-3 p-3.5 md:p-4 rounded-xl border border-base-300 bg-base-100 hover:[transform:translateY(-2px)] hover:border-[rgba(0,0,0,0.14)] hover:[box-shadow:0_0_0_1px_rgba(0,0,0,0.06),_0_8px_24px_rgba(34,29,29,0.07)] dark:bg-base-100 dark:[&_:hover]:border-[rgba(255,255,255,0.18)] dark:[&_:hover]:[box-shadow:0_0_0_1px_rgba(255,255,255,0.06),_0_8px_24px_rgba(0,0,0,0.4)] active:[transform:scale(0.99)]" style={{ transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms ease, box-shadow 200ms ease" }}
+                    className="h-full min-h-[80px] flex items-center gap-3.5 p-3.5 md:p-4 rounded-xl border border-base-300 bg-base-100 transition-all duration-150 hover:-translate-y-0.5 hover:border-base-content/25 hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] active:scale-[0.99]"
                   >
                     <div
                       aria-hidden="true"
-                      className="flex-[0_0_auto] w-10 h-10 rounded-xl grid bg-base-content/5 text-base-content dark:bg-base-content/10" style={{ placeItems: "center" }}
+                      className="flex-[0_0_auto] w-10 h-10 rounded-xl grid place-items-center bg-base-200 text-base-content"
                     >
                       <Icon fontSize="small" />
                     </div>

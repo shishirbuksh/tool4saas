@@ -362,24 +362,39 @@ export default function BlogArticle({
         )}
       </div>
 
-      {/* Sibling silo mesh */}
+      {/* Sibling guide navigation */}
       <section className="mt-12 pt-8 border-t border-base-300">
-        <Typography variant="h2" className="text-[1.25rem] font-extrabold mb-4">
-          Keep reading in this guide
-        </Typography>
+        <div className="flex items-center justify-between mb-4">
+          <Typography variant="h2" className="text-[1.25rem] font-bold tracking-[-0.015em] text-base-content m-0">
+            Keep reading in this guide
+          </Typography>
+          <span className="text-xs font-mono text-base-content/50 uppercase tracking-wider">
+            {related.length} Related
+          </span>
+        </div>
         <div className="grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr] gap-4">
           {related.map((r) => (
             <Link
               key={`${r.pillar}/${r.slug}`}
               href={r.kind === "pillar" ? `/blog/${r.pillar}` : `/blog/${r.pillar}/${r.slug}`}
-              className="block p-5 rounded-xl border border-base-300 bg-base-100 hover:border-base-content/40 transition-colors no-underline text-inherit"
+              className="group flex flex-col p-5 rounded-xl border border-base-300 bg-base-100 hover:border-base-content/30 hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] hover:-translate-y-0.5 transition-all duration-150 no-underline text-inherit"
             >
-              <Typography variant="subtitle2" color="primary" className="font-bold mb-1 text-[0.75rem] uppercase tracking-[0.05em]">
-                {r.kind === "pillar" ? "Pillar guide" : "In this silo"}
-              </Typography>
-              <Typography variant="h3" className="text-[1rem] font-bold leading-[1.4]">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-base-content/50 group-hover:text-base-content transition-colors">
+                  {r.kind === "pillar" ? "Overview Guide" : "Chapter"}
+                </span>
+              </div>
+              <h3 className="text-[1rem] font-bold leading-[1.4] text-base-content group-hover:text-base-content line-clamp-2 mb-3">
                 {r.title}
-              </Typography>
+              </h3>
+              <div className="mt-auto pt-3 flex items-center justify-between text-xs text-base-content/50 border-t border-base-200/70">
+                <span className="font-medium text-base-content/60 group-hover:text-base-content transition-colors">
+                  {r.kind === "pillar" ? "Read full guide" : "Read chapter"}
+                </span>
+                <span className="text-sm font-semibold opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-base-content" aria-hidden="true">
+                  →
+                </span>
+              </div>
             </Link>
           ))}
         </div>

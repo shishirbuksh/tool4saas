@@ -3,6 +3,9 @@ import { siteConfig } from "@/lib/site";
 export function GET() {
   const base = siteConfig.url.replace(/\/$/, "");
   const aiBots = [
+    "Googlebot",
+    "Googlebot-Image",
+    "Mediapartners-Google",
     "GPTBot",
     "ChatGPT-User",
     "OAI-SearchBot",

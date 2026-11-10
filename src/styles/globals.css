@@ -191,6 +191,15 @@
     color: inherit;
   }
 
+  /* Expo Design System: Hide default browser disclosure markers (▶) across all engines */
+  details summary {
+    list-style: none;
+  }
+  details summary::-webkit-details-marker,
+  details summary::marker {
+    display: none !important;
+  }
+
   ::selection {
     background: color-mix(in oklab, var(--color-base-content) 16%, transparent);
   }

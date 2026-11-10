@@ -1,11 +1,18 @@
 import { createElement } from "react";
 import { hydrateRoot } from "react-dom/client";
-import AppShell from "@/components/AppShell";
+import ThemeProviderClient from "@/components/ThemeProviderClient";
+import { PathnameProvider } from "@/lib/astro/navigation";
 import { VIEW_REGISTRY } from "./view-registry";
 
-// Hydrate the server-rendered React tree in #app. The view module is loaded
-// from a generated registry so Astro/Vite can code-split one chunk per page.
-// Pure DaisyUI + Tailwind CSS requires zero Emotion cache hydration overhead.
+/**
+ * Hydrate the interactive view inside `#app`.
+ *
+ * The page shell (header/footer/consent) is static HTML handled by
+ * src/lib/shell; only the view subtree is React. The view module is loaded from
+ * a generated registry so Astro/Vite can code-split one chunk per page, and
+ * this whole module is dynamically imported by the shell so react-dom is never
+ * fetched on pages that do not hydrate.
+ */
 export async function hydrateApp(): Promise<void> {
   const container = document.getElementById("app");
   if (!container) return;
@@ -33,6 +40,13 @@ export async function hydrateApp(): Promise<void> {
 
   hydrateRoot(
     container,
-    createElement(AppShell, { pathname }, createElement(Component, props)),
+    createElement(PathnameProvider, {
+      value: pathname,
+      children: createElement(
+        ThemeProviderClient,
+        null,
+        createElement(Component, props),
+      ),
+    }),
   );
 }

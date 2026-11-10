@@ -71,7 +71,7 @@ const html = `
 <li><a href="/blog/signature-maker-guide/transparent-signature-png">Transparent signature PNG</a> explains checkerboards, clean edges and the JPG trap.</li>
 <li><a href="/blog/signature-maker-guide/sign-pdf-without-printing">Sign a PDF without printing</a> walks through placing the image in a PDF.</li>
 <li><a href="/blog/signature-maker-guide/signature-for-exam-forms">Signature for exam forms</a> covers strict form boxes and upload rules.</li>
-<li>The <a href="/blog/signature-maker-guide">signature maker guide</a> connects every post in this silo.</li>
+<li>The <a href="/blog/signature-maker-guide">signature maker guide</a> connects every post in this guide.</li>
 </ul>
 <div class="cta-box"><strong>Get the dimensions right:</strong> make the signature first in the <a href="/signature-maker">free signature maker</a>, then resize or compress a copy with the <a href="/image-compressor">image compressor</a> if a document or portal demands a specific size. Both tools run locally with no account.</div>
 `;

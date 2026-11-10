@@ -21,7 +21,7 @@ export default function GuidesView() {
         name: "All Guides & Tutorials",
         url: `${base}/guides`,
         description:
-          "Complete index of every Tool4SaaS pillar guide and tutorial, grouped by topic silo.",
+          "Complete index of every Tool4SaaS pillar guide and tutorial, grouped by topic series.",
         isPartOf: { "@type": "WebSite", "@id": `${base}#website` },
         mainEntity: {
           "@type": "ItemList",
@@ -54,8 +54,8 @@ export default function GuidesView() {
         Every guide, one index
       </Typography>
       <Typography color="text.secondary" className="max-w-[760px] mb-6 text-[1.1rem] leading-[1.7]">
-        All {totalGuides} guides across {sections.length} topic silos, each one written around a single job: the pillar
-        covers the broad workflow, and every tutorial solves one specific task. Find your silo below, or start at the{" "}
+        All {totalGuides} guides across {sections.length} core topics, each one written around a single job: the pillar
+        covers the broad workflow, and every tutorial solves one specific task. Find your topic below, or start at the{" "}
         <Link href="/blog">blog home</Link>.
       </Typography>
 

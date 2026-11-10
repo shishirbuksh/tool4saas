@@ -77,45 +77,67 @@ export default function ToolCard({ tool, dense = false }: { tool: LiteTool; dens
     <a
       href={`/${tool.slug}`}
       aria-label={`Open ${tool.title} tool`}
-      className={`card group relative h-full overflow-hidden border border-base-300 bg-base-100 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-base-content/20 hover:shadow-[0_12px_32px_rgba(17,17,17,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content active:scale-[0.99] ${
-        dense ? "rounded-xl" : "rounded-xl"
-      }`}
+      className={`card group relative h-full overflow-hidden border border-base-300 bg-base-100 no-underline transition-all duration-150 hover:-translate-y-0.5 hover:border-base-content/25 hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content active:scale-[0.99] rounded-xl flex flex-col`}
       style={{ contentVisibility: "auto", containIntrinsicSize: dense ? "0 96px" : "0 220px" }}
     >
-      <div className={`card-body flex ${dense ? "flex-row items-center gap-3 p-3.5" : "flex-col gap-0 p-5 sm:p-6"}`}>
-        <span
-          aria-hidden="true"
-          className="flex shrink-0 items-center justify-center rounded-xl border border-black/5 bg-[var(--tint-bg)] text-[var(--tint-fg)] dark:border-white/10 dark:bg-white/5 dark:text-base-content"
-          style={
-            {
-              "--tint-bg": tint.bg,
-              "--tint-fg": tint.fg,
-              width: dense ? 38 : 52,
-              height: dense ? 38 : 52,
-            } as React.CSSProperties
-          }
-        >
-          <Icon size={dense ? 20 : 26} />
-        </span>
+      <div className={`card-body flex flex-col h-full ${dense ? "gap-2 p-3.5" : "gap-0 p-5"}`}>
+        {dense ? (
+          <div className="flex items-center gap-3">
+            <span
+              aria-hidden="true"
+              className="flex shrink-0 items-center justify-center rounded-lg border border-black/5 bg-[var(--tint-bg)] text-[var(--tint-fg)] dark:border-white/10 dark:bg-white/5 dark:text-base-content"
+              style={
+                {
+                  "--tint-bg": tint.bg,
+                  "--tint-fg": tint.fg,
+                  width: 38,
+                  height: 38,
+                } as React.CSSProperties
+              }
+            >
+              <Icon size={20} />
+            </span>
+            <div className="min-w-0">
+              <h3 className="m-0 line-clamp-1 font-semibold text-[0.9375rem] leading-[1.3] tracking-[-0.015em] text-base-content">
+                {tool.title}
+              </h3>
+              <p className="m-0 mt-0.5 line-clamp-1 text-[0.8125rem] leading-[1.4] text-base-content/60">
+                {tool.short}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <>
+            <span
+              aria-hidden="true"
+              className="flex shrink-0 items-center justify-center rounded-lg border border-black/5 bg-[var(--tint-bg)] text-[var(--tint-fg)] dark:border-white/10 dark:bg-white/5 dark:text-base-content"
+              style={
+                {
+                  "--tint-bg": tint.bg,
+                  "--tint-fg": tint.fg,
+                  width: 44,
+                  height: 44,
+                } as React.CSSProperties
+              }
+            >
+              <Icon size={22} />
+            </span>
 
-        <div className={dense ? "min-w-0" : "mt-4"}>
-          <h3
-            className={`m-0 line-clamp-2 text-balance font-semibold tracking-[-0.015em] text-base-content ${
-              dense ? "text-[0.9375rem] leading-[1.3]" : "text-[1.0625rem] leading-[1.35] sm:text-[1.1875rem]"
-            }`}
-          >
-            {tool.title}
-          </h3>
-          <p
-            className={`m-0 text-base-content/60 ${
-              dense
-                ? "mt-0.5 line-clamp-1 text-[0.8125rem] leading-[1.4] max-sm:hidden"
-                : "mt-1.5 line-clamp-2 text-[0.875rem] leading-[1.5]"
-            }`}
-          >
-            {tool.short}
-          </p>
-        </div>
+            <div className="mt-3.5 min-w-0">
+              <h3 className="m-0 line-clamp-2 text-balance font-semibold tracking-[-0.015em] text-base-content text-[1.0625rem] leading-[1.35]">
+                {tool.title}
+              </h3>
+              <p className="m-0 mt-1.5 line-clamp-2 text-[0.84375rem] leading-[1.55] text-base-content/65">
+                {tool.short}
+              </p>
+            </div>
+
+            <div className="mt-auto pt-4 flex items-center justify-between text-[11px] font-medium text-base-content/40 group-hover:text-base-content/75 transition-colors border-t border-base-200/80">
+              <span className="uppercase tracking-[0.06em]">Free · In browser</span>
+              <span className="text-xs font-semibold opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-base-content" aria-hidden="true">→</span>
+            </div>
+          </>
+        )}
       </div>
     </a>
   );

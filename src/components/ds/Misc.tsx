@@ -141,38 +141,43 @@ export const ToggleButton = forwardRef<
 });
 
 export const Accordion = forwardRef<
-  HTMLDivElement,
-  HTMLAttributes<HTMLDivElement> & {
+  HTMLDetailsElement,
+  React.DetailsHTMLAttributes<HTMLDetailsElement> & {
     expanded?: boolean;
     onChange?: any;
     elevation?: number;
     variant?: "elevation" | "outlined";
   }
 >(function Accordion(
-  { expanded, onChange, elevation: _elevation, variant: _variant, className = "", style, children, ...props },
+  { expanded, open, onChange, elevation: _elevation, variant: _variant, className = "", style, children, ...props },
   ref
 ) {
   return (
-    <div
+    <details
       ref={ref}
-      className={`collapse collapse-arrow bg-base-200/50 rounded-xl mb-2 border border-base-300 ${className}`}
+      open={open ?? expanded}
+      className={`collapse collapse-arrow bg-base-100 rounded-xl mb-3 border border-base-300 transition-colors hover:border-base-content/20 ${className}`}
       style={style}
       {...props}
     >
       {children}
-    </div>
+    </details>
   );
 });
 
 export const AccordionSummary = forwardRef<
-  HTMLDivElement,
-  HTMLAttributes<HTMLDivElement> & { expandIcon?: ReactNode }
->(function AccordionSummary({ expandIcon, className = "", style, children, ...props }, ref) {
+  HTMLElement,
+  React.HTMLAttributes<HTMLElement> & { expandIcon?: ReactNode }
+>(function AccordionSummary({ expandIcon: _expandIcon, className = "", style, children, ...props }, ref) {
   return (
-    <div ref={ref} className={`collapse-title font-medium text-base ${className}`} style={style} {...props}>
+    <summary
+      ref={ref}
+      className={`collapse-title font-semibold text-[0.9375rem] md:text-[1rem] py-4 px-5 cursor-pointer list-none select-none [&::-webkit-details-marker]:hidden ${className}`}
+      style={style}
+      {...props}
+    >
       {children}
-      {expandIcon ? <span className="ml-2 inline-flex">{expandIcon}</span> : null}
-    </div>
+    </summary>
   );
 });
 
@@ -181,7 +186,7 @@ export const AccordionDetails = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDi
     return (
       <div
         ref={ref}
-        className={`collapse-content text-sm text-base-content/80 ${className}`}
+        className={`collapse-content text-sm text-base-content/75 px-5 pb-5 pt-0 leading-relaxed ${className}`}
         style={style}
         {...props}
       >

@@ -54,21 +54,26 @@ describe("adsense readiness (static)", () => {
     expect(src).toContain("analytics_storage: 'denied'");
   });
 
-  it("layout and app shell gate Google scripts safely", () => {
+  it("layout and page shell gate Google scripts safely", () => {
     const base = read(path.join("src", "layouts", "BaseLayout.astro"));
     expect(base).not.toContain("googletagmanager.com/gtag/js");
     expect(base).not.toContain("pagead2.googlesyndication.com");
+    // The static shell must not inject Google scripts directly either; it only
+    // wires the consent gate, which decides at runtime.
     const shell = read(path.join("src", "components", "AppShell.tsx"));
-    expect(shell).toContain("ConsentGatedGoogleScripts");
+    expect(shell).not.toContain("pagead2.googlesyndication.com");
+    expect(read(path.join("src", "lib", "shell", "index.ts"))).toContain("initConsentGate");
   });
 
-  it("ConsentGatedGoogleScripts gates on stored consent + split grants", () => {
-    const src = read(path.join("src", "components", "ConsentGatedGoogleScripts.tsx"));
+  it("consent gate loads Google scripts only from stored consent + split grants", () => {
+    const src = read(path.join("src", "lib", "shell", "consent-gate.ts"));
     expect(src).toContain("t4s:consent-updated");
-    expect(src).toContain("t4s-consent-v1");
+    // Storage key is shared with the banner via CONSENT_KEY.
+    expect(src).toContain("CONSENT_KEY");
+    expect(read(path.join("src", "lib", "shell", "consent.ts"))).toContain("t4s-consent-v1");
     expect(src).toContain("analytics_storage");
     expect(src).toContain("ad_storage");
-    expect(src).toContain("AdSenseScript");
+    expect(src).toContain("adsbygoogle.js?client=");
   });
 
   it("site GA ID is env-overridable with safe fallback", () => {
@@ -83,17 +88,19 @@ describe("adsense readiness (static)", () => {
     expect(src).toContain("fundingchoices");
   });
 
-  it("CookieConsent uses t4s-consent-v1, Save choices, and honours GPC", () => {
-    const src = read(path.join("src", "components", "CookieConsent.tsx"));
-    expect(src).toContain("t4s-consent-v1");
-    expect(src).toContain("Save choices");
-    expect(src).toContain("globalPrivacyControl");
+  it("cookie banner keeps t4s-consent-v1, Save choices, and honours GPC", () => {
+    const banner = read(path.join("src", "components", "CookieConsent.tsx"));
+    expect(banner).toContain("Save choices");
+    const consent = read(path.join("src", "lib", "shell", "consent.ts"));
+    expect(consent).toContain("t4s-consent-v1");
+    expect(consent).toContain("globalPrivacyControl");
   });
 
   it("AdSense uses the Auto Ads page-level loader (no manual slots)", () => {
-    const script = read(path.join("src", "components", "AdSenseScript.tsx"));
+    const script = read(path.join("src", "lib", "shell", "consent-gate.ts"));
     expect(script).toContain("adsbygoogle.js?client=");
-    expect(script).toContain("return null");
+    // Loader is skipped entirely when no publisher id is configured.
+    expect(script).toContain("ADSENSE_CLIENT");
     // Manual ad units were removed in favor of Auto Ads.
     expect(exists(path.join("src", "components", "AdSlot.tsx"))).toBe(false);
   });
@@ -146,8 +153,8 @@ describe("adsense readiness (static)", () => {
   it("AdSense IDs fail closed on placeholders (no fake client/FC id reaches markup)", () => {
     const site = read(path.join("src", "lib", "site.ts"));
     expect(site).toContain("ca-pub-\\d{16}");
-    const script = read(path.join("src", "components", "AdSenseScript.tsx"));
-    expect(script).toContain("return null");
+    const script = read(path.join("src", "lib", "shell", "consent-gate.ts"));
+    expect(script).toContain("adsOk && ADSENSE_CLIENT");
   });
 
   it("llms.txt links Contact/Author/Terms + all 12 category hubs when present (skip if missing)", () => {

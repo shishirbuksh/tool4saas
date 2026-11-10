@@ -10,7 +10,7 @@ const html = `
 
 <h2 id="verifiable">Numbers, dates and entities that verify</h2>
 <ul>
-<li><strong>Quantify claims:</strong> “55 characters near 540px” cites; “keep titles short” doesn't. Every number in this silo carries units, dates or versions.</li>
+<li><strong>Quantify claims:</strong> “55 characters near 540px” cites; “keep titles short” doesn't. Every number in this guide carries units, dates or versions.</li>
 <li><strong>Date-stamp freshness:</strong> FY 2026-27 slabs, 87A thresholds, version numbers — retrieval systems weight recency, and dated facts beat timeless vagueness (see <a href="/blog/sip-calculator-guide/old-vs-new-regime-2026">regime dating</a>).</li>
 <li><strong>Named entities:</strong> 115BAC, Section 87A, UPSC, CIBIL, RFC 4648 — entities anchor passages in knowledge graphs; generic advice floats.</li>
 <li><strong>Quote-able definitions:</strong> one sentence that stands alone (“Base64 inflates ~33%”) travels; paragraphs needing context don't.</li>

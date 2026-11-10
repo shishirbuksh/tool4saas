@@ -84,7 +84,7 @@ const html = `
 </ol>
 <p>Before sending anything, view the placed signature at 100 percent zoom and at print size. Check that no letter is clipped, that the baseline sits naturally, and that the ink contrasts with the page. Then open the PNG once more to confirm the background is transparent. A clean checkerboard in the preview and a clean page in the document are the two signs that the export worked. A few seconds of checking at the destination prevents most rework.</p>
 
-<h2 id="silo-map">All signature guides in this silo</h2>
+<h2 id="series-map">All signature guides in this series</h2>
 <p>Each guide below solves one part of the job. Start with the creation walkthrough, then follow the size and transparency guides as your documents demand.</p>
 <ul>
 <li><a href="/blog/signature-maker-guide/how-to-create-signature-online">How to create a signature online</a> — the drawing, typing and export workflow.</li>
@@ -109,7 +109,7 @@ const toc = [
   { id: "limits-and-privacy", text: "What the tool does not do", level: 2 as const },
   { id: "workflow", text: "A repeatable workflow with examples", level: 2 as const },
   { id: "mistakes", text: "Common mistakes and a final check", level: 2 as const },
-  { id: "silo-map", text: "All signature guides in this silo", level: 2 as const },
+  { id: "series-map", text: "All signature guides in this series", level: 2 as const },
 ];
 
 export const signaturePillar: BlogPost = {

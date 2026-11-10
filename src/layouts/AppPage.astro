@@ -13,6 +13,11 @@ interface Props {
   meta?: PageMeta;
   pathname?: string;
   jsonLd?: unknown[];
+  /**
+   * Hydrate the view with React. Only interactive views need this; static
+   * content pages ship no React at all (the shell is vanilla JS).
+   */
+  hydrate?: boolean;
 }
 
 const {
@@ -22,10 +27,13 @@ const {
   meta = {},
   pathname = "/",
   jsonLd = [],
+  hydrate = false,
 } = Astro.props;
 
+// The whole document body (shell + view) is rendered to static HTML here. The
+// `#app` subtree is the only part React may later hydrate.
 const { html, css, ids } = renderReactPage(
-  createElement(AppShell, { pathname }, createElement(View, props)),
+  createElement(AppShell, { pathname, viewKey, hydrate }, createElement(View, props)),
 );
 
 // Serialized once for hydration. `<` is escaped so a string in tool copy can
@@ -42,5 +50,5 @@ const isHome = pathname === "/";
   jsonLd={isHome ? [siteJsonLd(), ...jsonLd] : jsonLd}
 >
   <script type="application/json" id="app-props" set:html={propsJson} />
-  <div id="app" data-view={viewKey} data-pathname={pathname} set:html={html}></div>
+  <Fragment set:html={html} />
 </BaseLayout>

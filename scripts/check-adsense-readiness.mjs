@@ -186,13 +186,13 @@ if (envText == null) {
       ? "FC script rendered from NEXT_PUBLIC_FUNDING_CHOICES_ID (off when unset)"
       : "BaseLayout.astro does not render the Funding Choices script"
   );
-  // 2c. Auto Ads loader: AdSenseScript must be the page-level tag (client param).
-  const ads = readRel("src/components/AdSenseScript.tsx");
+  // 2c. Auto Ads loader: consent-gate.ts must be the page-level tag (client param).
+  const ads = readRel("src/lib/shell/consent-gate.ts");
   const autoAds = !!ads && ads.includes("adsbygoogle.js?client=");
   add(
-    "Auto Ads loader (AdSenseScript)",
+    "Auto Ads loader (consent-gate)",
     autoAds ? "PASS" : "FAIL",
-    autoAds ? "page-level adsbygoogle.js?client= loader present" : "AdSenseScript.tsx loader missing"
+    autoAds ? "page-level adsbygoogle.js?client= loader present" : "consent-gate.ts loader missing"
   );
 }
 
@@ -296,29 +296,34 @@ for (const p of ["contact", "author", "methodology"]) {
       add("layout consent-default", "FAIL", `layout.tsx missing: ${missing}`);
     }
     // 6b. No unconditional Google fetch in layout (privacy H1): gtag/js and
-    // adsbygoogle must load only via ConsentGatedGoogleScripts after consent.
+    // adsbygoogle must load only via the consent gate after consent.
     const hasUnconditionalGa =
       layout.includes("googletagmanager.com/gtag/js") ||
       layout.includes("pagead2.googlesyndication.com");
     const appShell = readRel("src/components/AppShell.tsx");
-    const hasLoader = appShell && appShell.includes("ConsentGatedGoogleScripts");
+    const shellEntry = readRel("src/lib/shell/index.ts");
+    const hasLoader =
+      appShell != null &&
+      shellEntry != null &&
+      shellEntry.includes("initConsentGate") &&
+      !appShell.includes("pagead2.googlesyndication.com");
     if (!hasUnconditionalGa && hasLoader) {
       add(
         "layout gated-load",
         "PASS",
-        "no unconditional gtag/adsbygoogle fetch; ConsentGatedGoogleScripts present in AppShell"
+        "no unconditional gtag/adsbygoogle fetch; shell wires initConsentGate"
       );
     } else {
       add(
         "layout gated-load",
         "FAIL",
         !hasLoader
-          ? "ConsentGatedGoogleScripts missing in AppShell.tsx"
+          ? "initConsentGate not wired in src/lib/shell/index.ts"
           : "BaseLayout.astro fetches Google scripts unconditionally"
       );
     }
     // 6c. Loader subscribes to consent state (event + key + split grants).
-    const loader = readRel("src/components/ConsentGatedGoogleScripts.tsx");
+    const loader = readRel("src/lib/shell/consent-gate.ts");
     const loaderOk =
       loader &&
       loader.includes("t4s:consent-updated") &&
@@ -328,7 +333,7 @@ for (const p of ["contact", "author", "methodology"]) {
     add(
       "loader subscribes",
       loaderOk ? "PASS" : "FAIL",
-      loaderOk ? "subscribed to consent updates + split grants" : "ConsentGatedGoogleScripts.tsx subscription missing"
+      loaderOk ? "subscribed to consent updates + split grants" : "consent-gate.ts subscription missing"
     );
   }
 }

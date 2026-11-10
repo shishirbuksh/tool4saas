@@ -1,7 +1,7 @@
 import { Container, Typography, Button } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
-import ToolSearchIsland from "@/components/ToolSearchIsland";
+import ToolSearch from "@/components/ToolSearch";
 
 const POPULAR_TOOLS = [
   { slug: "invoice-generator", title: "Invoice Generator" },
@@ -30,7 +30,7 @@ export default function NotFoundView() {
         </Button>
       </div>
       <div className="mt-8 max-w-[400px] mx-auto">
-        <ToolSearchIsland className="w-full" />
+        <ToolSearch id="not-found-search" className="w-full" />
       </div>
       <div className="mt-6 flex flex-wrap gap-2 justify-center">
         {POPULAR_TOOLS.map((t) => (

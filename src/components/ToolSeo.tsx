@@ -63,20 +63,34 @@ export default function ToolSeo({ view }: { view: ToolView }) {
       )}
 
       {validHowTo.length > 0 && (
-        <section className="mt-8">
-          <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
+        <section className="mt-10">
+          <Typography variant="h2" className="text-[1.5rem] md:text-[1.75rem] font-bold tracking-[-0.02em] mb-4">
             How to use {tool.title}
           </Typography>
-          <ol className="pl-6 text-base-content/70 [&_li]:mb-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {validHowTo.map((s, i) => (
-              <li key={i} id={`howto-step-${i + 1}`} className="howto-passage">
-                <Typography component="span" color="text.primary" className="font-semibold">
-                  {s.name}:{" "}
-                </Typography>
-                <Typography component="span">{renderRichText(s.text)}</Typography>
-              </li>
+              <div
+                key={i}
+                id={`howto-step-${i + 1}`}
+                className="howto-passage flex items-start gap-3.5 p-4 rounded-xl border border-base-300 bg-base-100"
+              >
+                <div
+                  aria-hidden="true"
+                  className="flex shrink-0 items-center justify-center w-8 h-8 rounded-lg bg-base-200 text-base-content font-bold text-xs"
+                >
+                  {i + 1}
+                </div>
+                <div className="min-w-0">
+                  <Typography component="div" color="text.primary" className="font-semibold text-[0.9375rem] mb-0.5">
+                    {s.name}
+                  </Typography>
+                  <Typography component="div" color="text.secondary" className="text-sm leading-relaxed">
+                    {renderRichText(s.text)}
+                  </Typography>
+                </div>
+              </div>
             ))}
-          </ol>
+          </div>
         </section>
       )}
 

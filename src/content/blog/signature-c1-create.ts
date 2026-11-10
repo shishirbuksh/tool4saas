@@ -77,7 +77,7 @@ const html = `
 <li><a href="/blog/signature-maker-guide/signature-size-for-pdf">Signature size for PDF</a> covers dimensions, 150 DPI arithmetic and scaling without stretching.</li>
 <li><a href="/blog/signature-maker-guide/drawn-vs-typed-signature">Drawn versus typed signature</a> compares the two methods for different documents.</li>
 <li><a href="/blog/signature-maker-guide/sign-pdf-without-printing">Sign a PDF without printing</a> walks through placing the image in a PDF editor.</li>
-<li>The <a href="/blog/signature-maker-guide">signature maker guide</a> connects every guide in this silo.</li>
+<li>The <a href="/blog/signature-maker-guide">signature maker guide</a> connects every guide in this guide.</li>
 </ul>
 <div class="cta-box"><strong>Ready to try it?</strong> Open the <a href="/signature-maker">free signature maker</a>, draw or type your name on the 1200 by 400 canvas, adjust the ink, and download a transparent PNG. The tool runs locally, handles one signature at a time, and needs no account.</div>
 `;

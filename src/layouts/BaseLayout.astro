@@ -68,20 +68,11 @@ const fundingChoicesBootstrap = `(function(){function s(){if(!window.frames['goo
     <a href="#main" class="skip-link">{skipLabel}</a>
     <slot />
     <script>
-      import { hydrateApp } from "@/lib/astro/hydrate";
-      let hydrated = false;
-      function hydrate() {
-        if (hydrated) return;
-        hydrated = true;
-        hydrateApp();
-      }
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(hydrate, { timeout: 1500 });
-      } else {
-        setTimeout(hydrate, 50);
-      }
-      window.addEventListener("pointerdown", hydrate, { once: true, passive: true });
-      window.addEventListener("keydown", hydrate, { once: true, passive: true });
+      import { initShell } from "@/lib/shell";
+
+      // Header, search, theme toggle, cookie consent and the consent-gated
+      // Google scripts are all plain DOM code, so content pages ship no React.
+      initShell();
     </script>
   </body>
 </html>

@@ -120,25 +120,27 @@ export function categoryJsonLd(categoryId: string) {
   const categoryUrl = `${base}/category/${categoryId}`;
   const visibleTools = LITE_TOOLS.filter((t) => t.category === categoryId && !NOINDEX_SLUGS.has(t.slug));
   const faqContent = faqContentForCategory(categoryId);
+  const labelLower = category.label.toLowerCase();
+  const categoryNoun = labelLower.endsWith("tools") ? labelLower : `${labelLower} tools`;
   const categoryFaqs = [
     {
-      q: `What are the best free ${category.label.toLowerCase()} tools?`,
+      q: `What are the best free ${categoryNoun}?`,
       a: faqContent[0]?.text ?? "",
     },
     {
-      q: `Are ${category.label.toLowerCase()} tools on Tool4SaaS really free?`,
+      q: `Are ${categoryNoun} on Tool4SaaS really free?`,
       a: faqContent[1]?.text ?? "",
     },
     {
-      q: `Is my data safe when using ${category.label.toLowerCase()} tools?`,
+      q: `Is my data safe when using ${categoryNoun}?`,
       a: faqContent[2]?.text ?? "",
     },
     {
-      q: `How do I use ${category.label.toLowerCase()} tools offline?`,
+      q: `How do I use ${categoryNoun} offline?`,
       a: faqContent[3]?.text ?? "",
     },
     {
-      q: `Where do I get help for ${category.label.toLowerCase()}?`,
+      q: `Where do I get help for ${categoryNoun}?`,
       a: faqContent[4]?.text ?? "",
     },
   ];

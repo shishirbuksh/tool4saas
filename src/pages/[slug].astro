@@ -26,4 +26,5 @@ const view = buildToolViewBySlug(slug);
   meta={toolMetadata(slug)}
   pathname={`/${slug}`}
   jsonLd={[buildToolJsonLd(view.tool)]}
+  hydrate
 />

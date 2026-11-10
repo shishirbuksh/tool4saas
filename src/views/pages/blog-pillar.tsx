@@ -26,36 +26,52 @@ export default function BlogPillarView({
     <div>
       <BlogArticle post={post} related={related} />
       <Container maxWidth="xl" className="pb-20 px-4 sm:px-6 lg:px-8">
-        <section className="mt-4 p-8 rounded-xl border border-base-300 bg-base-100">
-          <Typography variant="h2" className="text-[1.4rem] font-extrabold mb-2">
-            All {clusters.length} tutorials in this silo
-          </Typography>
-          <Typography color="text.secondary" className="mb-6">
-            Each tutorial solves one job — pick yours. Every page links back here and to the{" "}
-            {tool && <Link href={`/${tool.slug}`}>free {tool.title.toLowerCase()}</Link>}.
-          </Typography>
-          <Grid container spacing={2}>
+        <section className="mt-4 p-6 sm:p-8 rounded-xl border border-base-300 bg-base-100">
+          <div className="max-w-[720px] mb-6">
+            <Typography variant="h2" className="text-[1.35rem] sm:text-[1.5rem] font-bold tracking-[-0.015em] text-base-content mb-2">
+              All {clusters.length} tutorials in this guide
+            </Typography>
+            <Typography color="text.secondary" className="text-[0.9375rem] leading-[1.6]">
+              Each tutorial solves a specific task with worked examples. Pick what you need below, or jump straight to the{" "}
+              {tool && (
+                <Link href={`/${tool.slug}`} className="font-medium text-base-content underline underline-offset-2 hover:text-accent">
+                  free {tool.title.toLowerCase()}
+                </Link>
+              )}.
+            </Typography>
+          </div>
+          <Grid container spacing={2.5}>
             {clusters.map((c, i) => (
               <Grid size={{ xs: 12, sm: 6 }} key={c.slug}>
-                <Link href={`/blog/${pillar}/${c.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-                  <div className="p-5 rounded-xl border border-base-300 hover:border-base-content/40 transition-colors h-full">
-                    <Typography variant="overline" color="primary" className="font-bold">
-                      PART {String(i + 1).padStart(2, "0")}
-                    </Typography>
-                    <Typography variant="h3" className="text-[1.02rem] font-bold leading-[1.4]">
+                <Link
+                  href={`/blog/${pillar}/${c.slug}`}
+                  style={{ textDecoration: "none", color: "inherit", display: "block", height: "100%" }}
+                >
+                  <div className="group flex flex-col p-5 rounded-xl border border-base-300 bg-base-100 hover:border-base-content/30 hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] hover:-translate-y-0.5 transition-all duration-150 h-full">
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="font-mono text-[11px] font-semibold tracking-wider text-base-content/50 uppercase">
+                        Part {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-[11px] font-medium text-base-content/40">
+                        {c.readingMinutes} min read
+                      </span>
+                    </div>
+                    <h3 className="text-[1rem] font-bold leading-[1.4] text-base-content group-hover:text-base-content line-clamp-2 mb-4">
                       {c.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" className="mt-1">
-                      {c.readingMinutes} min read
-                    </Typography>
+                    </h3>
+                    <div className="mt-auto pt-3 flex items-center justify-between text-xs text-base-content/50 border-t border-base-200/70">
+                      <span className="font-medium text-base-content/60 group-hover:text-base-content transition-colors">
+                        Read tutorial
+                      </span>
+                      <span className="text-sm font-semibold opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-base-content" aria-hidden="true">
+                        →
+                      </span>
+                    </div>
                   </div>
                 </Link>
               </Grid>
             ))}
           </Grid>
-          <Typography variant="body2" color="text.secondary" className="mt-6">
-            Canonical: {base}/blog/{pillar} · Pillar targets “{meta.keywords[0]}”; clusters target one long-tail each — no cannibalization.
-          </Typography>
         </section>
       </Container>
     </div>

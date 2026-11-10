@@ -63,7 +63,7 @@ const html = `
 <li><a href="/blog/signature-maker-guide/signature-size-for-pdf">Signature size for PDF</a> explains dimensions, DPI and scaling without stretching.</li>
 <li><a href="/blog/signature-maker-guide/signature-image-for-email">Signature image for email</a> covers footer sizing and dark templates.</li>
 <li><a href="/blog/signature-maker-guide/drawn-vs-typed-signature">Drawn versus typed signature</a> compares the two creation methods.</li>
-<li>The <a href="/blog/signature-maker-guide">signature maker guide</a> connects every post in this silo.</li>
+<li>The <a href="/blog/signature-maker-guide">signature maker guide</a> connects every post in this guide.</li>
 </ul>
 <div class="cta-box"><strong>Make a clean transparent signature:</strong> open the <a href="/signature-maker">free signature maker</a>, draw or type your name, preview it on light and dark, and download the PNG. The file is generated on your device, with no upload and no account.</div>
 `;

@@ -4,7 +4,7 @@ import { readingMinutesFor } from "@/lib/blog";
 const html = `
 <p>Last month I chased a ₹18,400 payment for eleven days. The work was done, the client was happy — but my invoice had no due date, no UPI ID, and the wrong GST rate. That one sloppy PDF cost me two follow-ups and a week of cash flow. If you have ever felt that sting, this <strong>free invoice generator guide</strong> is for you.</p>
 <p>Here is the promise: by the end of this page you will know exactly <strong>how to create an invoice online free, download a professional PDF, and get paid faster — with no signup and no watermark</strong>. The flow below composes a 10-line example invoice (logo, $500 subtotal, 10% tax, $550 total). It took under 2 minutes. You can do the same right now with our <a href="/invoice-generator">free invoice generator</a> — keep this guide open in the next tab.</p>
-<p>In this pillar you get the full system: what an <strong>invoice maker</strong> actually does, why it beats Word and Excel, a 12-point checklist of what to include, a 5-step walkthrough, the 7 invoice types, template formats, <strong>GST and tax rules for India, the US and the UK</strong>, sending tips that double payment speed, and the mistakes that delay money. Each section links to a deeper tutorial in this silo — nine of them — so you can go deep on exactly your problem. New to billing? Start at the top. In a hurry? Jump to <a href="#how-to-create-5-steps">how to create an invoice in 5 steps</a>.</p>
+<p>In this pillar you get the full system: what an <strong>invoice maker</strong> actually does, why it beats Word and Excel, a 12-point checklist of what to include, a 5-step walkthrough, the 7 invoice types, template formats, <strong>GST and tax rules for India, the US and the UK</strong>, sending tips that double payment speed, and the mistakes that delay money. Each section links to a deeper tutorial in this guide — nine of them — so you can go deep on exactly your problem. New to billing? Start at the top. In a hurry? Jump to <a href="#how-to-create-5-steps">how to create an invoice in 5 steps</a>.</p>
 
 <h2 id="what-is-invoice-generator">What is an invoice generator — and how does it actually work?</h2>
 <p>An <strong>invoice generator</strong> (also called an <strong>invoice maker</strong>, <strong>invoice creator</strong> or <strong>bill generator</strong>) is a tool that turns your line items into a clean, professional PDF invoice: business details, client details, invoice number, dates, items with quantity and rate, tax, totals, payment terms and a download button. You type, it calculates, you download. That is it.</p>
@@ -145,7 +145,7 @@ const html = `
 <li><strong>Sending to the wrong person.</strong> Founders do not pay invoices; accounts teams do. Ask “who handles vendor payments?”</li>
 <li><strong>No follow-up sequence.</strong> 60% of my late invoices paid within 48 hours of one polite nudge. Silence never works.</li>
 </ol>
-<p>Want the full rogues gallery with fixes? Read <a href="/blog/invoice-generator-guide/invoicing-mistakes-to-avoid">12 invoice mistakes that delay payment</a> — it is the most-shared post in this silo for a reason.</p>
+<p>Want the full rogues gallery with fixes? Read <a href="/blog/invoice-generator-guide/invoicing-mistakes-to-avoid">12 invoice mistakes that delay payment</a> — it is the most-shared post in this guide for a reason.</p>
 `;
 
 const toc = [

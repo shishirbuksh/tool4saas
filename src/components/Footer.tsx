@@ -8,7 +8,6 @@ import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
 // Server-only lite lookup: full Tool objects never enter the footer bundle.
 import { liteGetTool } from "@/lib/tools/catalog-lite";
 import { siteConfig } from "@/lib/site";
-import FooterConsentActions from "@/components/FooterConsentActions";
 
 const popularSlugs = [
   "invoice-generator",
@@ -72,24 +71,21 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer
-      className="bg-base-100 border-t border-base-300"
-    >
-      <div className="h-[4px]" style={{ background: "var(--brand-gradient)" }} aria-hidden="true" />
+    <footer className="bg-base-100 border-t border-base-300">
       <Container maxWidth="xl" className="pt-14 md:pt-18 pb-8 md:pb-10">
         <Grid container spacing={{ xs: 4, md: 4 }}>
           <Grid size={{ xs: 12, md: 4, lg: 3 }}>
             <Stack spacing={2}>
               <div className="flex items-center gap-3">
                 <div
-                  className="flex p-2 rounded-lg bg-primary" style={{ color: "var(--color-primary-content)", boxShadow: "0 1px 2px rgba(34,29,29,0.08)" }}
+                  className="flex p-2 rounded-lg bg-primary text-primary-content shadow-xs"
                 >
                   <BuildOutlinedIcon fontSize="small" aria-hidden="true" />
                 </div>
                 <Typography
                   variant="h6"
                   component="span"
-                  className="font-extrabold tracking-[-0.02em]" style={{ fontFamily: "var(--font-display), serif" }}
+                  className="font-semibold tracking-[-0.02em]"
                 >
                   {siteConfig.name}
                 </Typography>
@@ -104,7 +100,7 @@ export default function Footer() {
                 variant="outlined"
                 size="small"
                 startIcon={<EmailOutlinedIcon fontSize="small" aria-hidden="true" />}
-                className="self-start rounded-full normal-case"
+                className="self-start rounded-lg normal-case font-medium text-xs border-base-300 hover:border-base-content/40"
               >
                 {siteConfig.email}
               </Button>
@@ -182,7 +178,27 @@ export default function Footer() {
             <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
               ·
             </Typography>
-            <FooterConsentActions />
+            <li>
+              <button
+                type="button"
+                data-consent-open
+                className="footer-link footer-legal-button"
+              >
+                Cookie choices
+              </button>
+            </li>
+            <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
+              ·
+            </Typography>
+            <li>
+              <button
+                type="button"
+                data-consent-donotsell
+                className="footer-link footer-legal-button"
+              >
+                Do Not Sell or Share
+              </button>
+            </li>
             <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
               ·
             </Typography>
