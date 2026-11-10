@@ -395,7 +395,6 @@ export default function ScientificCalculatorTool() {
         }}
         placeholder="e.g. sin(30)+log(100)+sqrt(16)"
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-        
       />
       <div
         className="p-4 rounded-[16px] border text-center" style={{ borderColor: error ? "error.main" : "primary.main" }}

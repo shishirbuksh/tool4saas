@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Stack, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Checkbox, FormControlLabel, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Stack, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Checkbox, FormControlLabel, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon, DownloadIcon } from "@/components/ui/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
@@ -370,7 +370,7 @@ export default function FakeDataGeneratorTool() {
           control={<Checkbox checked={includeHeaders} onChange={(e) => setIncludeHeaders(e.target.checked)} />}
           label="Include header row in CSV"
         />
-        <Box className="grow" />
+        <div className="grow" />
         <Button variant="contained" onClick={handleGenerate}>
           Generate
         </Button>
@@ -399,7 +399,7 @@ export default function FakeDataGeneratorTool() {
       )}
 
       {rows.length > 0 ? (
-        <Box>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-2">
             <Typography variant="subtitle2" className="font-bold">
               Preview — {rows.length} {dataType} {rows.length === 1 ? "row" : "rows"}
@@ -440,19 +440,18 @@ export default function FakeDataGeneratorTool() {
             </Table>
           </TableContainer>
 
-          <Box className="mt-3">
+          <div className="mt-3">
             <Typography variant="caption" color="text.secondary" className="block mb-1">
               CSV preview (first 3 rows)
             </Typography>
-            <Box
-              component="pre"
+            <pre
               className="p-3 rounded-[8px] border border-base-300 bg-base-100 text-[12px] whitespace-pre-wrap break-all max-h-[160px] overflow-auto m-0" style={{ fontFamily: "monospace" }}
             >
               {csvString.split("\n").slice(0, includeHeaders ? 4 : 3).join("\n")}
               {csvString.split("\n").length > 4 ? "\n..." : ""}
-            </Box>
-          </Box>
-        </Box>
+            </pre>
+          </div>
+        </div>
       ) : (
         <Paper variant="outlined" className="p-4 text-center">
           <Typography variant="body2" color="text.secondary">

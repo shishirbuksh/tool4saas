@@ -1,6 +1,6 @@
 
 import { useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack } from "@/components/ds";
 
 
 const toRgb = (hex: string) => {
@@ -37,8 +37,7 @@ export default function FaviconGeneratorTool() {
 
   const colorField = (label: string, value: string, set: (v: string) => void) => (
     <Stack direction="row" spacing={1.5} className="items-center">
-      <Box
-        component="input"
+      <input
         type="color"
         value={toRgb(value)}
         onChange={(e) => set(e.target.value)}
@@ -79,14 +78,13 @@ export default function FaviconGeneratorTool() {
         <Button variant="contained" onClick={draw}>
           Generate favicon
         </Button>
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-2">
             Preview
           </Typography>
           {dataUrl ? (
             <Stack direction="row" spacing={2} className="items-center">
-              <Box
-                component="img"
+              <img
                 src={dataUrl}
                 alt="Favicon preview"
                 className="w-[64px] h-[64px] rounded-[16px] border border-base-300"
@@ -106,7 +104,7 @@ export default function FaviconGeneratorTool() {
               Click generate to create your favicon.
             </Typography>
           )}
-        </Box>
+        </div>
         <canvas ref={canvasRef} style={{ display: "none" }} />
       </ToolPaper>
   );

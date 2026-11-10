@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import type { FormEvent } from "react";import { Box, TextField, Button, Typography } from "@/components/ds";
+import type { FormEvent } from "react";import { TextField, Button, Typography } from "@/components/ds";
 
 import { siteConfig } from "@/lib/site";
 
@@ -88,7 +88,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Box component="form" onSubmit={handleSubmit} noValidate className="mt-8 grid gap-4">
+    <form onSubmit={handleSubmit} noValidate className="mt-8 grid gap-4">
       <Typography variant="h2" className="text-[1.25rem] text-base-content">
         Send us a message
       </Typography>
@@ -101,18 +101,18 @@ export default function ContactForm() {
           {error}
         </Typography>
       ) : null}
-      <Box className="flex flex-wrap gap-3 items-center">
+      <div className="flex flex-wrap gap-3 items-center">
         <Button type="submit" variant="contained">
           Open email draft
         </Button>
         <Button variant="outlined" onClick={handleCopyEmail}>
           {emailCopied ? "Copied!" : "Copy email"}
         </Button>
-      </Box>
+      </div>
       <Typography variant="body2" color="text.secondary">
         No backend — submitting opens your email app with the message addressed to {siteConfig.email}.
         If your email app does not open, use Copy email. We reply within 2 business days (Mon-Fri, UTC).
       </Typography>
-    </Box>
+    </form>
   );
 }

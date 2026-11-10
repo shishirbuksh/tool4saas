@@ -78,7 +78,6 @@ export default function RefinanceCalculatorTool() {
         input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
         htmlInput: { min: 0, step: "any" },
       }}
-      
     />
   );
 

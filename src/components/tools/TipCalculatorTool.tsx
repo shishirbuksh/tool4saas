@@ -29,7 +29,6 @@ export default function TipCalculatorTool() {
             label="Currency"
             value={currency}
             onChange={(e) => setCurrency(e.target.value as typeof currency)}
-           
             className="min-h-[44px]"
           >
             {CURRENCIES.map((c) => (
@@ -50,7 +49,6 @@ export default function TipCalculatorTool() {
             input: { inputMode: "decimal", spellCheck: false, autoComplete: "off", startAdornment: currency === "USD" ? "$" : currency },
             htmlInput: { min: 0, step: "any" },
           }}
-          
         />
         <div>
           <Typography variant="subtitle2" className="font-bold mb-1">
@@ -82,7 +80,6 @@ export default function TipCalculatorTool() {
             input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" },
             htmlInput: { min: 1, step: 1 },
           }}
-          
         />
         <Stack spacing={1.5} className="mt-2">
           <div className="flex justify-between">

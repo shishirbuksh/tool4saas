@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, TextField, Typography, Stack, Link } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, TextField, Typography, Stack, Link } from "@/components/ds";
 
 
 const DURATION_SEC = 60;
@@ -124,11 +124,11 @@ export default function TypingSpeedTestTool() {
         >
           {timeLeft}s
         </Typography>
-        <Box className="w-full h-[8px] rounded-[32px] bg-base-300 overflow-hidden">
-          <Box
+        <div className="w-full h-[8px] rounded-[32px] bg-base-300 overflow-hidden">
+          <div
             className="h-full bg-primary" style={{ width: `${(elapsedSec / DURATION_SEC) * 100}%`, transition: "width 0.5s linear" }}
           />
-        </Box>
+        </div>
         <Stack direction="row" spacing={2} className="flex-wrap justify-center">
           <Typography variant="body2" color="text.secondary">
             WPM: <strong>{wpm}</strong>
@@ -141,7 +141,7 @@ export default function TypingSpeedTestTool() {
           </Typography>
         </Stack>
 
-        <Box
+        <div
           className="w-full p-4 rounded-[16px] border border-base-300 bg-base-100 text-[1rem] leading-[1.8]" style={{ fontFamily: "monospace" }}
           aria-label="Text sample to type"
         >
@@ -159,16 +159,15 @@ export default function TypingSpeedTestTool() {
               bg = "error.light";
             }
             return (
-              <Box
+              <span
                 key={i}
-                component="span"
                 className="rounded-[4px]" style={{ color: color, backgroundColor: bg, paddingLeft: bg ? "2px" : "0px", paddingRight: bg ? "2px" : "0px" }}
               >
                 {ch}
-              </Box>
+              </span>
             );
           })}
-        </Box>
+        </div>
 
         <TextField
           label={finished ? "Time is up" : running ? "Keep typing…" : "Start typing to begin"}

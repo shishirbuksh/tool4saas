@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Grid, Stack, Button } from "@/components/ds";
+import { Container, Typography, Grid, Stack, Button } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { MailIcon as EmailOutlinedIcon, WrenchIcon as BuildOutlinedIcon } from "@/components/ui/icons";
@@ -72,21 +72,20 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <Box
-      component="footer"
+    <footer
       className="bg-base-100 border-t border-base-300"
     >
-      <Box className="h-[4px]" style={{ background: "var(--brand-gradient)" }} aria-hidden="true" />
+      <div className="h-[4px]" style={{ background: "var(--brand-gradient)" }} aria-hidden="true" />
       <Container maxWidth="xl" className="pt-14 md:pt-18 pb-8 md:pb-10">
         <Grid container spacing={{ xs: 4, md: 4 }}>
           <Grid size={{ xs: 12, md: 4, lg: 3 }}>
             <Stack spacing={2}>
-              <Box className="flex items-center gap-3">
-                <Box
+              <div className="flex items-center gap-3">
+                <div
                   className="flex p-2 rounded-lg bg-primary" style={{ color: "var(--color-primary-content)", boxShadow: "0 1px 2px rgba(34,29,29,0.08)" }}
                 >
                   <BuildOutlinedIcon fontSize="small" aria-hidden="true" />
-                </Box>
+                </div>
                 <Typography
                   variant="h6"
                   component="span"
@@ -94,7 +93,7 @@ export default function Footer() {
                 >
                   {siteConfig.name}
                 </Typography>
-              </Box>
+              </div>
               <Typography variant="body2" color="text.secondary" className="leading-[1.7] max-w-[320px]">
                 {VISIBLE_TOOL_COUNT} fast, local utilities for developers and creators. No
                 sign-ups — most tools run in your browser.
@@ -115,75 +114,71 @@ export default function Footer() {
 
           <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
             <ColumnHeading>Categories</ColumnHeading>
-            <Box
-              component="ul"
+            <ul
               className="p-0 m-0 list-none grid grid-cols-[1fr_1fr] gap-x-4"
             >
               {CATEGORIES.map((c) => (
-                <Box component="li" key={c.id}>
+                <li key={c.id}>
                   <FooterLink href={`/category/${c.id}`}>{c.label}</FooterLink>
-                </Box>
+                </li>
               ))}
-            </Box>
+            </ul>
           </Grid>
 
           <Grid size={{ xs: 6, sm: 6, md: 4, lg: 3 }}>
             <ColumnHeading>Popular tools</ColumnHeading>
-            <Box
-              component="ul"
+            <ul
               className="p-0 m-0 list-none flex flex-col"
             >
               {popular.map((t) => (
-                <Box component="li" key={t.slug}>
+                <li key={t.slug}>
                   <FooterLink href={`/${t.slug}`}>{t.title}</FooterLink>
-                </Box>
+                </li>
               ))}
-              <Box component="li">
+              <li>
                 <FooterLink href="/#tools">View all tools →</FooterLink>
-              </Box>
-            </Box>
+              </li>
+            </ul>
           </Grid>
 
           <Grid size={{ xs: 6, sm: 6, md: 4, lg: 3 }}>
             <ColumnHeading>Learn</ColumnHeading>
-            <Box
-              component="ul"
+            <ul
               className="p-0 m-0 list-none flex flex-col"
             >
               {GUIDES.map((l) => (
-                <Box component="li" key={l.href}>
+                <li key={l.href}>
                   <FooterLink href={l.href}>{l.label}</FooterLink>
-                </Box>
+                </li>
               ))}
               {COMPANY.map((l) => (
-                <Box component="li" key={l.href}>
+                <li key={l.href}>
                   <FooterLink href={l.href}>{l.label}</FooterLink>
-                </Box>
+                </li>
               ))}
-            </Box>
+            </ul>
           </Grid>
         </Grid>
 
-        <Box
+        <div
           className="border-t border-base-300 mt-10 md:mt-12 pt-6 pb-[max(16px,_env(safe-area-inset-bottom))] flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
         >
           <Typography variant="body2" className="font-medium text-base-content/70">
             © {year} {siteConfig.name}. All rights reserved.
           </Typography>
-          <Box
-            component="ul"
+          <ul
             className="p-0 m-0 list-none flex flex-wrap gap-1 md:gap-2 items-center"
             aria-label="Legal and privacy"
           >
-            <Box component="li">
+            <li>
               <FooterLink href="/privacy">Privacy Policy</FooterLink>
-            </Box>
+            </li>
             <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
               ·
             </Typography>
-            <Box component="li">
+            <li>
               <FooterLink href="/terms">Terms of Service</FooterLink>
-            </Box>
+            </li>
             <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
               ·
             </Typography>
@@ -191,18 +186,18 @@ export default function Footer() {
             <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
               ·
             </Typography>
-            <Box component="li">
+            <li>
               <FooterLink href="/sitemap">HTML Sitemap</FooterLink>
-            </Box>
+            </li>
             <Typography component="li" aria-hidden="true" variant="body2" color="text.secondary">
               ·
             </Typography>
-            <Box component="li">
+            <li>
               <FooterLink href="/llms.txt">llms.txt</FooterLink>
-            </Box>
-          </Box>
-        </Box>
+            </li>
+          </ul>
+        </div>
       </Container>
-    </Box>
+    </footer>
   );
 }

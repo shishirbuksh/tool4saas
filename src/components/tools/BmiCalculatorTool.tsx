@@ -56,7 +56,6 @@ export default function BmiCalculatorTool() {
               input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
               htmlInput: { min: 0, step: "any" },
             }}
-            
           />
           <TextField
             label={unit === "metric" ? "Height (cm)" : "Height (in)"}
@@ -69,7 +68,6 @@ export default function BmiCalculatorTool() {
               input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
               htmlInput: { min: 0, step: "any" },
             }}
-            
           />
         </Stack>
         <div

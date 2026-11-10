@@ -42,7 +42,6 @@ export default function MortgageOverpaymentTool() {
           label="Currency"
           value={currency}
           onChange={(e) => setCurrency(e.target.value as typeof currency)}
-         
           className="min-h-[44px]"
         >
           {CURRENCIES.map((c) => (

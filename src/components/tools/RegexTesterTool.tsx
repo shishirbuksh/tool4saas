@@ -55,7 +55,6 @@ export default function RegexTesterTool() {
           onChange={(e) => setPattern(e.target.value)}
           placeholder="e.g. (\w+)@(\w+)…"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          
           error={!!error}
           helperText={error || "Enter a JavaScript-style regex pattern."}
         />
@@ -77,7 +76,6 @@ export default function RegexTesterTool() {
           onChange={(e) => setText(e.target.value)}
           placeholder="Paste the text to test against…"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-          
         />
         <div>
           <Typography variant="subtitle2" className="font-bold mb-2">

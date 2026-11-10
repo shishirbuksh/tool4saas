@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Box, Typography, Stack, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper, Button } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper, Button } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
@@ -188,7 +188,7 @@ export default function CsvViewerTool() {
         </Button>
       </Stack>
 
-      <Box>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-1">
           <Typography variant="subtitle2" className="font-bold">
             Preview {rows.length ? `(${displayedRows.length > 100 ? "100 of " : ""}${displayedRows.length} / ${rows.length} rows)` : ""}
@@ -209,10 +209,10 @@ export default function CsvViewerTool() {
                       onClick={() => handleSort(h)}
                       className="font-bold cursor-pointer whitespace-nowrap bg-base-100" style={{ userSelect: "none" }}
                     >
-                      <Box component="span" className="inline-flex items-center gap-1">
+                      <span className="inline-flex items-center gap-1">
                         {h}
                         {sortColumn === h ? (sortDir === "asc" ? " ▲" : " ▼") : " ↕"}
-                      </Box>
+                      </span>
                     </TableCell>
                   ))}
                 </TableRow>
@@ -237,7 +237,7 @@ export default function CsvViewerTool() {
             </Typography>
           </Paper>
         )}
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

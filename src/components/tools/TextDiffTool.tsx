@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack } from "@/components/ds";
 
 
 type DiffPart = { t: "same" | "add" | "del"; v: string };
@@ -91,33 +91,33 @@ export default function TextDiffTool() {
           placeholder="Paste the modified text…"
         />
         {parts.length > 0 && (
-          <Box>
+          <div>
             <Stack direction="row" spacing={2} className="mb-2">
               <Typography variant="caption" className="text-error">Removed: {removed}</Typography>
               <Typography variant="caption" className="text-success">Added: {added}</Typography>
             </Stack>
-            <Box
+            <div
               className="p-4 border border-base-300 rounded-[16px] whitespace-pre-wrap text-[13px] leading-[1.7]" style={{ fontFamily: "monospace" }}
             >
               {parts.map((p, idx) =>
                 p.t === "same" ? (
                   <span key={idx}>{p.v}</span>
                 ) : p.t === "del" ? (
-                  <Box component="span" key={idx} className="line-through" style={{ backgroundColor: "color-mix(in oklab, var(--color-error) 15%, var(--color-base-100))", color: "var(--color-error)" }}>
+                  <span key={idx} className="line-through" style={{ backgroundColor: "color-mix(in oklab, var(--color-error) 15%, var(--color-base-100))", color: "var(--color-error)" }}>
                     {p.v}
-                  </Box>
+                  </span>
                 ) : (
-                  <Box component="span" key={idx} style={{ backgroundColor: "color-mix(in oklab, var(--color-success) 15%, var(--color-base-100))", color: "var(--color-success-content)" }}>
+                  <span key={idx} style={{ backgroundColor: "color-mix(in oklab, var(--color-success) 15%, var(--color-base-100))", color: "var(--color-success-content)" }}>
                     {p.v}
-                  </Box>
+                  </span>
                 )
               )}
-            </Box>
-          </Box>
+            </div>
+          </div>
         )}
-        <Box>
+        <div>
           <Button variant="outlined" onClick={() => { setA(""); setB(""); }}>Clear</Button>
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

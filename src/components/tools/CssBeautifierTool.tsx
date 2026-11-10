@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, Box } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
@@ -180,27 +180,27 @@ export default function CssBeautifierTool() {
           <Typography variant="subtitle2" className="font-bold">
             Preview
           </Typography>
-          <Box
+          <div
             className="p-4 border border-base-300 rounded-[8px] overflow-auto"
           >
             <style>{output}</style>
             <Typography variant="body2" className="mb-2" color="text.secondary">
               Preview area styled by your CSS (if selectors match elements below):
             </Typography>
-            <Box className="preview-container p-4 border-base-300" style={{ border: "1px dashed" }}>
-              <Box component="div" className="container">
-                <Box component="div" className="item">
+            <div className="preview-container p-4 border-base-300" style={{ border: "1px dashed" }}>
+              <div className="container">
+                <div className="item">
                   Sample .container .item element
-                </Box>
-              </Box>
-              <Box component="div" className="box mt-2" >
+                </div>
+              </div>
+              <div className="box mt-2" >
                 Sample .box element
-              </Box>
+              </div>
               <Typography variant="body2" className="text">
                 Sample .text element
               </Typography>
-            </Box>
-          </Box>
+            </div>
+          </div>
         </Stack>
       )}
     </ToolPaper>

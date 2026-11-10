@@ -50,7 +50,6 @@ export default function UsSalesTaxCalculatorTool() {
           input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
           htmlInput: { min: 0, step: "any" },
         }}
-        
       />
       <FormControl fullWidth>
         <InputLabel>State</InputLabel>
@@ -58,7 +57,6 @@ export default function UsSalesTaxCalculatorTool() {
           label="State"
           value={preset}
           onChange={(e) => setPreset(e.target.value as PresetValue)}
-         
           className="min-h-[44px]"
         >
           {STATE_PRESETS.map((s) => (
@@ -80,7 +78,6 @@ export default function UsSalesTaxCalculatorTool() {
             input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
             htmlInput: { min: 0, step: "any" },
           }}
-          
         />
       )}
       <div

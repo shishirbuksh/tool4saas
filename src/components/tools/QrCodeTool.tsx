@@ -76,7 +76,6 @@ export default function QrCodeTool() {
               value={type}
               onChange={(e) => setType(e.target.value)}
               fullWidth
-              
               slotProps={{
                 select: {
                 },
@@ -109,7 +108,6 @@ export default function QrCodeTool() {
                   input: { inputMode: type === "email" ? "email" : type === "phone" ? "tel" : type === "url" ? "url" : "text", spellCheck: false, autoComplete: "off" },
                   htmlInput: { maxLength: 2048 },
                 }}
-                
               />
             ) : (
               <>
@@ -132,7 +130,6 @@ export default function QrCodeTool() {
               onChange={(e) => setLevel(e.target.value)}
               fullWidth
               helperText="Higher = more scannable when damaged, but denser"
-              
               slotProps={{
                 select: {
                 },

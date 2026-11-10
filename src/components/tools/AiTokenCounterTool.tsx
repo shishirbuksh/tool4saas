@@ -95,7 +95,6 @@ export default function AiTokenCounterTool() {
         onChange={handleChange}
         placeholder="Paste your prompt or document here…"
         slotProps={{ htmlInput: { maxLength: MAX_CHARS } } as unknown as object}
-        
       />
       {isAtLimit && (
         <Typography variant="caption" color="warning.main" className="mt-2 block">

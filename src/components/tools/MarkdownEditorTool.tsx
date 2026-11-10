@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Box, Typography, Stack, Button, Tabs, Tab, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, Tabs, Tab, Alert } from "@/components/ds";
 
 import { copyToClipboard } from "@/lib/clipboard";
 
@@ -159,14 +159,14 @@ export default function MarkdownEditorTool() {
   return (
     <ToolPaper>
       <Stack spacing={2}>
-        <Box>
+        <div>
           <Typography variant="h6" className="font-bold">
             Markdown Editor
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Write markdown and see a live preview. Supports headings, bold, italic, inline code, links, lists, blockquotes and code blocks.
           </Typography>
-        </Box>
+        </div>
 
         <Tabs value={tab} onChange={(_, v) => setTab(v)} aria-label="markdown editor tabs">
           <Tab label="Write" id="markdown-tab-0" aria-controls="markdown-panel-0" />
@@ -191,7 +191,7 @@ export default function MarkdownEditorTool() {
             {sizeError && <Alert severity="error">{sizeError}</Alert>}
           </>
         ) : (
-          <Box
+          <div
             role="tabpanel"
             id="markdown-panel-1"
             aria-labelledby="markdown-tab-1"
@@ -212,20 +212,18 @@ export default function MarkdownEditorTool() {
           </Button>
         </Stack>
 
-        <Box
-          component="details"
+        <details
           className="border border-base-300 rounded-[16px] p-3" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
         >
           <Typography component="summary" variant="subtitle2" className="cursor-pointer font-bold">
             Generated HTML (for debugging)
           </Typography>
-          <Box
-            component="pre"
+          <pre
             className="mt-3 p-4 bg-base-100 border border-base-300 rounded-[8px] overflow-auto text-[12px] whitespace-pre-wrap break-words" style={{ fontFamily: "monospace" }}
           >
             {html}
-          </Box>
-        </Box>
+          </pre>
+        </details>
       </Stack>
     </ToolPaper>
   );

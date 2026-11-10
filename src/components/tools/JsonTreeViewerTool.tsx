@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Alert, Button } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Alert, Button } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon, ChevronDownIcon as ExpandMoreIcon, ChevronRightIcon, ChevronsUpDownIcon as UnfoldMoreIcon, ChevronsDownUpIcon as UnfoldLessIcon } from "@/components/ui/icons";
 
@@ -120,7 +120,7 @@ export default function JsonTreeViewerTool() {
       : 0;
 
     return (
-      <Box key={path} className="py-0.3" style={{ marginLeft: `${depth * 16}px`, borderLeft: depth > 0 ? "1px dashed #e0e0e0" : "none", paddingLeft: depth > 0 ? "10px" : "0px" }}>
+      <div key={path} className="py-0.3" style={{ marginLeft: `${depth * 16}px`, borderLeft: depth > 0 ? "1px dashed #e0e0e0" : "none", paddingLeft: depth > 0 ? "10px" : "0px" }}>
         <Stack direction="row" spacing={0.5} className="items-center flex-wrap gap-1">
           {isExpandable ? (
             <Button
@@ -132,7 +132,7 @@ export default function JsonTreeViewerTool() {
               {isExpanded ? <ExpandMoreIcon className="text-[18px]" /> : <ChevronRightIcon className="text-[18px]" />}
             </Button>
           ) : (
-            <Box className="w-[28px] h-[22px] inline-flex" />
+            <div className="w-[28px] h-[22px] inline-flex" />
           )}
 
           {name !== "__root__" && (
@@ -202,7 +202,7 @@ export default function JsonTreeViewerTool() {
         </Stack>
 
         {isExpandable && isExpanded && (
-          <Box className="mt-0.5">
+          <div className="mt-0.5">
             {childrenCount === 0 ? (
               <Typography variant="caption" className="ml-7 text-base-content/40 italic" style={{ fontFamily: "monospace" }}>
                 {type === "array" ? "empty array" : "empty object"}
@@ -226,9 +226,9 @@ export default function JsonTreeViewerTool() {
                 )}
               </>
             )}
-          </Box>
+          </div>
         )}
-      </Box>
+      </div>
     );
   };
 
@@ -263,7 +263,7 @@ export default function JsonTreeViewerTool() {
       {data !== null || (!error && input.trim() && data === null) ? null : null}
 
       {!error && input.trim() && data !== null && (
-        <Box>
+        <div>
           <Stack direction="row" spacing={1} className="items-center justify-between flex-wrap gap-2 mb-2">
             <Typography variant="subtitle2" className="font-bold">
               Tree View
@@ -278,12 +278,12 @@ export default function JsonTreeViewerTool() {
             </Stack>
           </Stack>
 
-          <Box
+          <div
             className="border border-[#e0e0e0] rounded-[12px] p-3 bg-[#fafafa] max-h-[520px] overflow-auto" style={{ fontFamily: "monospace" }}
           >
             {data !== null && typeof data === "object" ? (
               // root is object/array — show its children directly with root label
-              <Box>
+              <div>
                 <Stack direction="row" spacing={0.5} className="items-center mb-1">
                   <Button
                     size="small"
@@ -316,7 +316,7 @@ export default function JsonTreeViewerTool() {
                   </Button>
                 </Stack>
                 {expanded.has("root") && (
-                  <Box>
+                  <div>
                     {Array.isArray(data)
                       ? (data as unknown[]).slice(0, 200).map((item, idx) => renderNode(`[${idx}]`, item, `root[${idx}]`, 1))
                       : Object.entries(data as Record<string, unknown>).slice(0, 200).map(([k, v]) => renderNode(k, v, `root.${k}`, 1))}
@@ -341,28 +341,28 @@ export default function JsonTreeViewerTool() {
                         empty object
                       </Typography>
                     )}
-                  </Box>
+                  </div>
                 )}
-              </Box>
+              </div>
             ) : (
               // primitive root
               renderNode("__root__", data, "root", 0)
             )}
-          </Box>
+          </div>
 
           <Typography variant="caption" color="text.secondary" className="block mt-2">
-            Tip: path uses dot notation for objects (e.g. <Box component="span" style={{ fontFamily: "monospace" }}>root.address.city</Box>) and brackets for
-            arrays (e.g. <Box component="span" style={{ fontFamily: "monospace" }}>root.roles[0]</Box>).
+            Tip: path uses dot notation for objects (e.g. <span style={{ fontFamily: "monospace" }}>root.address.city</span>) and brackets for
+            arrays (e.g. <span style={{ fontFamily: "monospace" }}>root.roles[0]</span>).
           </Typography>
-        </Box>
+        </div>
       )}
 
       {!error && input.trim() && data === null && getType(data) === "null" && (
-        <Box
+        <div
           className="border border-[#e0e0e0] rounded-[12px] p-3 bg-[#fafafa] max-h-[520px] overflow-auto"
         >
           {renderNode("__root__", data, "root", 0)}
-        </Box>
+        </div>
       )}
     </ToolPaper>
   );

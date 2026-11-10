@@ -1,4 +1,4 @@
-import Link from "@/lib/astro/navigation";import { Box, Typography } from "@/components/ds";
+import Link from "@/lib/astro/navigation";import { Typography } from "@/components/ds";
 
 
 // Tool → blog guide backlinks. Closes the silo loop: blog posts funnel down to
@@ -12,22 +12,22 @@ export default function RelatedGuides({
 }) {
   if (guides.length === 0) return null;
   return (
-    <Box component="section" aria-label="Related guides" className="mt-8 p-6 border border-base-300 rounded-xl bg-base-100">
+    <section aria-label="Related guides" className="mt-8 p-6 border border-base-300 rounded-xl bg-base-100">
       <Typography variant="h2" className="text-[1.125rem] mb-1">
         Learn: guides &amp; tutorials
       </Typography>
       <Typography variant="body2" color="text.secondary" className="mb-4">
         Deep dives from the Tool4SaaS blog – tested workflows, print sizes and fixes.
       </Typography>
-      <Box component="ul" className="m-0 pl-6 flex flex-col gap-2">
+      <ul className="m-0 pl-6 flex flex-col gap-2">
         {guides.map((g) => (
-          <Box component="li" key={g.href}>
+          <li key={g.href}>
             <Link href={g.href} style={{ fontWeight: 600 }}>
               {g.title}
             </Link>
-          </Box>
+          </li>
         ))}
-      </Box>
-    </Box>
+      </ul>
+    </section>
   );
 }

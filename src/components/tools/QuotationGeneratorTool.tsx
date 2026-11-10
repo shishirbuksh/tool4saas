@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Paper, Box, TextField, Button, Typography, Grid, IconButton, Stack, Divider, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useMemo, useState } from "react";import { Paper, TextField, Button, Typography, Grid, IconButton, Stack, Divider, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { Trash2Icon as DeleteIcon, PlusIcon as AddIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 import ToolPaper from "@/components/ToolPaper";
@@ -34,7 +34,7 @@ export default function QuotationGeneratorTool() {
   const removeLine = (i: number) => setLines((ls) => (ls.length > 1 ? ls.filter((_, idx) => idx !== i) : ls));
 
   return (
-    <Box>
+    <div>
       <Stack direction="row" className="items-center justify-between mb-4">
         <Typography variant="h3" className="text-[20px]">Quotation details</Typography>
         <Button variant="contained" startIcon={<PrintIcon />} onClick={() => window.print()}>
@@ -109,54 +109,54 @@ export default function QuotationGeneratorTool() {
       {/* Note: Colors are intentionally hardcoded (light theme) for print fidelity. 
           This serves as a WYSIWYG preview for the paper output even when the app is in dark mode. */}
       <Paper id="quotation-print" style={{ backgroundColor: "#ffffff", color: "#0f172a" }} className="p-6 sm:p-10 mt-8 max-w-[800px] mx-auto !bg-white !text-slate-900 border border-slate-200">
-        <Box className="flex justify-between mb-8">
-          <Box>
+        <div className="flex justify-between mb-8">
+          <div>
             <Typography variant="h4" className="font-extrabold text-[#0f172a]">QUOTATION</Typography>
             <Typography className="whitespace-pre-line text-[#334155]">{from}</Typography>
-          </Box>
-          <Box className="text-right text-[#334155]">
-            <Box><strong>#{number}</strong></Box>
-            <Box>Date: {date}</Box>
-            {validUntil && <Box>Valid until: {validUntil}</Box>}
-          </Box>
-        </Box>
-        <Box className="mb-8 text-[#334155]">
+          </div>
+          <div className="text-right text-[#334155]">
+            <div><strong>#{number}</strong></div>
+            <div>Date: {date}</div>
+            {validUntil && <div>Valid until: {validUntil}</div>}
+          </div>
+        </div>
+        <div className="mb-8 text-[#334155]">
           <Typography className="font-bold mb-1">Bill to</Typography>
           <Typography className="whitespace-pre-line">{to}</Typography>
-        </Box>
-        <Box component="table" className="w-full border-collapse text-[12px] sm:text-[14px]">
-          <Box component="thead">
-            <Box component="tr" style={{ borderBottom: "2px solid #0f172a" }}>
-              <Box component="th" style={{ ...th }}>Description</Box>
-              <Box component="th" className="text-right" style={{ ...th }}>Qty</Box>
-              <Box component="th" className="text-right" style={{ ...th }}>Rate</Box>
-              <Box component="th" className="text-right" style={{ ...th }}>Amount</Box>
-            </Box>
-          </Box>
-          <Box component="tbody">
+        </div>
+        <table className="w-full border-collapse text-[12px] sm:text-[14px]">
+          <thead>
+            <tr style={{ borderBottom: "2px solid #0f172a" }}>
+              <th style={{ ...th }}>Description</th>
+              <th className="text-right" style={{ ...th }}>Qty</th>
+              <th className="text-right" style={{ ...th }}>Rate</th>
+              <th className="text-right" style={{ ...th }}>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
             {lines.map((l, i) => (
-              <Box component="tr" key={i} className="border-b border-b-[#e2e8f0] break-inside-avoid">
-                <Box component="td" style={{ ...td }}>{l.desc || "—"}</Box>
-                <Box component="td" className="text-right" style={{ ...td }}>{l.qty}</Box>
-                <Box component="td" className="text-right" style={{ ...td }}>{money(l.rate, currency)}</Box>
-                <Box component="td" className="text-right" style={{ ...td }}>{money((l.qty || 0) * (l.rate || 0), currency)}</Box>
-              </Box>
+              <tr key={i} className="border-b border-b-[#e2e8f0] break-inside-avoid">
+                <td style={{ ...td }}>{l.desc || "—"}</td>
+                <td className="text-right" style={{ ...td }}>{l.qty}</td>
+                <td className="text-right" style={{ ...td }}>{money(l.rate, currency)}</td>
+                <td className="text-right" style={{ ...td }}>{money((l.qty || 0) * (l.rate || 0), currency)}</td>
+              </tr>
             ))}
-          </Box>
-        </Box>
-        <Box className="w-[260px] ml-auto mt-6 text-[#334155]">
+          </tbody>
+        </table>
+        <div className="w-[260px] ml-auto mt-6 text-[#334155]">
           <Row label="Subtotal" value={money(totals.subtotal, currency)} />
           <Row label={`Tax (${tax}%)`} value={money(totals.taxAmt, currency)} />
           <Divider className="my-2" />
-          <Box className="flex justify-between font-extrabold text-[16px]">
+          <div className="flex justify-between font-extrabold text-[16px]">
             <span>Total</span><span>{money(totals.total, currency)}</span>
-          </Box>
-        </Box>
+          </div>
+        </div>
         {notes && (
           <Typography className="mt-8 whitespace-pre-line text-[#64748b] text-[13px]">{notes}</Typography>
         )}
       </Paper>
-    </Box>
+    </div>
   );
 }
 
@@ -165,8 +165,8 @@ const td: React.CSSProperties = { padding: "8px 4px" };
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <Box className="flex justify-between py-0.5">
+    <div className="flex justify-between py-0.5">
       <span>{label}</span><span>{value}</span>
-    </Box>
+    </div>
   );
 }

@@ -151,7 +151,6 @@ export default function DebtPayoffTool() {
           label="Currency"
           value={currency}
           onChange={(e) => setCurrency(e.target.value as typeof currency)}
-         
           className="min-h-[44px]"
         >
           {CURRENCIES.map((c) => (
@@ -180,7 +179,6 @@ export default function DebtPayoffTool() {
                 onChange={(e) => updateDebt(i, { name: e.target.value })}
                 placeholder="Card A…"
                 slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
-                
               />
               <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
                 <NumericField label="Balance" value={d.balance} onChange={(v) => updateDebt(i, { balance: v })} />

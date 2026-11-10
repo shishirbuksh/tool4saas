@@ -1,7 +1,7 @@
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
-import NumericField from "@/components/NumericField";import { Paper, Box, TextField, Button, Typography, Grid, IconButton, Stack, Divider, Alert, Select, MenuItem, FormControl, InputLabel, FormControlLabel, Checkbox } from "@/components/ds";
+import NumericField from "@/components/NumericField";import { Paper, TextField, Button, Typography, Grid, IconButton, Stack, Divider, Alert, Select, MenuItem, FormControl, InputLabel, FormControlLabel, Checkbox } from "@/components/ds";
 
 import { Trash2Icon as DeleteIcon, PlusIcon as AddIcon, DownloadIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 import { money } from "@/lib/format";
@@ -103,7 +103,7 @@ export default function GstInvoiceTool() {
   };
 
   return (
-    <Box>
+    <div>
       <Stack direction="row" className="items-center justify-between mb-4">
         <Typography variant="h3" className="text-[20px]">
           GST invoice details
@@ -220,63 +220,63 @@ export default function GstInvoiceTool() {
 
       {/* Printable invoice */}
       <Paper id="gst-invoice-print" style={{ backgroundColor: "#ffffff", color: "#0f172a" }} className="p-6 sm:p-10 mt-8 max-w-[800px] mx-auto !bg-white !text-slate-900 border border-slate-200">
-        <Box className="flex justify-between mb-6">
-          <Box>
+        <div className="flex justify-between mb-6">
+          <div>
             <Typography variant="h4" className="font-extrabold text-[#0f172a]">
               TAX INVOICE
             </Typography>
             <Typography className="whitespace-pre-line text-[#334155]">{supplier || "—"}</Typography>
             <Typography className="text-[#334155] text-[13px]">GSTIN: {gstin || "—"}</Typography>
-          </Box>
-          <Box className="text-right text-[#334155]">
-            <Box>
+          </div>
+          <div className="text-right text-[#334155]">
+            <div>
               <strong>#{invNo || "—"}</strong>
-            </Box>
-            <Box>Date: {invDate || "—"}</Box>
-            <Box>Place of supply: {placeOfSupply}</Box>
-          </Box>
-        </Box>
-        <Box className="mb-6 text-[#334155]">
+            </div>
+            <div>Date: {invDate || "—"}</div>
+            <div>Place of supply: {placeOfSupply}</div>
+          </div>
+        </div>
+        <div className="mb-6 text-[#334155]">
           <Typography className="font-bold mb-1">Bill to</Typography>
           <Typography className="whitespace-pre-line">{client || "—"}</Typography>
-        </Box>
-        <Box component="table" className="w-full border-collapse text-[12px] sm:text-[14px]">
-          <Box component="thead">
-            <Box component="tr" style={{ borderBottom: "2px solid #0f172a" }}>
-              <Box component="th" style={{ ...th }}>
+        </div>
+        <table className="w-full border-collapse text-[12px] sm:text-[14px]">
+          <thead>
+            <tr style={{ borderBottom: "2px solid #0f172a" }}>
+              <th style={{ ...th }}>
                 Description
-              </Box>
-              <Box component="th" className="text-right" style={{ ...th }}>
+              </th>
+              <th className="text-right" style={{ ...th }}>
                 Qty
-              </Box>
-              <Box component="th" className="text-right" style={{ ...th }}>
+              </th>
+              <th className="text-right" style={{ ...th }}>
                 Rate
-              </Box>
-              <Box component="th" className="text-right" style={{ ...th }}>
+              </th>
+              <th className="text-right" style={{ ...th }}>
                 Amount
-              </Box>
-            </Box>
-          </Box>
-          <Box component="tbody">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
             {items.map((l, i) => (
-              <Box component="tr" key={i} className="border-b border-b-[#e2e8f0] break-inside-avoid">
-                <Box component="td" style={{ ...td }}>
+              <tr key={i} className="border-b border-b-[#e2e8f0] break-inside-avoid">
+                <td style={{ ...td }}>
                   {l.desc || "—"}
-                </Box>
-                <Box component="td" className="text-right" style={{ ...td }}>
+                </td>
+                <td className="text-right" style={{ ...td }}>
                   {num(l.qty)}
-                </Box>
-                <Box component="td" className="text-right" style={{ ...td }}>
+                </td>
+                <td className="text-right" style={{ ...td }}>
                   {money(num(l.rate), "INR")}
-                </Box>
-                <Box component="td" className="text-right" style={{ ...td }}>
+                </td>
+                <td className="text-right" style={{ ...td }}>
                   {money(num(l.qty) * num(l.rate), "INR")}
-                </Box>
-              </Box>
+                </td>
+              </tr>
             ))}
-          </Box>
-        </Box>
-        <Box className="w-[280px] ml-auto mt-6 text-[#334155]">
+          </tbody>
+        </table>
+        <div className="w-[280px] ml-auto mt-6 text-[#334155]">
           <Row label="Subtotal" value={money(totals.subtotal, "INR")} />
           {interState ? (
             <Row label={`IGST (${gstRate}%)`} value={money(totals.igst, "INR")} />
@@ -287,13 +287,13 @@ export default function GstInvoiceTool() {
             </>
           )}
           <Divider className="my-2" />
-          <Box className="flex justify-between font-extrabold text-[16px]">
+          <div className="flex justify-between font-extrabold text-[16px]">
             <span>Total</span>
             <span>{money(totals.total, "INR")}</span>
-          </Box>
-        </Box>
+          </div>
+        </div>
       </Paper>
-    </Box>
+    </div>
   );
 }
 
@@ -302,9 +302,9 @@ const td: React.CSSProperties = { padding: "8px 4px" };
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <Box className="flex justify-between py-0.5">
+    <div className="flex justify-between py-0.5">
       <span>{label}</span>
       <span>{value}</span>
-    </Box>
+    </div>
   );
 }

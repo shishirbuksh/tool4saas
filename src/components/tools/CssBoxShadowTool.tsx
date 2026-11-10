@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
@@ -30,7 +30,7 @@ export default function CssBoxShadowTool() {
     set: (v: number) => void,
     unit = "px",
   ) => (
-    <Box className="max-w-[320px]">
+    <div className="max-w-[320px]">
       <Typography variant="subtitle2" className="font-bold mb-1">
         {label}: {value}
         {unit}
@@ -43,7 +43,7 @@ export default function CssBoxShadowTool() {
         onChange={(_, v) => set(Array.isArray(v) ? v[0] : v)}
         aria-label={label}
       />
-    </Box>
+    </div>
   );
 
   return (
@@ -53,8 +53,7 @@ export default function CssBoxShadowTool() {
       {sliderRow("Blur", blur, 0, 100, setBlur)}
       {sliderRow("Spread", spread, -20, 20, setSpread)}
       <Stack direction="row" spacing={1.5} className="items-center">
-        <Box
-          component="input"
+        <input
           type="color"
           value={toHex(color)}
           onChange={(e) => setColor(e.target.value)}
@@ -80,14 +79,14 @@ export default function CssBoxShadowTool() {
           <ToggleButton value="inset">Inset</ToggleButton>
         </ToggleButtonGroup>
       </Stack>
-      <Box
+      <div
         className="h-[160px] rounded-[16px] border border-base-300 flex items-center justify-center bg-base-100"
       >
-        <Box
+        <div
           className="w-[120px] h-[80px] rounded-[16px] bg-base-100 border border-base-300" style={{ boxShadow: boxShadow }}
         />
-      </Box>
-      <Box>
+      </div>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-1">
           <Typography variant="subtitle2" className="font-bold">
             CSS
@@ -102,7 +101,7 @@ export default function CssBoxShadowTool() {
           slotProps={{ input: { readOnly: true, "aria-label": "CSS box-shadow", spellCheck: false } }}
           className="[&_input]:[font-family:monospace] [&_input]:text-[13px]"
         />
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

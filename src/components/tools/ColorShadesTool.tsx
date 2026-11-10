@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Typography, Stack, TextField, Slider } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Typography, Stack, TextField, Slider } from "@/components/ds";
 
 import { copyToClipboard } from "@/lib/clipboard";
 
@@ -55,8 +55,7 @@ export default function ColorShadesTool() {
     <ToolPaper>
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="sm:items-center">
         <Stack direction="row" spacing={1.5} className="items-center">
-          <Box
-            component="input"
+          <input
             type="color"
             value={normalizedHex}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHex(e.target.value)}
@@ -75,7 +74,7 @@ export default function ColorShadesTool() {
             className="w-[180px] [&_input]:[font-family:monospace] [&_input]:lowercase"
           />
         </Stack>
-        <Box className="flex-1 min-w-[180px] max-w-[320px]">
+        <div className="flex-1 min-w-[180px] max-w-[320px]">
           <Typography variant="subtitle2" className="font-bold mb-1">
             Steps: {steps}
           </Typography>
@@ -92,10 +91,10 @@ export default function ColorShadesTool() {
             onChange={(_, v) => setSteps(Array.isArray(v) ? v[0] : v)}
             aria-label="Steps"
           />
-        </Box>
+        </div>
       </Stack>
 
-      <Box
+      <div
         className="h-[72px] rounded-[16px] border border-base-300 flex items-center justify-center" style={{ backgroundColor: isValid ? normalizedHex : "#ffffff" }}
       >
         <Typography
@@ -104,7 +103,7 @@ export default function ColorShadesTool() {
         >
           {isValid ? normalizedHex : "Invalid color"}
         </Typography>
-      </Box>
+      </div>
 
       {!isValid ? (
         <Typography variant="body2" color="text.secondary">
@@ -112,63 +111,61 @@ export default function ColorShadesTool() {
         </Typography>
       ) : (
         <>
-          <Box>
+          <div>
             <Typography variant="subtitle2" className="font-bold mb-2">
               Shades — mix with black
             </Typography>
-            <Box
+            <div
               className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3"
             >
               {shades.map((c) => (
-                <Box
+                <button
                   key={`shade-${c}`}
-                  component="button"
                   type="button"
                   onClick={() => copy(c)}
                   className="border border-base-300 rounded-[16px] overflow-hidden cursor-pointer p-0 text-left bg-base-100 w-full text-inherit hover:border-base-content/70 active:[transform:scale(0.98)]" style={{ font: "inherit" }}
                 >
-                  <Box className="h-[56px]" style={{ backgroundColor: c }} />
-                  <Box className="p-2 text-center">
+                  <div className="h-[56px]" style={{ backgroundColor: c }} />
+                  <div className="p-2 text-center">
                     <Typography variant="caption" className="font-bold block" style={{ fontFamily: "monospace" }}>
                       {c}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
                       click to copy
                     </Typography>
-                  </Box>
-                </Box>
+                  </div>
+                </button>
               ))}
-            </Box>
-          </Box>
+            </div>
+          </div>
 
-          <Box>
+          <div>
             <Typography variant="subtitle2" className="font-bold mb-2">
               Tints — mix with white
             </Typography>
-            <Box
+            <div
               className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3"
             >
               {tints.map((c) => (
-                <Box
+                <button
                   key={`tint-${c}`}
-                  component="button"
                   type="button"
                   onClick={() => copy(c)}
                   className="border border-base-300 rounded-[16px] overflow-hidden cursor-pointer p-0 text-left bg-base-100 w-full text-inherit hover:border-base-content/70 active:[transform:scale(0.98)]" style={{ font: "inherit" }}
                 >
-                  <Box className="h-[56px]" style={{ backgroundColor: c }} />
-                  <Box className="p-2 text-center">
+                  <div className="h-[56px]" style={{ backgroundColor: c }} />
+                  <div className="p-2 text-center">
                     <Typography variant="caption" className="font-bold block" style={{ fontFamily: "monospace" }}>
                       {c}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
                       click to copy
                     </Typography>
-                  </Box>
-                </Box>
+                  </div>
+                </button>
               ))}
-            </Box>
-          </Box>
+            </div>
+          </div>
         </>
       )}
     </ToolPaper>

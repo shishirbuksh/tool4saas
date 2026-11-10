@@ -1,5 +1,5 @@
 import Link from "@/lib/astro/navigation";
-import { Container, Box, Typography, Breadcrumbs } from "@/components/ds";
+import { Container, Typography, Breadcrumbs } from "@/components/ds";
 import ToolSeo from "@/components/ToolSeo";
 import YMYLDisclaimer from "@/components/YMYLDisclaimer";
 import RelatedTools from "@/components/RelatedTools";
@@ -18,18 +18,18 @@ export default function ToolPageShell({ view, children }: { view: ToolView; chil
 
   return (
     <Container maxWidth="xl" className="pt-12 md:pt-20 pb-16 md:pb-24 px-4 md:px-8 overflow-x-clip">
-      <Box className="mb-12 md:mb-16 max-w-[800px] mx-auto text-center">
+      <div className="mb-12 md:mb-16 max-w-[800px] mx-auto text-center">
         <Breadcrumbs className="mb-8 justify-center flex" aria-label="breadcrumb">
           <Link href="/" style={{ textDecoration: "none" }}>
-            <Box component="span" className="text-base-content/70 no-underline hover:text-primary">
+            <span className="text-base-content/70 no-underline hover:text-primary">
               Home
-            </Box>
+            </span>
           </Link>
           {cat && (
             <Link href={`/category/${cat.id}`} style={{ textDecoration: "none" }}>
-              <Box component="span" className="text-base-content/70 no-underline hover:text-primary">
+              <span className="text-base-content/70 no-underline hover:text-primary">
                 {cat.label}
-              </Box>
+              </span>
             </Link>
           )}
           <Typography color="text.primary" className="font-semibold">{tool.title}</Typography>
@@ -59,30 +59,29 @@ export default function ToolPageShell({ view, children }: { view: ToolView; chil
             .
           </Typography>
         )}
-      </Box>
-      <Box className="max-w-[860px] mx-auto">
-        <Box className="w-full min-w-[0px] overflow-x-auto">
+      </div>
+      <div className="max-w-[860px] mx-auto">
+        <div className="w-full min-w-[0px] overflow-x-auto">
           {ymylType && (
-            <Box className="mb-4">
+            <div className="mb-4">
               <YMYLDisclaimer type={ymylType} />
-            </Box>
+            </div>
           )}
           {/* TL;DR answer box: 40-60w citable definition above the tool UI
               for answer engines + voice (see speakable .tldr-passage). */}
-          <Box className="mb-6 p-5 rounded-xl border border-base-300 bg-base-100">
+          <div className="mb-6 p-5 rounded-xl border border-base-300 bg-base-100">
             <Typography color="text.primary" className="tldr-passage speakable-answer-first leading-[1.7]" >
               <strong>Quick answer:</strong> {tool.title} — {tool.short} Free, no signup, runs in your browser.
               See below for the interactive tool, 4-step guide and FAQs.
             </Typography>
-          </Box>
+          </div>
           {children}
           <EmbedToolSnippet slug={tool.slug} title={tool.title} />
-        </Box>
-      </Box>
+        </div>
+      </div>
       <RelatedTools tools={view.relatedTools} heading={view.relatedToolsHeading} />
       <RelatedGuides guides={view.guides} />
-      <Box
-        component="section"
+      <section
         aria-label="About the author"
         className="mt-8 p-6 border border-base-300 rounded-xl bg-base-100"
       >
@@ -90,12 +89,12 @@ export default function ToolPageShell({ view, children }: { view: ToolView; chil
           About the author
         </Typography>
         <Typography variant="body2" color="text.secondary" className="leading-[1.8]">
-          Reviewed by the <Box component="span" translate="no" className="inline">{siteConfig.authorRole}</Box> — {siteConfig.authorBio}{" "}
+          Reviewed by the <span translate="no" className="inline">{siteConfig.authorRole}</span> — {siteConfig.authorBio}{" "}
           Last updated:{" "}
           <time dateTime={dateModifiedIso}>{dateModifiedDisplay}</time>.{" "}
           See <Link href="/author">our authors</Link>, <Link href="/methodology">methodology</Link> or <Link href="/contact">contact us</Link>.
         </Typography>
-      </Box>
+      </section>
       <ToolSeo view={view} />
     </Container>
   );

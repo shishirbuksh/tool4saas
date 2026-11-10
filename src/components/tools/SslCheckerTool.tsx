@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, Alert } from "@/components/ds";
 
 import { MS_PER_DAY } from "@/lib/format";
 
@@ -272,18 +272,18 @@ export default function SslCheckerTool() {
 
   return (
     <ToolPaper spacing={2.5}>
-      <Box>
+      <div>
         <Typography variant="h6" className="font-bold">
           SSL Checker
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Check HTTPS certificate grade, issuer and expiry via SSL Labs (proxied through{" "}
-          <Box component="span" style={{ fontFamily: "monospace" }}>
+          <span style={{ fontFamily: "monospace" }}>
             api.allorigins.win
-          </Box>
+          </span>
           ) with a browser fallback. Ideal for quickly verifying if a site serves valid HTTPS.
         </Typography>
-      </Box>
+      </div>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} className="items-start">
         <TextField
@@ -311,7 +311,7 @@ export default function SslCheckerTool() {
 
       {loading && (
         <Alert severity="info">
-          Checking <Box component="span" className="font-bold" style={{ fontFamily: "monospace" }}>{host}</Box> via SSL Labs
+          Checking <span className="font-bold" style={{ fontFamily: "monospace" }}>{host}</span> via SSL Labs
           through allorigins… This can take 2–5 seconds. If the host was not assessed recently, SSL Labs may
           queue it — retry after a few seconds.
         </Alert>
@@ -324,10 +324,10 @@ export default function SslCheckerTool() {
       )}
 
       {result && (
-        <Box
+        <div
           className="border border-base-300 rounded-[16px] overflow-hidden"
         >
-          <Box className="p-4 border-b border-base-300" style={{ backgroundColor: "var(--color-base-200)" }}>
+          <div className="p-4 border-b border-base-300" style={{ backgroundColor: "var(--color-base-200)" }}>
             <Stack direction="row" spacing={2} className="items-center flex-wrap gap-2">
               <Typography variant="subtitle2" className="font-bold">
                 {result.host}
@@ -342,7 +342,7 @@ export default function SslCheckerTool() {
                   {result.serverName}
                 </Typography>
               )}
-              <Box className="ml-auto flex items-center gap-2">
+              <div className="ml-auto flex items-center gap-2">
                 <Typography variant="caption" color="text.secondary" className="font-semibold">
                   GRADE
                 </Typography>
@@ -352,7 +352,7 @@ export default function SslCheckerTool() {
                 >
                   {result.grade ?? "—"}
                 </Typography>
-              </Box>
+              </div>
             </Stack>
             {result.statusMessage && (
               <Typography variant="caption" color="text.secondary">
@@ -363,42 +363,42 @@ export default function SslCheckerTool() {
                   : ""}
               </Typography>
             )}
-          </Box>
+          </div>
 
-          <Stack spacing={0} divider={<Box className="border-b border-base-300" />}>
-            <Box className="flex gap-4 p-3 flex-wrap">
+          <Stack spacing={0} divider={<div className="border-b border-base-300" />}>
+            <div className="flex gap-4 p-3 flex-wrap">
               <Typography className="w-[140px] font-bold text-base-content/70 shrink-0">Issuer</Typography>
               <Typography className="text-[14px] break-all flex-1" style={{ fontFamily: "monospace" }}>
                 {result.issuer || "— (not returned by API)"}
               </Typography>
-            </Box>
+            </div>
 
-            <Box className="flex gap-4 p-3 flex-wrap">
+            <div className="flex gap-4 p-3 flex-wrap">
               <Typography className="w-[140px] font-bold text-base-content/70 shrink-0">Subject / CN</Typography>
               <Typography className="text-[14px] break-all flex-1" style={{ fontFamily: "monospace" }}>
                 {result.subject || result.commonNames[0] || "—"}
               </Typography>
-            </Box>
+            </div>
 
             {result.altNames.length > 0 && (
-              <Box className="flex gap-4 p-3 flex-wrap">
+              <div className="flex gap-4 p-3 flex-wrap">
                 <Typography className="w-[140px] font-bold text-base-content/70 shrink-0">
                   SANs ({result.altNames.length})
                 </Typography>
                 <Typography className="text-[13px] break-all flex-1" style={{ fontFamily: "monospace" }}>
                   {result.altNames.join(", ")}
                 </Typography>
-              </Box>
+              </div>
             )}
 
-            <Box className="flex gap-4 p-3 flex-wrap">
+            <div className="flex gap-4 p-3 flex-wrap">
               <Typography className="w-[140px] font-bold text-base-content/70 shrink-0">Valid from</Typography>
               <Typography className="text-[14px] flex-1">{formatDate(result.notBefore)}</Typography>
-            </Box>
+            </div>
 
-            <Box className="flex gap-4 p-3 flex-wrap">
+            <div className="flex gap-4 p-3 flex-wrap">
               <Typography className="w-[140px] font-bold text-base-content/70 shrink-0">Expiry</Typography>
-              <Box className="flex-1">
+              <div className="flex-1">
                 <Typography className="text-[14px]" style={{ fontWeight: isExpired ? 700 : 400, color: isExpired ? "error.main" : isExpiringSoon ? "warning.main" : "text.primary" }}>
                   {formatDate(result.notAfter)}
                 </Typography>
@@ -412,14 +412,14 @@ export default function SslCheckerTool() {
                     {isExpired ? " — renewal required" : ""}
                   </Typography>
                 )}
-              </Box>
-            </Box>
+              </div>
+            </div>
 
             {result.sigAlg && (
-              <Box className="flex gap-4 p-3 flex-wrap">
+              <div className="flex gap-4 p-3 flex-wrap">
                 <Typography className="w-[140px] font-bold text-base-content/70 shrink-0">Signature</Typography>
                 <Typography className="text-[13px] flex-1" style={{ fontFamily: "monospace" }}>{result.sigAlg}</Typography>
-              </Box>
+              </div>
             )}
           </Stack>
 
@@ -443,7 +443,7 @@ export default function SslCheckerTool() {
               Expiry not returned by SSL Labs for this host. Use the browser padlock inspection below to verify dates.
             </Alert>
           )}
-        </Box>
+        </div>
       )}
 
       {fallback && (
@@ -459,26 +459,26 @@ export default function SslCheckerTool() {
               Proxied HTTP status: {fallback.status}
             </Typography>
           )}
-          <Box component="ul" className="m-0 mt-2 pl-5">
+          <ul className="m-0 mt-2 pl-5">
             <Typography component="li" variant="body2">
               Chrome / Edge: click the padlock (or tune icon) in the address bar →{" "}
-              <Box component="span" className="font-bold">Connection is secure</Box> →{" "}
-              <Box component="span" className="font-bold">Certificate is valid</Box> to see issuer, valid-from, valid-to, and SANs.
+              <span className="font-bold">Connection is secure</span> →{" "}
+              <span className="font-bold">Certificate is valid</span> to see issuer, valid-from, valid-to, and SANs.
             </Typography>
             <Typography component="li" variant="body2">
-              Firefox: padlock → <Box component="span" className="font-bold">Connection secure</Box> →{" "}
-              <Box component="span" className="font-bold">More information</Box> → View Certificate.
+              Firefox: padlock → <span className="font-bold">Connection secure</span> →{" "}
+              <span className="font-bold">More information</span> → View Certificate.
             </Typography>
             <Typography component="li" variant="body2">
-              Safari: padlock → <Box component="span" className="font-bold">Show Certificate</Box>.
+              Safari: padlock → <span className="font-bold">Show Certificate</span>.
             </Typography>
             <Typography component="li" variant="body2">
               Or run in your terminal:{" "}
-              <Box component="span" className="text-[12px]" style={{ fontFamily: "monospace" }}>
+              <span className="text-[12px]" style={{ fontFamily: "monospace" }}>
                 openssl s_client -connect {host}:443 -servername {host} | openssl x509 -noout -issuer -dates -subject
-              </Box>
+              </span>
             </Typography>
-          </Box>
+          </ul>
           <Typography variant="caption" color="text.secondary" className="block mt-2">
             Note: Browser JavaScript cannot directly access TLS certificate fields (issuer/expiry) due to security
             isolation. The SSL Labs proxy above is the closest automated check; the padlock inspection is the
@@ -489,15 +489,15 @@ export default function SslCheckerTool() {
 
       {!result && !error && !loading && !fallback && (
         <Alert severity="info">
-          Enter a URL above and click <Box component="span" className="font-bold">Check SSL</Box> to query SSL Labs
-          (via <Box component="span" style={{ fontFamily: "monospace" }}>api.allorigins.win</Box> proxy) for grade, issuer
+          Enter a URL above and click <span className="font-bold">Check SSL</span> to query SSL Labs
+          (via <span style={{ fontFamily: "monospace" }}>api.allorigins.win</span> proxy) for grade, issuer
           and expiry. If the API is rate-limited or the host is internal, the browser fallback will explain how to
           inspect the certificate via the padlock icon.
         </Alert>
       )}
 
       {rawJson && result && (
-        <Box>
+        <div>
           <Typography variant="caption" color="text.secondary" className="font-bold block mb-1">
             Raw SSL Labs response (truncated)
           </Typography>
@@ -510,7 +510,7 @@ export default function SslCheckerTool() {
             slotProps={{ input: { readOnly: true, spellCheck: false, "aria-label": "Raw SSL Labs JSON" } }}
             className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[11px] [&_textarea]:leading-[1.5]"
           />
-        </Box>
+        </div>
       )}
 
       <Alert severity="info" className="mt-2">
@@ -518,9 +518,9 @@ export default function SslCheckerTool() {
           Privacy & accuracy
         </Typography>
         <Typography variant="caption" className="block">
-          This tool proxies requests through <Box component="span" style={{ fontFamily: "monospace" }}>allorigins.win</Box> to
+          This tool proxies requests through <span style={{ fontFamily: "monospace" }}>allorigins.win</span> to
           avoid CORS; no certificate data is stored. SSL Labs grades reflect Mozilla / Qualys best practices and may lag
-          by up to 24h when using <Box component="span" style={{ fontFamily: "monospace" }}>fromCaches=on</Box>. For
+          by up to 24h when using <span style={{ fontFamily: "monospace" }}>fromCaches=on</span>. For
           production monitoring, schedule regular checks or use your CA dashboard.
         </Typography>
       </Alert>

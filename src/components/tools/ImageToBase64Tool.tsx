@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { validateImageFile, MAX_IMAGE_SIZE } from "@/lib/validate";
@@ -46,14 +46,14 @@ export default function ImageToBase64Tool() {
         </ToggleButtonGroup>
 
         {mode === "encode" ? (
-          <Box>
+          <div>
             <Button variant="outlined" component="label">
               Choose image
               <input type="file" accept="image/*" hidden onChange={onFile} />
             </Button>
             {error && <Alert severity="error" className="mt-2">{error}</Alert>}
             {dataUrl && (
-              <Box className="mt-4">
+              <div className="mt-4">
                 <Stack direction="row" className="items-center justify-between mb-1">
                   <Typography variant="subtitle2" className="font-bold">
                     Base64 data URL
@@ -70,9 +70,9 @@ export default function ImageToBase64Tool() {
                   slotProps={{ input: { readOnly: true, "aria-label": "Base64 data URL", spellCheck: false } }}
                   className="[&_textarea]:text-[12px] [&_textarea]:[font-family:monospace]"
                 />
-              </Box>
+              </div>
             )}
-          </Box>
+          </div>
         ) : (
           <TextField
             label="Paste a Base64 image data URL"
@@ -89,7 +89,7 @@ export default function ImageToBase64Tool() {
         )}
         {decodeTooLarge && <Alert severity="error">Input too large — max {MAX_DATA_URL_SIZE.toLocaleString()} chars.</Alert>}
 
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-2">
             Preview
           </Typography>
@@ -97,8 +97,7 @@ export default function ImageToBase64Tool() {
             <Alert severity="error">That data URL exceeds the {MAX_DATA_URL_SIZE.toLocaleString()} char cap.</Alert>
           ) : previewSrc ? (
             isValidImg ? (
-              <Box
-                component="img"
+              <img
                 src={previewSrc}
                 alt="Preview"
                 className="max-w-full max-h-[280px] rounded-[16px] border border-base-300"
@@ -111,7 +110,7 @@ export default function ImageToBase64Tool() {
               {mode === "encode" ? "Choose an image to see its Base64." : "Paste a data URL to preview."}
             </Typography>
           )}
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

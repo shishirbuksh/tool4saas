@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert, Table, TableHead, TableBody, TableRow, TableCell } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, Alert, Table, TableHead, TableBody, TableRow, TableCell } from "@/components/ds";
 
 import { validateImageFile, MAX_IMAGE_SIZE } from "@/lib/validate";
 
@@ -413,11 +413,11 @@ export default function ExifViewerTool() {
       {info && !error && <Alert severity="info">{info}</Alert>}
 
       {hasResult && (
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-2">
             EXIF Data
           </Typography>
-          <Box className="border border-base-300 rounded-[16px] overflow-hidden">
+          <div className="border border-base-300 rounded-[16px] overflow-hidden">
             <Table size="small" aria-label="EXIF data table">
               <TableHead>
                 <TableRow>
@@ -430,25 +430,25 @@ export default function ExifViewerTool() {
                   <TableRow key={k} hover>
                     <TableCell className="font-semibold whitespace-nowrap">{k}</TableCell>
                     <TableCell className="break-all text-[13px]" style={{ fontFamily: k.includes("GPS") ? "monospace" : undefined }}>
-                      {v || <Box component="span" color="text.secondary">—</Box>}
+                      {v || <span color="text.secondary">—</span>}
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
-          </Box>
+          </div>
           <Typography variant="caption" color="text.secondary" className="mt-2 block">
             {Object.keys(exif!).length} tag(s) found. GPS coordinates are shown as DMS and decimal degrees.
           </Typography>
-        </Box>
+        </div>
       )}
 
       {!hasResult && !error && !info && (
-        <Box className="p-4 border-base-300 rounded-[16px] text-center" style={{ border: "1px dashed" }}>
+        <div className="p-4 border-base-300 rounded-[16px] text-center" style={{ border: "1px dashed" }}>
           <Typography variant="body2" color="text.secondary">
             No image loaded. Choose a JPEG photo to inspect EXIF.
           </Typography>
-        </Box>
+        </div>
       )}
     </ToolPaper>
   );

@@ -1,6 +1,6 @@
 
 import { useState, useRef, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { validateImageFiles, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 
@@ -326,21 +326,20 @@ export default function ImageToPdfTool() {
       </Stack>
 
       {images.length > 0 ? (
-        <Box
+        <div
           className="grid grid-cols-[repeat(auto-fill,_minmax(140px,_1fr))] gap-4"
         >
           {images.map((img, index) => (
-            <Box
+            <div
               key={img.id}
               className="border border-base-300 rounded-[16px] overflow-hidden bg-base-100 flex flex-col"
             >
-              <Box
-                component="img"
+              <img
                 src={img.objectUrl}
                 alt={img.name}
                 className="w-full h-[120px] object-cover block border-b border-base-300"
               />
-              <Box className="p-2 flex-1 min-w-[0px]">
+              <div className="p-2 flex-1 min-w-[0px]">
                 <Typography
                   variant="caption"
                   className="block font-semibold whitespace-nowrap overflow-hidden text-ellipsis"
@@ -351,34 +350,34 @@ export default function ImageToPdfTool() {
                 <Typography variant="caption" color="text.secondary">
                   {img.width} × {img.height}
                 </Typography>
-              </Box>
-              <Box className="p-2 pt-0">
+              </div>
+              <div className="p-2 pt-0">
                 <Button size="small" color="error" variant="outlined" fullWidth onClick={() => removeImage(img.id)}>
                   Remove
                 </Button>
-              </Box>
-            </Box>
+              </div>
+            </div>
           ))}
-        </Box>
+        </div>
       ) : (
-        <Box
+        <div
           className="p-6 border-base-300 rounded-[16px] text-center bg-base-100" style={{ border: "1px dashed" }}
         >
           <Typography variant="body2" color="text.secondary">
             Choose one or more images to preview thumbnails here. Each image will be placed on its own PDF page via{" "}
             <code>addImage</code>.
           </Typography>
-        </Box>
+        </div>
       )}
 
-      <Box>
+      <div>
         <Button variant="contained" onClick={generatePdf} disabled={images.length === 0 || loading}>
           {loading ? "Generating..." : `Generate & Download PDF (${images.length})`}
         </Button>
         <Typography variant="caption" color="text.secondary" className="ml-4">
           Uses <code>dynamic import(&quot;jspdf&quot;)</code> and <code>addImage</code>. Download via <code>save()</code>.
         </Typography>
-      </Box>
+      </div>
 
       {error && (
         <Alert severity="error" onClose={() => setError("")}>

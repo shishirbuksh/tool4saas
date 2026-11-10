@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Divider } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Divider } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
@@ -36,13 +36,13 @@ export default function TimestampConverterTool() {
 
   return (
     <ToolPaper spacing={3}>
-        <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
+        <div className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
           <Typography variant="caption">Current Unix time</Typography>
           <Typography  variant="h5"  className="font-extrabold" style={{ fontFamily: "monospace" }}>
-            {now !== null ? Math.floor(now / 1000) : "..."} <Box component="span" className="text-[14px] opacity-[0.85]">sec</Box>
+            {now !== null ? Math.floor(now / 1000) : "..."} <span className="text-[14px] opacity-[0.85]">sec</span>
           </Typography>
           <Typography variant="body2" className="opacity-[0.9]" style={{ fontFamily: "monospace" }}>{now !== null ? now : "..."} ms</Typography>
-        </Box>
+        </div>
 
         <Divider>Epoch → Date</Divider>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
@@ -57,10 +57,10 @@ export default function TimestampConverterTool() {
           <Button variant="contained" onClick={epochToDate} disabled={!epochInput}>Convert</Button>
         </Stack>
         {toDate && (
-          <Box>
+          <div>
             <Line label="Local" value={toDate.local} onCopy={() => copy(toDate.local)} />
             <Line label="UTC" value={toDate.utc} onCopy={() => copy(toDate.utc)} />
-          </Box>
+          </div>
         )}
 
         <Divider>Date → Epoch</Divider>
@@ -76,10 +76,10 @@ export default function TimestampConverterTool() {
           <Button variant="contained" onClick={dateToEpoch} disabled={!dateInput}>Convert</Button>
         </Stack>
         {toEpoch && (
-          <Box>
+          <div>
             <Line label="Epoch (sec)" value={toEpoch.sec} onCopy={() => copy(toEpoch.sec)} />
             <Line label="Epoch (ms)" value={toEpoch.ms} onCopy={() => copy(toEpoch.ms)} />
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );
@@ -87,10 +87,10 @@ export default function TimestampConverterTool() {
 
 function Line({ label, value, onCopy }: { label: string; value: string; onCopy: () => void }) {
   return (
-    <Box className="flex items-center gap-2 mb-1">
+    <div className="flex items-center gap-2 mb-1">
       <Typography  variant="subtitle2"  className="font-bold w-[110px]">{label}</Typography>
       <TextField value={value} fullWidth slotProps={{ input: { readOnly: true, "aria-label": label, spellCheck: false } }} className="[&_input]:[font-family:monospace] [&_input]:text-[13px]" />
       <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={onCopy}>Copy</Button>
-    </Box>
+    </div>
   );
 }

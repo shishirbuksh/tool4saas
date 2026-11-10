@@ -1,6 +1,6 @@
 
 import { useState, useRef, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, TextField, Slider, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, TextField, Slider, MenuItem } from "@/components/ds";
 
 
 const FONTS = [
@@ -211,11 +211,10 @@ export default function SignatureMakerTool() {
         white background.
       </Typography>
 
-      <Box
+      <div
         className="border border-base-300 rounded-[16px] bg-base-100 overflow-hidden leading-[0]"
       >
-        <Box
-          component="canvas"
+        <canvas
           ref={canvasRef}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
@@ -230,12 +229,11 @@ export default function SignatureMakerTool() {
           height={300}
           aria-label="Signature canvas"
         />
-      </Box>
+      </div>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="sm:items-center">
         <Stack direction="row" spacing={1.5} className="items-center">
-          <Box
-            component="input"
+          <input
             type="color"
             value={toHexColor(penColor)}
             onChange={(e) => setPenColor(e.target.value)}
@@ -253,7 +251,7 @@ export default function SignatureMakerTool() {
           />
         </Stack>
 
-        <Box className="flex-1 max-w-[320px]">
+        <div className="flex-1 max-w-[320px]">
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Pen width: {penWidth}px
           </Typography>
@@ -266,7 +264,7 @@ export default function SignatureMakerTool() {
             valueLabelDisplay="auto"
             aria-label="Pen width"
           />
-        </Box>
+        </div>
 
         <Stack direction="row" spacing={1}>
           <Button variant="outlined" onClick={clear}>
@@ -307,11 +305,11 @@ export default function SignatureMakerTool() {
           </TextField>
         </Stack>
         {typedText && (
-          <Box
+          <div
             className="p-4 border-base-300 rounded-[16px] bg-base-100 text-center text-[32px] break-words" style={{ border: "1px dashed", fontFamily: font, color: toHexColor(penColor) }}
           >
             {typedText}
-          </Box>
+          </div>
         )}
         <Stack direction="row" spacing={1}>
           <Button variant="outlined" onClick={addTypedSignature} disabled={!typedText.trim()}>

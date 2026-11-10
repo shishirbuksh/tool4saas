@@ -1,4 +1,4 @@
-import { Container, Box, Grid, Stack, Typography, Button } from "@/components/ds";
+import { Container, Grid, Stack, Typography, Button } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";
@@ -14,8 +14,7 @@ const lastUpdated = new Intl.DateTimeFormat("en-US", {
 // Short "What is Tool4SaaS" + final CTA.
 export default function HomeClosing() {
   return (
-    <Box
-      component="section"
+    <section
       id="about-tools"
       aria-label="About Tool4SaaS"
       className="py-16 md:py-24 scroll-mt-[100px]"
@@ -23,7 +22,7 @@ export default function HomeClosing() {
       <Container maxWidth="xl" className="px-4 md:px-8">
         <Grid container spacing={{ xs: 5, md: 8 }} className="items-center">
           <Grid size={{ xs: 12, lg: 7 }}>
-            <Box className="max-w-[680px]">
+            <div className="max-w-[680px]">
               <Typography
                 variant="h2"
                 className="text-[1.75rem] md:text-[2.25rem] font-bold tracking-[-0.025em] mb-2"
@@ -52,11 +51,11 @@ export default function HomeClosing() {
                 <Link href="/privacy">privacy policy</Link> and{" "}
                 <Link href="/methodology">methodology</Link>.
               </Typography>
-            </Box>
+            </div>
           </Grid>
 
           <Grid size={{ xs: 12, lg: 5 }}>
-            <Box
+            <div
               aria-label="Get started"
               className="rounded-xl border border-base-300 bg-base-100 shadow-[var(--shadow-md)] p-6 md:p-8 flex flex-col gap-4"
             >
@@ -78,10 +77,10 @@ export default function HomeClosing() {
                   Read the guides
                 </Button>
               </Stack>
-            </Box>
+            </div>
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    </section>
   );
 }

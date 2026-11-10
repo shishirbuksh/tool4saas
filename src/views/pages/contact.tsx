@@ -1,4 +1,4 @@
-import { Container, Typography, Box, Button, Breadcrumbs } from "@/components/ds";
+import { Container, Typography, Button, Breadcrumbs } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
@@ -17,7 +17,7 @@ export default function ContactView() {
       <Typography variant="body2" color="text.secondary" className="mb-6">
         Last updated: <time dateTime="2026-09-09">September 9, 2026</time>
       </Typography>
-      <Box component="div" className="text-base-content/70 leading-[1.8]">
+      <div className="text-base-content/70 leading-[1.8]">
         <Typography className="block mb-2">
           Questions, feedback, or bug reports? Contact the <span translate="no">{siteConfig.name}</span> team at {siteConfig.email}. We read every message.
         </Typography>
@@ -27,16 +27,15 @@ export default function ContactView() {
         <Typography className="block mb-2">
           All tools work without an account — there is no login to troubleshoot. Please never send passwords, payment card numbers, private keys, or other sensitive secrets; test data only.
         </Typography>
-      </Box>
-      <Box className="mt-6 flex flex-wrap gap-4 items-center">
+      </div>
+      <div className="mt-6 flex flex-wrap gap-4 items-center">
         <Button variant="contained" href={`mailto:${siteConfig.email}`}>
           Email {siteConfig.email}
         </Button>
         <CopyEmailButton />
-      </Box>
+      </div>
       <ContactForm />
-      <Box
-        component="nav"
+      <nav
         aria-label="Related pages"
         className="mt-8 flex flex-wrap gap-4 text-base-content/70"
       >
@@ -51,7 +50,7 @@ export default function ContactView() {
         <Typography variant="body2">
           <Link href="/terms">Terms of Service</Link>
         </Typography>
-      </Box>
+      </nav>
     </Container>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
+import { Typography, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
 import { ChevronDownIcon as ExpandMoreIcon } from "@/components/ui/icons";
 import type { ToolView } from "@/lib/tool-view";
 
@@ -35,7 +35,7 @@ export default function ToolSeo({ view }: { view: ToolView }) {
   const guideSections = view.guideSections;
 
   return (
-    <Box component="section" aria-label={`${tool.title} FAQ and guide`} className="mt-12">
+    <section aria-label={`${tool.title} FAQ and guide`} className="mt-12">
       {validFaq.length > 0 && (
         <>
           <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
@@ -63,11 +63,11 @@ export default function ToolSeo({ view }: { view: ToolView }) {
       )}
 
       {validHowTo.length > 0 && (
-        <Box component="section" className="mt-8">
+        <section className="mt-8">
           <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
             How to use {tool.title}
           </Typography>
-          <Box component="ol" className="pl-6 text-base-content/70 [&_li]:mb-2">
+          <ol className="pl-6 text-base-content/70 [&_li]:mb-2">
             {validHowTo.map((s, i) => (
               <li key={i} id={`howto-step-${i + 1}`} className="howto-passage">
                 <Typography component="span" color="text.primary" className="font-semibold">
@@ -76,12 +76,12 @@ export default function ToolSeo({ view }: { view: ToolView }) {
                 <Typography component="span">{renderRichText(s.text)}</Typography>
               </li>
             ))}
-          </Box>
-        </Box>
+          </ol>
+        </section>
       )}
 
       {guideSections.length > 0 && (
-        <Box component="section" aria-label="In-depth guide" className="mt-8">
+        <section aria-label="In-depth guide" className="mt-8">
           <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
             In-depth guide
           </Typography>
@@ -121,7 +121,7 @@ export default function ToolSeo({ view }: { view: ToolView }) {
             const table = section?.table;
 
             return (
-              <Box key={i} className="mt-6">
+              <div key={i} className="mt-6">
                 <Typography variant="h3" className="text-[1.25rem] md:text-[1.5rem] mb-2">
                   {heading}
                 </Typography>
@@ -161,11 +161,11 @@ export default function ToolSeo({ view }: { view: ToolView }) {
                     </table>
                   </div>
                 )}
-              </Box>
+              </div>
             );
           })}
-        </Box>
+        </section>
       )}
-    </Box>
+    </section>
   );
 }

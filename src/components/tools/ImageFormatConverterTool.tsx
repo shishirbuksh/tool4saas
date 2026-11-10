@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert, Slider } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert, Slider } from "@/components/ds";
 
 import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
@@ -186,7 +186,7 @@ export default function ImageFormatConverterTool() {
       {file && <Alert severity="info">Selected: {file.name} ({fmtBytes(file.size)})</Alert>}
       {error && <Alert severity="error">{error}</Alert>}
 
-      <Box>
+      <div>
         <Typography variant="body2" color="text.secondary" gutterBottom>
           Quality: {Math.round(quality * 100)}% {!showQuality ? "(PNG is lossless — quality not applicable)" : ""}
         </Typography>
@@ -201,24 +201,23 @@ export default function ImageFormatConverterTool() {
           aria-label="Output image quality"
           valueLabelFormat={(v) => `${Math.round(v * 100)}%`}
         />
-      </Box>
+      </div>
 
-      <Box>
+      <div>
         <Button variant="contained" onClick={convert} disabled={!file || busy}>
           {busy ? "Converting…" : "Convert image"}
         </Button>
-      </Box>
+      </div>
 
       {result && (
-        <Box className="p-4 border border-base-300 rounded-[16px]">
+        <div className="p-4 border border-base-300 rounded-[16px]">
           <Typography variant="subtitle2" gutterBottom className="font-bold">
             Result
           </Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom>
             {file ? fmtBytes(file.size) : ""} → {fmtBytes(result.size)} · {result.name}
           </Typography>
-          <Box
-            component="img"
+          <img
             src={result.url}
             alt="converted preview"
             className="max-w-full rounded-[8px] my-2 block"
@@ -226,7 +225,7 @@ export default function ImageFormatConverterTool() {
           <Button variant="contained" href={result.url} download={result.name}>
             Download
           </Button>
-        </Box>
+        </div>
       )}
 
       <Typography variant="caption" color="text.secondary">

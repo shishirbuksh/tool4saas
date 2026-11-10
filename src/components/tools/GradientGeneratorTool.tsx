@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
@@ -24,8 +24,7 @@ export default function GradientGeneratorTool() {
 
   const picker = (c: string, set: (v: string) => void, label: string) => (
     <Stack direction="row" spacing={1.5} className="items-center">
-      <Box
-        component="input"
+      <input
         type="color"
         value={toRgb(c)}
         onChange={(e) => set(e.target.value)}
@@ -52,17 +51,17 @@ export default function GradientGeneratorTool() {
           <ToggleButton value="radial">Radial</ToggleButton>
         </ToggleButtonGroup>
         {type === "linear" && (
-          <Box className="max-w-[320px]">
+          <div className="max-w-[320px]">
             <Typography variant="subtitle2" className="font-bold mb-1">
               Angle: {angle}°
             </Typography>
             <Slider value={angle} min={0} max={360} step={1} onChange={(_, v) => setAngle(Array.isArray(v) ? v[0] : v)} aria-label="Gradient angle in degrees" />
-          </Box>
+          </div>
         )}
-        <Box
+        <div
           className="h-[160px] rounded-[16px] border border-base-300" style={{ background: css }}
         />
-        <Box>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-1">
             <Typography variant="subtitle2" className="font-bold">
               CSS
@@ -77,7 +76,7 @@ export default function GradientGeneratorTool() {
             slotProps={{ input: { readOnly: true, "aria-label": "CSS gradient", spellCheck: false } }}
             className="[&_input]:[font-family:monospace] [&_input]:text-[13px]"
           />
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

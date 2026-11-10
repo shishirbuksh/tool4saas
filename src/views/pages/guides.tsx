@@ -1,4 +1,4 @@
-import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Grid } from "@/components/ds";
+import Link from "@/lib/astro/navigation";import { Container, Typography, Grid } from "@/components/ds";
 
 import { siteConfig } from "@/lib/site";
 import { BLOG_PILLARS } from "@/lib/blog-pillars";
@@ -59,7 +59,7 @@ export default function GuidesView() {
         <Link href="/blog">blog home</Link>.
       </Typography>
 
-      <Box className="flex flex-wrap gap-2 mb-12">
+      <div className="flex flex-wrap gap-2 mb-12">
         {sections.map((s) => (
           <a
             key={s.meta.pillar}
@@ -69,13 +69,12 @@ export default function GuidesView() {
             {s.meta.shortLabel}
           </a>
         ))}
-      </Box>
+      </div>
 
       <Grid container spacing={3}>
         {sections.map((s) => (
           <Grid size={{ xs: 12, md: 6 }} key={s.meta.pillar}>
-            <Box
-              component="section"
+            <section
               id={s.meta.pillar}
               className="p-8 rounded-xl border border-base-300 bg-base-100 h-full scroll-mt-[96px] hover:border-base-content/30 transition-colors"
             >
@@ -90,7 +89,7 @@ export default function GuidesView() {
               <Typography color="text.secondary" className="mb-4 leading-[1.7]">
                 {s.meta.description}
               </Typography>
-              <Box component="ul" className="m-0 pl-6 text-base-content/70">
+              <ul className="m-0 pl-6 text-base-content/70">
                 {s.pillar && (
                   <li style={{ marginBottom: 6 }}>
                     <Link href={`/blog/${s.meta.pillar}`} style={{ fontWeight: 700 }}>
@@ -104,22 +103,22 @@ export default function GuidesView() {
                     <Typography component="span" variant="body2" color="text.secondary"> · {c.readingMinutes} min</Typography>
                   </li>
                 ))}
-              </Box>
-              <Box className="flex gap-4 flex-wrap mt-4">
+              </ul>
+              <div className="flex gap-4 flex-wrap mt-4">
                 <Link href={`/blog/${s.meta.pillar}`} style={{ fontWeight: 700 }}>Read the pillar →</Link>
                 <Link href={`/${s.meta.toolSlug}`} style={{ fontWeight: 600, color: "inherit" }}>Open the free tool →</Link>
-              </Box>
-            </Box>
+              </div>
+            </section>
           </Grid>
         ))}
       </Grid>
 
-      <Box className="mt-12 p-6 rounded-xl border border-base-300 bg-base-200/50">
+      <div className="mt-12 p-6 rounded-xl border border-base-300 bg-base-200/50">
         <Typography variant="body2" color="text.secondary" className="leading-[1.7]">
           <strong>Stay current:</strong> new guides land in the <a href="/rss.xml" style={{ fontWeight: 600 }}>RSS feed</a> first.
           Every tutorial links back to its pillar and to the free tool it demonstrates.
         </Typography>
-      </Box>
+      </div>
     </Container>
   );
 }

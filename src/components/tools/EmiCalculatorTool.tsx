@@ -62,7 +62,6 @@ export default function EmiCalculatorTool() {
         input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
         htmlInput: { min: 0, step: "any" },
       }}
-      
     />
   );
 
@@ -74,7 +73,6 @@ export default function EmiCalculatorTool() {
           label="Currency"
           value={currency}
           onChange={(e) => setCurrency(e.target.value as typeof currency)}
-         
           className="min-h-[44px]"
         >
           {CURRENCIES.map((c) => (

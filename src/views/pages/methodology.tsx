@@ -1,4 +1,4 @@
-import { Container, Typography, Box, Breadcrumbs } from "@/components/ds";
+import { Container, Typography, Breadcrumbs } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
@@ -35,7 +35,7 @@ export default function MethodologyView() {
       <Typography variant="body2" color="text.secondary" className="mb-6">
         Last updated: <time dateTime={lastUpdatedIso}>{formatIsoHuman(lastUpdatedIso)}</time>
       </Typography>
-      <Box component="div" className="text-base-content/70 leading-[1.8]">
+      <div className="text-base-content/70 leading-[1.8]">
         <Typography variant="h2" className="text-[1.25rem] text-base-content mt-6 mb-2">
           1. Build locally
         </Typography>
@@ -50,51 +50,50 @@ export default function MethodologyView() {
           We check outputs against known reference values before publishing. For example: a $100,000 loan at 5%
           over 30 years gives a monthly payment of $536.82, and 70 kg at 175 cm gives a BMI of 22.9.
         </Typography>
-        <Box
-          component="table"
+        <table
           className="w-full border-collapse mt-4 mb-2 text-[0.875rem]"
         >
-          <Box component="caption" className="text-left pb-2 text-base-content/70">
+          <caption className="text-left pb-2 text-base-content/70">
             Sample verification checks run before publishing
-          </Box>
-          <Box component="thead">
-            <Box component="tr">
-              <Box component="th" scope="col" className="text-left p-2 border-b border-base-300">
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" className="text-left p-2 border-b border-base-300">
                 Check
-              </Box>
-              <Box component="th" scope="col" className="text-left p-2 border-b border-base-300">
+              </th>
+              <th scope="col" className="text-left p-2 border-b border-base-300">
                 Input
-              </Box>
-              <Box component="th" scope="col" className="text-left p-2 border-b border-base-300">
+              </th>
+              <th scope="col" className="text-left p-2 border-b border-base-300">
                 Expected output
-              </Box>
-            </Box>
-          </Box>
-          <Box component="tbody">
-            <Box component="tr">
-              <Box component="th" scope="row" className="text-left p-2 border-b border-base-300 font-semibold">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" className="text-left p-2 border-b border-base-300 font-semibold">
                 Loan payment
-              </Box>
-              <Box component="td" className="p-2 border-b border-base-300">
+              </th>
+              <td className="p-2 border-b border-base-300">
                 $100,000 at 5% over 30 years
-              </Box>
-              <Box component="td" className="p-2 border-b border-base-300">
+              </td>
+              <td className="p-2 border-b border-base-300">
                 $536.82 / month
-              </Box>
-            </Box>
-            <Box component="tr">
-              <Box component="th" scope="row" className="text-left p-2 border-b border-base-300 font-semibold">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" className="text-left p-2 border-b border-base-300 font-semibold">
                 BMI
-              </Box>
-              <Box component="td" className="p-2 border-b border-base-300">
+              </th>
+              <td className="p-2 border-b border-base-300">
                 70 kg at 175 cm
-              </Box>
-              <Box component="td" className="p-2 border-b border-base-300">
+              </td>
+              <td className="p-2 border-b border-base-300">
                 22.9
-              </Box>
-            </Box>
-          </Box>
-        </Box>
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <Typography variant="h2" className="text-[1.25rem] text-base-content mt-6 mb-2">
           3. Browser matrix
         </Typography>
@@ -109,7 +108,7 @@ export default function MethodologyView() {
           We re-check pages as tools improve and re-verify calculator logic when rules change. Results are
           estimates for general information, not professional advice — see <Link href="/terms">/terms</Link>.
         </Typography>
-        <Box component="ul" className="m-0 pl-5">
+        <ul className="m-0 pl-5">
           <Typography component="li" className="mb-1" style={{ display: "list-item" }}>
             Re-run sample checks after every logic change before re-publishing.
           </Typography>
@@ -119,7 +118,7 @@ export default function MethodologyView() {
           <Typography component="li" className="mb-1" style={{ display: "list-item" }}>
             Re-check health ranges and conversions when reference guidance changes.
           </Typography>
-        </Box>
+        </ul>
         <Typography variant="h2" className="text-[1.25rem] text-base-content mt-6 mb-2">
           5. Public references we check against
         </Typography>
@@ -177,36 +176,34 @@ export default function MethodologyView() {
           so every date is independently checkable against <Link href="/blog">our guides</Link>{" "}
           and actual content changes.
         </Typography>
-        <Box
-          component="table"
+        <table
           className="w-full border-collapse mt-2 mb-2 text-[0.875rem]"
         >
-          <Box component="thead">
-            <Box component="tr">
-              <Box component="th" scope="col" className="text-left p-2 border-b border-base-300">
+          <thead>
+            <tr>
+              <th scope="col" className="text-left p-2 border-b border-base-300">
                 Content area
-              </Box>
-              <Box component="th" scope="col" className="text-left p-2 border-b border-base-300">
+              </th>
+              <th scope="col" className="text-left p-2 border-b border-base-300">
                 Last content edit
-              </Box>
-            </Box>
-          </Box>
-          <Box component="tbody">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
             {CATEGORY_UPDATES.map(([area, iso]) => (
-              <Box component="tr" key={area}>
-                <Box component="td" className="p-2 border-b border-base-300">
+              <tr key={area}>
+                <td className="p-2 border-b border-base-300">
                   {area}
-                </Box>
-                <Box component="td" className="p-2 border-b border-base-300 whitespace-nowrap">
+                </td>
+                <td className="p-2 border-b border-base-300 whitespace-nowrap">
                   {formatIsoHuman(iso)}
-                </Box>
-              </Box>
+                </td>
+              </tr>
             ))}
-          </Box>
-        </Box>
-      </Box>
-      <Box
-        component="nav"
+          </tbody>
+        </table>
+      </div>
+      <nav
         aria-label="Related pages"
         className="mt-8 flex flex-wrap gap-4 text-base-content/70"
       >
@@ -221,7 +218,7 @@ export default function MethodologyView() {
         <Typography variant="body2">
           <Link href="/terms">Terms of Service</Link>
         </Typography>
-      </Box>
+      </nav>
     </Container>
   );
 }

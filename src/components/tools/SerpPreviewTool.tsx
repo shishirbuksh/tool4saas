@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Alert, Button, LinearProgress } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Alert, Button, LinearProgress } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { useThemeMode } from "@/components/ThemeProviderClient";
@@ -95,17 +95,17 @@ export default function SerpPreviewTool() {
 
   return (
     <ToolPaper spacing={3}>
-      <Box>
+      <div>
         <Typography variant="h6" className="font-bold">
           SERP Preview
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Preview how your page will look in Google search results. Keep title ≤ 60 chars (~580px) and description ≤ 160 chars (~920px).
         </Typography>
-      </Box>
+      </div>
 
       <Stack spacing={2}>
-        <Box>
+        <div>
           <TextField
             label="Title tag"
             fullWidth
@@ -117,14 +117,14 @@ export default function SerpPreviewTool() {
             error={titleOverChars}
           />
           <Stack direction="row" spacing={1} className="items-center mt-2">
-            <Box className="flex-1">
+            <div className="flex-1">
               <LinearProgress
                 variant="determinate"
                 value={titleProgress}
                 color={titleOverChars || titleOverPx ? "error" : titleProgress > 90 ? "warning" : "primary"}
                 className="h-[6px] rounded-[40px]"
               />
-            </Box>
+            </div>
             <Typography
               variant="caption"
               color={titleOverChars || titleOverPx ? "error.main" : "text.secondary"}
@@ -156,7 +156,7 @@ export default function SerpPreviewTool() {
               Title is empty — search engines will generate one automatically.
             </Alert>
           )}
-        </Box>
+        </div>
 
         <TextField
           label="URL"
@@ -168,7 +168,7 @@ export default function SerpPreviewTool() {
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
         />
 
-        <Box>
+        <div>
           <TextField
             label="Meta description"
             fullWidth
@@ -182,14 +182,14 @@ export default function SerpPreviewTool() {
             slotProps={{ input: { spellCheck: true } }}
           />
           <Stack direction="row" spacing={1} className="items-center mt-2">
-            <Box className="flex-1">
+            <div className="flex-1">
               <LinearProgress
                 variant="determinate"
                 value={descProgress}
                 color={descOverChars || descOverPx ? "error" : descProgress > 90 ? "warning" : "primary"}
                 className="h-[6px] rounded-[40px]"
               />
-            </Box>
+            </div>
             <Typography
               variant="caption"
               color={descOverChars || descOverPx ? "error.main" : "text.secondary"}
@@ -216,7 +216,7 @@ export default function SerpPreviewTool() {
               Description is empty — Google will auto-generate a snippet from page content.
             </Alert>
           )}
-        </Box>
+        </div>
       </Stack>
 
       <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
@@ -256,7 +256,7 @@ export default function SerpPreviewTool() {
         </Button>
       </Stack>
 
-      <Box>
+      <div>
         <Typography variant="subtitle2" gutterBottom className="font-bold">
           Google snippet preview
         </Typography>
@@ -264,7 +264,7 @@ export default function SerpPreviewTool() {
           Desktop preview · Title truncates at ~580px, description at ~920px (2 lines). Pixel widths are approximated via character widths.
         </Typography>
 
-        <Box
+        <div
           className="p-4 rounded-[12px] border border-base-300 bg-base-100 max-w-[600px]"
         >
           {/* Google-style snippet */}
@@ -272,23 +272,22 @@ export default function SerpPreviewTool() {
             variant="caption"
             className="flex items-center gap-1.5 text-base-content/70 text-[12px] leading-[1.4] break-all"
           >
-            <Box
-              component="span"
+            <span
               className="w-[18px] h-[18px] rounded-full inline-flex items-center justify-center text-[10px] shrink-0" style={{ backgroundColor: "var(--color-base-300)" }}
             >
               🌐
-            </Box>
-            <Box component="span" className="min-w-[0px]">
-              <Box component="span" className="text-base-content font-medium">
+            </span>
+            <span className="min-w-[0px]">
+              <span className="text-base-content font-medium">
                 {displayUrl.split(" › ")[0]}
-              </Box>
-              <Box component="span" className="block text-[12px] text-base-content/70">
+              </span>
+              <span className="block text-[12px] text-base-content/70">
                 {displayUrl}
-              </Box>
-            </Box>
-            <Box component="span" className="ml-auto shrink-0 text-base-content/40">
+              </span>
+            </span>
+            <span className="ml-auto shrink-0 text-base-content/40">
               ⋮
-            </Box>
+            </span>
           </Typography>
 
           <Typography
@@ -302,7 +301,7 @@ export default function SerpPreviewTool() {
           >
             {description || "Add a meta description to preview how your snippet will appear in search results."}
           </Typography>
-        </Box>
+        </div>
 
         {/* Pixel width detail */}
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="mt-4">
@@ -325,7 +324,7 @@ export default function SerpPreviewTool() {
             <Typography variant="caption">Actual: {descLen} chars · ~{Math.ceil(descPx / 460)} line(s) estimated</Typography>
           </Alert>
         </Stack>
-      </Box>
+      </div>
 
       <Alert severity="info">
         Tip: Front-load important keywords. Google measures in pixels, not characters — “W” and “M” are wider than “i” or “l”, so pixel width is more accurate than char count.

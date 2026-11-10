@@ -51,7 +51,6 @@ export default function CapitalGainsTool() {
           label="Asset type"
           value={asset}
           onChange={(e) => setAsset(e.target.value as Asset)}
-         
           className="min-h-[44px]"
         >
           <MenuItem value="equity">Listed equity</MenuItem>
@@ -74,7 +73,6 @@ export default function CapitalGainsTool() {
             label="Slab rate (STCG)"
             value={slabRate}
             onChange={(e) => setSlabRate(e.target.value)}
-           
             className="min-h-[44px]"
           >
             {SLAB_OPTIONS.map((o) => (

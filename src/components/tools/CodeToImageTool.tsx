@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Stack, MenuItem, Typography } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Stack, MenuItem, Typography } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon, DownloadIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
@@ -236,36 +236,35 @@ export default function CodeToImageTool() {
         error={code.length > MAX_CODE_SIZE}
       />
 
-      <Box>
+      <div>
         <Typography variant="subtitle2" className="font-bold mb-2">
           Preview
         </Typography>
-        <Box
+        <div
           className="rounded-[16px] overflow-hidden border" style={{ borderColor: isDark ? "#30363d" : "divider", backgroundColor: isDark ? "#0d1117" : "#ffffff" }}
         >
-          <Box
+          <div
             className="flex items-center gap-2 px-4 py-2.5 border-b" style={{ backgroundColor: isDark ? "#161b22" : "#f6f8fa", borderColor: isDark ? "#30363d" : "divider" }}
           >
-            <Box className="w-[12px] h-[12px] rounded-full bg-[#ff5f57]" />
-            <Box className="w-[12px] h-[12px] rounded-full bg-[#febc2e]" />
-            <Box className="w-[12px] h-[12px] rounded-full bg-[#28c840]" />
+            <div className="w-[12px] h-[12px] rounded-full bg-[#ff5f57]" />
+            <div className="w-[12px] h-[12px] rounded-full bg-[#febc2e]" />
+            <div className="w-[12px] h-[12px] rounded-full bg-[#28c840]" />
             <Typography
               variant="caption"
               className="ml-2" style={{ fontFamily: "ui-monospace, monospace", color: isDark ? "#8b949e" : "text.secondary" }}
             >
               {language}
             </Typography>
-          </Box>
-          <Box className="overflow-x-auto">
-            <Box
-              component="pre"
+          </div>
+          <div className="overflow-x-auto">
+            <pre
               className="m-0 p-6 text-[13px] leading-[1.7] bg-transparent whitespace-pre min-h-[120px]" style={{ fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace", color: isDark ? "#e6edf3" : "#1f2328" }}
             >
               {code || " "}
-            </Box>
-          </Box>
-        </Box>
-      </Box>
+            </pre>
+          </div>
+        </div>
+      </div>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
         <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={handleCopy} disabled={!code}>

@@ -69,7 +69,6 @@ export default function HomeAffordabilityCalculatorTool() {
         input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
         htmlInput: { min: 0, step: "any" },
       }}
-      
     />
   );
 

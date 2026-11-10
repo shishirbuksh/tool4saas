@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, Alert, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, Alert, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon, DownloadIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
@@ -141,11 +141,11 @@ export default function SitemapGeneratorTool() {
           <Typography variant="body2" className="font-bold mb-1">
             Invalid URLs ({invalidUrls.length}):
           </Typography>
-          <Box component="ul" className="m-0 pl-4 break-all text-[13px]" style={{ fontFamily: "monospace" }}>
+          <ul className="m-0 pl-4 break-all text-[13px]" style={{ fontFamily: "monospace" }}>
             {invalidUrls.map((u) => (
               <li key={u}>{u}</li>
             ))}
-          </Box>
+          </ul>
         </Alert>
       )}
 
@@ -154,7 +154,7 @@ export default function SitemapGeneratorTool() {
       )}
 
       {xml ? (
-        <Box>
+        <div>
           <Typography variant="subtitle2" gutterBottom className="font-bold">
             Preview — sitemap.xml ({validUrls.length} URL{validUrls.length === 1 ? "" : "s"})
           </Typography>
@@ -166,7 +166,7 @@ export default function SitemapGeneratorTool() {
             slotProps={{ input: { readOnly: true, "aria-label": "Generated sitemap XML", spellCheck: false, autoComplete: "off" } }}
             className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[12px]"
           />
-        </Box>
+        </div>
       ) : (
         <Alert severity="info">Enter at least one valid absolute URL (including https://) to generate the sitemap.</Alert>
       )}

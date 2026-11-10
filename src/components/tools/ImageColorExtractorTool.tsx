@@ -1,6 +1,6 @@
 
 import { useState, useRef, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, Alert } from "@/components/ds";
 
 import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 
@@ -269,47 +269,45 @@ export default function ImageColorExtractorTool() {
       {copied && <Alert severity="success">Copied {copied} to clipboard</Alert>}
 
       {/* hidden canvas for getImageData */}
-      <Box
-        component="canvas"
+      <canvas
         ref={canvasRef}
         className="hidden"
         aria-hidden
       />
 
       {previewUrl ? (
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-2">
             Preview
           </Typography>
-          <Box
-            component="img"
+          <img
             src={previewUrl}
             alt="Uploaded preview"
             className="max-w-full max-h-[320px] rounded-[16px] border border-base-300 block"
           />
-        </Box>
+        </div>
       ) : (
-        <Box className="p-4 border-base-300 rounded-[16px] text-center" style={{ border: "1px dashed" }}>
+        <div className="p-4 border-base-300 rounded-[16px] text-center" style={{ border: "1px dashed" }}>
           <Typography variant="body2" color="text.secondary">
             No image loaded. Choose an image to extract colors.
           </Typography>
-        </Box>
+        </div>
       )}
 
       {colors.length > 0 && (
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-2">
             Prominent colors ({colors.length})
           </Typography>
-          <Box
+          <div
             className="grid grid-cols-[1fr] sm:grid-cols-5 gap-3"
           >
             {colors.map((c) => (
-              <Box
+              <div
                 key={c.hex}
                 className="border border-base-300 rounded-[16px] overflow-hidden text-center"
               >
-                <Box className="h-[80px] border-b border-base-300" style={{ backgroundColor: c.hex }} />
+                <div className="h-[80px] border-b border-base-300" style={{ backgroundColor: c.hex }} />
                 <Stack spacing={0.5} className="p-2 items-center">
                   <Typography variant="body2" className="font-bold" style={{ fontFamily: "monospace" }}>
                     {c.hex}
@@ -321,13 +319,13 @@ export default function ImageColorExtractorTool() {
                     {copied === c.hex ? "Copied!" : "Copy"}
                   </Button>
                 </Stack>
-              </Box>
+              </div>
             ))}
-          </Box>
+          </div>
           <Typography variant="caption" color="text.secondary" className="mt-2 block">
             Quantization: 4096 buckets (4 bits per channel). Top 5 buckets by pixel count, averaged to hex.
           </Typography>
-        </Box>
+        </div>
       )}
     </ToolPaper>
   );

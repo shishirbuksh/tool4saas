@@ -1,4 +1,4 @@
-import { Box, Typography } from "@/components/ds";
+import { Typography } from "@/components/ds";
 
 import { getGuideSources } from "@/lib/blog-sources";
 
@@ -8,8 +8,7 @@ export default function BlogSources({ pillar }: { pillar: string }) {
   const sources = getGuideSources(pillar);
   if (sources.length === 0) return null;
   return (
-    <Box
-      component="aside"
+    <aside
       aria-label="Sources and further reading"
       className="mt-10 p-6 rounded-xl border border-base-300 bg-base-200/50"
     >
@@ -19,7 +18,7 @@ export default function BlogSources({ pillar }: { pillar: string }) {
       <Typography variant="body2" color="text.secondary" className="mb-3 leading-[1.7]">
         This guide is educational, not medical or financial advice. Primary references:
       </Typography>
-      <Box component="ul" className="m-0 pl-5">
+      <ul className="m-0 pl-5">
         {sources.map((source) => (
           <li key={source.href} style={{ marginBottom: 6 }}>
             <a
@@ -36,7 +35,7 @@ export default function BlogSources({ pillar }: { pillar: string }) {
             </Typography>
           </li>
         ))}
-      </Box>
-    </Box>
+      </ul>
+    </aside>
   );
 }

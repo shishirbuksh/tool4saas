@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 
 const MAP: Record<string, string> = {
@@ -75,30 +75,29 @@ export default function MimeTypeTool() {
         />
         {result && result !== "none" && (
           <Stack spacing={1}>
-            <Box
+            <div
               className="flex justify-between p-3 rounded-[16px] border border-base-300"
             >
               <Typography color="text.secondary">Extension</Typography>
               <Typography className="font-bold" style={{ fontFamily: "monospace" }}>.{result.ext}</Typography>
-            </Box>
-            <Box
+            </div>
+            <div
               className="flex justify-between p-3 rounded-[16px] border border-base-300"
             >
               <Typography color="text.secondary">MIME type</Typography>
               <Typography className="font-bold" style={{ fontFamily: "monospace" }}>{result.mime}</Typography>
-            </Box>
+            </div>
           </Stack>
         )}
         {result === "none" && <Alert severity="info">No match found in the built-in table.</Alert>}
         {result && result !== "none" && (
           <Stack direction="row" spacing={1}>
-            <Box
-              component="button"
+            <button
               onClick={() => copy(result.type === "extension" ? result.mime : `.${result.ext}`)}
               className="px-4 py-2 rounded-[16px] border border-primary text-primary cursor-pointer font-semibold" style={{ background: "transparent" }}
             >
               Copy {result.type === "extension" ? "MIME" : "extension"}
-            </Box>
+            </button>
           </Stack>
         )}
       </ToolPaper>

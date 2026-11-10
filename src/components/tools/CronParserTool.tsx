@@ -1,6 +1,6 @@
 
 import { useMemo, useState, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 
 const FIELD_REGEX =
@@ -228,13 +228,13 @@ export default function CronParserTool() {
 
       {!hasError && fields ? (
         <Stack spacing={2}>
-          <Box>
+          <div>
             <Typography variant="subtitle2" className="font-bold mb-2">
               Field breakdown
             </Typography>
             <Stack direction={{ xs: "column", sm: "row" }} spacing={1} className="flex-wrap">
               {fields.map((f, idx) => (
-                <Box
+                <div
                   key={idx}
                   className="flex-1 min-w-[120px] p-3 rounded-[16px] border border-base-300 bg-base-100"
                 >
@@ -247,14 +247,14 @@ export default function CronParserTool() {
                   <Typography variant="caption" color="text.secondary">
                     {describeField(f, FIELD_META[idx])}
                   </Typography>
-                </Box>
+                </div>
               ))}
             </Stack>
-          </Box>
+          </div>
 
           <Alert severity="info">{description}</Alert>
 
-          <Box>
+          <div>
             <Typography variant="subtitle2" className="font-bold mb-2">
               Next 5 run times
             </Typography>
@@ -263,7 +263,7 @@ export default function CronParserTool() {
             ) : (
               <Stack spacing={1}>
                 {nextRuns.map((d, i) => (
-                  <Box
+                  <div
                     key={i}
                     className="p-3 rounded-[16px] border border-base-300 text-[14px] flex justify-between gap-4 flex-wrap" style={{ fontFamily: "monospace" }}
                   >
@@ -273,27 +273,27 @@ export default function CronParserTool() {
                     <Typography component="span" variant="caption" color="text.secondary" style={{ fontFamily: "monospace" }}>
                       {d.toISOString().replace("T", " ").slice(0, 16)} UTC
                     </Typography>
-                  </Box>
+                  </div>
                 ))}
                 <Typography variant="caption" color="text.secondary">
                   Approximated by iterating minutes (simple loop up to 100k minutes) from now.
                 </Typography>
               </Stack>
             )}
-          </Box>
+          </div>
         </Stack>
       ) : (
         <Alert severity="error">{error}</Alert>
       )}
 
-      <Box className="pt-2">
+      <div className="pt-2">
         <Typography variant="caption" color="text.secondary">
-          Examples: <Box component="span" style={{ fontFamily: "monospace" }}>* * * * *</Box> every minute ·{" "}
-          <Box component="span" style={{ fontFamily: "monospace" }}>0 * * * *</Box> hourly ·{" "}
-          <Box component="span" style={{ fontFamily: "monospace" }}>0 0 * * 0</Box> weekly ·{" "}
-          <Box component="span" style={{ fontFamily: "monospace" }}>30 9 1 * *</Box> At 09:30 on day-of-month 1
+          Examples: <span style={{ fontFamily: "monospace" }}>* * * * *</span> every minute ·{" "}
+          <span style={{ fontFamily: "monospace" }}>0 * * * *</span> hourly ·{" "}
+          <span style={{ fontFamily: "monospace" }}>0 0 * * 0</span> weekly ·{" "}
+          <span style={{ fontFamily: "monospace" }}>30 9 1 * *</span> At 09:30 on day-of-month 1
         </Typography>
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

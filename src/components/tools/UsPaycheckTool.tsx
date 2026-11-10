@@ -156,7 +156,6 @@ export default function UsPaycheckTool() {
               label="Filing status"
               value={filing}
               onChange={(e) => setFiling(e.target.value as Filing)}
-             
               className="min-h-[44px]"
             >
               {FILING_LABELS.map((f) => (
@@ -174,7 +173,6 @@ export default function UsPaycheckTool() {
               label="Pay frequency"
               value={frequency}
               onChange={(e) => setFrequency(e.target.value)}
-             
               className="min-h-[44px]"
             >
               {FREQUENCIES.map((f) => (
@@ -192,7 +190,6 @@ export default function UsPaycheckTool() {
               label="State tax"
               value={stateRate}
               onChange={(e) => setStateRate(e.target.value as StatePreset)}
-             
               className="min-h-[44px]"
             >
               {STATE_PRESETS.map((s) => (

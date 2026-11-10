@@ -1,7 +1,7 @@
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
-import NumericField from "@/components/NumericField";import { Paper, Box, TextField, Button, Typography, Stack, Alert, Grid } from "@/components/ds";
+import NumericField from "@/components/NumericField";import { Paper, TextField, Button, Typography, Stack, Alert, Grid } from "@/components/ds";
 
 import { DownloadIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 import { money } from "@/lib/format";
@@ -76,7 +76,7 @@ export default function PayslipGeneratorTool() {
   };
 
   return (
-    <Box>
+    <div>
       <ToolPaper>
         <Typography variant="h3" className="text-[20px] font-bold">
           Payslip details
@@ -128,14 +128,14 @@ export default function PayslipGeneratorTool() {
         <Typography className="text-[13px] text-[#475569] mb-4">
           {employer || "Employer"} · {employee || "Employee"}
         </Typography>
-        <Box component="table" className="w-full border-collapse text-[13px]">
-          <Box component="thead">
-            <Box component="tr" style={{ borderBottom: "2px solid #0f172a" }}>
-              <Box component="th" className="text-left p-2 text-[#64748b]">Item</Box>
-              <Box component="th" className="text-right p-2 text-[#64748b]">Amount</Box>
-            </Box>
-          </Box>
-          <Box component="tbody">
+        <table className="w-full border-collapse text-[13px]">
+          <thead>
+            <tr style={{ borderBottom: "2px solid #0f172a" }}>
+              <th className="text-left p-2 text-[#64748b]">Item</th>
+              <th className="text-right p-2 text-[#64748b]">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
             <Row label="Basic" value={num(basic)} />
             <Row label="HRA" value={num(hra)} />
             <Row label="Allowances" value={num(allowances)} />
@@ -144,22 +144,22 @@ export default function PayslipGeneratorTool() {
             <Row label="Tax deduction" value={num(tax)} />
             <Row label="Other deductions" value={num(otherDeductions)} />
             <Row label="Total deductions" value={totals.deductions} bold />
-          </Box>
-        </Box>
-        <Box className="flex justify-between mt-4 font-extrabold text-[16px]">
+          </tbody>
+        </table>
+        <div className="flex justify-between mt-4 font-extrabold text-[16px]">
           <span>Net pay</span>
           <span>{money(totals.net, "INR")}</span>
-        </Box>
+        </div>
       </Paper>
-    </Box>
+    </div>
   );
 }
 
 function Row({ label, value, bold }: { label: string; value: number; bold?: boolean }) {
   return (
-    <Box component="tr" className="border-b border-b-[#e2e8f0]" style={{ fontWeight: bold ? 700 : 400 }}>
-      <Box component="td" className="p-2">{label}</Box>
-      <Box component="td" className="p-2 text-right">{money(value, "INR")}</Box>
-    </Box>
+    <tr className="border-b border-b-[#e2e8f0]" style={{ fontWeight: bold ? 700 : 400 }}>
+      <td className="p-2">{label}</td>
+      <td className="p-2 text-right">{money(value, "INR")}</td>
+    </tr>
   );
 }

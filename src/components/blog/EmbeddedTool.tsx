@@ -1,6 +1,6 @@
 
 import dynamic from "@/lib/astro/dynamic";
-import Link from "@/lib/astro/navigation";import { Box, Typography, Skeleton } from "@/components/ds";
+import Link from "@/lib/astro/navigation";import { Typography, Skeleton } from "@/components/ds";
 
 
 // In-page working tools for pillar guides (P0-2). Loaded client-only via
@@ -47,8 +47,7 @@ export default function EmbeddedTool({
   const Tool = TOOL_COMPONENTS[pillar];
   if (!Tool) return null;
   return (
-    <Box
-      component="section"
+    <section
       aria-label={`Try the ${title} now`}
       className="p-4 md:p-6 mb-8 rounded-xl border border-base-300 bg-base-100"
     >
@@ -60,6 +59,6 @@ export default function EmbeddedTool({
         <Link href={`/${slug}`}>Open the full page →</Link>
       </Typography>
       <Tool />
-    </Box>
+    </section>
   );
 }

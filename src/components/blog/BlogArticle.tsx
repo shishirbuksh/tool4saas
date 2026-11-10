@@ -1,5 +1,5 @@
 import Link from "@/lib/astro/navigation";
-import { Container, Box, Typography, Breadcrumbs, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
+import { Container, Typography, Breadcrumbs, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
 import { ChevronDownIcon as ExpandMoreIcon } from "@/components/ui/icons";
 import { siteConfig } from "@/lib/site";
 import { liteGetTool } from "@/lib/tools/catalog-lite";
@@ -236,7 +236,7 @@ export default function BlogArticle({
       <Typography color="text.secondary" className="blog-answer-first mb-4 max-w-[760px] text-[1.1rem] leading-[1.7]" >
         {post.description}
       </Typography>
-      <Box className="flex flex-wrap gap-4 items-center mb-8">
+      <div className="flex flex-wrap gap-4 items-center mb-8">
         <Typography variant="body2" color="text.secondary">
           By <Link href="/author" style={{ fontWeight: 600 }}>{reviewerRole} ({siteConfig.authorRole})</Link>
           {" · "}
@@ -244,46 +244,46 @@ export default function BlogArticle({
           {" · Updated "}<time dateTime={modifiedIso}>{formatIsoHuman(modifiedIso)}</time>
           {" · "}{post.readingMinutes} min read
         </Typography>
-      </Box>
+      </div>
 
       {/* YMYL disclaimer for financial and health pillars */}
       {ymylType && (
-        <Box className="mb-8">
+        <div className="mb-8">
           <YMYLDisclaimer type={ymylType} />
-        </Box>
+        </div>
       )}
 
       {/* Above-fold tool CTA */}
       {primaryTool && primaryHref && (
-        <Box className="p-6 mb-8 rounded-xl border border-base-300 bg-base-100 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
-          <Box>
+        <div className="p-6 mb-8 rounded-xl border border-base-300 bg-base-100 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
+          <div>
             <Typography variant="h2" className="text-[1.1rem] font-bold mb-1">
               Try it now — {primaryTool.title}, free in your browser
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {primaryTool.short} · No signup · No watermark · Free forever.
             </Typography>
-          </Box>
+          </div>
           <Link
             href={primaryHref}
             className="btn btn-primary min-h-[44px] px-6 rounded-lg text-sm font-semibold tracking-[-0.01em] shadow-sm hover:opacity-90 no-underline whitespace-nowrap"
           >
             Open {primaryTool.title} →
           </Link>
-        </Box>
+        </div>
       )}
 
-      <Box className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-10 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-10 items-start">
         {/* Main Article Content (Column 1 on desktop, order-2 on mobile) */}
-        <Box color="text.primary" className="min-w-0 order-2 lg:order-1">
+        <div color="text.primary" className="min-w-0 order-2 lg:order-1">
           <article className="blog-body" dangerouslySetInnerHTML={{ __html: post.html }} />
           <BlogSources pillar={post.pillar} />
           {secondaryTools.length > 0 && (
-            <Box className="mt-8 p-6 rounded-xl border border-base-300 bg-base-200/50">
+            <div className="mt-8 p-6 rounded-xl border border-base-300 bg-base-200/50">
               <Typography variant="h2" className="text-[1.1rem] font-bold mb-2">
                 Related free tools
               </Typography>
-              <Box className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2">
                 {secondaryTools.map((t) => (
                   <Link
                     key={t!.slug}
@@ -294,12 +294,12 @@ export default function BlogArticle({
                     {t!.title} →
                   </Link>
                 ))}
-              </Box>
-            </Box>
+              </div>
+            </div>
           )}
 
           {validFaqs.length > 0 && (
-            <Box component="section" className="mt-10">
+            <section className="mt-10">
               <Typography variant="h2" className="text-[1.5rem] md:text-[1.75rem] font-extrabold mb-4">
                 Frequently asked questions
               </Typography>
@@ -315,11 +315,11 @@ export default function BlogArticle({
                   </AccordionDetails>
                 </Accordion>
               ))}
-            </Box>
+            </section>
           )}
 
           {primaryTool && primaryHref && (
-            <Box className="mt-10 p-8 rounded-xl text-center border border-base-300 bg-base-100">
+            <div className="mt-10 p-8 rounded-xl text-center border border-base-300 bg-base-100">
               <Typography variant="h2" className="text-[1.4rem] font-extrabold mb-2">
                 Done reading — open the {primaryTool.title}
               </Typography>
@@ -332,23 +332,22 @@ export default function BlogArticle({
               >
                 Open {primaryTool.title} →
               </Link>
-            </Box>
+            </div>
           )}
-        </Box>
+        </div>
 
         {/* Sticky TOC Sidebar (Column 2 on desktop, order-1 on mobile) */}
         {post.toc && post.toc.length > 0 && (
-          <Box
-            component="nav"
+          <nav
             aria-label="Table of contents"
             className="order-1 lg:order-2 lg:sticky lg:top-24 p-5 border border-base-300 rounded-xl bg-base-100/90 backdrop-blur-sm"
           >
             <Typography variant="subtitle2" className="font-extrabold mb-3 tracking-[0.04em] uppercase text-[0.75rem] text-base-content/70">
               On this page
             </Typography>
-            <Box component="ul" className="m-0 p-0 list-none flex flex-col gap-1">
+            <ul className="m-0 p-0 list-none flex flex-col gap-1">
               {post.toc.map((t) => (
-                <Box component="li" key={t.id} style={{ paddingLeft: t.level === 3 ? "16px" : "0px" }}>
+                <li key={t.id} style={{ paddingLeft: t.level === 3 ? "16px" : "0px" }}>
                   <Link
                     href={`#${t.id}`}
                     className="block py-1 text-[0.875rem] leading-snug text-base-content/70 hover:text-base-content hover:underline transition-colors"
@@ -356,19 +355,19 @@ export default function BlogArticle({
                   >
                     {t.text}
                   </Link>
-                </Box>
+                </li>
               ))}
-            </Box>
-          </Box>
+            </ul>
+          </nav>
         )}
-      </Box>
+      </div>
 
       {/* Sibling silo mesh */}
-      <Box component="section" className="mt-12 pt-8 border-t border-base-300">
+      <section className="mt-12 pt-8 border-t border-base-300">
         <Typography variant="h2" className="text-[1.25rem] font-extrabold mb-4">
           Keep reading in this guide
         </Typography>
-        <Box className="grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr] gap-4">
+        <div className="grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr] gap-4">
           {related.map((r) => (
             <Link
               key={`${r.pillar}/${r.slug}`}
@@ -383,8 +382,8 @@ export default function BlogArticle({
               </Typography>
             </Link>
           ))}
-        </Box>
-      </Box>
+        </div>
+      </section>
     </Container>
   );
 }

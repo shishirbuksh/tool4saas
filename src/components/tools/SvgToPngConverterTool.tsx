@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, TextField, Slider, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, TextField, Slider, Alert } from "@/components/ds";
 
 import { validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
@@ -238,7 +238,7 @@ export default function SvgToPngConverterTool() {
       </Typography>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={3}>
-        <Box className="flex-1">
+        <div className="flex-1">
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Scale: {scale}x
           </Typography>
@@ -253,8 +253,8 @@ export default function SvgToPngConverterTool() {
             valueLabelFormat={(v) => `${v}x`}
             aria-label="PNG scale"
           />
-        </Box>
-        <Box className="w-full sm:w-[220px]">
+        </div>
+        <div className="w-full sm:w-[220px]">
           <TextField
             label="Base size (px)"
             type="number"
@@ -266,7 +266,7 @@ export default function SvgToPngConverterTool() {
             disabled={busy}
             helperText="Used when SVG has no width/height"
           />
-        </Box>
+        </div>
       </Stack>
 
       {error && <Alert severity="error">{error}</Alert>}
@@ -281,15 +281,14 @@ export default function SvgToPngConverterTool() {
       </Stack>
 
       {result && (
-        <Box className="p-4 border border-base-300 rounded-[16px]">
+        <div className="p-4 border border-base-300 rounded-[16px]">
           <Typography variant="subtitle2" gutterBottom className="font-bold">
             Result
           </Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom>
             {result.width}×{result.height}px · {fmtBytes(result.size)} · {result.name}
           </Typography>
-          <Box
-            component="img"
+          <img
             src={result.url}
             alt="PNG preview"
             className="max-w-full rounded-[8px] my-2 block"
@@ -297,7 +296,7 @@ export default function SvgToPngConverterTool() {
           <Button variant="contained" href={result.url} download={result.name}>
             Download PNG
           </Button>
-        </Box>
+        </div>
       )}
 
       <Typography variant="caption" color="text.secondary">

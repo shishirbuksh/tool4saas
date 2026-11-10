@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography, Button } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Stack, TextField, Typography, Button } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
@@ -120,7 +120,7 @@ export default function CmykConverterTool() {
 
       {/* Swatches */}
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-        <Box
+        <div
           className="flex-1 h-[120px] rounded-[16px] border border-base-300 flex items-center justify-center" style={{ backgroundColor: previewColor }}
         >
           <Typography
@@ -129,11 +129,11 @@ export default function CmykConverterTool() {
           >
             {isValid ? hexString : "Invalid color"}
           </Typography>
-        </Box>
-        <Box
+        </div>
+        <div
           className="flex-1 h-[120px] rounded-[16px] border border-base-300 opacity-[0.9] flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: previewColor }}
         >
-          <Box
+          <div
             className="absolute inset-0" style={{ background: cmyk
                 ? `linear-gradient(135deg, ${previewColor} 0%, rgba(0,0,0,${cmyk.k / 100}) 100%)`
                 : previewColor }}
@@ -144,13 +144,12 @@ export default function CmykConverterTool() {
           >
             {isValid ? cmykString : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
 
       {/* HEX input */}
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="sm:items-center">
-        <Box
-          component="input"
+        <input
           type="color"
           value={isValid ? hexDisplay : "#000000"}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHexInput(e.target.value)}
@@ -180,7 +179,7 @@ export default function CmykConverterTool() {
       </Stack>
 
       {/* RGB inputs */}
-      <Box>
+      <div>
         <Typography variant="subtitle2" className="font-bold mb-2">
           RGB (0–255)
         </Typography>
@@ -210,10 +209,10 @@ export default function CmykConverterTool() {
             slotProps={{ input: { inputMode: "numeric", spellCheck: false } }}
           />
         </Stack>
-      </Box>
+      </div>
 
       {/* CMYK inputs */}
-      <Box>
+      <div>
         <Typography variant="subtitle2" className="font-bold mb-2">
           CMYK (0–100%)
         </Typography>
@@ -251,7 +250,7 @@ export default function CmykConverterTool() {
             slotProps={{ input: { inputMode: "numeric", spellCheck: false } }}
           />
         </Stack>
-      </Box>
+      </div>
 
       {/* All formats with swatches and copy buttons */}
       <Stack spacing={1}>
@@ -259,67 +258,67 @@ export default function CmykConverterTool() {
           All formats
         </Typography>
 
-        <Box
+        <div
           className="flex items-center justify-between gap-2 p-3 border border-base-300 rounded-[16px]"
         >
           <Stack direction="row" spacing={1.5} className="items-center flex-1 min-w-[0px]">
-            <Box className="w-[36px] h-[36px] rounded-[8px] border border-base-300 shrink-0" style={{ backgroundColor: previewColor }} />
-            <Box className="min-w-[0px]">
+            <div className="w-[36px] h-[36px] rounded-[8px] border border-base-300 shrink-0" style={{ backgroundColor: previewColor }} />
+            <div className="min-w-[0px]">
               <Typography variant="caption" color="text.secondary" className="block font-bold">
                 HEX
               </Typography>
               <Typography variant="body2" className="font-bold break-all" style={{ fontFamily: "monospace" }}>
                 {hexString}
               </Typography>
-            </Box>
+            </div>
           </Stack>
           <Button variant="outlined" size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(hexString)} disabled={!isValid}>
             Copy
           </Button>
-        </Box>
+        </div>
 
-        <Box
+        <div
           className="flex items-center justify-between gap-2 p-3 border border-base-300 rounded-[16px]"
         >
           <Stack direction="row" spacing={1.5} className="items-center flex-1 min-w-[0px]">
-            <Box className="w-[36px] h-[36px] rounded-[8px] border border-base-300 shrink-0" style={{ backgroundColor: previewColor }} />
-            <Box className="min-w-[0px]">
+            <div className="w-[36px] h-[36px] rounded-[8px] border border-base-300 shrink-0" style={{ backgroundColor: previewColor }} />
+            <div className="min-w-[0px]">
               <Typography variant="caption" color="text.secondary" className="block font-bold">
                 RGB
               </Typography>
               <Typography variant="body2" className="font-bold break-all" style={{ fontFamily: "monospace" }}>
                 {rgbString}
               </Typography>
-            </Box>
+            </div>
           </Stack>
           <Button variant="outlined" size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(rgbString)} disabled={!isValid}>
             Copy
           </Button>
-        </Box>
+        </div>
 
-        <Box
+        <div
           className="flex items-center justify-between gap-2 p-3 border border-base-300 rounded-[16px]"
         >
           <Stack direction="row" spacing={1.5} className="items-center flex-1 min-w-[0px]">
-            <Box className="w-[36px] h-[36px] rounded-[8px] border border-base-300 shrink-0" style={{ backgroundColor: previewColor }} />
-            <Box className="min-w-[0px]">
+            <div className="w-[36px] h-[36px] rounded-[8px] border border-base-300 shrink-0" style={{ backgroundColor: previewColor }} />
+            <div className="min-w-[0px]">
               <Typography variant="caption" color="text.secondary" className="block font-bold">
                 CMYK
               </Typography>
               <Typography variant="body2" className="font-bold break-all" style={{ fontFamily: "monospace" }}>
                 {cmykString}
               </Typography>
-            </Box>
+            </div>
           </Stack>
           <Button variant="outlined" size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(cmykString)} disabled={!isValid}>
             Copy
           </Button>
-        </Box>
+        </div>
       </Stack>
 
       {/* Readonly fields with copy for quick access */}
       <Stack spacing={1}>
-        <Box className="flex items-center justify-between gap-2">
+        <div className="flex items-center justify-between gap-2">
           <Typography variant="subtitle2" className="font-bold w-[56px]">
             HEX
           </Typography>
@@ -332,8 +331,8 @@ export default function CmykConverterTool() {
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => copy(hexString)} disabled={!isValid}>
             Copy
           </Button>
-        </Box>
-        <Box className="flex items-center justify-between gap-2">
+        </div>
+        <div className="flex items-center justify-between gap-2">
           <Typography variant="subtitle2" className="font-bold w-[56px]">
             RGB
           </Typography>
@@ -346,8 +345,8 @@ export default function CmykConverterTool() {
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => copy(rgbString)} disabled={!isValid}>
             Copy
           </Button>
-        </Box>
-        <Box className="flex items-center justify-between gap-2">
+        </div>
+        <div className="flex items-center justify-between gap-2">
           <Typography variant="subtitle2" className="font-bold w-[56px]">
             CMYK
           </Typography>
@@ -360,7 +359,7 @@ export default function CmykConverterTool() {
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => copy(cmykString)} disabled={!isValid}>
             Copy
           </Button>
-        </Box>
+        </div>
       </Stack>
     </ToolPaper>
   );

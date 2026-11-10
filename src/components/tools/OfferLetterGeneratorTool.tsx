@@ -1,7 +1,7 @@
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
-import NumericField from "@/components/NumericField";import { Paper, Box, TextField, Button, Typography, Stack, Alert, Grid } from "@/components/ds";
+import NumericField from "@/components/NumericField";import { Paper, TextField, Button, Typography, Stack, Alert, Grid } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon, DownloadIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 import { money } from "@/lib/format";
@@ -96,7 +96,7 @@ export default function OfferLetterGeneratorTool() {
   };
 
   return (
-    <Box>
+    <div>
       <ToolPaper>
         <Typography variant="h3" className="text-[20px] font-bold">
           Offer details
@@ -153,35 +153,35 @@ export default function OfferLetterGeneratorTool() {
         <Typography className="text-[14px] text-[#1e293b] whitespace-pre-line leading-[1.8]">
           {`Dear ${candidateName || "Candidate"},\n\nWe are pleased to offer you the position of ${role || "Role"} at ${company || "Company"} (${workMode || "On-site"}, ${location || "Location"}). Your annual CTC will be ${ctcNum}, payable per company payroll cycle.\n\nExpected joining: ${joiningDate || "To be confirmed"}. Probation: ${probation || "—"}. Notice: ${notice || "—"}.`}
         </Typography>
-        <Box component="table" className="w-full mt-6 border-collapse text-[13px]">
-          <Box component="thead">
-            <Box component="tr" style={{ borderBottom: "2px solid #0f172a" }}>
-              <Box component="th" className="text-left p-2 text-[#64748b]">Component</Box>
-              <Box component="th" className="text-right p-2 text-[#64748b]">Annual</Box>
-              <Box component="th" className="text-right p-2 text-[#64748b]">Monthly</Box>
-            </Box>
-          </Box>
-          <Box component="tbody">
+        <table className="w-full mt-6 border-collapse text-[13px]">
+          <thead>
+            <tr style={{ borderBottom: "2px solid #0f172a" }}>
+              <th className="text-left p-2 text-[#64748b]">Component</th>
+              <th className="text-right p-2 text-[#64748b]">Annual</th>
+              <th className="text-right p-2 text-[#64748b]">Monthly</th>
+            </tr>
+          </thead>
+          <tbody>
             {breakdown.map((b) => (
-              <Box component="tr" key={b.label} className="border-b border-b-[#e2e8f0]">
-                <Box component="td" className="p-2">{b.label}</Box>
-                <Box component="td" className="p-2 text-right">{b.annual}</Box>
-                <Box component="td" className="p-2 text-right">{monthly(b.annual)}</Box>
-              </Box>
+              <tr key={b.label} className="border-b border-b-[#e2e8f0]">
+                <td className="p-2">{b.label}</td>
+                <td className="p-2 text-right">{b.annual}</td>
+                <td className="p-2 text-right">{monthly(b.annual)}</td>
+              </tr>
             ))}
-            <Box component="tr" className="font-extrabold">
-              <Box component="td" className="p-2">Total CTC</Box>
-              <Box component="td" className="p-2 text-right">{ctcNum}</Box>
-              <Box component="td" className="p-2 text-right">{monthly(ctcNum)}</Box>
-            </Box>
-          </Box>
-        </Box>
+            <tr className="font-extrabold">
+              <td className="p-2">Total CTC</td>
+              <td className="p-2 text-right">{ctcNum}</td>
+              <td className="p-2 text-right">{monthly(ctcNum)}</td>
+            </tr>
+          </tbody>
+        </table>
         <Typography className="mt-6 text-[13px] text-[#334155]">
           Sincerely,
           <br />
           HR, {company || "Company"}
         </Typography>
       </Paper>
-    </Box>
+    </div>
   );
 }

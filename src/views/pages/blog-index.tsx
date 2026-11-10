@@ -1,5 +1,5 @@
 import Link from "@/lib/astro/navigation";
-import { Container, Box, Typography, Grid, Breadcrumbs } from "@/components/ds";
+import { Container, Typography, Grid, Breadcrumbs } from "@/components/ds";
 
 import { BLOG_PILLARS } from "@/lib/blog-pillars";
 
@@ -31,7 +31,7 @@ export default function BlogIndexView({ sections = [] }: { sections?: BlogSectio
       <Grid container spacing={4}>
         {sections.map((s) => (
           <Grid size={{ xs: 12, md: 6 }} key={s.meta.pillar}>
-            <Box className="p-6 rounded-xl border border-base-300 bg-base-100 h-full flex flex-col">
+            <div className="p-6 rounded-xl border border-base-300 bg-base-100 h-full flex flex-col">
               <Link href={`/blog/${s.meta.pillar}`} style={{ textDecoration: "none" }}>
                 <Typography variant="h2" className="text-[1.35rem] font-bold text-base-content mb-2 hover:text-accent">
                   {s.meta.title}
@@ -43,7 +43,7 @@ export default function BlogIndexView({ sections = [] }: { sections?: BlogSectio
               <Typography variant="caption" color="text.secondary" className="block mb-3 font-medium">
                 Pillar guide (~{s.words.toLocaleString()} words) · {s.clusters.length} tutorials
               </Typography>
-              <Box component="ul" className="m-0 p-0 list-none flex flex-col gap-1.5 border-t border-base-300 pt-3">
+              <ul className="m-0 p-0 list-none flex flex-col gap-1.5 border-t border-base-300 pt-3">
                 {s.clusters.map((c) => (
                   <li key={c.slug}>
                     <Link
@@ -54,8 +54,8 @@ export default function BlogIndexView({ sections = [] }: { sections?: BlogSectio
                     </Link>
                   </li>
                 ))}
-              </Box>
-            </Box>
+              </ul>
+            </div>
           </Grid>
         ))}
       </Grid>

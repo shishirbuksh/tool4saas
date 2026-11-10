@@ -1,5 +1,5 @@
 
-import { useState, useMemo } from "react";import { Box, Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+import { useState, useMemo } from "react";import { Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
 import { fmtNumber, BMI_UNDERWEIGHT, METERS_PER_INCH, KG_PER_LB } from "@/lib/format";
@@ -135,7 +135,7 @@ export default function IdealWeightCalculatorTool() {
           </Select>
         </FormControl>
 
-        <Box className="flex items-center">
+        <div className="flex items-center">
           <ToggleButtonGroup
             size="small"
             value={resultUnit}
@@ -146,7 +146,7 @@ export default function IdealWeightCalculatorTool() {
             <ToggleButton value="kg">kg</ToggleButton>
             <ToggleButton value="lb">lb</ToggleButton>
           </ToggleButtonGroup>
-        </Box>
+        </div>
       </Stack>
 
       <Typography variant="caption" color="text.secondary">
@@ -154,7 +154,7 @@ export default function IdealWeightCalculatorTool() {
         (1 kg = 2.205 lb, 1 in = 2.54 cm)
       </Typography>
 
-      <Box
+      <div
         className="p-5 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -174,17 +174,17 @@ export default function IdealWeightCalculatorTool() {
           <Typography variant="caption" color="text.secondary" className="block mt-2">
             Range (±10%): {formatWeight(data.range10.lower, resultUnit, 1)} –{" "}
             {formatWeight(data.range10.upper, resultUnit, 1)}
-            <Box component="span" className="mx-1">
+            <span className="mx-1">
               •
-            </Box>
+            </span>
             {resultUnit === "kg"
               ? `${fmt(data.range10.lower * LB_PER_KG, 1)} – ${fmt(data.range10.upper * LB_PER_KG, 1)} lb`
               : `${fmt(data.range10.lower, 1)} – ${fmt(data.range10.upper, 1)} kg`}
           </Typography>
         )}
-      </Box>
+      </div>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-base-300"
       >
         <Typography variant="subtitle2" className="font-bold mb-2">
@@ -198,32 +198,32 @@ export default function IdealWeightCalculatorTool() {
               ["Miller", data?.miller],
             ] as const
           ).map(([label, val]) => (
-            <Box key={label} className="flex justify-between gap-4">
+            <div key={label} className="flex justify-between gap-4">
               <Typography variant="body2" color={label.toLowerCase() === formula ? "primary.main" : "text.secondary"} style={{ fontWeight: label.toLowerCase() === formula ? 700 : 400 }}>
                 {label}
               </Typography>
               <Typography variant="body2" className="font-bold tabular-nums">
                 {val !== undefined && val !== null && data ? `${fmt(val, 1)} kg / ${fmt(val * LB_PER_KG, 1)} lb` : "—"}
               </Typography>
-            </Box>
+            </div>
           ))}
         </Stack>
         {data && (
-          <Box className="mt-3 pt-3 border-t border-base-300">
-            <Box className="flex justify-between">
+          <div className="mt-3 pt-3 border-t border-base-300">
+            <div className="flex justify-between">
               <Typography variant="body2" color="text.secondary">
                 Healthy BMI range (18.5–24.9)
               </Typography>
               <Typography variant="body2" className="font-bold tabular-nums">
                 {fmt(data.bmiRange.lower, 1)} – {fmt(data.bmiRange.upper, 1)} kg
               </Typography>
-            </Box>
+            </div>
             <Typography variant="caption" color="text.secondary">
               {fmt(data.bmiRange.lower * LB_PER_KG, 1)} – {fmt(data.bmiRange.upper * LB_PER_KG, 1)} lb • based on height {fmt(data.inches, 1)} in ({fmt(data.meters * 100, 1)} cm)
             </Typography>
-          </Box>
+          </div>
         )}
-      </Box>
+      </div>
 
       <Alert severity="warning">
         Disclaimer: This calculator uses the Devine, Robinson, and Miller formulas to estimate ideal body weight from

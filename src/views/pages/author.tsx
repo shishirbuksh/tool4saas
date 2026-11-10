@@ -1,4 +1,4 @@
-import { Container, Typography, Box, Avatar, Breadcrumbs } from "@/components/ds";
+import { Container, Typography, Avatar, Breadcrumbs } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
@@ -61,18 +61,17 @@ export default function AuthorView() {
         Last updated: <time dateTime="2026-09-09">September 9, 2026</time>
       </Typography>
 
-      <Box className="grid gap-4">
+      <div className="grid gap-4">
         {reviewers.map((r) => (
-          <Box
+          <section
             key={r.role}
-            component="section"
             aria-label={r.role}
             className="p-6 border border-base-300 rounded-xl bg-base-100 flex gap-4"
           >
             <Avatar className="w-[48px] h-[48px] font-bold" aria-hidden="true">
               {r.initials}
             </Avatar>
-            <Box>
+            <div>
               <Typography variant="h2" className="text-[1.25rem] mb-1">
                 {r.role}
               </Typography>
@@ -86,20 +85,19 @@ export default function AuthorView() {
               >
                 Focus areas
               </Typography>
-              <Box component="ul" className="m-0 pl-5 text-base-content/70">
+              <ul className="m-0 pl-5 text-base-content/70">
                 {r.focusAreas.map((area) => (
                   <Typography key={area} component="li" variant="body2" className="leading-[1.8]">
                     {area}
                   </Typography>
                 ))}
-              </Box>
-            </Box>
-          </Box>
+              </ul>
+            </div>
+          </section>
         ))}
-      </Box>
+      </div>
 
-      <Box
-        component="section"
+      <section
         aria-label="Editorial process, credentials and corrections"
         className="mt-8 p-6 border border-base-300 rounded-xl bg-base-100"
       >
@@ -117,17 +115,16 @@ export default function AuthorView() {
           <Link href="/contact">Contact us</Link> and we correct verified mistakes, noting the fix in our
           changelog. Our qualification is practical: we build each tool ourselves, so we test what we ship.
         </Typography>
-      </Box>
+      </section>
 
-      <Box
-        component="section"
+      <section
         aria-label="How we verify"
         className="mt-8 p-6 border border-base-300 rounded-xl bg-base-100"
       >
         <Typography variant="h2" className="text-[1.25rem] mb-2">
           How we verify
         </Typography>
-        <Box component="ul" className="m-0 pl-5 text-base-content/70">
+        <ul className="m-0 pl-5 text-base-content/70">
           <Typography component="li" variant="body2" className="leading-[1.8]">
             Build and test every tool in-house against known samples before publishing.
           </Typography>
@@ -137,14 +134,13 @@ export default function AuthorView() {
           <Typography component="li" variant="body2" className="leading-[1.8]">
             Re-verify calculator logic when rules change; label estimates as estimates.
           </Typography>
-        </Box>
+        </ul>
         <Typography variant="body2" className="mt-3">
           <Link href="/methodology">How we verify — see our methodology</Link>
         </Typography>
-      </Box>
+      </section>
 
-      <Box
-        component="nav"
+      <nav
         aria-label="Related pages"
         className="mt-8 flex flex-wrap gap-4 text-base-content/70"
       >
@@ -159,7 +155,7 @@ export default function AuthorView() {
         <Typography variant="body2">
           <Link href="/contact">Contact us</Link>
         </Typography>
-      </Box>
+      </nav>
     </Container>
   );
 }

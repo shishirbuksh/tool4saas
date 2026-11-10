@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Button } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button } from "@/components/ds";
 
 import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
@@ -43,8 +43,7 @@ export default function ColorConverterTool() {
   return (
     <ToolPaper>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-center">
-          <Box
-            component="input"
+          <input
             type="color"
             value={rgb ? rgbToHex(rgb) : "#000000"}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHex(e.target.value)}
@@ -64,7 +63,7 @@ export default function ColorConverterTool() {
           />
         </Stack>
 
-        <Box className="p-4 border border-base-300 rounded-[16px] min-h-[120px]" style={{ backgroundColor: rgb ? `rgb(${rgb.r},${rgb.g},${rgb.b})` : "#fff" }} />
+        <div className="p-4 border border-base-300 rounded-[16px] min-h-[120px]" style={{ backgroundColor: rgb ? `rgb(${rgb.r},${rgb.g},${rgb.b})` : "#fff" }} />
 
         {rgb && hsl && (
           <Stack spacing={1}>
@@ -79,10 +78,10 @@ export default function ColorConverterTool() {
 
 function Row({ label, value, onCopy }: { label: string; value: string; onCopy: () => void }) {
   return (
-    <Box className="flex items-center justify-between gap-2">
+    <div className="flex items-center justify-between gap-2">
       <Typography  variant="subtitle2"  className="font-bold w-[56px]">{label}</Typography>
       <TextField value={value} slotProps={{ input: { readOnly: true, "aria-label": label, spellCheck: false, autoComplete: "off" } }} fullWidth className="[&_input]:[font-family:monospace]" />
       <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={onCopy}>Copy</Button>
-    </Box>
+    </div>
   );
 }

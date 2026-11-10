@@ -1,21 +1,20 @@
-import { Container, Box, Grid, Typography } from "@/components/ds";
+import { Container, Grid, Typography } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { HOME_GUIDES } from "@/content/home";
 
 export default function HomeGuides() {
   return (
-    <Box
-      component="section"
+    <section
       id="guides"
       aria-labelledby="guides-heading"
       className="py-14 md:py-20 scroll-mt-[100px]"
     >
       <Container maxWidth="xl" className="px-4 md:px-8">
-        <Box
+        <div
           className="flex items-end justify-between gap-4 mb-6 md:mb-8 flex-wrap"
         >
-          <Box className="max-w-[620px]">
+          <div className="max-w-[620px]">
             <Typography
               component="h2"
               id="guides-heading"
@@ -26,16 +25,16 @@ export default function HomeGuides() {
             <Typography color="text.secondary" className="text-[0.9375rem] md:text-[1rem]">
               Practical walkthroughs. Each guide links back to a free tool.
             </Typography>
-          </Box>
+          </div>
           <Link href="/blog" style={{ fontWeight: 600, fontSize: "0.875rem" }}>
             All guides →
           </Link>
-        </Box>
+        </div>
 
         <Grid container spacing={{ xs: 1.5, md: 2 }}>
           {HOME_GUIDES.map((guide) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={guide.href}>
-              <Box
+              <div
                 className="p-4 md:p-5 rounded-xl border border-base-300 bg-base-100 h-full flex flex-col hover:border-[rgba(0,0,0,0.16)] hover:[transform:translateY(-2px)] dark:[&_:hover]:border-[rgba(255,255,255,0.2)]" style={{ transition: "border-color 200ms ease, transform 200ms ease" }}
               >
                 <Typography
@@ -66,11 +65,11 @@ export default function HomeGuides() {
                 >
                   Read guide →
                 </Link>
-              </Box>
+              </div>
             </Grid>
           ))}
         </Grid>
       </Container>
-    </Box>
+    </section>
   );
 }

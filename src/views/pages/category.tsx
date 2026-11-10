@@ -1,4 +1,4 @@
-import Link from "@/lib/astro/navigation";import { Container, Box, Typography, Breadcrumbs, Grid } from "@/components/ds";
+import Link from "@/lib/astro/navigation";import { Container, Typography, Breadcrumbs, Grid } from "@/components/ds";
 
 import ToolCard from "@/components/ToolCard";
 import { CATEGORIES } from "@/lib/tools/categories";
@@ -55,7 +55,7 @@ export default function CategoryView({ id }: { id: string }) {
       {(() => {
         const intro = introForCategory(id);
         return (
-          <Box className="mb-8 max-w-[760px]">
+          <div className="mb-8 max-w-[760px]">
             <Typography color="text.secondary" className="mb-4 leading-[1.8]">
               {intro.body}
             </Typography>
@@ -73,7 +73,7 @@ export default function CategoryView({ id }: { id: string }) {
               <Link href={`/${intro.faqSlug}`}>{intro.faqLabel}</Link>. See also our{" "}
               <Link href="/methodology">testing methodology</Link>.
             </Typography>
-          </Box>
+          </div>
         );
       })()}
       <Grid container spacing={3}>
@@ -83,8 +83,7 @@ export default function CategoryView({ id }: { id: string }) {
           </Grid>
         ))}
       </Grid>
-      <Box
-        component="section"
+      <section
         aria-label={`Frequently asked questions about ${category.label}`}
         className="mt-12 max-w-[800px]"
       >
@@ -99,9 +98,8 @@ export default function CategoryView({ id }: { id: string }) {
           const link = (f as { link?: { slug: string; label: string } }).link;
           const parts = link && f.a.includes(link.label) ? f.a.split(link.label) : null;
           return (
-            <Box
+            <details
               key={f.q}
-              component="details"
               className="mb-4 p-5 rounded-xl border border-base-300 bg-base-100"
             >
               <Typography
@@ -125,11 +123,11 @@ export default function CategoryView({ id }: { id: string }) {
                   f.a
                 )}
               </Typography>
-            </Box>
+            </details>
           );
         })}
-      </Box>
-      <Box className="mt-10">
+      </section>
+      <div className="mt-10">
         <Typography variant="h2" className="text-[20px] mb-4">
           Browse all categories
         </Typography>
@@ -140,7 +138,7 @@ export default function CategoryView({ id }: { id: string }) {
                 href={`/category/${g.category.id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                <Box
+                <div
                   className="block p-6 bg-base-100 rounded-xl border border-base-300 h-full hover:[transform:translateY(-2px)_scale(1.01)] hover:border-[rgba(0,0,0,0.12)] hover:[box-shadow:0_0_0_1px_rgba(0,0,0,0.06),_0_12px_32px_rgba(34,29,29,0.08),_0_4px_12px_rgba(34,29,29,0.05)] active:[transform:scale(0.99)] active:[transition-duration:100ms]" style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.06), 0 1px 2px rgba(34,29,29,0.05)", contentVisibility: "auto", containIntrinsicSize: "0 180px", transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), box-shadow 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms cubic-bezier(0.16,1,0.3,1)" }}
                 >
                   <Typography variant="h3" className="text-[18px] mb-1">
@@ -149,12 +147,12 @@ export default function CategoryView({ id }: { id: string }) {
                   <Typography variant="body2" color="text.secondary">
                     {g.tools.filter((t) => !NOINDEX_SLUGS.has(t.slug)).length} tools
                   </Typography>
-                </Box>
+                </div>
               </Link>
             </Grid>
           ))}
         </Grid>
-      </Box>
+      </div>
     </Container>
   );
 }

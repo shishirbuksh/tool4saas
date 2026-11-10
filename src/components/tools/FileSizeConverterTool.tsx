@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Switch, FormControlLabel } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Switch, FormControlLabel } from "@/components/ds";
 
 
 const UNITS = ["B", "KB", "MB", "GB", "TB"] as const;
@@ -85,7 +85,7 @@ export default function FileSizeConverterTool() {
         </Typography>
       </Stack>
 
-      <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
+      <div className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
         <Typography variant="caption" className="opacity-[0.9]">
           Result
         </Typography>
@@ -97,17 +97,17 @@ export default function FileSizeConverterTool() {
             {bytesPreview} B · {value} {from} = bytes ({value} × {base}^{UNIT_EXP[from]})
           </Typography>
         )}
-      </Box>
+      </div>
 
       <Typography variant="caption" color="text.secondary">
         Formula: bytes = value × {base}
-        <Box component="span" className="text-[0.7em]" style={{ verticalAlign: "super" }}>
+        <span className="text-[0.7em]" style={{ verticalAlign: "super" }}>
           {UNIT_EXP[from]}
-        </Box>{" "}
+        </span>{" "}
         (from), result = bytes ÷ {base}
-        <Box component="span" className="text-[0.7em]" style={{ verticalAlign: "super" }}>
+        <span className="text-[0.7em]" style={{ verticalAlign: "super" }}>
           {UNIT_EXP[to]}
-        </Box>{" "}
+        </span>{" "}
         (to)
       </Typography>
     </ToolPaper>

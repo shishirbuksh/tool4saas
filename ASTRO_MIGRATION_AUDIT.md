@@ -151,14 +151,40 @@ Verified by diffing the rendered `<head>` of `/`, `/word-counter`, `/about`, `/4
 | 12 tool data files | 254 `icon:` values renamed |
 | `src/components/ToolCard.tsx` | Import + `Record<IconName, CardIcon>` map regenerated |
 
-### 4.4 Design system (Phase D1a — partial)
+### 4.4 Design system (Phase D1 — complete)
 
 | Change | Count |
 | --- | --- |
-| `<Box>` → `<div>` (files with no `component` prop) | 517 tags / 167 files |
-| `Box` import removed from those files | 167 |
+| D1a: `<Box>` → `<div>` (files with no `component` prop) | 517 tags / 167 files |
+| D1b: `<Box component="x">` → `<x>` (mixed files) | 599 tags / 70 files |
+| `Box` import removed where unused | 237 files |
+| `<Box>` remaining | 3 files (see below) |
 
-**Safety proof:** rebuilt and diffed 5 representative pages (`/`, `/word-counter`, `/invoice-generator`, `/pdf-merge`, a blog pillar) against the pre-change build. After normalizing build hashes, the HTML is **byte-identical except for removed empty `class=""` attributes** — markup the browser ignores. Zero visual or DOM-semantic change.
+Element targets produced by D1b: `aside, button, canvas, caption, code, details, div,
+footer, form, img, input, li, nav, ol, pre, section, span, table, tbody, td, th, thead,
+tr, ul, video`.
+
+Three files keep `<Box>` on purpose — `MetaTagGeneratorTool.tsx`,
+`OpenGraphPreviewTool.tsx`, `YoutubeThumbnailTool.tsx`. They contain arrow functions
+inside `onChange={...}`, and a regex-based tag matcher stops at the `>` in `=>`, which
+wrecks the JSX. They still work; converting them needs a real parser (or a manual edit).
+
+**Safety proof — source level.** All 238 changed `.tsx` files were compared against a
+pre-change snapshot with element names collapsed to a placeholder and the removed
+`component="..."` attributes stripped. Result: **0 files changed any non-tag text**.
+So the diff is exactly "element names + `component=` removal", nothing else. No
+void element (`img`, `input`, …) gained a closing tag.
+
+**Safety proof — output level.** Rebuilt and diffed 5 representative pages (`/`,
+`/word-counter`, `/invoice-generator`, `/pdf-merge`, a blog pillar) against the
+pre-change build. After normalising build hashes, empty `class=""` attributes, and
+**attribute order inside tags**, the HTML is **byte-identical**. The only residual
+difference is the auto-generated `dateModified` stamp, which the build derives from
+file mtimes and changes on any edit.
+
+Attribute order changes because `Box` rendered `class`/`style` first (its own props)
+and spread the rest afterwards; a real element renders attributes in JSX source
+order. Attribute order carries no meaning in HTML.
 
 ### Verification
 
@@ -168,13 +194,15 @@ Verified by diffing the rendered `<head>` of `/`, `/word-counter`, `/about`, `/4
 
 ## 5. Remaining work
 
-### Phase D1b — `Box` with `component` (73 files, 645 tags)
+### Phase D2 — `Typography` (1,375 call sites)
 
-`<Box component="span">` → `<span>`, `<Box component={Link}>` → `<Link>`. Mechanical but needs per-file tag mapping; same safety proof applies (rendered HTML must stay identical).
+Measured: 1,018 use a static `variant="..."`, 357 use no `variant`, 0 use a dynamic
+one. Props in use: `className` 886, `color` 617, `style` 101, `component` 61.
 
-### Phase D2 — `Typography` (166 call sites)
-
-`variant` maps to a tag + class set. The mapping table already exists in `Typography.tsx`, so this is a lookup codemod, but it touches headings — h1/h2 changes are SEO-relevant. Verify heading counts per page before and after.
+`variant` maps to a tag + class set (the table already exists in `Typography.tsx`),
+so this is a lookup codemod — but it touches headings, and heading tags are
+SEO-relevant. Verify H1/H2 counts per page before and after, and diff the rendered
+HTML the same way D1 was proven.
 
 ### Phase D3–D5 — form and behaviour components
 
@@ -190,13 +218,15 @@ Rename `src/components/ds` → `src/components/ui` once D1–D5 land, and extend
 
 ## 6. Recommendation
 
-**Phases A–C and D1a are done. Stop before D4/D5.**
+**Phases A–C and D1 are done. Stop before D4/D5.**
 
-The SEO head is now standards-compliant, the MUI icon layer is gone (module, vocabulary and 254 data values), and 517 of 1,162 `<Box>` tags are plain `<div>` — proven to render byte-identical HTML.
+The SEO head is now standards-compliant, the MUI icon layer is gone (module,
+vocabulary and 254 data values), and every `<Box>` outside three files is a real
+element — proven to render byte-identical HTML.
 
 What is left splits cleanly by risk:
 
-- **D1b + D2** (`Box component=`, `Typography`) — mechanical, verifiable by HTML diff. Worth finishing if the goal is "no MUI names anywhere".
+- **D2** (`Typography`) — mechanical, verifiable by HTML diff. Worth doing if the goal is "no MUI names anywhere".
 - **D3** (`Button`, `Chip`, `Paper`) — low behaviour risk, moderate visual risk.
 - **D4/D5** (form controls, overlays) — 520 call sites of real ARIA, focus and portal behaviour. This is where a refactor breaks 127 working tools, and it buys nothing for SEO or performance.
 

@@ -36,7 +36,6 @@ export default function NumericField({
         input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" },
         htmlInput: { min, step: "any" },
       }}
-      
     />
   );
 }

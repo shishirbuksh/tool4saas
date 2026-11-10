@@ -1,6 +1,6 @@
 
 import { useRef, useState, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, TextField, Typography, Stack, FormControlLabel, Checkbox, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, TextField, Typography, Stack, FormControlLabel, Checkbox, Alert } from "@/components/ds";
 
 import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 
@@ -180,8 +180,7 @@ export default function ImageResizerTool() {
         </Button>
         {dataUrl && (
           <Stack direction="row" spacing={2} className="items-center">
-            <Box
-              component="img"
+            <img
               src={dataUrl}
               alt="Resized preview"
               className="max-w-[160px] max-h-[160px] rounded-[16px] border border-base-300"

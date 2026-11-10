@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography, Alert, Chip, Link } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Stack, TextField, Typography, Alert, Chip, Link } from "@/components/ds";
 
 
 const STOPWORDS = new Set([
@@ -171,13 +171,12 @@ export default function AtsResumeCheckerTool() {
       const isMatch = lowerMatched.has(part.toLowerCase());
       if (isMatch) {
         return (
-          <Box
-            component="span"
+          <span
             key={idx}
             className="px-0.8 py-0.2 rounded-[6.4px] font-bold" style={{ backgroundColor: "color-mix(in oklab, var(--color-success) 15%, var(--color-base-100))", color: "var(--color-success)" }}
           >
             {part}
-          </Box>
+          </span>
         );
       }
       return <span key={idx}>{part}</span>;
@@ -214,12 +213,12 @@ export default function AtsResumeCheckerTool() {
           Paste a job description to extract keywords. Keywords are extracted by splitting on whitespace, lowercasing, and filtering stopwords.
         </Alert>
       ) : (
-        <Box
+        <div
           className="p-4 border border-base-300 rounded-[16px] bg-base-100"
         >
           <Stack spacing={2}>
-            <Box className="flex items-center justify-between gap-4 flex-wrap">
-              <Box>
+            <div className="flex items-center justify-between gap-4 flex-wrap">
+              <div>
                 <Typography variant="subtitle2" className="font-bold">
                   ATS Match Score
                 </Typography>
@@ -227,19 +226,19 @@ export default function AtsResumeCheckerTool() {
                   {matched.length} of {keywords.length} keywords covered
                   {keywords.length > 0 ? ` · ${keywords.length - matched.length} missing` : ""}
                 </Typography>
-              </Box>
+              </div>
               <Typography variant="h4" className="font-black min-w-[80px] text-right" style={{ color: scoreColor }}>
                 {score}%
               </Typography>
-            </Box>
+            </div>
 
-            <Box
+            <div
               className="h-[10px] rounded-[7992px] bg-base-300 overflow-hidden"
             >
-              <Box
+              <div
                 className="h-full rounded-[7992px]" style={{ width: `${score}%`, backgroundColor: scoreColor, transition: "width 0.3s ease" }}
               />
-            </Box>
+            </div>
 
             <Alert severity={hasJob && keywords.length > 0 ? (scoreSeverity as "success" | "warning" | "error") : "info"}>
               {score >= 80
@@ -249,7 +248,7 @@ export default function AtsResumeCheckerTool() {
                   : "Low coverage — many job keywords are missing. Add relevant skills and terms where truthful."}
             </Alert>
 
-            <Box>
+            <div>
               <Typography variant="subtitle2" className="font-bold mb-2">
                 Extracted keywords ({keywords.length})
               </Typography>
@@ -258,7 +257,7 @@ export default function AtsResumeCheckerTool() {
                   No keywords extracted after stopword filtering. Try a longer job description.
                 </Typography>
               ) : (
-                <Box className="flex flex-wrap gap-1.6">
+                <div className="flex flex-wrap gap-1.6">
                   {keywords.map((kw) => {
                     const isMatched = matched.includes(kw);
                     return (
@@ -272,12 +271,12 @@ export default function AtsResumeCheckerTool() {
                       />
                     );
                   })}
-                </Box>
+                </div>
               )}
-            </Box>
+            </div>
 
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-              <Box className="flex-1">
+              <div className="flex-1">
                 <Typography variant="subtitle2" className="font-bold mb-2 text-success">
                   Matched ({matched.length})
                 </Typography>
@@ -286,7 +285,7 @@ export default function AtsResumeCheckerTool() {
                     No keywords matched yet.
                   </Typography>
                 ) : (
-                  <Box className="flex flex-wrap gap-1.4">
+                  <div className="flex flex-wrap gap-1.4">
                     {matched.map((kw) => (
                       <Chip
                         key={kw}
@@ -295,10 +294,10 @@ export default function AtsResumeCheckerTool() {
                         className="font-semibold" style={{ backgroundColor: "color-mix(in oklab, var(--color-success) 15%, var(--color-base-100))", color: "var(--color-success)" }}
                       />
                     ))}
-                  </Box>
+                  </div>
                 )}
-              </Box>
-              <Box className="flex-1">
+              </div>
+              <div className="flex-1">
                 <Typography variant="subtitle2" className="font-bold mb-2 text-error">
                   Missing ({missing.length})
                 </Typography>
@@ -307,7 +306,7 @@ export default function AtsResumeCheckerTool() {
                     {hasJob ? "All keywords covered!" : "—"}
                   </Typography>
                 ) : (
-                  <Box className="flex flex-wrap gap-1.4">
+                  <div className="flex flex-wrap gap-1.4">
                     {missing.map((kw) => (
                       <Chip
                         key={kw}
@@ -318,32 +317,32 @@ export default function AtsResumeCheckerTool() {
                         className="font-semibold"
                       />
                     ))}
-                  </Box>
+                  </div>
                 )}
-              </Box>
+              </div>
             </Stack>
           </Stack>
-        </Box>
+        </div>
       )}
 
-      <Box>
+      <div>
         <Typography variant="subtitle2" className="font-bold mb-2">
           Resume highlight preview
         </Typography>
         {!hasResume ? (
           <Alert severity="info">Paste your resume above to see matched keywords highlighted in context.</Alert>
         ) : matched.length === 0 && hasJob ? (
-          <Box
+          <div
             className="p-4 border border-base-300 rounded-[16px] whitespace-pre-wrap text-[13px] leading-[1.7] text-base-content/70 bg-base-100"
           >
             No keywords matched — nothing to highlight. Try adding terms from the missing list.
-          </Box>
+          </div>
         ) : (
-          <Box
+          <div
             className="p-4 border border-base-300 rounded-[16px] whitespace-pre-wrap text-[13px] leading-[1.7] bg-base-100" style={{ fontFamily: "inherit" }}
           >
             {highlightedResume ?? resume}
-          </Box>
+          </div>
         )}
         <Typography variant="caption" color="text.secondary" className="block mt-2">
           Tip: ATS checks are keyword-based. Add missing terms only where you have truthful experience. For layout compliance, follow our{" "}
@@ -351,7 +350,7 @@ export default function AtsResumeCheckerTool() {
             ATS-friendly resume formatting guide
           </Link>.
         </Typography>
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

@@ -1,4 +1,4 @@
-import { Box, Typography, Link } from "@/components/ds";
+import { Typography, Link } from "@/components/ds";
 
 import type { ToolLink } from "@/lib/tool-view";
 
@@ -15,11 +15,11 @@ export default function RelatedTools({
   if (related.length === 0) return null;
 
   return (
-    <Box component="section" aria-label="Related tools" className="mt-12">
+    <section aria-label="Related tools" className="mt-12">
       <Typography variant="h2" className="text-[1.5rem] md:text-[2rem] mb-4">
         {heading}
       </Typography>
-      <Box className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         {related.map((t) => (
           <Link
             key={t.slug}
@@ -32,7 +32,7 @@ export default function RelatedTools({
             {t.title}
           </Link>
         ))}
-      </Box>
-    </Box>
+      </div>
+    </section>
   );
 }

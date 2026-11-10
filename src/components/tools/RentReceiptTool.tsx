@@ -1,7 +1,7 @@
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
-import NumericField from "@/components/NumericField";import { Paper, Box, TextField, Button, Typography, Stack, Alert, Grid, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import NumericField from "@/components/NumericField";import { Paper, TextField, Button, Typography, Stack, Alert, Grid, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { DownloadIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 import { money } from "@/lib/format";
@@ -86,7 +86,7 @@ export default function RentReceiptTool() {
   };
 
   return (
-    <Box>
+    <div>
       <ToolPaper>
         <Typography variant="h3" className="text-[20px] font-bold">
           Rent receipt details
@@ -108,7 +108,6 @@ export default function RentReceiptTool() {
                 label="Payment mode"
                 value={mode}
                 onChange={(e) => setMode(e.target.value as Mode)}
-               
                 className="min-h-[44px]"
               >
                 {MODES.map((m) => (
@@ -160,36 +159,36 @@ export default function RentReceiptTool() {
           {pan ? ` (PAN: ${pan})` : ""}
         </Typography>
         <Typography className="text-[13px] text-[#475569] mb-4">{address || "Property address"}</Typography>
-        <Box component="table" className="w-full border-collapse text-[13px]">
-          <Box component="thead">
-            <Box component="tr" style={{ borderBottom: "2px solid #0f172a" }}>
-              <Box component="th" className="text-left p-2 text-[#64748b]">Month</Box>
-              <Box component="th" className="text-left p-2 text-[#64748b]">Mode</Box>
-              <Box component="th" className="text-right p-2 text-[#64748b]">Amount</Box>
-            </Box>
-          </Box>
-          <Box component="tbody">
+        <table className="w-full border-collapse text-[13px]">
+          <thead>
+            <tr style={{ borderBottom: "2px solid #0f172a" }}>
+              <th className="text-left p-2 text-[#64748b]">Month</th>
+              <th className="text-left p-2 text-[#64748b]">Mode</th>
+              <th className="text-right p-2 text-[#64748b]">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
             {totals.monthList.length === 0 && (
-              <Box component="tr" className="border-b border-b-[#e2e8f0]">
-                <Box component="td" className="p-2" colSpan={3}>
+              <tr className="border-b border-b-[#e2e8f0]">
+                <td className="p-2" colSpan={3}>
                   No months entered.
-                </Box>
-              </Box>
+                </td>
+              </tr>
             )}
             {totals.monthList.map((m) => (
-              <Box component="tr" key={m} className="border-b border-b-[#e2e8f0]">
-                <Box component="td" className="p-2">{m}</Box>
-                <Box component="td" className="p-2">{mode}</Box>
-                <Box component="td" className="p-2 text-right">{money(totals.monthly, "INR")}</Box>
-              </Box>
+              <tr key={m} className="border-b border-b-[#e2e8f0]">
+                <td className="p-2">{m}</td>
+                <td className="p-2">{mode}</td>
+                <td className="p-2 text-right">{money(totals.monthly, "INR")}</td>
+              </tr>
             ))}
-          </Box>
-        </Box>
-        <Box className="flex justify-between mt-4 font-extrabold text-[16px]">
+          </tbody>
+        </table>
+        <div className="flex justify-between mt-4 font-extrabold text-[16px]">
           <span>Total ({totals.monthList.length} month{totals.monthList.length === 1 ? "" : "s"})</span>
           <span>{money(totals.total, "INR")}</span>
-        </Box>
+        </div>
       </Paper>
-    </Box>
+    </div>
   );
 }

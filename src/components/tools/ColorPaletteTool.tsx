@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack } from "@/components/ds";
 
 
 const hexToHsl = (hex: string) => {
@@ -74,8 +74,7 @@ export default function ColorPaletteTool() {
   return (
     <ToolPaper>
         <Stack direction="row" spacing={1.5} className="items-center">
-          <Box
-            component="input"
+          <input
             type="color"
             value={toRgb(base)}
             onChange={(e) => setBase(e.target.value)}
@@ -91,7 +90,7 @@ export default function ColorPaletteTool() {
             className="w-[180px]"
           />
         </Stack>
-        <Box
+        <div
           className="grid grid-cols-[1fr_1fr] sm:grid-cols-[1fr_1fr_1fr] gap-3"
         >
           {swatches.map((s) => (
@@ -112,18 +111,18 @@ export default function ColorPaletteTool() {
                 color: "inherit",
               }}
             >
-              <Box className="h-[64px]" style={{ background: s.hex }} />
-              <Box className="p-2">
+              <div className="h-[64px]" style={{ background: s.hex }} />
+              <div className="p-2">
                 <Typography variant="caption" color="text.secondary" className="block">
                   {s.label}
                 </Typography>
                 <Typography variant="body2" className="font-bold" style={{ fontFamily: "monospace" }}>
                   {s.hex}
                 </Typography>
-              </Box>
+              </div>
             </button>
           ))}
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

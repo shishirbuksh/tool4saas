@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Chip } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Chip } from "@/components/ds";
 
 
 const toRgb = (hex: string) => {
@@ -42,8 +42,7 @@ export default function ColorContrastTool() {
 
   const preview = (c: string, set: (v: string) => void, label: string) => (
       <Stack direction="row" spacing={1.5} className="items-center">
-      <Box
-        component="input"
+      <input
         type="color"
         value={toRgb(c) ? c : "#000000"}
         onChange={(e) => set(e.target.value)}
@@ -64,15 +63,15 @@ export default function ColorContrastTool() {
     <ToolPaper>
         {preview(fg, setFg, "Foreground color picker")}
         {preview(bg, setBg, "Background color picker")}
-        <Box
+        <div
           className="p-8 rounded-[16px] border border-base-300" style={{ background: toRgb(bg) ? bg : "#fff", color: toRgb(fg) ? fg : "#000" }}
         >
           <Typography variant="h5" className="font-extrabold">
             Preview text
           </Typography>
           <Typography variant="body1">The quick brown fox jumps over the lazy dog.</Typography>
-        </Box>
-        <Box
+        </div>
+        <div
           className="p-4 rounded-[16px] border border-base-300 text-center"
         >
           <Typography variant="overline" color="text.secondary">
@@ -81,7 +80,7 @@ export default function ColorContrastTool() {
           <Typography variant="h4" className="font-extrabold">
             {r !== null ? `${r.toFixed(2)}:1` : "—"}
           </Typography>
-        </Box>
+        </div>
         <Stack direction="row" spacing={1} className="flex-wrap">
           <Chip label={`AA normal (4.5:1) ${pass(4.5) ? "✓" : "✗"}`} color={pass(4.5) ? "success" : "error"} variant="outlined" />
           <Chip label={`AA large (3:1) ${pass(3) ? "✓" : "✗"}`} color={pass(3) ? "success" : "error"} variant="outlined" />

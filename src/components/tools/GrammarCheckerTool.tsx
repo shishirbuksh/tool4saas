@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 
 type GrammarIssue = {
@@ -136,14 +136,13 @@ export default function GrammarCheckerTool() {
         nodes.push(<span key={`t-${i}-pre`}>{text.slice(cursor, iss.index)}</span>);
       }
       nodes.push(
-        <Box
+        <span
           key={`h-${i}`}
-          component="span"
           className="px-0.8 py-0.2 rounded-[4px] border border-warning font-semibold" style={{ backgroundColor: "color-mix(in oklab, var(--color-warning) 15%, var(--color-base-100))", color: "var(--color-warning-content)" }}
           title={`${iss.type}: ${iss.suggestion}`}
         >
           {text.slice(iss.index, iss.index + iss.length)}
-        </Box>
+        </span>
       );
       cursor = iss.index + iss.length;
     });
@@ -173,16 +172,16 @@ export default function GrammarCheckerTool() {
       </Stack>
 
       {text && (
-        <Box
+        <div
           className="p-4 rounded-[16px] border border-base-300 bg-base-100 min-h-[96px] whitespace-pre-wrap break-words text-[14px] leading-[1.7]" style={{ fontFamily: "inherit" }}
         >
           <Typography variant="subtitle2" className="font-bold mb-2">
             Highlighted preview
           </Typography>
-          <Box component="div" className="whitespace-pre-wrap">
+          <div className="whitespace-pre-wrap">
             {highlighted}
-          </Box>
-        </Box>
+          </div>
+        </div>
       )}
 
       {!text ? (
@@ -196,22 +195,22 @@ export default function GrammarCheckerTool() {
       )}
 
       {issues.length > 0 && (
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-3">
             Issues ({issues.length})
           </Typography>
           <Stack spacing={1.2}>
             {issues.map((iss, idx) => (
-              <Box
+              <div
                 key={`${iss.type}-${iss.index}-${idx}`}
                 className="p-3 rounded-[16px] border border-base-300 flex flex-col gap-1" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
               >
                 <Stack direction="row" spacing={1} className="items-center flex-wrap gap-2">
-                  <Box
+                  <div
                     className="px-2 py-0.4 rounded-[8px] bg-warning text-[11px] font-bold uppercase tracking-[0.5px]" style={{ color: "var(--color-warning-content)" }}
                   >
                     {iss.type}
-                  </Box>
+                  </div>
                   <Typography variant="caption" color="text.secondary" style={{ fontFamily: "monospace" }}>
                     @ position {iss.position}
                   </Typography>
@@ -228,10 +227,10 @@ export default function GrammarCheckerTool() {
                 <Typography variant="body2" color="text.secondary">
                   Suggestion: <strong>{iss.suggestion}</strong>
                 </Typography>
-              </Box>
+              </div>
             ))}
           </Stack>
-        </Box>
+        </div>
       )}
 
       <Typography variant="caption" color="text.secondary">

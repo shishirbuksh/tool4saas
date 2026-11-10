@@ -1,5 +1,5 @@
 import Link from "@/lib/astro/navigation";
-import { Container, Box, Typography, Grid } from "@/components/ds";
+import { Container, Typography, Grid } from "@/components/ds";
 import { siteConfig } from "@/lib/site";
 import { liteGetTool } from "@/lib/tools/catalog-lite";
 import { getPillarMeta } from "@/lib/blog-pillars";
@@ -23,10 +23,10 @@ export default function BlogPillarView({
   const base = siteConfig.url.replace(/\/$/, "");
 
   return (
-    <Box>
+    <div>
       <BlogArticle post={post} related={related} />
       <Container maxWidth="xl" className="pb-20 px-4 sm:px-6 lg:px-8">
-        <Box component="section" className="mt-4 p-8 rounded-xl border border-base-300 bg-base-100">
+        <section className="mt-4 p-8 rounded-xl border border-base-300 bg-base-100">
           <Typography variant="h2" className="text-[1.4rem] font-extrabold mb-2">
             All {clusters.length} tutorials in this silo
           </Typography>
@@ -38,7 +38,7 @@ export default function BlogPillarView({
             {clusters.map((c, i) => (
               <Grid size={{ xs: 12, sm: 6 }} key={c.slug}>
                 <Link href={`/blog/${pillar}/${c.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-                  <Box className="p-5 rounded-xl border border-base-300 hover:border-base-content/40 transition-colors h-full">
+                  <div className="p-5 rounded-xl border border-base-300 hover:border-base-content/40 transition-colors h-full">
                     <Typography variant="overline" color="primary" className="font-bold">
                       PART {String(i + 1).padStart(2, "0")}
                     </Typography>
@@ -48,7 +48,7 @@ export default function BlogPillarView({
                     <Typography variant="body2" color="text.secondary" className="mt-1">
                       {c.readingMinutes} min read
                     </Typography>
-                  </Box>
+                  </div>
                 </Link>
               </Grid>
             ))}
@@ -56,8 +56,8 @@ export default function BlogPillarView({
           <Typography variant="body2" color="text.secondary" className="mt-6">
             Canonical: {base}/blog/{pillar} · Pillar targets “{meta.keywords[0]}”; clusters target one long-tail each — no cannibalization.
           </Typography>
-        </Box>
+        </section>
       </Container>
-    </Box>
+    </div>
   );
 }

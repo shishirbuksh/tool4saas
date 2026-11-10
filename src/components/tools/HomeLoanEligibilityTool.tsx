@@ -50,7 +50,6 @@ export default function HomeLoanEligibilityTool() {
             label="FOIR cap"
             value={foirCap}
             onChange={(e) => setFoirCap(Number(e.target.value) as typeof foirCap)}
-           
             className="min-h-[44px]"
           >
             {FOIR_OPTIONS.map((o) => (
@@ -66,7 +65,6 @@ export default function HomeLoanEligibilityTool() {
             label="Income multiplier"
             value={multiplier}
             onChange={(e) => setMultiplier(Number(e.target.value) as typeof multiplier)}
-           
             className="min-h-[44px]"
           >
             {MULTIPLIER_OPTIONS.map((o) => (

@@ -1,4 +1,4 @@
-import { Container, Typography, Box, Breadcrumbs } from "@/components/ds";
+import { Container, Typography, Breadcrumbs } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 
@@ -12,7 +12,7 @@ export default function PrivacyView() {
         <Typography color="text.primary">Privacy Policy</Typography>
       </Breadcrumbs>
       <Typography variant="h1" className="text-[2.25rem] mb-4">Privacy Policy</Typography>
-      <Box className="text-base-content/70 leading-[1.8]">
+      <div className="text-base-content/70 leading-[1.8]">
         <Typography className="block mb-2">
           <strong>Last updated:</strong> <time dateTime="2026-09-09">September 9, 2026</time>
         </Typography>
@@ -63,49 +63,49 @@ export default function PrivacyView() {
         <Typography className="block mb-2">
           Non-essential cookies load only after consent. Essential choice storage is exempt:
         </Typography>
-        <Box component="table" className="w-full border-collapse mb-2 text-[14px]">
-          <Box component="thead">
-            <Box component="tr">
-              <Box component="th" className="text-left border-b border-base-300 pr-4 py-2">Cookie</Box>
-              <Box component="th" className="text-left border-b border-base-300 pr-4 py-2">Purpose / provider</Box>
-              <Box component="th" className="text-left border-b border-base-300 py-2">Duration</Box>
-            </Box>
-          </Box>
-          <Box component="tbody">
-            <Box component="tr">
-              <Box component="td" className="pr-4 py-2 border-b border-base-300"><code>t4s-consent-v1</code></Box>
-              <Box component="td" className="pr-4 py-2 border-b border-base-300">Tool4SaaS consent choice (essential)</Box>
-              <Box component="td" className="py-2 border-b border-base-300">12 months</Box>
-            </Box>
-            <Box component="tr">
-              <Box component="td" className="pr-4 py-2 border-b border-base-300"><code>_ga</code></Box>
-              <Box component="td" className="pr-4 py-2 border-b border-base-300">Google Analytics (only with consent)</Box>
-              <Box component="td" className="py-2 border-b border-base-300">24 months</Box>
-            </Box>
-            <Box component="tr">
-              <Box component="td" className="pr-4 py-2 border-b border-base-300"><code>_ga_*</code></Box>
-              <Box component="td" className="pr-4 py-2 border-b border-base-300">Google Analytics session/measurement ID persistence</Box>
-              <Box component="td" className="py-2 border-b border-base-300">24 months</Box>
-            </Box>
-            <Box component="tr">
-              <Box component="td" className="pr-4 py-2 border-b border-base-300"><code>_gads / _gac_* / IDE / ANID / NID</code></Box>
-              <Box component="td" className="pr-4 py-2 border-b border-base-300">Google AdSense/Ads personalization, frequency capping, fraud prevention (only with consent)</Box>
-              <Box component="td" className="py-2 border-b border-base-300">Per Google (typically up to ~13–24 months)</Box>
-            </Box>
-          </Box>
-        </Box>
+        <table className="w-full border-collapse mb-2 text-[14px]">
+          <thead>
+            <tr>
+              <th className="text-left border-b border-base-300 pr-4 py-2">Cookie</th>
+              <th className="text-left border-b border-base-300 pr-4 py-2">Purpose / provider</th>
+              <th className="text-left border-b border-base-300 py-2">Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="pr-4 py-2 border-b border-base-300"><code>t4s-consent-v1</code></td>
+              <td className="pr-4 py-2 border-b border-base-300">Tool4SaaS consent choice (essential)</td>
+              <td className="py-2 border-b border-base-300">12 months</td>
+            </tr>
+            <tr>
+              <td className="pr-4 py-2 border-b border-base-300"><code>_ga</code></td>
+              <td className="pr-4 py-2 border-b border-base-300">Google Analytics (only with consent)</td>
+              <td className="py-2 border-b border-base-300">24 months</td>
+            </tr>
+            <tr>
+              <td className="pr-4 py-2 border-b border-base-300"><code>_ga_*</code></td>
+              <td className="pr-4 py-2 border-b border-base-300">Google Analytics session/measurement ID persistence</td>
+              <td className="py-2 border-b border-base-300">24 months</td>
+            </tr>
+            <tr>
+              <td className="pr-4 py-2 border-b border-base-300"><code>_gads / _gac_* / IDE / ANID / NID</code></td>
+              <td className="pr-4 py-2 border-b border-base-300">Google AdSense/Ads personalization, frequency capping, fraud prevention (only with consent)</td>
+              <td className="py-2 border-b border-base-300">Per Google (typically up to ~13–24 months)</td>
+            </tr>
+          </tbody>
+        </table>
         <Typography variant="h2" className="text-[18px] text-base-content mt-4">Consent management (CMP)</Typography>
         <Typography className="block mb-2">
           We gate AdSense and Analytics tags behind our consent banner so non-essential storage loads only after opt-in. We are preparing a Google Funding Choices (TCF 2.2) integration for EEA/UK consent signalling; until then, use the footer Cookie choices link to change or withdraw consent, which takes effect on subsequent page loads.
         </Typography>
-      </Box>
-      <Box component="nav" aria-label="Related pages" className="mt-8 flex flex-wrap gap-4">
+      </div>
+      <nav aria-label="Related pages" className="mt-8 flex flex-wrap gap-4">
         <Typography variant="body2"><Link href="/author">Our authors</Link></Typography>
         <Typography variant="body2" aria-hidden="true">·</Typography>
         <Typography variant="body2"><Link href="/methodology">How we test</Link></Typography>
         <Typography variant="body2" aria-hidden="true">·</Typography>
         <Typography variant="body2"><Link href="/contact">Contact us</Link></Typography>
-      </Box>
+      </nav>
     </Container>
   );
 }

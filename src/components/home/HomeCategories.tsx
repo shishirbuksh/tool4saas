@@ -1,4 +1,4 @@
-import { Container, Box, Grid, Typography } from "@/components/ds";
+import { Container, Grid, Typography } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { LandmarkIcon as AccountBalanceIcon, CalculatorIcon as CalculateIcon, CodeIcon, DumbbellIcon as FitnessCenterIcon, ImageIcon, FileTextIcon as PictureAsPdfIcon, ReceiptIcon as ReceiptLongIcon, ClockIcon as ScheduleIcon, SearchIcon, ShuffleIcon, FileTextIcon as TextSnippetIcon, ArrowLeftRightIcon as TransformIcon } from "@/components/ui/icons";
@@ -32,14 +32,13 @@ const counts = new Map(
 // Twelve category tiles replace the old horizontal pill scroller.
 export default function HomeCategories() {
   return (
-    <Box
-      component="nav"
+    <nav
       id="categories"
       aria-label="Tool categories"
       className="py-14 md:py-20 border-b border-base-300 scroll-mt-[100px]"
     >
       <Container maxWidth="xl" className="px-4 md:px-8">
-        <Box className="text-center mb-6 md:mb-8 max-w-[640px] mx-auto">
+        <div className="text-center mb-6 md:mb-8 max-w-[640px] mx-auto">
           <Typography
             variant="h2"
             className="text-[1.75rem] md:text-[2.25rem] font-bold tracking-[-0.025em] mb-1"
@@ -49,7 +48,7 @@ export default function HomeCategories() {
           <Typography color="text.secondary" className="text-[0.9375rem] md:text-[1rem]">
             {CATEGORIES.length} collections, one browser tab.
           </Typography>
-        </Box>
+        </div>
 
         <Grid container className="gap-3 md:gap-4">
           {CATEGORIES.map((category) => {
@@ -61,16 +60,16 @@ export default function HomeCategories() {
                   href={`/category/${category.id}`}
                   style={{ textDecoration: "none", color: "inherit", display: "block", height: "100%" }}
                 >
-                  <Box
+                  <div
                     className="h-full min-h-[84px] flex items-center gap-3 p-3.5 md:p-4 rounded-xl border border-base-300 bg-base-100 hover:[transform:translateY(-2px)] hover:border-[rgba(0,0,0,0.14)] hover:[box-shadow:0_0_0_1px_rgba(0,0,0,0.06),_0_8px_24px_rgba(34,29,29,0.07)] dark:bg-base-100 dark:[&_:hover]:border-[rgba(255,255,255,0.18)] dark:[&_:hover]:[box-shadow:0_0_0_1px_rgba(255,255,255,0.06),_0_8px_24px_rgba(0,0,0,0.4)] active:[transform:scale(0.99)]" style={{ transition: "transform 200ms cubic-bezier(0.16,1,0.3,1), border-color 200ms ease, box-shadow 200ms ease" }}
                   >
-                    <Box
+                    <div
                       aria-hidden="true"
                       className="flex-[0_0_auto] w-10 h-10 rounded-xl grid bg-base-content/5 text-base-content dark:bg-base-content/10" style={{ placeItems: "center" }}
                     >
                       <Icon fontSize="small" />
-                    </Box>
-                    <Box className="min-w-[0px]">
+                    </div>
+                    <div className="min-w-[0px]">
                       <Typography
                         className="text-[0.875rem] md:text-[0.9375rem] font-semibold leading-[1.3] tracking-[-0.015em]"
                       >
@@ -83,14 +82,14 @@ export default function HomeCategories() {
                       >
                         {count} tools
                       </Typography>
-                    </Box>
-                  </Box>
+                    </div>
+                  </div>
                 </Link>
               </Grid>
             );
           })}
         </Grid>
       </Container>
-    </Box>
+    </nav>
   );
 }

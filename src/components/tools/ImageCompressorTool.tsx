@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Link, Slider, TextField, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Link, Slider, TextField, Alert } from "@/components/ds";
 
 import { UploadCloudIcon as CloudUploadIcon, Minimize2Icon as CompressIcon, DownloadIcon } from "@/components/ui/icons";
 import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
@@ -177,12 +177,12 @@ export default function ImageCompressorTool() {
         {file && <Alert severity="info">Selected: {file.name} ({fmtBytes(origSize)})</Alert>}
         {error && <Alert severity="error">{error}</Alert>}
 
-        <Box>
+        <div>
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Quality: {Math.round(quality * 100)}% {file?.type === "image/png" ? "(PNG ignores quality; convert to JPG for smaller size)" : ""}
           </Typography>
           <Slider value={quality} min={0.1} max={1} step={0.05} onChange={(_, v) => setQuality(Array.isArray(v) ? v[0] : v)} disabled={!file} aria-label="Compression quality" />
-        </Box>
+        </div>
 
         <TextField
           label="Max width (px)"
@@ -196,27 +196,26 @@ export default function ImageCompressorTool() {
             input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" },
             htmlInput: { min: 1, step: 1 },
           }}
-          
           helperText="Images wider than this are scaled down."
         />
 
-        <Box>
+        <div>
           <Button variant="contained" startIcon={<CompressIcon />} onClick={compress} disabled={!file || busy}>
             {busy ? "Compressing…" : "Compress image"}
           </Button>
-        </Box>
+        </div>
 
         {result && (
-          <Box className="p-4 border border-base-300 rounded-[16px]">
+          <div className="p-4 border border-base-300 rounded-[16px]">
             <Typography  variant="subtitle2"  gutterBottom className="font-bold">Result</Typography>
             <Typography variant="body2" color="text.secondary" gutterBottom>
               {fmtBytes(origSize)} → {fmtBytes(result.size)} (saved {Math.max(0, Math.round((1 - result.size / origSize) * 100))}%)
             </Typography>
-            <Box component="img" src={result.url} alt="compressed preview" className="max-w-full rounded-[8px] my-2 block" />
+            <img src={result.url} alt="compressed preview" className="max-w-full rounded-[8px] my-2 block" />
             <Button variant="contained" startIcon={<DownloadIcon />} href={result.url} download={result.name}>
               Download
             </Button>
-          </Box>
+          </div>
         )}
         <Typography variant="caption" color="text.secondary" className="block mt-2">
           Images are processed entirely in your browser and are never uploaded. · Need an exact 100KB file for portals or job applications? Read our{" "}

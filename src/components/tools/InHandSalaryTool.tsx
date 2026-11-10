@@ -43,7 +43,6 @@ export default function InHandSalaryTool() {
             label="PF calculation"
             value={pfCapped ? "capped" : "actual"}
             onChange={(e) => setPfCapped(e.target.value === "capped")}
-           
             className="min-h-[44px]"
           >
             <MenuItem value="capped">Capped (₹15,000 wage ceiling)</MenuItem>
