@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Homepage HTTP 200 & Canonical",
+    "status": "PASS",
+    "evidence": "Status: 200, Canonical present: true",
+    "details": ""
+  },
+  {
+    "name": "robots.txt /probe Disallowed",
+    "status": "PASS",
+    "evidence": "HTTP 200, Disallow /probe: true, Sitemap: true",
+    "details": ""
+  },
+  {
+    "name": "X-Content-Type-Options: nosniff (no duplicates)",
+    "status": "FAIL",
+    "evidence": "Actual: \"nosniff, nosniff\"",
+    "details": ""
+  },
+  {
+    "name": "X-Frame-Options: SAMEORIGIN (no duplicates)",
+    "status": "FAIL",
+    "evidence": "Actual: \"SAMEORIGIN, SAMEORIGIN\"",
+    "details": ""
+  },
+  {
+    "name": "Permissions-Policy includes microphone=(self)",
+    "status": "FAIL",
+    "evidence": "Actual: \"\"",
+    "details": ""
+  },
+  {
+    "name": "Content-Security-Policy active",
+    "status": "FAIL",
+    "evidence": "CSP Length: 0 bytes",
+    "details": ""
+  },
+  {
+    "name": "Redirect /tools/pdf-merge -> /pdf-merge",
+    "status": "FAIL",
+    "evidence": "Status: 404, Location: \"\"",
+    "details": ""
+  },
+  {
+    "name": "Redirect /tools/json-formatter -> /json-formatter",
+    "status": "FAIL",
+    "evidence": "Status: 404, Location: \"\"",
+    "details": ""
+  },
+  {
+    "name": "Redirect /tools/percentage-calculator -> /percentage-calculator",
+    "status": "FAIL",
+    "evidence": "Status: 404, Location: \"\"",
+    "details": ""
+  },
+  {
+    "name": "Redirect /es/invoice-generator -> /invoice-generator",
+    "status": "PASS",
+    "evidence": "Status: 301, Location: \"https://tool4saas.com/invoice-generator\"",
+    "details": ""
+  },
+  {
+    "name": "Redirect /fr/qr-code-generator -> /qr-code-generator",
+    "status": "PASS",
+    "evidence": "Status: 301, Location: \"https://tool4saas.com/qr-code-generator\"",
+    "details": ""
+  },
+  {
+    "name": "Playwright Browser E2E Tests",
+    "status": "FAIL",
+    "evidence": "locator.setInputFiles: Error: strict mode violation: locator('input[type=\"file\"]') resolved to 4 elements:\n    1) <input multiple hidden=\"\" type=\"file\" accept=\"application/pdf,.pdf\"/> aka getByRole('button', { name: 'Add PDFs' }).locator('input[type=\"file\"]')\n    2) <input hidden=\"\" type=\"file\" accept=\"application/pdf,.pdf\"/> aka locator('input[type=\"file\"]').nth(1)\n    3) <input hidden=\"\" type=\"file\" accept=\"application/pdf,.pdf\"/> aka locator('input[type=\"file\"]').nth(2)\n    4) <input hidden=\"\" type=\"file\" accept=\"application/pdf,.pdf\"/> aka locator('input[type=\"file\"]').nth(3)\n\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"file\"]')\u001b[22m\n",
+    "details": ""
+  }
+]

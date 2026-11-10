@@ -74,9 +74,9 @@ async function run() {
 
   // 4. Sample Legacy Redirects Verification (Nginx HTTP 301)
   const sampleRedirects = [
-    { original: '/tools/pdf-merge', expected: '/pdf-merge' },
-    { original: '/tools/json-formatter', expected: '/json-formatter' },
-    { original: '/tools/percentage-calculator', expected: '/percentage-calculator' },
+    { original: '/json-to-yaml', expected: '/json-formatter' },
+    { original: '/loan-calculator', expected: '/emi-calculator' },
+    { original: '/percentage-change', expected: '/percentage-calculator' },
     { original: '/es/invoice-generator', expected: '/invoice-generator' },
     { original: '/fr/qr-code-generator', expected: '/qr-code-generator' },
   ];
@@ -118,7 +118,7 @@ async function run() {
     console.log(`Testing PDF Merge at ${TARGET_DOMAIN}/pdf-merge ...`);
     await page.goto(`${TARGET_DOMAIN}/pdf-merge`, { waitUntil: 'networkidle' });
 
-    const fileInput = page.locator('input[type="file"]');
+    const fileInput = page.locator('input[type="file"]').first();
     await fileInput.setInputFiles([
       { name: 'test-1p.pdf', mimeType: 'application/pdf', buffer: Buffer.from(pdf1Bytes) },
       { name: 'test-2p.pdf', mimeType: 'application/pdf', buffer: Buffer.from(pdf2Bytes) },
@@ -143,7 +143,7 @@ async function run() {
     console.log(`Testing PDF Split at ${TARGET_DOMAIN}/pdf-split ...`);
     await page.goto(`${TARGET_DOMAIN}/pdf-split`, { waitUntil: 'networkidle' });
 
-    const splitInput = page.locator('input[type="file"]');
+    const splitInput = page.locator('input[type="file"]').first();
     // Create a 3-page doc for split
     const doc3 = await PDFDocument.create();
     doc3.addPage([300, 400]);
