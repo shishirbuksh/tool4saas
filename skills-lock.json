@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "adsense-site-auditor": {
+      "source": "yantoumu/adsense-site-auditor-skill",
+      "sourceType": "github",
+      "skillPath": "adsense-site-auditor/SKILL.md",
+      "computedHash": "63b58f23869d1ffe893732e4f55cab1634c70cf9a28df1e5da49f6bf0780b3bf"
+    },
     "astro": {
       "source": "astrolicious/agent-skills",
       "sourceType": "github",
@@ -24,6 +30,18 @@
       "sourceType": "github",
       "skillPath": "skills/docs-seo/SKILL.md",
       "computedHash": "b178e89c39467b85fe641105e97aef00d0064e328b3b0c11506152c163e43754"
+    },
+    "google-adsense": {
+      "source": "starraider/typo3-skills",
+      "sourceType": "github",
+      "skillPath": "skills/google-adsense/SKILL.md",
+      "computedHash": "928d093487bf09916876966458bb21abaae97b637fa95b63d77a440dabb9fa0d"
+    },
+    "html-css-best-practices": {
+      "source": "hack23/homepage",
+      "sourceType": "github",
+      "skillPath": ".github/skills/quality/html-css-best-practices/SKILL.md",
+      "computedHash": "7b1a6cbebfd306db3dad3568c2e5a12e5bc1ea929a1f4e20303bf083238be3fc"
     },
     "material-ui-styling": {
       "source": "mui/material-ui",
@@ -60,6 +78,12 @@
       "sourceType": "github",
       "skillPath": "skills/seo-hreflang/SKILL.md",
       "computedHash": "1d097daa1d12b7e446d9d5c372204b7049ca8f95f966a9f0e63cb0f7f40a6db3"
+    },
+    "seo-optimization": {
+      "source": "hack23/homepage",
+      "sourceType": "github",
+      "skillPath": ".github/skills/quality/seo-optimization/SKILL.md",
+      "computedHash": "68204685d555e8dd551330ddad26fa504ed9863200efbaf7c0ac41c08b0ff71a"
     },
     "seo-programmatic": {
       "source": "agricidaniel/claude-seo",

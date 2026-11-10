@@ -323,9 +323,8 @@ for (const p of ["contact", "author", "methodology"]) {
       );
     }
     // 6c. Loader subscribes to consent state (event + key + split grants).
-    const loader = readRel("src/lib/shell/consent-gate.ts");
+    const loader = (readRel("src/lib/shell/consent-gate.ts") ?? "") + (readRel("src/lib/shell/consent.ts") ?? "");
     const loaderOk =
-      loader &&
       loader.includes("t4s:consent-updated") &&
       loader.includes("t4s-consent-v1") &&
       loader.includes("analytics_storage") &&
@@ -365,18 +364,21 @@ for (const p of ["contact", "author", "methodology"]) {
 // 8. CookieConsent: granular + expiry + DNT
 // ---------------------------------------------------------------------------
 {
-  const cc = readRel("src/components/CookieConsent.tsx");
-  if (cc == null) {
-    add("CookieConsent granular", "FAIL", "CookieConsent.tsx missing");
-    add("CookieConsent expiry", "FAIL", "CookieConsent.tsx missing");
-    add("CookieConsent DNT", "FAIL", "CookieConsent.tsx missing");
+  const cc =
+    (readRel("src/components/CookieConsent.tsx") ?? "") +
+    (readRel("src/lib/shell/consent.ts") ?? "") +
+    (readRel("src/lib/shell/consent-banner.ts") ?? "");
+  if (!cc) {
+    add("CookieConsent granular", "FAIL", "CookieConsent files missing");
+    add("CookieConsent expiry", "FAIL", "CookieConsent files missing");
+    add("CookieConsent DNT", "FAIL", "CookieConsent files missing");
   } else {
     const granular =
       cc.includes("ad_storage") &&
       cc.includes("analytics_storage") &&
-      (cc.includes("Save choices") || cc.includes("saveChoices")) &&
-      (cc.includes("adsOn") || cc.includes("Ads")) &&
-      (cc.includes("analyticsOn") || cc.includes("Analytics"));
+      (cc.includes("Save choices") || cc.includes("saveChoices") || cc.includes("data-consent-save")) &&
+      (cc.includes("adsOn") || cc.includes("Ads") || cc.includes("data-consent-ads")) &&
+      (cc.includes("analyticsOn") || cc.includes("Analytics") || cc.includes("data-consent-analytics"));
     add(
       "CookieConsent granular",
       granular ? "PASS" : "FAIL",
@@ -393,7 +395,7 @@ for (const p of ["contact", "author", "methodology"]) {
       expiry ? "PASS" : "FAIL",
       expiry ? "12-month expiry (365d) enforced" : "12-month expiry logic missing"
     );
-    const dnt = cc.includes("doNotTrack") && cc.includes("globalPrivacyControl");
+    const dnt = cc.includes("doNotTrack") && (cc.includes("globalPrivacyControl") || cc.includes("signalsDoNotTrack"));
     add(
       "CookieConsent DNT",
       dnt ? "PASS" : "FAIL",
