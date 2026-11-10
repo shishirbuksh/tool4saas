@@ -6,7 +6,7 @@ export const imagesDesignTools: Tool[] = [
     title: "QR Code Generator",
     short: "Generate QR codes for links, text & more",
     description: "Generate custom QR codes for URLs, text, email and phone in your browser. Pick size, preview instantly and download as PNG — 100% private and offline.",
-    icon: "QrCode2",
+    icon: "QrCode",
     keywords: ["qr code generator", "qr code maker", "qr code creator", "qr code download png", "create qr code free no expiry", "vcard density quiet zone modules", "qr code generator offline"],
     category: "images-design",
     faq: [
@@ -152,7 +152,7 @@ export const imagesDesignTools: Tool[] = [
     title: "Color Studio",
     short: "HEX, RGB, CMYK, palettes & shades",
     description: "Convert HEX, RGB, HSL and CMYK, build harmonies, shades and random palettes in one private studio. Every view runs offline in your browser.",
-    icon: "ColorLens",
+    icon: "Palette",
     keywords: ["color converter", "hex to rgb", "rgb to hsl", "hex to cmyk", "color palette generator", "color shades generator", "random hex color", "color code converter in browser"],
     category: "images-design",
     faq: [
@@ -311,7 +311,7 @@ export const imagesDesignTools: Tool[] = [
     short: "Build CSS gradients and shapes",
     description:
       "Create beautiful linear and radial CSS gradients, custom box shadows, and border-radius shapes with instant live CSS preview online with Tool4SaaS.",
-    icon: "Gradient",
+    icon: "Layers",
     keywords: [
       "gradient generator",
       "css gradient generator",
@@ -395,7 +395,7 @@ export const imagesDesignTools: Tool[] = [
     short: "Create custom site favicons",
     description:
       "Generate crisp multi-size PNG and ICO website favicons from custom letters, emojis, or brand icons with live browser preview online with Tool4SaaS.",
-    icon: "EmojiEmotions",
+    icon: "Smile",
     keywords: [
       "favicon generator",
       "create favicon",
@@ -902,7 +902,7 @@ export const imagesDesignTools: Tool[] = [
     short: "Scan QR codes from camera or image",
     description:
       "Scan and decode QR codes instantly from image files or live camera video feeds with automatic URL and Wi-Fi credential detection online on Tool4SaaS.",
-    icon: "QrCode2",
+    icon: "QrCode",
     keywords: [
       "qr scanner",
       "scan qr code online",

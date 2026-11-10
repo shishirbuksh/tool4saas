@@ -2,7 +2,7 @@
 import { useMemo, useState } from "react";import { Paper, Box, TextField, Button, Typography, Link, Grid, IconButton, Stack, Divider, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
-import { Delete as DeleteIcon, Add as AddIcon, Print as PrintIcon } from "@/components/ds/icons";
+import { Trash2Icon as DeleteIcon, PlusIcon as AddIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 import { money } from "@/lib/format";
 
 const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CAD", "AUD"] as const;

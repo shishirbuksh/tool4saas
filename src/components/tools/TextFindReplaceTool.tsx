@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControlLabel, Checkbox, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControlLabel, Checkbox, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { runRegexInWorker, terminateRegexWorker } from "@/lib/regexWorker";
 
 // Exported pure function for testing and reusability – O(n) via parts array + join
@@ -207,7 +207,7 @@ export default function TextFindReplaceTool() {
             Copy result
           </Button>
         </Stack>
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-1">
             Result
           </Typography>
@@ -220,7 +220,7 @@ export default function TextFindReplaceTool() {
               input: { readOnly: true, "aria-label": "Replaced text", spellCheck: false },
             }}
           />
-        </Box>
+        </div>
         <Typography variant="caption" color="text.secondary">
           Works offline — all processing happens locally in your browser. {isSecureContextState ? "Secure context: clipboard available." : "Non-secure context: fallback copy used."} Worker CSP: requires <code>worker-src blob:</code>.
         </Typography>

@@ -12,12 +12,6 @@ export default defineConfig({
     globals: true,
   },
   resolve: {
-    alias: [
-      { find: "@", replacement: path.resolve(__dirname, "./src") },
-      { find: /^@mui\/material\/(.*)/, replacement: path.resolve(__dirname, "./src/components/ds/$1") },
-      { find: "@mui/material", replacement: path.resolve(__dirname, "./src/components/ds/index.ts") },
-      { find: /^@mui\/icons-material\/(.*)/, replacement: path.resolve(__dirname, "./src/components/ds/icons/$1") },
-      { find: "@mui/icons-material", replacement: path.resolve(__dirname, "./src/components/ds/icons/index.ts") },
-    ],
+    alias: [{ find: "@", replacement: path.resolve(__dirname, "./src") }],
   },
 });

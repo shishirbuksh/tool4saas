@@ -2,14 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "@/lib/astro/navigation";
 import Drawer from "@/components/ds/Drawer";
 import ToolSearch from "@/components/ToolSearch";
-import {
-  ArrowDropDown as ArrowDropDownIcon,
-  Brightness4 as Brightness4Icon,
-  Brightness7 as Brightness7Icon,
-  BuildOutlined as BuildOutlinedIcon,
-  Close as CloseIcon,
-  Menu as MenuIcon,
-} from "@/components/ds/icons";
+import { ChevronDownIcon as ArrowDropDownIcon, MoonIcon as Brightness4Icon, SunIcon as Brightness7Icon, WrenchIcon as BuildOutlinedIcon, XIcon as CloseIcon, MenuIcon } from "@/components/ui/icons";
 import { CATEGORIES } from "@/lib/tools/categories";
 import { siteConfig } from "@/lib/site";
 import { useThemeMode } from "@/components/ThemeProviderClient";

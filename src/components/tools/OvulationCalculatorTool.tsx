@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Stack, TextField, Typography, Alert } from "@/components/ds";
 
 import { MS_PER_DAY } from "@/lib/format";
 
@@ -90,7 +90,7 @@ export default function OvulationCalculatorTool() {
 
       {result ? (
         <>
-          <Box
+          <div
             className="p-5 rounded-[16px] border border-primary bg-primary text-center" style={{ color: "var(--color-primary-content)" }}
           >
             <Typography variant="overline" className="opacity-[0.9]" style={{ color: "var(--color-primary-content)" }}>
@@ -106,10 +106,10 @@ export default function OvulationCalculatorTool() {
                   ? "Estimated to be today"
                   : `${Math.abs(result.daysUntilOvulation)} days ago`}
             </Typography>
-          </Box>
+          </div>
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <Box
+            <div
               className="flex-1 p-4 rounded-[16px] border border-base-300 bg-base-100 text-center"
             >
               <Typography variant="overline" color="text.secondary">
@@ -122,8 +122,8 @@ export default function OvulationCalculatorTool() {
                 Ovulation − 5 days to ovulation + 1 day
                 {result.daysUntilFertile > 0 ? ` (starts in ${result.daysUntilFertile} days)` : ""}
               </Typography>
-            </Box>
-            <Box
+            </div>
+            <div
               className="flex-1 p-4 rounded-[16px] border border-base-300 bg-base-100 text-center"
             >
               <Typography variant="overline" color="text.secondary">
@@ -138,10 +138,10 @@ export default function OvulationCalculatorTool() {
                   ? ` (${result.daysUntilPeriod} days to go)`
                   : ` (${Math.abs(result.daysUntilPeriod)} days ago)`}
               </Typography>
-            </Box>
+            </div>
           </Stack>
 
-          <Box
+          <div
             className="p-4 rounded-[16px] border border-base-300 bg-base-100"
           >
             <Typography variant="subtitle2" className="font-bold mb-2">
@@ -151,7 +151,7 @@ export default function OvulationCalculatorTool() {
               Ovulation day = LMP + (cycle length − 14 days) on a {result.validCycle}-day cycle. Fertile window =
               ovulation − 5 days to ovulation + 1 day. Next period = LMP + {result.validCycle} days.
             </Typography>
-          </Box>
+          </div>
         </>
       ) : (
         <Typography color="text.secondary">Enter your last menstrual period date to calculate ovulation.</Typography>

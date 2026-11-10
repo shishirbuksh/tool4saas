@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
 import { fmtNumber } from "@/lib/format";
 
@@ -138,7 +138,7 @@ export default function ConcreteCalculatorTool() {
         </Stack>
       )}
 
-      <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
+      <div className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
         <Typography variant="caption">Concrete needed</Typography>
         <Typography variant="h4" className="font-extrabold">
           {result ? `${fmtNumber(result.cuYd, { maximumFractionDigits: 3 })} cu yd` : "—"}
@@ -148,7 +148,7 @@ export default function ConcreteCalculatorTool() {
             ? `${fmtNumber(result.cuFt, { maximumFractionDigits: 2 })} cu ft • ${fmtNumber(result.bags, { maximumFractionDigits: 0 })} × 80 lb bags (0.6 cu ft each)`
             : "Enter positive dimensions to calculate volume."}
         </Typography>
-      </Box>
+      </div>
 
       <Typography variant="caption" color="text.secondary">
         {isColumn

@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const VOID = new Set([
   "area", "base", "br", "col", "embed", "hr", "img", "input",
@@ -50,11 +50,11 @@ export default function HtmlBeautifierTool() {
           placeholder="<div><p>Hello</p></div>"
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
         />
-        <Box>
+        <div>
           <Button variant="contained" onClick={format}>
             Beautify
           </Button>
-        </Box>
+        </div>
         {output && (
           <Stack spacing={1}>
             <Stack direction="row" className="items-center justify-between">

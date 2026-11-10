@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
 
 const ZONES = [
@@ -96,7 +96,7 @@ export default function TimezoneConverterTool() {
         />
         {zoneSelect("From timezone", from, setFrom)}
         {zoneSelect("To timezone", to, setTo)}
-        <Box
+        <div
           className="p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
@@ -110,7 +110,7 @@ export default function TimezoneConverterTool() {
               {from}: {fmt(from)}
             </Typography>
           )}
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

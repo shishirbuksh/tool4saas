@@ -1,7 +1,7 @@
 
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
-import NumericField from "@/components/NumericField";import { Box, Typography, Stack, Alert, Grid, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import NumericField from "@/components/NumericField";import { Typography, Stack, Alert, Grid, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { money } from "@/lib/format";
 
@@ -211,7 +211,7 @@ export default function UsPaycheckTool() {
       </Grid>
 
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -223,33 +223,33 @@ export default function UsPaycheckTool() {
         <Typography variant="body2" color="text.secondary">
           {money(result.grossPerPaycheck, "USD")} gross · {result.freq} paychecks/year
         </Typography>
-      </Box>
+      </div>
 
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Taxable (gross − 401(k) − std. ded. {money(result.stdDed, "USD")})</Typography>
           <Typography className="font-bold">{money(result.taxable, "USD")}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Federal (simplified 2026)</Typography>
           <Typography className="font-bold">{money(result.federal, "USD")}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">State ({result.effectiveStateRate}%)</Typography>
           <Typography className="font-bold">{money(result.state, "USD")}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Social Security (6.2% to {money(SS_WAGE_BASE, "USD")})</Typography>
           <Typography className="font-bold">{money(result.ss, "USD")}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Medicare (1.45%)</Typography>
           <Typography className="font-bold">{money(result.medicare, "USD")}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Annual net</Typography>
           <Typography className="font-bold">{money(result.annualNet, "USD")}</Typography>
-        </Box>
+        </div>
       </Stack>
 
       {result.usesSingleFallback && (

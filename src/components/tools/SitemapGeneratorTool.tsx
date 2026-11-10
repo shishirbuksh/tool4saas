@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";
 import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, Alert, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, DownloadIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const CHANGEFREQ_OPTIONS = ["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"] as const;

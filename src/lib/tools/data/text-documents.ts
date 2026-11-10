@@ -6,7 +6,7 @@ export const textDocumentsTools: Tool[] = [
     title: "Word Counter",
     short: "Count words, characters & reading time",
     description: "Free online word counter: calculate words, characters, sentences, paragraphs, and reading time in real time. Private, browser-based, with no sign-up needed.",
-    icon: "TextSnippet",
+    icon: "FileText",
     keywords: ["word counter", "character counter", "reading time calculator", "sentence counter", "word counter online free", "flesch reading ease ngram frequency", "text analyzer"],
     category: "text-documents",
     faq: [
@@ -80,7 +80,7 @@ export const textDocumentsTools: Tool[] = [
     title: "Text Tools: Clean, Convert & Reverse",
     short: "Clean, convert, sort & reverse text",
     description: "Clean messy text, change letter case, reverse words or lines, sort and dedupe lists, and run find and replace with regex in one private offline workspace.",
-    icon: "Notes",
+    icon: "FileText",
     keywords: ["text tools", "text cleaner", "case converter", "text reverser", "remove duplicate lines", "find and replace text", "clean text online free", "text utilities offline no signup"],
     category: "text-documents",
     faq: [
@@ -158,7 +158,7 @@ export const textDocumentsTools: Tool[] = [
     title: "Text Diff Checker",
     short: "Compare two texts word by word",
     description: "Compare two text blocks word by word and highlight additions and deletions in a single merged view. Inspect side-by-side edits privately in your browser.",
-    icon: "Difference",
+    icon: "Diff",
     keywords: ["text diff", "compare text", "text comparison tool", "diff analyzer", "text diff checker online free", "word level token alignment green red", "diff checker online"],
     category: "text-documents",
     faq: [
@@ -237,7 +237,7 @@ export const textDocumentsTools: Tool[] = [
     short: "Listen to your text aloud",
     description:
       "Convert written text into natural spoken speech using your device native voice engine with playback rate and pitch controls online with Tool4SaaS.",
-    icon: "VolumeUp",
+    icon: "Volume2",
     keywords: [
       "text to speech",
       "tts online",
@@ -320,7 +320,7 @@ export const textDocumentsTools: Tool[] = [
     short: "Extract email addresses from text",
     description:
       "Extract, deduplicate, and sort email addresses from unstructured text blocks or raw documents with instant client-side validation on Tool4SaaS.",
-    icon: "Markunread",
+    icon: "Mail",
     keywords: [
       "email extractor",
       "extract emails from text",
@@ -404,7 +404,7 @@ export const textDocumentsTools: Tool[] = [
     short: "Write Markdown & preview HTML",
     description:
       "Write Markdown documents with instant formatted previews and export clean semantic HTML markup directly in your browser online on Tool4SaaS.",
-    icon: "Description",
+    icon: "FileText",
     keywords: [
       "markdown editor",
       "markdown preview online",
@@ -490,7 +490,7 @@ export const textDocumentsTools: Tool[] = [
     short: "Summarize long articles & text",
     description:
       "Summarize long articles, essays, and text reports into concise executive bullet points using local extractive sentence scoring online on Tool4SaaS.",
-    icon: "Subject",
+    icon: "AlignLeft",
     keywords: [
       "text summarizer",
       "summarize text online",
@@ -575,7 +575,7 @@ export const textDocumentsTools: Tool[] = [
     short: "Catch typos, grammar & punctuation",
     description:
       "Proofread text for common typos, repeated words, capitalization errors, and double spacing using fast client-side rules online on Tool4SaaS.",
-    icon: "Spellcheck",
+    icon: "SpellCheck",
     keywords: [
       "grammar checker",
       "spell checker online",
@@ -660,7 +660,7 @@ export const textDocumentsTools: Tool[] = [
     short: "Check text for AI writing patterns",
     description:
       "Analyze text for AI writing patterns using client-side sentence burstiness, vocabulary perplexity, and structural entropy online on Tool4SaaS.",
-    icon: "Spellcheck",
+    icon: "SpellCheck",
     keywords: [
       "ai detector",
       "ai content detector",
@@ -745,7 +745,7 @@ export const textDocumentsTools: Tool[] = [
     short: "Scan text for internal duplicates",
     description:
       "Scan text documents for internal duplicate phrases, repeated sentence blocks, and lexical uniqueness using n-gram analysis online on Tool4SaaS.",
-    icon: "FindReplace",
+    icon: "Replace",
     keywords: [
       "plagiarism checker",
       "free plagiarism checker",
@@ -830,7 +830,7 @@ export const textDocumentsTools: Tool[] = [
     short: "Test typing speed in WPM with accuracy",
     description:
       "Test your typing speed in words per minute (WPM), track keystroke accuracy, and improve touch-typing keyboard efficiency online on Tool4SaaS.",
-    icon: "TextSnippet",
+    icon: "FileText",
     keywords: [
       "typing speed test",
       "wpm test online",
@@ -915,7 +915,7 @@ export const textDocumentsTools: Tool[] = [
     short: "Transcribe speech to text with mic",
     description:
       "Transcribe spoken voice into written text in real time with continuous dictation, multi-language support, and clipboard export online on Tool4SaaS.",
-    icon: "VolumeUp",
+    icon: "Volume2",
     keywords: [
       "speech to text",
       "voice to text online",
@@ -1001,7 +1001,7 @@ export const textDocumentsTools: Tool[] = [
     short: "Unicode text styler & copy paste symbols",
     description:
       "Fancy text generator converts standard letters into stylish Unicode glyphs, cursive scripts, bold symbols, and decorative typography on Tool4SaaS.",
-    icon: "Abc",
+    icon: "CaseSensitive",
     keywords: [
         "fancy text generator",
         "unicode text generator",

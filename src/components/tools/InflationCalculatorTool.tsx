@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -71,7 +71,7 @@ export default function InflationCalculatorTool() {
       </Stack>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-        <Box
+        <div
           className="flex-1 p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
@@ -83,8 +83,8 @@ export default function InflationCalculatorTool() {
           <Typography variant="caption" color="text.secondary">
             amount × (1 + rate/100) ^ years
           </Typography>
-        </Box>
-        <Box
+        </div>
+        <div
           className="flex-1 p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
@@ -96,7 +96,7 @@ export default function InflationCalculatorTool() {
           <Typography variant="caption" color="text.secondary">
             amount ÷ (1 + rate/100) ^ years
           </Typography>
-        </Box>
+        </div>
       </Stack>
 
       <Alert severity="info">

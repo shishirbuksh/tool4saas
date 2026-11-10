@@ -1,8 +1,8 @@
 
-import { useRef, useState } from "react";import { Paper, Box, TextField, MenuItem, Slider, Button, Typography, Stack } from "@/components/ds";
+import { useRef, useState } from "react";import { Paper, TextField, MenuItem, Slider, Button, Typography, Stack } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
-import { Download as DownloadIcon } from "@/components/ds/icons";
+import { DownloadIcon } from "@/components/ui/icons";
 import dynamic from "@/lib/astro/dynamic";
 
 // Heavy dep split: qrcode.react loads in its own client-only chunk (ssr:false),
@@ -55,7 +55,7 @@ export default function WifiQrGeneratorTool() {
   return (
     <ToolPaper>
       <Stack spacing={3} direction={{ xs: "column", md: "row" }}>
-        <Box className="flex-1">
+        <div className="flex-1">
           <Stack spacing={2}>
             <TextField
               label="Network name (SSID)"
@@ -84,7 +84,7 @@ export default function WifiQrGeneratorTool() {
               disabled={security === "nopass"}
               helperText={security === "nopass" ? "No password needed for open networks" : ""}
             />
-            <Box>
+            <div>
               <Typography variant="body2" color="text.secondary" gutterBottom>
                 Size: {size}px
               </Typography>
@@ -96,18 +96,18 @@ export default function WifiQrGeneratorTool() {
                 onChange={(_, v) => setSize(Array.isArray(v) ? v[0] : v)}
                 aria-label="QR code size in pixels"
               />
-            </Box>
+            </div>
           </Stack>
-        </Box>
+        </div>
 
-        <Box
+        <div
           className="flex flex-col items-center justify-center gap-4"
         >
           <Paper
             variant="outlined"
             className="p-4" style={{ backgroundColor: canGenerate ? "#ffffff" : "background.paper" }}
           >
-            <Box ref={canvasRef} className="leading-[0]">
+            <div ref={canvasRef} className="leading-[0]">
               {canGenerate ? (
                 <QRCodeCanvas
                   value={wifiValue}
@@ -117,13 +117,13 @@ export default function WifiQrGeneratorTool() {
                   fgColor="#0f172a"
                 />
               ) : (
-                <Box
+                <div
                   className="flex items-center justify-center text-base-content/40 border-base-300" style={{ width: size, height: size, border: "1px dashed" }}
                 >
                   Enter an SSID
-                </Box>
+                </div>
               )}
-            </Box>
+            </div>
           </Paper>
           <Button
             variant="contained"
@@ -133,7 +133,7 @@ export default function WifiQrGeneratorTool() {
           >
             Download PNG
           </Button>
-        </Box>
+        </div>
       </Stack>
     </ToolPaper>
   );

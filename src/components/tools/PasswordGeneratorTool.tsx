@@ -1,8 +1,8 @@
 
 import { useCallback, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Link, Slider, FormControlLabel, Switch, Grid, InputAdornment, IconButton } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Link, Slider, FormControlLabel, Switch, Grid, InputAdornment, IconButton } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Refresh as RefreshIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, RotateCwIcon as RefreshIcon } from "@/components/ui/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 const SETS = {
@@ -85,10 +85,10 @@ export default function PasswordGeneratorTool() {
           className="[&_input]:[font-family:monospace] [&_input]:text-[18px]"
         />
 
-        <Box>
+        <div>
           <Typography variant="body2" color="text.secondary" gutterBottom>Length: {length}</Typography>
           <Slider value={length} min={4} max={64} step={1} onChange={(_, v) => setLength(Array.isArray(v) ? v[0] : v)} aria-label="Password length" />
-        </Box>
+        </div>
 
         <Grid container spacing={1}>
           {([
@@ -116,11 +116,11 @@ export default function PasswordGeneratorTool() {
           label="Exclude similar characters (i, l, 1, L, o, 0, O)"
         />
 
-        <Box>
+        <div>
           <Button variant="contained" size="large" startIcon={<RefreshIcon />} onClick={regen} disabled={!Object.values(opts).some(Boolean)}>
             Generate password
           </Button>
-        </Box>
+        </div>
         <Typography variant="caption" color="text.secondary" className="block mt-2">
           Generated locally with your browser&apos;s cryptographic random generator. Nothing leaves this device. · Need a memorable master key? Explore our{" "}
           <Link href="/blog/password-generator-guide/passphrase-vs-password" underline="hover" color="primary">

@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, FormControlLabel, Checkbox, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, FormControlLabel, Checkbox, Alert } from "@/components/ds";
 
 import { runRegexInWorker, terminateRegexWorker } from "@/lib/regexWorker";
 
@@ -79,7 +79,7 @@ export default function RegexTesterTool() {
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
           
         />
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-2">
             Matches ({matches.length})
           </Typography>
@@ -90,7 +90,7 @@ export default function RegexTesterTool() {
           ) : (
             <Stack spacing={1}>
               {matches.slice(0, 100).map((m, i) => (
-                <Box
+                <div
                   key={i}
                   className="p-3 rounded-[16px] border border-base-300 text-[14px] overflow-x-auto" style={{ fontFamily: "monospace" }}
                 >
@@ -98,7 +98,7 @@ export default function RegexTesterTool() {
                     #{i + 1} @ {m.index}:{" "}
                   </Typography>
                   {m.value || "(empty)"}
-                </Box>
+                </div>
               ))}
               {matches.length > 100 && (
                 <Alert severity="warning">
@@ -107,7 +107,7 @@ export default function RegexTesterTool() {
               )}
             </Stack>
           )}
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

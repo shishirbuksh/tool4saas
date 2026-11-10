@@ -1,6 +1,6 @@
 import Link from "@/lib/astro/navigation";
 import { Container, Box, Typography, Breadcrumbs, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
-import { ExpandMore as ExpandMoreIcon } from "@/components/ds/icons";
+import { ChevronDownIcon as ExpandMoreIcon } from "@/components/ui/icons";
 import { siteConfig } from "@/lib/site";
 import { liteGetTool } from "@/lib/tools/catalog-lite";
 import { getPillarMeta } from "@/lib/blog-pillars";

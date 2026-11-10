@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Stack, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Paper, IconButton, Chip } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Stack, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Paper, IconButton, Chip } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Star as StarIcon, StarBorder as StarBorderIcon, Delete as DeleteIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, StarIcon, StarIcon as StarBorderIcon, Trash2Icon as DeleteIcon } from "@/components/ui/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 type StyleOption = "modern" | "classic" | "playful" | "tech" | "luxury";
@@ -223,7 +223,7 @@ export default function BusinessNameGeneratorTool() {
         >
           Copy all
         </Button>
-        <Box className="grow" />
+        <div className="grow" />
         <Typography variant="caption" color="text.secondary">
           {names.length ? `${names.length} ideas` : "12 ideas per run"}
         </Typography>
@@ -236,21 +236,21 @@ export default function BusinessNameGeneratorTool() {
       )}
 
       {names.length > 0 ? (
-        <Box
+        <div
           className="grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-3"
         >
           {names.map((name) => {
             const isFav = favorites.includes(name);
             return (
               <Paper key={name} variant="outlined" className="p-3 flex items-center gap-2">
-                <Box className="min-w-[0px] grow">
+                <div className="min-w-[0px] grow">
                   <Typography variant="subtitle2" className="font-bold" noWrap title={name}>
                     {name}
                   </Typography>
                   <Typography variant="caption" color="text.secondary" noWrap>
                     {name.toLowerCase().replace(/[^a-z0-9]+/g, "")}.com
                   </Typography>
-                </Box>
+                </div>
                 <IconButton size="small" aria-label={`Copy ${name}`} onClick={() => handleCopy(name)}>
                   <ContentCopyIcon fontSize="small" />
                 </IconButton>
@@ -265,7 +265,7 @@ export default function BusinessNameGeneratorTool() {
               </Paper>
             );
           })}
-        </Box>
+        </div>
       ) : (
         <Paper variant="outlined" className="p-4 text-center">
           <Typography variant="body2" color="text.secondary">
@@ -274,7 +274,7 @@ export default function BusinessNameGeneratorTool() {
         </Paper>
       )}
 
-      <Box>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-2">
           <Typography variant="subtitle2" className="font-bold">
             Shortlist ({favorites.length})
@@ -305,7 +305,7 @@ export default function BusinessNameGeneratorTool() {
             Star any idea to pin it here for comparison.
           </Typography>
         )}
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

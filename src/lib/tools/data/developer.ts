@@ -7,7 +7,7 @@ export const developerTools: Tool[] = [
     short: "Format, view & convert JSON and YAML",
     description:
       "Format, validate, and minify JSON, explore it as a collapsible tree with JSONPath copy, and convert JSON to YAML or YAML to JSON - all offline in your browser.",
-    icon: "DataObject",
+    icon: "FileJson",
     keywords: ["json formatter", "json validator", "format json online", "json tree viewer", "json to yaml", "yaml to json", "jsonpath copy path", "json beautifier minifier offline"],
     category: "developer",
     faq: [
@@ -322,7 +322,7 @@ export const developerTools: Tool[] = [
     short: "Encode & decode HTML entities",
     description:
       "Encode special HTML characters to named or numeric entities and decode entity strings back to plain text instantly in your browser on Tool4SaaS.",
-    icon: "Html",
+    icon: "FileCode",
     keywords: [
       "html entity encoder",
       "html decode",
@@ -492,7 +492,7 @@ export const developerTools: Tool[] = [
     short: "Decode JSON Web Tokens safely",
     description:
       "Decode JSON Web Tokens to inspect headers, payload claims, and expiration timestamps securely without server uploads online with Tool4SaaS.",
-    icon: "VpnKey",
+    icon: "Key",
     keywords: [
       "jwt decoder",
       "decode jwt online",
@@ -578,7 +578,7 @@ export const developerTools: Tool[] = [
     short: "Look up MIME types & extensions",
     description:
       "Look up MIME content types from file extensions or search standard media extensions with instant bidirectional reference tables on Tool4SaaS.",
-    icon: "AttachFile",
+    icon: "Paperclip",
     keywords: [
       "mime type lookup",
       "mime types",
@@ -748,7 +748,7 @@ export const developerTools: Tool[] = [
     short: "Score password strength & entropy",
     description:
       "Analyze password strength, calculate information entropy bits, and estimate brute-force crack time securely in your browser online with Tool4SaaS.",
-    icon: "VerifiedUser",
+    icon: "ShieldCheck",
     keywords: [
       "password strength checker",
       "password entropy calculator",
@@ -916,7 +916,7 @@ export const developerTools: Tool[] = [
     short: "Detect screen resolution & viewport",
     description:
       "Detect screen resolution, viewport dimensions, device pixel ratio, and display orientation to debug responsive layouts accurately online on Tool4SaaS.",
-    icon: "PhotoSizeSelectLarge",
+    icon: "Maximize2",
     keywords: [
       "screen resolution detector",
       "viewport size checker",
@@ -1085,7 +1085,7 @@ export const developerTools: Tool[] = [
     short: "Parse & explain cron expressions",
     description:
       "Parse cron expressions into human-readable schedules with field validation, interval step support, and next execution times online on Tool4SaaS.",
-    icon: "Schedule",
+    icon: "Clock",
     keywords: [
       "cron parser",
       "cron expression parser",
@@ -1169,7 +1169,7 @@ export const developerTools: Tool[] = [
     short: "Check domain SSL certificate expiry",
     description:
       "Check domain SSL certificate validity, upcoming expiration dates, issuing certificate authorities, and TLS security ciphers online on Tool4SaaS.",
-    icon: "VerifiedUser",
+    icon: "ShieldCheck",
     keywords: [
       "ssl checker",
       "check ssl certificate online",
@@ -1342,7 +1342,7 @@ export const developerTools: Tool[] = [
     short: "Calculate IPv4 subnets, CIDR & hosts",
     description:
       "Calculate IPv4 subnets, CIDR prefixes, network addresses, broadcast IPs, and usable host ranges for cloud VPCs and LANs online on Tool4SaaS.",
-    icon: "Http",
+    icon: "Globe",
     keywords: [
       "subnet calculator",
       "ipv4 subnet calculator",
@@ -1684,7 +1684,7 @@ export const developerTools: Tool[] = [
     short: "Time-based one-time password 2FA generator",
     description:
       "OTP generator produces RFC 6238 time-based two-factor authentication codes and provisioning URIs from Base32 secrets in client memory on Tool4SaaS.",
-    icon: "VpnKey",
+    icon: "Key",
     keywords: [
         "otp generator",
         "totp generator",
@@ -1812,7 +1812,7 @@ export const developerTools: Tool[] = [
     short: "Estimate LLM prompt tokens & API pricing",
     description:
       "AI token counter estimates prompt token counts and API inference costs for OpenAI GPT-4o, Claude 3.5 Sonnet, and Gemini 1.5 Flash on Tool4SaaS.",
-    icon: "DataObject",
+    icon: "FileJson",
     keywords: [
         "ai token counter",
         "llm token counter",

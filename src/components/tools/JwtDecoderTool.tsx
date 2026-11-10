@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const MAX_JWT_SIZE = 1_000_000;
 
@@ -47,7 +47,7 @@ export default function JwtDecoderTool() {
           helperText={error || `Decoding is local; ${token.length.toLocaleString()} / ${MAX_JWT_SIZE.toLocaleString()} chars — nothing sent anywhere.`}
         />
         {token.length > MAX_JWT_SIZE && <Alert severity="warning">JWT exceeds 1M chars — truncated.</Alert>}
-        <Box>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-1">
             <Typography variant="subtitle2" className="font-bold">
               Header
@@ -64,8 +64,8 @@ export default function JwtDecoderTool() {
             slotProps={{ input: { readOnly: true, "aria-label": "Decoded JWT header", spellCheck: false } }}
             className="[&_textarea]:text-[13px] [&_textarea]:[font-family:monospace]"
           />
-        </Box>
-        <Box>
+        </div>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-1">
             <Typography variant="subtitle2" className="font-bold">
               Payload
@@ -82,7 +82,7 @@ export default function JwtDecoderTool() {
             slotProps={{ input: { readOnly: true, "aria-label": "Decoded JWT payload", spellCheck: false } }}
             className="[&_textarea]:text-[13px] [&_textarea]:[font-family:monospace]"
           />
-        </Box>
+        </div>
         {token.trim() && !error && (
           <Alert severity="info" className="mt-2">
             Signature present (not verified). Only decode JWTs you trust.

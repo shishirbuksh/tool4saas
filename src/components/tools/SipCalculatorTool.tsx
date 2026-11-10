@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Link, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Link, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
 
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -77,7 +77,7 @@ export default function SipCalculatorTool() {
           <MenuItem value="monthly">Monthly</MenuItem>
         </Select>
       </FormControl>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -86,16 +86,16 @@ export default function SipCalculatorTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {future !== null ? money(future, currency) : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Invested amount</Typography>
           <Typography className="font-bold">{invested !== null ? money(invested, currency) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Estimated gain</Typography>
           <Typography className="font-bold">{gain !== null ? money(gain, currency) : "—"}</Typography>
-        </Box>
+        </div>
         {future !== null && (
           <Typography variant="caption" color="text.secondary">
             Goal planning: See our breakdown of a{" "}

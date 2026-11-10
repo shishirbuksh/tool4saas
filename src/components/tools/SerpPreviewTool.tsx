@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";
 import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Alert, Button, LinearProgress } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { useThemeMode } from "@/components/ThemeProviderClient";
 
 // Approximate pixel width estimation for Google SERP.

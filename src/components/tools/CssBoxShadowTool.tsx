@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const toHex = (hex: string) => {
   let h = hex.replace("#", "");

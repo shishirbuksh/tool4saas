@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Chip } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Chip } from "@/components/ds";
 
 
 const STOP = new Set([
@@ -50,7 +50,7 @@ export default function KeywordDensityTool() {
           className="max-w-[200px]"
           slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
         />
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-2">
             Top words by frequency
           </Typography>
@@ -61,29 +61,29 @@ export default function KeywordDensityTool() {
           ) : (
             <Stack spacing={1}>
               {data.map((d) => (
-                <Box
+                <div
                   key={d.word}
                   className="flex items-center justify-between gap-4"
                 >
-                  <Box className="min-w-[140px]">
+                  <div className="min-w-[140px]">
                     <Typography variant="body2" className="font-semibold">
                       {d.word}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
                       {d.count} {d.count === 1 ? "time" : "times"}
                     </Typography>
-                  </Box>
-                  <Box className="flex-1">
-                    <Box
+                  </div>
+                  <div className="flex-1">
+                    <div
                       className="h-[8px] rounded-[7992px] opacity-[0.7]" style={{ background: "var(--color-primary)", width: `${Math.min(100, d.pct * 4)}%` }}
                     />
-                  </Box>
+                  </div>
                   <Chip label={`${d.pct.toFixed(1)}%`} size="small" variant="outlined" />
-                </Box>
+                </div>
               ))}
             </Stack>
           )}
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

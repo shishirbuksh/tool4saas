@@ -1,5 +1,5 @@
 
-import { useState } from "react";import { Box, Tab, Tabs } from "@/components/ds";
+import { useState } from "react";import { Tab, Tabs } from "@/components/ds";
 
 import NumberToWordsTool from "@/components/tools/NumberToWordsTool";
 import RomanNumeralTool from "@/components/tools/RomanNumeralTool";
@@ -13,7 +13,7 @@ export default function EncoderStudioTool() {
 
   return (
     <>
-      <Box className="border-b border-base-300 mb-6">
+      <div className="border-b border-base-300 mb-6">
         <Tabs
           value={mode}
           onChange={(_event, next: number) => setMode(next)}
@@ -25,19 +25,19 @@ export default function EncoderStudioTool() {
             <Tab key={label} label={label} />
           ))}
         </Tabs>
-      </Box>
-      <Box style={{ display: mode === 0 ? "block" : "none" }}>
+      </div>
+      <div style={{ display: mode === 0 ? "block" : "none" }}>
         <NumberToWordsTool />
-      </Box>
-      <Box style={{ display: mode === 1 ? "block" : "none" }}>
+      </div>
+      <div style={{ display: mode === 1 ? "block" : "none" }}>
         <RomanNumeralTool />
-      </Box>
-      <Box style={{ display: mode === 2 ? "block" : "none" }}>
+      </div>
+      <div style={{ display: mode === 2 ? "block" : "none" }}>
         <AsciiConverterTool />
-      </Box>
-      <Box style={{ display: mode === 3 ? "block" : "none" }}>
+      </div>
+      <div style={{ display: mode === 3 ? "block" : "none" }}>
         <BaseConverterTool />
-      </Box>
+      </div>
     </>
   );
 }

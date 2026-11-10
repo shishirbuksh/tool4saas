@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Paper, Box, TextField, Typography, Grid, Stack, Alert, Button, FormControl, InputLabel, Select, MenuItem, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Paper, TextField, Typography, Grid, Stack, Alert, Button, FormControl, InputLabel, Select, MenuItem, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { estimateTokens, estimateAiCost } from "@/lib/finance-calc";
 
 function Stat({ label, value }: { label: string; value: number | string }) {
@@ -140,7 +140,7 @@ export default function AiTokenCounterTool() {
             ))}
           </Select>
         </FormControl>
-        <Box className="flex-1" />
+        <div className="flex-1" />
         <Button
           variant="outlined"
           startIcon={<ContentCopyIcon />}
@@ -151,7 +151,7 @@ export default function AiTokenCounterTool() {
         </Button>
       </Stack>
 
-      <Box className="mt-4">
+      <div className="mt-4">
         <Typography variant="subtitle2" gutterBottom className="font-bold">
           Cost per model (input pricing, editable)
         </Typography>
@@ -191,7 +191,7 @@ export default function AiTokenCounterTool() {
           {stats.tokens.toLocaleString()} tokens × selected model rate. Edit prices anytime — pricing changes
           frequently.
         </Typography>
-      </Box>
+      </div>
 
       <Alert severity="info">
         Heuristic estimate only — ~4 characters per token with a code boost, not exact tiktoken or provider

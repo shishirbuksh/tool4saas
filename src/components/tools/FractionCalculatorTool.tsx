@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
 
 type Operation = "+" | "-" | "*" | "/";
@@ -143,13 +143,13 @@ export default function FractionCalculatorTool() {
         Calculate
       </Button>
       {result && (
-        <Box
+        <div
           className="p-4 bg-primary rounded-[16px] whitespace-pre-line" style={{ color: "var(--color-primary-content)" }}
         >
           <Typography variant="h5" className="font-extrabold">
             {result}
           </Typography>
-        </Box>
+        </div>
       )}
     </ToolPaper>
   );

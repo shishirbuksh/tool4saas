@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControlLabel, Checkbox, Box } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControlLabel, Checkbox } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 export default function TextCleanerTool() {
@@ -129,7 +129,7 @@ export default function TextCleanerTool() {
         </Button>
       </Stack>
 
-      <Box>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-1">
           <Typography variant="subtitle2" className="font-bold">
             Cleaned text
@@ -146,37 +146,37 @@ export default function TextCleanerTool() {
           placeholder="Cleaned output will appear here…"
           slotProps={{ input: { readOnly: true, "aria-label": "Cleaned text", spellCheck: false } }}
         />
-      </Box>
+      </div>
 
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={2}
         className="p-4 rounded-[16px] justify-between" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
       >
-        <Box>
+        <div>
           <Typography variant="caption" color="text.secondary">
             Input
           </Typography>
           <Typography variant="body2" className="font-semibold">
             {stats.inputChars} chars · {stats.inputLines} lines · {stats.inputWords} words
           </Typography>
-        </Box>
-        <Box>
+        </div>
+        <div>
           <Typography variant="caption" color="text.secondary">
             Output
           </Typography>
           <Typography variant="body2" className="font-semibold">
             {stats.outputChars} chars · {stats.outputLines} lines · {stats.outputWords} words
           </Typography>
-        </Box>
-        <Box>
+        </div>
+        <div>
           <Typography variant="caption" color="text.secondary">
             Saved
           </Typography>
           <Typography variant="body2" className="font-semibold" style={{ color: stats.saved > 0 ? "success.main" : "text.primary" }}>
             {stats.saved > 0 ? `-${stats.saved} chars` : "0 chars"} {stats.emptyLines > 0 ? `· ${stats.emptyLines} empty lines in input` : ""}
           </Typography>
-        </Box>
+        </div>
       </Stack>
     </ToolPaper>
   );

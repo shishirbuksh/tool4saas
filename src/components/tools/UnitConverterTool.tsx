@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
-import { SwapVert as SwapVertIcon } from "@/components/ds/icons";
+import { ArrowUpDownIcon as SwapVertIcon } from "@/components/ui/icons";
 import { KG_PER_LB, METERS_PER_INCH, fmtNumber } from "@/lib/format";
 
 type Cat = {
@@ -114,12 +114,12 @@ export default function UnitConverterTool() {
           </FormControl>
         </Stack>
 
-        <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
+        <div className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
           <Typography variant="caption">Result</Typography>
           <Typography  variant="h4"  className="font-extrabold">
             {cat === "temperature" ? tempResult || "—" : result || "—"}
           </Typography>
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

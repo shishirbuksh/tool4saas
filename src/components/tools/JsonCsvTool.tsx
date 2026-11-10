@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 import { parseCsv as parseCsvSafe, MAX_CSV_SIZE } from "./CsvViewerTool";
 
@@ -59,7 +59,7 @@ export default function JsonCsvTool() {
           error={!!error}
           helperText={error}
         />
-        <Box>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-1">
             <Typography variant="subtitle2" className="font-bold">
               {mode === "json" ? "CSV output" : "JSON output"}
@@ -82,7 +82,7 @@ export default function JsonCsvTool() {
             }}
             className="[&_textarea]:text-[13px] [&_textarea]:[font-family:monospace]"
           />
-        </Box>
+        </div>
         {isOverCap && mode === "csv" && (
           <Alert severity="warning" className="mt-2">
             Input truncated to {Math.round(MAX_CSV_SIZE / 1024)}KB for performance. Only the first {Math.round(MAX_CSV_SIZE / 1024)}KB were converted.

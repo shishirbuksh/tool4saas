@@ -1,8 +1,8 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, Alert, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper, Box } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, Alert, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Download as DownloadIcon, TableView as TableViewIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, DownloadIcon, TableIcon as TableViewIcon } from "@/components/ui/icons";
 
 const escapeCsv = (v: unknown) => {
   const s = v === null || v === undefined ? "" : String(v);
@@ -149,7 +149,7 @@ export default function JsonToExcelTool() {
         </Button>
       </Stack>
 
-      <Box>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-1">
           <Typography variant="subtitle2" className="font-bold">
             Preview {data.length ? `(${previewRows.length} / ${data.length} rows)` : ""}
@@ -202,7 +202,7 @@ export default function JsonToExcelTool() {
             Showing first 100 rows. Download to get all {data.length} rows.
           </Typography>
         )}
-      </Box>
+      </div>
 
       {csv && !error && (
         <Alert severity="success">Parsed {data.length} rows with {headers.length} columns. Download opens directly in Excel.</Alert>

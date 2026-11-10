@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Divider } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 export default function TimestampConverterTool() {
   const [now, setNow] = useState<number | null>(null);

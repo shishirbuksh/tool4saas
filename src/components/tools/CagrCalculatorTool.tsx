@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -41,7 +41,7 @@ export default function CagrCalculatorTool() {
         {field("End value", endValue, setEndValue)}
         {field("Years", years, setYears)}
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -50,18 +50,18 @@ export default function CagrCalculatorTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {cagr !== null ? `${(cagr * 100).toFixed(2)}%` : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Growth multiple</Typography>
           <Typography className="font-bold">
             {multiple !== null ? `${multiple.toFixed(2)}x` : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total gain</Typography>
           <Typography className="font-bold">{gain !== null ? money(gain) : "—"}</Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">
         Disclaimer: This calculation is for illustration purposes only and is not financial advice.

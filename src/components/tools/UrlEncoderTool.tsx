@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 export default function UrlEncoderTool() {
   const [input, setInput] = useState("");
@@ -42,7 +42,7 @@ export default function UrlEncoderTool() {
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => void import("@/lib/clipboard").then(m=>m.copyToClipboard(output))} disabled={!output}>Copy</Button>
         </Stack>
         {output && (
-          <Box>
+          <div>
             <Typography  variant="subtitle2"  gutterBottom className="font-bold">Output</Typography>
             <TextField
               value={output}
@@ -52,7 +52,7 @@ export default function UrlEncoderTool() {
               slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false } }}
               className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

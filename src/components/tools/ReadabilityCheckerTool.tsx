@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Stack, TextField, Typography } from "@/components/ds";
 
 
 function countSyllables(word: string): number {
@@ -128,7 +128,7 @@ export default function ReadabilityCheckerTool() {
         slotProps={{ input: { spellCheck: true } }}
       />
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-base-300 bg-base-100"
       >
         <Typography variant="subtitle2" className="font-bold mb-4">
@@ -137,42 +137,42 @@ export default function ReadabilityCheckerTool() {
 
         <Stack spacing={2}>
           {/* Flesch Reading Ease */}
-          <Box
+          <div
             className="flex items-center justify-between gap-4 p-3 rounded-[12px] border border-base-300" style={{ borderLeft: "4px solid", borderLeftColor: easeColor }}
           >
-            <Box>
+            <div>
               <Typography variant="body2" color="text.secondary">
                 Flesch Reading Ease
               </Typography>
               <Typography variant="caption" color="text.secondary">
                 {hasText ? getFleschEaseLabel(stats.fleschEase) : "—"}
               </Typography>
-            </Box>
+            </div>
             <Typography variant="h6" className="font-extrabold" style={{ color: easeColor }}>
               {hasText ? stats.fleschEase.toFixed(1) : "—"}
             </Typography>
-          </Box>
+          </div>
 
           {/* Flesch-Kincaid Grade Level */}
-          <Box
+          <div
             className="flex items-center justify-between gap-4 p-3 rounded-[12px] border border-base-300" style={{ borderLeft: "4px solid", borderLeftColor: gradeColor }}
           >
-            <Box>
+            <div>
               <Typography variant="body2" color="text.secondary">
                 Flesch-Kincaid Grade Level
               </Typography>
               <Typography variant="caption" color="text.secondary">
                 {hasText ? getGradeLabel(stats.fleschKincaid) : "—"}
               </Typography>
-            </Box>
+            </div>
             <Typography variant="h6" className="font-extrabold" style={{ color: gradeColor }}>
               {hasText ? stats.fleschKincaid.toFixed(1) : "—"}
             </Typography>
-          </Box>
+          </div>
 
           {/* Supporting stats */}
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <Box
+            <div
               className="flex-1 p-3 rounded-[12px] border border-base-300 text-center border-t-primary" style={{ borderTop: "3px solid" }}
             >
               <Typography variant="h6" className="font-extrabold">
@@ -181,8 +181,8 @@ export default function ReadabilityCheckerTool() {
               <Typography variant="caption" color="text.secondary">
                 Words
               </Typography>
-            </Box>
-            <Box
+            </div>
+            <div
               className="flex-1 p-3 rounded-[12px] border border-base-300 text-center border-t-info" style={{ borderTop: "3px solid" }}
             >
               <Typography variant="h6" className="font-extrabold">
@@ -191,8 +191,8 @@ export default function ReadabilityCheckerTool() {
               <Typography variant="caption" color="text.secondary">
                 Syllables
               </Typography>
-            </Box>
-            <Box
+            </div>
+            <div
               className="flex-1 p-3 rounded-[12px] border border-base-300 text-center" style={{ borderTop: "3px solid", borderTopColor: avgLengthColor }}
             >
               <Typography variant="h6" className="font-extrabold" style={{ color: avgLengthColor }}>
@@ -201,21 +201,21 @@ export default function ReadabilityCheckerTool() {
               <Typography variant="caption" color="text.secondary">
                 Avg Words / Sentence
               </Typography>
-            </Box>
+            </div>
           </Stack>
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <Box className="flex-1 flex justify-between px-1">
+            <div className="flex-1 flex justify-between px-1">
               <Typography variant="caption" color="text.secondary">
                 Sentences: <strong>{stats.sentenceCount}</strong>
               </Typography>
               <Typography variant="caption" color="text.secondary">
                 Avg Syllables / Word: <strong>{hasText ? stats.avgSyllablesPerWord.toFixed(2) : "—"}</strong>
               </Typography>
-            </Box>
+            </div>
           </Stack>
         </Stack>
-      </Box>
+      </div>
 
       <Typography variant="caption" color="text.secondary">
         Flesch Reading Ease: 206.835 − 1.015×(words/sentences) − 84.6×(syllables/words) · Flesch-Kincaid Grade: 0.39×(words/sentences) + 11.8×(syllables/words) − 15.59 · Syllables approximated via vowel groups.

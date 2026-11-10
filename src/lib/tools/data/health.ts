@@ -8,7 +8,7 @@ export const healthTools: Tool[] = [
     short: "Calculate daily calories & macros",
     description:
       "Calculate daily calorie needs, BMR, and TDEE using Mifflin-St Jeor formulas with customizable macronutrient split targets online on Tool4SaaS.",
-    icon: "FitnessCenter",
+    icon: "Dumbbell",
     keywords: [
       "calorie calculator",
       "macro calculator",
@@ -93,7 +93,7 @@ export const healthTools: Tool[] = [
     short: "Estimate daily water intake",
     description:
       "Calculate your recommended daily water intake based on body weight, physical activity level, and climate conditions accurately online on Tool4SaaS.",
-    icon: "FitnessCenter",
+    icon: "Dumbbell",
     keywords: [
       "water intake calculator",
       "daily water intake",
@@ -346,7 +346,7 @@ export const healthTools: Tool[] = [
     short: "Cycle tracker & fertile window predictor",
     description:
       "Period calculator predicts upcoming menstrual cycles, ovulation days, and fertile windows based on clinical reproductive guidelines on Tool4SaaS.",
-    icon: "DateRange",
+    icon: "CalendarRange",
     keywords: [
         "period calculator",
         "ovulation calculator",
@@ -467,7 +467,7 @@ export const healthTools: Tool[] = [
     short: "1RM strength estimator & training zones",
     description:
       "One-rep max calculator calculates your 1RM strength, submaximal rep benchmarks, and percentage-based powerlifting training zones on Tool4SaaS.",
-    icon: "FitnessCenter",
+    icon: "Dumbbell",
     keywords: [
         "one rep max calculator",
         "1rm calculator",

@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack } from "@/components/ds";
 
 import { MS_PER_HOUR, MS_PER_MINUTE, MS_PER_SECOND } from "@/lib/format";
 
@@ -102,7 +102,7 @@ export default function TimeDurationCalculatorTool() {
         />
       </Stack>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-base-300 bg-base-100"
       >
         <Typography variant="overline" color="text.secondary">
@@ -123,7 +123,7 @@ export default function TimeDurationCalculatorTool() {
             {result.overnight ? " · includes overnight" : ""}
           </Typography>
         ) : null}
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

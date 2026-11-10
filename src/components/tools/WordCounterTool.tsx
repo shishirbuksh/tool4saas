@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Paper, Box, TextField, Typography, Link, Grid, Stack } from "@/components/ds";
+import { useMemo, useState } from "react";import { Paper, TextField, Typography, Link, Grid, Stack } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
 import { WPM_READING, WPM_SPEAKING } from "@/lib/format";
@@ -113,7 +113,7 @@ export default function WordCounterTool() {
       </Grid>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={4} className="mt-8">
-        <Box>
+        <div>
           <Typography  variant="subtitle2"  gutterBottom className="font-bold">
             Estimated reading / speaking time
           </Typography>
@@ -130,8 +130,8 @@ export default function WordCounterTool() {
               Flesch readability score
             </Link>.
           </Typography>
-        </Box>
-        <Box className="flex-1">
+        </div>
+        <div className="flex-1">
           <Typography  variant="subtitle2"  gutterBottom className="font-bold">
             Top words
           </Typography>
@@ -140,13 +140,13 @@ export default function WordCounterTool() {
           ) : (
             <Stack direction="row"  useFlexGap spacing={1} className="flex-wrap">
               {keyword.map(([w, c]) => (
-                <Box key={w} className="px-3 py-1 rounded-[40px] bg-primary text-[13px]" style={{ color: "var(--color-primary-content)" }}>
+                <div key={w} className="px-3 py-1 rounded-[40px] bg-primary text-[13px]" style={{ color: "var(--color-primary-content)" }}>
                   {w} · {c}
-                </Box>
+                </div>
               ))}
             </Stack>
           )}
-        </Box>
+        </div>
       </Stack>
     </ToolPaper>
   );

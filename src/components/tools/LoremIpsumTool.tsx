@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const WORDS =
   "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in reprehenderit voluptate velit esse cillum eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum".split(
@@ -80,13 +80,13 @@ export default function LoremIpsumTool() {
           Generate
         </Button>
         {output && (
-          <Box>
+          <div>
             <Stack direction="row"   className="items-center justify-between mb-1">
               <Typography  variant="subtitle2"  className="font-bold">Result</Typography>
               <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => void import("@/lib/clipboard").then(m=>m.copyToClipboard(output))}>Copy</Button>
             </Stack>
             <TextField value={output} multiline minRows={8} fullWidth slotProps={{ input: { readOnly: true, "aria-label": "Generated text", spellCheck: false } }} className="[&_textarea]:text-[13px] [&_textarea]:leading-[1.6]" />
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

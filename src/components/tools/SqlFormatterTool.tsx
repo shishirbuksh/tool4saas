@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, Box } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, AutoFixHigh as AutoFixHighIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, Wand2Icon as AutoFixHighIcon } from "@/components/ui/icons";
 
 const MULTI_WORD_KEYWORDS = [
   "GROUP BY",
@@ -191,7 +191,7 @@ export default function SqlFormatterTool() {
       </Stack>
       {error && <Alert severity="error">{error}</Alert>}
       {output && (
-        <Box>
+        <div>
           <Typography variant="subtitle2" gutterBottom className="font-bold">
             Result
           </Typography>
@@ -203,7 +203,7 @@ export default function SqlFormatterTool() {
             slotProps={{ input: { readOnly: true, "aria-label": "Result", spellCheck: false, autoComplete: "off" } }}
             className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
           />
-        </Box>
+        </div>
       )}
     </ToolPaper>
   );

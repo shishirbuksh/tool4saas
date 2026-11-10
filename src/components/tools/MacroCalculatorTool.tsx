@@ -1,5 +1,5 @@
 
-import { useState, useMemo } from "react";import { Box, Stack, TextField, Typography, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+import { useState, useMemo } from "react";import { Stack, TextField, Typography, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
 import { fmt0, fmtNumber } from "@/lib/format";
@@ -194,14 +194,14 @@ export default function MacroCalculatorTool() {
         </Alert>
       )}
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border text-center" style={{ borderColor: isValidRatio ? "primary.main" : "warning.main" }}
       >
         <Typography variant="overline" color="text.secondary">
           Daily macros {validCalories !== null ? `for ${fmtKcal(validCalories)} kcal` : ""}
         </Typography>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="mt-2 justify-around">
-          <Box className="flex-1">
+          <div className="flex-1">
             <Typography variant="caption" color="text.secondary" className="uppercase tracking-[1px]">
               Protein {proteinPct}%
             </Typography>
@@ -211,8 +211,8 @@ export default function MacroCalculatorTool() {
             <Typography variant="caption" color="text.secondary">
               {proteinKcal !== null ? `${fmtKcal(proteinKcal)} kcal • ${fmtGrams(proteinGrams ?? 0)} g = cal × ${proteinPct}% ÷ 4` : "4 kcal/g"}
             </Typography>
-          </Box>
-          <Box className="flex-1">
+          </div>
+          <div className="flex-1">
             <Typography variant="caption" color="text.secondary" className="uppercase tracking-[1px]">
               Carbs {carbPct}%
             </Typography>
@@ -222,8 +222,8 @@ export default function MacroCalculatorTool() {
             <Typography variant="caption" color="text.secondary">
               {carbKcal !== null ? `${fmtKcal(carbKcal)} kcal • ${fmtGrams(carbGrams ?? 0)} g = cal × ${carbPct}% ÷ 4` : "4 kcal/g"}
             </Typography>
-          </Box>
-          <Box className="flex-1">
+          </div>
+          <div className="flex-1">
             <Typography variant="caption" color="text.secondary" className="uppercase tracking-[1px]">
               Fat {fatPct}%
             </Typography>
@@ -233,43 +233,43 @@ export default function MacroCalculatorTool() {
             <Typography variant="caption" color="text.secondary">
               {fatKcal !== null ? `${fmtKcal(fatKcal)} kcal • ${fmtGrams(fatGrams ?? 0)} g = cal × ${fatPct}% ÷ 9` : "9 kcal/g"}
             </Typography>
-          </Box>
+          </div>
         </Stack>
-      </Box>
+      </div>
 
-      <Box
+      <div
         className="p-3 rounded-[16px] border border-base-300"
       >
         <Stack spacing={0.5}>
-          <Box className="flex justify-between">
+          <div className="flex justify-between">
             <Typography color="text.secondary">Protein</Typography>
             <Typography className="font-bold">
               {proteinGrams !== null ? `${fmtGrams(proteinGrams)} g` : "—"} {proteinKcal !== null ? `(${fmtKcal(proteinKcal)} kcal)` : ""}
             </Typography>
-          </Box>
-          <Box className="flex justify-between">
+          </div>
+          <div className="flex justify-between">
             <Typography color="text.secondary">Carbohydrates</Typography>
             <Typography className="font-bold">
               {carbGrams !== null ? `${fmtGrams(carbGrams)} g` : "—"} {carbKcal !== null ? `(${fmtKcal(carbKcal)} kcal)` : ""}
             </Typography>
-          </Box>
-          <Box className="flex justify-between">
+          </div>
+          <div className="flex justify-between">
             <Typography color="text.secondary">Fat</Typography>
             <Typography className="font-bold">
               {fatGrams !== null ? `${fmtGrams(fatGrams)} g` : "—"} {fatKcal !== null ? `(${fmtKcal(fatKcal)} kcal)` : ""}
             </Typography>
-          </Box>
-          <Box className="flex justify-between border-t border-base-300 pt-2 mt-2">
+          </div>
+          <div className="flex justify-between border-t border-base-300 pt-2 mt-2">
             <Typography className="font-bold">Total</Typography>
             <Typography className="font-extrabold">
               {validCalories !== null ? `${fmtKcal(validCalories)} kcal` : "—"} • {totalPct}%
             </Typography>
-          </Box>
+          </div>
         </Stack>
         <Typography variant="caption" color="text.secondary" className="block mt-2">
           Formulas: protein = cal × protein% ÷ 4 • carbs = cal × carb% ÷ 4 • fat = cal × fat% ÷ 9
         </Typography>
-      </Box>
+      </div>
 
       <Alert severity="info">
         For informational purposes only — not medical advice. Individual macro needs vary; consult a healthcare professional or registered dietitian for personalized guidance.

@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Alert } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
 import { fmt1 } from "@/lib/format";
@@ -61,7 +61,7 @@ export default function BodyFatCalculatorTool() {
 
   return (
     <ToolPaper>
-      <Box className="flex items-center">
+      <div className="flex items-center">
         <ToggleButtonGroup
           size="small"
           value={sex}
@@ -72,7 +72,7 @@ export default function BodyFatCalculatorTool() {
           <ToggleButton value="male">Male</ToggleButton>
           <ToggleButton value="female">Female</ToggleButton>
         </ToggleButtonGroup>
-      </Box>
+      </div>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <TextField
@@ -114,7 +114,7 @@ export default function BodyFatCalculatorTool() {
         )}
       </Stack>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -133,7 +133,7 @@ export default function BodyFatCalculatorTool() {
             ? "Men: 86.01×log10(waist−neck) − 70.041×log10(height) + 36.76"
             : "Women: 163.205×log10(waist+hip−neck) − 97.684×log10(height) − 78.387"}
         </Typography>
-      </Box>
+      </div>
 
       <Alert severity="warning">For informational purposes only — not medical advice.</Alert>
     </ToolPaper>

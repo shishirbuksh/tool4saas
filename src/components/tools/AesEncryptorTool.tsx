@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Alert, Box, Button, Stack, TextField, ToggleButton, ToggleButtonGroup, Typography } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Alert, Button, Stack, TextField, ToggleButton, ToggleButtonGroup, Typography } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 type Mode = "encrypt" | "decrypt";
 
@@ -196,7 +196,7 @@ export default function AesEncryptorTool() {
       </Stack>
       {error && <Alert severity="error">{error}</Alert>}
       {output && (
-        <Box>
+        <div>
           <Typography variant="subtitle2" gutterBottom className="font-bold">
             {mode === "encrypt" ? "Encrypted output (Base64)" : "Decrypted output"}
           </Typography>
@@ -208,7 +208,7 @@ export default function AesEncryptorTool() {
             slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false } }}
             className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
           />
-        </Box>
+        </div>
       )}
     </ToolPaper>
   );

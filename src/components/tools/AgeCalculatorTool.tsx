@@ -1,16 +1,16 @@
 
 import { useMemo, useState, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Grid } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Grid } from "@/components/ds";
 
 import { MS_PER_DAY } from "@/lib/format";
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 function Stat({ label, value }: { label: string; value: string | number }) {
   return (
-    <Box className="p-4 bg-base-100 border border-base-300 rounded-[16px] text-center">
+    <div className="p-4 bg-base-100 border border-base-300 rounded-[16px] text-center">
       <Typography  variant="h4"  color="primary.main" className="font-extrabold">{value}</Typography>
       <Typography variant="caption" color="text.secondary">{label}</Typography>
-    </Box>
+    </div>
   );
 }
 
@@ -63,12 +63,12 @@ export default function AgeCalculatorTool() {
               <Grid size={{ xs: 6 }}><Stat label="Total days lived" value={res.totalDays.toLocaleString()} /></Grid>
               <Grid size={{ xs: 6 }}><Stat label="Born on" value={res.weekday} /></Grid>
             </Grid>
-            <Box className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
+            <div className="p-4 bg-primary rounded-[16px]" style={{ color: "var(--color-primary-content)" }}>
               <Typography variant="caption">Next birthday</Typography>
               <Typography  variant="h5"  className="font-extrabold">
                 {res.next.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })} ({res.daysUntil} days away)
               </Typography>
-            </Box>
+            </div>
           </>
         ) : (
           <Typography color="text.secondary">Enter a valid date of birth.</Typography>

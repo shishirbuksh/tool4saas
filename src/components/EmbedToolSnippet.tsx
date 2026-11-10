@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Box, Button, Typography, TextField, Collapse } from "@/components/ds";
-import { Code as CodeIcon, ContentCopy as ContentCopyIcon, Check as CheckIcon, ExpandMore as ExpandMoreIcon, ExpandLess as ExpandLessIcon } from "@/components/ds/icons";
+import { Button, Typography, TextField, Collapse } from "@/components/ds";
+import { CodeIcon, CopyIcon as ContentCopyIcon, CheckIcon, ChevronDownIcon as ExpandMoreIcon, ChevronUpIcon as ExpandLessIcon } from "@/components/ui/icons";
 import { siteConfig } from "@/lib/site";
 
 interface EmbedToolSnippetProps {
@@ -43,8 +43,8 @@ export default function EmbedToolSnippet({ slug, title }: EmbedToolSnippetProps)
   };
 
   return (
-    <Box className="mt-6 mb-2">
-      <Box className="flex justify-center">
+    <div className="mt-6 mb-2">
+      <div className="flex justify-center">
         <Button
           variant="text"
           size="small"
@@ -57,10 +57,10 @@ export default function EmbedToolSnippet({ slug, title }: EmbedToolSnippetProps)
         >
           {t.btnToggle}
         </Button>
-      </Box>
+      </div>
 
       <Collapse in={open} timeout="auto" unmountOnExit>
-        <Box
+        <div
           id={`embed-section-${slug}`}
           className="mt-4 p-6 border border-base-300 rounded-xl bg-base-100"
         >
@@ -87,7 +87,7 @@ export default function EmbedToolSnippet({ slug, title }: EmbedToolSnippetProps)
             }}
           />
 
-          <Box className="flex justify-end mt-3">
+          <div className="flex justify-end mt-3">
             <Button
               variant="contained"
               size="small"
@@ -98,9 +98,9 @@ export default function EmbedToolSnippet({ slug, title }: EmbedToolSnippetProps)
             >
               {copied ? t.copied : t.btnCopy}
             </Button>
-          </Box>
-        </Box>
+          </div>
+        </div>
       </Collapse>
-    </Box>
+    </div>
   );
 }

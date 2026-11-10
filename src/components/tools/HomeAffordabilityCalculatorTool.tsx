@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 import { EPSILON_RATE, money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -82,7 +82,7 @@ export default function HomeAffordabilityCalculatorTool() {
         {field("Annual rate (%)", rate, setRate)}
         {field("Term (years)", years, setYears)}
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -91,26 +91,26 @@ export default function HomeAffordabilityCalculatorTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {affordable !== null && isFinite(affordable) ? money(affordable) : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Max housing (28% of income)</Typography>
           <Typography className="font-bold">
             {maxHousing !== null && isFinite(maxHousing) ? money(maxHousing) : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Max total debt (36% minus debts)</Typography>
           <Typography className="font-bold">
             {maxTotal !== null && isFinite(maxTotal) ? money(maxTotal) : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Estimated home price (EMI inverse)</Typography>
           <Typography className="font-bold">
             {price !== null && isFinite(price) ? money(price) : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">For informational purposes only — not financial advice. See /terms</Alert>
     </ToolPaper>

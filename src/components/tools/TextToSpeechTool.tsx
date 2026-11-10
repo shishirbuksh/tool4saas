@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Slider, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Slider, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
 
 export default function TextToSpeechTool() {
@@ -85,18 +85,18 @@ export default function TextToSpeechTool() {
             ))}
           </Select>
         </FormControl>
-        <Box className="max-w-[320px]">
+        <div className="max-w-[320px]">
           <Typography variant="subtitle2" className="font-bold mb-1">
             Rate: {rate.toFixed(1)}x
           </Typography>
           <Slider value={rate} min={0.5} max={2} step={0.1} onChange={(_, v) => setRate(Array.isArray(v) ? v[0] : v)} aria-label="Speech rate" />
-        </Box>
-        <Box className="max-w-[320px]">
+        </div>
+        <div className="max-w-[320px]">
           <Typography variant="subtitle2" className="font-bold mb-1">
             Pitch: {pitch.toFixed(1)}
           </Typography>
           <Slider value={pitch} min={0} max={2} step={0.1} onChange={(_, v) => setPitch(Array.isArray(v) ? v[0] : v)} aria-label="Speech pitch" />
-        </Box>
+        </div>
         <Stack direction="row" spacing={1}>
           <Button variant="contained" onClick={speak} disabled={!text}>
             Play

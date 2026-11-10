@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";
 import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography, Button } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {

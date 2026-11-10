@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Chip } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Chip } from "@/components/ds";
 
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
@@ -88,22 +88,22 @@ export default function DiceRollerTool() {
                 <Chip key={i} label={r} color="primary" className="font-bold" style={{ fontFamily: "monospace" }} />
               ))}
             </Stack>
-            <Box className="flex justify-between">
+            <div className="flex justify-between">
               <Typography color="text.secondary">Total</Typography>
               <Typography className="font-bold">{total}</Typography>
-            </Box>
+            </div>
             <Button size="small" onClick={() => copy(results.join(", "))}>
               Copy results
             </Button>
           </Stack>
         )}
         {history.length > 1 && (
-          <Box className="w-full max-h-[160px] overflow-auto">
+          <div className="w-full max-h-[160px] overflow-auto">
             <Typography variant="body2" color="text.secondary" className="mb-1">
               Roll history
             </Typography>
             {history.slice(1).map((h, i) => (
-              <Box
+              <div
                 key={i}
                 className="flex justify-between px-2 py-1 border-b border-base-300"
               >
@@ -113,9 +113,9 @@ export default function DiceRollerTool() {
                 <Typography variant="body2" className="font-bold">
                   {h.total}
                 </Typography>
-              </Box>
+              </div>
             ))}
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

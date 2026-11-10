@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Link, Alert, Select, MenuItem, FormControl, InputLabel, Button, Table, TableHead, TableBody, TableRow, TableCell, TableContainer } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Link, Alert, Select, MenuItem, FormControl, InputLabel, Button, Table, TableHead, TableBody, TableRow, TableCell, TableContainer } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import { calcEmi, amortizationSchedule } from "@/lib/finance-calc";
@@ -89,7 +89,7 @@ export default function EmiCalculatorTool() {
         {field("Annual rate (%)", rate, setRate)}
         {field("Term (years)", years, setYears)}
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -98,20 +98,20 @@ export default function EmiCalculatorTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null && isFinite(result.emi) ? money(result.emi, currency) : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total paid</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.total) ? money(result.total, currency) : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total interest</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.interest) ? money(result.interest, currency) : "—"}
           </Typography>
-        </Box>
+        </div>
         {result !== null && isFinite(result.interest) && (
           <Typography variant="caption" color="text.secondary">
             Tip: Want to cut total interest? Learn how extra payments reduce your loan balance in our{" "}
@@ -123,12 +123,12 @@ export default function EmiCalculatorTool() {
       </Stack>
       {schedule.length > 0 && (
         <Stack spacing={1.5}>
-          <Box className="flex justify-between items-center">
+          <div className="flex justify-between items-center">
             <Typography variant="h6">Amortization (first 12 months)</Typography>
             <Button variant="outlined" onClick={handleExportCsv}>
               Export CSV
             </Button>
-          </Box>
+          </div>
           <TableContainer>
             <Table size="small">
               <TableHead>

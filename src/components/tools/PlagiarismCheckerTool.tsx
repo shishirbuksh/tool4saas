@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 
 const N = 5;
@@ -214,7 +214,7 @@ export default function PlagiarismCheckerTool() {
       />
 
       {/* Summary stats */}
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-base-300 bg-base-100"
       >
         <Typography variant="subtitle2" className="font-bold mb-4">
@@ -222,24 +222,24 @@ export default function PlagiarismCheckerTool() {
         </Typography>
 
         <Stack spacing={2}>
-          <Box
+          <div
             className="flex items-center justify-between gap-4 p-3 rounded-[12px] border border-base-300" style={{ borderLeft: "4px solid", borderLeftColor: uniquenessColor }}
           >
-            <Box>
+            <div>
               <Typography variant="body2" color="text.secondary">
                 % Uniqueness
               </Typography>
               <Typography variant="caption" color="text.secondary">
                 {uniquenessLabel} · {N}-gram heuristic
               </Typography>
-            </Box>
+            </div>
             <Typography variant="h5" className="font-extrabold" style={{ color: uniquenessColor }}>
               {hasText && result.hasEnoughWords ? `${result.uniqueness.toFixed(1)}%` : "—"}
             </Typography>
-          </Box>
+          </div>
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <Box
+            <div
               className="flex-1 p-3 rounded-[12px] border border-base-300 text-center border-t-primary" style={{ borderTop: "3px solid" }}
             >
               <Typography variant="h6" className="font-extrabold">
@@ -248,8 +248,8 @@ export default function PlagiarismCheckerTool() {
               <Typography variant="caption" color="text.secondary">
                 Total {N}-grams
               </Typography>
-            </Box>
-            <Box
+            </div>
+            <div
               className="flex-1 p-3 rounded-[12px] border border-base-300 text-center" style={{ borderTop: "3px solid", borderTopColor: result.duplicatePhrases.length ? "warning.main" : "success.main" }}
             >
               <Typography
@@ -261,8 +261,8 @@ export default function PlagiarismCheckerTool() {
               <Typography variant="caption" color="text.secondary">
                 Duplicate phrases
               </Typography>
-            </Box>
-            <Box
+            </div>
+            <div
               className="flex-1 p-3 rounded-[12px] border border-base-300 text-center" style={{ borderTop: "3px solid", borderTopColor: result.matchedPhrases.length ? "error.main" : "info.main" }}
             >
               <Typography
@@ -274,21 +274,21 @@ export default function PlagiarismCheckerTool() {
               <Typography variant="caption" color="text.secondary">
                 Source matches
               </Typography>
-            </Box>
+            </div>
           </Stack>
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <Box className="flex-1 flex justify-between px-1">
+            <div className="flex-1 flex justify-between px-1">
               <Typography variant="caption" color="text.secondary">
                 Unique {N}-grams: <strong>{result.uniqueCount}</strong>
               </Typography>
               <Typography variant="caption" color="text.secondary">
                 Words: <strong>{result.wordCount}</strong>
               </Typography>
-            </Box>
+            </div>
           </Stack>
         </Stack>
-      </Box>
+      </div>
 
       {!hasText ? (
         <Alert severity="info">Enter at least {N} words to run the n-gram heuristic. Duplicate {N}-word phrases within your text will be flagged.</Alert>
@@ -309,7 +309,7 @@ export default function PlagiarismCheckerTool() {
 
       {/* Duplicate phrases list */}
       {hasText && result.hasEnoughWords && (
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-3">
             Duplicate phrases within text ({result.duplicatePhrases.length})
           </Typography>
@@ -320,16 +320,16 @@ export default function PlagiarismCheckerTool() {
           ) : (
             <Stack spacing={1.2}>
               {result.duplicatePhrases.slice(0, 50).map((d, idx) => (
-                <Box
+                <div
                   key={`${d.phrase}-${idx}`}
                   className="p-3 rounded-[16px] border flex flex-col gap-1" style={{ borderColor: "color-mix(in oklab, var(--color-warning) 15%, var(--color-base-100))", backgroundColor: "color-mix(in oklab, var(--color-warning) 15%, var(--color-base-100))" }}
                 >
                   <Stack direction="row" spacing={1} className="items-center flex-wrap gap-2">
-                    <Box
+                    <div
                       className="px-2 py-0.4 rounded-[8px] bg-warning text-[11px] font-bold uppercase tracking-[0.5px]" style={{ color: "var(--color-warning-content)" }}
                     >
                       ×{d.count}
-                    </Box>
+                    </div>
                     <Typography variant="caption" color="text.secondary" style={{ fontFamily: "monospace" }}>
                       {N}-gram
                     </Typography>
@@ -340,7 +340,7 @@ export default function PlagiarismCheckerTool() {
                   >
                     &ldquo;{d.phrase}&rdquo;
                   </Typography>
-                </Box>
+                </div>
               ))}
               {result.duplicatePhrases.length > 50 && (
                 <Typography variant="caption" color="text.secondary" className="mt-2">
@@ -349,12 +349,12 @@ export default function PlagiarismCheckerTool() {
               )}
             </Stack>
           )}
-        </Box>
+        </div>
       )}
 
       {/* Source matches list */}
       {source.trim() && result.hasEnoughWords && (
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-3">
             Matching phrases vs source ({result.matchedPhrases.length})
           </Typography>
@@ -367,16 +367,16 @@ export default function PlagiarismCheckerTool() {
           ) : (
             <Stack spacing={1.2}>
               {result.matchedPhrases.slice(0, 50).map((m, idx) => (
-                <Box
+                <div
                   key={`${m.phrase}-${idx}`}
                   className="p-3 rounded-[16px] border flex flex-col gap-1" style={{ borderColor: "color-mix(in oklab, var(--color-error) 15%, var(--color-base-100))", backgroundColor: "color-mix(in oklab, var(--color-error) 15%, var(--color-base-100))" }}
                 >
                   <Stack direction="row" spacing={1} className="items-center flex-wrap gap-2">
-                    <Box
+                    <div
                       className="px-2 py-0.4 rounded-[8px] bg-error text-[11px] font-bold uppercase tracking-[0.5px]" style={{ color: "var(--color-error-content)" }}
                     >
                       {m.count} match{m.count !== 1 ? "es" : ""}
-                    </Box>
+                    </div>
                     <Typography variant="caption" color="text.secondary" style={{ fontFamily: "monospace" }}>
                       {N}-gram overlap
                     </Typography>
@@ -387,7 +387,7 @@ export default function PlagiarismCheckerTool() {
                   >
                     &ldquo;{m.phrase}&rdquo;
                   </Typography>
-                </Box>
+                </div>
               ))}
               {result.matchedPhrases.length > 50 && (
                 <Typography variant="caption" color="text.secondary" className="mt-2">
@@ -396,7 +396,7 @@ export default function PlagiarismCheckerTool() {
               )}
             </Stack>
           )}
-        </Box>
+        </div>
       )}
 
       <Alert severity="info" className="text-[12px]">

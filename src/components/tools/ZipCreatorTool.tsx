@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, TextField, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, TextField, Alert } from "@/components/ds";
 
 
 type ZipFileEntry = {
@@ -137,7 +137,7 @@ export default function ZipCreatorTool() {
 
       <Stack spacing={2}>
         {files.map((file) => (
-          <Box
+          <div
             key={file.id}
             className="p-4 border border-base-300 rounded-[16px] bg-base-100"
           >
@@ -175,7 +175,7 @@ export default function ZipCreatorTool() {
                 className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
               />
             </Stack>
-          </Box>
+          </div>
         ))}
       </Stack>
 
@@ -199,14 +199,14 @@ export default function ZipCreatorTool() {
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
       />
 
-      <Box>
+      <div>
         <Button variant="contained" onClick={generateZip} disabled={loading || files.length === 0}>
           {loading ? "Generating..." : `Generate & Download ZIP (${files.length} file${files.length === 1 ? "" : "s"})`}
         </Button>
         <Typography variant="caption" color="text.secondary" className="ml-4">
           Creates Blob and triggers browser download. All processing runs locally.
         </Typography>
-      </Box>
+      </div>
 
       {error && (
         <Alert severity="error" onClose={() => setError("")}>

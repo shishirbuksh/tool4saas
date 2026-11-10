@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import NumericField from "@/components/NumericField";import { Paper, Box, TextField, Button, Typography, Stack, Alert, Grid, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
-import { Download as DownloadIcon, Print as PrintIcon } from "@/components/ds/icons";
+import { DownloadIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 import { money } from "@/lib/format";
 
 const num = (v: string) => {

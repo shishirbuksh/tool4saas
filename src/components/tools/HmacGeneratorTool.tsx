@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const ALGOS = ["SHA-256", "SHA-384", "SHA-512"] as const;
 
@@ -82,7 +82,7 @@ export default function HmacGeneratorTool() {
           </Button>
         </Stack>
         {output && (
-          <Box>
+          <div>
             <Typography  variant="subtitle2"  gutterBottom className="font-bold">HMAC-{algorithm} result</Typography>
             <TextField
               value={output}
@@ -92,7 +92,7 @@ export default function HmacGeneratorTool() {
               slotProps={{ input: { readOnly: true, "aria-label": "HMAC result", spellCheck: false } }}
               className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

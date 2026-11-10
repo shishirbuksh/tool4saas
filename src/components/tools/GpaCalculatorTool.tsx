@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 
 type Course = {
@@ -132,7 +132,7 @@ export default function GpaCalculatorTool() {
         </Button>
       </Stack>
 
-      <Box
+      <div
         className="p-5 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -144,24 +144,24 @@ export default function GpaCalculatorTool() {
         <Typography variant="body2" color="text.secondary" className="mt-1">
           {percentage !== null ? `${fmt(percentage)}%` : "—"} {gpa !== null && "• 4.0 scale"}
         </Typography>
-      </Box>
+      </div>
 
-      <Box className="flex flex-col gap-2">
-        <Box className="flex justify-between">
+      <div className="flex flex-col gap-2">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total credits</Typography>
           <Typography className="font-bold">{totalCredits ? fmt(totalCredits) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total grade points</Typography>
           <Typography className="font-bold">{totalCredits ? fmt(totalPoints) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Formula</Typography>
           <Typography className="font-semibold text-[13px] text-base-content/70">
             Σ(grade × credits) / Σcredits
           </Typography>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </ToolPaper>
   );
 }

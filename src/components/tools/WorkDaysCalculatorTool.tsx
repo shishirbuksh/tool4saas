@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Button } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button } from "@/components/ds";
 
 import { MS_PER_DAY } from "@/lib/format";
 
@@ -59,10 +59,10 @@ export default function WorkDaysCalculatorTool() {
           Calculate business days
         </Button>
         {workDays >= 0 && (
-          <Box className="p-4 rounded-[16px] border border-primary text-center">
+          <div className="p-4 rounded-[16px] border border-primary text-center">
             <Typography variant="h3" className="font-extrabold">{workDays}</Typography>
             <Typography variant="body2" color="text.secondary">business days</Typography>
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

@@ -1,8 +1,8 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, Alert, IconButton } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, Alert, IconButton } from "@/components/ds";
 
-import { Add as AddIcon, Delete as DeleteIcon, ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
+import { PlusIcon as AddIcon, Trash2Icon as DeleteIcon, CopyIcon as ContentCopyIcon, DownloadIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 interface FaqPair {
@@ -82,7 +82,7 @@ export default function FaqSchemaGeneratorTool() {
     <ToolPaper>
       <Stack spacing={2}>
         {pairs.map((pair, index) => (
-          <Box
+          <div
             key={pair.id}
             className="p-4 rounded-[16px] border border-base-300"
           >
@@ -119,15 +119,15 @@ export default function FaqSchemaGeneratorTool() {
                 slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
               />
             </Stack>
-          </Box>
+          </div>
         ))}
       </Stack>
 
-      <Box>
+      <div>
         <Button variant="outlined" startIcon={<AddIcon />} onClick={addPair}>
           Add question
         </Button>
-      </Box>
+      </div>
 
       <Typography variant="body2" color="text.secondary">
         {validPairs.length} of {pairs.length} question{pairs.length === 1 ? "" : "s"} complete
@@ -140,7 +140,7 @@ export default function FaqSchemaGeneratorTool() {
       )}
 
       {jsonLd ? (
-        <Box>
+        <div>
           <Typography variant="subtitle2" gutterBottom className="font-bold">
             Preview — FAQ JSON-LD ({validPairs.length} question{validPairs.length === 1 ? "" : "s"})
           </Typography>
@@ -159,7 +159,7 @@ export default function FaqSchemaGeneratorTool() {
             }}
             className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[12px]"
           />
-        </Box>
+        </div>
       ) : (
         <Alert severity="info">
           Enter at least one question and answer pair to generate the FAQ schema.

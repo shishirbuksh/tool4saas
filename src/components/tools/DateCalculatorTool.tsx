@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
 import { MS_PER_DAY } from "@/lib/format";
 
@@ -95,7 +95,7 @@ export default function DateCalculatorTool() {
           </Stack>
         )}
 
-        <Box
+        <div
           className="p-4 rounded-[16px] border border-base-300 bg-base-100"
         >
           <Typography variant="overline" color="text.secondary">
@@ -110,7 +110,7 @@ export default function DateCalculatorTool() {
                 ? `${diffResult} day${diffResult === 1 ? "" : "s"}`
                 : "Pick two dates"}
           </Typography>
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

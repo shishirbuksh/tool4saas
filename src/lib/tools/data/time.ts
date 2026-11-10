@@ -85,7 +85,7 @@ export const timeTools: Tool[] = [
     title: "Timestamp Converter",
     short: "Epoch ↔ human-readable date",
     description: "Convert Unix epoch seconds and milliseconds to readable dates and back. Compare local versus UTC views with DST-aware formatting directly in your browser.",
-    icon: "Schedule",
+    icon: "Clock",
     keywords: ["timestamp converter", "epoch converter", "unix time", "epoch to date converter online", "free timestamp converter", "iana est edt jst dst utc", "unix epoch converter seconds milliseconds"],
     category: "time",
     faq: [
@@ -165,7 +165,7 @@ export const timeTools: Tool[] = [
     short: "Date math, countdowns, work days",
     description:
       "Add or subtract calendar days, calculate exact duration between two dates, and count working business days with leap year accuracy on Tool4SaaS.",
-    icon: "DateRange",
+    icon: "CalendarRange",
     keywords: [
       "date calculator",
       "add days to date",
@@ -250,7 +250,7 @@ export const timeTools: Tool[] = [
     short: "Convert times across world timezones",
     description:
       "Convert meeting times across global IANA timezones with automatic daylight saving time adjustments and live world clocks online with Tool4SaaS.",
-    icon: "Public",
+    icon: "Globe",
     keywords: [
       "timezone converter",
       "world clock",

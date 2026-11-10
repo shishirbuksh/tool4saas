@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, Box } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, AutoFixHigh as AutoFixHighIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, Wand2Icon as AutoFixHighIcon } from "@/components/ui/icons";
 
 function prettyXml(xml: string): string {
   const tokens = xml.match(/<[^>]+>|[^<]+/g) || [];
@@ -92,7 +92,7 @@ export default function XmlFormatterTool() {
       </Stack>
       {error && <Alert severity="error">{error}</Alert>}
       {output && (
-        <Box>
+        <div>
           <Typography variant="subtitle2" gutterBottom className="font-bold">
             Result
           </Typography>
@@ -104,7 +104,7 @@ export default function XmlFormatterTool() {
             slotProps={{ input: { readOnly: true, "aria-label": "Result", spellCheck: false, autoComplete: "off" } }}
             className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
           />
-        </Box>
+        </div>
       )}
     </ToolPaper>
   );

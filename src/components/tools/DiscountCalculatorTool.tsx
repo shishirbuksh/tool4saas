@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -52,7 +52,7 @@ export default function DiscountCalculatorTool() {
           {field("Discount (%)", percent, setPercent, "%")}
           {field("Tax (%)", tax, setTax, "%")}
         </Stack>
-        <Box
+        <div
           className="p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
@@ -61,17 +61,17 @@ export default function DiscountCalculatorTool() {
           <Typography variant="h3" className="font-extrabold text-primary">
             {final !== null ? money(final, currency) : "—"}
           </Typography>
-        </Box>
+        </div>
         <Stack spacing={1.5}>
-          <Box className="flex justify-between">
+          <div className="flex justify-between">
             <Typography color="text.secondary">You save</Typography>
             <Typography className="font-bold">{saved !== null ? money(saved, currency) : "—"}</Typography>
-          </Box>
+          </div>
           {withTax !== null && (
-            <Box className="flex justify-between">
+            <div className="flex justify-between">
               <Typography color="text.secondary">With tax</Typography>
               <Typography className="font-bold">{money(withTax, currency)}</Typography>
-            </Box>
+            </div>
           )}
         </Stack>
     </ToolPaper>

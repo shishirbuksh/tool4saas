@@ -1,7 +1,7 @@
 
-import React, { useState, useEffect } from 'react';import { Stack, Typography, Alert, Card, CardContent, Button, Box, Table, TableBody, TableCell, TableHead, TableRow } from "@/components/ds";
+import React, { useState, useEffect } from 'react';import { Stack, Typography, Alert, Card, CardContent, Button, Table, TableBody, TableCell, TableHead, TableRow } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import ToolPaper from "@/components/ToolPaper";
 
 // Calculate Greatest Common Divisor
@@ -104,7 +104,7 @@ export default function ScreenResolutionTool() {
                 </Card>
                 ))}
             </Stack>
-            <Box className="mt-4">
+            <div className="mt-4">
                 <Button
                   size="small"
                   startIcon={<ContentCopyIcon />}
@@ -116,8 +116,8 @@ export default function ScreenResolutionTool() {
                 >
                   Copy all metrics
                 </Button>
-            </Box>
-            <Box className="mt-6">
+            </div>
+            <div className="mt-6">
                 <Typography variant="subtitle1" className="font-bold" gutterBottom>
                     DPR & breakpoint guide
                 </Typography>
@@ -144,7 +144,7 @@ export default function ScreenResolutionTool() {
                         ))}
                     </TableBody>
                 </Table>
-            </Box>
+            </div>
         </ToolPaper>
     );
 }

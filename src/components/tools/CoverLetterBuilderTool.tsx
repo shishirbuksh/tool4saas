@@ -1,8 +1,8 @@
 
 import { useState, useMemo, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Paper, TextField, Typography, Box, Stack, Button, Select, MenuItem, FormControl, InputLabel, Grid } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Paper, TextField, Typography, Stack, Button, Select, MenuItem, FormControl, InputLabel, Grid } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Print as PrintIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 
 type Tone = "professional" | "friendly" | "enthusiastic" | "formal" | "confident" | "conversational";
 
@@ -121,7 +121,7 @@ export default function CoverLetterBuilderTool() {
   const handleResetBody = () => setBody(DEFAULT_BODY);
 
   return (
-    <Box>
+    <div>
       <ToolPaper>
         <Typography variant="h3" className="text-[20px] font-bold">
           Applicant details
@@ -261,7 +261,7 @@ export default function CoverLetterBuilderTool() {
         className="p-6 sm:p-10 max-w-[800px] mx-auto !bg-white !text-slate-900 border border-slate-200 min-h-[520px]"
       >
         {/* Header */}
-        <Box className="mb-6">
+        <div className="mb-6">
           <Typography className="text-[20px] font-extrabold text-[#0f172a] leading-[1.2]">
             {applicantName || "Your Name"}
           </Typography>
@@ -269,10 +269,10 @@ export default function CoverLetterBuilderTool() {
             {contact || "email@domain.com · (555) 000-0000"}
           </Typography>
           <Typography className="text-[13px] text-[#334155] mt-4">{date || new Date().toISOString().slice(0, 10)}</Typography>
-        </Box>
+        </div>
 
         {/* Recipient block */}
-        <Box className="mb-6 text-[#334155] text-[13px] leading-[1.6]">
+        <div className="mb-6 text-[#334155] text-[13px] leading-[1.6]">
           <Typography className="text-[13px] text-[#0f172a] whitespace-pre-line">
             {hiringManager ? `${hiringManager}` : "Hiring Manager"}
           </Typography>
@@ -280,10 +280,10 @@ export default function CoverLetterBuilderTool() {
           {position && (
             <Typography className="text-[13px] text-[#334155]">Re: {position} Position</Typography>
           )}
-        </Box>
+        </div>
 
         {/* Body */}
-        <Box
+        <div
           className="text-[14px] leading-[1.8] text-[#1e293b] whitespace-pre-line break-words"
         >
           <Typography
@@ -293,21 +293,21 @@ export default function CoverLetterBuilderTool() {
             {/* Greeting is part of body if user included Dear, otherwise show resolved body directly */}
             {resolvedBody}
           </Typography>
-        </Box>
+        </div>
 
         {/* Tone badge */}
-        <Box className="mt-8 flex justify-end">
+        <div className="mt-8 flex justify-end">
           <Typography
             className="text-[11px] uppercase tracking-[0.8px] text-[#64748b] border border-[#e2e8f0] px-2.4 py-0.8 rounded-[8px] bg-[#f8fafc]"
           >
             Tone: {TONE_OPTIONS.find((t) => t.value === tone)?.label}
           </Typography>
-        </Box>
+        </div>
       </Paper>
 
       <Typography variant="caption" color="text.secondary" className="block mt-4 text-center">
         Use Copy to copy the full letter text or Print to print / save as PDF.
       </Typography>
-    </Box>
+    </div>
   );
 }

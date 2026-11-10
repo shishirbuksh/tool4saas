@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import NumericField from "@/components/NumericField";import { Paper, Box, TextField, Button, Typography, Grid, IconButton, Stack, Divider, Alert, Select, MenuItem, FormControl, InputLabel, FormControlLabel, Checkbox } from "@/components/ds";
 
-import { Delete as DeleteIcon, Add as AddIcon, Download as DownloadIcon, Print as PrintIcon } from "@/components/ds/icons";
+import { Trash2Icon as DeleteIcon, PlusIcon as AddIcon, DownloadIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 import { money } from "@/lib/format";
 import { gstSplit } from "@/lib/finance-calc";
 

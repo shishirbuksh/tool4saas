@@ -1,5 +1,5 @@
 
-import { useState } from "react";import { Box, Tab, Tabs } from "@/components/ds";
+import { useState } from "react";import { Tab, Tabs } from "@/components/ds";
 
 import GradientGeneratorTool from "@/components/tools/GradientGeneratorTool";
 import CssBoxShadowTool from "@/components/tools/CssBoxShadowTool";
@@ -13,7 +13,7 @@ export default function CssStudioTool() {
 
   return (
     <>
-      <Box className="border-b border-base-300 mb-6">
+      <div className="border-b border-base-300 mb-6">
         <Tabs
           value={mode}
           onChange={(_event, next: number) => setMode(next)}
@@ -25,19 +25,19 @@ export default function CssStudioTool() {
             <Tab key={label} label={label} />
           ))}
         </Tabs>
-      </Box>
-      <Box style={{ display: mode === 0 ? "block" : "none" }}>
+      </div>
+      <div style={{ display: mode === 0 ? "block" : "none" }}>
         <GradientGeneratorTool />
-      </Box>
-      <Box style={{ display: mode === 1 ? "block" : "none" }}>
+      </div>
+      <div style={{ display: mode === 1 ? "block" : "none" }}>
         <CssBoxShadowTool />
-      </Box>
-      <Box style={{ display: mode === 2 ? "block" : "none" }}>
+      </div>
+      <div style={{ display: mode === 2 ? "block" : "none" }}>
         <CssBorderRadiusTool />
-      </Box>
-      <Box style={{ display: mode === 3 ? "block" : "none" }}>
+      </div>
+      <div style={{ display: mode === 3 ? "block" : "none" }}>
         <CssClipPathTool />
-      </Box>
+      </div>
     </>
   );
 }

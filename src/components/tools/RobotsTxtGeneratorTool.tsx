@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, FormControlLabel, Checkbox, Select, MenuItem, FormControl, InputLabel, Box } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, FormControlLabel, Checkbox, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Download as DownloadIcon, Refresh as RefreshIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, DownloadIcon, RotateCwIcon as RefreshIcon } from "@/components/ui/icons";
 
 const PRESET_AGENTS = [
   { value: "*", label: "All bots (*)" },
@@ -263,7 +263,7 @@ export default function RobotsTxtGeneratorTool() {
         </Button>
       </Stack>
 
-      <Box>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-2">
           <Typography variant="subtitle2" className="font-bold">
             Preview — robots.txt
@@ -285,7 +285,7 @@ export default function RobotsTxtGeneratorTool() {
         <Typography variant="caption" color="text.secondary" className="mt-2 block">
           Place this file at the root of your site (e.g. https://example.com/robots.txt).
         </Typography>
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

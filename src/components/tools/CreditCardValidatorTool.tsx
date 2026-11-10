@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Chip, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Chip, Alert } from "@/components/ds";
 
 
 const luhn = (num: string): boolean => {
@@ -61,11 +61,11 @@ export default function CreditCardValidatorTool() {
             This number fails the Luhn check. Never enter real card details on unknown sites.
           </Alert>
         )}
-        <Box>
+        <div>
           <Typography variant="body2" color="text.secondary">
             Validation runs locally using the Luhn algorithm. No data is sent anywhere.
           </Typography>
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

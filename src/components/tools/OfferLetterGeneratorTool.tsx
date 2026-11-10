@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";
 import NumericField from "@/components/NumericField";import { Paper, Box, TextField, Button, Typography, Stack, Alert, Grid } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Download as DownloadIcon, Print as PrintIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, DownloadIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 import { money } from "@/lib/format";
 
 export default function OfferLetterGeneratorTool() {

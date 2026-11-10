@@ -1,8 +1,8 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Alert, Button, LinearProgress } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Alert, Button, LinearProgress } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, CheckCircle as CheckCircleIcon, Cancel as CancelIcon, Warning as WarningIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, CheckCircle2Icon as CheckCircleIcon, XCircleIcon as CancelIcon, AlertTriangleIcon as WarningIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 type Status = "pass" | "warn" | "fail";
@@ -269,7 +269,7 @@ export default function SeoAnalyzerTool() {
         className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
       />
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -287,11 +287,11 @@ export default function SeoAnalyzerTool() {
           aria-label={`SEO score ${score} out of 100`}
           className="h-[8px] rounded-[7992px]"
         />
-      </Box>
+      </div>
 
       <Stack spacing={1}>
         {checks.map((c) => (
-          <Box
+          <div
             key={c.label}
             className="flex items-start gap-3 p-3 rounded-[16px] border border-base-300"
           >
@@ -302,7 +302,7 @@ export default function SeoAnalyzerTool() {
             ) : (
               <CancelIcon color="error" fontSize="small" className="mt-0.5" />
             )}
-            <Box className="flex-1">
+            <div className="flex-1">
               <Typography variant="subtitle2" className="font-bold">
                 {c.label}{" "}
                 <Typography component="span" variant="caption" color="text.secondary">
@@ -312,8 +312,8 @@ export default function SeoAnalyzerTool() {
               <Typography variant="body2" color="text.secondary">
                 {c.detail}
               </Typography>
-            </Box>
-          </Box>
+            </div>
+          </div>
         ))}
       </Stack>
 

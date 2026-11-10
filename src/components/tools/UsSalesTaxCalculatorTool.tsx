@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import { salesTaxTotal } from "@/lib/finance-calc";
@@ -83,7 +83,7 @@ export default function UsSalesTaxCalculatorTool() {
           
         />
       )}
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -92,9 +92,9 @@ export default function UsSalesTaxCalculatorTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null && isFinite(result.total) ? money(result.total) : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Subtotal</Typography>
           <Typography className="font-bold">
             {(() => {
@@ -102,15 +102,15 @@ export default function UsSalesTaxCalculatorTool() {
               return isFinite(a) && a >= 0 ? money(a) : "—";
             })()}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">
             Sales tax{isFinite(effectiveRate) ? ` (${effectiveRate}%)` : ""}
           </Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.tax) ? money(result.tax) : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">
         For informational purposes only — rates vary by state, county, and city. Verify the combined rate before

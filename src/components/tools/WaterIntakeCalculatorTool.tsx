@@ -1,5 +1,5 @@
 
-import { useState, useMemo } from "react";import { Box, Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useState, useMemo } from "react";import { Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
 import { fmt0, fmt2, fmtNumber, KG_PER_LB } from "@/lib/format";
@@ -65,7 +65,7 @@ export default function WaterIntakeCalculatorTool() {
           </Select>
         </FormControl>
 
-        <Box className="flex items-center">
+        <div className="flex items-center">
           <ToggleButtonGroup
             size="small"
             value={climate}
@@ -76,10 +76,10 @@ export default function WaterIntakeCalculatorTool() {
             <ToggleButton value="normal">Normal</ToggleButton>
             <ToggleButton value="hot">Hot</ToggleButton>
           </ToggleButtonGroup>
-        </Box>
+        </div>
       </Stack>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -95,9 +95,9 @@ export default function WaterIntakeCalculatorTool() {
           Base = weightKg × 35 ml{activityLevel === "active" ? " + 500 ml (active)" : ""}
           {climate === "hot" ? " + 500 ml (hot climate)" : ""}
         </Typography>
-      </Box>
+      </div>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-base-300 text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -109,7 +109,7 @@ export default function WaterIntakeCalculatorTool() {
         <Typography variant="caption" color="text.secondary">
           1 glass = 250 ml
         </Typography>
-      </Box>
+      </div>
 
       <Alert severity="info">
         This is an estimate only and not medical advice. Individual needs vary based on health, diet, and

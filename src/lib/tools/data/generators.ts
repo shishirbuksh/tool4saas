@@ -84,7 +84,7 @@ export const generatorsTools: Tool[] = [
     title: "Lorem Ipsum Generator",
     short: "Placeholder text",
     description: "Generate custom Lorem Ipsum placeholder text by paragraphs, sentences, or words. Preview typography layouts and copy dummy text instantly with no sign-up.",
-    icon: "Notes",
+    icon: "FileText",
     keywords: ["lorem ipsum generator", "placeholder text generator", "dummy text for design", "dummy text offline", "lorem ipsum free", "cicero de finibus scrambled latin", "lorem vs real copy testing", "placeholder paragraphs no signup"],
     category: "generators",
     faq: [
@@ -158,7 +158,7 @@ export const generatorsTools: Tool[] = [
     title: "Slug Generator",
     short: "Turn titles into URL slugs",
     description: "Convert titles or topic lists into clean SEO-friendly URL slugs with hyphens or underscores. Free offline slug generator with bulk mode for bloggers.",
-    icon: "LocalOffer",
+    icon: "Tag",
     keywords: ["slug generator", "url slug", "seo slug maker", "url slug maker offline", "slug generator free", "hyphen lowercase transliterate stopwords", "hyphen vs underscore seo google", "seo slug no signup"],
     category: "generators",
     faq: [
@@ -314,7 +314,7 @@ export const generatorsTools: Tool[] = [
     short: "Flip a coin or roll dice",
     description:
       "Flip a coin or roll dice with cryptographically secure randomness, tracking heads-tails streaks and tabletop game outcomes online on Tool4SaaS.",
-    icon: "Toll",
+    icon: "Coins",
     keywords: [
       "coin flip",
       "flip a coin",
@@ -399,7 +399,7 @@ export const generatorsTools: Tool[] = [
     short: "Generate CODE128, EAN13 & UPC",
     description:
       "Generate standard CODE128, EAN-13, and UPC-A barcodes with instant vector SVG downloads and print-ready PNG image exports online on Tool4SaaS.",
-    icon: "QrCode2",
+    icon: "QrCode",
     keywords: [
       "barcode generator",
       "free barcode generator",
@@ -569,7 +569,7 @@ export const generatorsTools: Tool[] = [
     short: "Generate creative business & brand names",
     description:
       "Generate creative, catchy business names, startup brand ideas, and domain suggestions with industry-tailored keywords online on Tool4SaaS.",
-    icon: "LocalOffer",
+    icon: "Tag",
     keywords: [
       "business name generator",
       "company name generator",

@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -76,7 +76,7 @@ export default function CompoundInterestTool() {
           ))}
         </Select>
       </FormControl>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -85,9 +85,9 @@ export default function CompoundInterestTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {amount !== null ? money(amount, currency) : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Principal</Typography>
           <Typography className="font-bold">
             {(() => {
@@ -95,11 +95,11 @@ export default function CompoundInterestTool() {
               return isFinite(p) && p > 0 ? money(p, currency) : "—";
             })()}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Interest earned</Typography>
           <Typography className="font-bold">{interest !== null ? money(interest, currency) : "—"}</Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">
         Disclaimer: This calculation is for illustration purposes only. Actual maturity may vary due to

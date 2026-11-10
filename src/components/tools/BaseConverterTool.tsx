@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const BASES = [
   { v: 2, label: "Binary (2)" },
@@ -84,7 +84,7 @@ export default function BaseConverterTool() {
         {error && <Alert severity="error">Invalid input: {error}</Alert>}
         <Button variant="contained" onClick={convert}>Convert</Button>
         {!error && result && (
-          <Box>
+          <div>
             <Stack direction="row"   className="items-center justify-between mb-1">
               <Typography  variant="subtitle2"  className="font-bold">Result (base {to})</Typography>
               <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => void import("@/lib/clipboard").then(m=>m.copyToClipboard(result))}>Copy</Button>
@@ -95,7 +95,7 @@ export default function BaseConverterTool() {
               slotProps={{ input: { readOnly: true, "aria-label": "Result", spellCheck: false } }}
               className="[&_input]:[font-family:monospace] [&_input]:text-[16px]"
             />
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

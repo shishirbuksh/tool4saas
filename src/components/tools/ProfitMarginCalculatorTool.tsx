@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -52,7 +52,7 @@ export default function ProfitMarginCalculatorTool() {
         {field("Cost", cost, setCost)}
         {field("Revenue (price)", revenue, setRevenue)}
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -61,16 +61,16 @@ export default function ProfitMarginCalculatorTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {profit !== null ? money(profit, currency) : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Margin (profit / revenue × 100)</Typography>
           <Typography className="font-bold">{fmtPct(margin)}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Markup (profit / cost × 100)</Typography>
           <Typography className="font-bold">{fmtPct(markup)}</Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">
         Margin = profit ÷ revenue × 100 &middot; Markup = profit ÷ cost × 100. Profit = revenue − cost.

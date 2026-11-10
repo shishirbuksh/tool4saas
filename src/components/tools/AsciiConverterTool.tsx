@@ -1,8 +1,8 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Button, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 type Mode = "encode" | "decode";
@@ -124,7 +124,7 @@ export default function AsciiConverterTool() {
               { key: "octal", label: "Octal (toString 8)", value: encoded.octal },
             ] as const
           ).map((field) => (
-            <Box key={field.key}>
+            <div key={field.key}>
               <Stack
                 direction="row"
                 className="items-center justify-between mb-1"
@@ -152,13 +152,13 @@ export default function AsciiConverterTool() {
                 }}
                 className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
               />
-            </Box>
+            </div>
           ))}
         </Stack>
       )}
 
       {mode === "decode" && (
-        <Box>
+        <div>
           <Stack
             direction="row"
             className="items-center justify-between mb-1"
@@ -195,7 +195,7 @@ export default function AsciiConverterTool() {
                   ? "Octal values separated by space or comma."
                   : "Decimal ASCII codes separated by space or comma."}
           </Typography>
-        </Box>
+        </div>
       )}
     </ToolPaper>
   );

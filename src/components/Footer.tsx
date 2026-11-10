@@ -1,7 +1,7 @@
 import { Box, Container, Typography, Grid, Stack, Button } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
-import { EmailOutlined as EmailOutlinedIcon, BuildOutlined as BuildOutlinedIcon } from "@/components/ds/icons";
+import { MailIcon as EmailOutlinedIcon, WrenchIcon as BuildOutlinedIcon } from "@/components/ui/icons";
 import type { ReactNode } from "react";
 import { CATEGORIES } from "@/lib/tools/categories";
 import { VISIBLE_TOOL_COUNT } from "@/lib/tools/counts";

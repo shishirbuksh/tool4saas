@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useMemo, useState } from "react";import { Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import { calcEmi, overpaymentSchedule } from "@/lib/finance-calc";
@@ -61,7 +61,7 @@ export default function MortgageOverpaymentTool() {
         <NumericField label="Extra per month" value={extraMonthly} onChange={setExtraMonthly} />
         <NumericField label="One-time lump sum" value={lumpSum} onChange={setLumpSum} />
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -70,34 +70,34 @@ export default function MortgageOverpaymentTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null && isFinite(result.saved) ? money(result.saved, currency) : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Base monthly payment</Typography>
           <Typography className="font-bold">
             {base !== null && isFinite(base.emi) ? money(base.emi, currency) : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Months saved</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.monthsSaved) ? result.monthsSaved : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">New payoff term</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.newTermMonths)
               ? `${Math.floor(result.newTermMonths / 12)}y ${result.newTermMonths % 12}m (${result.newTermMonths} months)`
               : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">New total interest</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.newInterest) ? money(result.newInterest, currency) : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">
         For informational purposes only — not financial advice. Check your lender for prepayment penalties, fees,

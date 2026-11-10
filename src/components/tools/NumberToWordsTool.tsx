@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const ONES = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
 const TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
@@ -63,7 +63,7 @@ export default function NumberToWordsTool() {
           error={!!error}
           helperText={error}
         />
-        <Box>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-1">
             <Typography variant="subtitle2" className="font-bold">
               In words
@@ -80,7 +80,7 @@ export default function NumberToWordsTool() {
             slotProps={{ input: { readOnly: true, "aria-label": "Number in words", spellCheck: false } }}
             className="[&_textarea]:text-[15px] [&_textarea]:capitalize"
           />
-        </Box>
+        </div>
         {words && !error && (
           <Alert severity="success" className="mt-2">
             Converted successfully.

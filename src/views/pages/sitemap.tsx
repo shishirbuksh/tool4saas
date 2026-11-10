@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";import { Container, Box, Typography, Grid, TextField, InputAdornment, Chip, Stack, IconButton } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
-import { Search as SearchIcon, Clear as ClearIcon } from "@/components/ds/icons";
+import { SearchIcon, XIcon as ClearIcon } from "@/components/ui/icons";
 import { siteConfig } from "@/lib/site";
 
 export interface SitemapToolItem {

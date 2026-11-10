@@ -1,8 +1,8 @@
 
-import { useRef, useState } from "react";import { Paper, Box, TextField, MenuItem, Slider, Button, Typography, Stack, Link } from "@/components/ds";
+import { useRef, useState } from "react";import { Paper, TextField, MenuItem, Slider, Button, Typography, Stack, Link } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
-import { Download as DownloadIcon } from "@/components/ds/icons";
+import { DownloadIcon } from "@/components/ui/icons";
 import dynamic from "@/lib/astro/dynamic";
 
 // Heavy dep split: qrcode.react loads in its own client-only chunk (ssr:false),
@@ -68,7 +68,7 @@ export default function QrCodeTool() {
   return (
     <ToolPaper>
       <Stack spacing={3} direction={{ xs: "column", md: "row" }}>
-        <Box className="flex-1">
+        <div className="flex-1">
           <Stack spacing={2}>
             <TextField
               select
@@ -118,12 +118,12 @@ export default function QrCodeTool() {
               </>
             )}
 
-            <Box>
+            <div>
               <Typography variant="body2" color="text.secondary" gutterBottom>
                 Size: {size}px
               </Typography>
               <Slider value={size} min={128} max={512} step={32} onChange={(_, v) => setSize(Array.isArray(v) ? v[0] : v)} aria-label="QR code size" />
-            </Box>
+            </div>
 
             <TextField
               select
@@ -143,19 +143,19 @@ export default function QrCodeTool() {
               ))}
             </TextField>
           </Stack>
-        </Box>
+        </div>
 
-        <Box className="flex flex-col items-center justify-center gap-4">
+        <div className="flex flex-col items-center justify-center gap-4">
           <Paper variant="outlined" className="p-4" style={{ backgroundColor: canGenerate ? "#ffffff" : "background.paper" }}>
-            <Box ref={canvasRef} className="leading-[0]">
+            <div ref={canvasRef} className="leading-[0]">
               {canGenerate ? (
                 <QRCodeCanvas value={safeValue} size={size} level={level as "L" | "M" | "Q" | "H"} bgColor="#ffffff" fgColor="#0f172a" />
               ) : (
-                <Box className="flex items-center justify-center text-base-content/40 border-base-300" style={{ width: size, height: size, border: "1px dashed" }}>
+                <div className="flex items-center justify-center text-base-content/40 border-base-300" style={{ width: size, height: size, border: "1px dashed" }}>
                   Enter a value
-                </Box>
+                </div>
               )}
-            </Box>
+            </div>
           </Paper>
           <Button variant="contained" startIcon={<DownloadIcon />} onClick={download} disabled={!canGenerate}>
             Download PNG
@@ -166,7 +166,7 @@ export default function QrCodeTool() {
               QR Code Sizing &amp; Print Guide
             </Link>
           </Typography>
-        </Box>
+        </div>
       </Stack>
     </ToolPaper>
   );

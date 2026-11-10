@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -96,7 +96,7 @@ export default function SalaryCalculatorTool() {
         </FormControl>
       </Stack>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -108,23 +108,23 @@ export default function SalaryCalculatorTool() {
         <Typography variant="caption" color="text.secondary">
           Gross − Tax (taxable = gross − deductions)
         </Typography>
-      </Box>
+      </div>
 
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Taxable income</Typography>
           <Typography className="font-bold">{taxable !== null ? money(taxable, currency) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Estimated tax</Typography>
           <Typography className="font-bold">{tax !== null ? money(tax, currency) : "—"}</Typography>
-        </Box>
-        <Box
+        </div>
+        <div
           className="flex justify-between p-3 rounded-[16px] border border-base-300"
         >
           <Typography color="text.secondary">Per pay ({freqLabel})</Typography>
           <Typography className="font-extrabold">{perPay !== null ? money(perPay, currency) : "—"}</Typography>
-        </Box>
+        </div>
       </Stack>
 
       <Alert severity="warning">

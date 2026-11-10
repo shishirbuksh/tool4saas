@@ -1,8 +1,8 @@
 
 import { useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Link, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Link, Stack, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, AutoFixHigh as AutoFixHighIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, Wand2Icon as AutoFixHighIcon } from "@/components/ui/icons";
 
 export default function JsonFormatterTool() {
   const [input, setInput] = useState("");
@@ -53,7 +53,7 @@ export default function JsonFormatterTool() {
         </Stack>
         {error && <Alert severity="error">Invalid JSON: {error}</Alert>}
         {output && (
-          <Box>
+          <div>
             <Typography  variant="subtitle2"  gutterBottom className="font-bold">Result</Typography>
             <TextField
               value={output}
@@ -63,7 +63,7 @@ export default function JsonFormatterTool() {
               slotProps={{ input: { readOnly: true, "aria-label": "Result", spellCheck: false, autoComplete: "off" } }}
               className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
-          </Box>
+          </div>
         )}
         <Typography variant="caption" color="text.secondary" className="block mt-3">
           Troubleshooting invalid JSON? Read our{" "}

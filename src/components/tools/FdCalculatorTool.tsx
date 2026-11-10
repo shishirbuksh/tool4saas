@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Table, TableHead, TableBody, TableRow, TableCell, TableContainer } from "@/components/ds";
+import { useMemo, useState } from "react";import { Typography, Stack, Alert, Table, TableHead, TableBody, TableRow, TableCell, TableContainer } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import { fdMaturity } from "@/lib/finance-calc";
@@ -42,7 +42,7 @@ export default function FdCalculatorTool() {
         <NumericField label="Annual rate (% p.a.)" value={rate} onChange={setRate} />
         <NumericField label="Tenure (years)" value={years} onChange={setYears} />
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -54,20 +54,20 @@ export default function FdCalculatorTool() {
         <Typography variant="body2" color="text.secondary">
           Fixed quarterly compounding
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Interest earned</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.interest) ? money(result.interest, "INR") : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Effective yield (p.a.)</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.effYieldPct) ? `${result.effYieldPct.toFixed(2)}%` : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       {yearly.length > 0 && (
         <Stack spacing={1}>

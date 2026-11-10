@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const toTitle = (s: string) =>
   s.replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
@@ -55,7 +55,7 @@ export default function CaseConverterTool() {
         />
         <Stack spacing={2}>
           {MODES.map((m) => (
-            <Box key={m.key}>
+            <div key={m.key}>
               <Stack direction="row"   className="items-center justify-between mb-1">
                 <Typography  variant="subtitle2"  className="font-bold">{m.label}</Typography>
                 <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(outputs[m.key])} disabled={!outputs[m.key]}>Copy</Button>
@@ -68,7 +68,7 @@ export default function CaseConverterTool() {
                 slotProps={{ input: { readOnly: true, "aria-label": m.label, spellCheck: false } }}
                 className="[&_textarea]:text-[13px]"
               />
-            </Box>
+            </div>
           ))}
         </Stack>
       </ToolPaper>

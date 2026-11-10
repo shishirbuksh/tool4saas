@@ -2,7 +2,7 @@
 import { useMemo, useState } from "react";import { Paper, Box, TextField, Button, Typography, Grid, IconButton, Stack, Divider, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
-import { Delete as DeleteIcon, Add as AddIcon, Print as PrintIcon } from "@/components/ds/icons";
+import { Trash2Icon as DeleteIcon, PlusIcon as AddIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 import { money } from "@/lib/format";
 
 const PAYMENT_METHODS = ["Cash", "Card", "Bank Transfer", "UPI", "PayPal", "Other"] as const;

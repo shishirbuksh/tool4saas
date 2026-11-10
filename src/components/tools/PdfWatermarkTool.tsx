@@ -1,6 +1,6 @@
 
 import { useState, useRef } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert, TextField, MenuItem, Slider } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, Alert, TextField, MenuItem, Slider } from "@/components/ds";
 
 import { MAX_IMAGE_SIZE } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
@@ -195,14 +195,14 @@ export default function PdfWatermarkTool() {
         </Typography>
       </Stack>
       {file && (
-        <Box className="flex justify-between p-3 border border-base-300 rounded-[16px]">
+        <div className="flex justify-between p-3 border border-base-300 rounded-[16px]">
           <Typography variant="body2" className="font-semibold overflow-hidden text-ellipsis">
             {file.name} ({fmtBytes(file.size)})
           </Typography>
           <Button size="small" color="error" onClick={clear}>
             Remove
           </Button>
-        </Box>
+        </div>
       )}
       <TextField
         label="Watermark text"
@@ -213,7 +213,7 @@ export default function PdfWatermarkTool() {
         size="small"
         slotProps={{ htmlInput: { maxLength: 100 } }}
       />
-      <Box>
+      <div>
         <Typography variant="body2" className="font-semibold">
           Opacity: {opacity.toFixed(2)}
         </Typography>
@@ -227,7 +227,7 @@ export default function PdfWatermarkTool() {
           }}
           aria-label="Watermark opacity"
         />
-      </Box>
+      </div>
       <TextField
         select
         label="Position"
@@ -244,11 +244,11 @@ export default function PdfWatermarkTool() {
         <MenuItem value="bottom-left">Bottom left</MenuItem>
         <MenuItem value="bottom-right">Bottom right</MenuItem>
       </TextField>
-      <Box>
+      <div>
         <Button variant="contained" onClick={applyWatermark} disabled={!file || busy}>
           {busy ? "Watermarking…" : "Watermark & Download"}
         </Button>
-      </Box>
+      </div>
       {error && <Alert severity="error">{error}</Alert>}
       {done && <Alert severity="success">{done}</Alert>}
       <Alert severity="info">

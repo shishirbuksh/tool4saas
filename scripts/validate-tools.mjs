@@ -173,17 +173,15 @@ if (warnings.length) {
   console.warn(`\nvalidate-tools: ${warnings.length} warning(s):\n- ${warnings.join("\n- ")}\n`);
 }
 
-// Also ensure toolsByCategoryCached is imported in key consumers
-const consumers = ["src/app/(en)/page.tsx", "src/components/Header.tsx", "src/app/(en)/category/[id]/page.tsx", "src/components/SiteJsonLd.tsx"];
-consumers.forEach(p => {
-  if (fs.existsSync(p)) {
-    const c = fs.readFileSync(p, "utf8");
-    if (
-      !c.includes("toolsByCategoryCached") &&
-      !c.includes("toolsByCategory") &&
-      !c.includes("liteToolsByCategory")
-    ) {
-      console.warn(`validate-tools: ${p} does not import toolsByCategoryCached`);
-    }
+// Astro replacement for the old Next.js RSC bundle guard. The header renders on
+// every page, so it must pull the light category module, never the full tool
+// catalogue (which would ship ~127 tool records to the client bundle).
+const headerPath = "src/components/Header.tsx";
+if (fs.existsSync(headerPath)) {
+  const c = fs.readFileSync(headerPath, "utf8");
+  if (/from\s+["']@\/lib\/tools["']/.test(c)) {
+    console.warn(
+      `validate-tools: ${headerPath} imports the full @/lib/tools catalogue; use @/lib/tools/categories instead`,
+    );
   }
-});
+}

@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";
 import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Alert, Button } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, ExpandMore as ExpandMoreIcon, ChevronRight as ChevronRightIcon, UnfoldMore as UnfoldMoreIcon, UnfoldLess as UnfoldLessIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, ChevronDownIcon as ExpandMoreIcon, ChevronRightIcon, ChevronsUpDownIcon as UnfoldMoreIcon, ChevronsDownUpIcon as UnfoldLessIcon } from "@/components/ui/icons";
 
 type JsonValue = unknown;
 

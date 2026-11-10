@@ -1,8 +1,8 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, DownloadIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 export default function UtmBuilderTool() {
@@ -126,7 +126,7 @@ export default function UtmBuilderTool() {
       {error && <Alert severity="error">{error}</Alert>}
 
       {result ? (
-        <Box>
+        <div>
           <Typography variant="subtitle2" gutterBottom className="font-bold">
             Preview — tagged URL
           </Typography>
@@ -140,7 +140,7 @@ export default function UtmBuilderTool() {
             }}
             className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[12px] [&_textarea]:break-all"
           />
-        </Box>
+        </div>
       ) : (
         !error && <Alert severity="info">Enter a base URL above to build your tagged UTM link.</Alert>
       )}

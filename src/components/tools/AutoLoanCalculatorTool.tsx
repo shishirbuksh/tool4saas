@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -58,7 +58,7 @@ export default function AutoLoanCalculatorTool() {
         {field("Annual rate (%)", rate, setRate)}
         {field("Term (years)", years, setYears)}
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -67,20 +67,20 @@ export default function AutoLoanCalculatorTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {emi !== null && isFinite(emi) ? money(emi) : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total paid</Typography>
           <Typography className="font-bold">
             {total !== null && isFinite(total) ? money(total) : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total interest</Typography>
           <Typography className="font-bold">
             {interest !== null && isFinite(interest) ? money(interest) : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">For informational purposes only — not financial advice. See /terms</Alert>
     </ToolPaper>

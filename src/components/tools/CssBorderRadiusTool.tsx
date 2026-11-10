@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 export default function CssBorderRadiusTool() {
   const [topLeft, setTopLeft] = useState(16);
@@ -29,7 +29,7 @@ export default function CssBorderRadiusTool() {
     set: (v: number) => void,
     unit = "px",
   ) => (
-    <Box className="max-w-[320px]">
+    <div className="max-w-[320px]">
       <Typography variant="subtitle2" className="font-bold mb-1">
         {label}: {value}
         {unit}
@@ -42,7 +42,7 @@ export default function CssBorderRadiusTool() {
         onChange={(_, v) => set(Array.isArray(v) ? v[0] : v)}
         aria-label={label}
       />
-    </Box>
+    </div>
   );
 
   return (
@@ -62,7 +62,7 @@ export default function CssBorderRadiusTool() {
       {sliderRow("Bottom right", bottomRight, 0, 100, setBottomRight)}
       {sliderRow("Bottom left", bottomLeft, 0, 100, setBottomLeft)}
       {elliptical && (
-        <Box className="grid gap-0">
+        <div className="grid gap-0">
           <Typography variant="subtitle2" className="font-bold">
             Vertical radii
           </Typography>
@@ -70,16 +70,16 @@ export default function CssBorderRadiusTool() {
           {sliderRow("Top right (vertical)", vTopRight, 0, 100, setVTopRight)}
           {sliderRow("Bottom right (vertical)", vBottomRight, 0, 100, setVBottomRight)}
           {sliderRow("Bottom left (vertical)", vBottomLeft, 0, 100, setVBottomLeft)}
-        </Box>
+        </div>
       )}
-      <Box
+      <div
         className="h-[160px] rounded-[16px] border border-base-300 flex items-center justify-center bg-base-100"
       >
-        <Box
+        <div
           className="w-[160px] h-[100px] bg-primary" style={{ borderRadius: borderRadius }}
         />
-      </Box>
-      <Box>
+      </div>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-1">
           <Typography variant="subtitle2" className="font-bold">
             CSS
@@ -94,7 +94,7 @@ export default function CssBorderRadiusTool() {
           slotProps={{ input: { readOnly: true, "aria-label": "CSS border-radius", spellCheck: false } }}
           className="[&_input]:[font-family:monospace] [&_input]:text-[13px]"
         />
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

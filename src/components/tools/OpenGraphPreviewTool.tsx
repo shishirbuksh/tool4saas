@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";
 import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Button, MenuItem, Alert, Divider } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const OG_TYPES = ["website", "article", "product", "profile", "video", "music"] as const;

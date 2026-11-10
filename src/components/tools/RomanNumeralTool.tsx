@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const MAP: [number, string][] = [
   [1000, "M"],
@@ -77,7 +77,7 @@ export default function RomanNumeralTool() {
           error={!!error}
           helperText={error}
         />
-        <Box>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-1">
             <Typography variant="subtitle2" className="font-bold">
               {mode === "to" ? "Roman numeral" : "Arabic number"}
@@ -92,7 +92,7 @@ export default function RomanNumeralTool() {
             slotProps={{ input: { readOnly: true, "aria-label": "Converted value", spellCheck: false } }}
             className="[&_input]:text-[18px] [&_input]:font-bold [&_input]:tracking-[1px]"
           />
-        </Box>
+        </div>
         {output && !error && (
           <Alert severity="success" className="mt-2">
             {mode === "to" ? "Converted to Roman numerals." : "Converted to a number."}

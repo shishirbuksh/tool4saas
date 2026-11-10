@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";import { Box, Button, FormControlLabel, Paper, Switch, Typography } from "@/components/ds";
+import { useEffect, useState } from "react";import { Button, FormControlLabel, Paper, Switch, Typography } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
@@ -261,7 +261,7 @@ export default function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <Box
+    <div
       role="region"
       aria-label="Cookie consent"
       aria-describedby="t4s-consent-desc"
@@ -276,7 +276,7 @@ export default function CookieConsent() {
           <Link href="/privacy">Privacy Policy</Link>. You can accept or reject — the site works either way.
           Choices expire after 12 months; you can change them anytime via “Cookie choices” in the footer.
         </Typography>
-        <Box className="flex gap-1 flex-wrap mb-2">
+        <div className="flex gap-1 flex-wrap mb-2">
           <FormControlLabel
             control={
               <Switch
@@ -295,8 +295,8 @@ export default function CookieConsent() {
             }
             label="Ads"
           />
-        </Box>
-        <Box className="flex gap-3 flex-wrap">
+        </div>
+        <div className="flex gap-3 flex-wrap">
           <Button variant="contained" onClick={() => choose(true)} className="min-h-[44px]">
             Accept all
           </Button>
@@ -306,8 +306,8 @@ export default function CookieConsent() {
           <Button variant="text" onClick={saveChoices} className="min-h-[44px]">
             Save choices
           </Button>
-        </Box>
+        </div>
       </Paper>
-    </Box>
+    </div>
   );
 }

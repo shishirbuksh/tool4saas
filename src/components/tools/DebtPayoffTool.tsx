@@ -1,7 +1,7 @@
 
-import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Button, TextField, IconButton, Chip, Divider, Select, MenuItem, FormControl, InputLabel, Paper } from "@/components/ds";
+import { useMemo, useState } from "react";import { Typography, Stack, Alert, Button, TextField, IconButton, Chip, Divider, Select, MenuItem, FormControl, InputLabel, Paper } from "@/components/ds";
 
-import { Delete as DeleteIcon, Add as AddIcon, Download as DownloadIcon } from "@/components/ds/icons";
+import { Trash2Icon as DeleteIcon, PlusIcon as AddIcon, DownloadIcon } from "@/components/ui/icons";
 import { money } from "@/lib/format";
 import { simulatePayoff, type PayoffDebt } from "@/lib/finance-calc";
 import ToolPaper from "@/components/ToolPaper";
@@ -46,18 +46,18 @@ function StrategyCard({
         <Typography variant="subtitle1" className="font-extrabold">
           {title}
         </Typography>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Debt-free in</Typography>
           <Typography className="font-bold">{months !== null ? fmtTerm(months) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total interest</Typography>
           <Typography className="font-bold">{interest !== null ? money(interest, currency) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total paid</Typography>
           <Typography className="font-bold">{paid !== null ? money(paid, currency) : "—"}</Typography>
-        </Box>
+        </div>
         <Divider />
         <Typography variant="overline" color="text.secondary">
           Payoff order
@@ -165,14 +165,14 @@ export default function DebtPayoffTool() {
         {debts.map((d, i) => (
           <Paper key={i} variant="outlined" className="p-4">
             <Stack spacing={2}>
-              <Box className="flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <Typography variant="subtitle2" className="font-bold flex-1">
                   Debt {i + 1}
                 </Typography>
                 <IconButton aria-label={`Remove debt ${i + 1}`} size="small" onClick={() => removeDebt(i)} disabled={debts.length <= 1}>
                   <DeleteIcon fontSize="small" />
                 </IconButton>
-              </Box>
+              </div>
               <TextField
                 label="Name"
                 fullWidth
@@ -219,12 +219,12 @@ export default function DebtPayoffTool() {
             />
           </Stack>
           {interestSaved !== null && interestSaved > 0 && (
-            <Box className="flex justify-center">
+            <div className="flex justify-center">
               <Chip
                 color="success"
                 label={`Avalanche saves ${money(interestSaved, currency)} in interest vs snowball`}
               />
-            </Box>
+            </div>
           )}
           {neverPaysOff && (
             <Alert severity="error">

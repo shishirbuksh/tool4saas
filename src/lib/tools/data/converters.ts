@@ -7,7 +7,7 @@ export const convertersTools: Tool[] = [
     short: "km, kg, C, and bytes to MB",
     description:
       "Free unit converter: 10 mi = 16.09 km, 150 lb = 68.04 kg, 20C = 68F, and bytes to KB/MB/GB. Exact factors, offline and private in your browser.",
-    icon: "Straighten",
+    icon: "Ruler",
     keywords: ["unit converter", "length weight converter", "km to miles converter", "kg to lb converter", "file size converter", "bytes to mb converter", "unit converter free offline", "metric vs imperial use cases"],
     category: "converters",
     faq: [
@@ -84,7 +84,7 @@ export const convertersTools: Tool[] = [
     short: "Convert between JSON and CSV",
     description:
       "Convert JSON arrays to CSV spreadsheets and parse CSV text back to structured JSON objects in your browser instantly online with Tool4SaaS.",
-    icon: "TableChart",
+    icon: "Table2",
     keywords: [
       "json to csv",
       "csv to json",
@@ -254,7 +254,7 @@ export const convertersTools: Tool[] = [
     short: "Convert numbers to English words",
     description:
       "Convert numeric digits to spelled-out English words, formal cheque currency phrases, Roman numerals, and binary values online with Tool4SaaS.",
-    icon: "FormatListNumbered",
+    icon: "ListOrdered",
     keywords: [
       "number to words",
       "numbers in words",
@@ -423,7 +423,7 @@ export const convertersTools: Tool[] = [
     short: "View, filter & sort CSV files",
     description:
       "View, sort, filter, and export CSV tabular files with column search, automatic data type inference, and JSON conversion online on Tool4SaaS.",
-    icon: "TableChart",
+    icon: "Table2",
     keywords: [
       "csv viewer",
       "csv reader online",
@@ -591,7 +591,7 @@ export const convertersTools: Tool[] = [
     short: "Convert JSON arrays to Excel sheets",
     description:
       "Convert complex JSON arrays into formatted Excel spreadsheets with automatic column headers and nested object flattening online on Tool4SaaS.",
-    icon: "TableChart",
+    icon: "Table2",
     keywords: [
       "json to excel",
       "convert json to excel",
@@ -677,7 +677,7 @@ export const convertersTools: Tool[] = [
     short: "Bundle and compress files into ZIP",
     description:
       "Bundle and compress multiple documents, images, and text files into a downloadable ZIP archive using in-memory compression online on Tool4SaaS.",
-    icon: "AttachFile",
+    icon: "Paperclip",
     keywords: [
       "zip creator",
       "create zip file online",
@@ -762,7 +762,7 @@ export const convertersTools: Tool[] = [
     short: "Convert currencies with live forex rates",
     description:
       "Convert between 150+ world currencies with live mid-market exchange rates, historical forex trends, and offline rate caching online on Tool4SaaS.",
-    icon: "AttachMoney",
+    icon: "DollarSign",
     keywords: [
       "currency converter",
       "live exchange rates",

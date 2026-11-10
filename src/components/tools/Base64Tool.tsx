@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const MAX_INPUT_SIZE = 1_000_000; // 1M chars cap
 
@@ -69,7 +69,7 @@ export default function Base64Tool() {
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => output && void import("@/lib/clipboard").then(m=>m.copyToClipboard(output))} disabled={!output}>Copy</Button>
         </Stack>
         {output && (
-          <Box>
+          <div>
             <Typography  variant="subtitle2"  gutterBottom className="font-bold">Output</Typography>
             <TextField
               value={output}
@@ -79,7 +79,7 @@ export default function Base64Tool() {
               slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false, autoComplete: "off" } }}
               className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const isObj = (v: unknown): v is Record<string, unknown> =>
   v !== null && typeof v === "object";
@@ -75,11 +75,11 @@ export default function JsonToYamlTool() {
           placeholder='{"name":"Ada","roles":["admin"]}'
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
         />
-        <Box>
+        <div>
           <Button variant="contained" onClick={convert}>
             Convert to YAML
           </Button>
-        </Box>
+        </div>
         {error && <Alert severity="error">{error}</Alert>}
         {output && (
           <Stack spacing={1}>

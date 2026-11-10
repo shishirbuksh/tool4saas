@@ -1,8 +1,8 @@
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem, Alert } from "@/components/ds";
 
-import { Mic as MicIcon, Stop as StopIcon, ContentCopy as ContentCopyIcon, Download as DownloadIcon, Delete as DeleteIcon } from "@/components/ds/icons";
+import { MicIcon, SquareIcon as StopIcon, CopyIcon as ContentCopyIcon, DownloadIcon, Trash2Icon as DeleteIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const LANGUAGES = [
@@ -225,7 +225,7 @@ export default function SpeechToTextTool() {
           </Alert>
         )}
 
-        <Box>
+        <div>
           <TextField
             label="Transcript"
             multiline
@@ -243,7 +243,7 @@ export default function SpeechToTextTool() {
             {transcript.trim() ? `${transcript.trim().split(/\s+/).length} words` : "Nothing captured yet"}
             {interim ? " — showing live interim results" : ""}
           </Typography>
-        </Box>
+        </div>
 
         <Stack direction="row" spacing={1} useFlexGap className="flex-wrap">
           <Button

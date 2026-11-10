@@ -2,7 +2,7 @@
 import { useMemo, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Button } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 function hexToRgb(hex: string) {
   let h = hex.replace("#", "").trim();

@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";
 import ToolPaper from "@/components/ToolPaper";import { TextField, Box, Typography, Stack, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper, Button } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 // 500KB cap – prevent UI freeze on huge CSV pastes (performance guard)
 export const MAX_CSV_SIZE = 500 * 1024; // 500KB cap

@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useMemo, useState } from "react";import { Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import { homeLoanEligibility } from "@/lib/finance-calc";
@@ -77,7 +77,7 @@ export default function HomeLoanEligibilityTool() {
           </Select>
         </FormControl>
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -86,26 +86,26 @@ export default function HomeLoanEligibilityTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null && isFinite(result.eligible) ? money(result.eligible, "INR") : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Available for EMI (FOIR)</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.availEmi) ? money(result.availEmi, "INR") : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Max by FOIR</Typography>
           <Typography className="font-bold">
             {result?.maxByFoir != null && isFinite(result.maxByFoir) ? money(result.maxByFoir, "INR") : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Max by income multiplier</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.maxByMultiplier) ? money(result.maxByMultiplier, "INR") : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">
         Estimate only — banks apply their own FOIR, multiplier, credit-score and property checks. Not financial

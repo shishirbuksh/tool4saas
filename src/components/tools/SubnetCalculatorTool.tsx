@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert, Slider, Table, TableBody, TableCell, TableContainer, TableRow } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, Slider, Table, TableBody, TableCell, TableContainer, TableRow } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 function ipToInt(ip: string): number {
   const parts = ip.trim().split(".");
@@ -117,7 +117,7 @@ export default function SubnetCalculatorTool() {
           className="min-w-[120px] [&_input]:[font-family:monospace]"
         />
       </Stack>
-      <Box>
+      <div>
         <Typography variant="caption" color="text.secondary" className="mb-2 block">
           Prefix length: /{cidr}
         </Typography>
@@ -136,10 +136,10 @@ export default function SubnetCalculatorTool() {
           onChange={(_, v) => setCidr(v as number)}
           aria-label="CIDR prefix length"
         />
-      </Box>
+      </div>
       {error && <Alert severity="error">Invalid input: {error}</Alert>}
       {!error && result && (
-        <Box>
+        <div>
           <Stack
             direction="row"
             className="items-center justify-between mb-1"
@@ -175,7 +175,7 @@ export default function SubnetCalculatorTool() {
               </TableBody>
             </Table>
           </TableContainer>
-        </Box>
+        </div>
       )}
     </ToolPaper>
   );

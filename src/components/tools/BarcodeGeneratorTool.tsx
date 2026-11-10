@@ -1,6 +1,6 @@
 
 import { useState, useRef, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, TextField, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, TextField, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
 
 type Format = "CODE128" | "EAN13" | "UPC";
@@ -186,22 +186,22 @@ export default function BarcodeGeneratorTool() {
           )}
         </Stack>
 
-        <Box
+        <div
           className="flex-1 w-full flex flex-col items-center gap-4 p-4 border border-base-300 rounded-[16px] bg-[#fff] min-h-[180px] justify-center"
         >
           <Typography variant="subtitle2" color="text.secondary">
             Preview (SVG)
           </Typography>
-          <Box className="w-full flex justify-center overflow-x-auto">
+          <div className="w-full flex justify-center overflow-x-auto">
             {/* SVG ref for JsBarcode */}
             <svg ref={svgRef} style={{ maxWidth: "100%" }} />
-          </Box>
+          </div>
           {/* Hidden canvas for PNG export - also rendered via JsBarcode */}
           <canvas ref={canvasRef} style={{ display: "none" }} />
           <Typography variant="caption" color="text.secondary" className="text-center">
             SVG and canvas are both rendered via dynamic import(&quot;jsbarcode&quot;). Use Download buttons to export.
           </Typography>
-        </Box>
+        </div>
       </Stack>
     </ToolPaper>
   );

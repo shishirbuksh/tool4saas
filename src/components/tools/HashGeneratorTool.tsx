@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const ALGOS = ["SHA-1", "SHA-256", "SHA-384", "SHA-512"] as const;
 
@@ -67,7 +67,7 @@ export default function HashGeneratorTool() {
           </Button>
         </Stack>
         {output && (
-          <Box>
+          <div>
             <Typography  variant="subtitle2"  gutterBottom className="font-bold">{algo} result</Typography>
             <TextField
               value={output}
@@ -77,7 +77,7 @@ export default function HashGeneratorTool() {
               slotProps={{ input: { readOnly: true, "aria-label": "Hash result", spellCheck: false } }}
               className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

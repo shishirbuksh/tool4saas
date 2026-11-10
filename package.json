@@ -15,11 +15,13 @@
     "test:e2e": "playwright test",
     "adsense:check": "node scripts/check-adsense-readiness.mjs",
     "verify:build": "node scripts/verify-dist.mjs",
+    "audit:thin": "node scripts/audit-thin-content.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.2",
     "astro": "^7.4.4",
+    "astro-seo": "^1.2.0",
     "fflate": "^0.8.3",
     "jsbarcode": "^3.12.3",
     "jspdf": "^4.2.1",

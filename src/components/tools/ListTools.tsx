@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 function splitLines(s: string) {
   return s.split(/\r?\n/);
@@ -42,7 +42,7 @@ export default function ListTools() {
           onChange={(e) => setInput(e.target.value)}
           placeholder={"apple\nbanana\ncherry"}
         />
-        <Box className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2">
           <Button variant="contained" onClick={sortAsc} disabled={!input}>Sort A→Z</Button>
           <Button variant="contained" onClick={sortDesc} disabled={!input}>Sort Z→A</Button>
           <Button variant="outlined" onClick={reverse} disabled={!input}>Reverse</Button>
@@ -50,9 +50,9 @@ export default function ListTools() {
           <Button variant="outlined" onClick={dedupe} disabled={!input}>Remove duplicates</Button>
           <Button variant="outlined" onClick={removeBlank} disabled={!input}>Remove blank lines</Button>
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => void import("@/lib/clipboard").then(m=>m.copyToClipboard(output))} disabled={!output}>Copy</Button>
-        </Box>
+        </div>
         {output && (
-          <Box>
+          <div>
             <Typography  variant="subtitle2"  gutterBottom className="font-bold">{outCount} lines</Typography>
             <TextField
               value={output}
@@ -62,7 +62,7 @@ export default function ListTools() {
               slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false } }}
               className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
-          </Box>
+          </div>
         )}
         <Typography variant="caption" color="text.secondary">Input items (non-blank): {inCount}</Typography>
       </ToolPaper>

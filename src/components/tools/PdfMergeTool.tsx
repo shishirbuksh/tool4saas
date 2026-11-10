@@ -1,6 +1,6 @@
 
 import { useState, useRef } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Link, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Link, Stack, Alert } from "@/components/ds";
 
 import { MAX_PDF_SIZE, MAX_PDF_FILES, MAX_PDF_PAGES, validatePdfBatch, validatePdfMagicBytes } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
@@ -147,22 +147,22 @@ export default function PdfMergeTool() {
       {files.length > 0 && (
         <Stack spacing={1}>
           {files.map((f, i) => (
-            <Box key={`${f.name}-${i}`} className="flex justify-between p-3 border border-base-300 rounded-[16px]">
+            <div key={`${f.name}-${i}`} className="flex justify-between p-3 border border-base-300 rounded-[16px]">
               <Typography variant="body2" className="font-semibold overflow-hidden text-ellipsis">
                 {i + 1}. {f.name} ({fmtBytes(f.size)})
               </Typography>
               <Button size="small" color="error" onClick={() => remove(i)}>
                 Remove
               </Button>
-            </Box>
+            </div>
           ))}
         </Stack>
       )}
-      <Box>
+      <div>
         <Button variant="contained" onClick={merge} disabled={files.length < 2 || busy}>
           {busy ? "Merging…" : `Merge ${files.length} PDFs`}
         </Button>
-      </Box>
+      </div>
       {error && <Alert severity="error">{error}</Alert>}
       {done && <Alert severity="success">{done}</Alert>}
       <Alert severity="info">

@@ -1,4 +1,4 @@
-import { Container, Typography, Box, Breadcrumbs } from "@/components/ds";
+import { Container, Typography, Breadcrumbs } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import { siteConfig } from "@/lib/site";
@@ -13,7 +13,7 @@ export default function TermsView() {
         <Typography color="text.primary">Terms of Service</Typography>
       </Breadcrumbs>
       <Typography variant="h1" className="text-[2.25rem] mb-4">Terms of Service</Typography>
-      <Box className="text-base-content/70 leading-[1.8]">
+      <div className="text-base-content/70 leading-[1.8]">
         <Typography className="block mb-2"><strong>Last updated:</strong> <time dateTime="2026-09-09">September 9, 2026</time></Typography>
         <Typography variant="h2" className="text-[18px] text-base-content mt-4">Acceptance</Typography>
         <Typography className="block mb-2">By using Tool4SaaS you agree to these terms. All tools run locally in your browser; we provide them as-is without warranty.</Typography>
@@ -25,7 +25,7 @@ export default function TermsView() {
         <Typography className="block mb-2">Site design and code are © Tool4SaaS. You may use generated output (invoices, QR codes, resumes) for any lawful purpose.</Typography>
         <Typography variant="h2" className="text-[18px] text-base-content mt-4">Contact</Typography>
         <Typography className="block mb-2">Questions? Contact us at {siteConfig.email}. Do not use signature, invoice, or certificate outputs to forge another person&apos;s signature or misrepresent authorship. Respect YouTube Terms and owner copyright when using thumbnail previews. Test secrets only — never enter real card PANs, passwords, or private keys into shared devices.</Typography>
-      </Box>
+      </div>
     </Container>
   );
 }

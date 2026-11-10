@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Stack, TextField, Typography, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Stack, TextField, Typography, Alert } from "@/components/ds";
 
 import { MS_PER_DAY } from "@/lib/format";
 
@@ -116,7 +116,7 @@ export default function PregnancyCalculatorTool() {
             <Alert severity="warning">LMP date is in the future. Please select a past date.</Alert>
           ) : null}
 
-          <Box
+          <div
             className="p-5 rounded-[16px] border border-primary bg-primary text-center" style={{ color: "var(--color-primary-content)" }}
           >
             <Typography variant="overline" className="opacity-[0.9]" style={{ color: "var(--color-primary-content)" }}>
@@ -130,10 +130,10 @@ export default function PregnancyCalculatorTool() {
                 ? `${result.daysUntilDue} days to go${result.weeksUntilDue > 0 ? ` (~${result.weeksUntilDue} weeks)` : ""}`
                 : `${Math.abs(result.daysUntilDue)} days past due date`}
             </Typography>
-          </Box>
+          </div>
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <Box
+            <div
               className="flex-1 p-4 rounded-[16px] border border-base-300 bg-base-100 text-center"
             >
               <Typography variant="overline" color="text.secondary">
@@ -145,8 +145,8 @@ export default function PregnancyCalculatorTool() {
               <Typography variant="caption" color="text.secondary">
                 {result.isFuture ? "LMP is in the future" : `${result.totalDays} days since LMP`}
               </Typography>
-            </Box>
-            <Box
+            </div>
+            <div
               className="flex-1 p-4 rounded-[16px] border border-base-300 bg-base-100 text-center"
             >
               <Typography variant="overline" color="text.secondary">
@@ -158,53 +158,53 @@ export default function PregnancyCalculatorTool() {
               <Typography variant="caption" color="text.secondary">
                 LMP + 14 days{result.cycleAdjustment !== 0 ? ` ${result.cycleAdjustment > 0 ? "+" : ""}${result.cycleAdjustment}d adjusted` : ""} (approx. ovulation)
               </Typography>
-            </Box>
+            </div>
           </Stack>
 
-          <Box
+          <div
             className="p-4 rounded-[16px] border border-base-300 bg-base-100"
           >
             <Typography variant="subtitle2" className="font-bold mb-3">
               Trimesters
             </Typography>
             <Stack spacing={1.2}>
-              <Box className="flex justify-between gap-4 flex-wrap">
+              <div className="flex justify-between gap-4 flex-wrap">
                 <Typography variant="body2" color="text.secondary">
                   First trimester
                 </Typography>
                 <Typography variant="body2" className="font-semibold">
                   {formatShort(result.lmpDate)} – {formatShort(result.trimester1End)}
                 </Typography>
-              </Box>
+              </div>
               <Typography variant="caption" color="text.secondary">
                 Week 1 to 13w6d
               </Typography>
-              <Box className="flex justify-between gap-4 flex-wrap">
+              <div className="flex justify-between gap-4 flex-wrap">
                 <Typography variant="body2" color="text.secondary">
                   Second trimester
                 </Typography>
                 <Typography variant="body2" className="font-semibold">
                   {formatShort(result.trimester2Start)} – {formatShort(result.trimester2End)}
                 </Typography>
-              </Box>
+              </div>
               <Typography variant="caption" color="text.secondary">
                 Week 14w0d to 27w6d
               </Typography>
-              <Box className="flex justify-between gap-4 flex-wrap">
+              <div className="flex justify-between gap-4 flex-wrap">
                 <Typography variant="body2" color="text.secondary">
                   Third trimester
                 </Typography>
                 <Typography variant="body2" className="font-semibold">
                   {formatShort(result.trimester3Start)} – {formatShort(result.dueDate)}
                 </Typography>
-              </Box>
+              </div>
               <Typography variant="caption" color="text.secondary">
                 Week 28w0d to 40w0d (due date)
               </Typography>
             </Stack>
-          </Box>
+          </div>
 
-          <Box
+          <div
             className="p-4 rounded-[16px] border border-base-300 bg-base-100"
           >
             <Typography variant="subtitle2" className="font-bold mb-2">
@@ -217,7 +217,7 @@ export default function PregnancyCalculatorTool() {
                 : ` on a ${result.validCycle}-day cycle.`}{" "}
               Conception is estimated as LMP + 14 days (ovulation) with the same cycle adjustment. Trimesters are split at 13w6d / 27w6d.
             </Typography>
-          </Box>
+          </div>
         </>
       ) : (
         <Typography color="text.secondary">Enter your last menstrual period date to calculate the due date.</Typography>

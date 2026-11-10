@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, LinearProgress } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, LinearProgress } from "@/components/ds";
 
 
 const rules = [
@@ -30,15 +30,15 @@ export default function PasswordStrengthTool() {
           slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
         />
         {pw && (
-          <Box>
-            <Box className="flex justify-between mb-1">
+          <div>
+            <div className="flex justify-between mb-1">
               <Typography variant="body2" color="text.secondary">
                 Strength
               </Typography>
               <Typography variant="body2" className="font-bold">
                 {STRENGTH[score]}
               </Typography>
-            </Box>
+            </div>
             <LinearProgress
               variant="determinate"
               value={(score / 5) * 100}
@@ -56,7 +56,7 @@ export default function PasswordStrengthTool() {
                 </Typography>
               ))}
             </Stack>
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

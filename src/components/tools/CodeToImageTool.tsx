@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Stack, MenuItem, Typography } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, DownloadIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const LANGUAGES = [

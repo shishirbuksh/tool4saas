@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import type { ComponentType } from "react";
 import dynamic from "@/lib/astro/dynamic";
-import ToolPaper from "@/components/ToolPaper";import { Alert, Box, Button, LinearProgress, Paper, Stack, TextField, Typography } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Alert, Button, LinearProgress, Paper, Stack, TextField, Typography } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Refresh as RefreshIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, RotateCwIcon as RefreshIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 type QRCanvasProps = {
@@ -210,7 +210,7 @@ export default function OtpGeneratorTool() {
         </Button>
       </Stack>
 
-      <Box
+      <div
         className="p-6 rounded-[16px] border border-base-300 text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -234,9 +234,9 @@ export default function OtpGeneratorTool() {
             {error}
           </Typography>
         )}
-      </Box>
+      </div>
 
-      <Box>
+      <div>
         <Typography variant="subtitle2" gutterBottom className="font-bold">
           Provisioning URI
         </Typography>
@@ -261,7 +261,7 @@ export default function OtpGeneratorTool() {
           </Button>
         </Stack>
         {provisioningUri && (
-          <Box className="flex justify-center mt-4">
+          <div className="flex justify-center mt-4">
             <Paper variant="outlined" className="p-4 bg-[#ffffff] leading-[0]">
               <QRCodeCanvas
                 value={provisioningUri}
@@ -271,9 +271,9 @@ export default function OtpGeneratorTool() {
                 fgColor="#0f172a"
               />
             </Paper>
-          </Box>
+          </div>
         )}
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

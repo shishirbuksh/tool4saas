@@ -1,8 +1,8 @@
 
 import { useEffect, useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Link } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, Link } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, DownloadIcon } from "@/components/ui/icons";
 import { MS_PER_HOUR, MS_PER_MINUTE, MS_PER_SECOND } from "@/lib/format";
 
 const fmt = (ms: number) => {
@@ -85,9 +85,9 @@ export default function StopwatchTool() {
           </Button>
         </Stack>
         {laps.length > 0 && (
-          <Box className="w-full max-h-[160px] overflow-auto">
+          <div className="w-full max-h-[160px] overflow-auto">
             {laps.map((l, i) => (
-              <Box
+              <div
                 key={i}
                 className="flex justify-between px-2 py-1 border-b border-base-300"
               >
@@ -97,9 +97,9 @@ export default function StopwatchTool() {
                 <Typography variant="body2" style={{ fontFamily: "monospace" }}>
                   {fmt(l)}
                 </Typography>
-              </Box>
+              </div>
             ))}
-          </Box>
+          </div>
         )}
         {laps.length > 0 && (
           <Stack direction="row" spacing={1}>

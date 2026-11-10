@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert, Box } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, SwapHoriz as SwapHorizIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, ArrowLeftRightIcon as SwapHorizIcon } from "@/components/ui/icons";
 
 function getIndent(line: string): number {
   const m = line.match(/^ */);
@@ -305,7 +305,7 @@ export default function YamlToJsonTool() {
       </Stack>
       {error && <Alert severity="error">{error}</Alert>}
       {output && (
-        <Box>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-2">
             <Typography variant="subtitle2" className="font-bold">
               JSON Output
@@ -322,7 +322,7 @@ export default function YamlToJsonTool() {
             slotProps={{ input: { readOnly: true, spellCheck: false, autoComplete: "off", "aria-label": "JSON Output" } }}
             className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
           />
-        </Box>
+        </div>
       )}
     </ToolPaper>
   );

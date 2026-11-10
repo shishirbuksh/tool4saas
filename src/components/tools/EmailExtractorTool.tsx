@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 const EMAIL_RE = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
 
@@ -27,7 +27,7 @@ export default function EmailExtractorTool() {
           placeholder="Paste text and we'll pull out every email address…"
           slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
         />
-        <Box>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-2">
             <Typography variant="subtitle2" className="font-bold">
               Found {emails.length} unique email{emails.length === 1 ? "" : "s"}
@@ -48,7 +48,7 @@ export default function EmailExtractorTool() {
           ) : (
             <Stack spacing={1}>
               {emails.slice(0, 100).map((e) => (
-                <Box
+                <div
                   key={e}
                   className="flex justify-between items-center p-3 rounded-[16px] border border-base-300 text-[14px]" style={{ fontFamily: "monospace" }}
                 >
@@ -56,7 +56,7 @@ export default function EmailExtractorTool() {
                   <Button size="small" onClick={() => copy(e)}>
                     Copy
                   </Button>
-                </Box>
+                </div>
               ))}
               {emails.length > 100 && (
                 <Typography variant="body2" color="text.secondary" className="text-center mt-2">
@@ -65,7 +65,7 @@ export default function EmailExtractorTool() {
               )}
             </Stack>
           )}
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

@@ -1,6 +1,6 @@
 
 import { useState, useRef } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert, Slider } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, Alert, Slider } from "@/components/ds";
 
 import { MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
@@ -187,16 +187,16 @@ export default function PdfToJpgTool() {
         </Typography>
       </Stack>
       {file && (
-        <Box className="flex justify-between p-3 border border-base-300 rounded-[16px]">
+        <div className="flex justify-between p-3 border border-base-300 rounded-[16px]">
           <Typography variant="body2" className="font-semibold overflow-hidden text-ellipsis">
             {file.name} ({fmtBytes(file.size)})
           </Typography>
           <Button size="small" color="error" onClick={clear}>
             Remove
           </Button>
-        </Box>
+        </div>
       )}
-      <Box>
+      <div>
         <Typography variant="body2" color="text.secondary" gutterBottom>
           Scale: {scale.toFixed(2)}x (higher = sharper, larger files)
         </Typography>
@@ -209,8 +209,8 @@ export default function PdfToJpgTool() {
           disabled={!file || busy}
           aria-label="Render scale"
         />
-      </Box>
-      <Box>
+      </div>
+      <div>
         <Typography variant="body2" color="text.secondary" gutterBottom>
           JPG quality: {Math.round(quality * 100)}%
         </Typography>
@@ -223,12 +223,12 @@ export default function PdfToJpgTool() {
           disabled={!file || busy}
           aria-label="JPG output quality"
         />
-      </Box>
-      <Box>
+      </div>
+      <div>
         <Button variant="contained" onClick={convert} disabled={!file || busy}>
           {busy ? "Converting…" : "Convert & Download JPGs"}
         </Button>
-      </Box>
+      </div>
       {busy && progress && <Alert severity="info">{progress}</Alert>}
       {error && <Alert severity="error">{error}</Alert>}
       {done && <Alert severity="success">{done}</Alert>}

@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Slider, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Slider, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -52,7 +52,7 @@ export default function TipCalculatorTool() {
           }}
           
         />
-        <Box>
+        <div>
           <Typography variant="subtitle2" className="font-bold mb-1">
             Tip: {tip}%
           </Typography>
@@ -70,7 +70,7 @@ export default function TipCalculatorTool() {
               { value: 30, label: "30%" },
             ]}
           />
-        </Box>
+        </div>
         <TextField
           label="Number of people"
           type="number"
@@ -85,20 +85,20 @@ export default function TipCalculatorTool() {
           
         />
         <Stack spacing={1.5} className="mt-2">
-          <Box className="flex justify-between">
+          <div className="flex justify-between">
             <Typography color="text.secondary">Tip amount</Typography>
             <Typography className="font-bold">{money(tipAmount, currency)}</Typography>
-          </Box>
-          <Box className="flex justify-between">
+          </div>
+          <div className="flex justify-between">
             <Typography color="text.secondary">Total</Typography>
             <Typography className="font-bold">{money(total, currency)}</Typography>
-          </Box>
-          <Box
+          </div>
+          <div
             className="flex justify-between p-3 rounded-[16px] border border-primary"
           >
             <Typography color="text.secondary">Per person</Typography>
             <Typography className="font-extrabold text-primary">{money(perPerson, currency)}</Typography>
-           </Box>
+           </div>
          </Stack>
     </ToolPaper>
   );

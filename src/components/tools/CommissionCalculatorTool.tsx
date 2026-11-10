@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -46,7 +46,7 @@ export default function CommissionCalculatorTool() {
           {field("Sales amount", sales, setSales)}
           {field("Commission (%)", percent, setPercent, "%")}
         </Stack>
-        <Box
+        <div
           className="p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
@@ -55,12 +55,12 @@ export default function CommissionCalculatorTool() {
           <Typography variant="h3" className="font-extrabold text-primary">
             {commission !== null ? money(commission, currency) : "—"}
           </Typography>
-        </Box>
+        </div>
         <Stack spacing={1.5}>
-          <Box className="flex justify-between">
+          <div className="flex justify-between">
             <Typography color="text.secondary">Total</Typography>
             <Typography className="font-bold">{total !== null ? money(total, currency) : "—"}</Typography>
-          </Box>
+          </div>
         </Stack>
     </ToolPaper>
   );

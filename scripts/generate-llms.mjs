@@ -208,6 +208,9 @@ for (const cat of categories) {
 // so AI crawlers see every guide URL, not just pillar stubs.
 let blogsOut = `## Guides & Blog\n- [All Guides](${siteUrl}/blog): View all long-form tool guides and tutorials.\n`;
 let clusterCount = 0;
+let totalClusters = 0;
+let noindexSkipped = 0;
+const seenClusterKeys = new Set();
 try {
   const blogDir = path.resolve("src/content/blog");
   const pillarSeen = new Set();
@@ -221,7 +224,14 @@ try {
       const kind = b.match(/kind:\s*"(pillar|cluster)"/)?.[1] || "";
       if (!pillar || !title) continue;
       const key = kind === "pillar" ? `${pillar}/${pillar}` : `${pillar}/${slug}`;
-      if (kind === "cluster" && NOINDEX_BLOG.has(key)) continue;
+      if (kind === "cluster") {
+        totalClusters++;
+        seenClusterKeys.add(key);
+        if (NOINDEX_BLOG.has(key)) {
+          noindexSkipped++;
+          continue;
+        }
+      }
       const updated = BLOG_POST_DATES[key]?.modified || "";
       const dateSuffix = updated ? ` (updated ${updated})` : "";
       if (kind === "pillar") {
@@ -240,9 +250,23 @@ try {
   process.exit(1);
 }
 
-if (clusterCount < 170) {
-  console.error(`generate-llms: expected at least 170 blog clusters, found ${clusterCount}`);
+// Floor on the source corpus, not on the output: catches a broken regex or a
+// missing content directory. The published count legitimately drops as clusters
+// are added to NOINDEX_CLUSTER_KEYS, so it must not be pinned to a magic number.
+if (totalClusters < 170) {
+  console.error(
+    `generate-llms: expected at least 170 cluster posts in src/content/blog, found ${totalClusters}`,
+  );
   process.exit(1);
+}
+
+// A key that matches no post means a slug was renamed or mistyped, and the
+// cluster silently stays indexable. Warn instead of failing the build.
+const staleNoindexKeys = [...NOINDEX_BLOG].filter((k) => !seenClusterKeys.has(k));
+if (staleNoindexKeys.length) {
+  console.warn(
+    `generate-llms: ${staleNoindexKeys.length} NOINDEX key(s) match no cluster post:\n- ${staleNoindexKeys.join("\n- ")}`,
+  );
 }
 
 out += blogsOut + "\n";

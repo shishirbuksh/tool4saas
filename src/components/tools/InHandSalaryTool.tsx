@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel, Table, TableHead, TableBody, TableRow, TableCell, TableContainer } from "@/components/ds";
+import { useMemo, useState } from "react";import { Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel, Table, TableHead, TableBody, TableRow, TableCell, TableContainer } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import { inHandIndia, INDIA_NEW_REGIME_FY26_27 } from "@/lib/finance-calc";
@@ -21,12 +21,12 @@ export default function InHandSalaryTool() {
   }, [ctcAnnual, basicDaAnnual, ptMonthly, pfCapped]);
 
   const row = (label: string, value: number | null | undefined) => (
-    <Box className="flex justify-between gap-4">
+    <div className="flex justify-between gap-4">
       <Typography color="text.secondary">{label}</Typography>
       <Typography className="font-bold text-right">
         {value != null && isFinite(value) ? money(value, "INR") : "—"}
       </Typography>
-    </Box>
+    </div>
   );
 
   return (
@@ -51,7 +51,7 @@ export default function InHandSalaryTool() {
           </Select>
         </FormControl>
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -63,7 +63,7 @@ export default function InHandSalaryTool() {
         <Typography variant="body2" color="text.secondary">
           {result !== null && isFinite(result.inHandAnnual) ? `${money(result.inHandAnnual, "INR")} / year` : "Enter CTC and Basic + DA"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
         {row("Gross annual (CTC − employer PF)", result?.grossAnnual)}
         {row("Employee PF / year (12%)", result?.empPfAnnual)}

@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Typography, Box, Stack, Button, TextField, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Typography, Stack, Button, TextField, Select, MenuItem, FormControl, InputLabel } from "@/components/ds";
 
 
 type Mode = "work" | "break";
@@ -191,14 +191,14 @@ export default function PomodoroTimerTool() {
 
   return (
     <ToolPaper spacing={3}>
-      <Box>
+      <div>
         <Typography variant="h6" className="font-extrabold">
           Pomodoro Timer
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Focus with timed work and break intervals. Displays mm:ss, progress and cycle count. Notifies and vibrates on finish.
         </Typography>
-      </Box>
+      </div>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-end">
         <TextField
@@ -238,7 +238,7 @@ export default function PomodoroTimerTool() {
         </FormControl>
       </Stack>
 
-      <Box
+      <div
         className="p-6 rounded-[16px] border text-center" style={{ borderColor: isFinished ? "success.main" : mode === "work" ? "primary.main" : "secondary.main", backgroundColor: isFinished ? "success.light" : "background.paper" }}
       >
         <Typography
@@ -261,11 +261,11 @@ export default function PomodoroTimerTool() {
           mm:ss
         </Typography>
 
-        <Box className="mt-4 h-[10px] rounded-[40px] bg-base-300 overflow-hidden">
-          <Box
+        <div className="mt-4 h-[10px] rounded-[40px] bg-base-300 overflow-hidden">
+          <div
             className="h-full" style={{ width: `${Math.min(100, Math.max(0, progress))}%`, backgroundColor: isFinished ? "success.main" : mode === "work" ? "primary.main" : "secondary.main", transition: "width 0.5s linear" }}
           />
-        </Box>
+        </div>
         <Typography variant="caption" color="text.secondary" className="mt-2 block">
           Progress: {progress.toFixed(0)}% · {mode === "work" ? `${workMinutes} min work` : `${breakMinutes} min break`}
         </Typography>
@@ -275,7 +275,7 @@ export default function PomodoroTimerTool() {
             Pomodoro finished! 🎉 {cycles} cycle{cycles > 1 ? "s" : ""} completed.
           </Typography>
         )}
-      </Box>
+      </div>
 
       <Stack direction="row" spacing={2} className="justify-center">
         {!isRunning ? (

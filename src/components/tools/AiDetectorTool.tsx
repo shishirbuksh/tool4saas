@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Box, Stack, Alert, LinearProgress } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Alert, LinearProgress } from "@/components/ds";
 
 
 // Alias to satisfy Progress requirement (MUI LinearProgress)
@@ -255,12 +255,12 @@ export default function AiDetectorTool() {
           Enter text to analyze. This detector uses heuristic signals — avg sentence length variance, burstiness, repetition score, and perplexity proxy via uncommon word ratio — to estimate AI likelihood.
         </Alert>
       ) : (
-        <Box
+        <div
           className="p-4 rounded-[16px] border border-base-300 bg-base-100"
         >
           <Stack spacing={2.5}>
             {/* AI Likelihood */}
-            <Box>
+            <div>
               <Stack direction="row" className="items-center justify-between mb-1">
                 <Typography variant="subtitle2" className="font-bold">
                   AI likelihood
@@ -292,11 +292,11 @@ export default function AiDetectorTool() {
                       ? "Moderate variation — uncertain, lean human."
                       : "High burstiness and lexical diversity — suggests human writing."}
               </Typography>
-            </Box>
+            </div>
 
             {/* Metrics grid */}
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-              <Box
+              <div
                 className="flex-1 p-3 rounded-[12px] border border-base-300" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
               >
                 <Typography variant="caption" color="text.secondary" className="font-semibold uppercase tracking-[0.5px]">
@@ -308,8 +308,8 @@ export default function AiDetectorTool() {
                 <Typography variant="caption" color="text.secondary">
                   Variance = Σ(len−mean)² / n. Low variance → uniform → more AI-like.
                 </Typography>
-              </Box>
-              <Box
+              </div>
+              <div
                 className="flex-1 p-3 rounded-[12px] border border-base-300" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
               >
                 <Typography variant="caption" color="text.secondary" className="font-semibold uppercase tracking-[0.5px]">
@@ -321,11 +321,11 @@ export default function AiDetectorTool() {
                 <Typography variant="caption" color="text.secondary">
                   Std dev of sentence lengths. High burstiness → human-like.
                 </Typography>
-              </Box>
+              </div>
             </Stack>
 
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-              <Box
+              <div
                 className="flex-1 p-3 rounded-[12px] border border-base-300" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
               >
                 <Typography variant="caption" color="text.secondary" className="font-semibold uppercase tracking-[0.5px]">
@@ -337,16 +337,16 @@ export default function AiDetectorTool() {
                 <Typography variant="caption" color="text.secondary">
                   1 − unique/total words. High repetition → more AI-like.
                 </Typography>
-                <Box className="mt-2">
+                <div className="mt-2">
                   <Progress
                     variant="determinate"
                     value={Math.min(100, analysis ? analysis.repetitionScore * 100 : 0)}
                     color={analysis && analysis.repetitionScore > 0.25 ? "warning" : "success"}
                     className="h-[6px] rounded-[7992px]"
                   />
-                </Box>
-              </Box>
-              <Box
+                </div>
+              </div>
+              <div
                 className="flex-1 p-3 rounded-[12px] border border-base-300" style={{ backgroundColor: "color-mix(in oklab, var(--color-base-content) 6%, transparent)" }}
               >
                 <Typography variant="caption" color="text.secondary" className="font-semibold uppercase tracking-[0.5px]">
@@ -358,19 +358,19 @@ export default function AiDetectorTool() {
                 <Typography variant="caption" color="text.secondary">
                   Uncommon word ratio = uncommon/total. Low ratio → low perplexity → more AI-like.
                 </Typography>
-                <Box className="mt-2">
+                <div className="mt-2">
                   <Progress
                     variant="determinate"
                     value={Math.min(100, analysis ? analysis.perplexityProxy * 100 : 0)}
                     color={analysis && analysis.perplexityProxy < 0.35 ? "warning" : "success"}
                     className="h-[6px] rounded-[7992px]"
                   />
-                </Box>
-              </Box>
+                </div>
+              </div>
             </Stack>
 
             {/* Detailed breakdown */}
-            <Box
+            <div
               className="flex flex-wrap gap-3 p-3 rounded-[12px] border-base-300 bg-base-100" style={{ border: "1px dashed" }}
             >
               <Typography variant="caption" color="text.secondary">
@@ -388,9 +388,9 @@ export default function AiDetectorTool() {
               <Typography variant="caption" color="text.secondary">
                 • perplexity signal: <strong>{analysis ? `${(analysis.perplexitySignal * 100).toFixed(0)}%` : "—"}</strong>
               </Typography>
-            </Box>
+            </div>
           </Stack>
-        </Box>
+        </div>
       )}
 
       <Alert severity="warning" className="mt-2">

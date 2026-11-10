@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack } from "@/components/ds";
 
 
 type Assessment = {
@@ -157,7 +157,7 @@ export default function GradeCalculatorTool() {
         </Button>
       </Stack>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-base-300 flex justify-between items-center flex-wrap gap-2"
       >
         <Typography color="text.secondary">
@@ -178,7 +178,7 @@ export default function GradeCalculatorTool() {
             Use as current
           </Button>
         </Stack>
-      </Box>
+      </div>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
         <TextField
@@ -219,7 +219,7 @@ export default function GradeCalculatorTool() {
         />
       </Stack>
 
-      <Box
+      <div
         className="p-5 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -239,22 +239,22 @@ export default function GradeCalculatorTool() {
                 ? "Below 0% — you have already secured your target."
                 : `You need ${fmt(required)}% (${requiredLetter}) on the remaining ${finalWeight}% to finish at ${targetGrade}%.`}
         </Typography>
-      </Box>
+      </div>
 
-      <Box className="flex flex-col gap-2">
-        <Box className="flex justify-between">
+      <div className="flex flex-col gap-2">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Weighted average</Typography>
           <Typography className="font-bold">
             {average !== null ? `${fmt(average)}% (${getLetter(average)})` : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Formula</Typography>
           <Typography className="font-semibold text-[13px] text-base-content/70">
             (target − current × (1 − w)) / w
           </Typography>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </ToolPaper>
   );
 }

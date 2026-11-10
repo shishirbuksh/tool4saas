@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 type Outcome = "Heads" | "Tails";
 
@@ -89,22 +89,22 @@ export default function CoinFlipTool() {
           </Button>
         )}
         {result && (
-          <Box className="mt-2 text-center">
+          <div className="mt-2 text-center">
             <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => copy(result)}>
               Copy result
             </Button>
-          </Box>
+          </div>
         )}
         {history.length > 0 && (
-          <Box className="w-full mt-2">
+          <div className="w-full mt-2">
             <Typography variant="body2" color="text.secondary" className="text-center">
               {heads} Heads · {tails} Tails
               {currentStreak ? ` · ${currentStreak.count} ${currentStreak.side} in a row` : ""}
               {longestStreak > 1 ? ` · longest run ${longestStreak}` : ""}
             </Typography>
-            <Box className="max-h-[120px] overflow-auto mt-2">
+            <div className="max-h-[120px] overflow-auto mt-2">
               {[...history].reverse().slice(0, 20).map((h, i) => (
-                <Box
+                <div
                   key={i}
                   className="flex justify-between px-2 py-1 border-b border-base-300"
                 >
@@ -114,10 +114,10 @@ export default function CoinFlipTool() {
                   <Typography variant="body2" className="font-bold">
                     {h}
                   </Typography>
-                </Box>
+                </div>
               ))}
-            </Box>
-            <Box className="text-center mt-2">
+            </div>
+            <div className="text-center mt-2">
               <Button
                 size="small"
                 startIcon={<ContentCopyIcon />}
@@ -125,8 +125,8 @@ export default function CoinFlipTool() {
               >
                 Copy history
               </Button>
-            </Box>
-          </Box>
+            </div>
+          </div>
         )}
       </Stack>
     </ToolPaper>

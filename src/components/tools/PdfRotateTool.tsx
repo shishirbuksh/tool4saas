@@ -1,6 +1,6 @@
 
 import { useState, useRef } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert, TextField, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, Alert, TextField, MenuItem } from "@/components/ds";
 
 import { MAX_IMAGE_SIZE } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
@@ -144,14 +144,14 @@ export default function PdfRotateTool() {
         </Typography>
       </Stack>
       {file && (
-        <Box className="flex justify-between p-3 border border-base-300 rounded-[16px]">
+        <div className="flex justify-between p-3 border border-base-300 rounded-[16px]">
           <Typography variant="body2" className="font-semibold overflow-hidden text-ellipsis">
             {file.name} ({fmtBytes(file.size)})
           </Typography>
           <Button size="small" color="error" onClick={clear}>
             Remove
           </Button>
-        </Box>
+        </div>
       )}
       <TextField
         select
@@ -169,11 +169,11 @@ export default function PdfRotateTool() {
         <MenuItem value={180}>180°</MenuItem>
         <MenuItem value={270}>270° clockwise</MenuItem>
       </TextField>
-      <Box>
+      <div>
         <Button variant="contained" onClick={rotate} disabled={!file || busy}>
           {busy ? "Rotating…" : "Rotate & Download"}
         </Button>
-      </Box>
+      </div>
       {error && <Alert severity="error">{error}</Alert>}
       {done && <Alert severity="success">{done}</Alert>}
       <Alert severity="info">

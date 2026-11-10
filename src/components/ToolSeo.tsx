@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Accordion, AccordionSummary, AccordionDetails } from "@/components/ds";
-import { ExpandMore as ExpandMoreIcon } from "@/components/ds/icons";
+import { ChevronDownIcon as ExpandMoreIcon } from "@/components/ui/icons";
 import type { ToolView } from "@/lib/tool-view";
 
 function renderRichText(text: string): React.ReactNode {

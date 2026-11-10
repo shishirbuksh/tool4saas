@@ -8,7 +8,7 @@ export const financeTools: Tool[] = [
     short: "EMI & amortization schedule",
     description:
       "Calculate monthly mortgage payments, loan amortization schedules, and lifetime interest costs with down payment modeling online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "mortgage calculator",
       "home loan calculator",
@@ -92,7 +92,7 @@ export const financeTools: Tool[] = [
     short: "Project compound interest & CAGR",
     description:
       "Calculate compound interest growth, total maturity values, and annualized CAGR rates across diverse compounding intervals online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "compound interest calculator",
       "cagr calculator",
@@ -176,7 +176,7 @@ export const financeTools: Tool[] = [
     short: "Estimate take-home pay & paycheck",
     description:
       "Calculate paycheck take-home pay, annual salary conversions, and federal FICA tax withholdings across diverse pay periods online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "salary calculator",
       "paycheck calculator",
@@ -262,7 +262,7 @@ export const financeTools: Tool[] = [
     short: "Calculate profit, margin & markup",
     description:
       "Calculate gross profit margin, net profit margin, and percentage markup from product costs and sales revenue accurately online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "profit margin calculator",
       "margin vs markup",
@@ -347,7 +347,7 @@ export const financeTools: Tool[] = [
     short: "Calculate US federal income tax",
     description:
       "Calculate US federal income tax liabilities, progressive tax bracket breakdowns, and effective tax rates from gross income online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "income tax calculator",
       "us income tax calculator",
@@ -432,7 +432,7 @@ export const financeTools: Tool[] = [
     short: "Calculate inflation & purchasing power",
     description:
       "Calculate historical inflation rates, purchasing power erosion, and future money values using official CPI-U statistics online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "inflation calculator",
       "purchasing power calculator",
@@ -517,7 +517,7 @@ export const financeTools: Tool[] = [
     short: "Calculate mutual fund SIP returns",
     description:
       "Calculate mutual fund SIP investment maturity values, cumulative returns, and total wealth accumulation over time accurately online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "sip calculator",
       "systematic investment plan calculator",
@@ -602,7 +602,7 @@ export const financeTools: Tool[] = [
     short: "Plan retirement corpus & monthly savings",
     description:
       "Calculate your required retirement corpus, monthly savings goals, and compound investment growth with inflation adjustments online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "retirement calculator",
       "pension calculator",
@@ -687,7 +687,7 @@ export const financeTools: Tool[] = [
     short: "Compare financial costs of renting vs buying",
     description:
       "Compare the true financial costs of renting versus buying a home with mortgage payments, property taxes, appreciation, and break-even analysis on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "rent vs buy calculator",
       "should i rent or buy",
@@ -772,7 +772,7 @@ export const financeTools: Tool[] = [
     short: "Calculate profitable freelance hourly & day rates",
     description:
       "Calculate profitable freelance hourly, daily, and project rates based on target salary, billable hours, business expenses, and taxes online on Tool4SaaS.",
-    icon: "AttachMoney",
+    icon: "DollarSign",
     keywords: [
       "freelance rate calculator",
       "freelance hourly rate",
@@ -857,7 +857,7 @@ export const financeTools: Tool[] = [
     short: "Calculate home affordability with 28/36 rule",
     description:
       "Calculate how much house you can afford based on annual income, monthly debts, down payment savings, and the 28/36 DTI ratio rule online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "home affordability calculator",
       "how much house can i afford",
@@ -942,7 +942,7 @@ export const financeTools: Tool[] = [
     short: "Calculate refinance break-even & savings",
     description:
       "Calculate mortgage refinance monthly savings, total interest reduction, closing costs, and break-even recovery horizons online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
       "refinance calculator",
       "mortgage refinance calculator",
@@ -1026,7 +1026,7 @@ export const financeTools: Tool[] = [
     short: "Loan EMI & amortization schedule calculator",
     description:
       "EMI calculator calculates monthly loan payments, total interest costs, and full amortization schedules for mortgages and auto loans on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
         "emi calculator",
         "loan emi calculator",
@@ -1168,7 +1168,7 @@ export const financeTools: Tool[] = [
     short: "Calculate max home loan eligibility by salary",
     description:
       "Home loan eligibility calculator estimates maximum borrowing capacity, FOIR ratios, and monthly EMIs based on salary under Indian bank rules on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
         "home loan eligibility calculator",
         "home loan eligibility india",
@@ -1303,7 +1303,7 @@ export const financeTools: Tool[] = [
     short: "Calculate interest savings from extra mortgage pay",
     description:
       "Mortgage overpayment calculator calculates interest saved and loan term years reduced by making extra monthly or lump-sum principal payments on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
         "mortgage overpayment calculator",
         "extra mortgage payments",
@@ -1438,7 +1438,7 @@ export const financeTools: Tool[] = [
     short: "CTC to monthly take-home salary calculator India",
     description:
       "In-hand salary calculator converts annual CTC into monthly take-home pay with EPF, professional tax, and New Tax Regime income tax slabs on Tool4SaaS.",
-    icon: "AttachMoney",
+    icon: "DollarSign",
     keywords: [
         "in hand salary calculator",
         "ctc to in hand salary",
@@ -1573,7 +1573,7 @@ export const financeTools: Tool[] = [
     short: "Calculate fixed deposit maturity & interest India",
     description:
       "FD calculator calculates fixed deposit maturity amounts, compound interest earnings, and senior citizen rate bonuses under RBI quarterly norms on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
         "fd calculator",
         "fd calculator india",
@@ -1708,7 +1708,7 @@ export const financeTools: Tool[] = [
     short: "Calculate PPF 15-year maturity & tax-free interest",
     description:
       "PPF calculator projects 15-year maturity amounts, annual compound interest, and EEE tax-exempt wealth growth under Indian government rules on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
         "ppf calculator",
         "ppf calculator india",
@@ -1843,7 +1843,7 @@ export const financeTools: Tool[] = [
     short: "Compare debt snowball vs avalanche payoff methods",
     description:
       "Debt payoff calculator compares debt snowball and avalanche repayment strategies to eliminate credit card balances and loans faster online on Tool4SaaS.",
-    icon: "AccountBalance",
+    icon: "Landmark",
     keywords: [
         "debt payoff calculator",
         "debt snowball calculator",
@@ -1971,7 +1971,7 @@ export const financeTools: Tool[] = [
     short: "Calculate LTCG & STCG tax for FY 2024-25 & FY 2025-26",
     description:
       "Capital gains tax calculator estimates LTCG and STCG on Indian equity, mutual funds, and real estate under Budget 2024 revised tax rules on Tool4SaaS.",
-    icon: "AttachMoney",
+    icon: "DollarSign",
     keywords: [
         "capital gains tax calculator",
         "ltcg calculator india",

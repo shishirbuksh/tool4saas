@@ -1,8 +1,8 @@
 
 import { useRef, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Stack, Alert, TextField } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Stack, Alert, TextField } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, DownloadIcon } from "@/components/ui/icons";
 import { validatePdfFile, validatePdfMagicBytes, MAX_PDF_SIZE, MAX_PDF_PAGES } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 import { loadPdfjs } from "@/lib/pdfjs";
@@ -226,14 +226,14 @@ export default function PdfToTextTool() {
         </Typography>
       </Stack>
       {file && (
-        <Box className="flex justify-between p-3 border border-base-300 rounded-[16px]">
+        <div className="flex justify-between p-3 border border-base-300 rounded-[16px]">
           <Typography variant="body2" className="font-semibold overflow-hidden text-ellipsis">
             {file.name} ({fmtBytes(file.size)})
           </Typography>
           <Button size="small" color="error" onClick={clear}>
             Remove
           </Button>
-        </Box>
+        </div>
       )}
       <TextField
         label="Page range (optional)"
@@ -244,11 +244,11 @@ export default function PdfToTextTool() {
         fullWidth
         size="small"
       />
-      <Box>
+      <div>
         <Button variant="contained" onClick={extract} disabled={!file || busy}>
           {busy ? "Extracting…" : "Extract text"}
         </Button>
-      </Box>
+      </div>
       {error && <Alert severity="error">{error}</Alert>}
       {done && <Alert severity="success">{done}</Alert>}
       {text && (

@@ -1,7 +1,7 @@
 import { Container, Box, Grid, Typography } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
-import { AccountBalance as AccountBalanceIcon, Calculate as CalculateIcon, Code as CodeIcon, FitnessCenter as FitnessCenterIcon, Image as ImageIcon, PictureAsPdf as PictureAsPdfIcon, ReceiptLong as ReceiptLongIcon, Schedule as ScheduleIcon, Search as SearchIcon, Shuffle as ShuffleIcon, TextSnippet as TextSnippetIcon, Transform as TransformIcon } from "@/components/ds/icons";
+import { LandmarkIcon as AccountBalanceIcon, CalculatorIcon as CalculateIcon, CodeIcon, DumbbellIcon as FitnessCenterIcon, ImageIcon, FileTextIcon as PictureAsPdfIcon, ReceiptIcon as ReceiptLongIcon, ClockIcon as ScheduleIcon, SearchIcon, ShuffleIcon, FileTextIcon as TextSnippetIcon, ArrowLeftRightIcon as TransformIcon } from "@/components/ui/icons";
 import type { ComponentType } from "react";
 import { CATEGORIES } from "@/lib/tools/categories";
 import { NOINDEX_SLUGS } from "@/lib/tools/noindex";

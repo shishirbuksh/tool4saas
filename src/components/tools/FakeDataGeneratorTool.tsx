@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ToolPaper from "@/components/ToolPaper";import { Box, Stack, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Checkbox, FormControlLabel, Table, TableHead, TableBody, TableRow, TableCell, TableContainer, Paper } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon, Download as DownloadIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon, DownloadIcon } from "@/components/ui/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 // deterministic fake arrays (US default)

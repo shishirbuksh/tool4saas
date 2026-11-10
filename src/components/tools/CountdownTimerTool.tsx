@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack } from "@/components/ds";
 
 import { MS_PER_DAY, MS_PER_HOUR, MS_PER_MINUTE, MS_PER_SECOND } from "@/lib/format";
 import { copyToClipboard } from "@/lib/clipboard";
@@ -159,7 +159,7 @@ export default function CountdownTimerTool() {
         </Button>
       </Stack>
 
-      <Box
+      <div
         className="p-6 rounded-[16px] border text-center" style={{ borderColor: isPast ? "error.main" : "divider", backgroundColor: isPast ? "error.light" : "background.paper" }}
       >
         {targetMs === null || remaining === null ? (
@@ -197,9 +197,9 @@ export default function CountdownTimerTool() {
             </Typography>
           </>
         )}
-      </Box>
+      </div>
 
-      <Box className="p-4 rounded-[16px] border border-base-300 bg-base-100">
+      <div className="p-4 rounded-[16px] border border-base-300 bg-base-100">
         <Typography variant="subtitle2" className="font-bold mb-2">
           Shareable link
         </Typography>
@@ -218,14 +218,14 @@ export default function CountdownTimerTool() {
         <Typography variant="caption" color="text.secondary" className="mt-2 block">
           Anyone with this link will see the same countdown (via ?target= query param).
         </Typography>
-      </Box>
+      </div>
     </ToolPaper>
   );
 }
 
 function Unit({ value, label }: { value: string; label: string }) {
   return (
-    <Box
+    <div
       className="min-w-[64px] sm:min-w-[86px] p-3 rounded-[16px] bg-primary text-center" style={{ color: "var(--color-primary-content)" }}
     >
       <Typography variant="h4" className="font-extrabold leading-[1]" style={{ fontFamily: "monospace" }}>
@@ -234,6 +234,6 @@ function Unit({ value, label }: { value: string; label: string }) {
       <Typography variant="caption" className="opacity-[0.9] uppercase tracking-[0.8px]">
         {label}
       </Typography>
-    </Box>
+    </div>
   );
 }

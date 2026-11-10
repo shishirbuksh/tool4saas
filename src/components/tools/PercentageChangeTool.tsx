@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack } from "@/components/ds";
 
 
 export default function PercentageChangeTool() {
@@ -35,7 +35,7 @@ export default function PercentageChangeTool() {
             slotProps={{ input: { inputMode: "decimal", spellCheck: false, autoComplete: "off" } }}
           />
         </Stack>
-        <Box
+        <div
           className="p-4 rounded-[16px] border border-primary text-center"
         >
           <Typography variant="overline" color="text.secondary">
@@ -44,7 +44,7 @@ export default function PercentageChangeTool() {
           <Typography variant="h3" className="font-extrabold text-primary">
             {change !== null ? `${change.toFixed(2)}%` : "—"}
           </Typography>
-        </Box>
+        </div>
         {change !== null && (
           <Typography variant="body2" color="text.secondary">
             {change >= 0 ? "Increase" : "Decrease"}

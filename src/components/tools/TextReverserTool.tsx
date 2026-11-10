@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 type Mode = "chars" | "words" | "lines";
 
@@ -35,7 +35,7 @@ export default function TextReverserTool() {
           <ToggleButton value="words">Reverse words</ToggleButton>
           <ToggleButton value="lines">Reverse lines</ToggleButton>
         </ToggleButtonGroup>
-        <Box>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-1">
             <Typography variant="subtitle2" className="font-bold">
               Reversed text
@@ -51,7 +51,7 @@ export default function TextReverserTool() {
             fullWidth
             slotProps={{ input: { readOnly: true, "aria-label": "Reversed text", spellCheck: false } }}
           />
-        </Box>
+        </div>
       </ToolPaper>
   );
 }

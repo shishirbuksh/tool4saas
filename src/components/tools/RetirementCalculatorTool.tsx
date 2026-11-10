@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
 
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -100,7 +100,7 @@ export default function RetirementCalculatorTool() {
         {field("Annual rate (%)", rate, setRate, "%")}
         {field("Retirement goal (optional)", goal, setGoal)}
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -112,13 +112,13 @@ export default function RetirementCalculatorTool() {
         <Typography variant="body2" color="text.secondary">
           {years !== null ? `in ${years} year${years === 1 ? "" : "s"}` : "Enter valid ages to project"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total contributions</Typography>
           <Typography className="font-bold">{invested !== null ? money(invested, currency) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Retirement goal</Typography>
           <Typography className="font-bold">
             {shortfall !== null && future !== null
@@ -127,13 +127,13 @@ export default function RetirementCalculatorTool() {
                 ? money(parseFloat(goal), currency)
                 : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">{shortfall !== null && shortfall > 0 ? "Shortfall" : "Surplus"}</Typography>
           <Typography className="font-bold">
             {shortfall !== null ? money(Math.abs(shortfall), currency) : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">
         Disclaimer: This calculation is for illustration purposes only. Actual returns may vary due to

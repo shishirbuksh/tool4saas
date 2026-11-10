@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -93,7 +93,7 @@ export default function RefinanceCalculatorTool() {
         {field("Years left", yearsLeft, setYearsLeft)}
         {field("Closing costs", closingCosts, setClosingCosts)}
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -102,38 +102,38 @@ export default function RefinanceCalculatorTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {monthlySaving !== null && isFinite(monthlySaving) ? money(monthlySaving) : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Current EMI</Typography>
           <Typography className="font-bold">
             {oldEmi !== null && isFinite(oldEmi) ? money(oldEmi) : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">New EMI</Typography>
           <Typography className="font-bold">
             {newEmi !== null && isFinite(newEmi) ? money(newEmi) : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Current total interest</Typography>
           <Typography className="font-bold">
             {oldInterest !== null && isFinite(oldInterest) ? money(oldInterest) : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">New total interest</Typography>
           <Typography className="font-bold">
             {newInterest !== null && isFinite(newInterest) ? money(newInterest) : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Break-even (months)</Typography>
           <Typography className="font-bold">
             {breakEven !== null && isFinite(breakEven) ? breakEven.toFixed(1) : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">For informational purposes only — not financial advice. See /terms</Alert>
     </ToolPaper>

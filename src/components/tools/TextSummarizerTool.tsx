@@ -1,8 +1,8 @@
 
 import { useState, useMemo } from "react";
-import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Slider, Button, Alert, Box } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Slider, Button, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 export default function TextSummarizerTool() {
@@ -89,7 +89,7 @@ export default function TextSummarizerTool() {
         slotProps={{ input: { spellCheck: true, autoComplete: "off" } }}
       />
 
-      <Box className="max-w-[400px]">
+      <div className="max-w-[400px]">
         <Stack direction="row" className="items-center justify-between mb-1">
           <Typography variant="subtitle2" className="font-bold">
             Summary length
@@ -115,7 +115,7 @@ export default function TextSummarizerTool() {
         <Typography variant="caption" color="text.secondary">
           Ratio of sentences to keep (extractive). {sentencesCount > 0 ? `${summaryCount} of ${sentencesCount} sentences selected.` : ""}
         </Typography>
-      </Box>
+      </div>
 
       <Stack direction="row" spacing={1}>
         <Button
@@ -140,7 +140,7 @@ export default function TextSummarizerTool() {
       {!text.trim() ? (
         <Alert severity="info">Enter text above to generate a summary. The summarizer uses word-frequency scoring to pick the most representative sentences.</Alert>
       ) : (
-        <Box>
+        <div>
           <Stack direction="row" className="items-center justify-between mb-1">
             <Typography variant="subtitle2" className="font-bold">
               Summary
@@ -160,7 +160,7 @@ export default function TextSummarizerTool() {
             }}
             className="[&_textarea]:leading-[1.6]"
           />
-        </Box>
+        </div>
       )}
 
       <Typography variant="caption" color="text.secondary">

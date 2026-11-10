@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -62,7 +62,7 @@ export default function FreelanceRateCalculatorTool() {
         {field("Profit margin (%)", margin, setMargin, "%")}
       </Stack>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -74,19 +74,19 @@ export default function FreelanceRateCalculatorTool() {
         <Typography variant="caption" color="text.secondary">
           (salary + expenses) × (1 + margin / 100) ÷ hours
         </Typography>
-      </Box>
+      </div>
 
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Daily rate (8h)</Typography>
           <Typography className="font-bold">{daily !== null ? money(daily) : "—"}</Typography>
-        </Box>
-        <Box
+        </div>
+        <div
           className="flex justify-between p-3 rounded-[16px] border border-base-300"
         >
           <Typography color="text.secondary">Project total (all billable hours)</Typography>
           <Typography className="font-extrabold">{project !== null ? money(project) : "—"}</Typography>
-        </Box>
+        </div>
       </Stack>
 
       <Alert severity="warning">

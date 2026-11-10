@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel, Chip } from "@/components/ds";
+import { useMemo, useState } from "react";import { Typography, Stack, Alert, Select, MenuItem, FormControl, InputLabel, Chip } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import { calcIndiaCG } from "@/lib/finance-calc";
@@ -92,11 +92,11 @@ export default function CapitalGainsTool() {
             helperText="₹1.25L LTCG exemption / year"
           />
         ) : (
-          <Box className="flex-1 flex items-center">
+          <div className="flex-1 flex items-center">
             <Typography variant="caption" color="text.secondary">
               Slab applies only to property / gold STCG. LTCG is flat 12.5% + 4% cess.
             </Typography>
-          </Box>
+          </div>
         )}
       </Stack>
       {asset !== "equity" && (
@@ -105,7 +105,7 @@ export default function CapitalGainsTool() {
           property / gold &gt; 24 mo.
         </Typography>
       )}
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -128,46 +128,46 @@ export default function CapitalGainsTool() {
             <Chip label="Enter buy, sale & holding" variant="outlined" size="small" />
           )}
         </Stack>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Capital gain</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.gain) ? money(result.gain, "INR") : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Taxable gain</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.taxableGain) ? money(result.taxableGain, "INR") : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">
             Base tax{result !== null ? ` (${result.ratePct}%)` : ""}
           </Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.baseTax) ? money(result.baseTax, "INR") : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Cess (4%)</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.cess) ? money(result.cess, "INR") : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Net proceeds</Typography>
           <Typography className="font-bold">
             {result !== null && isFinite(result.netProceeds) ? money(result.netProceeds, "INR") : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Effective rate on gain</Typography>
           <Typography className="font-bold">
             {effectivePct !== null && isFinite(effectivePct) ? `${effectivePct.toFixed(2)}%` : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="warning">
         Simplified FY 2025-26 estimate only — no indexation, surcharge, or special cases. Verify with a CA before

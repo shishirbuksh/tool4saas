@@ -1,5 +1,5 @@
 
-import { useState } from "react";import { Box, Button, TextField, Typography, Stack, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import { useState } from "react";import { Button, TextField, Typography, Stack, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
 
@@ -397,7 +397,7 @@ export default function ScientificCalculatorTool() {
         slotProps={{ input: { spellCheck: false, autoComplete: "off" } }}
         
       />
-      <Box
+      <div
         className="p-4 rounded-[16px] border text-center" style={{ borderColor: error ? "error.main" : "primary.main" }}
       >
         <Typography variant="overline" color="text.secondary">
@@ -418,8 +418,8 @@ export default function ScientificCalculatorTool() {
             </Typography>
           )
         )}
-      </Box>
-      <Box className="grid grid-cols-5 gap-2">
+      </div>
+      <div className="grid grid-cols-5 gap-2">
         <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => setMemory(0)}>MC</Button>
         <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append(String(memory))}>MR</Button>
         <Button
@@ -514,17 +514,17 @@ export default function ScientificCalculatorTool() {
         <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("!")}>n!</Button>
         <Button size="small" variant="outlined" className="min-w-0 font-bold" onClick={() => append("^")}>^</Button>
         <Button size="small" variant="contained" className="min-w-0 font-bold" onClick={handleEquals}>=</Button>
-      </Box>
+      </div>
       {history.length > 0 && (
         <Stack spacing={1}>
           <Typography variant="overline" color="text.secondary">History</Typography>
           {history.map((h, idx) => (
-            <Box key={`${h.expr}-${h.res}-${idx}`} className="flex justify-between gap-4">
+            <div key={`${h.expr}-${h.res}-${idx}`} className="flex justify-between gap-4">
               <Typography variant="body2" color="text.secondary" className="break-all" style={{ fontFamily: "monospace" }}>
                 {h.expr}
               </Typography>
               <Typography variant="body2" className="font-bold" style={{ fontFamily: "monospace" }}>= {h.res}</Typography>
-            </Box>
+            </div>
           ))}
         </Stack>
       )}

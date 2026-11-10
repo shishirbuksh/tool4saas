@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControlLabel, Switch, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControlLabel, Switch, Alert } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 function randInt(min: number, max: number) {
@@ -61,15 +61,15 @@ export default function RandomNumberTool() {
         {error && <Alert severity="error">{error}</Alert>}
         <Button variant="contained" onClick={generate}>Generate</Button>
         {result.length > 0 && (
-          <Box>
+          <div>
             <Stack direction="row"   className="items-center justify-between mb-1">
               <Typography  variant="subtitle2"  className="font-bold">Results</Typography>
               <Button size="small" startIcon={<ContentCopyIcon />} onClick={() => void import("@/lib/clipboard").then(m=>m.copyToClipboard(result.join(", ")))}>Copy</Button>
             </Stack>
-            <Box className="p-4 border border-base-300 rounded-[16px] text-[14px] leading-[1.8]" style={{ fontFamily: "monospace" }}>
+            <div className="p-4 border border-base-300 rounded-[16px] text-[14px] leading-[1.8]" style={{ fontFamily: "monospace" }}>
               {result.join(", ")}
-            </Box>
-          </Box>
+            </div>
+          </div>
         )}
         <Typography variant="caption" color="text.secondary">
           Generated with your browser&apos;s cryptographic random generator.

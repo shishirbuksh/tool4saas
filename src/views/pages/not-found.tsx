@@ -1,4 +1,4 @@
-import { Container, Box, Typography, Button } from "@/components/ds";
+import { Container, Typography, Button } from "@/components/ds";
 
 import Link from "@/lib/astro/navigation";
 import ToolSearchIsland from "@/components/ToolSearchIsland";
@@ -24,15 +24,15 @@ export default function NotFoundView() {
       <Typography color="text.secondary" className="mb-8">
         The page you&apos;re looking for doesn&apos;t exist or has moved.
       </Typography>
-      <Box>
+      <div>
         <Button component={Link} href="/" variant="contained" size="large">
           Back to home
         </Button>
-      </Box>
-      <Box className="mt-8 max-w-[400px] mx-auto">
+      </div>
+      <div className="mt-8 max-w-[400px] mx-auto">
         <ToolSearchIsland className="w-full" />
-      </Box>
-      <Box className="mt-6 flex flex-wrap gap-2 justify-center">
+      </div>
+      <div className="mt-6 flex flex-wrap gap-2 justify-center">
         {POPULAR_TOOLS.map((t) => (
           <Button
             key={t.slug}
@@ -45,8 +45,8 @@ export default function NotFoundView() {
             {t.title}
           </Button>
         ))}
-      </Box>
-      <Box className="mt-4 flex flex-wrap gap-2 justify-center">
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2 justify-center">
         {POPULAR_CATEGORIES.map((c) => (
           <Button
             key={c.id}
@@ -59,7 +59,7 @@ export default function NotFoundView() {
             {c.label}
           </Button>
         ))}
-      </Box>
+      </div>
     </Container>
   );
 }

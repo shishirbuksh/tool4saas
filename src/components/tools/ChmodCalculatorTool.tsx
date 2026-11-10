@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Checkbox, FormControlLabel } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Checkbox, FormControlLabel } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 type Perm = { r: boolean; w: boolean; x: boolean };
 
@@ -26,7 +26,7 @@ function PermGroup({
   onChange: (next: Perm) => void;
 }) {
   return (
-    <Box className="flex-1 min-w-[0px] border border-base-300 rounded-[16px] p-4">
+    <div className="flex-1 min-w-[0px] border border-base-300 rounded-[16px] p-4">
       <Typography variant="subtitle2" className="font-bold mb-2">
         {label} ({digit})
       </Typography>
@@ -45,7 +45,7 @@ function PermGroup({
           />
         ))}
       </Stack>
-    </Box>
+    </div>
   );
 }
 
@@ -68,7 +68,7 @@ export default function ChmodCalculatorTool() {
         <PermGroup label="Group" digit={g} perm={group} onChange={setGroup} />
         <PermGroup label="Other" digit={t} perm={other} onChange={setOther} />
       </Stack>
-      <Box>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-1">
           <Typography variant="subtitle2" className="font-bold">
             Octal
@@ -87,8 +87,8 @@ export default function ChmodCalculatorTool() {
           slotProps={{ input: { readOnly: true, "aria-label": "Octal", spellCheck: false } }}
           className="[&_input]:[font-family:monospace] [&_input]:text-[16px]"
         />
-      </Box>
-      <Box>
+      </div>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-1">
           <Typography variant="subtitle2" className="font-bold">
             Symbolic
@@ -107,8 +107,8 @@ export default function ChmodCalculatorTool() {
           slotProps={{ input: { readOnly: true, "aria-label": "Symbolic", spellCheck: false } }}
           className="[&_input]:[font-family:monospace] [&_input]:text-[16px]"
         />
-      </Box>
-      <Box>
+      </div>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-1">
           <Typography variant="subtitle2" className="font-bold">
             Command
@@ -127,7 +127,7 @@ export default function ChmodCalculatorTool() {
           slotProps={{ input: { readOnly: true, "aria-label": "Command", spellCheck: false } }}
           className="[&_input]:[font-family:monospace] [&_input]:text-[16px]"
         />
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

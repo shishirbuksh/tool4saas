@@ -69,5 +69,5 @@ export { Collapse } from "./Collapse";
 export { Menu } from "./Menu";
 export { Drawer } from "./Drawer";
 export { Autocomplete } from "./Autocomplete";
-export { SvgIcon } from "./SvgIcon";
-export { default as Icon } from "./SvgIcon";
+
+

@@ -8,7 +8,7 @@ export const businessTools: Tool[] = [
     short: "Generate quotations, POs & receipts",
     description:
       "Generate quotations, purchase orders, delivery receipts, payslips, and offer letters with instant printable PDF downloads online on Tool4SaaS.",
-    icon: "Description",
+    icon: "FileText",
     keywords: [
       "document generator",
       "quotation generator",
@@ -92,7 +92,7 @@ export const businessTools: Tool[] = [
     short: "Free PDF with GST & logo",
     description:
       "Free invoice generator: create professional PDF invoices with logo, tax, GST rates, and itemized totals. Runs private and offline with no sign-up required.",
-    icon: "ReceiptLong",
+    icon: "Receipt",
     keywords: ["invoice generator", "download invoice pdf", "invoice maker with logo tax", "bill generator no signup", "free invoice generator", "hsn wise gstr-1 invoice template", "proforma vs tax invoice format", "sales receipt creator offline"],
     category: "business",
     faq: [
@@ -172,7 +172,7 @@ export const businessTools: Tool[] = [
     short: "Build a clean resume and export to PDF",
     description:
       "Create ATS-friendly resumes with experience, education and skills sections. Preview instantly and export to PDF offline. Free resume builder, no upload.",
-    icon: "Description",
+    icon: "FileText",
     keywords: ["resume builder", "one page resume format pdf download", "cv maker pdf free download", "fresher resume format india pdf", "free resume builder no signup", "workday greenhouse ats score check", "one page vs two page resume", "modern resume template free"],
     category: "business",
     faq: [
@@ -251,7 +251,7 @@ export const businessTools: Tool[] = [
     short: "Calculate sales commission",
     description:
       "Calculate sales commission payouts and gross earnings from deal values and commission rates with instant tiered estimates online on Tool4SaaS.",
-    icon: "AttachMoney",
+    icon: "DollarSign",
     keywords: [
       "commission calculator",
       "sales commission calculator",
@@ -334,7 +334,7 @@ export const businessTools: Tool[] = [
     short: "Check resume keyword match for ATS",
     description:
       "Compare your resume against job descriptions to identify missing keywords, evaluate match scores, and optimize formatting online on Tool4SaaS.",
-    icon: "VerifiedUser",
+    icon: "ShieldCheck",
     keywords: [
       "ats resume checker",
       "ats resume scan",
@@ -504,7 +504,7 @@ export const businessTools: Tool[] = [
     short: "Create tailored job cover letters",
     description:
       "Create tailored professional cover letters with customizable tones, structured accomplishment bullets, and print options online on Tool4SaaS.",
-    icon: "Description",
+    icon: "FileText",
     keywords: [
       "cover letter builder",
       "create cover letter online",

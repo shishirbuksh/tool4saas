@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 import { money, EPSILON_RATE } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -80,7 +80,7 @@ export default function RentVsBuyCalculatorTool() {
         {field("Horizon (years)", years, setYears)}
         {field("Appreciation (%/yr)", appreciation, setAppreciation)}
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -96,30 +96,30 @@ export default function RentVsBuyCalculatorTool() {
               : `Renting saves ${money(result.diff)} over ${years} years`
             : "Enter rent, price, rate, and years to compare"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Buy total (down + EMI × n)</Typography>
           <Typography className="font-bold">{result ? money(result.buyTotal) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Rent total (3% yearly hike)</Typography>
           <Typography className="font-bold">{result ? money(result.rentTotal) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Monthly EMI</Typography>
           <Typography className="font-bold">{result ? money(result.emi) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Projected home value</Typography>
           <Typography className="font-bold">{result ? money(result.homeValue) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Break-even</Typography>
           <Typography className="font-bold">
             {result ? (result.breakEven !== null ? `Year ${result.breakEven}` : `No break-even within ${years} years`) : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       <Alert severity="info">For informational purposes only — not financial advice. See /terms</Alert>
     </ToolPaper>

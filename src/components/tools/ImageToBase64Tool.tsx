@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Alert, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { validateImageFile, MAX_IMAGE_SIZE } from "@/lib/validate";
 
 const MAX_DATA_URL_SIZE = 15_000_000; // ~15M chars cap for pasted data URLs (≈11MB binary, base64 overhead)

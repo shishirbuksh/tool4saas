@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Slider, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 type Shape = "circle" | "ellipse" | "triangle" | "hexagon" | "star";
 
@@ -70,7 +70,7 @@ export default function CssClipPathTool() {
     set: (v: number) => void,
     unit = "%",
   ) => (
-    <Box className="max-w-[320px]">
+    <div className="max-w-[320px]">
       <Typography variant="subtitle2" className="font-bold mb-1">
         {label}: {value}
         {unit}
@@ -83,7 +83,7 @@ export default function CssClipPathTool() {
         onChange={(_, v) => set(Array.isArray(v) ? v[0] : v)}
         aria-label={label}
       />
-    </Box>
+    </div>
   );
 
   return (
@@ -119,14 +119,14 @@ export default function CssClipPathTool() {
       )}
       {(shape === "triangle" || shape === "hexagon" || shape === "star") &&
         sliderRow("Size", polySize, 10, 100, setPolySize)}
-      <Box
+      <div
         className="h-[160px] rounded-[16px] border border-base-300 flex items-center justify-center bg-base-100"
       >
-        <Box
+        <div
           className="w-[160px] h-[100px] bg-primary" style={{ clipPath: clipPath }}
         />
-      </Box>
-      <Box>
+      </div>
+      <div>
         <Stack direction="row" className="items-center justify-between mb-1">
           <Typography variant="subtitle2" className="font-bold">
             CSS
@@ -141,7 +141,7 @@ export default function CssClipPathTool() {
           slotProps={{ input: { readOnly: true, "aria-label": "CSS clip-path", spellCheck: false } }}
           className="[&_input]:[font-family:monospace] [&_input]:text-[13px]"
         />
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

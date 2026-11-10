@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Link, Slider, TextField, Alert } from "@/components/ds";
 
-import { CloudUpload as CloudUploadIcon, Compress as CompressIcon, Download as DownloadIcon } from "@/components/ds/icons";
+import { UploadCloudIcon as CloudUploadIcon, Minimize2Icon as CompressIcon, DownloadIcon } from "@/components/ui/icons";
 import { validateImageFile, validateImageDimensions, MAX_IMAGE_SIZE, MAX_DIMENSION, MAX_PIXELS } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
 

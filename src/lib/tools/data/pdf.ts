@@ -94,7 +94,7 @@ export const pdfTools: Tool[] = [
     short: "Merge, split & organize PDF pages",
     description:
       "Merge multiple PDF files into one document, extract specific page ranges, and reorganize PDF sheets securely in your browser online on Tool4SaaS.",
-    icon: "PictureAsPdf",
+    icon: "FileText",
     keywords: [
       "pdf merge",
       "merge pdf files",
@@ -178,7 +178,7 @@ export const pdfTools: Tool[] = [
     short: "Inspect PDF file structure & size",
     description:
       "Inspect PDF file headers, page dimensions, internal object structures, and uncompressed byte weights securely in your browser online on Tool4SaaS.",
-    icon: "PictureAsPdf",
+    icon: "FileText",
     keywords: [
       "pdf file checker",
       "inspect pdf file",
@@ -262,7 +262,7 @@ export const pdfTools: Tool[] = [
     short: "Convert PDF pages to JPG images",
     description:
       "Convert PDF pages into high-resolution JPG images with custom DPI scaling, quality adjustments, and single-click downloads online on Tool4SaaS.",
-    icon: "PictureAsPdf",
+    icon: "FileText",
     keywords: [
       "pdf to jpg",
       "convert pdf to jpg online",
@@ -347,7 +347,7 @@ export const pdfTools: Tool[] = [
     short: "Extract selectable text from PDF documents",
     description:
       "PDF to text converter extracts selectable text layers from PDF files into plain TXT format without uploading documents to servers on Tool4SaaS.",
-    icon: "Description",
+    icon: "FileText",
     keywords: [
         "pdf to text",
         "extract text from pdf",

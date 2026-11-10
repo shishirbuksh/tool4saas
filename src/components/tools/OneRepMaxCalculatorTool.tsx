@@ -1,5 +1,5 @@
 
-import { useState, useMemo } from "react";import { Box, Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Alert } from "@/components/ds";
+import { useState, useMemo } from "react";import { Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Alert } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
 import { fmt1 } from "@/lib/format";
@@ -48,7 +48,7 @@ export default function OneRepMaxCalculatorTool() {
           onChange={(e) => setReps(e.target.value)}
           slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
         />
-        <Box className="flex items-center">
+        <div className="flex items-center">
           <ToggleButtonGroup
             size="small"
             value={unit}
@@ -59,10 +59,10 @@ export default function OneRepMaxCalculatorTool() {
             <ToggleButton value="kg">kg</ToggleButton>
             <ToggleButton value="lb">lb</ToggleButton>
           </ToggleButtonGroup>
-        </Box>
+        </div>
       </Stack>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -74,9 +74,9 @@ export default function OneRepMaxCalculatorTool() {
         <Typography variant="caption" color="text.secondary">
           Epley: w × (1 + r / 30)
         </Typography>
-      </Box>
+      </div>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-base-300 text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -88,18 +88,18 @@ export default function OneRepMaxCalculatorTool() {
         <Typography variant="caption" color="text.secondary">
           Brzycki: w × 36 / (37 − r)
         </Typography>
-      </Box>
+      </div>
 
       <Stack spacing={1.5}>
         {ZONES.map((pct) => {
           const value = average !== null ? (average * pct) / 100 : null;
           return (
-            <Box key={pct} className="flex justify-between">
+            <div key={pct} className="flex justify-between">
               <Typography color="text.secondary">{pct}% of 1RM (avg)</Typography>
               <Typography className="font-bold">
                 {value !== null ? `${fmt1(value)} ${unit}` : "—"}
               </Typography>
-            </Box>
+            </div>
           );
         })}
         <Typography variant="caption" color="text.secondary">

@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Alert } from "@/components/ds";
 
 
 export default function UrlParserTool() {
@@ -56,31 +56,31 @@ export default function UrlParserTool() {
         {parsed && parsed !== "error" && (
           <Stack spacing={1}>
             {rows.map(([k, v]) => (
-              <Box
+              <div
                 key={k}
                 className="flex gap-4 p-3 rounded-[16px] border border-base-300"
               >
                 <Typography className="w-[110px] font-bold text-base-content/70">{k}</Typography>
                 <Typography className="text-[14px] break-all" style={{ fontFamily: "monospace" }}>{v}</Typography>
-              </Box>
+              </div>
             ))}
             {parsed.params.length > 0 && (
-              <Box className="mt-2">
+              <div className="mt-2">
                 <Typography variant="subtitle2" className="font-bold mb-2">
                   Query parameters
                 </Typography>
                 <Stack spacing={1}>
                   {parsed.params.map(([k, v]) => (
-                    <Box
+                    <div
                       key={k}
                       className="flex gap-4 p-3 rounded-[16px] border border-base-300"
                     >
                       <Typography className="w-[160px] font-semibold text-primary">{k}</Typography>
                       <Typography className="text-[14px] break-all" style={{ fontFamily: "monospace" }}>{v}</Typography>
-                    </Box>
+                    </div>
                   ))}
                 </Stack>
-              </Box>
+              </div>
             )}
           </Stack>
         )}

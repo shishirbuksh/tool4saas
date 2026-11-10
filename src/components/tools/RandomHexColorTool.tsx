@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback } from 'react';import { Stack, Box, Button, TextField, Typography } from "@/components/ds";
+import React, { useState, useCallback } from 'react';import { Stack, Button, TextField, Typography } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
 
@@ -47,20 +47,20 @@ export default function RandomHexColorTool() {
       </Stack>
 
       {colors.length > 0 ? (
-        <Box className="p-2 border border-base-300 rounded-[16px] bg-base-100">
+        <div className="p-2 border border-base-300 rounded-[16px] bg-base-100">
           <Stack direction="row" spacing={2} className="flex-wrap gap-4">
             {colors.map((color, idx) => (
-              <Box key={idx} className="text-center">
-                <Box
+              <div key={idx} className="text-center">
+                <div
                   className="w-[100px] h-[100px] rounded-[8px] border border-[#ccc] mb-2" style={{ backgroundColor: color }}
                 />
                 <Typography variant="body2" style={{ fontFamily: "monospace" }}>
                   {color}
                 </Typography>
-              </Box>
+              </div>
             ))}
           </Stack>
-        </Box>
+        </div>
       ) : (
         <Typography variant="body2" color="text.secondary">
           Choose a number and generate a palette — colors appear with copy-ready hex.

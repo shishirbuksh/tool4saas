@@ -1,6 +1,6 @@
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 import { useRouter } from "@/lib/astro/navigation";
-import { Search as SearchIcon } from "@/components/ds/icons";
+import { SearchIcon } from "@/components/ui/icons";
 import { SEARCH_TOOLS, type SearchTool } from "@/lib/tools/search-index.generated";
 
 type ToolSearchProps = {

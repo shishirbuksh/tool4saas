@@ -1,5 +1,5 @@
 
-import { useState, useMemo } from "react";import { Box, Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+import { useState, useMemo } from "react";import { Stack, TextField, Typography, ToggleButton, ToggleButtonGroup, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
 import { fmt0 } from "@/lib/format";
@@ -53,7 +53,7 @@ export default function CalorieCalculatorTool() {
           onChange={(e) => setAge(e.target.value)}
           slotProps={{ input: { inputMode: "numeric", spellCheck: false, autoComplete: "off" } }}
         />
-        <Box className="flex items-center">
+        <div className="flex items-center">
           <ToggleButtonGroup
             size="small"
             value={sex}
@@ -64,7 +64,7 @@ export default function CalorieCalculatorTool() {
             <ToggleButton value="male">Male</ToggleButton>
             <ToggleButton value="female">Female</ToggleButton>
           </ToggleButtonGroup>
-        </Box>
+        </div>
       </Stack>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
@@ -97,7 +97,7 @@ export default function CalorieCalculatorTool() {
         </Select>
       </FormControl>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -109,9 +109,9 @@ export default function CalorieCalculatorTool() {
         <Typography variant="caption" color="text.secondary">
           Mifflin-St Jeor: {sex === "male" ? "10×kg + 6.25×cm − 5×age + 5" : "10×kg + 6.25×cm − 5×age − 161"}
         </Typography>
-      </Box>
+      </div>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-base-300 text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -123,25 +123,25 @@ export default function CalorieCalculatorTool() {
         <Typography variant="caption" color="text.secondary">
           TDEE = BMR × {activity}
         </Typography>
-      </Box>
+      </div>
 
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Maintain weight</Typography>
           <Typography className="font-bold">{tdee !== null ? `${fmt(tdee)} kcal` : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Mild weight loss (−500 kcal)</Typography>
           <Typography className="font-bold">{deficit !== null ? `${fmt(deficit)} kcal` : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Weight loss (−1000 kcal)</Typography>
           <Typography className="font-bold">{aggressiveDeficit !== null ? `${fmt(aggressiveDeficit)} kcal` : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Mild weight gain (+500 kcal)</Typography>
           <Typography className="font-bold">{surplus !== null ? `${fmt(surplus)} kcal` : "—"}</Typography>
-        </Box>
+        </div>
       </Stack>
 
       <Alert severity="warning">For informational purposes only — not medical advice.</Alert>

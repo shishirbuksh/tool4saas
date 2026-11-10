@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControlLabel, Checkbox } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControlLabel, Checkbox } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { UINT32_MAX_PLUS_ONE } from "@/lib/format";
 
 const SETS = {
@@ -85,7 +85,7 @@ export default function RandomStringTool() {
           Generate
         </Button>
         {results.length > 0 && (
-          <Box>
+          <div>
             <Stack direction="row" className="items-center justify-between mb-1">
               <Typography variant="subtitle2" className="font-bold">
                 Results
@@ -96,7 +96,7 @@ export default function RandomStringTool() {
             </Stack>
             <Stack spacing={1}>
               {results.map((r, i) => (
-                <Box
+                <div
                   key={i}
                   className="flex justify-between items-center p-3 rounded-[16px] border border-base-300 text-[14px]" style={{ fontFamily: "monospace" }}
                 >
@@ -104,10 +104,10 @@ export default function RandomStringTool() {
                   <Button size="small" onClick={() => copy(r)}>
                     Copy
                   </Button>
-                </Box>
+                </div>
               ))}
             </Stack>
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

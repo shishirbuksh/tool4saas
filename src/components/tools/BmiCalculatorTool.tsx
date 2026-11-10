@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Link, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Link, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
 import { BMI_UNDERWEIGHT, BMI_NORMAL, BMI_OVERWEIGHT, KG_PER_LB, METERS_PER_INCH, fmt1 } from "@/lib/format";
@@ -72,7 +72,7 @@ export default function BmiCalculatorTool() {
             
           />
         </Stack>
-        <Box
+        <div
           className="p-4 rounded-[16px] border border-base-300 text-center"
         >
           <Typography variant="overline" color="text.secondary">
@@ -98,7 +98,7 @@ export default function BmiCalculatorTool() {
               </Typography>
             </>
           )}
-        </Box>
+        </div>
     </ToolPaper>
   );
 }

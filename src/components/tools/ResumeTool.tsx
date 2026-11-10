@@ -1,8 +1,8 @@
 
-import { useState } from "react";import { Paper, Box, TextField, Button, Typography, Grid, IconButton, Stack, Link } from "@/components/ds";
+import { useState } from "react";import { Paper, TextField, Button, Typography, Grid, IconButton, Stack, Link } from "@/components/ds";
 
 import ToolPaper from "@/components/ToolPaper";
-import { Delete as DeleteIcon, Add as AddIcon, Print as PrintIcon } from "@/components/ds/icons";
+import { Trash2Icon as DeleteIcon, PlusIcon as AddIcon, PrinterIcon as PrintIcon } from "@/components/ui/icons";
 
 type Exp = { role: string; company: string; period: string; desc: string };
 type Edu = { school: string; degree: string; period: string };
@@ -23,7 +23,7 @@ export default function ResumeTool() {
   const setEdu = (i: number, p: Partial<Edu>) => setEdus((a) => a.map((x, idx) => (idx === i ? { ...x, ...p } : x)));
 
   return (
-    <Box>
+    <div>
       <Stack direction="row"   className="items-center justify-between mb-4">
         <Typography variant="h3" className="text-[20px]">Resume content</Typography>
         <Button variant="contained" startIcon={<PrintIcon />} onClick={() => window.print()}>Download / Print PDF</Button>
@@ -45,7 +45,7 @@ export default function ResumeTool() {
               <Grid size={{ xs: 6 }}><TextField label="Role" fullWidth value={x.role} onChange={(e) => setExp(i, { role: e.target.value })} /></Grid>
               <Grid size={{ xs: 6 }}><TextField label="Company" fullWidth value={x.company} onChange={(e) => setExp(i, { company: e.target.value })} /></Grid>
               <Grid size={{ xs: 12, sm: 6 }} ><TextField label="Period" fullWidth value={x.period} onChange={(e) => setExp(i, { period: e.target.value })} /></Grid>
-              <Grid size={{ xs: 12, sm: 6 }} ><Box className="flex justify-end"><IconButton onClick={() => setExps((a) => (a.length > 1 ? a.filter((_, idx) => idx !== i) : a))} aria-label="remove experience"><DeleteIcon /></IconButton></Box></Grid>
+              <Grid size={{ xs: 12, sm: 6 }} ><div className="flex justify-end"><IconButton onClick={() => setExps((a) => (a.length > 1 ? a.filter((_, idx) => idx !== i) : a))} aria-label="remove experience"><DeleteIcon /></IconButton></div></Grid>
               <Grid size={{ xs: 12 }}><TextField label="Description" multiline minRows={2} fullWidth value={x.desc} onChange={(e) => setExp(i, { desc: e.target.value })} /></Grid>
             </Grid>
           </Stack>
@@ -66,7 +66,7 @@ export default function ResumeTool() {
         <Button startIcon={<AddIcon />} onClick={() => setEdus((a) => [...a, edu()])}>Add education</Button>
       </ToolPaper>
 
-      <Box className="my-4 flex gap-2 flex-wrap items-center">
+      <div className="my-4 flex gap-2 flex-wrap items-center">
         <Typography variant="caption" color="text.secondary">
           Writing tips: Ensure your resume clears automated screeners with our{" "}
           <Link href="/blog/resume-builder-guide/ats-resume-guide" underline="hover" color="primary">
@@ -77,56 +77,56 @@ export default function ResumeTool() {
             7 resume mistakes that cost interviews
           </Link>.
         </Typography>
-      </Box>
+      </div>
 
       {/* Printable resume */}
       {/* Note: Colors are intentionally hardcoded (light theme) for print fidelity. 
           This serves as a WYSIWYG preview for the paper output even when the app is in dark mode. */}
       <Paper id="resume-print" style={{ backgroundColor: "#ffffff", color: "#0f172a" }} className="p-6 sm:p-12 max-w-[800px] mx-auto !bg-white !text-slate-900 border border-slate-200">
-        <Box className="pb-4 mb-6" style={{ borderBottom: "2px solid #0f172a" }}>
+        <div className="pb-4 mb-6" style={{ borderBottom: "2px solid #0f172a" }}>
           <Typography className="text-[28px] font-extrabold text-[#0f172a]">{name}</Typography>
           <Typography className="text-[15px] text-[#2563eb] font-semibold">{title}</Typography>
           <Typography className="text-[12px] text-[#475569] mt-1">{contact}</Typography>
-        </Box>
+        </div>
         <Section title="Summary">
           <Typography className="text-[13px] text-[#334155] whitespace-pre-line">{summary}</Typography>
         </Section>
         <Section title="Experience">
           {exps.map((x, i) => (
-            <Box key={i} className="mb-4 break-inside-avoid">
-              <Box className="flex justify-between">
+            <div key={i} className="mb-4 break-inside-avoid">
+              <div className="flex justify-between">
                 <Typography className="font-bold text-[#0f172a] text-[14px]">{x.role}</Typography>
                 <Typography className="text-[12px] text-[#64748b]">{x.period}</Typography>
-              </Box>
+              </div>
               <Typography className="text-[13px] text-[#2563eb] mb-0.5">{x.company}</Typography>
               <Typography className="text-[13px] text-[#334155] whitespace-pre-line">{x.desc}</Typography>
-            </Box>
+            </div>
           ))}
         </Section>
         <Section title="Education">
           {edus.map((x, i) => (
-            <Box key={i} className="mb-4 break-inside-avoid">
-              <Box className="flex justify-between">
+            <div key={i} className="mb-4 break-inside-avoid">
+              <div className="flex justify-between">
                 <Typography className="font-semibold text-[#0f172a] text-[14px]">{x.school}</Typography>
                 <Typography className="text-[12px] text-[#64748b]">{x.period}</Typography>
-              </Box>
+              </div>
               <Typography className="text-[13px] text-[#334155]">{x.degree}</Typography>
-            </Box>
+            </div>
           ))}
         </Section>
         <Section title="Skills">
           <Typography className="text-[13px] text-[#334155]">{skills}</Typography>
         </Section>
       </Paper>
-    </Box>
+    </div>
   );
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <Box className="mb-6">
+    <div className="mb-6">
       <Typography className="text-[12px] font-extrabold uppercase tracking-[1px] text-[#64748b] mb-2">{title}</Typography>
       {children}
-    </Box>
+    </div>
   );
 }

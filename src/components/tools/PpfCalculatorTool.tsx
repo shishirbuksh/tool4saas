@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, Typography, Stack, Alert, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@/components/ds";
+import { useMemo, useState } from "react";import { Typography, Stack, Alert, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import { ppfMaturity } from "@/lib/finance-calc";
@@ -64,7 +64,7 @@ export default function PpfCalculatorTool() {
           helperText={years.trim() !== "" && !yearsValid ? "15–50 years, in 5-year blocks" : "15–50 years, step 5"}
         />
       </Stack>
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -73,23 +73,23 @@ export default function PpfCalculatorTool() {
         <Typography variant="h3" className="font-extrabold text-primary">
           {result !== null ? money(result.maturity, "INR") : "—"}
         </Typography>
-      </Box>
+      </div>
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Total invested</Typography>
           <Typography className="font-bold">
             {result !== null ? money(result.invested, "INR") : "—"}
           </Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Interest earned</Typography>
           <Typography className="font-bold">
             {result !== null ? money(result.interest, "INR") : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
       {schedule.length > 0 && (
-        <Box>
+        <div>
           <Typography variant="subtitle1" className="font-bold mb-2">
             Year-wise balance schedule
           </Typography>
@@ -115,7 +115,7 @@ export default function PpfCalculatorTool() {
               </TableBody>
             </Table>
           </TableContainer>
-        </Box>
+        </div>
       )}
       <Alert severity="info">
         Rate disclaimer: 7.1% p.a. is the Q2 FY2026-27 notified PPF rate, compounded annually. The Finance

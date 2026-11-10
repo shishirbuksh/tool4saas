@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from "react";import { Box, TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
+import { useMemo, useState } from "react";import { TextField, Typography, Stack, Select, MenuItem, FormControl, InputLabel, Alert } from "@/components/ds";
 
 import { money } from "@/lib/format";
 import ToolPaper from "@/components/ToolPaper";
@@ -101,15 +101,15 @@ export default function IncomeTaxCalculatorTool() {
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         {field("Standard deduction", deduction, setDeduction)}
-        <Box className="flex-1 flex items-center">
+        <div className="flex-1 flex items-center">
           <Typography variant="caption" color="text.secondary">
             Demo brackets: 10% to $11k · 12% to $44k · 22% to $95k · 24% above. Married doubles the demo
             thresholds.
           </Typography>
-        </Box>
+        </div>
       </Stack>
 
-      <Box
+      <div
         className="p-4 rounded-[16px] border border-primary text-center"
       >
         <Typography variant="overline" color="text.secondary">
@@ -121,31 +121,31 @@ export default function IncomeTaxCalculatorTool() {
         <Typography variant="caption" color="text.secondary">
           Net = Gross − Estimated tax (progressive on taxable income)
         </Typography>
-      </Box>
+      </div>
 
       <Stack spacing={1.5}>
-        <Box className="flex justify-between">
+        <div className="flex justify-between">
           <Typography color="text.secondary">Taxable income</Typography>
           <Typography className="font-bold">{taxable !== null ? money(taxable, currency) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Estimated tax</Typography>
           <Typography className="font-bold">{tax !== null ? money(tax, currency) : "—"}</Typography>
-        </Box>
-        <Box className="flex justify-between">
+        </div>
+        <div className="flex justify-between">
           <Typography color="text.secondary">Effective tax rate</Typography>
           <Typography className="font-bold">
             {effectiveRate !== null ? `${effectiveRate.toFixed(2)}%` : "—"}
           </Typography>
-        </Box>
-        <Box
+        </div>
+        <div
           className="flex justify-between p-3 rounded-[16px] border border-base-300"
         >
           <Typography color="text.secondary">Gross annual</Typography>
           <Typography className="font-extrabold">
             {gross !== "" && isFinite(parseFloat(gross)) ? money(parseFloat(gross), currency) : "—"}
           </Typography>
-        </Box>
+        </div>
       </Stack>
 
       <Alert severity="warning">

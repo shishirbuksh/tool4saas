@@ -1,8 +1,8 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Typography, Stack, Button, ToggleButton, ToggleButtonGroup } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Typography, Stack, Button, ToggleButton, ToggleButtonGroup } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 import { copyToClipboard } from "@/lib/clipboard";
 
 type Mode = "encode" | "decode";
@@ -121,7 +121,7 @@ export default function MorseTranslatorTool() {
         style={{ fontFamily: "monospace" }}
       />
 
-      <Box>
+      <div>
         <Stack
           direction="row"
           className="items-center justify-between mb-1"
@@ -147,7 +147,7 @@ export default function MorseTranslatorTool() {
           slotProps={{ input: { readOnly: true, "aria-label": "Output", spellCheck: false } }}
           className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
         />
-      </Box>
+      </div>
 
       <Typography variant="caption" color="text.secondary">
         {mode === "encode"

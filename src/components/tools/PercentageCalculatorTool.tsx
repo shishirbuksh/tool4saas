@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControl, InputLabel, Select, MenuItem } from "@/components/ds";
 
 
 type Mode = "of" | "what" | "change";
@@ -62,9 +62,9 @@ export default function PercentageCalculatorTool() {
         </Stack>
         <Button variant="contained" onClick={calc}>Calculate</Button>
         {result && (
-          <Box className="p-4 bg-primary rounded-[16px] whitespace-pre-line" style={{ color: "var(--color-primary-content)" }}>
+          <div className="p-4 bg-primary rounded-[16px] whitespace-pre-line" style={{ color: "var(--color-primary-content)" }}>
             <Typography  variant="h5"  className="font-extrabold">{result}</Typography>
-          </Box>
+          </div>
         )}
       </ToolPaper>
   );

@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, Chip } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, Chip } from "@/components/ds";
 
 
 type Mode = "wake" | "bed";
@@ -80,7 +80,7 @@ export default function SleepCycleCalculatorTool() {
   return (
     <ToolPaper spacing={3}>
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-end">
-        <Box className="flex gap-2">
+        <div className="flex gap-2">
           <Button
             variant={mode === "wake" ? "contained" : "outlined"}
             onClick={() => handleModeChange("wake")}
@@ -95,7 +95,7 @@ export default function SleepCycleCalculatorTool() {
           >
             Sleep at
           </Button>
-        </Box>
+        </div>
         <TextField
           label={mode === "wake" ? "I want to wake up at" : "I want to go to bed at"}
           type="time"
@@ -118,7 +118,7 @@ export default function SleepCycleCalculatorTool() {
         />
       </Stack>
 
-      <Box
+      <div
         className="p-6 rounded-[16px] border border-base-300 bg-base-100"
       >
         {baseMinutes === null ? (
@@ -132,24 +132,24 @@ export default function SleepCycleCalculatorTool() {
             </Typography>
             <Stack spacing={1} className="mt-4" aria-live="polite">
               {results.map((r) => (
-                <Box
+                <div
                   key={r.cycles}
                   className="flex items-center justify-between gap-4 p-3 rounded-[16px] border" style={{ borderColor: r.recommended ? "primary.main" : "divider", backgroundColor: r.recommended ? "primary.light" : "background.paper" }}
                 >
-                  <Box>
+                  <div>
                     <Typography variant="h6" className="font-extrabold leading-[1.2]" style={{ fontFamily: "monospace" }}>
                       {r.label}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
                       {r.cycles} cycles &middot; {formatDuration(r.sleepMinutes)} sleep
                     </Typography>
-                  </Box>
+                  </div>
                   {r.recommended ? (
                     <Chip label="Recommended (5–6 cycles)" color="primary" size="small" />
                   ) : (
                     <Chip label={`${r.cycles} cycles`} variant="outlined" size="small" />
                   )}
-                </Box>
+                </div>
               ))}
             </Stack>
             <Typography variant="caption" color="text.secondary" className="mt-4 block">
@@ -158,9 +158,9 @@ export default function SleepCycleCalculatorTool() {
             </Typography>
           </>
         )}
-      </Box>
+      </div>
 
-      <Box className="p-4 rounded-[16px] border border-base-300 bg-base-100">
+      <div className="p-4 rounded-[16px] border border-base-300 bg-base-100">
         <Typography variant="subtitle2" className="font-bold mb-2">
           How it works
         </Typography>
@@ -169,7 +169,7 @@ export default function SleepCycleCalculatorTool() {
           &ldquo;Wake up at&rdquo; mode we subtract cycles backwards from your alarm; in &ldquo;Sleep at&rdquo; mode we add cycles
           forwards from your bedtime.
         </Typography>
-      </Box>
+      </div>
     </ToolPaper>
   );
 }

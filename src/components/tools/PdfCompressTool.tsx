@@ -1,6 +1,6 @@
 
 import { useState, useRef } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, Button, Typography, Alert } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Button, Typography, Alert } from "@/components/ds";
 
 import { MAX_PDF_SIZE, validatePdfFile, validatePdfMagicBytes } from "@/lib/validate";
 import { fmtBytes } from "@/lib/format";
@@ -88,11 +88,11 @@ export default function PdfCompressTool() {
       {file && <Alert severity="info">Selected: {file.name} ({fmtBytes(file.size)})</Alert>}
       {error && <Alert severity="error">{error}</Alert>}
       {result && <Alert severity="success">{result}</Alert>}
-      <Box>
+      <div>
         <Button variant="contained" onClick={checkPdf} disabled={!file || busy}>
           {busy ? "Checking…" : "Check PDF"}
         </Button>
-      </Box>
+      </div>
       <Alert severity="warning">
         This page validates a PDF but does not make it smaller. Re-export the source document at lower image
         resolution when you need compression.

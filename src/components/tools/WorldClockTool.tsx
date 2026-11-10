@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Typography, Box, Stack, TextField, Button, MenuItem, Select, FormControl, InputLabel } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { Typography, Stack, TextField, Button, MenuItem, Select, FormControl, InputLabel } from "@/components/ds";
 
 import { MS_PER_MINUTE } from "@/lib/format";
 
@@ -170,14 +170,14 @@ export default function WorldClockTool() {
 
   return (
     <ToolPaper spacing={3}>
-      <Box>
+      <div>
         <Typography variant="h6" className="font-extrabold">
           World Clock
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Current time in 5 cities updating every second. Add any IANA timezone (e.g. Asia/Kolkata).
         </Typography>
-      </Box>
+      </div>
 
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2} className="items-start">
         <TextField
@@ -238,7 +238,7 @@ export default function WorldClockTool() {
         </Button>
       </Stack>
 
-      <Box
+      <div
         className="grid grid-cols-[1fr] sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-4"
       >
         {cities.map((city) => {
@@ -246,7 +246,7 @@ export default function WorldClockTool() {
           const date = now ? formatDate(city.zone, now) : "—";
           const offset = now ? formatOffset(city.zone, now) : "—";
           return (
-            <Box
+            <div
               key={city.zone}
               className="p-4 rounded-[16px] border border-base-300 bg-base-100 text-center"
             >
@@ -266,15 +266,15 @@ export default function WorldClockTool() {
               <Typography variant="caption" color="text.secondary">
                 {date}
               </Typography>
-              <Box className="mt-2">
+              <div className="mt-2">
                 <Button size="small" color="inherit" onClick={() => handleRemove(city.zone)}>
                   Remove
                 </Button>
-              </Box>
-            </Box>
+              </div>
+            </div>
           );
         })}
-      </Box>
+      </div>
 
       <Typography variant="caption" color="text.secondary" className="block text-center">
         Times rendered via Intl.DateTimeFormat with timeZone and refreshed every second via setInterval.

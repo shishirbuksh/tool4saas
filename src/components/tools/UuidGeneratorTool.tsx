@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import ToolPaper from "@/components/ToolPaper";import { Box, TextField, Button, Typography, Stack, FormControlLabel, Switch } from "@/components/ds";
+import ToolPaper from "@/components/ToolPaper";import { TextField, Button, Typography, Stack, FormControlLabel, Switch } from "@/components/ds";
 
-import { ContentCopy as ContentCopyIcon } from "@/components/ds/icons";
+import { CopyIcon as ContentCopyIcon } from "@/components/ui/icons";
 
 export default function UuidGeneratorTool() {
   const [count, setCount] = useState(5);
@@ -34,7 +34,7 @@ export default function UuidGeneratorTool() {
           <Button variant="outlined" startIcon={<ContentCopyIcon />} onClick={() => void import("@/lib/clipboard").then(m=>m.copyToClipboard(result))} disabled={!result}>Copy</Button>
         </Stack>
         {result && (
-          <Box>
+          <div>
             <Typography  variant="subtitle2"  gutterBottom className="font-bold">{result.split("\n").length} UUIDs (v4)</Typography>
             <TextField
               value={result}
@@ -44,7 +44,7 @@ export default function UuidGeneratorTool() {
               slotProps={{ input: { readOnly: true, "aria-label": "Generated UUIDs", spellCheck: false } }}
               className="[&_textarea]:[font-family:monospace] [&_textarea]:text-[13px]"
             />
-          </Box>
+          </div>
         )}
         <Typography variant="caption" color="text.secondary">
           Generated with crypto.randomUUID() — RFC 4122 version 4.
