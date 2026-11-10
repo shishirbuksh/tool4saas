@@ -28,7 +28,10 @@ const rawSameAs = (ENV.PUBLIC_SAME_AS ?? ENV.NEXT_PUBLIC_SAME_AS ?? "").trim();
 
 export const siteConfig = {
   name: "Tool4SaaS",
-  title: `${VISIBLE_TOOL_COUNT} Free Online Tools – PDF, Image, Text & Calculators | Tool4SaaS`,
+  // Keep the default title <= 60 chars so the homepage (which uses this value
+  // verbatim) is not truncated in SERPs. resolveTitle() appends `| Tool4SaaS`
+  // to page titles, so the brand is still present everywhere else.
+  title: `${VISIBLE_TOOL_COUNT} Free Online Tools – PDF, Image, Text & Calculators`,
   description: `Use ${VISIBLE_TOOL_COUNT} free online tools for PDFs, images, text, coding and calculations. No signup required. Most tools process your data locally in your browser.`,
   keywords: [
     "free online tools",

@@ -90,7 +90,10 @@ export function homeMetadata(): PageMeta {
   const base = siteConfig.url.replace(/\/$/, "");
   const ogImage = `${base}/og/home`;
   return {
-    title: siteConfig.title,
+    // Absolute so resolveTitle() does not append `| Tool4SaaS`: the default
+    // title is already 54 chars and a 66-char homepage title gets truncated
+    // in SERPs. The brand still appears in the OG site_name / application-name.
+    title: { absolute: siteConfig.title },
     description: siteConfig.description,
     alternates: {
       canonical: base,

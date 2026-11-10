@@ -5,7 +5,7 @@ export const calculatorsTools: Tool[] = [
     slug: "percentage-calculator",
     title: "Percentage Calculator",
     short: "Percent of, change & difference",
-    description: "Find X% of Y, what percent one number is of another, old-to-new percentage change and symmetric percentage difference with clear steps. All math runs privately offline.",
+    description: "Find X% of Y, percent change and percentage difference with clear steps. All math runs privately offline in your browser.",
     icon: "Percent",
     keywords: ["percentage calculator", "percent of a number", "what percent calculator", "percentage change calculator", "percentage difference calculator", "percent increase and decrease", "percentage vs percentage points explained", "what percent is 30 of 150"],
     category: "calculators",

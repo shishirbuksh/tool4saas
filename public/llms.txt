@@ -17,7 +17,7 @@
 - [Business & Writing](https://tool4saas.com/category/business): Create invoices, resumes, quotations and receipts instantly in your browser with 7 free business document generators.
 - [Developer Tools](https://tool4saas.com/category/developer): Encode Base64, hash, format JSON and SQL, test regex and validate code with 22 free developer utilities that run locally.
 - [Converters](https://tool4saas.com/category/converters): Convert units, currencies, YAML, JSON, CSV and number systems instantly with 10 free offline converters in one click.
-- [Generators](https://tool4saas.com/category/generators): Generate strong passwords and passphrases, random numbers, strings and UUIDs, coin flips, dice rolls, favicons and robots.txt with 8 free privacy-friendly generator tools.
+- [Generators](https://tool4saas.com/category/generators): Generate passwords, random numbers, UUIDs, coin flips, dice rolls, favicons and robots.txt with 8 free privacy-friendly generator tools.
 - [Images & Design](https://tool4saas.com/category/images-design): Generate QR codes, compress, resize, crop and frame images, extract colors and build gradients with 12 free design tools offline.
 - [PDF Tools](https://tool4saas.com/category/pdf): Merge, split, compress and convert PDFs and images to PDF securely in your browser with 4 free offline PDF utilities.
 - [Calculators](https://tool4saas.com/category/calculators): Calculate percentages, loans, grades, discounts and BMI instantly with 11 free everyday calculators that work offline.

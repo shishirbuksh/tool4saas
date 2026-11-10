@@ -55,6 +55,14 @@ export default defineConfig({
   trailingSlash: "never",
   build: { format: "file" },
   integrations: [react()],
+  // Prefetch internal links so navigation feels instant. `prefetchAll` covers
+  // the header/footer/tool-card links that have no `data-astro-prefetch`
+  // attribute; `hover` keeps it from competing with LCP on load. This does not
+  // require <ClientRouter /> — Astro injects a small prefetch script per page.
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
   fonts: [
     {
       provider: fontProviders.fontsource(),

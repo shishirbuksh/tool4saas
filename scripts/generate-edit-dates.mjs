@@ -43,6 +43,63 @@ function gitDates(relPath) {
   }
 }
 
+// A commit that only renames icon identifiers does not change what a page says,
+// so it must not bump `lastmod` for every tool rendered from that data file.
+// Google drops `lastmod` from its crawl decisions once it proves unreliable, so
+// the signal has to track content, not refactors.
+const PLUMBING_LINE = /^[+-]\s*icon\s*:/;
+
+function isPlumbingOnlyCommit(sha, relPath) {
+  let diff;
+  try {
+    diff = execFileSync("git", ["show", "--format=", "--unified=0", sha, "--", relPath], {
+      cwd: ROOT,
+      encoding: "utf8",
+      maxBuffer: 64 * 1024 * 1024,
+    });
+  } catch {
+    return false;
+  }
+  const changed = diff
+    .split("\n")
+    .filter((l) => /^[+-]/.test(l) && !/^(\+\+\+|---)/.test(l));
+  if (changed.length === 0) return false;
+  return changed.every((l) => PLUMBING_LINE.test(l));
+}
+
+// Like gitDates(), but walks back past plumbing-only commits to find the last
+// commit that actually changed the file's content.
+function gitDatesContent(relPath) {
+  let out;
+  try {
+    out = execFileSync("git", ["log", "--format=%H|%ad", "--date=short", "--", relPath], {
+      cwd: ROOT,
+      encoding: "utf8",
+    }).trim();
+  } catch {
+    return null;
+  }
+  const commits = out
+    .split("\n")
+    .filter(Boolean)
+    .map((line) => {
+      const [sha, date] = line.split("|");
+      return { sha, date: isoOf(date) };
+    });
+  if (commits.length === 0) return null;
+
+  const published = commits[commits.length - 1].date;
+  let modified = null;
+  for (const c of commits) {
+    if (!isPlumbingOnlyCommit(c.sha, relPath)) {
+      modified = c.date;
+      break;
+    }
+  }
+  modified = modified ?? published;
+  return { published: published > modified ? modified : published, modified };
+}
+
 function gitDatesMulti(relPaths) {
   let best = null;
   for (const p of relPaths) {
@@ -88,7 +145,7 @@ const fileDates = {};
 for (const f of categoryFiles) {
   const categoryId = f.replace(/\.ts$/, "");
   const rel = `src/lib/tools/data/${f}`;
-  let d = gitDates(rel);
+  let d = gitDatesContent(rel);
   let source = "git";
   if (!d) {
     source = "mtime-fallback";

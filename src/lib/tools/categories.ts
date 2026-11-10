@@ -29,7 +29,7 @@ export const CATEGORIES: Category[] = Object.freeze([
     id: "generators",
     label: "Generators",
     description:
-      "Generate strong passwords and passphrases, random numbers, strings and UUIDs, coin flips, dice rolls, favicons and robots.txt with 8 free privacy-friendly generator tools.",
+      "Generate passwords, random numbers, UUIDs, coin flips, dice rolls, favicons and robots.txt with 8 free privacy-friendly generator tools.",
   },
   {
     id: "images-design",
