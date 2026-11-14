@@ -39,3 +39,7 @@ yarn-error.log*
 # Bootstrap cache handling
 /bootstrap/cache/*.php
 !/bootstrap/cache/.gitkeep
+
+# Database sqlite
+/database/*.sqlite
+!/database/.gitkeep

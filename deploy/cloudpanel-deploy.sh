@@ -30,6 +30,13 @@ fi
 sed -i 's/^APP_ENV=.*/APP_ENV=production/' .env
 sed -i 's/^APP_DEBUG=.*/APP_DEBUG=false/' .env
 
+# Ensure CACHE_STORE=file (Tool4SaaS uses file cache with zero database dependency)
+if ! grep -q "CACHE_STORE=" .env; then
+    echo "CACHE_STORE=file" >> .env
+fi
+mkdir -p database
+touch database/database.sqlite
+
 # 2. Composer dependencies (MUST run before any artisan commands)
 echo "📦 [3/6] Installing Composer production dependencies..."
 if command -v composer &> /dev/null; then
