@@ -28,6 +28,18 @@ final class HandleLegacyRedirects
             }
         }
 
+        // 1. Permanent 301 redirect for URLs with trailing slashes (canonical normalization)
+        $rawUri = $request->getRequestUri();
+        $parsedPath = parse_url($rawUri, PHP_URL_PATH);
+
+        if (is_string($parsedPath) && strlen($parsedPath) > 1 && str_ends_with($parsedPath, '/')) {
+            $cleanPath = rtrim($parsedPath, '/');
+            $query = $request->getQueryString();
+            $dest = $cleanPath.($query !== null && $query !== '' ? '?'.$query : '');
+
+            return redirect()->to($dest, 301);
+        }
+
         $path = '/'.ltrim($request->path(), '/');
 
         if (isset(self::$redirects[$path])) {

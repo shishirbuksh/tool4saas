@@ -1,0 +1,115 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Mediapartners-Google
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Claude-User
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Cohere-AI
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: msnbot
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+User-agent: Bytespider
+Allow: /
+Disallow: /api/
+Disallow: /probe
+Disallow: /*?target=*
+
+Sitemap: https://tool4saas.com/sitemap.xml

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Http\Middleware\HandleLegacyRedirects;
+use Illuminate\Http\Request;
 use Tests\TestCase;
 
 final class RouteTest extends TestCase
@@ -78,6 +80,13 @@ final class RouteTest extends TestCase
         $response = $this->get('/fr/any-future-or-old-tool?ref=test');
         $response->assertStatus(301);
         $response->assertRedirect('/any-future-or-old-tool?ref=test');
+
+        // Test trailing slash canonical 301 normalization
+        $request = Request::create('/percentage-calculator/', 'GET');
+        $middleware = new HandleLegacyRedirects;
+        $response = $middleware->handle($request, fn () => response('ok'));
+        expect($response->getStatusCode())->toBe(301)
+            ->and($response->headers->get('Location'))->toBe(url('/percentage-calculator'));
     }
 
     public function test_security_headers_present(): void
@@ -86,6 +95,8 @@ final class RouteTest extends TestCase
         $response->assertHeader('Content-Security-Policy');
         $response->assertHeader('X-Content-Type-Options', 'nosniff');
         $response->assertHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+        $response->assertHeader('Strict-Transport-Security');
+        $response->assertHeader('Permissions-Policy', 'camera=(self), microphone=(self), geolocation=()');
     }
 
     public function test_ssl_checker_api_validation_and_ssrf_protection(): void

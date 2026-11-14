@@ -255,6 +255,25 @@ final class SeoService
             ];
         }
 
+        if (! empty($tool->howTo)) {
+            $howToSteps = [];
+            foreach ($tool->howTo as $idx => $step) {
+                $howToSteps[] = [
+                    '@type' => 'HowToStep',
+                    'position' => $idx + 1,
+                    'name' => $step['name'],
+                    'text' => $step['text'],
+                ];
+            }
+            $graph[] = [
+                '@context' => 'https://schema.org',
+                '@type' => 'HowTo',
+                'name' => "How to use the {$tool->title}",
+                'description' => $tool->description,
+                'step' => $howToSteps,
+            ];
+        }
+
         return ['@graph' => $graph];
     }
 

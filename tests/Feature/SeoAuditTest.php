@@ -29,8 +29,16 @@ final class SeoAuditTest extends TestCase
             ->toContain('property="og:title"')
             ->toContain('property="og:description"')
             ->toContain('property="og:url"')
+            ->toContain('property="og:image"')
             ->toContain('property="og:site_name" content="Tool4SaaS"')
-            ->toContain('name="twitter:card" content="summary_large_image"');
+            ->toContain('name="twitter:card" content="summary_large_image"')
+            ->toContain('name="twitter:image"');
+
+        // 2.5 Favicon & Manifest Links
+        expect($content)
+            ->toContain('rel="icon"')
+            ->toContain('rel="apple-touch-icon"')
+            ->toContain('rel="manifest"');
 
         // 3. Schema.org WebSite & Organization
         expect($content)
@@ -97,6 +105,11 @@ final class SeoAuditTest extends TestCase
             expect(mb_strlen($desc))
                 ->toBeGreaterThanOrEqual(50)
                 ->toBeLessThanOrEqual(165);
+
+            // Open Graph & Twitter Image
+            expect($content)
+                ->toContain('property="og:image"')
+                ->toContain('name="twitter:image"');
 
             // Schema.org WebApplication & BreadcrumbList
             expect($content)
