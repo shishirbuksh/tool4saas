@@ -24,19 +24,31 @@ echo "⚙️  [2/6] Verifying environment configuration..."
 if [ ! -f ".env" ]; then
     echo "⚠️  .env not found. Copying from .env.example..."
     cp .env.example .env
-    php artisan key:generate --force
-    echo "🔑 Generated new APP_KEY in .env"
 fi
 
 # Ensure APP_ENV=production and APP_DEBUG=false
 sed -i 's/^APP_ENV=.*/APP_ENV=production/' .env
 sed -i 's/^APP_DEBUG=.*/APP_DEBUG=false/' .env
 
-# 2. Permissions check
-echo "🔒 [3/6] Setting directory permissions for storage and cache..."
+# 2. Composer dependencies (MUST run before any artisan commands)
+echo "📦 [3/6] Installing Composer production dependencies..."
+if command -v composer &> /dev/null; then
+    composer install --no-dev --optimize-autoloader --no-interaction
+else
+    echo "❌ Composer not found in PATH."
+    exit 1
+fi
+
+# Generate APP_KEY if empty
+if grep -q "APP_KEY=$" .env || grep -q "APP_KEY=\"\"" .env; then
+    echo "🔑 Generating APP_KEY..."
+    php artisan key:generate --force
+fi
+
+# 3. Permissions check
+echo "🔒 [4/6] Setting directory permissions for storage and cache..."
+mkdir -p storage/framework/{cache,sessions,views,testing} storage/logs bootstrap/cache
 chmod -R 775 storage bootstrap/cache
-mkdir -p storage/framework/{cache,sessions,views,testing} storage/logs
-chmod -R 775 storage/framework storage/logs
 
 # If run under root, detect site owner and chown if possible
 if [ "$(id -u)" -eq 0 ]; then
@@ -45,14 +57,6 @@ if [ "$(id -u)" -eq 0 ]; then
         echo "👤 Setting ownership to $SITE_USER..."
         chown -R "$SITE_USER":"$SITE_USER" "$TARGET_DIR"
     fi
-fi
-
-# 3. Composer dependencies
-echo "📦 [4/6] Installing Composer production dependencies..."
-if command -v composer &> /dev/null; then
-    composer install --no-dev --optimize-autoloader --no-interaction --quiet
-else
-    echo "⚠️  Composer not found in PATH. Skipping composer install."
 fi
 
 # 4. Laravel Production Optimization Caches
