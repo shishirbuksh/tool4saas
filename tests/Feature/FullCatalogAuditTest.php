@@ -18,6 +18,9 @@ final class FullCatalogAuditTest extends TestCase
         expect($tools)->toHaveCount(127);
 
         foreach ($tools as $tool) {
+            // Guarantee 100% dedicated tool view exists (zero generic fallback)
+            expect(view()->exists('tools.'.$tool->slug))->toBeTrue();
+
             $response = $this->get('/'.$tool->slug);
             $response->assertStatus(200);
 

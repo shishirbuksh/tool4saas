@@ -1,8 +1,10 @@
 import Alpine from "alpinejs";
 import QRCode from "qrcode";
+import JsBarcode from "jsbarcode";
 
 window.Alpine = Alpine;
 window.QRCode = QRCode;
+window.JsBarcode = JsBarcode;
 
 // Theme manager
 Alpine.data("themeManager", () => ({
