@@ -1,125 +1,119 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
     "adsense-site-auditor": {
       "source": "yantoumu/adsense-site-auditor-skill",
       "sourceType": "github",
       "skillPath": "adsense-site-auditor/SKILL.md",
-      "computedHash": "63b58f23869d1ffe893732e4f55cab1634c70cf9a28df1e5da49f6bf0780b3bf"
-    },
-    "astro": {
-      "source": "astrolicious/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/astro/SKILL.md",
-      "computedHash": "3a70f9666e7b6a03efb939b7e62938f4d3a6a5d956b2cc3c10011fda6ba27e9b"
-    },
-    "astro-seo": {
-      "source": "jdevalk/skills",
-      "sourceType": "github",
-      "skillPath": "astro-seo/SKILL.md",
-      "computedHash": "fc448d43509b78c62c95e0dd9cee051a02917b050b4affe061739c160a2ba4de"
+      "computedHash": "2d29cb79f79c2bf5ad9c4bee7a2c583d808faa3d5d6f9859fa2a439a70fee7fd"
     },
     "daisyui": {
       "source": "saadeghi/daisyui",
       "sourceType": "github",
       "skillPath": "skills/daisyui/SKILL.md",
-      "computedHash": "51be9420b195cc8935591595c315d5bca38f889f3750942d816134bd70f72a6b"
+      "computedHash": "9e9f0019c70418640e717d13c931cb373493bc1f3956279bc2002ed9b065ab82"
     },
     "docs-seo": {
       "source": "samber/developer-relations-skills",
       "sourceType": "github",
       "skillPath": "skills/docs-seo/SKILL.md",
-      "computedHash": "b178e89c39467b85fe641105e97aef00d0064e328b3b0c11506152c163e43754"
+      "computedHash": "8cfb1e998811ba41c6f18dd332d40c5422c9d6158bcb01bc73d930942cf1757b"
     },
     "google-adsense": {
       "source": "starraider/typo3-skills",
       "sourceType": "github",
       "skillPath": "skills/google-adsense/SKILL.md",
-      "computedHash": "928d093487bf09916876966458bb21abaae97b637fa95b63d77a440dabb9fa0d"
+      "computedHash": "4432313f7dda97010b3f6b26f47424e4c660ab571eda042f30430ecac77c99cf"
     },
     "html-css-best-practices": {
       "source": "hack23/homepage",
       "sourceType": "github",
       "skillPath": ".github/skills/quality/html-css-best-practices/SKILL.md",
-      "computedHash": "7b1a6cbebfd306db3dad3568c2e5a12e5bc1ea929a1f4e20303bf083238be3fc"
+      "computedHash": "033dc9d5007351fb541213d240f8153f4925a8007056cb31135c29c87f6f1c30"
     },
-    "material-ui-styling": {
-      "source": "mui/material-ui",
+    "laravel-security": {
+      "source": "affaan-m/ECC",
       "sourceType": "github",
-      "skillPath": "skills/material-ui-styling/SKILL.md",
-      "computedHash": "3aee2bcb4c2ea1fcba3d97f7e43a3208bfc0d477f494d06dad22c1ec25c33ac3"
+      "skillPath": "skills/laravel-security/SKILL.md",
+      "computedHash": "76754b92b4dbe1d7de632944924e51196e2a35c6dcb85ec0b4ba4d13adc15af6"
     },
-    "material-ui-theming": {
-      "source": "mui/material-ui",
+    "laravel-specialist": {
+      "source": "Jeffallan/claude-skills",
       "sourceType": "github",
-      "skillPath": "skills/material-ui-theming/SKILL.md",
-      "computedHash": "06f09d0152bf43a8f64d170a67418e7f33ac265bc995e2fed47adb5bcc979a54"
+      "skillPath": "skills/laravel-specialist/SKILL.md",
+      "computedHash": "576cc242c75c0b66f95de5843e96884ad6952e7df4d3e64a6c30309ba6559588"
+    },
+    "php-best-practices": {
+      "source": "AsyrafHussin/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/php-best-practices/SKILL.md",
+      "computedHash": "40b922a65a7b29c0561517c2aa505dd80950b259dec415b37dd5486f1e46771c"
+    },
+    "php-pro": {
+      "source": "Jeffallan/claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/php-pro/SKILL.md",
+      "computedHash": "06ef492ddeac207fb6ce54f0d13d17a251a0c2dcc4ec9a846e166a93926b4d1f"
     },
     "seo-competitor-pages": {
       "source": "agricidaniel/claude-seo",
       "sourceType": "github",
       "skillPath": "skills/seo-competitor-pages/SKILL.md",
-      "computedHash": "168268b3faeba0d0aa46ef85ebd8ca453a711d18d0a8017bc9ca9e5bd1f3f34c"
+      "computedHash": "676e3e2d2cbbee0896fa840f957ce0b3ed07f5796d20c05eb8197ef659fb929f"
     },
     "seo-content": {
       "source": "agricidaniel/claude-seo",
       "sourceType": "github",
       "skillPath": "skills/seo-content/SKILL.md",
-      "computedHash": "963aedce5e47cc74f1dece9ce2e9a0c23366a90ad480e8f465afb4c0410c490f"
+      "computedHash": "7954362bd16c07942f5545c665314366551bd9f6337d79ecfe92803646ab1690"
     },
     "seo-google": {
       "source": "agricidaniel/claude-seo",
       "sourceType": "github",
       "skillPath": "skills/seo-google/SKILL.md",
-      "computedHash": "1dda4aaa6fe2310e9e7d09b3a104587384953286dc8eb91766604774b6fafead"
-    },
-    "seo-hreflang": {
-      "source": "agricidaniel/claude-seo",
-      "sourceType": "github",
-      "skillPath": "skills/seo-hreflang/SKILL.md",
-      "computedHash": "1d097daa1d12b7e446d9d5c372204b7049ca8f95f966a9f0e63cb0f7f40a6db3"
+      "computedHash": "f16dabac8a4e437095fee238cec29622c69ecf62ea17f991fb35640ab972a407"
     },
     "seo-optimization": {
       "source": "hack23/homepage",
       "sourceType": "github",
       "skillPath": ".github/skills/quality/seo-optimization/SKILL.md",
-      "computedHash": "68204685d555e8dd551330ddad26fa504ed9863200efbaf7c0ac41c08b0ff71a"
+      "computedHash": "dffa771a9a464885ad3a4291c073704c839b36a1a67656c02a8b7de9c3553ad1"
     },
     "seo-programmatic": {
       "source": "agricidaniel/claude-seo",
       "sourceType": "github",
       "skillPath": "skills/seo-programmatic/SKILL.md",
-      "computedHash": "6edd7ddef62e3bf6bf07bc0adee153fd2d67b693723fb1280961e46bfbb75f68"
+      "computedHash": "af3d950c9a0dac47c960f81465ae6a974842fe3eb7189fb2a68def0b28f211d1"
     },
     "seo-project-setup": {
       "source": "every-app/open-seo",
       "sourceType": "github",
       "skillPath": ".agents/skills/seo-project-setup/SKILL.md",
-      "computedHash": "18e5d05f7bf467898b682eb5ece215f2ed3b8178b82d611fcc88102c3dcec285"
+      "computedHash": "1d89897c5e7359cd639ad1c291def935cfa4bcf3177fc885e7cee1ac9254edcd"
     },
     "seo-sitemap": {
       "source": "agricidaniel/claude-seo",
       "sourceType": "github",
       "skillPath": "skills/seo-sitemap/SKILL.md",
-      "computedHash": "3aa575cf0b14e1f6df9614954ae225fec406d156eeb6cb31342fe73ef9fe3421"
+      "computedHash": "f03ab4a51320f899f0b3e11199939f61ccefa932e73a5b9437162779a4d11aa5"
     },
     "seo-technical": {
       "source": "agricidaniel/claude-seo",
       "sourceType": "github",
       "skillPath": "skills/seo-technical/SKILL.md",
-      "computedHash": "475824303c22a8ad7008672db53fe40431a48984b61949f8994d3e6a985678a8"
+      "computedHash": "f616f86a08c2a2142e603b12e43851d742bdf272e5e9c61a4e44a02d2e7fdb88"
     },
     "tailwindcss": {
       "source": "hairyf/skills",
       "sourceType": "github",
       "skillPath": "skills/tailwindcss/SKILL.md",
-      "computedHash": "78937e1d72496af3e902292eb66b8ad2cdd2d34b90b5428257aae9056678d465"
+      "computedHash": "a7ad5b9be2a266f7f7c972bdc1d167c82088b1e11b64127ebe3037f0597d25c3"
     },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
       "skillPath": "skills/web-design-guidelines/SKILL.md",
-      "computedHash": "f3bc47f890f42a44db1007ab390709ec368e4b8c089baee6b0007182236ac474"
+      "computedHash": ""
     }
   }
 }

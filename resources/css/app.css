@@ -1,0 +1,517 @@
+@import "tailwindcss";
+@source "../views";
+@source "../js";
+@source "../../app";
+
+/* ------------------------------------------------------------------
+   daisyUI 5 — Wise Design System
+   Sage-tinted canvas (#e8ebe6), pure white cards (#ffffff),
+   vivid lime green CTA (#9fe870), near-black warm ink (#0e0f0c),
+   deep forest green (#163300), and signature 24px pill-rounded cards.
+   ------------------------------------------------------------------ */
+@plugin "daisyui" {
+  themes: false;
+  logs: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "wise-light";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #ffffff;          /* Pure white card interiors */
+  --color-base-200: #e8ebe6;          /* Sage-tinted page background (Wise canvas-soft) */
+  --color-base-300: #d5d9d2;          /* Subtle sage border / hairline */
+  --color-base-content: #0e0f0c;      /* Wise Ink */
+
+  --color-primary: #9fe870;          /* Wise Vivid Lime Green */
+  --color-primary-content: #0e0f0c;  /* Ink text on lime */
+  --color-secondary: #e8ebe6;        /* Sage secondary button */
+  --color-secondary-content: #0e0f0c;
+  --color-accent: #9fe870;
+  --color-accent-content: #0e0f0c;
+  --color-neutral: #163300;          /* Wise Deep Forest Green */
+  --color-neutral-content: #9fe870;  /* Lime on forest */
+
+  --color-info: #38c8ff;
+  --color-info-content: #0e0f0c;
+  --color-success: #2ead4b;
+  --color-success-content: #ffffff;
+  --color-warning: #ffd11a;
+  --color-warning-content: #4a3b1c;
+  --color-error: #d03238;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 9999px;         /* Full pill */
+  --radius-field: 0.75rem;          /* 12px inputs */
+  --radius-box: 1.5rem;             /* 24px canonical Wise cards */
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "wise-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+
+  --color-base-100: #0e0f0c;         /* Wise near-black canvas */
+  --color-base-200: #161a14;         /* Wise dark olive surface */
+  --color-base-300: #242a20;         /* Wise dark border */
+  --color-base-content: #f2f5f0;     /* Wise off-white text */
+
+  --color-primary: #9fe870;         /* Wise Lime Green CTA */
+  --color-primary-content: #0e0f0c;
+  --color-secondary: #242a20;
+  --color-secondary-content: #f2f5f0;
+  --color-accent: #cdffad;
+  --color-accent-content: #0e0f0c;
+  --color-neutral: #9fe870;
+  --color-neutral-content: #0e0f0c;
+
+  --color-info: #38c8ff;
+  --color-info-content: #0e0f0c;
+  --color-success: #2ead4b;
+  --color-success-content: #0e0f0c;
+  --color-warning: #ffd11a;
+  --color-warning-content: #0e0f0c;
+  --color-error: #f87171;
+  --color-error-content: #0e0f0c;
+
+  --radius-selector: 9999px;
+  --radius-field: 0.75rem;
+  --radius-box: 1.5rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+/* Wise Design System tokens */
+@theme {
+  --color-wise-green: #9fe870;
+  --color-wise-green-hover: #cdffad;
+  --color-wise-green-pale: #e2f6d5;
+  --color-forest: #163300;
+  --color-ink: #0e0f0c;
+  --color-body: #454745;
+  --color-mute: #868685;
+  --color-canvas-soft: #e8ebe6;
+  --color-positive-deep: #054d28;
+
+  --font-sans: "Inter", -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Manrope", "Inter", -apple-system, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+}
+
+@custom-variant dark (&:where([data-theme=wise-dark], [data-theme=wise-dark] *));
+
+@layer base {
+  html {
+    font-size: 100%;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    letter-spacing: -0.011em;
+    font-variant-ligatures: common-ligatures;
+    font-feature-settings: "calt" 1;
+    scroll-behavior: smooth;
+    background: var(--color-base-200);
+    color: var(--color-base-content);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-base-200);
+    color: var(--color-base-content);
+    overflow-x: clip;
+    font-family: inherit;
+  }
+
+  /* Wise Display Typography: Weight 900 for Hero, Weight 600 for Sub-headings */
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+
+  p, li {
+    line-height: 1.6;
+    letter-spacing: -0.008em;
+    text-wrap: pretty;
+  }
+
+  code, kbd, samp, pre {
+    font-family: var(--font-mono);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  details summary {
+    list-style: none;
+  }
+  details summary::-webkit-details-marker,
+  details summary::marker {
+    display: none !important;
+  }
+
+  ::selection {
+    background: #9fe870;
+    color: #0e0f0c;
+  }
+}
+
+/* Wise Button Classes */
+.btn-wise-primary {
+  background-color: #9fe870;
+  color: #0e0f0c;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: none;
+  transition: all 150ms ease;
+}
+.btn-wise-primary:hover {
+  background-color: #cdffad;
+  transform: translateY(-1px);
+}
+
+.btn-wise-secondary {
+  background-color: #e8ebe6;
+  color: #0e0f0c;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: none;
+}
+.btn-wise-secondary:hover {
+  background-color: #d8ddd5;
+}
+
+/* Wise Card Primitives (24px radius, pure white on sage canvas) */
+.wise-card {
+  background-color: var(--color-base-100);
+  border: 1px solid var(--color-base-300);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  transition: all 150ms ease;
+}
+.wise-card:hover {
+  border-color: rgba(159, 232, 112, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Focus Visible Accessible Rings */
+:root {
+  --focus-ring: #0e0f0c;
+  --focus-ring-offset: #9fe870;
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--focus-ring-offset);
+  border-radius: 8px;
+}
+
+/* Skip link for keyboard / screen-reader accessibility */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 1300;
+  background: #9fe870;
+  color: #0e0f0c;
+  padding: 10px 20px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: top 150ms ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 12px;
+}
+
+/* Tabular numerals for calculation tools */
+td, th, time, output, [data-numeric] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Blog article styling & Prose Typography (Wise Design System) */
+.blog-body,
+.prose {
+  color: inherit;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.blog-body h1,
+.prose h1 {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin: 2.5rem 0 1.25rem;
+  color: var(--color-base-content);
+}
+
+.blog-body h2,
+.prose h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 2.75rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-base-300);
+  color: var(--color-base-content);
+}
+
+.blog-body h3,
+.prose h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  margin: 2rem 0 0.75rem;
+  color: var(--color-base-content);
+}
+
+.blog-body h4,
+.prose h4 {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--color-base-content);
+}
+
+.blog-body p,
+.prose p {
+  margin: 0 0 1.35rem;
+  max-width: 72ch;
+  color: color-mix(in srgb, var(--color-base-content) 85%, transparent);
+}
+
+.blog-body ul,
+.prose ul {
+  list-style-type: disc;
+  margin: 0 0 1.5rem;
+  padding-left: 1.75rem;
+}
+
+.blog-body ol,
+.prose ol {
+  list-style-type: decimal;
+  margin: 0 0 1.5rem;
+  padding-left: 1.75rem;
+}
+
+.blog-body li,
+.prose li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.blog-body strong,
+.prose strong {
+  font-weight: 700;
+  color: var(--color-base-content);
+}
+
+.blog-body a,
+.prose a {
+  color: #163300;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(159, 232, 112, 0.6);
+  text-underline-offset: 4px;
+  transition: all 150ms ease;
+}
+
+.blog-body a:hover,
+.prose a:hover {
+  text-decoration-color: #9fe870;
+  color: #0e0f0c;
+}
+
+[data-theme="wise-dark"] .blog-body a,
+[data-theme="wise-dark"] .prose a {
+  color: #9fe870;
+  text-decoration-color: rgba(159, 232, 112, 0.4);
+}
+
+[data-theme="wise-dark"] .blog-body a:hover,
+[data-theme="wise-dark"] .prose a:hover {
+  color: #cdffad;
+  text-decoration-color: #cdffad;
+}
+
+.blog-body blockquote,
+.prose blockquote {
+  border-left: 4px solid #9fe870;
+  background: var(--color-base-100);
+  border-radius: 0 1rem 1rem 0;
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.blog-body blockquote p,
+.prose blockquote p {
+  margin: 0;
+  font-style: italic;
+  color: var(--color-base-content);
+}
+
+.blog-body code,
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: var(--color-base-200);
+  padding: 0.2em 0.45em;
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-base-300);
+}
+
+.blog-body pre,
+.prose pre {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  background-color: #0e0f0c;
+  color: #f2f5f0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.25rem;
+  overflow-x: auto;
+  margin: 1.75rem 0;
+  border: 1px solid #242a20;
+}
+
+.blog-body pre code,
+.prose pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.blog-body table,
+.prose table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2rem 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--color-base-300);
+  background-color: var(--color-base-100);
+}
+
+.blog-body th,
+.prose th {
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+  font-weight: 700;
+  text-align: left;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--color-base-300);
+}
+
+.blog-body td,
+.prose td {
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--color-base-200);
+  color: color-mix(in srgb, var(--color-base-content) 90%, transparent);
+}
+
+.blog-body tr:last-child td,
+.prose tr:last-child td {
+  border-bottom: none;
+}
+
+.blog-body .tip,
+.prose .tip {
+  border-left: 4px solid #9fe870;
+  background: var(--color-base-100);
+  padding: 1rem 1.25rem;
+  border-radius: 0 1rem 1rem 0;
+  margin: 1.5rem 0;
+}
+
+.blog-body .cta-box,
+.prose .cta-box {
+  border: 1px solid var(--color-base-300);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  background: var(--color-base-100);
+}
+
+/* Print optimizations */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #invoice-print, #invoice-print *,
+  #resume-print, #resume-print *,
+  #gst-invoice-print, #gst-invoice-print * {
+    visibility: visible !important;
+  }
+  #invoice-print, #resume-print, #gst-invoice-print {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  @page {
+    margin: 16mm;
+  }
+}

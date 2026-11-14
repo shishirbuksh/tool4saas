@@ -1,40 +1,61 @@
-# Tool4SaaS
+# Tool4SaaS — High-Performance Online Utilities
 
-A massive collection of 169 free, client-side productivity utilities for developers and creators. Built with Next.js, Material UI, and deployed via PM2 on CloudPanel.
+A comprehensive collection of 127 free, client-side productivity utilities for developers, creators, marketers, and businesses. Built with **Laravel 12 (PHP 8.3+)**, **Tailwind CSS v4**, **daisyUI v5**, and **Alpine.js 3.14+**.
 
-## Features
-- 🚀 **169 Tools**: Generators, calculators, converters, and formatters across 12 categories.
-- 🔒 **Privacy-First**: All tools run entirely client-side in the browser. No data is sent to a backend.
-- ⚡ **Lightning Fast**: Pre-rendered static pages using Next.js App Router and Turbopack.
-- 🎨 **Beautiful UI**: Built with Material UI v16 (App Router optimized).
-- 🌙 **Dark Mode**: Automatic theme switching with system preferences.
+## Highlights
 
-## Tech Stack
-- Next.js (App Router, Turbopack)
-- React
-- Material UI (MUI)
-- TypeScript
-- PM2 (Production Process Manager)
+- ⚡ **127 Interactive Tools**: Instant, privacy-first client-side calculations across 12 categories.
+- 🔒 **100% Client-Side Privacy**: Tools process files and data locally in the browser (Zero server data transmission).
+- 🎨 **daisyUI v5 & Tailwind CSS v4 Design**: High-contrast, accessibility-audited design with `expo-light` and `expo-dark` themes.
+- 🚀 **Ultra-Fast Server-Side Rendering**: Laravel 12 Blade components with Alpine.js reactivity and full JSON-LD structured data.
+- 🌐 **Strictly English**: Dedicated English-first canonical routing (`en_US`) with automated 301 redirects for legacy routes.
+- 🔍 **Search Engine & AI Ready**: Complete OpenGraph, Twitter Cards, XML Sitemaps, and robots.txt directives tailored for search engines and AI crawlers.
 
-## Getting Started
+## Technology Stack
 
-### Local Development
+- **Backend & SSR**: Laravel 12 (PHP 8.3+)
+- **Templating**: Blade Components
+- **Reactivity**: Alpine.js 3.14+
+- **Styling**: Tailwind CSS v4 + daisyUI v5
+- **Bundler**: Vite 8 with `@tailwindcss/vite`
+- **Testing**: Pest PHP 3 & PHPStan (Level 8)
+- **Deployment**: Nginx + PHP 8.3-FPM (Production-ready)
+
+## Local Development
+
+### Requirements
+- PHP 8.3+ with `curl`, `mbstring`, `xml`, `openssl`, `sockets` extensions
+- Composer 2.7+
+- Node.js 20+ & npm
+
+### Setup
 ```bash
+# Install PHP dependencies
+composer install
+
+# Install Node dependencies
 npm install
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-### Production Deployment (CloudPanel / Ubuntu VPS)
-The recommended deployment strategy is using PM2 on a Node.js 22 server.
+# Setup environment
+cp .env.example .env
+php artisan key:generate
 
-```bash
-# Set environment variables
-echo 'NEXT_PUBLIC_SITE_URL=https://tool4saas.com' > .env
-echo 'HOSTNAME=127.0.0.1' >> .env
-
-# Build and Start
-npm install
+# Build frontend assets
 npm run build
-pm2 start npm --name "tool4saas" -- start
+
+# Start local development server
+php artisan serve
+```
+
+## Running Quality Assurance & Tests
+
+```bash
+# Run unit & feature tests (Pest PHP)
+php ./vendor/bin/pest
+
+# Run static analysis (PHPStan Level 8)
+php ./vendor/bin/phpstan analyse --memory-limit=1G
+
+# Build production assets
+npm run build
 ```

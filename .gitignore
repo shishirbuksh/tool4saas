@@ -1,15 +1,41 @@
 /node_modules
+/vendor
 /.next
 /out
 /build
 /dist
 /.astro
-/.env
-/.env*.local
-next-env.d.ts
+.env
+.env.backup
+.env.*.local
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
 npm-debug.log*
+yarn-error.log*
 *.log
-.next-build-test/
-coverage/
 .DS_Store
 *.tsbuildinfo
+
+# Laravel runtime directories
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/framework/testing/*
+/storage/logs/*
+
+# Whitelist .gitkeep files in storage
+!/storage/framework/cache/.gitkeep
+!/storage/framework/cache/data/.gitkeep
+!/storage/framework/sessions/.gitkeep
+!/storage/framework/views/.gitkeep
+!/storage/framework/testing/.gitkeep
+!/storage/logs/.gitkeep
+
+# Whitelist application blog data
+!/storage/app/blog/
+!/storage/app/dates.json
+
+# Bootstrap cache handling
+/bootstrap/cache/*.php
+!/bootstrap/cache/.gitkeep

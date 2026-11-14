@@ -1,0 +1,1681 @@
+{
+  "home_modified": "2026-11-10",
+  "blog_modified": "2026-11-04",
+  "site_published": "2026-09-14",
+  "site_published_source": "git",
+  "category_modified": {
+    "business": "2026-11-03",
+    "calculators": "2026-11-10",
+    "converters": "2026-11-03",
+    "developer": "2026-11-03",
+    "finance": "2026-11-03",
+    "generators": "2026-11-03",
+    "health": "2026-11-03",
+    "images-design": "2026-11-03",
+    "pdf": "2026-11-03",
+    "seo": "2026-11-03",
+    "text-documents": "2026-11-03",
+    "time": "2026-11-03"
+  },
+  "page_dates": {
+    "about": {
+      "modified": "2026-11-04",
+      "published": "2026-10-30",
+      "source": "git"
+    },
+    "privacy": {
+      "modified": "2026-11-04",
+      "published": "2026-10-30",
+      "source": "git"
+    },
+    "terms": {
+      "modified": "2026-11-04",
+      "published": "2026-10-30",
+      "source": "git"
+    },
+    "contact": {
+      "modified": "2026-11-04",
+      "published": "2026-10-30",
+      "source": "git"
+    },
+    "author": {
+      "modified": "2026-11-04",
+      "published": "2026-10-30",
+      "source": "git"
+    },
+    "methodology": {
+      "modified": "2026-11-04",
+      "published": "2026-10-30",
+      "source": "git"
+    },
+    "sitemap": {
+      "modified": "2026-11-04",
+      "published": "2026-10-30",
+      "source": "git"
+    }
+  },
+  "tool_dates": {
+    "document-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "invoice-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "resume-builder": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "commission-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "ats-resume-checker": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "signature-maker": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "cover-letter-builder": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "percentage-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "bmi-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "tip-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "discount-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "gst-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "gpa-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "scientific-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "fraction-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "grade-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "concrete-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "us-sales-tax-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-10",
+      "source": "git"
+    },
+    "unit-converter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "json-csv": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "url-parser": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "number-to-words": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "image-to-base64": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "csv-viewer": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "morse-translator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "json-to-excel": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "zip-creator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "currency-converter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "json-formatter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "base64-tool": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "url-encoder": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "hash-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "html-entities": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "regex-tester": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "jwt-decoder": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "mime-type-lookup": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "credit-card-validator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "password-strength": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "code-minifier": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "screen-resolution": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "xml-formatter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "cron-parser": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "ssl-checker": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "sql-formatter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "subnet-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "chmod-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "code-to-image": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "aes-encryptor": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "otp-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "ai-token-counter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "mortgage-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "compound-interest-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "salary-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "profit-margin-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "income-tax-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "inflation-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "sip-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "retirement-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "rent-vs-buy-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "freelance-rate-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "home-affordability-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "refinance-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "emi-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "home-loan-eligibility-india": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "mortgage-overpayment-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "in-hand-salary-india": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "fd-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "ppf-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "debt-payoff-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "capital-gains-tax-india": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "password-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "lorem-ipsum": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "slug-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "random-number": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "coin-flip": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "barcode-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "fake-data-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "business-name-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "calorie-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "water-intake-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "pregnancy-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "sleep-cycle-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "period-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "one-rep-max-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "qr-code-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "image-compressor": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "color-converter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "color-contrast": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "gradient-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "favicon-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "image-format-converter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "svg-optimizer": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "exif-viewer": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "youtube-thumbnail-downloader": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "image-color-extractor": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "qr-scanner": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "image-to-pdf": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "pdf-merge": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "pdf-compress": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "pdf-to-jpg": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "pdf-to-text": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "sitemap-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "robots-txt-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "serp-preview": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "utm-builder": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "meta-tag-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "faq-schema-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "seo-analyzer": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "word-counter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "text-tools": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "text-diff": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "text-to-speech": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "email-extractor": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "markdown-editor": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "text-summarizer": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "grammar-checker": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "ai-detector": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "plagiarism-checker": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "typing-speed-test": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "speech-to-text": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "fancy-text-generator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "age-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "timestamp-converter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "date-calculator": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "timezone-converter": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "stopwatch": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    },
+    "pomodoro-timer": {
+      "published": "2026-09-14",
+      "modified": "2026-11-03",
+      "source": "git"
+    }
+  },
+  "blog_dates": {
+    "age-calculator-guide/add-subtract-dates": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "age-calculator-guide/age-calculator-guide": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "age-calculator-guide/age-difference-between-dates": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "age-calculator-guide/age-in-days-hours-minutes": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "age-calculator-guide/date-difference-calculation": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "age-calculator-guide/how-to-calculate-age": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "age-calculator-guide/leap-year-birthdays": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "age-calculator-guide/timezone-conversion": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "age-calculator-guide/unix-timestamp-conversion": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "bmi-calculator-guide/bmi-calculator-guide": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "bmi-calculator-guide/bmi-for-athletes": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "bmi-calculator-guide/bmi-for-children-teens": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "bmi-calculator-guide/bmi-for-men": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "bmi-calculator-guide/bmi-for-women": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "bmi-calculator-guide/calorie-deficit-for-weight-loss": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "bmi-calculator-guide/daily-water-intake": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "bmi-calculator-guide/healthy-weight-range": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "bmi-calculator-guide/how-bmi-is-calculated": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "debt-payoff-guide/debt-avalanche-method": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "debt-payoff-guide/debt-consolidation-vs-payoff": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "debt-payoff-guide/debt-free-date": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "debt-payoff-guide/debt-payoff-guide": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "debt-payoff-guide/debt-snowball-method": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "debt-payoff-guide/extra-payment-strategy": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "debt-payoff-guide/how-to-pay-off-credit-card-debt": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "debt-payoff-guide/minimum-payment-trap": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "debt-payoff-guide/snowball-vs-avalanche": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "grade-calculator-guide/cumulative-gpa-calculation": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "grade-calculator-guide/final-exam-grade-needed": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "grade-calculator-guide/gpa-vs-cgpa": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "grade-calculator-guide/grade-calculator-guide": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "grade-calculator-guide/how-to-raise-gpa": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "grade-calculator-guide/percentage-to-gpa": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "grade-calculator-guide/semester-gpa-calculation": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "grade-calculator-guide/weighted-grade-calculation": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "grade-calculator-guide/weighted-vs-unweighted-gpa": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "image-compressor-guide/compress-jpg-100kb-portal": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "image-compressor-guide/compress-jpg-200kb": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "image-compressor-guide/compress-jpg-20kb": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "image-compressor-guide/crop-passport-photos": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "image-compressor-guide/image-compressor-guide": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "image-compressor-guide/image-seo-size-alt": {
+      "published": "2026-10-07",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "image-compressor-guide/image-to-base64-data-url": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "image-compressor-guide/instagram-image-resize": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "image-compressor-guide/jpg-to-png": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "image-compressor-guide/optimize-svg-logos": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "image-compressor-guide/png-to-webp-transparency": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "image-compressor-guide/png-vs-jpg-vs-webp": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "image-compressor-guide/resize-image-exact-pixels": {
+      "published": "2026-10-07",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "image-compressor-guide/strip-exif-before-upload": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "image-compressor-guide/wcag-contrast-check": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "invoice-generator-guide/credit-note-vs-debit-note": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "invoice-generator-guide/freelancer-invoice-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "invoice-generator-guide/gst-invoice-format-india": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "invoice-generator-guide/how-to-create-invoice-online": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "invoice-generator-guide/international-client-invoicing": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "invoice-generator-guide/invoice-generator-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "invoice-generator-guide/invoice-numbering": {
+      "published": "2026-09-22",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "invoice-generator-guide/invoice-template-formats": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "invoice-generator-guide/invoice-vs-quotation-vs-receipt": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "invoice-generator-guide/invoicing-mistakes-to-avoid": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "invoice-generator-guide/payment-terms-and-followups": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "invoice-generator-guide/proforma-vs-tax-invoice": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "invoice-generator-guide/small-business-invoicing": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "json-formatter-guide/base64-url-safe-vs-standard": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "json-formatter-guide/cron-expression-guide": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "json-formatter-guide/estimate-ai-token-cost": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "json-formatter-guide/format-sql-queries": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "json-formatter-guide/format-xml-sitemaps-feeds": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "json-formatter-guide/html-entities-encode-decode": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "json-formatter-guide/inspect-csv-before-import": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "json-formatter-guide/json-formatter-guide": {
+      "published": "2026-10-07",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "json-formatter-guide/json-parse-errors": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "json-formatter-guide/json-to-csv": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "json-formatter-guide/jwt-expiry-without-trust": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "json-formatter-guide/mime-type-content-type": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "json-formatter-guide/minify-css-js-safely": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "json-formatter-guide/regex-flags-capture-groups": {
+      "published": "2026-10-07",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "json-formatter-guide/sha256-vs-md5-hashes": {
+      "published": "2026-10-07",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "json-formatter-guide/url-encoding-spaces-symbols": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "json-formatter-guide/url-slug-rules": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "json-formatter-guide/uuid-seed-test-database": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "mortgage-calculator-guide/15-vs-30-year-mortgage": {
+      "published": "2026-09-24",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "mortgage-calculator-guide/down-payment-pmi-cost": {
+      "published": "2026-09-24",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "mortgage-calculator-guide/home-loan-emi-eligibility-india": {
+      "published": "2026-09-24",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "mortgage-calculator-guide/how-much-house-can-i-afford": {
+      "published": "2026-09-24",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "mortgage-calculator-guide/how-to-calculate-mortgage-payment": {
+      "published": "2026-09-24",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "mortgage-calculator-guide/mortgage-amortization-schedule": {
+      "published": "2026-09-24",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "mortgage-calculator-guide/mortgage-calculator-guide": {
+      "published": "2026-09-24",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "mortgage-calculator-guide/mortgage-overpayment-extra-payment": {
+      "published": "2026-09-24",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "mortgage-calculator-guide/rent-vs-buy-house": {
+      "published": "2026-09-24",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "mortgage-calculator-guide/should-i-refinance-my-mortgage": {
+      "published": "2026-09-24",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "password-generator-guide/2fa-vs-passkeys": {
+      "published": "2026-09-28",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "password-generator-guide/how-to-create-strong-password": {
+      "published": "2026-09-28",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "password-generator-guide/how-to-remember-passwords": {
+      "published": "2026-09-28",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "password-generator-guide/passphrase-vs-password": {
+      "published": "2026-09-28",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "password-generator-guide/password-generator-guide": {
+      "published": "2026-09-28",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "password-generator-guide/password-strength-tester": {
+      "published": "2026-09-28",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "password-generator-guide/random-password-ideas": {
+      "published": "2026-09-28",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "password-generator-guide/what-makes-password-strong": {
+      "published": "2026-09-28",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "password-generator-guide/what-to-do-after-data-breach": {
+      "published": "2026-09-28",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "password-generator-guide/wifi-router-password": {
+      "published": "2026-09-28",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "pdf-merge-guide/add-draft-watermark": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "pdf-merge-guide/combine-pdf-and-images": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "pdf-merge-guide/compress-pdf-1mb-email": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "pdf-merge-guide/extract-pages-range": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "pdf-merge-guide/extract-text-without-ocr": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "pdf-merge-guide/fix-sideways-scans": {
+      "published": "2026-10-07",
+      "modified": "2026-10-29",
+      "source": "git"
+    },
+    "pdf-merge-guide/jpg-scans-single-pdf": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "pdf-merge-guide/merge-multiple-pdfs-order": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "pdf-merge-guide/merge-pdfs-on-android": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "pdf-merge-guide/merge-pdfs-on-iphone": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "pdf-merge-guide/pdf-merge-guide": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "pdf-merge-guide/pdf-pages-high-quality-jpg": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/discount-and-sale-price": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/markup-vs-margin": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/percent-of-a-number": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/percentage-calculator-guide": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/percentage-difference": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/percentage-error": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/percentage-increase-decrease": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/percentage-points-vs-percent": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/reverse-percentage": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/sales-tax-on-a-price": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "percentage-calculator-guide/tip-calculator-bill-split": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "qr-code-generator-guide/how-to-create-qr-code": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "qr-code-generator-guide/qr-code-for-business": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "qr-code-generator-guide/qr-code-generator-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "qr-code-generator-guide/qr-code-google-forms": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "qr-code-generator-guide/qr-code-google-reviews": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "qr-code-generator-guide/qr-code-not-scanning-fix": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "qr-code-generator-guide/qr-code-restaurant-menu": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "qr-code-generator-guide/qr-code-size-print-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "qr-code-generator-guide/qr-code-vs-barcode": {
+      "published": "2026-09-22",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "qr-code-generator-guide/static-vs-dynamic-qr-codes": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "qr-code-generator-guide/upi-payment-qr-code-india": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "qr-code-generator-guide/vcard-contact-qr-code": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "qr-code-generator-guide/wifi-qr-code-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "resume-builder-guide/ats-resume-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "resume-builder-guide/career-change-resume": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "resume-builder-guide/cover-letter-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "resume-builder-guide/experienced-resume-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "resume-builder-guide/fresher-resume-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "resume-builder-guide/how-to-make-resume": {
+      "published": "2026-09-22",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "resume-builder-guide/offer-letter-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "resume-builder-guide/resume-builder-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "resume-builder-guide/resume-format-guide": {
+      "published": "2026-09-22",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "resume-builder-guide/resume-mistakes": {
+      "published": "2026-09-22",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "resume-builder-guide/resume-skills-section": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "resume-builder-guide/resume-summary-examples": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "resume-builder-guide/resume-vs-cv": {
+      "published": "2026-09-22",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "seo-analyzer-guide/ai-content-false-positives": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "seo-analyzer-guide/canonical-tag-guide": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "seo-analyzer-guide/fix-score-60-to-80": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "seo-analyzer-guide/geo-checklist-ai-citations": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "seo-analyzer-guide/internal-linking-guide": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "seo-analyzer-guide/meta-description-guide": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "seo-analyzer-guide/robots-vs-noindex": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "seo-analyzer-guide/seo-analyzer-guide": {
+      "published": "2026-10-07",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "seo-analyzer-guide/split-large-sitemap": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "seo-analyzer-guide/stale-og-image-fix": {
+      "published": "2026-10-07",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "seo-analyzer-guide/title-meta-length-2026": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "seo-analyzer-guide/utm-naming-governance": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "signature-maker-guide/drawn-vs-typed-signature": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "signature-maker-guide/electronic-signature-validity": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "signature-maker-guide/how-to-create-signature-online": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "signature-maker-guide/sign-pdf-without-printing": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "signature-maker-guide/signature-for-exam-forms": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "signature-maker-guide/signature-image-for-email": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "signature-maker-guide/signature-maker-guide": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "signature-maker-guide/signature-size-for-pdf": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "signature-maker-guide/transparent-signature-png": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "sip-calculator-guide/budget-2026-verdict-salaried": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "sip-calculator-guide/equity-ltcg-vs-fd-tax": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "sip-calculator-guide/fd-quarterly-tds": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "sip-calculator-guide/lumpsum-compounding-frequency": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "sip-calculator-guide/monthly-vs-yearly-compounding": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "sip-calculator-guide/old-vs-new-regime-2026": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "sip-calculator-guide/ppf-extend-15-years": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "sip-calculator-guide/real-return-inflation": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "sip-calculator-guide/sip-1-crore-goal": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "sip-calculator-guide/sip-5000-10-years": {
+      "published": "2026-10-07",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "sip-calculator-guide/sip-calculator-guide": {
+      "published": "2026-10-07",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "word-counter-guide/compare-two-texts-word-diff": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "word-counter-guide/flesch-reading-ease-score-explained": {
+      "published": "2026-09-28",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "word-counter-guide/grammar-check-before-publish": {
+      "published": "2026-09-28",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "word-counter-guide/how-to-count-words-online": {
+      "published": "2026-09-28",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "word-counter-guide/how-to-summarize-text-fast": {
+      "published": "2026-09-28",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "word-counter-guide/ideal-blog-post-length-seo": {
+      "published": "2026-09-28",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "word-counter-guide/keyword-density-seo-check": {
+      "published": "2026-09-28",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "word-counter-guide/lorem-ipsum-generator-use": {
+      "published": "2026-09-28",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "word-counter-guide/markdown-preview-before-publishing": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "word-counter-guide/pages-per-1000-words": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "word-counter-guide/text-to-speech-proofreading-use": {
+      "published": "2026-09-28",
+      "modified": "2026-10-20",
+      "source": "git"
+    },
+    "word-counter-guide/twitter-character-counter": {
+      "published": "2026-10-23",
+      "modified": "2026-10-23",
+      "source": "git"
+    },
+    "word-counter-guide/typing-speed-test-practice-tips": {
+      "published": "2026-09-28",
+      "modified": "2026-10-19",
+      "source": "git"
+    },
+    "word-counter-guide/word-counter-guide": {
+      "published": "2026-09-28",
+      "modified": "2026-10-20",
+      "source": "git"
+    }
+  }
+}
