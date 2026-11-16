@@ -5,6 +5,7 @@
     'relatedTools' => [],
     'relatedHeading' => 'More Utilities',
     'ymylType' => null,
+    'guideCallout' => null,
 ])
 
 <main id="main-content" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14">
@@ -82,6 +83,50 @@
                     </div>
                 @endforeach
             </div>
+        </section>
+    @endif
+
+    {{-- Educational Guide Callout (Wise Polarity-Flipped Light/Dark Surface) --}}
+    @if(!empty($guideCallout))
+        <section aria-label="Educational guide and reference" class="my-14 p-7 sm:p-8 rounded-3xl bg-base-100 border border-base-300 shadow-sm">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 {{ !empty($guideCallout['relatedPosts']) ? 'border-b border-base-200' : '' }}">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-xs uppercase tracking-wider mb-2.5">
+                        <span>📖 {{ $guideCallout['badge'] }}</span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-black text-base-content font-display tracking-tight">
+                        {{ $guideCallout['title'] }}
+                    </h2>
+                    <p class="text-sm text-base-content/75 mt-2 leading-relaxed">
+                        {{ $guideCallout['description'] }}
+                    </p>
+                </div>
+                <a
+                    href="{{ $guideCallout['url'] }}"
+                    class="px-6 py-3 rounded-full bg-primary text-primary-content font-bold text-sm hover:bg-[#cdffad] transition-all shrink-0 text-center shadow-xs self-start md:self-auto"
+                >
+                    Read In-Depth Guide →
+                </a>
+            </div>
+
+            @if(!empty($guideCallout['relatedPosts']))
+                <div class="pt-5">
+                    <span class="text-xs font-bold uppercase tracking-wider text-base-content/50 font-mono mb-3 block">
+                        Related Step-by-Step Tutorials:
+                    </span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        @foreach($guideCallout['relatedPosts'] as $relPost)
+                            <a
+                                href="{{ $relPost['url'] }}"
+                                class="p-3.5 rounded-2xl bg-base-200/60 border border-base-300 hover:border-primary hover:bg-base-100 transition-all text-xs font-semibold text-base-content hover:text-primary flex items-center justify-between group no-underline"
+                            >
+                                <span class="line-clamp-1">{{ $relPost['title'] }}</span>
+                                <span class="text-primary font-bold opacity-0 group-hover:opacity-100 transition-opacity ml-2">→</span>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
         </section>
     @endif
 

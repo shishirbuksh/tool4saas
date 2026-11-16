@@ -56,26 +56,51 @@
             @endforeach
 
             @php
-                $pillars = app(\App\Services\BlogService::class)->getAllPillars();
+                $blogService = app(\App\Services\BlogService::class);
+                $pillars = $blogService->getAllPillars();
             @endphp
             <div class="border-b border-base-300 pb-8">
                 <h2 class="text-2xl font-bold text-base-content mb-2 flex items-center justify-between">
                     <a href="{{ route('blog.index') }}" class="hover:text-primary transition-colors">
-                        Guides &amp; Tutorials
+                        Guides &amp; Technical Tutorials
                     </a>
-                    <span class="text-xs font-normal text-base-content/60">{{ count($pillars) }} guides</span>
+                    <span class="text-xs font-normal text-base-content/60">{{ count($pillars) }} guide hubs</span>
                 </h2>
-                <p class="text-sm text-base-content/70 mb-4">In-depth technical guides, step-by-step walkthroughs, and industry references.</p>
+                <p class="text-sm text-base-content/70 mb-6">In-depth technical guides, step-by-step walkthroughs, and practical tutorials.</p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                <div class="space-y-6">
                     @foreach($pillars as $pillar)
-                        <a
-                            href="{{ url('/blog/' . $pillar->pillar) }}"
-                            class="p-3 rounded-xl bg-base-100 border border-base-300 hover:border-primary text-sm font-medium text-base-content hover:text-primary transition-all flex items-center justify-between"
-                        >
-                            <span>{{ $pillar->shortLabel ?? $pillar->title }}</span>
-                            <span class="text-xs text-base-content/40 font-mono">→</span>
-                        </a>
+                        @php
+                            $clusters = array_values(array_filter(
+                                $blogService->getClustersForPillar($pillar->pillar),
+                                fn ($c) => !$c->isNoindex
+                            ));
+                        @endphp
+                        <div class="p-5 rounded-2xl bg-base-100 border border-base-300">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                                <a
+                                    href="{{ url('/blog/' . $pillar->pillar) }}"
+                                    class="text-base font-bold text-base-content hover:text-primary font-display flex items-center gap-2"
+                                >
+                                    <span>{{ $pillar->title }}</span>
+                                    <span class="text-xs text-primary font-mono">→</span>
+                                </a>
+                                <span class="text-xs text-base-content/50 font-mono">{{ count($clusters) }} tutorials</span>
+                            </div>
+                            @if(!empty($clusters))
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 pt-2 border-t border-base-200">
+                                    @foreach($clusters as $cluster)
+                                        <a
+                                            href="{{ url('/blog/' . $pillar->pillar . '/' . $cluster->slug) }}"
+                                            class="text-xs text-base-content/75 hover:text-primary transition-colors line-clamp-1 py-1 flex items-center gap-1.5"
+                                        >
+                                            <span class="text-base-content/40 font-bold">•</span>
+                                            <span>{{ $cluster->title }}</span>
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
                     @endforeach
                 </div>
             </div>

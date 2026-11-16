@@ -57,7 +57,13 @@
                     </div>
 
                     <div class="pt-5 border-t border-base-200 flex items-center justify-between">
-                        <span class="text-xs font-semibold text-base-content/60">Comprehensive guide</span>
+                        @if ($section['meta']->toolSlug)
+                            <a href="/{{ $section['meta']->toolSlug }}" class="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline">
+                                <span>⚡ Launch Free {{ ucwords(str_replace('-', ' ', $section['meta']->toolSlug)) }}</span>
+                            </a>
+                        @else
+                            <span class="text-xs font-semibold text-base-content/60">Comprehensive guide</span>
+                        @endif
                         <a href="/blog/{{ $section['meta']->pillar }}" class="inline-flex items-center gap-1 text-sm font-bold text-base-content group-hover:text-primary transition-colors">
                             <span>Read guide</span>
                             <span>→</span>

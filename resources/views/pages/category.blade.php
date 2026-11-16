@@ -64,5 +64,78 @@
                 </a>
             @endforeach
         </div>
+
+        {{-- Educational Guide Callout for Category --}}
+        @if(!empty($categoryGuide))
+            <section aria-label="Category tutorial guide" class="mt-16 p-7 sm:p-8 rounded-3xl bg-base-100 border border-base-300 shadow-sm">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 {{ !empty($categoryGuide['relatedPosts']) ? 'border-b border-base-200' : '' }}">
+                    <div class="max-w-2xl">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-xs uppercase tracking-wider mb-2.5">
+                            <span>📖 {{ $categoryGuide['badge'] }}</span>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-black text-base-content font-display tracking-tight">
+                            {{ $categoryGuide['title'] }}
+                        </h2>
+                        <p class="text-sm text-base-content/75 mt-2 leading-relaxed">
+                            {{ $categoryGuide['description'] }}
+                        </p>
+                    </div>
+                    <a
+                        href="{{ $categoryGuide['url'] }}"
+                        class="px-6 py-3 rounded-full bg-primary text-primary-content font-bold text-sm hover:bg-[#cdffad] transition-all shrink-0 text-center shadow-xs self-start md:self-auto"
+                    >
+                        Read Complete Guide →
+                    </a>
+                </div>
+
+                @if(!empty($categoryGuide['relatedPosts']))
+                    <div class="pt-5">
+                        <span class="text-xs font-bold uppercase tracking-wider text-base-content/50 font-mono mb-3 block">
+                            Related In-Depth Tutorials:
+                        </span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                            @foreach($categoryGuide['relatedPosts'] as $relPost)
+                                <a
+                                    href="{{ $relPost['url'] }}"
+                                    class="p-3.5 rounded-2xl bg-base-200/60 border border-base-300 hover:border-primary hover:bg-base-100 transition-all text-xs font-semibold text-base-content hover:text-primary flex items-center justify-between group no-underline"
+                                >
+                                    <span class="line-clamp-1">{{ $relPost['title'] }}</span>
+                                    <span class="text-primary font-bold opacity-0 group-hover:opacity-100 transition-opacity ml-2">→</span>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            </section>
+        @endif
+
+        {{-- Browse Sibling Categories --}}
+        @if(!empty($otherCategories))
+            <section aria-label="Browse more categories" class="mt-16 pt-10 border-t border-base-300">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h2 class="text-xl font-extrabold text-base-content font-display">
+                            Explore More Tool Categories
+                        </h2>
+                        <p class="text-xs text-base-content/60 mt-0.5">
+                            Discover free, client-side productivity utilities across all domains.
+                        </p>
+                    </div>
+                    <a href="{{ route('home') }}#tools" class="text-xs font-bold text-primary hover:underline">
+                        View All Tools →
+                    </a>
+                </div>
+                <div class="flex flex-wrap gap-2.5">
+                    @foreach($otherCategories as $other)
+                        <a
+                            href="{{ route('category.show', $other->id) }}"
+                            class="px-4 py-2 rounded-full bg-base-100 border border-base-300 text-xs font-semibold text-base-content hover:border-primary hover:bg-[#e2f6d5] transition-all"
+                        >
+                            {{ $other->label }}
+                        </a>
+                    @endforeach
+                </div>
+            </section>
+        @endif
     </main>
 </x-layouts.app>

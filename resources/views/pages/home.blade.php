@@ -297,6 +297,70 @@
                     </div>
                 @endforeach
             </div>
+
+            {{-- Featured Educational Guides & Tutorials --}}
+            @if(!empty($featuredPillars))
+                <section aria-label="Featured educational guides" class="mt-20 pt-12 border-t border-base-300">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+                        <div>
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-xs uppercase tracking-wider mb-2.5">
+                                <span>📖 Deep Walkthroughs &amp; Tutorials</span>
+                            </div>
+                            <h2 class="text-2xl sm:text-4xl font-extrabold text-base-content font-display tracking-tight">
+                                Featured Reference Guides
+                            </h2>
+                            <p class="text-sm sm:text-base text-base-content/75 mt-1 max-w-2xl">
+                                Step-by-step guides with real-world calculation formulas, regulatory frameworks, and optimization workflows.
+                            </p>
+                        </div>
+                        <a
+                            href="{{ route('blog.index') }}"
+                            class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-base-100 border border-base-300 hover:border-primary text-sm font-bold text-base-content hover:text-primary transition-all shrink-0"
+                        >
+                            <span>Browse all 17 guides</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        @foreach($featuredPillars as $pillar)
+                            <div class="p-6 sm:p-7 rounded-3xl bg-base-100 border border-base-300 hover:border-primary hover:shadow-lg transition-all flex flex-col justify-between group">
+                                <div>
+                                    <div class="flex items-center justify-between gap-2 mb-3">
+                                        <span class="badge badge-sm badge-outline text-[11px] font-semibold border-base-300">
+                                            {{ $pillar->shortLabel ?? 'Guide' }}
+                                        </span>
+                                        @if($pillar->toolSlug)
+                                            <a href="/{{ $pillar->toolSlug }}" class="text-[11px] font-bold text-[#054d28] bg-[#e2f6d5] hover:bg-primary px-2.5 py-0.5 rounded-full transition-colors">
+                                                Online Tool ⚡
+                                            </a>
+                                        @endif
+                                    </div>
+                                    <h3 class="font-bold text-lg text-base-content group-hover:text-primary transition-colors font-display mb-2">
+                                        <a href="/blog/{{ $pillar->pillar }}" class="no-underline text-inherit">
+                                            {{ $pillar->title }}
+                                        </a>
+                                    </h3>
+                                    <p class="text-xs text-base-content/70 line-clamp-3 leading-relaxed">
+                                        {{ $pillar->description }}
+                                    </p>
+                                </div>
+                                <div class="mt-6 pt-4 border-t border-base-200 flex items-center justify-between">
+                                    <a href="/blog/{{ $pillar->pillar }}" class="inline-flex items-center gap-1 text-xs font-bold text-base-content group-hover:text-primary transition-colors">
+                                        <span>Read guide</span>
+                                        <span>→</span>
+                                    </a>
+                                    @if($pillar->toolSlug)
+                                        <a href="/{{ $pillar->toolSlug }}" class="text-xs font-semibold text-base-content/60 hover:text-primary transition-colors">
+                                            Open {{ ucwords(str_replace('-', ' ', $pillar->toolSlug)) }}
+                                        </a>
+                                    @endif
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </section>
+            @endif
         </main>
     </div>
 </x-layouts.app>

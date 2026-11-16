@@ -51,6 +51,124 @@ final class BlogService
         return null;
     }
 
+    public function getPillarByToolSlug(string $toolSlug): ?BlogPillarDTO
+    {
+        foreach ($this->getAllPillars() as $p) {
+            if ($p->toolSlug === $toolSlug) {
+                return $p;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return array{
+     *     title: string,
+     *     description: string,
+     *     url: string,
+     *     badge: string,
+     *     readingMinutes: int,
+     *     pillarSlug: string,
+     *     relatedPosts: list<array{title: string, url: string}>
+     * }|null
+     */
+    public function getGuideRecommendationForTool(string $toolSlug, string $categoryId): ?array
+    {
+        // 1. Direct pillar match
+        $pillar = $this->getPillarByToolSlug($toolSlug);
+        if ($pillar !== null) {
+            $pillarPost = $this->getPillarPost($pillar->pillar);
+            $clusters = array_values(array_filter(
+                $this->getClustersForPillar($pillar->pillar),
+                fn (BlogPostDTO $c): bool => ! $c->isNoindex
+            ));
+
+            /** @var list<array{title: string, url: string}> $relPosts */
+            $relPosts = array_map(fn (BlogPostDTO $c): array => [
+                'title' => $c->title,
+                'url' => url('/blog/'.$pillar->pillar.'/'.$c->slug),
+            ], array_slice($clusters, 0, 3));
+
+            return [
+                'title' => $pillar->title,
+                'description' => $pillar->description,
+                'url' => url('/blog/'.$pillar->pillar),
+                'badge' => 'Comprehensive Guide & Tutorial Hub',
+                'readingMinutes' => $pillarPost !== null ? $pillarPost->readingMinutes : 10,
+                'pillarSlug' => $pillar->pillar,
+                'relatedPosts' => $relPosts,
+            ];
+        }
+
+        // 2. Direct post match in toolSlugs
+        foreach ($this->getAllPosts() as $post) {
+            if (! $post->isNoindex && in_array($toolSlug, $post->toolSlugs, true)) {
+                $rel = $this->getRelatedPosts($post, 3);
+                /** @var list<array{title: string, url: string}> $relPosts */
+                $relPosts = array_map(fn (BlogPostDTO $c): array => [
+                    'title' => $c->title,
+                    'url' => $c->kind === 'pillar' ? url('/blog/'.$c->pillar) : url('/blog/'.$c->pillar.'/'.$c->slug),
+                ], $rel);
+
+                return [
+                    'title' => $post->title,
+                    'description' => $post->description,
+                    'url' => $post->kind === 'pillar' ? url('/blog/'.$post->pillar) : url('/blog/'.$post->pillar.'/'.$post->slug),
+                    'badge' => 'Step-by-Step Technical Tutorial',
+                    'readingMinutes' => $post->readingMinutes,
+                    'pillarSlug' => $post->pillar,
+                    'relatedPosts' => $relPosts,
+                ];
+            }
+        }
+
+        // 3. Category fallback mapping
+        $catMap = [
+            'text-documents' => 'word-counter-guide',
+            'business' => 'invoice-generator-guide',
+            'developer' => 'json-formatter-guide',
+            'converters' => 'json-formatter-guide',
+            'generators' => 'password-generator-guide',
+            'images-design' => 'image-compressor-guide',
+            'pdf' => 'pdf-merge-guide',
+            'calculators' => 'percentage-calculator-guide',
+            'finance' => 'mortgage-calculator-guide',
+            'health' => 'bmi-calculator-guide',
+            'seo' => 'seo-analyzer-guide',
+            'time' => 'age-calculator-guide',
+        ];
+
+        $targetPillarSlug = $catMap[$categoryId] ?? 'invoice-generator-guide';
+        $fallbackPillar = $this->getPillar($targetPillarSlug);
+
+        if ($fallbackPillar !== null) {
+            $pillarPost = $this->getPillarPost($fallbackPillar->pillar);
+            $clusters = array_values(array_filter(
+                $this->getClustersForPillar($fallbackPillar->pillar),
+                fn (BlogPostDTO $c): bool => ! $c->isNoindex
+            ));
+
+            /** @var list<array{title: string, url: string}> $relPosts */
+            $relPosts = array_map(fn (BlogPostDTO $c): array => [
+                'title' => $c->title,
+                'url' => url('/blog/'.$fallbackPillar->pillar.'/'.$c->slug),
+            ], array_slice($clusters, 0, 3));
+
+            return [
+                'title' => $fallbackPillar->title,
+                'description' => $fallbackPillar->description,
+                'url' => url('/blog/'.$fallbackPillar->pillar),
+                'badge' => 'Recommended Reference Guide',
+                'readingMinutes' => $pillarPost !== null ? $pillarPost->readingMinutes : 10,
+                'pillarSlug' => $fallbackPillar->pillar,
+                'relatedPosts' => $relPosts,
+            ];
+        }
+
+        return null;
+    }
+
     /**
      * @return list<BlogPostDTO>
      */

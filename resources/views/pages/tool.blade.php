@@ -16,6 +16,7 @@
         :relatedTools="$relatedTools"
         :relatedHeading="$relatedHeading"
         :ymylType="$ymylType"
+        :guideCallout="$guideCallout ?? null"
     >
         @if(view()->exists("tools.{$tool->slug}"))
             @include("tools.{$tool->slug}")

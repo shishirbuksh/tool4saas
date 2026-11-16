@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Services\BlogService;
 use App\Services\RelatedToolsService;
 use App\Services\SeoService;
 use App\Services\ToolRegistryService;
@@ -16,6 +17,7 @@ final class ToolController
         private readonly ToolRegistryService $registry,
         private readonly RelatedToolsService $relatedService,
         private readonly SeoService $seo,
+        private readonly BlogService $blogService,
     ) {}
 
     public function show(string $slug): View
@@ -30,6 +32,7 @@ final class ToolController
         $metaTitle = $this->seo->toolMetaTitle($tool);
         $metaDescription = $this->seo->fitMetaDescription($tool->description);
         $jsonLd = $this->seo->buildToolJsonLd($tool, url('/'));
+        $guideCallout = $this->blogService->getGuideRecommendationForTool($tool->slug, $tool->category);
 
         return view('pages.tool', [
             'tool' => $tool,
@@ -43,6 +46,7 @@ final class ToolController
             'ymylType' => $tool->ymylType(),
             'canonical' => url('/'.$tool->slug),
             'isNoindex' => $tool->isNoindex,
+            'guideCallout' => $guideCallout,
         ]);
     }
 }

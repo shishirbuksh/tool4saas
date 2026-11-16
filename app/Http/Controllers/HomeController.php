@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Services\BlogService;
 use App\Services\SeoService;
 use App\Services\ToolRegistryService;
 use Illuminate\Contracts\View\View;
@@ -13,6 +14,7 @@ final class HomeController
     public function __construct(
         private readonly ToolRegistryService $registry,
         private readonly SeoService $seo,
+        private readonly BlogService $blogService,
     ) {}
 
     public function __invoke(): View
@@ -20,6 +22,7 @@ final class HomeController
         $categories = $this->registry->categories();
         $allTools = $this->registry->all();
         $counts = $this->registry->counts();
+        $featuredPillars = array_slice($this->blogService->getAllPillars(), 0, 6);
 
         $grouped = [];
         foreach ($categories as $cat) {
@@ -44,6 +47,7 @@ final class HomeController
             'metaDescription' => $metaDescription,
             'counts' => $counts,
             'grouped' => $grouped,
+            'featuredPillars' => $featuredPillars,
             'canonical' => url('/'),
             'jsonLd' => $jsonLd,
         ]);
