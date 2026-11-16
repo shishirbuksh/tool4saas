@@ -230,7 +230,7 @@ final class FeedController extends Controller
         $manifest = [
             'name' => 'Tool4SaaS',
             'short_name' => 'Tool4SaaS',
-            'description' => '120+ free browser tools for developers, designers, and founders.',
+            'description' => '127 free browser tools for developers, designers, and founders.',
             'start_url' => '/',
             'display' => 'browser',
             'background_color' => '#FCFCF9',
