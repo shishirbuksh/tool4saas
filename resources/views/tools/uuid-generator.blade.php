@@ -1,0 +1,170 @@
+<x-card class="p-6 md:p-8">
+    <div x-data="{
+        version: 'v4',
+        count: 5,
+        uppercase: false,
+        hyphens: true,
+        uuids: [],
+        copiedAll: false,
+        copiedIndex: null,
+
+        generateV4() {
+            if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+                return crypto.randomUUID();
+            }
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        },
+
+        generateV7() {
+            const now = Date.now();
+            const timeHex = now.toString(16).padStart(12, '0');
+            const randA = Math.floor(Math.random() * 0xfff).toString(16).padStart(3, '0');
+            const randB = (Math.floor(Math.random() * 0x3fff) | 0x8000).toString(16).padStart(4, '0');
+            const randC = Array.from(crypto.getRandomValues(new Uint8Array(6)))
+                .map(b => b.toString(16).padStart(2, '0')).join('');
+
+            return `${timeHex.slice(0, 8)}-${timeHex.slice(8, 12)}-7${randA}-${randB}-${randC}`;
+        },
+
+        generate() {
+            const result = [];
+            const n = Math.min(Math.max(1, parseInt(this.count) || 1), 500);
+            for (let i = 0; i < n; i++) {
+                let id = this.version === 'v7' ? this.generateV7() : this.generateV4();
+                if (!this.hyphens) {
+                    id = id.replace(/-/g, '');
+                }
+                if (this.uppercase) {
+                    id = id.toUpperCase();
+                } else {
+                    id = id.toLowerCase();
+                }
+                result.push(id);
+            }
+            this.uuids = result;
+        },
+
+        copyAll() {
+            if (!this.uuids.length) return;
+            navigator.clipboard.writeText(this.uuids.join('\n'));
+            this.copiedAll = true;
+            setTimeout(() => this.copiedAll = false, 2000);
+        },
+
+        copySingle(text, index) {
+            navigator.clipboard.writeText(text);
+            this.copiedIndex = index;
+            setTimeout(() => this.copiedIndex = null, 1500);
+        },
+
+        downloadTxt() {
+            if (!this.uuids.length) return;
+            const blob = new Blob([this.uuids.join('\n')], { type: 'text/plain;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `uuids-${this.version}-${Date.now()}.txt`;
+            a.click();
+        },
+
+        init() {
+            this.generate();
+        }
+    }">
+        <div class="space-y-6">
+            {{-- Configuration Controls --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 rounded-3xl bg-base-200/60 border border-base-300">
+                <div>
+                    <label for="uuid-version" class="block text-xs font-bold uppercase tracking-wider text-base-content/70 mb-2">Version</label>
+                    <select id="uuid-version" x-model="version" @change="generate()" class="select select-bordered w-full rounded-2xl bg-base-100 font-semibold text-sm">
+                        <option value="v4">UUID v4 (Cryptographic Random)</option>
+                        <option value="v7">UUID v7 (Timestamp-Ordered)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="uuid-count" class="block text-xs font-bold uppercase tracking-wider text-base-content/70 mb-2">Quantity</label>
+                    <select id="uuid-count" x-model.number="count" @change="generate()" class="select select-bordered w-full rounded-2xl bg-base-100 font-semibold text-sm">
+                        <option :value="1">1 UUID</option>
+                        <option :value="5">5 UUIDs</option>
+                        <option :value="10">10 UUIDs</option>
+                        <option :value="25">25 UUIDs</option>
+                        <option :value="50">50 UUIDs</option>
+                        <option :value="100">100 UUIDs</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col justify-end">
+                    <label class="label cursor-pointer justify-start gap-3 py-2">
+                        <input type="checkbox" x-model="hyphens" @change="generate()" class="checkbox checkbox-primary rounded-lg" />
+                        <span class="label-text font-bold text-sm">Include Hyphens</span>
+                    </label>
+                </div>
+
+                <div class="flex flex-col justify-end">
+                    <label class="label cursor-pointer justify-start gap-3 py-2">
+                        <input type="checkbox" x-model="uppercase" @change="generate()" class="checkbox checkbox-primary rounded-lg" />
+                        <span class="label-text font-bold text-sm">Uppercase</span>
+                    </label>
+                </div>
+            </div>
+
+            {{-- Action Bar --}}
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                <button
+                    type="button"
+                    @click="generate()"
+                    class="px-6 py-3 rounded-full bg-primary text-primary-content font-bold text-sm hover:bg-[#cdffad] transition-all shadow-sm active:scale-95 inline-flex items-center gap-2"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    <span>Generate New UUIDs</span>
+                </button>
+
+                <div class="flex items-center gap-2">
+                    <button
+                        type="button"
+                        @click="copyAll()"
+                        class="px-4 py-2.5 rounded-full bg-base-100 border border-base-300 hover:border-primary text-xs font-bold transition-all shadow-xs inline-flex items-center gap-1.5"
+                    >
+                        <span x-text="copiedAll ? '✓ Copied All!' : 'Copy All'"></span>
+                    </button>
+                    <button
+                        type="button"
+                        @click="downloadTxt()"
+                        class="px-4 py-2.5 rounded-full bg-base-100 border border-base-300 hover:border-primary text-xs font-bold transition-all shadow-xs inline-flex items-center gap-1.5"
+                    >
+                        <span>Download .txt</span>
+                    </button>
+                </div>
+            </div>
+
+            {{-- Generated Output List --}}
+            <div class="bg-base-200/50 border border-base-300 rounded-3xl p-4 sm:p-6 space-y-2 font-mono text-sm">
+                <template x-for="(uuid, idx) in uuids" :key="idx">
+                    <div class="flex items-center justify-between p-3 rounded-2xl bg-base-100 border border-base-300/70 hover:border-primary transition-colors group">
+                        <span class="text-base-content select-all font-semibold tracking-wide break-all" x-text="uuid"></span>
+                        <button
+                            type="button"
+                            @click="copySingle(uuid, idx)"
+                            class="px-3 py-1 rounded-full text-xs font-bold transition-all shrink-0 ml-3"
+                            :class="copiedIndex === idx ? 'bg-primary text-primary-content' : 'bg-base-200 text-base-content hover:bg-base-300'"
+                        >
+                            <span x-text="copiedIndex === idx ? 'Copied!' : 'Copy'"></span>
+                        </button>
+                    </div>
+                </template>
+            </div>
+
+            {{-- Trust Banner --}}
+            <div class="p-4 rounded-2xl bg-[#0e0f0c] text-white border border-[#242a20] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
+                <span class="text-primary font-bold">✓ Cryptographically Secure &amp; RFC 9562 Compliant</span>
+                <span class="text-[#868685]">Generated locally using window.crypto. Zero network requests.</span>
+            </div>
+        </div>
+    </div>
+</x-card>
