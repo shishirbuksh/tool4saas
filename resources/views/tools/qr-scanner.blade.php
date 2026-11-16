@@ -56,5 +56,55 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: QR Code Error Correction Levels Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                QR Code Reed-Solomon Error Correction Levels &amp; Recovery Capacity Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Error Correction Level</th>
+                            <th>Damaged Data Restored</th>
+                            <th>Data Density / Module Size</th>
+                            <th>Visual Logo Overlay Capacity</th>
+                            <th>Best Use Case &amp; Scanning Environment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Level L (Low)</td>
+                            <td class="font-mono font-bold">~7% recovery</td>
+                            <td class="font-bold text-success font-mono">Lowest density (Smallest modules)</td>
+                            <td class="text-error font-semibold">No logo overlay allowed</td>
+                            <td>Clean screen displays, high-density URL encoding, mobile apps</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Level M (Medium)</td>
+                            <td class="font-mono font-bold">~15% recovery</td>
+                            <td class="font-mono">Standard density</td>
+                            <td>Small subtle icon (up to 5% area)</td>
+                            <td>Default global commercial standard; marketing flyers, receipts</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Level Q (Quartile)</td>
+                            <td class="font-mono font-bold">~25% recovery</td>
+                            <td class="font-mono">High density</td>
+                            <td class="text-success font-semibold">Center brand logo (15% area)</td>
+                            <td>Outdoor posters, restaurant tables subject to smudges &amp; glare</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">Level H (High)</td>
+                            <td class="font-mono font-bold text-success">~30% recovery</td>
+                            <td class="font-mono text-warning">Highest density (Large matrix)</td>
+                            <td class="font-bold text-success font-mono">Large center logo (25%–30% area)</td>
+                            <td>Industrial machinery, shipping labels, branded aesthetic QR codes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

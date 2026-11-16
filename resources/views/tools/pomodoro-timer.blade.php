@@ -130,5 +130,55 @@
                 </div>
             </div>
         </div>
+
+        {{-- Technical Comparison: Productivity Timeboxing Techniques Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Timeboxing Productivity Methodologies: Pomodoro vs. 52/17 vs. Ultradian Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Productivity Method</th>
+                            <th>Focus Duration</th>
+                            <th>Rest Break</th>
+                            <th>Cognitive Scientific Basis</th>
+                            <th>Best Work Domain</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Classic Pomodoro (Cirillo)</td>
+                            <td class="font-mono font-bold">25 minutes</td>
+                            <td class="font-mono font-bold">5 min (20m after 4 cycles)</td>
+                            <td>Attention span reset; mitigates mental fatigue &amp; procrastination</td>
+                            <td>Coding sprints, inbox clearing, proofreading, repetitive tasks</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">The 52/17 Rule (DeskTime)</td>
+                            <td class="font-mono font-bold">52 minutes</td>
+                            <td class="font-mono font-bold">17 minutes</td>
+                            <td>Derived from telemetry tracking the top 10% most productive knowledge workers</td>
+                            <td>Deep writing, architecture design, strategic roadmap planning</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">90-Minute Ultradian Rhythm</td>
+                            <td class="font-mono">90 minutes</td>
+                            <td class="font-mono">20 – 30 minutes</td>
+                            <td>Kleitman's Basic Rest-Activity Cycle (BRAC) biological brain wave limit</td>
+                            <td>Intensive study, scientific research, book authoring</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Flowtime Technique</td>
+                            <td class="font-mono">Variable (15–90 min)</td>
+                            <td class="font-mono">Proportional (5–15 min)</td>
+                            <td>Uninterrupted flow state preservation; stop only upon natural friction</td>
+                            <td>Creative problem solving, algorithmic breakthroughs, UI design</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

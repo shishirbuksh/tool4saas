@@ -61,5 +61,50 @@
                 <p class="font-mono text-lg font-bold mt-1">1st (0-13w) · 2nd (14-27w) · 3rd (28-40w)</p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Pregnancy Trimesters & Fetal Development Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Pregnancy Trimesters, Gestational Milestones &amp; Clinical Screening Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Trimester Stage</th>
+                            <th>Gestational Week Span</th>
+                            <th>Fetal Development Milestones</th>
+                            <th>Standard Clinical Screenings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">First Trimester</td>
+                            <td class="font-mono font-bold">Weeks 1 – 13</td>
+                            <td>Organogenesis: Neural tube closes, heartbeat detected (w6), limb buds form</td>
+                            <td>Nuchal translucency ultrasound, NIPT cell-free DNA blood panel</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Second Trimester</td>
+                            <td class="font-mono font-bold">Weeks 14 – 27</td>
+                            <td>Quickening (fetal movement felt ~w18-20), auditory development, sex determination</td>
+                            <td>Anatomy ultrasound scan (w18-22), maternal serum quad screen</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Third Trimester</td>
+                            <td class="font-mono font-bold">Weeks 28 – 40+</td>
+                            <td>Rapid brain &amp; lung surfactant maturation, subcutaneous fat deposition</td>
+                            <td>Gestational diabetes glucose tolerance test (w24-28), Group B Strep (w36)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">Full Term Window</td>
+                            <td class="font-mono font-bold text-success">Weeks 39w 0d – 40w 6d</td>
+                            <td>Fully matured respiratory &amp; thermoregulation systems for delivery</td>
+                            <td>Biophysical profile (BPP), non-stress test (NST), cervical checks</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

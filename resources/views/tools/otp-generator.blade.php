@@ -47,5 +47,55 @@
                 <span x-show="copied" x-cloak>✓ Copied to Clipboard!</span>
             </button>
         </div>
+
+        {{-- Technical Comparison: OTP Protocols & Multi-Factor Auth Architectures Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                OTP Multi-Factor Protocols: TOTP vs. HOTP vs. SMS vs. FIDO2 WebAuthn Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Authentication Mechanism</th>
+                            <th>Underlying RFC Standard</th>
+                            <th>Time Window / Validity</th>
+                            <th>Phishing Resistance</th>
+                            <th>Leading Client Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">TOTP (Time-Based OTP)</td>
+                            <td class="font-mono font-bold">RFC 6238 (HMAC-SHA1/256)</td>
+                            <td class="font-mono">30 – 60 seconds</td>
+                            <td class="text-warning font-semibold">Moderate (Vulnerable to reverse proxies)</td>
+                            <td>Google Authenticator, Authy, 1Password, Bitwarden</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">HOTP (Counter-Based OTP)</td>
+                            <td class="font-mono">RFC 4226 (HMAC-SHA1)</td>
+                            <td class="font-mono">Event counter increment</td>
+                            <td class="text-warning font-semibold">Moderate (Subject to desync)</td>
+                            <td>Hardware tokens (YubiKey OATH-HOTP, RSA SecurID)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-error">SMS / Voice OTP</td>
+                            <td class="font-mono">Telecom SS7 / SMPP</td>
+                            <td class="font-mono">3 to 10 minutes</td>
+                            <td class="text-error font-semibold">Low (SIM swapping, SS7 interception)</td>
+                            <td>Legacy consumer banking, SMS text delivery</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">FIDO2 / WebAuthn Passkeys</td>
+                            <td class="font-mono font-bold text-success">W3C WebAuthn / FIDO2</td>
+                            <td class="font-mono">Per-challenge cryptographic signature</td>
+                            <td class="font-bold text-success font-mono">100% Phishing Proof (Origin bound)</td>
+                            <td>Apple TouchID, Windows Hello, YubiKey FIDO2 hardware keys</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

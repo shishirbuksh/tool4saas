@@ -59,5 +59,55 @@
                 <span class="text-xs text-base-content/50">Peak likelihood of conception</span>
             </div>
         </div>
+
+        {{-- Technical Comparison: Menstrual Cycle Phases & Hormonal Dynamics Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Menstrual Cycle Phases, Hormonal Fluctuations &amp; Fertility Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Cycle Phase</th>
+                            <th>Typical Cycle Days (28-day baseline)</th>
+                            <th>Dominant Hormones</th>
+                            <th>Endometrial &amp; Ovarian Status</th>
+                            <th>Conception Probability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Menstrual Phase</td>
+                            <td class="font-mono">Days 1 – 5</td>
+                            <td class="font-mono">Low Estrogen &amp; Progesterone</td>
+                            <td>Uterine lining shed (menses)</td>
+                            <td class="font-mono text-error font-semibold">Extremely Low (~0% to 1%)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Follicular Phase</td>
+                            <td class="font-mono">Days 6 – 13</td>
+                            <td class="font-mono">FSH &amp; Rising Estrogen</td>
+                            <td>Ovarian follicles mature; uterine lining thickens</td>
+                            <td class="font-mono text-warning font-semibold">Rising (Sperm survives up to 5 days)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">Ovulation Phase</td>
+                            <td class="font-mono font-bold text-success">Day 14 (±2 days)</td>
+                            <td class="font-mono font-bold">LH Surge (Luteinizing Hormone)</td>
+                            <td>Mature oocyte released from dominant follicle into fallopian tube</td>
+                            <td class="font-bold text-success font-mono">Peak (25% – 35% highest chance)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Luteal Phase</td>
+                            <td class="font-mono">Days 15 – 28</td>
+                            <td class="font-mono">High Progesterone</td>
+                            <td>Corpus luteum maintains endometrium for embryo implantation</td>
+                            <td class="font-mono text-error font-semibold">Declines to zero post-egg viability</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

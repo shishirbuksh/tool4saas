@@ -77,5 +77,55 @@
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Paid off in ' + (simulation.newMonths / 12).toFixed(1) + ' years instead of ' + tenureYears + ' years.'"></p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Mortgage Prepayment Strategies Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Mortgage Overpayment Strategies: Monthly Extra vs. Lump Sum vs. Bi-Weekly Payments Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Prepayment Technique</th>
+                            <th>Payment Mechanics</th>
+                            <th>Amortization Impact</th>
+                            <th>Lender Penalty Risk</th>
+                            <th>Cash Flow Flexibility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Monthly Extra Principal</td>
+                            <td class="font-mono">Add $100–$500 to regular monthly check</td>
+                            <td class="font-bold text-success font-mono">Compounds monthly (Cuts 4–8 yrs off 30-yr loan)</td>
+                            <td class="text-success font-semibold">Zero on standard conventional/FHA</td>
+                            <td class="text-success font-semibold">High (Can pause extra payment any month)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Bi-Weekly Payment Schedule</td>
+                            <td class="font-mono">Pay half monthly EMI every 2 weeks (26 halves = 13 full payments)</td>
+                            <td class="font-bold text-success font-mono">1 full extra monthly principal payment / yr</td>
+                            <td class="text-success font-semibold">Zero</td>
+                            <td>Moderate (Tied to bi-weekly payroll cycle)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Annual Bonus Lump Sum</td>
+                            <td class="font-mono">Single lump sum (tax refund / bonus) applied to principal</td>
+                            <td class="font-mono">Immediate step-down in balance and future interest</td>
+                            <td>Check lender annual prepayment cap (some UK/Canada loans cap at 10–20%)</td>
+                            <td>Highest during high-earning years</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Mortgage Recasting</td>
+                            <td class="font-mono">Lump sum payment followed by lender re-amortizing remaining term</td>
+                            <td class="font-mono">Lowers monthly required payment permanently</td>
+                            <td>Small admin fee ($250–$500); no refinancing closing costs</td>
+                            <td>Excellent for homeowners selling previous house after closing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

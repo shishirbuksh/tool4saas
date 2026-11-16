@@ -103,5 +103,62 @@
             <span class="text-primary font-bold">🔒 Zero Egress:</span>
             <span>Passwords are evaluated strictly in client-side memory. No keystroke is ever sent across the network.</span>
         </div>
+
+        {{-- Technical Comparison: Password Entropy & Brute Force Attack Time Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Password Entropy Bits vs. GPU Cluster Brute-Force Crack Time Matrix (NIST SP 800-63B)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Entropy Strength Tier</th>
+                            <th>Information Bits</th>
+                            <th>Character Composition Example</th>
+                            <th>Offline GPU Hashcat Speed (100 GH/s)</th>
+                            <th>NIST Security Compliance Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-error">Very Weak</td>
+                            <td class="font-mono text-error">&lt; 28 bits</td>
+                            <td class="font-mono">6 lowercase letters (&ldquo;secret&rdquo;)</td>
+                            <td class="font-bold text-error font-mono">Instant (&lt; 0.001 seconds)</td>
+                            <td class="text-error font-semibold">Non-compliant (Known dictionary word)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-warning">Weak</td>
+                            <td class="font-mono">28 – 35 bits</td>
+                            <td class="font-mono">8 characters (lower + numbers)</td>
+                            <td class="text-warning font-mono">Few seconds to 10 minutes</td>
+                            <td class="text-warning font-semibold">Vulnerable to rainbow tables</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Moderate</td>
+                            <td class="font-mono">36 – 59 bits</td>
+                            <td class="font-mono">10–12 mixed-case alphanumeric</td>
+                            <td class="font-mono">Several hours to 3 weeks</td>
+                            <td>Acceptable for low-risk casual logins</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Strong</td>
+                            <td class="font-mono">60 – 79 bits</td>
+                            <td class="font-mono">14+ mixed-case with symbols</td>
+                            <td class="font-mono text-success">Several decades to 500 years</td>
+                            <td class="text-success font-semibold">Enterprise standard (Passphrase recommended)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">Military / Quantum-Resistant</td>
+                            <td class="font-mono font-bold text-success">80+ bits</td>
+                            <td class="font-mono">16+ random characters or 5+ Diceware words</td>
+                            <td class="font-bold text-success font-mono">Millions of years (Trillions of centuries)</td>
+                            <td class="text-success font-bold">NIST SP 800-63B High Assurance Benchmark</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>
