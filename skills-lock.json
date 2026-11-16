@@ -19,6 +19,12 @@
       "skillPath": "skills/docs-seo/SKILL.md",
       "computedHash": "8cfb1e998811ba41c6f18dd332d40c5422c9d6158bcb01bc73d930942cf1757b"
     },
+    "free-tools": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/free-tools/SKILL.md",
+      "computedHash": "8ac6a6881df107a32d1ed74dc0d9ae52232c7416fe4acc37ae1f281f9668e49b"
+    },
     "google-adsense": {
       "source": "starraider/typo3-skills",
       "sourceType": "github",
