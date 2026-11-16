@@ -77,3 +77,17 @@ test('dynamic blog og image generates valid png', function () {
     $response->assertHeader('Content-Type', 'image/png');
     expect(strlen($response->getContent()))->toBeGreaterThan(1000);
 });
+
+test('ads txt returns valid adsense direct publisher line', function () {
+    $response = $this->get('/ads.txt');
+
+    $response->assertStatus(200);
+    expect($response->getContent())->toContain('google.com, pub-6310719489589992, DIRECT, f08c47fec0942fa0');
+});
+
+test('indexnow verification file returns valid key', function () {
+    $response = $this->get('/e4a7d32c98b14e6da2019c43b876f512.txt');
+
+    $response->assertStatus(200);
+    expect($response->getContent())->toContain('e4a7d32c98b14e6da2019c43b876f512');
+});

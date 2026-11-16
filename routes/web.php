@@ -25,6 +25,12 @@ Route::get('/e4a7d32c98b14e6da2019c43b876f512.txt', function () {
         'Cache-Control' => 'public, max-age=86400',
     ]);
 });
+Route::get('/ads.txt', function () {
+    return response("google.com, pub-6310719489589992, DIRECT, f08c47fec0942fa0\n", 200, [
+        'Content-Type' => 'text/plain; charset=utf-8',
+        'Cache-Control' => 'public, max-age=86400',
+    ]);
+});
 
 // 1.5 API Endpoints
 Route::post('/api/ssl-check', [SslCheckController::class, 'check'])
