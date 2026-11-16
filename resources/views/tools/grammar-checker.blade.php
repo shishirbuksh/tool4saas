@@ -41,6 +41,57 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: Common English Grammatical Errors Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Common English Grammar &amp; Syntax Errors Classification Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Grammar Error Category</th>
+                            <th>Incorrect Example</th>
+                            <th>Corrected Formulation</th>
+                            <th>Governing Syntactic Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Subject-Verb Agreement</td>
+                            <td class="font-mono text-error">The list of items are long.</td>
+                            <td class="font-mono text-success font-semibold">The list of items is long.</td>
+                            <td>Verb must agree with singular head noun &ldquo;list&rdquo;, not prepositional object</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Comma Splice</td>
+                            <td class="font-mono text-error">It rained, we stayed inside.</td>
+                            <td class="font-mono text-success font-semibold">It rained; we stayed inside.</td>
+                            <td>Independent clauses cannot be joined by a comma alone without a coordinating conjunction</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Dangling Modifier</td>
+                            <td class="font-mono text-error">Walking home, the rain started.</td>
+                            <td class="font-mono text-success font-semibold">Walking home, we were caught in the rain.</td>
+                            <td>Participial phrase must immediately precede the subject doing the walking</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Homophone Confusion</td>
+                            <td class="font-mono text-error">They're car is over their.</td>
+                            <td class="font-mono text-success font-semibold">Their car is over there.</td>
+                            <td>Possessive &ldquo;their&rdquo; vs locative adverb &ldquo;there&rdquo; vs contraction &ldquo;they're&rdquo;</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Pronoun Case Error</td>
+                            <td class="font-mono text-error">Between you and I.</td>
+                            <td class="font-mono text-success font-semibold">Between you and me.</td>
+                            <td>Prepositions take objective case pronouns (&ldquo;me&rdquo;, &ldquo;him&rdquo;, &ldquo;them&rdquo;)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>
 

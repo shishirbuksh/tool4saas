@@ -49,5 +49,55 @@
                 <p class="text-xs text-base-content/60 mt-2">Combined gross proceeds</p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Sales Commission Models Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                B2B &amp; Retail Sales Commission Compensation Structures Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Commission Plan Structure</th>
+                            <th>Calculation Formula</th>
+                            <th>Incentive Intensity</th>
+                            <th>Company Margin Protection</th>
+                            <th>Common Industry Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Flat Percentage (Straight)</td>
+                            <td class="font-mono">Revenue × Fixed % (e.g. 10%)</td>
+                            <td>Predictable &amp; Linear</td>
+                            <td class="text-warning font-semibold">Low (Ignores discounting)</td>
+                            <td>Real estate, affiliate marketing, simple retail</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Tiered / Graduated (Accelerators)</td>
+                            <td class="font-mono">5% to $100k, 10% to $250k, 15%+ over quota</td>
+                            <td class="text-success font-bold">Highest (Drives quota outperformance)</td>
+                            <td>High (High tiers funded by volume scale)</td>
+                            <td>Enterprise SaaS sales, medical devices, B2B tech</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Gross Margin Commission</td>
+                            <td class="font-mono">(Revenue − Cost of Goods) × %</td>
+                            <td>Moderate to High</td>
+                            <td class="text-success font-bold">Maximum (Disincentivizes rogue discounts)</td>
+                            <td>Wholesale distribution, manufacturing, staffing</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Draw Against Commission</td>
+                            <td class="font-mono">Guaranteed draw advance offset by sales</td>
+                            <td>High baseline security</td>
+                            <td>Moderate (Recoverable vs non-recoverable)</td>
+                            <td>New SDR/AE ramp periods, luxury car dealerships</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

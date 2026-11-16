@@ -98,5 +98,62 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: Modern Web Image Formats Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Modern Web Image Formats: WebP vs. AVIF vs. JPEG vs. PNG vs. SVG Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Image Format</th>
+                            <th>Compression Type</th>
+                            <th>Alpha Transparency</th>
+                            <th>Relative File Size vs JPEG</th>
+                            <th>Best Web Production Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">WebP (Google)</td>
+                            <td class="font-mono">Lossy &amp; Lossless</td>
+                            <td class="text-success font-semibold">Yes (8-bit alpha)</td>
+                            <td class="font-bold text-success font-mono">25% – 35% smaller</td>
+                            <td>Universal web standard (97%+ browser support)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">AVIF (AOMedia)</td>
+                            <td class="font-mono">AV1 Intra Keyframe</td>
+                            <td class="text-success font-semibold">Yes (10/12-bit HDR)</td>
+                            <td class="font-bold text-success font-mono">50% – 60% smaller</td>
+                            <td>Hero banners, high-resolution photography on modern browsers</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">JPEG / JPG</td>
+                            <td class="font-mono">Lossy DCT (Discrete Cosine)</td>
+                            <td class="text-error font-semibold">No</td>
+                            <td class="font-mono">Baseline (100%)</td>
+                            <td>Legacy camera output, email newsletters, legacy clients</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">PNG</td>
+                            <td class="font-mono">Lossless DEFLATE</td>
+                            <td class="text-success font-semibold">Yes (Full 24-bit alpha)</td>
+                            <td class="text-warning font-mono">200% – 400% larger</td>
+                            <td>Icons, UI screenshots, graphics requiring pixel perfection</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">SVG</td>
+                            <td class="font-mono">XML Vector Markup</td>
+                            <td class="text-success font-semibold">Yes (Native vector)</td>
+                            <td class="font-mono font-bold text-success">Infinite scale (&lt; 5 KB)</td>
+                            <td>Logos, UI icons, responsive illustrations</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

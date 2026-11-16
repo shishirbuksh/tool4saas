@@ -53,5 +53,62 @@
                 <p class="text-xs text-base-content/60 mt-2">Recommended ceiling for principal, interest, taxes, and insurance.</p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Mortgage Loan Types & DTI Thresholds Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Mortgage Loan Types, DTI Thresholds &amp; Down Payment Guidelines Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Loan Program</th>
+                            <th>Min Down Payment</th>
+                            <th>Max Front-End DTI</th>
+                            <th>Max Back-End DTI</th>
+                            <th>Min Credit Score (FICO)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Conventional (Fannie Mae)</td>
+                            <td class="font-mono">3% – 5% (20% avoids PMI)</td>
+                            <td class="font-mono font-bold">28%</td>
+                            <td class="font-mono font-bold">36% (up to 45% automated)</td>
+                            <td class="font-mono">620</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">FHA Loan (Govt Insured)</td>
+                            <td class="font-mono">3.5%</td>
+                            <td class="font-mono">31%</td>
+                            <td class="font-mono">43% (up to 50% with compensating factors)</td>
+                            <td class="font-mono font-bold text-success">580 (500 with 10% down)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">VA Loan (Veterans)</td>
+                            <td class="font-mono font-bold text-success">0% Down</td>
+                            <td class="font-mono">No fixed ceiling</td>
+                            <td class="font-mono">41% benchmark</td>
+                            <td class="font-mono">580 – 620 (Lender overlay)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">USDA Rural Housing</td>
+                            <td class="font-mono font-bold text-success">0% Down</td>
+                            <td class="font-mono">29%</td>
+                            <td class="font-mono">41%</td>
+                            <td class="font-mono">640</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Jumbo Non-Conforming</td>
+                            <td class="font-mono">10% – 20%</td>
+                            <td class="font-mono">28% – 30%</td>
+                            <td class="font-mono">38% – 43% strict</td>
+                            <td class="font-mono text-error font-bold">700 – 740+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

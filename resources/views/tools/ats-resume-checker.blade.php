@@ -78,5 +78,62 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: Leading ATS Platform Parsing Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Enterprise ATS Engines (Workday vs. Taleo vs. Greenhouse vs. Lever) Compatibility Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>ATS Platform</th>
+                            <th>Market Segment</th>
+                            <th>Recommended File Format</th>
+                            <th>Multi-Column / Table Handling</th>
+                            <th>Header / Footer Parsing Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Workday</td>
+                            <td>Fortune 500 &amp; Global Enterprises</td>
+                            <td class="font-mono font-bold">.docx or clean .pdf</td>
+                            <td class="text-error font-semibold">Fails / Scrambles text order</td>
+                            <td>Completely skipped (Never put contact info in header)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Oracle Taleo</td>
+                            <td>Legacy Enterprise &amp; Government</td>
+                            <td class="font-mono font-bold">Plain text or .docx</td>
+                            <td class="text-error font-semibold">Strict linear single-column only</td>
+                            <td>Ignored by optical parser</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Greenhouse</td>
+                            <td>Tech Startups, Scale-ups &amp; SaaS</td>
+                            <td class="font-mono">Standard .pdf or .docx</td>
+                            <td class="text-warning font-semibold">Moderate (Reads left-to-right)</td>
+                            <td>Parsed correctly in modern builds</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Lever</td>
+                            <td>Mid-market &amp; Fast-growth Tech</td>
+                            <td class="font-mono">Standard .pdf</td>
+                            <td class="text-warning font-semibold">Extracts clean text layer</td>
+                            <td>Preserves contact metadata</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">iCIMS</td>
+                            <td>Healthcare, Retail &amp; Manufacturing</td>
+                            <td class="font-mono">.docx or PDF</td>
+                            <td class="text-error font-semibold">Requires simple tables or none</td>
+                            <td>Often stripped during ingestion</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

@@ -66,5 +66,62 @@
                 <p class="text-xs text-base-content/60 mt-1">Average per calendar month</p>
             </div>
         </div>
+
+        {{-- Technical Comparison: US Federal Income Tax Brackets Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                US Federal Marginal Income Tax Brackets &amp; Standard Deductions Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Marginal Tax Rate</th>
+                            <th>Single Filers (Taxable Income)</th>
+                            <th>Married Filing Jointly</th>
+                            <th>Head of Household</th>
+                            <th>Effective Tax Planning Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">10% Bracket</td>
+                            <td class="font-mono">$0 to $11,600</td>
+                            <td class="font-mono">$0 to $23,200</td>
+                            <td class="font-mono">$0 to $16,550</td>
+                            <td>Baseline standard deduction absorbs first tier</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">12% Bracket</td>
+                            <td class="font-mono">$11,601 to $47,150</td>
+                            <td class="font-mono">$23,201 to $94,300</td>
+                            <td class="font-mono">$16,551 to $63,100</td>
+                            <td>Optimal bracket for Roth IRA / 401(k) conversions</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">22% Bracket</td>
+                            <td class="font-mono">$47,151 to $100,525</td>
+                            <td class="font-mono">$94,301 to $201,050</td>
+                            <td class="font-mono">$63,101 to $100,500</td>
+                            <td>Traditional 401(k) and HSA contributions reduce marginal burden</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">24% Bracket</td>
+                            <td class="font-mono">$100,526 to $191,950</td>
+                            <td class="font-mono">$201,051 to $383,900</td>
+                            <td class="font-mono">$100,501 to $191,950</td>
+                            <td>Broad plateau; back-door Roth strategies common</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">32% / 35% / 37%</td>
+                            <td class="font-mono">$191,951+ to $609,350+</td>
+                            <td class="font-mono">$383,901+ to $731,200+</td>
+                            <td class="font-mono">$191,951+ to $609,350+</td>
+                            <td class="font-bold text-error">Maximum marginal tiers; itemized deductions &amp; muni bonds</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

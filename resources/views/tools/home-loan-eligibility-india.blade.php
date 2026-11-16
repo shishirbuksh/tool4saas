@@ -52,5 +52,55 @@
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Capped at ' + foirPercent + '% Indian Bank FOIR ceiling'"></p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Indian Home Loan Lending Norms Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Indian Bank FOIR Ratios, CIBIL Score Brackets &amp; RBI LTV Caps Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Gross Monthly Income Bracket</th>
+                            <th>Max Permissible FOIR</th>
+                            <th>Target CIBIL Score Range</th>
+                            <th>RBI Max LTV Ratio (Property Value)</th>
+                            <th>Leading Bank Benchmark (SBI / HDFC)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">₹30,000 – ₹50,000 / mo</td>
+                            <td class="font-mono font-bold">40% – 45%</td>
+                            <td class="font-mono">750+ (Prime rate)</td>
+                            <td class="font-mono">Up to 90% (Loans ≤ ₹30 Lakhs)</td>
+                            <td>Standard repo linked lending rate (RLLR + spread)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">₹50,000 – ₹1,00,000 / mo</td>
+                            <td class="font-mono font-bold">50%</td>
+                            <td class="font-mono">750 – 799</td>
+                            <td class="font-mono">Up to 80% (Loans ₹30L to ₹75 Lakhs)</td>
+                            <td>Lowest concessions for salaried borrowers</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">₹1,00,000+ / mo</td>
+                            <td class="font-mono font-bold text-success">55% – 65%</td>
+                            <td class="font-mono">800+</td>
+                            <td class="font-mono">Up to 75% (Loans &gt; ₹75 Lakhs)</td>
+                            <td>Premium HNI loan processing &amp; instant approval</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-error">Sub-prime (&lt; ₹30k or CIBIL &lt; 650)</td>
+                            <td class="font-mono">Capped at 35%</td>
+                            <td class="font-mono text-error">&lt; 650</td>
+                            <td class="font-mono">60% – 70% strict</td>
+                            <td class="text-error">Subject to guarantor or higher NBFC rate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

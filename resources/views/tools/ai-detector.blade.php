@@ -59,5 +59,56 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: AI vs. Human Text Signatures Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                AI vs. Human Writing Signatures, Perplexity &amp; Burstiness Diagnostic Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Stylistic Marker</th>
+                            <th>AI Model Generated (GPT-4 / Claude)</th>
+                            <th>Human Author Composition</th>
+                            <th>Statistical Diagnostic Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Sentence Length Variance (Burstiness)</td>
+                            <td class="font-mono">Uniform (std dev &lt; 4.0 words)</td>
+                            <td class="font-mono font-bold text-success">High variance (mix of 3 to 35+ words)</td>
+                            <td>Calculates standard deviation across sentence tokens</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Vocabulary Perplexity</td>
+                            <td class="font-mono">Low (Picks highest probability tokens)</td>
+                            <td class="font-mono font-bold text-success">High (Uses idiosyncratic idioms &amp; slang)</td>
+                            <td>Evaluates cross-entropy loss against n-gram models</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Transitional Connectors</td>
+                            <td class="font-mono text-warning">Heavy (&ldquo;Moreover&rdquo;, &ldquo;Delve&rdquo;, &ldquo;In summary&rdquo;)</td>
+                            <td class="font-mono">Varied, organic contextual pivots</td>
+                            <td>Frequency count of stereotyped discourse markers</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Paragraph Rhythm &amp; Cadence</td>
+                            <td class="font-mono">Balanced 3–4 sentence blocks</td>
+                            <td class="font-mono">Erratic (one-line zingers, asymmetric blocks)</td>
+                            <td>Paragraph token distribution histogram</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Emotional Nuance &amp; Vulnerability</td>
+                            <td class="font-mono">Neutral, cautious, balanced viewpoint</td>
+                            <td class="font-mono font-bold">Strong personal stance, humor, typos</td>
+                            <td>Sentiment polarization &amp; tonal subjectivity index</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>
