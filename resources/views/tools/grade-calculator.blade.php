@@ -66,5 +66,62 @@
                 <p class="font-mono text-4xl font-black text-white mt-1" x-text="letterGrade"></p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Syllabus Grading Categories & Typical Weights Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                College &amp; High School Syllabus Grade Weights vs. Impact Sensitivity Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Assessment Category</th>
+                            <th>Typical Weight (%)</th>
+                            <th>Frequency / Volume</th>
+                            <th>Impact on Final 100% Grade</th>
+                            <th>Best Study &amp; Optimization Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Final Exam / Capstone</td>
+                            <td class="font-mono font-bold text-error">30% – 40%</td>
+                            <td class="font-mono">1 comprehensive exam</td>
+                            <td class="font-bold text-error font-mono">Very High (±1 letter grade)</td>
+                            <td>High-yield practice exams, spaced retrieval review</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Midterm Exams</td>
+                            <td class="font-mono font-bold">20% – 30%</td>
+                            <td class="font-mono">1 to 2 midterms</td>
+                            <td class="font-bold text-warning font-mono">High (±0.5 letter grade)</td>
+                            <td>Early benchmark; utilize office hours for missed concepts</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Homework / Problem Sets</td>
+                            <td class="font-mono">15% – 25%</td>
+                            <td class="font-mono">Weekly (10–14 sets)</td>
+                            <td class="font-mono">Moderate (Consistent buffer)</td>
+                            <td>Submit 100% on time; secure full credit foundation</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Quizzes / Reading Checks</td>
+                            <td class="font-mono">10% – 15%</td>
+                            <td class="font-mono">5 to 10 short checks</td>
+                            <td class="font-mono">Low to Moderate</td>
+                            <td>Review pre-lecture assigned readings and key vocabulary</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Class Participation &amp; Labs</td>
+                            <td class="font-mono">5% – 10%</td>
+                            <td class="font-mono">Daily / weekly</td>
+                            <td class="font-mono text-success">Low (Free grade safety net)</td>
+                            <td>Active attendance and collaborative group engagement</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

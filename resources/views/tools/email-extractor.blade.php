@@ -79,5 +79,62 @@
                 </template>
             </div>
         </template>
+
+        {{-- Technical Comparison: Email Syntax Standards & Validation Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                RFC 5322 Email Syntax Standards, Regex Accuracy &amp; Deliverability Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Email Standard / Type</th>
+                            <th>Syntax Pattern Example</th>
+                            <th>RFC 5322 Spec Status</th>
+                            <th>Max Length Limit</th>
+                            <th>Parsing &amp; Delivery Consideration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Standard Mailbox</td>
+                            <td class="font-mono">user@example.com</td>
+                            <td class="text-success font-semibold">Fully Valid (Standard)</td>
+                            <td class="font-mono">254 chars (64 local / 255 domain)</td>
+                            <td>100% universal support across all MTAs</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Sub-addressing (Plus)</td>
+                            <td class="font-mono">user+tag@example.com</td>
+                            <td class="text-success font-semibold">Fully Valid (RFC 5233)</td>
+                            <td class="font-mono">64 chars local part</td>
+                            <td>Supported by Gmail, Outlook, Fastmail for filtering</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Dots in Local Part</td>
+                            <td class="font-mono">first.last@domain.co.uk</td>
+                            <td class="text-success font-semibold">Fully Valid (No consecutive dots)</td>
+                            <td class="font-mono">64 chars local part</td>
+                            <td>Gmail ignores dots; corporate servers treat uniquely</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Internationalized (IDN)</td>
+                            <td class="font-mono">pelé@brasil.br (Punycode)</td>
+                            <td class="font-mono">RFC 6530 (SMTPUTF8)</td>
+                            <td class="font-mono">254 UTF-8 octets</td>
+                            <td>Requires Punycode (<code class="font-mono">xn--</code>) conversion on legacy MTAs</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-error">Quoted String Local</td>
+                            <td class="font-mono">"john doe"@domain.com</td>
+                            <td class="text-warning font-semibold">Technically Valid</td>
+                            <td class="font-mono">64 chars local part</td>
+                            <td class="text-error">Rejected by 95%+ web forms &amp; transactional APIs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

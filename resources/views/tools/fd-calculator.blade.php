@@ -65,5 +65,55 @@
                 </div>
             </div>
         </div>
+
+        {{-- Technical Comparison: FD Compounding Frequency Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Fixed Deposit (FD) Compounding Frequency vs. Effective Annual Yield (APY) Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Compounding Frequency</th>
+                            <th>Periods / Year (n)</th>
+                            <th>Nominal 7.00% APY Yield</th>
+                            <th>Nominal 8.00% APY Yield</th>
+                            <th>Bank Application &amp; Payout Rules</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Quarterly Compounding</td>
+                            <td class="font-mono font-bold">n = 4</td>
+                            <td class="font-mono font-bold text-success">7.186% APY</td>
+                            <td class="font-mono font-bold text-success">8.243% APY</td>
+                            <td>Indian Banking Standard (SBI, HDFC, ICICI, PNB)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Monthly Compounding</td>
+                            <td class="font-mono font-bold">n = 12</td>
+                            <td class="font-mono font-bold text-success">7.229% APY</td>
+                            <td class="font-mono font-bold text-success">8.300% APY</td>
+                            <td>Corporate FDs &amp; NBFC high-yield fixed deposits</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Half-Yearly (Semi-Annual)</td>
+                            <td class="font-mono">n = 2</td>
+                            <td class="font-mono">7.123% APY</td>
+                            <td class="font-mono">8.160% APY</td>
+                            <td>Government sovereign savings bonds (RBI 7.15%)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Annual Compounding</td>
+                            <td class="font-mono">n = 1</td>
+                            <td class="font-mono">7.000% APY</td>
+                            <td class="font-mono">8.000% APY</td>
+                            <td>Post office time deposits &amp; simple reinvestment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

@@ -64,5 +64,55 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: Debt Payoff Strategies Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Debt Snowball vs. Debt Avalanche vs. Debt Consolidation Strategy Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Payoff Strategy</th>
+                            <th>Priority Ordering</th>
+                            <th>Total Interest Savings</th>
+                            <th>Psychological Motivation</th>
+                            <th>Best Suited For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Debt Avalanche</td>
+                            <td>Highest APR interest rate first</td>
+                            <td class="font-bold text-success font-mono">Maximum (Mathematically optimal)</td>
+                            <td>Moderate (Requires sustained discipline)</td>
+                            <td>Analytical borrowers with high-APR credit cards</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Debt Snowball</td>
+                            <td>Smallest principal balance first</td>
+                            <td class="font-mono">Moderate (Pays more total interest)</td>
+                            <td class="font-bold text-success">Highest (Fast early quick wins)</td>
+                            <td>Borrowers needing emotional momentum &amp; habit building</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">0% Balance Transfer Card</td>
+                            <td>Transfer multiple balances to 0% intro APR</td>
+                            <td class="font-mono text-success">Very High (If paid in 12–21 mos)</td>
+                            <td>High (Single consolidated payment)</td>
+                            <td>Good credit scores (690+) with high short-term cash flow</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Fixed Personal Loan</td>
+                            <td>Consolidate unsecured debts into 1 fixed term</td>
+                            <td class="font-mono">Substantial (7–12% vs 24%+ credit card)</td>
+                            <td>High (Predetermined debt-free date)</td>
+                            <td>Borrowers with credit score 660+ and fixed income</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

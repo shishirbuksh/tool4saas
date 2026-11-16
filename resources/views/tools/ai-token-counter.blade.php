@@ -65,5 +65,62 @@
                 </template>
             </div>
         </div>
+
+        {{-- Technical Comparison: Major LLM Tokenizers & Context Architectures Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Leading LLM Tokenizers, Context Windows &amp; Token-to-Word Ratios Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Model Family</th>
+                            <th>Tokenizer Architecture</th>
+                            <th>Vocabulary Size</th>
+                            <th>Avg Tokens / 1k Words (English)</th>
+                            <th>Max Context Window</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">OpenAI GPT-4o / mini</td>
+                            <td class="font-mono">o200k_base (BPE)</td>
+                            <td class="font-mono font-bold">~200,000 tokens</td>
+                            <td class="font-mono">~1,250 – 1,300</td>
+                            <td class="font-mono">128,000 tokens</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">OpenAI GPT-4 / 3.5</td>
+                            <td class="font-mono">cl100k_base (BPE)</td>
+                            <td class="font-mono">100,277 tokens</td>
+                            <td class="font-mono">~1,330 – 1,380</td>
+                            <td class="font-mono">128,000 tokens</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Anthropic Claude 3.5 Sonnet</td>
+                            <td class="font-mono">Claude Custom BPE</td>
+                            <td class="font-mono">~65,000 tokens</td>
+                            <td class="font-mono">~1,300 – 1,350</td>
+                            <td class="font-mono">200,000 tokens</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Google Gemini 1.5 Pro</td>
+                            <td class="font-mono">SentencePiece BPE</td>
+                            <td class="font-mono">~256,000 tokens</td>
+                            <td class="font-mono">~1,200 – 1,250</td>
+                            <td class="font-mono font-bold text-success">2,000,000 tokens</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Meta Llama 3 / 3.1</td>
+                            <td class="font-mono">Tiktoken BPE</td>
+                            <td class="font-mono">128,256 tokens</td>
+                            <td class="font-mono">~1,280 – 1,320</td>
+                            <td class="font-mono">128,000 tokens</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

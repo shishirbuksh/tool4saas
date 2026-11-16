@@ -56,5 +56,62 @@
                 <p class="text-xs text-base-content/60 mt-2">Standard client daily consulting retainer.</p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Freelance Pricing Models Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Freelance &amp; Consulting Pricing Models: Hourly vs. Day Rate vs. Retainer vs. Value-Based
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Pricing Model</th>
+                            <th>Billing Mechanism</th>
+                            <th>Income Predictability</th>
+                            <th>Scope Creep Risk</th>
+                            <th>Best Career Stage &amp; Project Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Hourly Billing ($/hr)</td>
+                            <td class="font-mono">Time tracked (T&amp;M)</td>
+                            <td>Low (Varies with logged hours)</td>
+                            <td class="text-success font-semibold">Low (Every extra hour paid)</td>
+                            <td>Early freelancers, debugging, maintenance, shifting specs</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Day / Half-Day Rate</td>
+                            <td class="font-mono">Per 8-hour block reserved</td>
+                            <td>Moderate (Blocks booked in advance)</td>
+                            <td class="text-success font-semibold">Low (Dedicated time commitment)</td>
+                            <td>Senior contractors, design sprints, technical audits</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Monthly Retainer</td>
+                            <td class="font-mono">Fixed recurring fee (e.g. $5k/mo)</td>
+                            <td class="text-success font-bold">Highest (Guaranteed monthly cash flow)</td>
+                            <td class="text-warning font-semibold">Moderate (Cap hours strictly in SLA)</td>
+                            <td>Ongoing advisory, DevOps support, content operations</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Fixed Project Fee</td>
+                            <td class="font-mono">Milestone deliverables based</td>
+                            <td>Moderate (Milestone approval lag)</td>
+                            <td class="text-error font-semibold">High (Requires tight statement of work)</td>
+                            <td>Well-defined MVPs, landing pages, complete app builds</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">Value-Based Pricing</td>
+                            <td class="font-mono">Tied to client ROI / revenue upside</td>
+                            <td class="text-success font-bold">Highest earning ceiling</td>
+                            <td class="text-success font-semibold">Low (Priced on business outcome)</td>
+                            <td>Expert consultants (Conversion optimization, enterprise sales)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

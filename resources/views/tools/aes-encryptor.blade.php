@@ -77,5 +77,62 @@
                 <div class="font-mono text-sm break-all bg-base-100 p-3 rounded-[10px]" x-text="output"></div>
             </div>
         </template>
+
+        {{-- Technical Comparison: AES Key Lengths & Cipher Modes Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                AES Key Lengths, Block Cipher Modes &amp; NIST Security Compliance Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Cipher Standard</th>
+                            <th>Key Length / Rounds</th>
+                            <th>Mode of Operation</th>
+                            <th>Authentication / Integrity</th>
+                            <th>Security Level &amp; Best Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">AES-256-GCM</td>
+                            <td class="font-mono font-bold">256-bit (14 rounds)</td>
+                            <td class="font-mono">Galois/Counter Mode</td>
+                            <td class="text-success font-semibold">Built-in (AEAD Auth Tag)</td>
+                            <td>Top Secret / NSA Suite B (Web standard)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">AES-128-GCM</td>
+                            <td class="font-mono">128-bit (10 rounds)</td>
+                            <td class="font-mono">Galois/Counter Mode</td>
+                            <td class="text-success font-semibold">Built-in (AEAD Auth Tag)</td>
+                            <td>High throughput, TLS 1.3 default</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">AES-256-CBC</td>
+                            <td class="font-mono">256-bit (14 rounds)</td>
+                            <td class="font-mono">Cipher Block Chaining</td>
+                            <td class="text-warning font-semibold">Requires HMAC (Encrypt-then-MAC)</td>
+                            <td>Legacy database &amp; file encryption</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">AES-256-CTR</td>
+                            <td class="font-mono">256-bit (14 rounds)</td>
+                            <td class="font-mono">Counter Mode (Stream)</td>
+                            <td class="text-warning font-semibold">Requires external MAC</td>
+                            <td>Parallel disk encryption &amp; streaming</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-error">AES-ECB</td>
+                            <td class="font-mono">128/256-bit</td>
+                            <td class="font-mono">Electronic Codebook</td>
+                            <td class="text-error font-semibold">None (Deterministic leak)</td>
+                            <td class="text-error">Insecure (Never use in production)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

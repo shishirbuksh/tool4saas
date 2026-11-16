@@ -68,6 +68,56 @@
                 ></textarea>
             </div>
         </div>
+
+        {{-- Technical Comparison: Code Minification & Compression Benchmark Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Code Minification vs. Network Compression (Gzip / Brotli) Efficiency Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Asset Type</th>
+                            <th>Unminified Size</th>
+                            <th>Minified (Whitespace + Comments)</th>
+                            <th>Minified + Gzip (Level 6)</th>
+                            <th>Minified + Brotli (Level 11)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">JavaScript (ES6+ Bundle)</td>
+                            <td class="font-mono">100 KB (100%)</td>
+                            <td class="font-mono font-bold">~45 KB (−55%)</td>
+                            <td class="font-mono">~14 KB (−86%)</td>
+                            <td class="font-mono text-success font-bold">~11 KB (−89%)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">CSS Stylesheet (Tailwind)</td>
+                            <td class="font-mono">100 KB (100%)</td>
+                            <td class="font-mono font-bold">~52 KB (−48%)</td>
+                            <td class="font-mono">~12 KB (−88%)</td>
+                            <td class="font-mono text-success font-bold">~9 KB (−91%)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">HTML Document Structure</td>
+                            <td class="font-mono">100 KB (100%)</td>
+                            <td class="font-mono font-bold">~68 KB (−32%)</td>
+                            <td class="font-mono">~18 KB (−82%)</td>
+                            <td class="font-mono text-success font-bold">~15 KB (−85%)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">JSON Data Payload</td>
+                            <td class="font-mono">100 KB (100%)</td>
+                            <td class="font-mono font-bold">~60 KB (−40%)</td>
+                            <td class="font-mono">~15 KB (−85%)</td>
+                            <td class="font-mono text-success font-bold">~12 KB (−88%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>
 
