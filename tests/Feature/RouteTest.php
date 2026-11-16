@@ -81,6 +81,20 @@ final class RouteTest extends TestCase
         $response->assertStatus(301);
         $response->assertRedirect('/any-future-or-old-tool?ref=test');
 
+        // Test Google Search Console reported legacy localized URLs
+        $gscUrls = [
+            '/es/blog/qr-code-generator-guide/qr-code-size-print-guide' => '/blog/qr-code-generator-guide/qr-code-size-print-guide',
+            '/es/word-counter' => '/word-counter',
+            '/fr/invoice-generator' => '/invoice-generator',
+            '/de/password-generator' => '/password-generator',
+            '/es-es/image-compressor' => '/image-compressor',
+        ];
+        foreach ($gscUrls as $legacy => $canonical) {
+            $response = $this->get($legacy);
+            $response->assertStatus(301);
+            $response->assertRedirect($canonical);
+        }
+
         // Test trailing slash canonical 301 normalization
         $request = Request::create('/percentage-calculator/', 'GET');
         $middleware = new HandleLegacyRedirects;

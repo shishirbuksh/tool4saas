@@ -54,6 +54,31 @@
                     </div>
                 </div>
             @endforeach
+
+            @php
+                $pillars = app(\App\Services\BlogService::class)->getAllPillars();
+            @endphp
+            <div class="border-b border-base-300 pb-8">
+                <h2 class="text-2xl font-bold text-base-content mb-2 flex items-center justify-between">
+                    <a href="{{ route('blog.index') }}" class="hover:text-primary transition-colors">
+                        Guides &amp; Tutorials
+                    </a>
+                    <span class="text-xs font-normal text-base-content/60">{{ count($pillars) }} guides</span>
+                </h2>
+                <p class="text-sm text-base-content/70 mb-4">In-depth technical guides, step-by-step walkthroughs, and industry references.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                    @foreach($pillars as $pillar)
+                        <a
+                            href="{{ url('/blog/' . $pillar->pillar) }}"
+                            class="p-3 rounded-xl bg-base-100 border border-base-300 hover:border-primary text-sm font-medium text-base-content hover:text-primary transition-all flex items-center justify-between"
+                        >
+                            <span>{{ $pillar->shortLabel ?? $pillar->title }}</span>
+                            <span class="text-xs text-base-content/40 font-mono">→</span>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </x-layouts.app>

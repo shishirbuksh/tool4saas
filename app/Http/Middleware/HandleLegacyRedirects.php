@@ -52,8 +52,8 @@ final class HandleLegacyRedirects
             return redirect()->to($destination, 301);
         }
 
-        // Fallback: Strip legacy multi-language prefixes (/es, /fr) and 301 redirect to English canonical
-        if (preg_match('#^/(?:es|fr)(/.*)?$#i', $path, $matches)) {
+        // Fallback: Strip any legacy multi-language prefixes (/es, /fr, /de, /it, etc.) and 301 redirect permanently to English canonical
+        if (preg_match('#^/(?:es|fr|de|it|pt|ru|ja|zh|hi|ar|nl|pl|tr|vi|id|[a-z]{2}-[a-z]{2})(/.*)?$#i', $path, $matches)) {
             $remaining = (! empty($matches[1])) ? $matches[1] : '/';
             $query = $request->getQueryString();
             if ($query !== null && $query !== '') {
