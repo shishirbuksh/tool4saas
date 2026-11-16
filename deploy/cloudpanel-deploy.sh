@@ -6,7 +6,7 @@
 
 set -e
 
-echo "🚀 [1/6] Starting Tool4SaaS Production Deployment..."
+echo "🚀 [1/7] Starting Tool4SaaS Production Deployment..."
 
 # Determine deployment directory
 TARGET_DIR="${1:-$(pwd)}"
@@ -20,7 +20,7 @@ fi
 echo "📁 Working directory: $TARGET_DIR"
 
 # 1. Environment check
-echo "⚙️  [2/6] Verifying environment configuration..."
+echo "⚙️  [2/7] Verifying environment configuration..."
 if [ ! -f ".env" ]; then
     echo "⚠️  .env not found. Copying from .env.example..."
     cp .env.example .env
@@ -38,7 +38,7 @@ mkdir -p database
 touch database/database.sqlite
 
 # 2. Composer dependencies (MUST run before any artisan commands)
-echo "📦 [3/6] Installing Composer production dependencies..."
+echo "📦 [3/7] Installing Composer production dependencies..."
 if command -v composer &> /dev/null; then
     composer install --no-dev --optimize-autoloader --no-interaction
 else
@@ -53,7 +53,7 @@ if grep -q "APP_KEY=$" .env || grep -q "APP_KEY=\"\"" .env; then
 fi
 
 # 3. Permissions check
-echo "🔒 [4/6] Setting directory permissions for storage and cache..."
+echo "🔒 [4/7] Setting directory permissions for storage and cache..."
 mkdir -p storage/framework/{cache,sessions,views,testing} storage/logs bootstrap/cache
 chmod -R 775 storage bootstrap/cache
 
@@ -67,7 +67,7 @@ if [ "$(id -u)" -eq 0 ]; then
 fi
 
 # 4. Laravel Production Optimization Caches
-echo "⚡ [5/6] Warming production caches (config, routes, views)..."
+echo "⚡ [5/7] Warming production caches (config, routes, views)..."
 php artisan config:clear
 php artisan route:clear
 php artisan view:clear
@@ -76,8 +76,12 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-# 5. Reload PHP-FPM
-echo "🔄 [6/6] Reloading PHP-FPM service..."
+# 5. IndexNow Instant Search Engine Notification
+echo "📡 [6/7] Submitting 311 URLs to IndexNow (Bing, Yandex, Seznam)..."
+php artisan seo:indexnow || echo "⚠️  IndexNow ping skipped (non-critical network timeout)."
+
+# 6. Reload PHP-FPM
+echo "🔄 [7/7] Reloading PHP-FPM service..."
 if command -v systemctl &> /dev/null; then
     for version in 8.3 8.2 8.4; do
         if systemctl is-active --quiet "php${version}-fpm"; then
