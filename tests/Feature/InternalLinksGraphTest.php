@@ -73,7 +73,7 @@ final class InternalLinksGraphTest extends TestCase
             $response = $this->get($pageUrl);
             $response->assertStatus(200);
 
-            $dom = new DOMDocument();
+            $dom = new DOMDocument;
             @$dom->loadHTML(mb_convert_encoding($response->getContent(), 'HTML-ENTITIES', 'UTF-8'));
             $anchors = $dom->getElementsByTagName('a');
 
