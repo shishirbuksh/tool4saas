@@ -70,6 +70,63 @@
             </div>
             <textarea x-model="generatedTags" readonly rows="8" class="textarea textarea-bordered rounded-2xl w-full text-xs font-mono bg-black/60 text-primary border-[#242a20] p-4"></textarea>
         </div>
+
+        {{-- Technical Comparison: Essential SEO & Social Meta Tags Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Essential HTML &lt;head&gt; Meta Tags, Crawler Directives &amp; Social Graph Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Meta Tag Name / Property</th>
+                            <th>Recommended Length / Value</th>
+                            <th>Target Search or Social Crawler</th>
+                            <th>Critical SEO &amp; CTR Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">&lt;title&gt;</td>
+                            <td class="font-mono font-bold text-success">50 – 60 characters</td>
+                            <td>Google, Bing, Yahoo, Yandex</td>
+                            <td>Primary ranking signal; SERP clickable headline</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">&lt;meta name="description"&gt;</td>
+                            <td class="font-mono font-bold text-success">120 – 160 characters</td>
+                            <td>Google Search (SERP snippet)</td>
+                            <td>Drives organic CTR; bolded matched user keywords</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">&lt;link rel="canonical"&gt;</td>
+                            <td class="font-mono">Absolute URL (https://)</td>
+                            <td>Googlebot, Bingbot</td>
+                            <td>Eliminates duplicate content; consolidates PageRank</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">og:image (Open Graph)</td>
+                            <td class="font-mono">1200 × 630 px (&lt; 5 MB)</td>
+                            <td>Facebook, LinkedIn, Slack, WhatsApp</td>
+                            <td>Drives social feed engagement &amp; share viral visual</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">twitter:card</td>
+                            <td class="font-mono">summary_large_image</td>
+                            <td>Twitter / X TwitterBot</td>
+                            <td>Renders high-res full-width preview card in user feed</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">&lt;meta name="robots"&gt;</td>
+                            <td class="font-mono">index, follow, max-image-preview:large</td>
+                            <td>All verified search crawlers</td>
+                            <td>Governs crawl allowance, indexing and Google Discover visual eligibility</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>
 

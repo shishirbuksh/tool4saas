@@ -60,5 +60,62 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: Color Harmony Systems & Palette Theory Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Color Theory Harmony Systems &amp; Palette Composition Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Harmony System</th>
+                            <th>Color Wheel Geometry</th>
+                            <th>Visual Dynamic &amp; Contrast</th>
+                            <th>Psychological Mood</th>
+                            <th>Best UI Design Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Complementary</td>
+                            <td>Exact opposite sides (180° separation)</td>
+                            <td class="font-bold text-success">Maximum visual contrast &amp; punch</td>
+                            <td>High energy, bold, action-oriented</td>
+                            <td>Primary CTAs, conversion buttons against neutral backgrounds</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Analogous</td>
+                            <td>Adjacent hues (30° to 60° proximity)</td>
+                            <td>Low contrast, harmonious gradient flow</td>
+                            <td>Calm, serene, cohesive, natural</td>
+                            <td>Backgrounds, illustrations, corporate hero cards</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Triadic</td>
+                            <td>Equilateral triangle (120° equidistant)</td>
+                            <td>Vibrant balance across diverse spectra</td>
+                            <td>Playful, vibrant, dynamic</td>
+                            <td>Gamified dashboards, multi-category SaaS interfaces</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Split-Complementary</td>
+                            <td>Base hue plus 2 adjacent to its complement (150°/210°)</td>
+                            <td>High contrast with less tension than pure opposite</td>
+                            <td>Sophisticated, nuanced, balanced</td>
+                            <td>Editorial design, magazine layouts, brand guidelines</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Monochromatic</td>
+                            <td>Single hue varied by lightness &amp; saturation</td>
+                            <td>Uniform visual hierarchy</td>
+                            <td>Minimalist, elegant, structured</td>
+                            <td>Enterprise productivity tools, documentation portals</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

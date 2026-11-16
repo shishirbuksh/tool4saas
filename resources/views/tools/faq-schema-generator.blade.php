@@ -27,6 +27,63 @@
             </div>
             <textarea readonly :value="jsonLd" rows="8" class="textarea textarea-bordered w-full font-mono text-xs bg-base-100"></textarea>
         </div>
+
+        {{-- Technical Comparison: Schema.org Structured Data Types Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Google Search Rich Result Schema Types &amp; SERP Presentation Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Schema.org @type</th>
+                            <th>Required Top-Level Fields</th>
+                            <th>SERP Rich Result Visual</th>
+                            <th>Google Eligibility Guidelines</th>
+                            <th>Best Used On</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">FAQPage</td>
+                            <td class="font-mono">mainEntity (Question + acceptedAnswer)</td>
+                            <td>Collapsible accordion questions under snippet</td>
+                            <td class="text-warning font-semibold">Limited to authoritative government &amp; healthcare sites since Aug 2023</td>
+                            <td>Official support hubs, government agency guidelines</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">QAPage</td>
+                            <td class="font-mono">mainEntity (Question + suggestedAnswer list)</td>
+                            <td>Highlighted accepted answer &amp; vote count badge</td>
+                            <td class="text-success font-semibold">User-generated community forums only (StackOverflow style)</td>
+                            <td>Community discussion boards, product forums</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">WebApplication / SoftwareApplication</td>
+                            <td class="font-mono">name, operatingSystem, applicationCategory</td>
+                            <td>Star rating, software badge, price ($0 free)</td>
+                            <td class="text-success font-bold">100% eligible for interactive web tools &amp; SaaS</td>
+                            <td>Interactive calculators, converters, utility apps</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">HowTo</td>
+                            <td class="font-mono">step (HowToStep with text &amp; url)</td>
+                            <td>Numbered carousel steps with thumbnails</td>
+                            <td class="text-warning font-semibold">Mobile SERPs only</td>
+                            <td>Step-by-step DIY tutorials, technical guides</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Article / BlogPosting</td>
+                            <td class="font-mono">headline, image, datePublished, author</td>
+                            <td>Top Stories carousel, author byline, date badge</td>
+                            <td class="text-success font-bold">Universal for editorial content</td>
+                            <td>Blog pillars, whitepapers, industry research</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>
 

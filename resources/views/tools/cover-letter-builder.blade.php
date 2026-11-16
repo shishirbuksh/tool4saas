@@ -29,6 +29,56 @@
             </div>
             <textarea readonly :value="letter" rows="10" class="textarea textarea-bordered w-full rounded-[16px] text-sm leading-relaxed bg-base-100 dark:bg-base-200"></textarea>
         </div>
+
+        {{-- Technical Comparison: Professional Cover Letter Structures Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Professional Cover Letter Formats, Tone &amp; Industry Alignment Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Cover Letter Style</th>
+                            <th>Tone &amp; Vocabulary</th>
+                            <th>Word Count Target</th>
+                            <th>Core Value Proposition Focus</th>
+                            <th>Target Industry Sectors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Modern Tech / SaaS</td>
+                            <td>Direct, energetic, metrics-driven</td>
+                            <td class="font-mono font-bold">200 – 300 words</td>
+                            <td>Shipped products, revenue impact, technical stack proficiency</td>
+                            <td>Software engineering, product management, DevOps, startups</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Traditional Corporate</td>
+                            <td>Formal, respectful, structured</td>
+                            <td class="font-mono">300 – 400 words</td>
+                            <td>Institutional tenure, compliance, established pedigree</td>
+                            <td>Investment banking, law firms, healthcare, government</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Creative Portfolio</td>
+                            <td>Narrative storytelling, unique voice</td>
+                            <td class="font-mono">250 – 350 words</td>
+                            <td>Design philosophy, brand aesthetic, creative campaign ROI</td>
+                            <td>UI/UX design, marketing agencies, copywriting, media</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Executive Leadership</td>
+                            <td>Visionary, strategic, P&amp;L focused</td>
+                            <td class="font-mono">300 – 450 words</td>
+                            <td>EBITDA growth, cross-functional leadership, enterprise transformation</td>
+                            <td>VP, Director, C-suite (CTO, CMO, COO) recruitment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>
 

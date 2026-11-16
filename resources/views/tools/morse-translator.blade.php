@@ -59,5 +59,62 @@
                 <div class="p-4 rounded-[16px] bg-base-200/50 border border-base-300 min-h-[148px] font-mono text-base break-all" x-text="output || 'Output will appear in real time...'"></div>
             </div>
         </div>
+
+        {{-- Technical Comparison: International Morse Code Standards Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                International Morse Code Timing &amp; Radiotelegraphy Standards Matrix (ITU-R M.1677-1)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Signal Element / Space</th>
+                            <th>Relative Duration (Units)</th>
+                            <th>Audio / Optical Representation</th>
+                            <th>ITU Transmission Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Dot / Dit (.)</td>
+                            <td class="font-mono font-bold">1 unit</td>
+                            <td class="font-mono">Short tone (beep) or flash</td>
+                            <td>Fundamental baseline time unit of Morse transmission</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Dash / Dah (-)</td>
+                            <td class="font-mono font-bold">3 units</td>
+                            <td class="font-mono">Long continuous tone</td>
+                            <td>Exactly three times the duration of one dit (3 × dot)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Intra-Character Space</td>
+                            <td class="font-mono">1 unit</td>
+                            <td class="font-mono">Silence</td>
+                            <td>Pause between individual dots and dashes of the same letter</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Inter-Character Space</td>
+                            <td class="font-mono">3 units</td>
+                            <td class="font-mono">Medium silence</td>
+                            <td>Pause separating distinct letters within the same word</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Inter-Word Space</td>
+                            <td class="font-mono font-bold">7 units</td>
+                            <td class="font-mono">Long silence or slash ( / )</td>
+                            <td>Pause separating complete words in a sentence</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-error">SOS Emergency Distress</td>
+                            <td class="font-mono">... --- ...</td>
+                            <td class="font-mono text-error font-bold">Continuous prosign (no inter-char pause)</td>
+                            <td>International maritime distress signal (1906 Berlin Convention)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

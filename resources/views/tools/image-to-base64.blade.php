@@ -155,5 +155,55 @@
                 </template>
             </div>
         </template>
+
+        {{-- Technical Comparison: Base64 Inlining vs. External HTTP Asset Loading Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Base64 Data URI Inlining vs. External HTTP/2 &amp; HTTP/3 Asset Delivery Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Delivery Architecture</th>
+                            <th>Payload Size Overhead</th>
+                            <th>Browser Cacheability</th>
+                            <th>HTML / CSS Parse Impact</th>
+                            <th>Optimal Production Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Base64 Data URI Inlined</td>
+                            <td class="font-mono text-error font-bold">+33.3% size penalty (4:3 byte ratio)</td>
+                            <td class="text-error font-semibold">Tied to HTML/CSS cache (no separate asset cache)</td>
+                            <td class="text-warning font-semibold">Blocks DOM/CSSOM parsing if &gt; 5 KB</td>
+                            <td>Tiny SVG icons (&lt; 2 KB), email signature badges, single-file HTML apps</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">External HTTP/2 &amp; 3 Asset</td>
+                            <td class="font-mono font-bold text-success">Zero penalty (Binary transmission)</td>
+                            <td class="text-success font-bold">Independent HTTP 304 / Cache-Control headers</td>
+                            <td class="text-success font-bold">Non-blocking parallel streaming</td>
+                            <td>Hero banners, user avatars, content images, photo galleries</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">CSS Sprite Sheet</td>
+                            <td class="font-mono">Moderate (Single combined binary)</td>
+                            <td class="text-success font-semibold">Cached across entire user session</td>
+                            <td>Zero parse block; requires background-position CSS</td>
+                            <td>Legacy multi-icon systems with HTTP/1.1 multiplex limits</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">WebP / AVIF with Preload</td>
+                            <td class="font-mono text-success font-bold">50% smaller than JPEG baseline</td>
+                            <td class="text-success font-bold">Edge CDN cached with stale-while-revalidate</td>
+                            <td class="text-success font-bold">LCP optimized via &lt;link rel=&quot;preload&quot;&gt;</td>
+                            <td>Core Web Vitals LCP element optimization</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

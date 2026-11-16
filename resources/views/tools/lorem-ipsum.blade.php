@@ -109,5 +109,55 @@
                 class="textarea textarea-bordered rounded-3xl bg-base-200/50 w-full text-base leading-relaxed p-5"
             ></textarea>
         </div>
+
+        {{-- Technical Comparison: Typography Dummy Text Variants Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Typography Placeholder Text Variants &amp; Visual Glyphic Distribution Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Dummy Text Variant</th>
+                            <th>Historical Source Origin</th>
+                            <th>Letter Frequency Distribution</th>
+                            <th>Distraction Factor</th>
+                            <th>Best Design Stage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Classical Lorem Ipsum</td>
+                            <td>Cicero's &ldquo;De finibus bonorum et malorum&rdquo; (45 BC)</td>
+                            <td class="font-bold text-success font-mono">Near-identical to Western English (ETAOIN)</td>
+                            <td class="font-bold text-success">Zero (Readers ignore meaning)</td>
+                            <td>Wireframing, typesetting, print layout, UI mockups</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">English Pangrams</td>
+                            <td>&ldquo;The quick brown fox jumps over the lazy dog&rdquo;</td>
+                            <td class="font-mono">Contains all 26 English alphabets</td>
+                            <td>Moderate (Readable sentence)</td>
+                            <td>Font testing, kerning inspection, typographic pairings</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Greeking / Cyrillic Lipsum</td>
+                            <td>Hellenic &amp; Slavic classical literature fragments</td>
+                            <td class="font-mono">Non-Latin character sets (α, β, г, ж)</td>
+                            <td>Zero for Latin readers</td>
+                            <td>Multilingual internationalization (i18n) layout stress-tests</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Thematic / Novelty Lipsum</td>
+                            <td>Bacon Ipsum, Hipster Ipsum, Cupcake Ipsum</td>
+                            <td class="font-mono">English conversational slang</td>
+                            <td class="text-error font-semibold">High (Clients read and comment on copy)</td>
+                            <td>Internal developer placeholders, casual internal prototypes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

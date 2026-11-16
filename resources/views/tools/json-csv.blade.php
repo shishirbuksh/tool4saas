@@ -64,6 +64,56 @@
                 ></textarea>
             </div>
         </div>
+
+        {{-- Technical Comparison: RFC 4180 CSV Standards & Delimiter Specifications Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                RFC 4180 CSV Standards, Delimiter Variants &amp; Escaping Rules Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Tabular Delimiter Format</th>
+                            <th>Separator Character</th>
+                            <th>RFC 4180 Escaping Rule</th>
+                            <th>Regional Locale Compatibility</th>
+                            <th>Primary Software System</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Standard Comma (CSV)</td>
+                            <td class="font-mono">, (ASCII 44)</td>
+                            <td class="font-mono">Wrap in double quotes: <code class="font-mono">&quot;a,b&quot;</code></td>
+                            <td>US, UK, India, English-speaking world</td>
+                            <td>RFC 4180 standard, PostgreSQL COPY, Pandas, Excel</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Semicolon (European CSV)</td>
+                            <td class="font-mono">; (ASCII 59)</td>
+                            <td class="font-mono">Wrap in quotes: <code class="font-mono">&quot;a;b&quot;</code></td>
+                            <td>Germany, France, Spain, Brazil (where comma is decimal)</td>
+                            <td>European localized Microsoft Excel builds</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Tab-Separated (TSV)</td>
+                            <td class="font-mono">\t (ASCII 9)</td>
+                            <td class="font-mono">Minimal escaping needed (no commas quoted)</td>
+                            <td class="text-success font-semibold">Universal international standard</td>
+                            <td>Bioinformatics (GenBank, FASTA), Unix CLI tools (awk, cut)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Pipe-Delimited (PSV)</td>
+                            <td class="font-mono">| (ASCII 124)</td>
+                            <td class="font-mono">Escape literal pipes: <code class="font-mono">\|</code></td>
+                            <td class="text-success font-semibold">Universal</td>
+                            <td>Enterprise Data Warehouses, mainframe legacy ETL pipelines</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>
 
