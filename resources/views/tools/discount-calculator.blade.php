@@ -66,5 +66,50 @@
                 </template>
             </span>
         </div>
+
+        {{-- Technical Comparison: Discount Strategy Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Promotional Discount Types Comparison (Percentage Off vs. Flat Dollar Off vs. BOGO)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Discount Model</th>
+                            <th>Effective Math</th>
+                            <th>Consumer Perception</th>
+                            <th>Optimal Retail Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Percentage Off (e.g. 30% Off)</td>
+                            <td>Price × (1 − Discount% / 100)</td>
+                            <td>High urgency on high-ticket products</td>
+                            <td>Electronics, luxury apparel, sitewide flash sales</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Flat Dollar Off ($25 Off $100)</td>
+                            <td>Price − Fixed Dollar Value</td>
+                            <td>Tangible cash-savings feeling</td>
+                            <td>Lifting Minimum Average Order Value (AOV)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">BOGO (Buy One Get One Free)</td>
+                            <td>50% discount on 2 units</td>
+                            <td>Perceived as 100% free gift</td>
+                            <td>Moving high-volume inventory, consumables</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Tiered Cart Thresholds</td>
+                            <td>Graduated % based on spend</td>
+                            <td>Gamifies checkout; drives upsell</td>
+                            <td>SaaS annual billing, departmental stores</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

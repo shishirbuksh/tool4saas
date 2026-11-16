@@ -144,4 +144,55 @@
             </p>
         </div>
     </div>
+
+    {{-- Technical Comparison: Percentage Formula Matrix --}}
+    <div class="mt-8 pt-6 border-t border-base-300">
+        <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+            Common Percentage Calculations &amp; Mathematical Formula Matrix
+        </h3>
+        <div class="overflow-x-auto rounded-3xl border border-base-300">
+            <table class="table table-zebra w-full text-xs sm:text-sm">
+                <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                    <tr>
+                        <th>Calculation Goal</th>
+                        <th>User Query Intent</th>
+                        <th>Standard Formula</th>
+                        <th>Practical Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-bold font-mono">Percent of Value</td>
+                        <td>What is P% of number X?</td>
+                        <td class="font-mono text-primary">(P ÷ 100) × X</td>
+                        <td>20% of 150 = 30</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">Percent Ratio</td>
+                        <td>What percent is X of Y?</td>
+                        <td class="font-mono text-primary">(X ÷ Y) × 100</td>
+                        <td>25 of 200 = 12.5%</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">Percentage Increase</td>
+                        <td>Growth from value A to B</td>
+                        <td class="font-mono text-primary">((B − A) ÷ A) × 100</td>
+                        <td>$80 to $100 = +25% increase</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">Percentage Decrease</td>
+                        <td>Reduction from value A to B</td>
+                        <td class="font-mono text-primary">((A − B) ÷ A) × 100</td>
+                        <td>$100 to $70 = −30% discount</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">Percentage Difference</td>
+                        <td>Relative spread between A &amp; B</td>
+                        <td class="font-mono text-primary">(|A − B| ÷ ((A + B) ÷ 2)) × 100</td>
+                        <td>Between 50 and 70 = 33.33% variance</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </x-tool-paper>

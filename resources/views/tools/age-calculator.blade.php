@@ -90,4 +90,49 @@
             <div class="text-xl font-black text-base-content mt-1 tabular-nums" x-text="(years * 12 + months).toLocaleString()"></div>
         </div>
     </div>
+
+    {{-- Technical Comparison: Age Measurement Systems --}}
+    <div class="mt-8 pt-6 border-t border-base-300">
+        <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+            Age Measurement Systems Comparison (Chronological vs. Biological vs. Gestational vs. Decimal)
+        </h3>
+        <div class="overflow-x-auto rounded-3xl border border-base-300">
+            <table class="table table-zebra w-full text-xs sm:text-sm">
+                <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                    <tr>
+                        <th>Measurement System</th>
+                        <th>Reference Origin</th>
+                        <th>Core Use Cases</th>
+                        <th>Measurement Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-bold font-mono">Chronological Age</td>
+                        <td>Exact date of birth (civil registry)</td>
+                        <td>Passports, legal adulthood, voting, retirement eligibility</td>
+                        <td>Years, Months, Days elapsed</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">Biological Age</td>
+                        <td>Cellular DNA methylation &amp; biomarkers</td>
+                        <td>Longevity analysis, cardiovascular risk, physiological health</td>
+                        <td>Phenotypic years (relative to population)</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">Gestational Age</td>
+                        <td>First day of last menstrual period (LMP)</td>
+                        <td>Obstetrics, fetal development stages, premature birth care</td>
+                        <td>Completed weeks and days (e.g. 38w 4d)</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">Decimal / Fractional Age</td>
+                        <td>Continuous solar calendar elapsed fraction</td>
+                        <td>Epidemiological statistics, athletic age-group brackets</td>
+                        <td>Floating-point years (e.g. 29.35 Years)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </x-tool-paper>

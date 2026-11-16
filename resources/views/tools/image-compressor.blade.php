@@ -146,5 +146,62 @@
                 </template>
             </div>
         </template>
+
+        {{-- Technical Comparison: Image Formats for Web Performance --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Modern Web Image Formats Comparison (WebP vs. AVIF vs. JPEG vs. PNG vs. SVG)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Format</th>
+                            <th>Compression Mode</th>
+                            <th>Size Savings</th>
+                            <th>Alpha Transparency</th>
+                            <th>Core Web Vitals (LCP)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-[#2ead4b]">WebP</td>
+                            <td>Lossy &amp; Lossless</td>
+                            <td class="font-mono text-[#2ead4b]">−25% to −35% vs JPEG</td>
+                            <td>Supported</td>
+                            <td>Gold standard; supported across 98% of active browsers</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-[#38c8ff]">AVIF</td>
+                            <td>Advanced AV1 Intra</td>
+                            <td class="font-mono text-[#2ead4b]">−40% to −50% vs JPEG</td>
+                            <td>Supported (HDR)</td>
+                            <td>Highest compression; slightly higher decode CPU time</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">JPEG / JPG</td>
+                            <td>Lossy (DCT)</td>
+                            <td>Baseline Standard</td>
+                            <td>No</td>
+                            <td>Universal fallback; higher byte weight degrades mobile LCP</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">PNG</td>
+                            <td>Lossless (Deflate)</td>
+                            <td class="font-mono text-warning">Heavy (+100% to +300%)</td>
+                            <td>Supported (24-bit)</td>
+                            <td>Best for UI screenshots and diagrams requiring crisp pixel lines</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">SVG</td>
+                            <td>Vector XML Math</td>
+                            <td class="font-mono text-[#2ead4b]">Ultra-Light (&lt; 10 KB)</td>
+                            <td>Supported</td>
+                            <td>Instantaneous LCP; infinite scaling without resolution loss</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

@@ -53,5 +53,83 @@
                 <p class="font-mono text-xl font-bold mt-1" x-text="totalIps.toLocaleString() + ' IPs'"></p>
             </div>
         </div>
+
+        {{-- Technical Comparison: CIDR Subnet Cheat Sheet --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                IPv4 CIDR Subnetting Reference Table (/24 to /32 Subnet Masks &amp; Usable Host Capacities)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>CIDR Prefix</th>
+                            <th>Subnet Netmask</th>
+                            <th>Total IP Pool</th>
+                            <th>Usable Hosts</th>
+                            <th>Standard Network Deployment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">/24</td>
+                            <td class="font-mono">255.255.255.0</td>
+                            <td class="font-mono">256</td>
+                            <td class="font-bold font-mono text-[#2ead4b]">254 Hosts</td>
+                            <td>Standard office local network (Class C default)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">/25</td>
+                            <td class="font-mono">255.255.255.128</td>
+                            <td class="font-mono">128</td>
+                            <td class="font-bold font-mono text-[#2ead4b]">126 Hosts</td>
+                            <td>Departmental network division (Engineering vs Ops)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">/26</td>
+                            <td class="font-mono">255.255.255.192</td>
+                            <td class="font-mono">64</td>
+                            <td class="font-bold font-mono text-[#2ead4b]">62 Hosts</td>
+                            <td>Secure private database clusters, microservice tiers</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">/27</td>
+                            <td class="font-mono">255.255.255.224</td>
+                            <td class="font-mono">32</td>
+                            <td class="font-bold font-mono text-[#2ead4b]">30 Hosts</td>
+                            <td>Kubernetes node groups, isolated server clusters</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">/28</td>
+                            <td class="font-mono">255.255.255.240</td>
+                            <td class="font-mono">16</td>
+                            <td class="font-bold font-mono text-[#2ead4b]">14 Hosts</td>
+                            <td>Cloud VPC public DMZ, bastion jump-host subnets</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">/29</td>
+                            <td class="font-mono">255.255.255.248</td>
+                            <td class="font-mono">8</td>
+                            <td class="font-bold font-mono text-[#2ead4b]">6 Hosts</td>
+                            <td>Multi-homed public IP blocks, firewall clusters</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">/30</td>
+                            <td class="font-mono">255.255.255.252</td>
+                            <td class="font-mono">4</td>
+                            <td class="font-bold font-mono text-[#2ead4b]">2 Hosts</td>
+                            <td>Point-to-point router links, dedicated WAN circuits</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">/32</td>
+                            <td class="font-mono">255.255.255.255</td>
+                            <td class="font-mono">1</td>
+                            <td class="font-bold font-mono text-base-content/60">1 Host (Single)</td>
+                            <td>Loopback interface, host-specific firewall rule</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

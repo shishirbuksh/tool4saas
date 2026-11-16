@@ -116,5 +116,56 @@
                 <span class="label-text font-semibold text-xs text-base-content">Symbols (!@#$)</span>
             </label>
         </div>
+
+        {{-- Technical Comparison: Password Entropy & Crack Time Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Password Length vs. Brute-Force Crack Time &amp; Shannon Entropy Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Password Configuration</th>
+                            <th>Shannon Entropy</th>
+                            <th>RTX 4090 Hashcat Time</th>
+                            <th>NIST SP 800-63B Standard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">8 Chars (Letters Only)</td>
+                            <td class="font-mono text-[#d03238]">~38 Bits</td>
+                            <td class="font-mono text-[#d03238]">&lt; 1 Second</td>
+                            <td>Critical Vulnerability; instant offline crack</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">10 Chars (Alphanumeric)</td>
+                            <td class="font-mono text-warning">~59 Bits</td>
+                            <td class="font-mono text-warning">~2 Hours</td>
+                            <td>Weak; vulnerable to parallel GPU clusters</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">12 Chars (Full Symbols)</td>
+                            <td class="font-mono">~78 Bits</td>
+                            <td class="font-mono">~34 Years</td>
+                            <td>Acceptable minimum for consumer websites</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">16 Chars (Full Symbols)</td>
+                            <td class="font-mono text-[#2ead4b]">~105 Bits</td>
+                            <td class="font-mono text-[#2ead4b]">~42 Million Years</td>
+                            <td>Recommended standard for banking and email</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">24+ Chars (Full Symbols)</td>
+                            <td class="font-mono text-[#2ead4b]">&gt; 158 Bits</td>
+                            <td class="font-mono text-[#2ead4b]">Infinite Lifetimes</td>
+                            <td>Master cryptographic vault / root access</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

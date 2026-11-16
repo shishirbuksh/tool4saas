@@ -115,5 +115,55 @@
                 ></textarea>
             </div>
         </div>
+
+        {{-- Technical Comparison: JSON Formatting Standards --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                JSON Indentation Standards Comparison (2 Spaces vs. 4 Spaces vs. Tabs vs. Minified)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Formatting Style</th>
+                            <th>Payload Overhead</th>
+                            <th>Visual Readability</th>
+                            <th>Ecosystem Adoption</th>
+                            <th>RFC 8259 Spec</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">2 Spaces (Default)</td>
+                            <td>+15% to +25% vs minified</td>
+                            <td>Optimal balance for deep nesting</td>
+                            <td>Google, Airbnb, NPM package.json, GitHub</td>
+                            <td>Fully Conforming</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">4 Spaces</td>
+                            <td>+30% to +50% vs minified</td>
+                            <td>Highest visual distinction for shallow data</td>
+                            <td>Python/Django, Java, Enterprise legacy APIs</td>
+                            <td>Fully Conforming</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Tab Character (\t)</td>
+                            <td>+10% to +18% vs minified</td>
+                            <td>Configurable width per engineer's IDE</td>
+                            <td>Go tooling, Linux systems, terminal output</td>
+                            <td>Fully Conforming</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Minified (0 Spaces)</td>
+                            <td class="font-mono text-[#2ead4b]">0% (Baseline wire size)</td>
+                            <td>Unreadable wall of text (machine-only)</td>
+                            <td>Production HTTP APIs, CDN edge delivery</td>
+                            <td>Fully Conforming</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

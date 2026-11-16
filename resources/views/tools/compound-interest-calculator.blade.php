@@ -72,5 +72,62 @@
                 </div>
             </div>
         </div>
+
+        {{-- Technical Comparison: Compounding Frequency Yield Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Compounding Frequency Yield Impact Comparison ($10,000 at 8% APR for 10 Years)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Compounding Interval</th>
+                            <th>Periods / Yr (n)</th>
+                            <th>Effective APY</th>
+                            <th>Final Wealth (10 Yrs)</th>
+                            <th>Compounding Gain</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Annual Compounding</td>
+                            <td class="font-mono">n = 1</td>
+                            <td class="font-mono">8.000%</td>
+                            <td class="font-mono">$21,589.25</td>
+                            <td class="text-base-content/60">Baseline</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Semi-Annual</td>
+                            <td class="font-mono">n = 2</td>
+                            <td class="font-mono">8.160%</td>
+                            <td class="font-mono">$21,911.23</td>
+                            <td class="text-[#2ead4b]">+$321.98</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Quarterly</td>
+                            <td class="font-mono">n = 4</td>
+                            <td class="font-mono">8.243%</td>
+                            <td class="font-mono">$22,080.40</td>
+                            <td class="text-[#2ead4b]">+$491.15</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Monthly</td>
+                            <td class="font-mono">n = 12</td>
+                            <td class="font-mono">8.300%</td>
+                            <td class="font-mono">$22,196.40</td>
+                            <td class="text-[#2ead4b]">+$607.15</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Daily (Standard Bank)</td>
+                            <td class="font-mono">n = 365</td>
+                            <td class="font-mono">8.328%</td>
+                            <td class="font-mono text-primary font-bold">$22,253.46</td>
+                            <td class="text-[#2ead4b] font-bold">+$664.21</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

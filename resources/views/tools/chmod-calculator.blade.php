@@ -81,5 +81,62 @@
                 <p class="text-xs text-base-content/60 mt-3 font-mono">ls -l permission representation</p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Chmod Octal Reference Matrix --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Linux File Permissions (chmod) Octal &amp; Symbolic Reference Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Octal</th>
+                            <th>Symbolic String</th>
+                            <th>Permission Breakdown</th>
+                            <th>Security Profile</th>
+                            <th>Standard Server Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">644</td>
+                            <td class="font-mono">rw-r--r--</td>
+                            <td>Owner: Read/Write · Public: Read</td>
+                            <td class="text-[#2ead4b]">Safe (Standard)</td>
+                            <td>Web server files (.html, .css, .php, images)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">755</td>
+                            <td class="font-mono">rwxr-xr-x</td>
+                            <td>Owner: Full · Public: Read/Execute</td>
+                            <td class="text-[#2ead4b]">Safe (Standard)</td>
+                            <td>Directories, folders, executable CLI scripts</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">600</td>
+                            <td class="font-mono">rw-------</td>
+                            <td>Owner: Read/Write · Public: None</td>
+                            <td class="text-[#38c8ff]">High Privacy</td>
+                            <td>Private SSH keys (id_rsa), credentials (.env)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">700</td>
+                            <td class="font-mono">rwx------</td>
+                            <td>Owner: Full · Public: None</td>
+                            <td class="text-[#38c8ff]">High Privacy</td>
+                            <td>User home ~/.ssh folder, root administration</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-error">777</td>
+                            <td class="font-mono text-error">rwxrwxrwx</td>
+                            <td>Everyone: Full Read, Write, Execute</td>
+                            <td class="text-error font-bold">Critical Risk</td>
+                            <td>Avoid in production; creates severe vulnerability</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

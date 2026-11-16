@@ -162,5 +162,44 @@
                 </div>
             </template>
         </div>
+
+        {{-- Technical Comparison: ATS Resume Formats --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                ATS Resume Formats Comparison (Reverse-Chronological vs. Functional vs. Hybrid)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Format Type</th>
+                            <th>ATS Readability Rate</th>
+                            <th>Best Candidate Profile</th>
+                            <th>Recruiter Consensus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Reverse-Chronological</td>
+                            <td class="font-mono text-[#2ead4b]">99% (Optimal)</td>
+                            <td>Steady career path in same discipline</td>
+                            <td>Universal standard; preferred by 90%+ hiring managers</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Hybrid / Combination</td>
+                            <td class="font-mono text-[#38c8ff]">90% (High)</td>
+                            <td>Mid/Senior engineers, managers, specialists</td>
+                            <td>Strong; showcases technical depth before career history</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Functional (Skills-Based)</td>
+                            <td class="font-mono text-warning">60% (Moderate)</td>
+                            <td>Career changers, substantial employment gaps</td>
+                            <td>Low; difficult to verify when each skill was utilized</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>
