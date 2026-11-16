@@ -60,9 +60,39 @@ final class SeoService
         ' Free online.',
     ];
 
+    public function stripBrandSuffix(string $title, string $suffix = self::BRAND_SUFFIX): string
+    {
+        $t = $this->normalize($title);
+        $suffixes = [
+            $suffix,
+            trim($suffix),
+            ' | Tool4SaaS',
+            ' — Tool4SaaS',
+            ' - Tool4SaaS',
+            ' |Tool4SaaS',
+            ' -Tool4SaaS',
+            'Tool4SaaS',
+        ];
+
+        $changed = true;
+        while ($changed) {
+            $changed = false;
+            foreach ($suffixes as $s) {
+                if (str_ends_with($t, $s)) {
+                    $t = trim(substr($t, 0, -strlen($s)));
+                    $t = trim((string) preg_replace('/[\s|—–\-]+$/u', '', $t));
+                    $changed = true;
+                }
+            }
+        }
+
+        return $t;
+    }
+
     public function fitMetaTitle(string $primary, string $suffix = self::BRAND_SUFFIX): string
     {
-        $title = $this->normalize($primary);
+        $stripped = $this->stripBrandSuffix($primary, $suffix);
+        $title = $this->trimTrailingDangling($stripped);
         if ($title === '') {
             return trim($suffix);
         }
@@ -89,7 +119,7 @@ final class SeoService
             $words = explode(' ', $title);
             while (count($words) > 1) {
                 array_pop($words);
-                $joined = $this->trimTrailingPunctuation(implode(' ', $words));
+                $joined = $this->trimTrailingDangling(implode(' ', $words));
                 $totalLen = mb_strlen($joined.$suffix);
                 if ($totalLen >= self::MIN_TITLE && $totalLen <= self::MAX_TITLE) {
                     return $joined.$suffix;
@@ -145,7 +175,11 @@ final class SeoService
 
     public function toolMetaTitle(ToolDTO $tool): string
     {
-        $preferred = $this->normalize($tool->seoTitle ?? $tool->title);
+        if (! empty($tool->seoTitle)) {
+            return $this->fitMetaTitle($tool->seoTitle);
+        }
+
+        $preferred = $this->normalize($tool->title);
         $candidate = "{$preferred} - {$this->normalize($tool->short)}";
         $fitted = $this->fitMetaTitle($candidate);
         if (mb_strlen($fitted) >= self::MIN_TITLE && mb_strlen($fitted) <= self::MAX_TITLE) {
@@ -476,5 +510,19 @@ final class SeoService
     private function trimTrailingPunctuation(string $text): string
     {
         return trim((string) preg_replace('/[\s,;:|—–\-&+]+$/u', '', $text));
+    }
+
+    private function trimTrailingDangling(string $text): string
+    {
+        $cleaned = $this->trimTrailingPunctuation($text);
+        $words = explode(' ', $cleaned);
+        $stopWords = ['and', 'or', 'to', 'for', 'with', 'in', 'of', 'from', 'the', 'a', 'an', 'by', 'on', 'at', 'reading', 'export'];
+        while (count($words) > 1 && in_array(strtolower(end($words)), $stopWords, true)) {
+            array_pop($words);
+            $cleaned = $this->trimTrailingPunctuation(implode(' ', $words));
+            $words = explode(' ', $cleaned);
+        }
+
+        return $cleaned;
     }
 }

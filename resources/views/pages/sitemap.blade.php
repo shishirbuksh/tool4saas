@@ -7,7 +7,7 @@
     @push('seo')
         <x-seo
             title="HTML Sitemap – All Free Tools & Categories | Tool4SaaS"
-            description="Complete index of all 127 free online calculators, formatters, generators, converters, and PDF tools on Tool4SaaS."
+            description="Complete index of all 135 free online calculators, formatters, generators, converters, and PDF tools on Tool4SaaS."
             canonical="{{ route('sitemap.html') }}"
         />
     @endpush

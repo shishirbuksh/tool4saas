@@ -6,6 +6,7 @@ return [
     0 => [
         'slug' => 'invoice-generator',
         'title' => 'Invoice Generator',
+        'seoTitle' => 'Free Invoice Generator – No Signup, Instant PDF | Tool4SaaS',
         'short' => 'Free PDF with GST & logo',
         'description' => 'Free invoice generator: create professional PDF invoices with logo, tax, GST rates, and itemized totals. Runs private and offline with no sign-up required.',
         'icon' => 'Receipt',
@@ -122,6 +123,7 @@ return [
     1 => [
         'slug' => 'qr-code-generator',
         'title' => 'QR Code Generator',
+        'seoTitle' => 'Free QR Code Generator – 100% Private, No Expiry | Tool4SaaS',
         'short' => 'Generate QR codes for links, text & more',
         'description' => 'Generate custom QR codes for URLs, text, email and phone in your browser. Pick size, preview instantly and download as PNG — 100% private and offline.',
         'icon' => 'QrCode',
@@ -228,6 +230,7 @@ return [
     2 => [
         'slug' => 'resume-builder',
         'title' => 'Resume Builder',
+        'seoTitle' => 'Free Resume Builder – ATS-Friendly PDF Export | Tool4SaaS',
         'short' => 'Build a clean resume and export to PDF',
         'description' => 'Create ATS-friendly resumes with experience, education and skills sections. Preview instantly and export to PDF offline. Free resume builder, no upload.',
         'icon' => 'FileText',
@@ -334,6 +337,7 @@ return [
     3 => [
         'slug' => 'word-counter',
         'title' => 'Word Counter',
+        'seoTitle' => 'Free Online Word Counter – Real-Time & Private | Tool4SaaS',
         'short' => 'Count words, characters & reading time',
         'description' => 'Free online word counter: calculate words, characters, sentences, paragraphs, and reading time in real time. Private, browser-based, with no sign-up needed.',
         'icon' => 'FileText',
@@ -446,6 +450,7 @@ return [
     4 => [
         'slug' => 'password-generator',
         'title' => 'Password & Passphrase Generator',
+        'seoTitle' => 'Strong Password Generator – Secure & Offline | Tool4SaaS',
         'short' => 'Strong passwords & passphrases',
         'description' => 'Create strong random passwords or memorable word passphrases with crypto randomness. Set length, symbols and word count, all private and offline.',
         'icon' => 'Key',
@@ -563,6 +568,7 @@ return [
     5 => [
         'slug' => 'json-formatter',
         'title' => 'JSON Formatter',
+        'seoTitle' => 'Online JSON Formatter & Validator – Fast & Private | Tool4SaaS',
         'short' => 'Format, view & convert JSON and YAML',
         'description' => 'Format, validate, and minify JSON, explore it as a collapsible tree with JSONPath copy, and convert JSON to YAML or YAML to JSON - all offline in your browser.',
         'icon' => 'FileJson',
@@ -670,6 +676,7 @@ return [
     6 => [
         'slug' => 'text-tools',
         'title' => 'Text Tools: Clean, Convert & Reverse',
+        'seoTitle' => 'Free Online Text Tools – Clean, Format & Convert | Tool4SaaS',
         'short' => 'Clean, convert, sort & reverse text',
         'description' => 'Clean messy text, change letter case, reverse words or lines, sort and dedupe lists, and run find and replace with regex in one private offline workspace.',
         'icon' => 'FileText',
@@ -787,6 +794,7 @@ return [
     7 => [
         'slug' => 'image-compressor',
         'title' => 'Image Editor: Compress, Resize, Crop & Border',
+        'seoTitle' => 'Free Image Compressor – Reduce JPG & PNG Size | Tool4SaaS',
         'short' => 'Compress, resize, crop & border',
         'description' => 'Compress, resize, crop, and add borders to images in one private editor. Adjust JPG quality or scale dimensions offline in your browser with zero uploads.',
         'icon' => 'Image',
@@ -894,6 +902,7 @@ return [
     8 => [
         'slug' => 'lorem-ipsum',
         'title' => 'Lorem Ipsum Generator',
+        'seoTitle' => 'Lorem Ipsum Generator – Quick Dummy Text Online | Tool4SaaS',
         'short' => 'Placeholder text',
         'description' => 'Generate custom Lorem Ipsum placeholder text by paragraphs, sentences, or words. Preview typography layouts and copy dummy text instantly with no sign-up.',
         'icon' => 'FileText',
@@ -1001,6 +1010,7 @@ return [
     9 => [
         'slug' => 'unit-converter',
         'title' => 'Unit & File Size Converter',
+        'seoTitle' => 'Unit Converter Online – Length, Weight & Temp | Tool4SaaS',
         'short' => 'km, kg, C, and bytes to MB',
         'description' => 'Free unit converter: 10 mi = 16.09 km, 150 lb = 68.04 kg, 20C = 68F, and bytes to KB/MB/GB. Exact factors, offline and private in your browser.',
         'icon' => 'Ruler',
@@ -1120,6 +1130,7 @@ return [
     10 => [
         'slug' => 'age-calculator',
         'title' => 'Age Calculator',
+        'seoTitle' => 'Exact Age Calculator – Years, Months & Days | Tool4SaaS',
         'short' => 'Find your exact age & next birthday',
         'description' => 'Calculate exact age in years, months and days with leap-year accuracy. See birth weekday, total days lived and a live countdown to your next birthday offline.',
         'icon' => 'Cake',
@@ -1235,6 +1246,7 @@ return [
     11 => [
         'slug' => 'color-converter',
         'title' => 'Color Studio',
+        'seoTitle' => 'Color Studio – HEX, RGB & HSL Color Converter | Tool4SaaS',
         'short' => 'HEX, RGB, CMYK, palettes & shades',
         'description' => 'Convert HEX, RGB, HSL and CMYK, build harmonies, shades and random palettes in one private studio. Every view runs offline in your browser.',
         'icon' => 'Palette',
@@ -1342,6 +1354,7 @@ return [
     12 => [
         'slug' => 'base64-tool',
         'title' => 'Base64 Encode / Decode',
+        'seoTitle' => 'Base64 Encode & Decode Online – Fast & Secure | Tool4SaaS',
         'short' => 'Encode and decode Base64 text',
         'description' => 'Encode text and files to Base64 or decode back with full Unicode and URL-safe support, line-break control, and instant validation for developers offline.',
         'icon' => 'Code',
@@ -1458,6 +1471,7 @@ return [
     13 => [
         'slug' => 'url-encoder',
         'title' => 'URL Encoder / Decoder',
+        'seoTitle' => 'URL Encoder & Decoder Online – Percent-Encoding | Tool4SaaS',
         'short' => 'Encode & decode URL components',
         'description' => 'Percent-encode or decode URLs, query strings, and components with UTF-8 support, plus-versus-%20 handling, and batch processing for web projects offline.',
         'icon' => 'Link',
@@ -1581,6 +1595,7 @@ return [
     14 => [
         'slug' => 'text-diff',
         'title' => 'Text Diff Checker',
+        'seoTitle' => 'Text Diff Checker Online – Compare Two Texts | Tool4SaaS',
         'short' => 'Compare two texts word by word',
         'description' => 'Compare two text blocks word by word and highlight additions and deletions in a single merged view. Inspect side-by-side edits privately in your browser.',
         'icon' => 'Diff',
@@ -1691,6 +1706,7 @@ return [
     15 => [
         'slug' => 'hash-generator',
         'title' => 'Hash & HMAC Generator',
+        'seoTitle' => 'Hash & HMAC Generator – SHA256, MD5 & SHA512 | Tool4SaaS',
         'short' => 'SHA-1 / 256 / 512 hashes + HMAC',
         'description' => 'Generate MD5, SHA-1, SHA-256 and SHA-512 hashes or keyed HMAC signatures from any text, with instant comparison, uppercase toggle and fast offline computation.',
         'icon' => 'Fingerprint',
@@ -1814,6 +1830,7 @@ return [
     16 => [
         'slug' => 'slug-generator',
         'title' => 'Slug Generator',
+        'seoTitle' => 'URL Slug Generator – Clean SEO-Friendly Slugs | Tool4SaaS',
         'short' => 'Turn titles into URL slugs',
         'description' => 'Convert titles or topic lists into clean SEO-friendly URL slugs with hyphens or underscores. Free offline slug generator with bulk mode for bloggers.',
         'icon' => 'Tag',
@@ -1925,6 +1942,7 @@ return [
     17 => [
         'slug' => 'random-number',
         'title' => 'Random Number, String & UUID Generator',
+        'seoTitle' => 'Random Number Generator – Range, Dice & Pick | Tool4SaaS',
         'short' => 'Numbers, strings & UUIDs',
         'description' => 'Generate secure random integers, random strings and v4 UUIDs with one privacy-first crypto tool. Pick ranges, alphabets and batch sizes offline.',
         'icon' => 'Shuffle',
@@ -2036,6 +2054,7 @@ return [
     18 => [
         'slug' => 'percentage-calculator',
         'title' => 'Percentage Calculator',
+        'seoTitle' => 'Free Percentage Calculator – Quick Math Tools | Tool4SaaS',
         'short' => 'Percent of, change & difference',
         'description' => 'Find X% of Y, percent change and percentage difference with clear steps. All math runs privately offline in your browser.',
         'icon' => 'Percent',
@@ -2112,6 +2131,7 @@ return [
     19 => [
         'slug' => 'timestamp-converter',
         'title' => 'Timestamp Converter',
+        'seoTitle' => 'Unix Timestamp Converter – Epoch to Human Date | Tool4SaaS',
         'short' => 'Epoch ↔ human-readable date',
         'description' => 'Convert Unix epoch seconds and milliseconds to readable dates and back. Compare local versus UTC views with DST-aware formatting directly in your browser.',
         'icon' => 'Clock',
@@ -2228,7 +2248,7 @@ return [
     20 => [
         'slug' => 'html-entities',
         'title' => 'HTML Entity Encoder',
-        'seoTitle' => 'HTML Entity Encoder & Decoder Online | Tool4SaaS',
+        'seoTitle' => 'HTML Entity Encoder & Decoder Online – Fast & Safe | Tool4SaaS',
         'short' => 'Encode & decode HTML entities',
         'description' => 'Encode special HTML characters to named or numeric entities and decode entity strings back to plain text instantly in your browser on Tool4SaaS.',
         'icon' => 'FileCode',
@@ -2354,7 +2374,7 @@ return [
     21 => [
         'slug' => 'regex-tester',
         'title' => 'Regex Tester',
-        'seoTitle' => 'Regex Tester & Debugger Online | Tool4SaaS',
+        'seoTitle' => 'Regex Tester & Debugger Online – Real-Time Regex | Tool4SaaS',
         'short' => 'Test JavaScript regular expressions',
         'description' => 'Test and debug JavaScript regular expressions in real time with instant match highlights, capture groups, and flag controls on Tool4SaaS.',
         'icon' => 'Code',
@@ -2865,6 +2885,7 @@ return [
     25 => [
         'slug' => 'bmi-calculator',
         'title' => 'BMI, Ideal Weight & Body Fat Calculator',
+        'seoTitle' => 'BMI Calculator – Body Mass Index & Weight Calc | Tool4SaaS',
         'short' => 'BMI, ideal weight and body fat',
         'description' => 'Calculate BMI, ideal weight range and body-fat percentage from height, weight, waist and neck measurements. Metric and imperial, all offline.',
         'icon' => 'Dumbbell',
@@ -2937,6 +2958,7 @@ return [
     26 => [
         'slug' => 'tip-calculator',
         'title' => 'Tip Calculator',
+        'seoTitle' => 'Tip Calculator – Bill Splitter & Tip Percentage | Tool4SaaS',
         'short' => 'Split bills & calculate tips',
         'description' => 'Calculate a tip, total and per-person share with a 0–30% slider for any headcount. Seven currencies are supported and all math stays in the page.',
         'icon' => 'Utensils',
@@ -4208,6 +4230,7 @@ return [
     37 => [
         'slug' => 'discount-calculator',
         'title' => 'Discount Calculator',
+        'seoTitle' => 'Discount Calculator – Sale Price & Savings Calc | Tool4SaaS',
         'short' => 'Sale price & savings',
         'description' => 'Calculate final sale prices and total savings after discounts with optional tax added for exact totals. Everything computes locally without uploads.',
         'icon' => 'Tag',
@@ -4651,6 +4674,7 @@ return [
     41 => [
         'slug' => 'gst-calculator',
         'title' => 'GST / VAT Calculator',
+        'seoTitle' => 'GST & VAT Calculator – Inclusive & Exclusive Tax | Tool4SaaS',
         'short' => 'Tax inclusive & exclusive',
         'description' => 'Calculate GST or VAT by adding tax to net prices or extracting base and tax from inclusive totals. Rates run privately in your browser offline.',
         'icon' => 'Receipt',
@@ -7975,6 +7999,7 @@ return [
     69 => [
         'slug' => 'gpa-calculator',
         'title' => 'GPA Calculator',
+        'seoTitle' => 'College & High School GPA Calculator – 4.0 Scale | Tool4SaaS',
         'short' => 'Grade point average',
         'description' => 'Calculate semester GPA from course grades and credit hours with plus-minus scale and instant cumulative totals. Your grades never leave your device.',
         'icon' => 'BarChart3',
@@ -10205,6 +10230,7 @@ FN:Ada Lovelace...',
     88 => [
         'slug' => 'scientific-calculator',
         'title' => 'Scientific Calculator',
+        'seoTitle' => 'Free Scientific Calculator Online – Trig & Log | Tool4SaaS',
         'short' => 'Trig, logs, powers',
         'description' => 'Use an offline scientific calculator with trig, logs, powers and roots and keyboard entry support. Evaluation runs locally without any uploads.',
         'icon' => 'Hash',
@@ -11293,6 +11319,7 @@ FN:Ada Lovelace...',
     97 => [
         'slug' => 'fraction-calculator',
         'title' => 'Fraction Calculator',
+        'seoTitle' => 'Fraction Calculator – Add, Subtract & Simplify | Tool4SaaS',
         'short' => 'Add, subtract fractions',
         'description' => 'Add, subtract, multiply and divide fractions with automatic GCD simplification and decimal results. Fractions never leave your local session.',
         'icon' => 'Hash',
@@ -15123,6 +15150,7 @@ FN:Ada Lovelace...',
     127 => [
         'slug' => 'uuid-generator',
         'title' => 'UUID Generator',
+        'seoTitle' => 'UUID Generator – Free Bulk v4 & v7 Identifiers | Tool4SaaS',
         'short' => 'v4 & v7 cryptographic UUIDs',
         'description' => 'Generate cryptographically secure UUID v4 (random) and UUID v7 (timestamp-ordered) identifiers. Bulk generator with hyphen, uppercase, and formatting options.',
         'icon' => 'Key',
@@ -15200,6 +15228,7 @@ FN:Ada Lovelace...',
     128 => [
         'slug' => 'json-to-yaml',
         'title' => 'JSON to YAML Converter',
+        'seoTitle' => 'JSON to YAML Converter – Instant, 100% Private | Tool4SaaS',
         'short' => 'Convert JSON to clean YAML',
         'description' => 'Convert JSON to YAML instantly with customizable indentation, clean syntax formatting, and zero server upload. 100% private in-browser conversion.',
         'icon' => 'Code',
@@ -15276,6 +15305,7 @@ FN:Ada Lovelace...',
     129 => [
         'slug' => 'yaml-to-json',
         'title' => 'YAML to JSON Converter',
+        'seoTitle' => 'YAML to JSON Converter – Fast, Clean Formatter | Tool4SaaS',
         'short' => 'Convert YAML to formatted JSON',
         'description' => 'Convert YAML documents to structured JSON with 2-space or 4-space formatting, syntax validation, and instant clipboard copy. 100% client-side.',
         'icon' => 'FileCode',
@@ -15351,6 +15381,7 @@ FN:Ada Lovelace...',
     130 => [
         'slug' => 'cagr-calculator',
         'title' => 'CAGR Calculator',
+        'seoTitle' => 'CAGR Calculator – Compound Annual Growth Rate | Tool4SaaS',
         'short' => 'Compound Annual Growth Rate',
         'description' => 'Calculate Compound Annual Growth Rate (CAGR) for investments, stocks, revenue, and mutual funds. Instant annual rate, total gain, and growth breakdown.',
         'icon' => 'TrendingUp',
@@ -15427,6 +15458,7 @@ FN:Ada Lovelace...',
     131 => [
         'slug' => 'auto-loan-calculator',
         'title' => 'Auto Loan Calculator',
+        'seoTitle' => 'Auto Loan Calculator – Monthly Payment & Amort | Tool4SaaS',
         'short' => 'Car loan payment & amortization',
         'description' => 'Calculate monthly auto loan payments, total interest, sales tax, down payment impact, and trade-in value with complete loan amortization schedule.',
         'icon' => 'Car',
@@ -15502,6 +15534,7 @@ FN:Ada Lovelace...',
     132 => [
         'slug' => 'simple-interest-calculator',
         'title' => 'Simple Interest Calculator',
+        'seoTitle' => 'Simple Interest Calculator – Formula P×R×T | Tool4SaaS',
         'short' => 'Calculate P × R × T interest',
         'description' => 'Calculate simple interest and total maturity amount on personal loans, savings, and investments. Calculate by years, months, or days instantly.',
         'icon' => 'Percent',
@@ -15573,6 +15606,7 @@ FN:Ada Lovelace...',
     133 => [
         'slug' => 'percentage-change',
         'title' => 'Percentage Change Calculator',
+        'seoTitle' => 'Percentage Change Calculator – Increase/Decrease | Tool4SaaS',
         'short' => 'Calculate % increase & decrease',
         'description' => 'Calculate percentage increase, percentage decrease, and relative difference between any two numbers with step-by-step mathematical explanation.',
         'icon' => 'Percent',
@@ -15644,6 +15678,7 @@ FN:Ada Lovelace...',
     134 => [
         'slug' => 'case-converter',
         'title' => 'Case Converter',
+        'seoTitle' => 'Text Case Converter – Camel, Snake, Pascal Case | Tool4SaaS',
         'short' => 'Camel, snake, pascal & kebab case',
         'description' => 'Convert text between camelCase, snake_case, PascalCase, kebab-case, CONSTANT_CASE, Title Case, Sentence case, UPPERCASE, and lowercase instantly.',
         'icon' => 'Type',

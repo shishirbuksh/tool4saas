@@ -29,7 +29,7 @@
 
             <div class="prose max-w-none text-base-content/80 leading-relaxed space-y-6">
                 <p class="text-lg text-base-content/90 font-medium">
-                    <strong>Tool4SaaS</strong> is a comprehensive collection of 127 free, privacy-first online utilities built on modern web standards. We believe everyday tasks — generating invoices, testing regex, calculating loan amortization, creating QR codes, or formatting payloads — should never require account signups, monthly fees, or transmitting private data to remote servers.
+                    <strong>Tool4SaaS</strong> is a comprehensive collection of 135 free, privacy-first online utilities built on modern web standards. We believe everyday tasks — generating invoices, testing regex, calculating loan amortization, creating QR codes, or formatting payloads — should never require account signups, monthly fees, or transmitting private data to remote servers.
                 </p>
 
                 <h2 class="text-2xl font-black text-base-content pt-6 border-t border-base-200 font-display">Local-First Architecture</h2>
@@ -39,7 +39,7 @@
 
                 <h2 class="text-2xl font-black text-base-content pt-6 border-t border-base-200 font-display">Quality &amp; Testing Methodology</h2>
                 <p>
-                    Every calculator, generator, and converter is built and verified in-house against standard mathematical test fixtures and regulatory benchmarks (such as WHO BMI brackets, CFPB lending formulas, and standard UTC calendar algorithms). Our team maintains automated test suites with over 2,800 assertions across all endpoints.
+                    Every calculator, generator, and converter is built and verified in-house against standard mathematical test fixtures and regulatory benchmarks (such as WHO BMI brackets, CFPB lending formulas, and standard UTC calendar algorithms). Our team maintains automated test suites with over 3,800 assertions across all endpoints.
                 </p>
 
                 <h2 class="text-2xl font-black text-base-content pt-6 border-t border-base-200 font-display">Sustainability</h2>

@@ -77,7 +77,7 @@ php artisan route:cache
 php artisan view:cache
 
 # 5. IndexNow Instant Search Engine Notification
-echo "📡 [6/7] Submitting 311 URLs to IndexNow (Bing, Yandex, Seznam)..."
+echo "📡 [6/7] Submitting 319 URLs to IndexNow (Bing, Yandex, Seznam)..."
 php artisan seo:indexnow || echo "⚠️  IndexNow ping skipped (non-critical network timeout)."
 
 # 6. Reload PHP-FPM

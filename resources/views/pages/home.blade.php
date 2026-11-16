@@ -9,19 +9,7 @@
     @endpush
 
     <div
-        x-data="{
-            searchQuery: '',
-            hasMatches(query) {
-                if (!query) return true;
-                const q = query.toLowerCase().trim();
-                return this.toolsData.some(t => t.searchStr.includes(q));
-            },
-            countCategoryMatches(categoryTools, query) {
-                if (!query) return categoryTools.length;
-                const q = query.toLowerCase().trim();
-                return categoryTools.filter(t => t.searchStr.includes(q)).length;
-            }
-        }"
+        x-data="{ searchQuery: '' }"
         class="min-h-screen"
     >
         {{-- Wise-Style Signature Hero Band (Sage Canvas + Weight-900 Display Headline + Interactive Card) --}}
