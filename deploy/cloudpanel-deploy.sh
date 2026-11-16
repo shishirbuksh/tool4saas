@@ -84,8 +84,8 @@ php artisan seo:indexnow || echo "⚠️  IndexNow ping skipped (non-critical ne
 echo "🔄 [7/7] Reloading PHP-FPM service..."
 if command -v systemctl &> /dev/null; then
     for version in 8.3 8.2 8.4; do
-        if systemctl is-active --quiet "php${version}-fpm"; then
-            systemctl reload "php${version}-fpm" && echo "✅ Reloaded php${version}-fpm"
+        if systemctl is-active --quiet "php${version}-fpm" 2>/dev/null; then
+            (sudo systemctl reload "php${version}-fpm" 2>/dev/null || systemctl reload "php${version}-fpm" 2>/dev/null || echo "ℹ️  PHP-FPM reload skipped (requires sudo or managed via CloudPanel UI).") && echo "✅ PHP-FPM service active."
             break
         fi
     done
