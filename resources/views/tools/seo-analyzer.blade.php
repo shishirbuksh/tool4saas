@@ -42,5 +42,62 @@
             </div>
             <div class="badge badge-lg font-bold" :class="score >= 80 ? 'badge-primary' : 'badge-warning'" x-text="score >= 80 ? 'Optimal' : 'Needs Work'"></div>
         </div>
+
+        {{-- Technical Comparison: Google Core Web Vitals & Technical SEO Factors Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Google Core Web Vitals (CWV) &amp; Technical SEO Performance Thresholds Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Ranking Metric</th>
+                            <th>Full Name &amp; Description</th>
+                            <th>Good (Pass) Threshold</th>
+                            <th>Needs Work / Poor</th>
+                            <th>Primary Optimization Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">LCP</td>
+                            <td>Largest Contentful Paint (Main element load)</td>
+                            <td class="font-bold text-success font-mono">≤ 2.5 seconds</td>
+                            <td class="font-mono text-error">&gt; 4.0 seconds</td>
+                            <td>Preload hero image, optimize TTFB, enable Edge CDN caching</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">INP</td>
+                            <td>Interaction to Next Paint (Responsiveness)</td>
+                            <td class="font-bold text-success font-mono">≤ 200 ms</td>
+                            <td class="font-mono text-error">&gt; 500 ms</td>
+                            <td>Break up long JS tasks (&gt;50ms), debounce input handlers</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">CLS</td>
+                            <td>Cumulative Layout Shift (Visual stability)</td>
+                            <td class="font-bold text-success font-mono">≤ 0.10</td>
+                            <td class="font-mono text-error">&gt; 0.25</td>
+                            <td>Explicit width/height on images &amp; ad slots, font-display: optional</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">TTFB</td>
+                            <td>Time to First Byte (Server response speed)</td>
+                            <td class="font-bold text-success font-mono">≤ 800 ms</td>
+                            <td class="font-mono text-error">&gt; 1800 ms</td>
+                            <td>Server OPcache, Redis query caching, HTTP/3 protocol</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">FCP</td>
+                            <td>First Contentful Paint (First render)</td>
+                            <td class="font-bold text-success font-mono">≤ 1.8 seconds</td>
+                            <td class="font-mono text-error">&gt; 3.0 seconds</td>
+                            <td>Inline critical CSS, eliminate render-blocking external scripts</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

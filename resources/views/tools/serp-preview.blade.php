@@ -88,5 +88,55 @@
             <h3 class="text-xl font-normal text-[#1a0dab] dark:text-[#8ab4f8] hover:underline cursor-pointer leading-snug line-clamp-1 mt-1 font-sans" x-text="title || 'Page Title Placeholder'"></h3>
             <p class="text-sm text-base-content/80 leading-relaxed line-clamp-2 mt-1.5 font-sans" x-text="description || 'Meta description preview snippet will appear here.'"></p>
         </div>
+
+        {{-- Technical Comparison: Google SERP Pixel Width Constraints Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Google SERP Display Limits: Desktop vs. Mobile Pixel Constraints &amp; Truncation Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>SERP Snippet Element</th>
+                            <th>Desktop Pixel Width (px)</th>
+                            <th>Mobile Pixel Width (px)</th>
+                            <th>Target Character Count</th>
+                            <th>Truncation Behavior &amp; Best Practice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">SEO Title Tag</td>
+                            <td class="font-mono font-bold">~600 px limit</td>
+                            <td class="font-mono font-bold">~600 px limit</td>
+                            <td class="font-bold text-success font-mono">50 – 60 characters</td>
+                            <td>Ellipsis (<code class="font-mono">&hellip;</code>) appended if pixel width exceeded; front-load primary keyword</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Meta Description</td>
+                            <td class="font-mono">~960 px (~2 lines)</td>
+                            <td class="font-mono">~680 px (~3 lines)</td>
+                            <td class="font-bold text-success font-mono">140 – 160 characters</td>
+                            <td>Truncated with ellipsis; Google rewrites ~60% if query terms are missing</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Breadcrumb URL Path</td>
+                            <td class="font-mono">Full visible breadcrumb</td>
+                            <td class="font-mono">Favicon + Domain</td>
+                            <td class="font-mono">Short clean slug paths</td>
+                            <td>Schema.org BreadcrumbList creates readable hierarchical navigation arrows</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Date Published / Updated</td>
+                            <td class="font-mono">Precedes description</td>
+                            <td class="font-mono">Small gray line prefix</td>
+                            <td class="font-mono">~10 characters</td>
+                            <td>Deducts ~40px from usable description snippet room</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

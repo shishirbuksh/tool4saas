@@ -57,5 +57,55 @@
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Refinancing pays for itself in ' + (breakEvenMonths / 12).toFixed(1) + ' years.'"></p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Mortgage Refinancing Structures Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Mortgage Refinancing Types: Rate-and-Term vs. Cash-Out vs. Streamline Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Refinance Type</th>
+                            <th>Primary Financial Goal</th>
+                            <th>Typical Closing Costs</th>
+                            <th>Appraisal &amp; Underwriting</th>
+                            <th>Break-Even Viability Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Rate-and-Term Refinance</td>
+                            <td>Lower monthly interest rate or switch 30-yr to 15-yr</td>
+                            <td class="font-mono">2% – 5% of loan balance ($3k–$8k)</td>
+                            <td>Standard full appraisal + income verification</td>
+                            <td class="font-bold text-success">Viable if staying in home &gt; break-even months (usually 2–3 yrs)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Cash-Out Refinance</td>
+                            <td>Liquidate accumulated home equity for home improvements/debt</td>
+                            <td class="font-mono">3% – 5% (Often rolled into new principal)</td>
+                            <td>Strict full appraisal (Capped at 80% LTV maximum)</td>
+                            <td>Viable if reinvestment ROI exceeds mortgage interest rate</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">FHA / VA Streamline</td>
+                            <td>Speedy rate reduction for existing government-backed loans</td>
+                            <td class="font-mono text-success font-bold">1% – 2% (Ultra low cost)</td>
+                            <td class="text-success font-semibold">No appraisal, no income verification required</td>
+                            <td class="text-success font-semibold">Instant break-even (Requires net tangible benefit)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Shortened Term (30y → 15y)</td>
+                            <td>Drastically cut total cumulative lifetime interest charges</td>
+                            <td class="font-mono">Standard 2% – 4%</td>
+                            <td>Full underwriting (Requires higher monthly payment qualification)</td>
+                            <td>Saves $100,000+ in interest; higher monthly cash obligation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

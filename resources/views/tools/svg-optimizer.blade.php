@@ -76,5 +76,55 @@
                 <div class="p-6 bg-white rounded-[16px] border border-base-300 flex justify-center items-center min-h-[140px] overflow-hidden" x-html="optimizedSvg"></div>
             </div>
         </template>
+
+        {{-- Technical Comparison: SVG Optimization Passes & SVGO Techniques Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                SVG Optimization Passes, Path Precision &amp; Byte Reduction Matrix (SVGO Standards)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Optimization Pass</th>
+                            <th>Target XML Nodes / Attributes</th>
+                            <th>Typical Size Savings</th>
+                            <th>Visual Quality Impact</th>
+                            <th>Safety &amp; Rendering Reliability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Metadata &amp; Comment Stripping</td>
+                            <td class="font-mono">&lt;!-- --&gt;, &lt;metadata&gt;, &lt;desc&gt;, &lt;title&gt;</td>
+                            <td class="font-bold text-success font-mono">10% – 25% savings</td>
+                            <td class="text-success font-bold">100% Zero visual change</td>
+                            <td class="text-success font-bold">Completely safe (Removes Illustrator/Figma junk)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Coordinate Precision Rounding</td>
+                            <td class="font-mono">d="M10.123456 20.987654..." → d="M10.1 21..."</td>
+                            <td class="font-bold text-success font-mono">20% – 40% savings</td>
+                            <td>Imperceptible at 2 decimal places</td>
+                            <td>Safe for UI icons; keep 3 decimals for detailed maps</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Whitespace &amp; Linebreak Collapse</td>
+                            <td class="font-mono">CRLF, tabs, multi-spaces between tags</td>
+                            <td class="font-mono">10% – 15% savings</td>
+                            <td class="text-success font-bold">Zero visual change</td>
+                            <td class="text-success font-bold">100% safe for inline DOM embedding</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Path Merging &amp; Convert to Relative</td>
+                            <td class="font-mono">Multiple &lt;path&gt; into single compound &lt;path&gt;</td>
+                            <td class="font-mono">15% – 30% savings</td>
+                            <td>Preserved (Unless individual fill colors differed)</td>
+                            <td>Requires verifying identical CSS styling classes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

@@ -99,5 +99,55 @@
                 ></textarea>
             </div>
         </div>
+
+        {{-- Technical Comparison: Major SQL Dialects Syntax Standards Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                ANSI SQL Standards &amp; Relational Dialect Differences: PostgreSQL vs. MySQL vs. T-SQL vs. SQLite Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Relational Database</th>
+                            <th>Identifier Quoting</th>
+                            <th>String Concatenation</th>
+                            <th>Pagination Syntax</th>
+                            <th>JSON Column Support</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">PostgreSQL (16+)</td>
+                            <td class="font-mono">Double quotes: <code class="font-mono">&quot;users&quot;</code></td>
+                            <td class="font-mono font-bold">|| (Pipe operator)</td>
+                            <td class="font-mono">LIMIT n OFFSET o / FETCH FIRST</td>
+                            <td class="font-bold text-success font-mono">Native JSONB with GIN index indexing</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">MySQL (8.0+) / MariaDB</td>
+                            <td class="font-mono">Backticks: <code class="font-mono">`users`</code></td>
+                            <td class="font-mono">CONCAT(str1, str2)</td>
+                            <td class="font-mono font-bold">LIMIT offset, count</td>
+                            <td class="font-mono">Binary JSON with functional indexes</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Microsoft SQL Server (T-SQL)</td>
+                            <td class="font-mono">Square brackets: <code class="font-mono">[users]</code></td>
+                            <td class="font-mono">+ (Plus operator) or CONCAT()</td>
+                            <td class="font-mono">OFFSET o ROWS FETCH NEXT n ROWS ONLY</td>
+                            <td class="font-mono">NVARCHAR(MAX) with ISJSON() &amp; JSON_VALUE()</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">SQLite (3.x)</td>
+                            <td class="font-mono">Double quotes or backticks</td>
+                            <td class="font-mono">|| (Pipe operator)</td>
+                            <td class="font-mono">LIMIT n OFFSET o</td>
+                            <td class="font-mono">JSON1 extension functions (JSONB in 3.45+)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

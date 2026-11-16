@@ -72,5 +72,56 @@
                 <span x-text="output || 'generated-slug-will-appear-here'" class="text-base-content font-black"></span>
             </div>
         </div>
+
+        {{-- Technical Comparison: URL Slug Architecture & SEO Best Practices Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                URL Permalink Architecture, Separator RFC Standards &amp; SEO Performance Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>URL Component / Pattern</th>
+                            <th>Recommended Standard</th>
+                            <th>Google Search Interpretation</th>
+                            <th>Primary Failure Mode / Pitfall</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Word Separator</td>
+                            <td class="font-mono font-bold text-success">Hyphen / Dash (-)</td>
+                            <td class="text-success font-semibold">Treated strictly as a word delimiter</td>
+                            <td>Underscores (<code class="font-mono">_</code>) join words into one compound token in legacy parsers</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Character Case</td>
+                            <td class="font-mono font-bold text-success">100% Lowercase (a-z)</td>
+                            <td>Case-sensitive on Linux/Unix Nginx web servers</td>
+                            <td>Uppercase characters cause duplicate content canonical splitting &amp; 404s</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Slug Word Count Target</td>
+                            <td class="font-mono font-bold text-success">3 to 5 words (≤ 60 chars)</td>
+                            <td>Optimal keyword relevance extraction</td>
+                            <td>Keyword stuffing diluted in long complex query parameters</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Stop Words Filtering</td>
+                            <td class="font-mono">Strip &ldquo;a&rdquo;, &ldquo;the&rdquo;, &ldquo;and&rdquo;, &ldquo;for&rdquo;</td>
+                            <td>Ignored during query token matching</td>
+                            <td>Over-stripping can alter semantic meaning (&ldquo;to-be-or-not-to-be&rdquo;)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Unicode / Accent Diacritics</td>
+                            <td class="font-mono">Transliterate NFD (e.g. &eacute; → e)</td>
+                            <td>Punycode or %20 hex escape encoding</td>
+                            <td>Percent-encoded strings (<code class="font-mono">%C3%A9</code>) bloat URLs &amp; break copy-pasting</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

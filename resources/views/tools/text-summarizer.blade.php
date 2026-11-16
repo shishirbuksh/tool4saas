@@ -167,5 +167,55 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: Text Summarization Architectures Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                NLP Summarization Paradigms: Extractive Frequency vs. Graph vs. Neural Abstractive Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Summarization Paradigm</th>
+                            <th>Algorithmic Mechanism</th>
+                            <th>Hallucination / Factuality Risk</th>
+                            <th>Computational Overhead</th>
+                            <th>Optimal Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Extractive Frequency (TF-IDF / Lexical)</td>
+                            <td>Scores sentences by raw term frequency and positional centrality</td>
+                            <td class="font-bold text-success font-mono">0% (Exact verbatim quotes only)</td>
+                            <td class="font-bold text-success font-mono">&lt; 5 ms (Client-side browser JS)</td>
+                            <td>Legal contract clauses, executive briefs, news excerpts</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Graph-Based Extractive (TextRank)</td>
+                            <td>PageRank variant modeling sentences as nodes connected by lexical overlap</td>
+                            <td class="font-bold text-success font-mono">0% (Zero hallucination)</td>
+                            <td class="font-mono">&lt; 50 ms</td>
+                            <td>Academic paper abstracts, technical documentation digests</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Transformer Abstractive (BART / T5)</td>
+                            <td>Seq2Seq encoder-decoder generating novel condensed rephrasing</td>
+                            <td class="text-warning font-semibold">Low to Moderate (~2%–5% drift)</td>
+                            <td class="font-mono">Moderate (Requires GPU / WebGPU)</td>
+                            <td>Podcast show notes, conversational meeting minutes</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">LLM Abstractive (GPT-4 / Claude)</td>
+                            <td>Autoregressive generative prompt reasoning</td>
+                            <td class="text-warning font-semibold">Moderate (Requires strict factuality prompt)</td>
+                            <td class="font-mono text-error">Heavy (Cloud API / High token cost)</td>
+                            <td>Complex multi-document synthesis, executive memo rewriting</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

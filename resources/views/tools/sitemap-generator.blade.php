@@ -47,6 +47,57 @@
             </div>
             <textarea readonly :value="xml" rows="8" class="textarea textarea-bordered w-full font-mono text-xs bg-base-100"></textarea>
         </div>
+
+        {{-- Technical Comparison: XML Sitemap Protocol 0.9 Standards Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Sitemaps XML Protocol 0.9 Limits, Crawler Ingestion &amp; IndexNow Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Protocol Specification</th>
+                            <th>Technical Constraint / Limit</th>
+                            <th>Googlebot Ingestion Behavior</th>
+                            <th>Bingbot &amp; IndexNow Behavior</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Single File URL Capacity</td>
+                            <td class="font-mono font-bold">50,000 URLs maximum</td>
+                            <td>Hard cap; requires <code class="font-mono">&lt;sitemapindex&gt;</code> nesting if exceeded</td>
+                            <td>Hard cap; requires sitemap index grouping</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Uncompressed File Size</td>
+                            <td class="font-mono font-bold">50 MB (Uncompressed)</td>
+                            <td>Truncates file parsing if &gt; 50MB; recommend gzip (<code class="font-mono">.xml.gz</code>)</td>
+                            <td>Truncates file parsing if &gt; 50MB</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">&lt;lastmod&gt; Tag (ISO 8601)</td>
+                            <td class="font-mono">YYYY-MM-DD or YYYY-MM-DDThh:mm:ssTZD</td>
+                            <td class="text-success font-bold">Critically respected for recrawl scheduling (if accurate)</td>
+                            <td class="text-success font-bold">Heavily prioritized; powers Bing refresh queues</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-warning">&lt;priority&gt; &amp; &lt;changefreq&gt;</td>
+                            <td class="font-mono">0.0 to 1.0 / hourly, daily, etc.</td>
+                            <td class="text-error font-semibold">Completely ignored by Googlebot</td>
+                            <td class="text-warning font-semibold">Treated only as subtle secondary hint</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">IndexNow Protocol API</td>
+                            <td class="font-mono font-bold text-success">10,000 URLs per batch API call</td>
+                            <td>Currently evaluates IndexNow participation</td>
+                            <td class="font-bold text-success font-mono">Instant push discovery (&lt; 10 min crawl by Bing &amp; Yandex)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>
 
