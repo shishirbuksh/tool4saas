@@ -165,6 +165,51 @@
                 <span class="text-primary font-bold">✓ Cryptographically Secure &amp; RFC 9562 Compliant</span>
                 <span class="text-[#868685]">Generated locally using window.crypto. Zero network requests.</span>
             </div>
+
+            {{-- Technical Comparison: UUID v4 vs UUID v7 --}}
+            <div class="pt-4 border-t border-base-300">
+                <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                    UUID v4 vs. UUID v7 Technical Comparison
+                </h3>
+                <div class="overflow-x-auto rounded-3xl border border-base-300">
+                    <table class="table table-zebra w-full text-xs sm:text-sm">
+                        <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                            <tr>
+                                <th>Specification Attribute</th>
+                                <th>UUID Version 4</th>
+                                <th>UUID Version 7 (RFC 9562)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold font-mono">Generation Mechanism</td>
+                                <td>122 cryptographically random bits</td>
+                                <td>48-bit Unix timestamp + 74 random bits</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold font-mono">Time Ordering</td>
+                                <td>Unordered / completely random</td>
+                                <td>Monotonically ordered by millisecond timestamp</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold font-mono">Database Index Locality</td>
+                                <td>High B-tree index fragmentation on insert</td>
+                                <td>Optimal append-only B-tree insertion performance</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold font-mono">Recommended Use Case</td>
+                                <td>Ephemeral tokens, session IDs, nonce tokens</td>
+                                <td>Database primary keys, distributed events, logs</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold font-mono">Standard Specification</td>
+                                <td>RFC 4122 / RFC 9562</td>
+                                <td>RFC 9562 (Published May 2024)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </x-card>

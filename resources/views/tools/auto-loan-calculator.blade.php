@@ -173,5 +173,56 @@
             <span class="text-primary font-bold">✓ Standard Amortization Formula</span>
             <span class="text-[#868685]">Calculated using M = P[r(1+r)^n] / [(1+r)^n - 1]. No server data egress.</span>
         </div>
+
+        {{-- Technical Comparison: Auto Loan Term Length Impact --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Auto Loan Term Comparison: Monthly Payment vs. Total Interest
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Financing Term</th>
+                            <th>Monthly Payment Impact</th>
+                            <th>Total Interest Paid</th>
+                            <th>Depreciation &amp; Equity Risk</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">36 Months (3 Yrs)</td>
+                            <td>Highest monthly payment</td>
+                            <td>Lowest total interest expense</td>
+                            <td>Builds positive equity rapidly; minimal underwater risk</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">48 Months (4 Yrs)</td>
+                            <td>Moderate monthly payment</td>
+                            <td>Low overall interest expense</td>
+                            <td>Standard healthy equity buildup across vehicle lifecycle</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">60 Months (5 Yrs)</td>
+                            <td>Affordable monthly payment</td>
+                            <td>Moderate interest expense</td>
+                            <td>Industry median; slight negative equity risk in years 1–2</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">72 Months (6 Yrs)</td>
+                            <td>Lower monthly payment</td>
+                            <td>High interest expense</td>
+                            <td>Elevated risk of negative equity (owing more than car is worth)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">84 Months (7 Yrs)</td>
+                            <td>Lowest monthly payment</td>
+                            <td>Highest overall financing cost</td>
+                            <td>High probability of remaining underwater past manufacturer warranty</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

@@ -105,5 +105,45 @@
             <span class="text-primary font-bold">✓ Standard Mathematical Formula</span>
             <span class="text-[#868685]">Formula: ((New - Original) / |Original|) × 100. Computes locally in real time.</span>
         </div>
+
+        {{-- Technical Comparison: Percentage Change vs. Percentage Points --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Percentage Change vs. Percentage Points Comparison
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Concept Feature</th>
+                            <th>Percentage Change (%)</th>
+                            <th>Percentage Points (pp)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Definition</td>
+                            <td>Relative rate of change compared to the original baseline</td>
+                            <td>Direct arithmetic difference between two percentage values</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Example Scenario</td>
+                            <td>Interest rate moves from 10% to 15%</td>
+                            <td>Interest rate moves from 10% to 15%</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Calculation Result</td>
+                            <td>((15 - 10) / 10) × 100 = +50% increase</td>
+                            <td>15% - 10% = +5 percentage points (pp)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Common Misuse</td>
+                            <td>Calling a 5 pp interest rise a "5% increase"</td>
+                            <td>Failing to recognize baseline scale in economic reporting</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

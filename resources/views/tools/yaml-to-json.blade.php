@@ -224,6 +224,51 @@
                 <span class="text-primary font-bold">✓ 100% Client-Side Privacy Guaranteed</span>
                 <span class="text-[#868685]">Conversion runs entirely in your browser. Zero bytes uploaded.</span>
             </div>
+
+            {{-- Technical Comparison: YAML vs JSON --}}
+            <div class="pt-4 border-t border-base-300">
+                <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                    YAML vs. JSON Technical Specification Comparison
+                </h3>
+                <div class="overflow-x-auto rounded-3xl border border-base-300">
+                    <table class="table table-zebra w-full text-xs sm:text-sm">
+                        <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                            <tr>
+                                <th>Specification Feature</th>
+                                <th>YAML (v1.2 Spec)</th>
+                                <th>JSON (RFC 8259)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold font-mono">Primary Use Case</td>
+                                <td>DevOps configuration, Kubernetes manifests, Docker Compose</td>
+                                <td>Web APIs, REST payloads, client-server data exchange</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold font-mono">Syntax Delimiters</td>
+                                <td>Clean whitespace indentation and hyphens (-)</td>
+                                <td>Strict brackets {}, brackets [], and commas</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold font-mono">Comment Support</td>
+                                <td>Full hash comments (#) supported anywhere</td>
+                                <td>No native comments supported in RFC spec</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold font-mono">Readability</td>
+                                <td>Human-optimized; highly readable configuration format</td>
+                                <td>Strict machine format; dense for large structures</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold font-mono">Parsing Overhead</td>
+                                <td>Moderate; requires recursive indentation parser</td>
+                                <td>Extremely fast; native C++ JSON.parse in all browsers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </x-card>

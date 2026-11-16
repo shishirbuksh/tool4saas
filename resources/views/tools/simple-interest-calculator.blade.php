@@ -124,5 +124,50 @@
             <span class="text-primary font-bold">✓ Standard Simple Interest Formula</span>
             <span class="text-[#868685]">Formula: (P × R × T) / 100. Computes 100% locally. Zero cloud data storage.</span>
         </div>
+
+        {{-- Technical Comparison: Simple vs Compound Interest --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Simple Interest vs. Compound Interest Comparison
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Interest Characteristic</th>
+                            <th>Simple Interest (SI)</th>
+                            <th>Compound Interest (CI)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Calculation Base</td>
+                            <td>Accrues only on the original principal amount</td>
+                            <td>Accrues on principal plus accumulated interest</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Growth Pattern</td>
+                            <td>Constant, linear growth over time</td>
+                            <td>Accelerating, exponential growth over time</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Standard Formula</td>
+                            <td>SI = (Principal × Rate × Time) / 100</td>
+                            <td>CI = Principal × (1 + Rate / n)^(n × Time) - Principal</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Common Applications</td>
+                            <td>Short-term personal loans, auto loans, treasury bills</td>
+                            <td>Savings accounts, index funds, retirement portfolios</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Total Yield Over 10+ Yrs</td>
+                            <td>Lower total yield for fixed principal</td>
+                            <td>Significantly higher total yield due to compounding</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

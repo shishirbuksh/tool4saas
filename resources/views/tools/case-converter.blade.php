@@ -191,5 +191,50 @@
             <span class="text-primary font-bold">✓ 100% Client-Side Privacy Guaranteed</span>
             <span class="text-[#868685]">Transformations run locally inside your browser. No server logging.</span>
         </div>
+
+        {{-- Technical Comparison: Code Variable Casing Conventions --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Programming Language Variable Casing Conventions
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Casing Format</th>
+                            <th>Formatting Pattern</th>
+                            <th>Primary Programming Language Standards</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">camelCase</td>
+                            <td><code>userProfileSettings</code></td>
+                            <td>JavaScript, TypeScript, Java, Swift (variables, methods)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">PascalCase</td>
+                            <td><code>UserProfileSettings</code></td>
+                            <td>C#, React/Vue components, Python classes, TypeScript types</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">snake_case</td>
+                            <td><code>user_profile_settings</code></td>
+                            <td>Python (PEP 8), Ruby, Rust, SQL column identifiers</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">kebab-case</td>
+                            <td><code>user-profile-settings</code></td>
+                            <td>URLs, HTML/CSS attributes, CSS classes, Lisp</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">CONSTANT_CASE</td>
+                            <td><code>USER_PROFILE_SETTINGS</code></td>
+                            <td>Environment variables, global configuration constants</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>
