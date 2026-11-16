@@ -123,7 +123,30 @@ final class BlogService
             }
         }
 
-        // 3. Category fallback mapping
+        // 3. Category & Tool Override Mapping for Deep Topical Reverse-Silo
+        $toolOverrides = [
+            'cagr-calculator' => 'sip-calculator-guide',
+            'compound-interest-calculator' => 'sip-calculator-guide',
+            'auto-loan-calculator' => 'mortgage-calculator-guide',
+            'simple-interest-calculator' => 'percentage-calculator-guide',
+            'percentage-change' => 'percentage-calculator-guide',
+            'discount-calculator' => 'percentage-calculator-guide',
+            'gst-calculator' => 'invoice-generator-guide',
+            'json-to-yaml' => 'json-formatter-guide',
+            'yaml-to-json' => 'json-formatter-guide',
+            'uuid-generator' => 'password-generator-guide',
+            'case-converter' => 'word-counter-guide',
+            'text-diff' => 'word-counter-guide',
+            'text-tools' => 'word-counter-guide',
+            'markdown-editor' => 'word-counter-guide',
+            'base64-tool' => 'json-formatter-guide',
+            'hash-generator' => 'password-generator-guide',
+            'regex-tester' => 'json-formatter-guide',
+            'svg-optimizer' => 'image-compressor-guide',
+            'color-contrast' => 'image-compressor-guide',
+            'color-converter' => 'image-compressor-guide',
+        ];
+
         $catMap = [
             'text-documents' => 'word-counter-guide',
             'business' => 'invoice-generator-guide',
@@ -139,7 +162,7 @@ final class BlogService
             'time' => 'age-calculator-guide',
         ];
 
-        $targetPillarSlug = $catMap[$categoryId] ?? 'invoice-generator-guide';
+        $targetPillarSlug = $toolOverrides[$toolSlug] ?? ($catMap[$categoryId] ?? 'invoice-generator-guide');
         $fallbackPillar = $this->getPillar($targetPillarSlug);
 
         if ($fallbackPillar !== null) {
