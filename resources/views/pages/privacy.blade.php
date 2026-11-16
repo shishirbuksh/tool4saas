@@ -38,9 +38,12 @@
                 <li>We do not require user accounts, passwords, or identity verification.</li>
             </ul>
 
-            <h2 class="text-2xl font-bold text-base-content pt-6 border-t border-base-200">2. Cookies and Advertising</h2>
+            <h2 class="text-2xl font-bold text-base-content pt-6 border-t border-base-200">2. Cookies and Google AdSense Advertising</h2>
             <p>
-                We use Google AdSense to serve advertisements when you visit our website. Google and its third-party advertising partners may use cookies to serve ads based on your prior visits to this website or other websites. You can opt out of personalized advertising by visiting Google's Ads Settings.
+                We partner with Google AdSense to display advertisements across our website. Google and its certified third-party vendor partners use cookies to serve personalized and non-personalized ads based on a user's prior visits to Tool4SaaS or other websites on the internet.
+            </p>
+            <p>
+                Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our sites and/or other sites on the Internet. Users may opt out of personalized advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Google Ads Settings</a> or through the Network Advertising Initiative opt-out portal at <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">www.aboutads.info</a>. For more information on how Google uses data when you use our partners' sites or apps, please review <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Google's Partner Data Policy</a>.
             </p>
 
             <h2 class="text-2xl font-bold text-base-content pt-6 border-t border-base-200">3. Analytics</h2>
