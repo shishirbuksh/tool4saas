@@ -81,5 +81,69 @@
                 ></textarea>
             </div>
         </div>
+
+        {{-- Technical Comparison: HTML Character Entities Reference --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Core HTML Character Entities &amp; Escape Codes Reference Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Character</th>
+                            <th>Description</th>
+                            <th>Named Entity</th>
+                            <th>Decimal Entity</th>
+                            <th>Hex Entity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">&amp;</td>
+                            <td>Ampersand Symbol</td>
+                            <td class="font-mono text-[#2ead4b] font-bold">&amp;amp;</td>
+                            <td class="font-mono">&amp;#38;</td>
+                            <td class="font-mono">&amp;#x26;</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">&lt;</td>
+                            <td>Less-Than (Tag Open)</td>
+                            <td class="font-mono text-[#2ead4b] font-bold">&amp;lt;</td>
+                            <td class="font-mono">&amp;#60;</td>
+                            <td class="font-mono">&amp;#x3C;</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">&gt;</td>
+                            <td>Greater-Than (Tag Close)</td>
+                            <td class="font-mono text-[#2ead4b] font-bold">&amp;gt;</td>
+                            <td class="font-mono">&amp;#62;</td>
+                            <td class="font-mono">&amp;#x3E;</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">&quot;</td>
+                            <td>Double Quotation Mark</td>
+                            <td class="font-mono text-[#2ead4b] font-bold">&amp;quot;</td>
+                            <td class="font-mono">&amp;#34;</td>
+                            <td class="font-mono">&amp;#x22;</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">&#39;</td>
+                            <td>Single Quote / Apostrophe</td>
+                            <td class="font-mono text-[#2ead4b] font-bold">&amp;apos;</td>
+                            <td class="font-mono">&amp;#39;</td>
+                            <td class="font-mono">&amp;#x27;</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">␣</td>
+                            <td>Non-Breaking Space</td>
+                            <td class="font-mono text-[#2ead4b] font-bold">&amp;nbsp;</td>
+                            <td class="font-mono">&amp;#160;</td>
+                            <td class="font-mono">&amp;#xA0;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

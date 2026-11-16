@@ -67,5 +67,50 @@
                 </template>
             </div>
         </div>
+
+        {{-- Technical Comparison: Fraction Operations Rules Matrix --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Fraction Arithmetic Operations &amp; Mathematical Rules Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Operation</th>
+                            <th>General Formula</th>
+                            <th>Calculation Procedure</th>
+                            <th>Concrete Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Addition (+)</td>
+                            <td class="font-mono text-primary">(a/b) + (c/d)</td>
+                            <td>Find LCD: ((a × d) + (b × c)) ÷ (b × d)</td>
+                            <td>1/2 + 1/3 = (3 + 2)/6 = 5/6</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Subtraction (−)</td>
+                            <td class="font-mono text-primary">(a/b) − (c/d)</td>
+                            <td>Find LCD: ((a × d) − (b × c)) ÷ (b × d)</td>
+                            <td>3/4 − 1/3 = (9 − 4)/12 = 5/12</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Multiplication (×)</td>
+                            <td class="font-mono text-primary">(a/b) × (c/d)</td>
+                            <td>Direct multiply: (a × c) ÷ (b × d)</td>
+                            <td>2/3 × 3/5 = 6/15 = 2/5</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Division (÷)</td>
+                            <td class="font-mono text-primary">(a/b) ÷ (c/d)</td>
+                            <td>Multiply by reciprocal: (a × d) ÷ (b × c)</td>
+                            <td>1/2 ÷ 3/4 = (1 × 4)/(2 × 3) = 2/3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

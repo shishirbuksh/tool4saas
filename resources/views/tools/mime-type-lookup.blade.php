@@ -69,5 +69,62 @@
                 <span>No exact MIME match found in standard web table. Check your spelling or query.</span>
             </div>
         </template>
+
+        {{-- Technical Comparison: Standard Web MIME Types Matrix --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Standard Web MIME Media Types &amp; File Extensions Reference Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>File Extension</th>
+                            <th>MIME Media Type String</th>
+                            <th>IANA Type</th>
+                            <th>Primary Web Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">.json</td>
+                            <td class="font-mono font-bold">application/json</td>
+                            <td>Application</td>
+                            <td>REST API data transfer, app configs</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">.html</td>
+                            <td class="font-mono font-bold">text/html</td>
+                            <td>Text</td>
+                            <td>Web markup document structure</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">.js / .mjs</td>
+                            <td class="font-mono font-bold">text/javascript</td>
+                            <td>Text</td>
+                            <td>Client browser scripting &amp; ES modules</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">.webp</td>
+                            <td class="font-mono font-bold">image/webp</td>
+                            <td>Image</td>
+                            <td>Modern lightweight web photos</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">.pdf</td>
+                            <td class="font-mono font-bold">application/pdf</td>
+                            <td>Application</td>
+                            <td>Downloadable invoices, resumes, reports</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">.xml</td>
+                            <td class="font-mono font-bold">application/xml</td>
+                            <td>Application</td>
+                            <td>XML Sitemaps, RSS feeds, data exchange</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

@@ -77,5 +77,55 @@
             <span class="text-primary font-bold">🔒 Secure Local Check:</span>
             <span>Card numbers are validated mathematically using the standard ISO/IEC 7812 checksum in your browser. No cardholder data is stored or transmitted.</span>
         </div>
+
+        {{-- Technical Comparison: Card Network Specifications --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Major Payment Card Networks &amp; IIN / BIN Specifications Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Card Network</th>
+                            <th>IIN / BIN Prefix</th>
+                            <th>Digit Length</th>
+                            <th>Security Code</th>
+                            <th>Luhn Mod 10 Check</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Visa</td>
+                            <td class="font-mono">4</td>
+                            <td class="font-mono">16 Digits</td>
+                            <td>3 Digits (CVV2)</td>
+                            <td class="text-[#2ead4b]">Required</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Mastercard</td>
+                            <td class="font-mono">51–55, 2221–2720</td>
+                            <td class="font-mono">16 Digits</td>
+                            <td>3 Digits (CVC2)</td>
+                            <td class="text-[#2ead4b]">Required</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">American Express</td>
+                            <td class="font-mono">34, 37</td>
+                            <td class="font-mono">15 Digits</td>
+                            <td>4 Digits (CID front)</td>
+                            <td class="text-[#2ead4b]">Required</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Discover</td>
+                            <td class="font-mono">6011, 65, 644–649</td>
+                            <td class="font-mono">16 Digits</td>
+                            <td>3 Digits (CID)</td>
+                            <td class="text-[#2ead4b]">Required</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

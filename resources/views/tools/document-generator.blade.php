@@ -58,5 +58,50 @@
         <button type="button" @click="printDoc()" class="btn btn-primary rounded-[12px] font-bold">
             Print / Save as PDF
         </button>
+
+        {{-- Technical Comparison: Business Document Types --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Commercial Legal Contracts &amp; Business Documents Comparison Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Document Type</th>
+                            <th>Primary Business Goal</th>
+                            <th>Enforceable Legal Scope</th>
+                            <th>Binding Commitment Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Non-Disclosure (NDA)</td>
+                            <td>Safeguards proprietary data &amp; trade secrets</td>
+                            <td>Confidentiality terms, duration, breach damages</td>
+                            <td>Strict Legal Liability</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Master Services (MSA)</td>
+                            <td>Governs overarching relationship between parties</td>
+                            <td>Payment schedules, liability caps, dispute venue</td>
+                            <td>Master Framework Agreement</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Statement of Work (SOW)</td>
+                            <td>Defines exact deliverables, milestones &amp; deadlines</td>
+                            <td>Scope of work, project roadmap, acceptance criteria</td>
+                            <td>Project-Specific Binding Scope</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Purchase Order (PO)</td>
+                            <td>Authorizes purchase and commercial delivery</td>
+                            <td>Itemized SKU quantities, unit pricing, shipping terms</td>
+                            <td>Binding once accepted by vendor</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

@@ -68,5 +68,62 @@
             </div>
             <span class="text-xs text-primary-content/85">Split for <span x-text="people" class="font-bold"></span> guests</span>
         </div>
+
+        {{-- Technical Comparison: Global Tipping Etiquette --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Global Tipping Etiquette &amp; Gratuity Standards Comparison Table
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Country / Region</th>
+                            <th>Restaurant Tip %</th>
+                            <th>Expectation Level</th>
+                            <th>Cultural Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">United States</td>
+                            <td class="font-mono text-primary font-bold">18% – 22%</td>
+                            <td class="text-error font-bold">Expected / Customary</td>
+                            <td>Servers earn lower base wage offset by tip credit laws</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Canada</td>
+                            <td class="font-mono text-primary font-bold">15% – 20%</td>
+                            <td class="text-warning font-bold">Expected / Customary</td>
+                            <td>Standard dining norm across all provinces</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">United Kingdom</td>
+                            <td class="font-mono">10% – 12.5%</td>
+                            <td>Discretionary / Optional</td>
+                            <td>Often included as an optional line-item service charge</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">France &amp; Germany</td>
+                            <td class="font-mono">5% – 10% (Round Up)</td>
+                            <td>Service Included (Compris)</td>
+                            <td>Fair living wage built into menu pricing; round up small change</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-[#2ead4b]">Japan &amp; South Korea</td>
+                            <td class="font-mono text-[#2ead4b] font-bold">0% (Strictly No Tip)</td>
+                            <td class="text-[#2ead4b]">Not Accepted / Avoid</td>
+                            <td>Quality service is an inherent duty; tipping can cause offense</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-[#2ead4b]">Australia &amp; NZ</td>
+                            <td class="font-mono text-[#2ead4b]">0% – 10%</td>
+                            <td>Optional / Exceptional Only</td>
+                            <td>High minimum wage laws guarantee sustainable hospitality pay</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

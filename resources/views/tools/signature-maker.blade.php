@@ -143,5 +143,44 @@
                 </div>
             </div>
         </div>
+
+        {{-- Technical Comparison: Electronic Signature Legal Framework --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Electronic Signatures Legal Enforceability Framework (SES vs. AES vs. QES)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Signature Tier (eIDAS / ESIGN)</th>
+                            <th>Verification Method</th>
+                            <th>Legal Enforceability</th>
+                            <th>Standard Practical Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Simple E-Signature (SES)</td>
+                            <td>Drawn signature, typed name, click-to-sign</td>
+                            <td>Valid under US ESIGN &amp; UETA</td>
+                            <td>Sales orders, internal memos, NDAs, invoices</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Advanced E-Signature (AES)</td>
+                            <td>Cryptographic hash tied uniquely to signer</td>
+                            <td>High evidentiary weight in court</td>
+                            <td>Commercial vendor contracts, commercial leases</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Qualified E-Signature (QES)</td>
+                            <td>Government-certified cryptographic hardware token</td>
+                            <td class="text-[#2ead4b] font-bold">Equivalent to handwritten pen</td>
+                            <td>Mortgage deeds, government tenders, court submissions</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

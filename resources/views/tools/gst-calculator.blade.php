@@ -121,5 +121,48 @@
                 </div>
             </div>
         </div>
+
+        {{-- Technical Comparison: GST vs VAT vs Sales Tax --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Indirect Tax Systems Comparison (GST vs. VAT vs. US State Sales Tax)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Tax System</th>
+                            <th>Collection Mechanism</th>
+                            <th>Input Tax Credit (ITC)</th>
+                            <th>Cascading Tax Elimination</th>
+                            <th>Primary Adopting Countries</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">GST (Goods &amp; Services Tax)</td>
+                            <td>Multi-stage at every supply transaction</td>
+                            <td class="text-[#2ead4b]">Full B2B Input Credit</td>
+                            <td class="text-[#2ead4b]">Complete Elimination</td>
+                            <td>Canada, Australia, India, Singapore, NZ</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">VAT (Value Added Tax)</td>
+                            <td>Fractional tax on incremental value added</td>
+                            <td class="text-[#2ead4b]">Full Input VAT Refund</td>
+                            <td class="text-[#2ead4b]">Complete Elimination</td>
+                            <td>United Kingdom, European Union (27 states)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">US Retail Sales Tax</td>
+                            <td>Single-stage at final consumer checkout</td>
+                            <td class="text-warning">Resale Certificates Only</td>
+                            <td class="text-warning">Potential Cascading</td>
+                            <td>United States (45 States + DC jurisdiction)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

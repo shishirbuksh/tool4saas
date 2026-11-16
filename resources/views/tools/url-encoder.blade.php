@@ -79,5 +79,50 @@
                 ></textarea>
             </div>
         </div>
+
+        {{-- Technical Comparison: RFC 3986 URL Encoding Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                URL Percent-Encoding Character Matrix (RFC 3986 Reserved vs. Unreserved)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Character Class</th>
+                            <th>Characters Included</th>
+                            <th>Percent Hex Encoded</th>
+                            <th>RFC 3986 Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-[#2ead4b]">Unreserved (Safe)</td>
+                            <td class="font-mono">A-Z, a-z, 0-9, -, _, ., ~</td>
+                            <td class="font-mono text-[#2ead4b]">Never Encoded</td>
+                            <td>Transmitted verbatim in URI paths and parameters</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-warning">Space Character</td>
+                            <td class="font-mono">Space (" ")</td>
+                            <td class="font-mono text-primary font-bold">%20 (or + in queries)</td>
+                            <td>Must always be encoded in valid web URLs</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Query Sub-Delimiters</td>
+                            <td class="font-mono">&amp;, =, +, $, ,</td>
+                            <td class="font-mono text-primary">%26, %3D, %2B, %24, %2C</td>
+                            <td>Must be encoded when part of parameter values</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Path Generic Delimiters</td>
+                            <td class="font-mono">/, ?, #, :, @</td>
+                            <td class="font-mono text-primary">%2F, %3F, %23, %3A, %40</td>
+                            <td>Must be encoded to avoid parsing as path separators</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

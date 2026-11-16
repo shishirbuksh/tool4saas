@@ -119,5 +119,50 @@
                 </template>
             </div>
         </div>
+
+        {{-- Technical Comparison: Diff Algorithms Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Text Difference &amp; Git Diff Algorithms Comparison Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Computational Complexity</th>
+                            <th>Code Readability Quality</th>
+                            <th>Best Engineering Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Myers Algorithm (Default)</td>
+                            <td class="font-mono">O(N × D)</td>
+                            <td>Finds minimal Shortest Edit Script (SES)</td>
+                            <td>Git standard diff engine, Unix diff, command line</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Histogram Diff</td>
+                            <td class="font-mono">O(N) Average</td>
+                            <td>Anchors on low-frequency unique tokens</td>
+                            <td>Git --histogram, reduces noise in refactored code</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Patience Diff</td>
+                            <td class="font-mono">O(N log N)</td>
+                            <td>Superior matching of moved functions and classes</td>
+                            <td>Git --patience, complex merge conflict resolution</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Word-Level / Inline Diff</td>
+                            <td class="font-mono">Token Splitting</td>
+                            <td>Highlights exact typographical alterations</td>
+                            <td>Tool4SaaS in-browser diff, document editing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>
