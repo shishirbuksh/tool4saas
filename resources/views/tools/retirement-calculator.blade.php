@@ -59,5 +59,48 @@
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Monthly contribution across the next ' + yearsToRetire + ' years.'"></p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Retirement Safe Withdrawal Strategies --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Retirement Safe Withdrawal Strategies Comparison (4% Trinity Rule vs. Conservative vs. Dynamic)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Strategy Framework</th>
+                            <th>Year 1 Draw ($1M Nest Egg)</th>
+                            <th>Target Horizon</th>
+                            <th>Sequence-of-Returns Resilience</th>
+                            <th>Lifestyle Flexibility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">4% Trinity Study Rule</td>
+                            <td class="font-mono text-primary font-bold">$40,000 / Year</td>
+                            <td class="font-mono">30 Years</td>
+                            <td>95% historical survival; risk in early bear market</td>
+                            <td>Fixed mechanical formula; inflation adjusted</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">3.25% Conservative (FIRE)</td>
+                            <td class="font-mono text-primary font-bold">$32,500 / Year</td>
+                            <td class="font-mono">40–50+ Years</td>
+                            <td>Near 100% survival; immune to multi-year drawdowns</td>
+                            <td>Maximum safety for early retirees under age 50</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Guyton-Klinger Guardrails</td>
+                            <td class="font-mono text-primary font-bold">$45,000 / Year</td>
+                            <td class="font-mono">Indefinite</td>
+                            <td>Trims spending by 10% only during market crashes</td>
+                            <td>Dynamic; rewards market booms and protects during dips</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

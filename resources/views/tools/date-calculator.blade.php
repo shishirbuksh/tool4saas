@@ -122,5 +122,50 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: Day Count Conventions Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Calendar Days vs. Business Days vs. Accounting Day-Count Conventions Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Convention System</th>
+                            <th>Weekend &amp; Holiday Treatment</th>
+                            <th>Annual Days Base</th>
+                            <th>Standard Industry Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Calendar Days (Actual/Actual)</td>
+                            <td>Includes all 7 days of the week</td>
+                            <td class="font-mono">365 or 366 Days</td>
+                            <td>Civil contracts, age, SaaS subscription cycles</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Business Days (Working Days)</td>
+                            <td>Excludes Saturdays, Sundays &amp; federal holidays</td>
+                            <td class="font-mono">~250–252 Days</td>
+                            <td>Shipping ETAs, legal court filings, banking clearing</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">30 / 360 (Bond Basis)</td>
+                            <td>Assumes each month has exactly 30 days</td>
+                            <td class="font-mono">360 Days</td>
+                            <td>Corporate bonds, US municipal bonds, mortgages</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Actual / 360 (Money Market)</td>
+                            <td>Exact calendar days elapsed</td>
+                            <td class="font-mono">360 Days</td>
+                            <td>US Treasury bills, commercial paper, bank lines</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

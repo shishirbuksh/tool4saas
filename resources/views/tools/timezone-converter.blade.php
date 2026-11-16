@@ -104,5 +104,76 @@
                 </template>
             </div>
         </div>
+
+        {{-- Technical Comparison: Major Global Timezone Offsets --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Major Global Timezones &amp; Standard UTC Offsets Comparison Table
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Timezone Abbr</th>
+                            <th>Standard Designation</th>
+                            <th>UTC Standard Offset</th>
+                            <th>Primary Metropolitan Hubs</th>
+                            <th>Daylight Saving (DST)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">UTC / GMT</td>
+                            <td>Coordinated Universal Time</td>
+                            <td class="font-mono font-bold">UTC +00:00</td>
+                            <td>London, Dublin, Lisbon, Reykjavik</td>
+                            <td>UTC fixed (UK uses BST UTC+1 in summer)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">EST / EDT</td>
+                            <td>Eastern Standard Time</td>
+                            <td class="font-mono">UTC −05:00 (−04:00 DST)</td>
+                            <td>New York, Toronto, Miami, Washington DC</td>
+                            <td>Observed (2nd Sun Mar to 1st Sun Nov)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">PST / PDT</td>
+                            <td>Pacific Standard Time</td>
+                            <td class="font-mono">UTC −08:00 (−07:00 DST)</td>
+                            <td>Los Angeles, San Francisco, Seattle, Vancouver</td>
+                            <td>Observed (2nd Sun Mar to 1st Sun Nov)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">CET / CEST</td>
+                            <td>Central European Time</td>
+                            <td class="font-mono">UTC +01:00 (+02:00 DST)</td>
+                            <td>Paris, Berlin, Rome, Madrid, Amsterdam</td>
+                            <td>Observed (Last Sun Mar to Last Sun Oct)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">IST</td>
+                            <td>Indian Standard Time</td>
+                            <td class="font-mono">UTC +05:30</td>
+                            <td>New Delhi, Mumbai, Bengaluru, Hyderabad</td>
+                            <td>No DST (Uniform year-round)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">JST / KST</td>
+                            <td>Japan &amp; Korea Standard Time</td>
+                            <td class="font-mono">UTC +09:00</td>
+                            <td>Tokyo, Seoul, Osaka, Kyoto</td>
+                            <td>No DST (Uniform year-round)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">AEST / AEDT</td>
+                            <td>Australian Eastern Standard</td>
+                            <td class="font-mono">UTC +10:00 (+11:00 DST)</td>
+                            <td>Sydney, Melbourne, Canberra, Brisbane</td>
+                            <td>Observed in NSW/VIC (1st Sun Oct to 1st Sun Apr)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

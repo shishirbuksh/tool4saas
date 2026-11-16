@@ -98,5 +98,62 @@
             </div>
             <p class="text-xs text-[#868685] font-mono mt-1">Real mid-market benchmark rates with zero hidden markups or commission spread.</p>
         </div>
+
+        {{-- Technical Comparison: Global Reserve Currencies Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Major Global Reserve Currencies &amp; ISO 4217 Currency Codes Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>ISO Code</th>
+                            <th>Currency Name</th>
+                            <th>Central Bank Issuer</th>
+                            <th>Global FX Share (BIS)</th>
+                            <th>Reserve Currency Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">USD ($)</td>
+                            <td>United States Dollar</td>
+                            <td>Federal Reserve (Fed)</td>
+                            <td class="font-mono text-[#2ead4b] font-bold">~88.5%</td>
+                            <td>Dominant global reserve; world commodity settlement</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">EUR (€)</td>
+                            <td>European Euro</td>
+                            <td>European Central Bank (ECB)</td>
+                            <td class="font-mono text-[#2ead4b]">~30.5%</td>
+                            <td>Second largest global reserve; 20 Eurozone nations</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">JPY (¥)</td>
+                            <td>Japanese Yen</td>
+                            <td>Bank of Japan (BOJ)</td>
+                            <td class="font-mono">~16.8%</td>
+                            <td>Premier Asian safe-haven; global carry trade standard</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">GBP (£)</td>
+                            <td>British Pound Sterling</td>
+                            <td>Bank of England (BOE)</td>
+                            <td class="font-mono">~12.9%</td>
+                            <td>Oldest active currency; London financial market hub</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">INR (₹)</td>
+                            <td>Indian Rupee</td>
+                            <td>Reserve Bank of India (RBI)</td>
+                            <td class="font-mono">Expanding</td>
+                            <td>Fastest growing major Asian currency; UPI global trade</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

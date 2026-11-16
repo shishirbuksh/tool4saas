@@ -93,5 +93,62 @@
             </div>
             <textarea x-model="robotsContent" readonly rows="7" class="textarea textarea-bordered rounded-2xl w-full text-xs font-mono bg-black/60 text-primary border-[#242a20] p-4"></textarea>
         </div>
+
+        {{-- Technical Comparison: Crawler Robots.txt Support Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Web &amp; AI Crawler Robots.txt Directives Support Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Crawler / Search Engine</th>
+                            <th>User-Agent Identifier</th>
+                            <th>Allow / Disallow Support</th>
+                            <th>Crawl-Delay Support</th>
+                            <th>Robots Compliance Policy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Googlebot (Google Search)</td>
+                            <td class="font-mono">Googlebot</td>
+                            <td class="text-[#2ead4b]">100% Standard Support</td>
+                            <td class="text-error">Ignored (Use Search Console)</td>
+                            <td>Strict compliance with RFC 9309</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Mediapartners-Google (AdSense)</td>
+                            <td class="font-mono">Mediapartners-Google</td>
+                            <td class="text-[#2ead4b]">100% Standard Support</td>
+                            <td class="text-error">Ignored</td>
+                            <td>Must be allowed for ad contextual review</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Bingbot (Microsoft Bing)</td>
+                            <td class="font-mono">Bingbot</td>
+                            <td class="text-[#2ead4b]">100% Standard Support</td>
+                            <td class="text-[#2ead4b]">Supported (Seconds)</td>
+                            <td>Strict compliance with RFC 9309</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">GPTBot (OpenAI)</td>
+                            <td class="font-mono">GPTBot</td>
+                            <td class="text-[#2ead4b]">100% Standard Support</td>
+                            <td class="text-[#2ead4b]">Supported</td>
+                            <td>Obeys directives for AI training data</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">ClaudeBot (Anthropic)</td>
+                            <td class="font-mono">ClaudeBot</td>
+                            <td class="text-[#2ead4b]">100% Standard Support</td>
+                            <td class="text-[#2ead4b]">Supported</td>
+                            <td>Obeys directives for Claude training data</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

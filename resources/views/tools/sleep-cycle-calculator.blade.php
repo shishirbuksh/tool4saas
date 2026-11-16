@@ -92,5 +92,50 @@
                 </div>
             </template>
         </div>
+
+        {{-- Technical Comparison: 90-Minute Sleep Cycles Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Ultradian Sleep Architecture &amp; 90-Minute REM Cycle Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Completed Cycles</th>
+                            <th>Total Sleep Duration</th>
+                            <th>Neurobiological Stages Covered</th>
+                            <th>Cognitive Alertness Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">3 Sleep Cycles</td>
+                            <td class="font-mono text-warning">4 Hours 30 Mins</td>
+                            <td>Initial slow-wave sleep; limited REM dreaming</td>
+                            <td class="text-warning">Groggy; noticeable cognitive deficit</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">4 Sleep Cycles</td>
+                            <td class="font-mono">6 Hours 00 Mins</td>
+                            <td>Moderate slow-wave physical recovery + light REM</td>
+                            <td>Functional; acceptable for occasional short nights</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">5 Sleep Cycles (Ideal)</td>
+                            <td class="font-mono text-primary font-bold">7 Hours 30 Mins</td>
+                            <td>Complete N3 physical repair + full REM memory indexing</td>
+                            <td class="text-[#2ead4b] font-bold">Peak Alertness; optimal human standard</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">6 Sleep Cycles</td>
+                            <td class="font-mono text-primary font-bold">9 Hours 00 Mins</td>
+                            <td>Maximum restorative REM dreaming &amp; cellular growth</td>
+                            <td class="text-[#2ead4b]">Full Recovery; recommended for athletes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

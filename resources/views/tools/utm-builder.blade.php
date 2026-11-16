@@ -76,5 +76,62 @@
             </div>
             <div class="p-4 rounded-2xl bg-black/60 border border-[#242a20] font-mono text-xs sm:text-sm text-primary break-all select-all leading-relaxed" x-text="generatedUrl || 'Enter valid base URL to preview parameters...'"></div>
         </div>
+
+        {{-- Technical Comparison: GA4 UTM Parameters Specification Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Google Analytics 4 (GA4) UTM Parameters Specification &amp; Best Practices Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Requirement</th>
+                            <th>GA4 Attribution Role</th>
+                            <th>Formatting Standard</th>
+                            <th>Practical Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">utm_source</td>
+                            <td class="font-bold text-error">Mandatory</td>
+                            <td>Platform / Traffic Source</td>
+                            <td>Lowercase, hyphen-delimited</td>
+                            <td class="font-mono">google, newsletter, linkedin</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">utm_medium</td>
+                            <td class="font-bold text-error">Mandatory</td>
+                            <td>Marketing Channel Class</td>
+                            <td>Standard GA4 medium taxonomy</td>
+                            <td class="font-mono">cpc, email, social, referral</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">utm_campaign</td>
+                            <td class="text-warning">Recommended</td>
+                            <td>Individual Marketing Campaign</td>
+                            <td>Consistent naming convention</td>
+                            <td class="font-mono">q4-product-hunt-launch</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">utm_content</td>
+                            <td>Optional</td>
+                            <td>A/B Creative or Link Variant</td>
+                            <td>Differentiates internal links</td>
+                            <td class="font-mono">hero-btn-green vs footer-link</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">utm_term</td>
+                            <td>Optional</td>
+                            <td>Targeted Search Keyword</td>
+                            <td>Exact paid query match</td>
+                            <td class="font-mono">free+uuid+generator</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

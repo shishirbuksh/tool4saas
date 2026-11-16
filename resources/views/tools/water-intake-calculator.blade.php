@@ -80,5 +80,62 @@
                 </div>
             </div>
         </div>
+
+        {{-- Technical Comparison: Daily Hydration Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Daily Hydration Requirements Matrix by Body Weight &amp; Activity Level
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Body Weight</th>
+                            <th>Sedentary Intake</th>
+                            <th>Moderate Exercise (45m)</th>
+                            <th>Intense Athletics (60m+)</th>
+                            <th>US Cups Equivalent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">50 kg (110 lbs)</td>
+                            <td class="font-mono">1.75 L</td>
+                            <td class="font-mono text-primary font-bold">2.10 L</td>
+                            <td class="font-mono">2.50 L</td>
+                            <td>7 – 10 Cups</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">60 kg (132 lbs)</td>
+                            <td class="font-mono">2.10 L</td>
+                            <td class="font-mono text-primary font-bold">2.50 L</td>
+                            <td class="font-mono">3.00 L</td>
+                            <td>9 – 12 Cups</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">70 kg (154 lbs)</td>
+                            <td class="font-mono">2.45 L</td>
+                            <td class="font-mono text-primary font-bold">2.90 L</td>
+                            <td class="font-mono">3.40 L</td>
+                            <td>10 – 14 Cups</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">80 kg (176 lbs)</td>
+                            <td class="font-mono">2.80 L</td>
+                            <td class="font-mono text-primary font-bold">3.30 L</td>
+                            <td class="font-mono">3.90 L</td>
+                            <td>12 – 16 Cups</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">90 kg (198 lbs)</td>
+                            <td class="font-mono">3.15 L</td>
+                            <td class="font-mono text-primary font-bold">3.70 L</td>
+                            <td class="font-mono">4.40 L</td>
+                            <td>13 – 18 Cups</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

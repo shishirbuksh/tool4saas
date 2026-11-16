@@ -57,5 +57,50 @@
                 <p class="text-xs text-white/70 mt-2" x-text="monthlyDifference > 0 ? '$' + monthlyDifference + '/mo more expensive than renting' : '$' + Math.abs(monthlyDifference) + '/mo cheaper than renting'"></p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Rent vs Buy Financial Matrix --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Renting vs. Buying a Home 10-Year Financial Impact Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Decision Factor</th>
+                            <th>Renting an Apartment / Home</th>
+                            <th>Buying with a Mortgage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Initial Cash Required</td>
+                            <td>1st month rent + security deposit</td>
+                            <td>3%–20% down payment + 3% closing costs</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Equity Accumulation</td>
+                            <td>Zero home equity (opportunity to invest delta)</td>
+                            <td>Monthly amortization builds substantial equity</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Maintenance Liability</td>
+                            <td>Landlord pays for HVAC, roof, appliances</td>
+                            <td>Owner pays 100% of repairs (~1% property value/yr)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Relocation Flexibility</td>
+                            <td>High; relocate easily at annual lease end</td>
+                            <td>Low; selling incurs 6% realtor commission fees</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Inflation Defense</td>
+                            <td>Subject to market rent escalations</td>
+                            <td>Fixed 30-year principal and interest payments</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>
