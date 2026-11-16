@@ -55,6 +55,63 @@
                 ></div>
             </div>
         </div>
+
+        {{-- Technical Comparison: Markdown vs HTML Reference Cheat Sheet --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Markdown Syntax vs. HTML Output Quick Reference Cheat Sheet
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Formatting Element</th>
+                            <th>Markdown Syntax</th>
+                            <th>Compiled HTML Tag</th>
+                            <th>Standard Semantic Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Primary Title</td>
+                            <td class="font-mono text-primary"># Document Title</td>
+                            <td class="font-mono">&lt;h1&gt;Document Title&lt;/h1&gt;</td>
+                            <td>Page-level H1 document header</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Section Subtitle</td>
+                            <td class="font-mono text-primary">## Major Section</td>
+                            <td class="font-mono">&lt;h2&gt;Major Section&lt;/h2&gt;</td>
+                            <td>Section divisions and table of contents</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Hyperlink</td>
+                            <td class="font-mono text-primary">[Anchor](https://...)</td>
+                            <td class="font-mono">&lt;a href="..."&gt;Anchor&lt;/a&gt;</td>
+                            <td>Contextual anchor links to external resources</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Blockquote</td>
+                            <td class="font-mono text-primary">&gt; Important note</td>
+                            <td class="font-mono">&lt;blockquote&gt;...&lt;/blockquote&gt;</td>
+                            <td>Callout boxes, editorial quotes, warnings</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Inline Code</td>
+                            <td class="font-mono text-primary">`const x = 10;`</td>
+                            <td class="font-mono">&lt;code&gt;const x = 10;&lt;/code&gt;</td>
+                            <td>Variable names, file paths, CLI flags</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Fenced Code Block</td>
+                            <td class="font-mono text-primary">```python ... ```</td>
+                            <td class="font-mono">&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</td>
+                            <td>Multi-line scripts with language syntax highlighting</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>
 

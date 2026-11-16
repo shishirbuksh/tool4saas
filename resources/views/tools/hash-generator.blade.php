@@ -100,5 +100,55 @@
                 <div class="font-mono text-xs break-all bg-base-200/60 p-3 rounded-xl select-all text-base-content/70" x-text="sha1 || 'Hash will appear here as you type...'"></div>
             </div>
         </div>
+
+        {{-- Technical Comparison: Hash Algorithm Security Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Cryptographic Hash Functions Comparison (MD5 vs. SHA-1 vs. SHA-256 vs. SHA-512)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Digest Output Size</th>
+                            <th>Collision Resistance</th>
+                            <th>Security Profile</th>
+                            <th>Modern Standard Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">MD5</td>
+                            <td class="font-mono">128 Bits (32 Hex)</td>
+                            <td class="text-error">Cryptographically Broken</td>
+                            <td class="text-error">Insecure</td>
+                            <td>File deduplication, non-adversarial checksums</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">SHA-1</td>
+                            <td class="font-mono">160 Bits (40 Hex)</td>
+                            <td class="text-error">Vulnerable (SHAttered)</td>
+                            <td class="text-error">Insecure</td>
+                            <td>Legacy Git commits (migrating to SHA-256)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">SHA-256</td>
+                            <td class="font-mono">256 Bits (64 Hex)</td>
+                            <td class="text-[#2ead4b]">Unbroken (2¹²⁸ ops)</td>
+                            <td class="text-[#2ead4b]">Secure Standard</td>
+                            <td>TLS 1.3 certificates, Bitcoin, software verify</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">SHA-512</td>
+                            <td class="font-mono">512 Bits (128 Hex)</td>
+                            <td class="text-[#2ead4b]">Unbroken (2²⁵⁶ ops)</td>
+                            <td class="text-[#2ead4b]">Maximum Security</td>
+                            <td>Cryptographic signatures, password vaults</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

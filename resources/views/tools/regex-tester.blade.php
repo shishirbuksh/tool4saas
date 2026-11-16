@@ -131,5 +131,55 @@
                 </template>
             </div>
         </div>
+
+        {{-- Technical Comparison: Regex Engine Flavors --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Regular Expression Engine Flavors Comparison (PCRE2 vs. JavaScript vs. Python)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Regex Flavor</th>
+                            <th>Lookbehind Support</th>
+                            <th>Named Groups</th>
+                            <th>Possessive Quantifiers</th>
+                            <th>Unicode Escapes (\p{L})</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">JavaScript (ES2018+)</td>
+                            <td>Full lookbehind in modern V8</td>
+                            <td class="font-mono text-[#2ead4b]">(?&lt;name&gt;...)</td>
+                            <td class="text-error">No</td>
+                            <td>Supported (/u flag)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">PCRE2 (PHP / Nginx)</td>
+                            <td>Full fixed &amp; variable length</td>
+                            <td class="font-mono text-[#2ead4b]">(?P&lt;name&gt;...)</td>
+                            <td class="text-[#2ead4b]">Supported (++ / *+)</td>
+                            <td>Supported natively</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Python (re Module)</td>
+                            <td>Fixed-width lookbehind only</td>
+                            <td class="font-mono text-[#2ead4b]">(?P&lt;name&gt;...)</td>
+                            <td class="text-error">No (requires regex pkg)</td>
+                            <td>Requires 3rd-party module</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">POSIX Extended (grep)</td>
+                            <td class="text-error">No</td>
+                            <td class="text-error">No</td>
+                            <td class="text-error">No</td>
+                            <td>Character classes [:alpha:]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

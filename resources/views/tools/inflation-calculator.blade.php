@@ -51,5 +51,55 @@
                 <p class="text-xs text-error/80 mt-2 font-semibold" x-text="'Purchasing power eroded by ' + lossPercentage + '%'"></p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Inflation Erosion Matrix --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Purchasing Power Depreciation Matrix ($100 Baseline over 5, 10, 20 &amp; 30 Years)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Time Horizon</th>
+                            <th>Value at 2% CPI (Target)</th>
+                            <th>Value at 3% CPI (Avg)</th>
+                            <th>Value at 5% CPI (High)</th>
+                            <th>Purchasing Power Lost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">5 Years</td>
+                            <td class="font-mono">$90.57</td>
+                            <td class="font-mono">$86.26</td>
+                            <td class="font-mono">$78.35</td>
+                            <td class="text-warning font-mono">−9.4% to −21.6%</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">10 Years</td>
+                            <td class="font-mono">$82.03</td>
+                            <td class="font-mono">$74.41</td>
+                            <td class="font-mono">$61.39</td>
+                            <td class="text-warning font-mono">−18.0% to −38.6%</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">20 Years</td>
+                            <td class="font-mono">$67.30</td>
+                            <td class="font-mono">$55.37</td>
+                            <td class="font-mono">$37.69</td>
+                            <td class="text-error font-mono font-bold">−32.7% to −62.3%</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">30 Years</td>
+                            <td class="font-mono">$55.21</td>
+                            <td class="font-mono">$41.20</td>
+                            <td class="font-mono text-error font-bold">$23.14</td>
+                            <td class="text-error font-mono font-bold">−44.8% to −76.9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

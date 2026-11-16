@@ -97,5 +97,50 @@
                 <span class="text-[10px] text-base-content/60 font-mono">+300 kcal surplus</span>
             </div>
         </div>
+
+        {{-- Technical Comparison: BMR Formulas Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Basal Metabolic Rate (BMR) Estimation Formulas Comparison
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Formula Model</th>
+                            <th>Calculation Variables</th>
+                            <th>Clinical Accuracy</th>
+                            <th>Best Clinical Suitability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Mifflin-St Jeor (Default)</td>
+                            <td>Weight, Height, Age, Biological Sex</td>
+                            <td class="text-[#2ead4b]">~90% within ±5% error</td>
+                            <td>Universal standard; recommended by Academy of Nutrition</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Harris-Benedict (Revised)</td>
+                            <td>Weight, Height, Age, Biological Sex</td>
+                            <td>~85% (Overestimates 5%)</td>
+                            <td>Legacy dietetics standard; clinical historical research</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Katch-McArdle</td>
+                            <td>Lean Body Mass (LBM) only</td>
+                            <td class="text-[#2ead4b]">~95% for lean athletes</td>
+                            <td>Athletes and bodybuilders with verified body fat %</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Cunningham Formula</td>
+                            <td>Fat-Free Mass (FFM) only</td>
+                            <td class="text-[#2ead4b]">High precision for sports</td>
+                            <td>Competitive endurance and strength athletes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

@@ -151,5 +151,62 @@
             </div>
             <p class="text-xs text-[#868685] font-mono mt-1">100% deterministic local calculation. Zero precision truncation.</p>
         </div>
+
+        {{-- Technical Comparison: Metric vs Imperial Conversion Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Metric (SI System) vs. Imperial System Conversion Multipliers Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Measurement Dimension</th>
+                            <th>Metric Base (SI)</th>
+                            <th>Imperial Unit</th>
+                            <th>Exact Mathematical Multiplier</th>
+                            <th>Mental Math Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Length</td>
+                            <td class="font-mono">1 Meter (m)</td>
+                            <td class="font-mono">3.28084 Feet (ft)</td>
+                            <td class="font-mono text-primary">ft = m × 3.28084</td>
+                            <td>Multiply meters by 3.3</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Distance</td>
+                            <td class="font-mono">1 Kilometer (km)</td>
+                            <td class="font-mono">0.621371 Miles (mi)</td>
+                            <td class="font-mono text-primary">mi = km × 0.621371</td>
+                            <td>Multiply km by 0.6 or divide by 1.6</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Mass / Weight</td>
+                            <td class="font-mono">1 Kilogram (kg)</td>
+                            <td class="font-mono">2.20462 Pounds (lbs)</td>
+                            <td class="font-mono text-primary">lbs = kg × 2.20462</td>
+                            <td>Double the kg value and add 10%</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Liquid Volume</td>
+                            <td class="font-mono">1 Liter (L)</td>
+                            <td class="font-mono">0.264172 US Gallons</td>
+                            <td class="font-mono text-primary">gal = L × 0.264172</td>
+                            <td>~3.785 Liters per US Gallon</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Temperature</td>
+                            <td class="font-mono">0° Celsius (°C)</td>
+                            <td class="font-mono">32° Fahrenheit (°F)</td>
+                            <td class="font-mono text-primary">°F = (°C × 1.8) + 32</td>
+                            <td>Double Celsius, add 30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

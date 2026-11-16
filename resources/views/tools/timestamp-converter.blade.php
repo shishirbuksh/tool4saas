@@ -109,5 +109,56 @@
                 </div>
             </div>
         </div>
+
+        {{-- Technical Comparison: Epoch Milestones & Y2K38 Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Unix Epoch Timestamp Historical Milestones &amp; Year 2038 Problem (Y2K38) Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Milestone Event</th>
+                            <th>Unix Timestamp (Seconds)</th>
+                            <th>UTC Calendar Timestamp</th>
+                            <th>System Architectural Significance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Epoch Baseline Origin</td>
+                            <td class="font-mono text-primary">0</td>
+                            <td class="font-mono">1970-01-01 00:00:00 UTC</td>
+                            <td>Zero second mark for POSIX timekeeping standard</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Y2K Millennium Rollover</td>
+                            <td class="font-mono text-primary">946,684,800</td>
+                            <td class="font-mono">2000-01-01 00:00:00 UTC</td>
+                            <td>Transition into 21st century calendar systems</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">One Billion Seconds</td>
+                            <td class="font-mono text-primary">1,000,000,000</td>
+                            <td class="font-mono">2001-09-09 01:46:40 UTC</td>
+                            <td>Major decimal rollover milestone celebrated in tech</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Two Billion Seconds</td>
+                            <td class="font-mono text-primary">2,000,000,000</td>
+                            <td class="font-mono">2033-05-18 03:33:20 UTC</td>
+                            <td>Second major decimal milestone of the 21st century</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-error">32-Bit Max Limit (Y2K38)</td>
+                            <td class="font-mono text-error">2,147,483,647</td>
+                            <td class="font-mono text-error">2038-01-19 03:14:07 UTC</td>
+                            <td>Signed 32-bit int overflow; wraps to Dec 13, 1901 if not 64-bit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

@@ -63,5 +63,50 @@
                 <span class="text-[10px] text-base-content/60 font-mono">(Profit ÷ Cost) × 100</span>
             </div>
         </div>
+
+        {{-- Technical Comparison: Profit Margin Types Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Gross Margin vs. Operating Margin vs. Net Profit Margin Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Margin Dimension</th>
+                            <th>Mathematical Formula</th>
+                            <th>Deductions Accounted For</th>
+                            <th>Business Health Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Gross Margin</td>
+                            <td class="font-mono text-primary">((Revenue − COGS) ÷ Rev) × 100</td>
+                            <td>Direct materials, labor &amp; production</td>
+                            <td>Measures product manufacturing pricing power</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Operating Margin</td>
+                            <td class="font-mono text-primary">(Operating Income ÷ Rev) × 100</td>
+                            <td>COGS + SG&amp;A, marketing, salaries, R&amp;D</td>
+                            <td>Measures managerial efficiency &amp; sales overhead</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Net Profit Margin</td>
+                            <td class="font-mono text-primary">(Net Income ÷ Revenue) × 100</td>
+                            <td>All expenses: COGS, overhead, interest, taxes</td>
+                            <td>True bottom-line cash generation capacity</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Markup vs Margin</td>
+                            <td class="font-mono">((Price − Cost) ÷ Cost) × 100</td>
+                            <td>Calculated on cost basis, not revenue</td>
+                            <td>A 50% markup equals a 33.3% gross margin</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>
