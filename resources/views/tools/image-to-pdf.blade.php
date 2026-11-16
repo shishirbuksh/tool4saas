@@ -24,6 +24,56 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: Standard Paper Sizes Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Standard International &amp; North American Paper Sizes Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Page Format</th>
+                            <th>Millimeters (mm)</th>
+                            <th>Inches (in)</th>
+                            <th>Pixels @ 300 DPI</th>
+                            <th>Geographic Adoption</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">ISO A4 (Global)</td>
+                            <td class="font-mono">210 × 297 mm</td>
+                            <td class="font-mono">8.27 × 11.69 in</td>
+                            <td class="font-mono text-primary">2,480 × 3,508 px</td>
+                            <td>International standard (Europe, Asia, UK, Australia)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">US Letter</td>
+                            <td class="font-mono">215.9 × 279.4 mm</td>
+                            <td class="font-mono">8.50 × 11.00 in</td>
+                            <td class="font-mono text-primary">2,550 × 3,300 px</td>
+                            <td>North America (United States, Canada, Mexico)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">US Legal</td>
+                            <td class="font-mono">215.9 × 355.6 mm</td>
+                            <td class="font-mono">8.50 × 14.00 in</td>
+                            <td class="font-mono text-primary">2,550 × 4,200 px</td>
+                            <td>Legal court records, real estate deeds, contracts</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">ISO A3</td>
+                            <td class="font-mono">297 × 420 mm</td>
+                            <td class="font-mono">11.69 × 16.54 in</td>
+                            <td class="font-mono text-primary">3,508 × 4,960 px</td>
+                            <td>Drawings, presentations, large financial sheets</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>
 

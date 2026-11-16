@@ -99,5 +99,62 @@
                 </button>
             </div>
         </div>
+
+        {{-- Technical Comparison: Number Naming Systems Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                International (Short Scale) vs. Indian Numbering System Conversion Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Number</th>
+                            <th>Power of 10</th>
+                            <th>International Name</th>
+                            <th>Indian System Name</th>
+                            <th>Comma Grouping</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">1,000</td>
+                            <td class="font-mono">10³</td>
+                            <td>One Thousand</td>
+                            <td>One Thousand</td>
+                            <td class="font-mono">1,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">100,000</td>
+                            <td class="font-mono">10⁵</td>
+                            <td>One Hundred Thousand</td>
+                            <td class="font-bold text-primary">One Lakh (1 Lac)</td>
+                            <td class="font-mono">1,00,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">1,000,000</td>
+                            <td class="font-mono">10⁶</td>
+                            <td class="font-bold text-primary">One Million</td>
+                            <td>Ten Lakh (10 Lacs)</td>
+                            <td class="font-mono">10,00,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">10,000,000</td>
+                            <td class="font-mono">10⁷</td>
+                            <td>Ten Million</td>
+                            <td class="font-bold text-primary">One Crore (1 Cr)</td>
+                            <td class="font-mono">1,00,00,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">1,000,000,000</td>
+                            <td class="font-mono">10⁹</td>
+                            <td class="font-bold text-primary">One Billion</td>
+                            <td>One Hundred Crore (1 Arab)</td>
+                            <td class="font-mono">1,00,00,00,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

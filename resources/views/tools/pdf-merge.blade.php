@@ -57,5 +57,50 @@
                 </ul>
             </div>
         </template>
+
+        {{-- Technical Comparison: PDF Standards Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                PDF Document Standards Comparison (PDF 1.7 vs. PDF 2.0 vs. PDF/A vs. PDF/X)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>PDF Standard</th>
+                            <th>ISO Standard Reference</th>
+                            <th>Key Technical Invariant</th>
+                            <th>Standard Industry Domain</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">PDF 1.7 (Universal)</td>
+                            <td class="font-mono">ISO 32000-1</td>
+                            <td>Universal reader compatibility</td>
+                            <td>General office documents, web downloads</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">PDF 2.0 (Modern)</td>
+                            <td class="font-mono">ISO 32000-2</td>
+                            <td>Native 256-bit AES, unbundled open spec</td>
+                            <td>Modern cloud workflows, secure signing</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-[#2ead4b]">PDF/A (Archival)</td>
+                            <td class="font-mono">ISO 19005</td>
+                            <td>Mandatory embedded fonts; zero active code</td>
+                            <td>Legal archives, government filings, medical records</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-[#38c8ff]">PDF/X (Print)</td>
+                            <td class="font-mono">ISO 15930</td>
+                            <td>Strict CMYK / spot color management</td>
+                            <td>Commercial book printing, offset prepress</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

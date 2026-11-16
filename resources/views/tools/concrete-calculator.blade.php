@@ -56,5 +56,62 @@
                 <p class="text-xs text-base-content/60 mt-1">Heavy-duty dry mix equivalent</p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Concrete Mix Ratios & Compressive Strength Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Standard Concrete Mix Ratios &amp; Compressive Strength Matrix (IS / ASTM Standards)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Concrete Grade</th>
+                            <th>Mix Ratio (Cement : Sand : Aggregate)</th>
+                            <th>28-Day Strength (psi / MPa)</th>
+                            <th>Primary Construction Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">M5</td>
+                            <td class="font-mono">1 : 5 : 10</td>
+                            <td class="font-mono">725 psi (5 MPa)</td>
+                            <td>Mass concrete, non-structural sub-bases</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">M7.5</td>
+                            <td class="font-mono">1 : 4 : 8</td>
+                            <td class="font-mono">1,087 psi (7.5 MPa)</td>
+                            <td>PCC foundation bedding, trench fill</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">M10</td>
+                            <td class="font-mono">1 : 3 : 6</td>
+                            <td class="font-mono">1,450 psi (10 MPa)</td>
+                            <td>Patio sub-bases, leveling courses, pathways</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">M15</td>
+                            <td class="font-mono">1 : 2 : 4</td>
+                            <td class="font-mono">2,175 psi (15 MPa)</td>
+                            <td>Residential driveways, sidewalks, light slabs</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">M20</td>
+                            <td class="font-mono">1 : 1.5 : 3</td>
+                            <td class="font-mono">2,900 psi (20 MPa)</td>
+                            <td>Reinforced concrete (RCC) beams, slabs, columns</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">M25</td>
+                            <td class="font-mono">1 : 1 : 2</td>
+                            <td class="font-mono">3,625 psi (25 MPa)</td>
+                            <td>Heavy-duty structural footings, load-bearing walls</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

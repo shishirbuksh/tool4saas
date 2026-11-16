@@ -70,5 +70,56 @@
                 Download Favicon PNG
             </a>
         </div>
+
+        {{-- Technical Comparison: Favicon Sizes Matrix --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Modern Web Favicon Sizes &amp; Device Targets Specification Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Pixel Size</th>
+                            <th>File Format</th>
+                            <th>HTML Link Tag Target</th>
+                            <th>Operating System &amp; Device Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">16 × 16 px</td>
+                            <td class="font-mono">ICO / PNG</td>
+                            <td class="font-mono text-xs">&lt;link rel="icon"&gt;</td>
+                            <td>Standard desktop browser tabs, URL bookmarks</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">32 × 32 px</td>
+                            <td class="font-mono">ICO / PNG</td>
+                            <td class="font-mono text-xs">&lt;link rel="icon"&gt;</td>
+                            <td>High-DPI Retina browser tabs, Windows taskbar</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">180 × 180 px</td>
+                            <td class="font-mono">PNG</td>
+                            <td class="font-mono text-xs">&lt;link rel="apple-touch-icon"&gt;</td>
+                            <td>Apple iOS Home Screen bookmark icon</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">192 × 192 px</td>
+                            <td class="font-mono">PNG</td>
+                            <td class="font-mono text-xs">manifest.webmanifest</td>
+                            <td>Android Home Screen launcher shortcut</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">512 × 512 px</td>
+                            <td class="font-mono">PNG</td>
+                            <td class="font-mono text-xs">manifest.webmanifest</td>
+                            <td>Progressive Web App (PWA) splash screen</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

@@ -48,5 +48,50 @@
                 Download Optimized PDF
             </a>
         </div>
+
+        {{-- Technical Comparison: PDF DPI Compression Standards --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                PDF Document Resolution (DPI) &amp; Print Quality Compression Standards
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Resolution Tier</th>
+                            <th>Target DPI</th>
+                            <th>File Reduction %</th>
+                            <th>Recommended Distribution Medium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Web / Email (Compact)</td>
+                            <td class="font-mono">72 DPI</td>
+                            <td class="font-mono text-[#2ead4b] font-bold">−70% to −85%</td>
+                            <td>Email attachments, portal uploads, fast mobile downloads</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">eBook / Office (Medium)</td>
+                            <td class="font-mono">150 DPI</td>
+                            <td class="font-mono text-primary">−40% to −60%</td>
+                            <td>Tablet readers, office memos, internal business reports</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Commercial Print (High)</td>
+                            <td class="font-mono">300 DPI</td>
+                            <td class="font-mono">−10% to −25%</td>
+                            <td>Product catalogs, corporate brochures, physical printing</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Prepress (Lossless)</td>
+                            <td class="font-mono">600+ DPI</td>
+                            <td class="text-base-content/60">0% (Baseline)</td>
+                            <td>Fine-art reproduction, archival legal evidence</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

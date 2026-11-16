@@ -91,5 +91,56 @@
             <button type="button" @click="backspace()" class="btn btn-sm btn-ghost rounded-xl font-mono text-sm font-bold bg-base-200">⌫</button>
             <button type="button" @click="calculate()" class="btn btn-sm btn-primary rounded-xl font-mono text-base font-black shadow-xs">=</button>
         </div>
+
+        {{-- Technical Comparison: Mathematical Constants Reference --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Fundamental Mathematical &amp; Physical Constants Reference Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Constant Symbol</th>
+                            <th>Formal Designation</th>
+                            <th>Numerical Value</th>
+                            <th>Scientific Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">π (Pi)</td>
+                            <td>Archimedes' Constant</td>
+                            <td class="font-mono text-primary font-bold">3.1415926535...</td>
+                            <td>Ratio of circle circumference to its diameter</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">e</td>
+                            <td>Euler's Constant</td>
+                            <td class="font-mono text-primary font-bold">2.7182818284...</td>
+                            <td>Base of natural logarithm; continuous compounding</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">φ (Phi)</td>
+                            <td>The Golden Ratio</td>
+                            <td class="font-mono">1.6180339887...</td>
+                            <td>Geometric proportion; Fibonacci sequence limit</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">c</td>
+                            <td>Speed of Light</td>
+                            <td class="font-mono">299,792,458 m/s</td>
+                            <td>Universal speed limit in vacuum (E = mc²)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary text-base">h</td>
+                            <td>Planck Constant</td>
+                            <td class="font-mono">6.62607015 × 10⁻³⁴ J·s</td>
+                            <td>Fundamental quantum scale proportionality constant</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

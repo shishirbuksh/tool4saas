@@ -120,5 +120,62 @@
                 </div>
             </div>
         </div>
+
+        {{-- Technical Comparison: Color Models Representation Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Color Models &amp; Spaces Comparison (HEX vs. RGB vs. HSL vs. CMYK vs. OKLCH)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Color Space</th>
+                            <th>Channel Channels</th>
+                            <th>Gamut Support</th>
+                            <th>Human Intuition</th>
+                            <th>Standard Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">HEX (#RRGGBB)</td>
+                            <td class="font-mono">Hexadecimal (00-FF)</td>
+                            <td>sRGB Standard</td>
+                            <td>Low (Hex strings)</td>
+                            <td>Traditional web CSS, brand guidelines</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">RGB</td>
+                            <td class="font-mono">Red, Green, Blue (0-255)</td>
+                            <td>sRGB Standard</td>
+                            <td>Moderate</td>
+                            <td>Canvas API, graphic rendering engines</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">HSL</td>
+                            <td class="font-mono">Hue (360°), Sat (%), Light (%)</td>
+                            <td>sRGB Standard</td>
+                            <td class="text-[#2ead4b] font-bold">High (Intuitive)</td>
+                            <td>Design systems, interactive hover lightness</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">CMYK</td>
+                            <td class="font-mono">Cyan, Magenta, Yellow, Black</td>
+                            <td>Subtractive Print</td>
+                            <td>Moderate</td>
+                            <td>Commercial offset print, product packaging</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-[#2ead4b]">OKLCH</td>
+                            <td class="font-mono">Lightness, Chroma, Hue</td>
+                            <td class="text-[#2ead4b] font-bold">Display P3 / Rec.2020</td>
+                            <td class="text-[#2ead4b] font-bold">Perceptually Uniform</td>
+                            <td>Tailwind CSS v4, modern HDR displays</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

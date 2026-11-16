@@ -103,5 +103,62 @@
                 <div class="text-2xl font-black text-primary mt-1 font-display tabular-nums" x-text="totalPoints.toFixed(1)"></div>
             </div>
         </div>
+
+        {{-- Technical Comparison: 4.0 GPA Scale Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Standard 4.0 GPA Scale vs. Letter Grade &amp; Percentage Conversion Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Letter Grade</th>
+                            <th>Grade Points (4.0 Scale)</th>
+                            <th>Percentage Score</th>
+                            <th>Academic Standing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-[#2ead4b]">A+ / A</td>
+                            <td class="font-mono font-bold text-primary">4.0 Points</td>
+                            <td class="font-mono">93% – 100%</td>
+                            <td>Highest Honors / Excellent</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-[#2ead4b]">A−</td>
+                            <td class="font-mono">3.7 Points</td>
+                            <td class="font-mono">90% – 92%</td>
+                            <td>Superior Performance</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">B+</td>
+                            <td class="font-mono">3.3 Points</td>
+                            <td class="font-mono">87% – 89%</td>
+                            <td>Above Average</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">B</td>
+                            <td class="font-mono">3.0 Points</td>
+                            <td class="font-mono">83% – 86%</td>
+                            <td>Good (Standard Graduate Minimum)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">C</td>
+                            <td class="font-mono">2.0 Points</td>
+                            <td class="font-mono">73% – 76%</td>
+                            <td>Satisfactory (Undergrad Graduation Min)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-error">F</td>
+                            <td class="font-mono text-error">0.0 Points</td>
+                            <td class="font-mono text-error">&lt; 65%</td>
+                            <td>Failing (Zero quality points earned)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

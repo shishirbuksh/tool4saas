@@ -94,5 +94,50 @@
                 <span class="text-lg font-black mt-1 block" x-text="parseFloat(ratio) >= 4.5 ? '✓ Pass (4.5:1)' : '✗ Fail'"></span>
             </div>
         </div>
+
+        {{-- Technical Comparison: WCAG 2.2 Contrast Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                WCAG 2.2 Color Contrast Compliance Matrix (Level AA vs. Level AAA)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Content Element Class</th>
+                            <th>WCAG Level AA (Minimum)</th>
+                            <th>WCAG Level AAA (Enhanced)</th>
+                            <th>Accessibility Standard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Normal Body Text (&lt; 18pt)</td>
+                            <td class="font-mono font-bold text-[#2ead4b]">4.5 : 1 Ratio</td>
+                            <td class="font-mono font-bold text-primary">7.0 : 1 Ratio</td>
+                            <td>Required for readable paragraphs, links, labels</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Large Text (&ge; 18pt / 14pt Bold)</td>
+                            <td class="font-mono font-bold text-[#2ead4b]">3.0 : 1 Ratio</td>
+                            <td class="font-mono font-bold text-primary">4.5 : 1 Ratio</td>
+                            <td>Page titles, major section headings, hero text</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">UI Controls &amp; Form Borders</td>
+                            <td class="font-mono font-bold text-[#2ead4b]">3.0 : 1 Ratio</td>
+                            <td class="text-base-content/60">3.0 : 1 (Best Practice)</td>
+                            <td>Input outlines, active tabs, checkbox borders</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Decorative / Disabled Text</td>
+                            <td class="text-base-content/50">Exempt (No requirement)</td>
+                            <td class="text-base-content/50">Exempt (No requirement)</td>
+                            <td>Inactive form submit buttons, brand wordmarks</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>
