@@ -167,5 +167,62 @@
                 </div>
             </template>
         </div>
+
+        {{-- Technical Comparison: Typing Speed Tiers & Percentiles Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Typing Speed Benchmarks: Words Per Minute (WPM), CPM &amp; Global Percentiles Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Proficiency Tier</th>
+                            <th>Typing Speed (WPM)</th>
+                            <th>Characters / Minute (CPM)</th>
+                            <th>Global Population Percentile</th>
+                            <th>Professional Capability &amp; Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Beginner / Casual</td>
+                            <td class="font-mono">20 – 35 WPM</td>
+                            <td class="font-mono">100 – 175 CPM</td>
+                            <td class="font-mono">Bottom 25th percentile</td>
+                            <td>Hunt-and-peck typists, casual web browsing</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Average Knowledge Worker</td>
+                            <td class="font-mono font-bold">38 – 45 WPM</td>
+                            <td class="font-mono">190 – 225 CPM</td>
+                            <td class="font-bold text-success font-mono">50th percentile (Median global speed)</td>
+                            <td>Standard office tasks, email drafting, administrative work</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Proficient / Touch Typist</td>
+                            <td class="font-mono font-bold text-success">50 – 70 WPM</td>
+                            <td class="font-mono">250 – 350 CPM</td>
+                            <td class="font-mono font-bold text-success">Top 15% – 20th percentile</td>
+                            <td>Software engineers, technical writers, customer support agents</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">High Speed / Professional</td>
+                            <td class="font-mono font-bold text-success">75 – 95 WPM</td>
+                            <td class="font-mono">375 – 475 CPM</td>
+                            <td class="font-mono font-bold text-success">Top 2% – 5th percentile</td>
+                            <td>Professional copywriters, transcriptionists, paralegals</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">Competitive Elite</td>
+                            <td class="font-mono font-bold text-success">100+ to 140+ WPM</td>
+                            <td class="font-mono font-bold text-success">500+ to 700+ CPM</td>
+                            <td class="font-mono font-bold text-success">Top 0.1% worldwide</td>
+                            <td>Court stenographers, esports competitive typists, record holders</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

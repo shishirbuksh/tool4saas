@@ -112,5 +112,62 @@
                 </button>
             </div>
         </div>
+
+        {{-- Technical Comparison: Code & Text Case Formatting Conventions Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Programming Case Conventions, Delimiters &amp; Language Standards Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Naming Convention</th>
+                            <th>Formatting Pattern</th>
+                            <th>Sample Transformation</th>
+                            <th>Standard Language / Environment</th>
+                            <th>Best Used For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">camelCase</td>
+                            <td class="font-mono">lowerUpper (No separator)</td>
+                            <td class="font-mono font-bold text-success">toolForSaaS</td>
+                            <td>JavaScript, TypeScript, Java, Dart, Swift</td>
+                            <td>Variable identifiers, function &amp; method names</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">snake_case</td>
+                            <td class="font-mono">lower_lower (Underscore delimited)</td>
+                            <td class="font-mono font-bold text-success">tool_for_saas</td>
+                            <td>Python, Rust, Ruby, PHP (Laravel DB columns)</td>
+                            <td>Database table columns, function names, Python variables</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">kebab-case</td>
+                            <td class="font-mono">lower-lower (Hyphen delimited)</td>
+                            <td class="font-mono font-bold text-success">tool-for-saas</td>
+                            <td>CSS class selectors, HTML attributes, URL slugs</td>
+                            <td>RESTful URI paths, Tailwind utilities, package names</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">PascalCase (StudlyCaps)</td>
+                            <td class="font-mono">UpperUpper (No separator)</td>
+                            <td class="font-mono">ToolForSaaS</td>
+                            <td>PHP (Classes/DTOs), C#, React Components, TypeScript</td>
+                            <td>Object-oriented Class declarations, React components</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">SCREAMING_SNAKE_CASE</td>
+                            <td class="font-mono">UPPER_UPPER (Underscore delimited)</td>
+                            <td class="font-mono font-bold">TOOL_FOR_SAAS</td>
+                            <td>C, C++, Java, PHP, Python, Docker .env</td>
+                            <td>Global constants, environment variables, enum keys</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

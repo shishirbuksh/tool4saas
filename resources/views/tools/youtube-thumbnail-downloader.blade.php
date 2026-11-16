@@ -58,5 +58,62 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: YouTube Video Thumbnail Resolutions Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                YouTube Thumbnail Resolution Standards &amp; CDN Image Endpoint Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Thumbnail Quality Tier</th>
+                            <th>Resolution Dimensions</th>
+                            <th>Aspect Ratio</th>
+                            <th>Google CDN Image URL Path</th>
+                            <th>Availability &amp; Optimal Production Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Maximum Resolution (MaxRes)</td>
+                            <td class="font-mono font-bold text-success">1280 × 720 px (HD)</td>
+                            <td class="font-mono">16:9 Widescreen</td>
+                            <td class="font-mono text-xs">/vi/{id}/maxresdefault.jpg</td>
+                            <td class="font-bold text-success font-mono">Best (Available if source video is 720p+)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Standard Definition (SD)</td>
+                            <td class="font-mono font-bold">640 × 480 px</td>
+                            <td class="font-mono">4:3 Box (with black pillar bars)</td>
+                            <td class="font-mono text-xs">/vi/{id}/sddefault.jpg</td>
+                            <td>Guaranteed on 480p+ videos; video carousel fallback</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">High Quality (HQ)</td>
+                            <td class="font-mono font-bold">480 × 360 px</td>
+                            <td class="font-mono">4:3 Box</td>
+                            <td class="font-mono text-xs">/vi/{id}/hqdefault.jpg</td>
+                            <td class="text-success font-semibold">100% universal across all YouTube videos</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Medium Quality (MQ)</td>
+                            <td class="font-mono">320 × 180 px</td>
+                            <td class="font-mono">16:9 Widescreen</td>
+                            <td class="font-mono text-xs">/vi/{id}/mqdefault.jpg</td>
+                            <td>Lightweight mobile feeds &amp; compact video search results</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Default Thumbnail</td>
+                            <td class="font-mono">120 × 90 px</td>
+                            <td class="font-mono">4:3 Miniature</td>
+                            <td class="font-mono text-xs">/vi/{id}/default.jpg</td>
+                            <td>Tiny playlist sidebars and legacy mobile notifications</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

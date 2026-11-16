@@ -61,5 +61,55 @@
                 class="textarea textarea-bordered w-full rounded-[16px] text-sm font-mono leading-relaxed bg-base-100 dark:bg-base-200 border-[#242a20]/20 focus:border-primary"
             ></textarea>
         </div>
+
+        {{-- Technical Comparison: XML 1.0 vs. HTML5 vs. XHTML Specification Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Markup Syntax Standards: XML 1.0 vs. HTML5 vs. XHTML vs. JSON Matrix (W3C Standards)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Markup Standard</th>
+                            <th>Tag Closing Strictness</th>
+                            <th>Attribute Quote Requirements</th>
+                            <th>CDATA / Escaping Mechanics</th>
+                            <th>Primary Production Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">XML 1.0 (Fifth Edition)</td>
+                            <td class="font-mono font-bold text-error">Strict (Must self-close or end tag)</td>
+                            <td class="font-mono font-bold">Mandatory (Double or single quotes)</td>
+                            <td class="font-mono">&lt;![CDATA[ raw text ]]&gt; or &amp;lt; &amp;gt; &amp;amp;</td>
+                            <td>SOAP APIs, RSS/Atom feeds, Android manifests, SVG vectors</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">HTML5 (WHATWG Living)</td>
+                            <td class="font-mono text-success">Forgiving (Void tags &lt;img&gt;, &lt;br&gt; optional close)</td>
+                            <td class="font-mono">Optional for unspaced values</td>
+                            <td class="font-mono">HTML entity names (&amp;copy;, &amp;nbsp;, &amp;mdash;)</td>
+                            <td>Modern World Wide Web pages, single-page web applications</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">XHTML 1.0 / 1.1</td>
+                            <td class="font-mono text-error">Strict (Enforces XML parser rules)</td>
+                            <td class="font-mono">Mandatory quotes; strictly lowercase tags</td>
+                            <td class="font-mono">Requires XML entity syntax or CDATA</td>
+                            <td>EPUB 3 digital books, strictly validated XML web systems</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">JSON (ECMA-404)</td>
+                            <td class="font-mono font-bold">Strict key-value object syntax</td>
+                            <td class="font-mono font-bold text-success">Strict double quotes on keys &amp; strings</td>
+                            <td class="font-mono">Backslash escape: \&quot;, \\, \/, \n, \t</td>
+                            <td>REST APIs, microservices, config files, NoSQL databases</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

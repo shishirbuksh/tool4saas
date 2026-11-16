@@ -84,5 +84,55 @@
                 </button>
             </div>
         </div>
+
+        {{-- Technical Comparison: Unicode Alphanumeric Character Blocks Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Unicode Mathematical Alphanumeric Blocks &amp; Screen Reader Accessibility Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Unicode Typography Style</th>
+                            <th>Code Point Range (Hex)</th>
+                            <th>Sample Transformation</th>
+                            <th>Screen Reader (NVDA/VoiceOver) Behavior</th>
+                            <th>SEO Indexability Caution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Mathematical Bold</td>
+                            <td class="font-mono">U+1D400 – U+1D433</td>
+                            <td class="font-mono font-bold">𝐓𝐨𝐨𝐥𝟒𝐒𝐚𝐚𝐒</td>
+                            <td class="text-error font-semibold">Reads: &ldquo;Mathematical Bold Capital T, Bold O...&rdquo;</td>
+                            <td class="text-warning font-semibold">Dilutes keyword match; avoid in SEO H1s &amp; meta</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Mathematical Italic</td>
+                            <td class="font-mono">U+1D434 – U+1D467</td>
+                            <td class="font-mono italic font-bold">𝑇𝑜𝑜𝑙4𝑆𝑎𝑎𝑆</td>
+                            <td class="text-error font-semibold">Reads: &ldquo;Mathematical Italic T...&rdquo;</td>
+                            <td>Use for social bios (Twitter/X, Instagram, LinkedIn) only</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Mathematical Monospace</td>
+                            <td class="font-mono">U+1D670 – U+1D6A3</td>
+                            <td class="font-mono font-bold">𝚃𝚘𝚘𝚕𝟺𝚂𝚊𝚊𝚂</td>
+                            <td class="text-error font-semibold">Reads as individual isolated symbol tokens</td>
+                            <td>Great for code aesthetics on social profiles</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Enclosed Alphanumerics (Circled)</td>
+                            <td class="font-mono">U+24B6 – U+24E9</td>
+                            <td class="font-mono font-bold">Ⓣⓞⓞⓛ④Ⓢⓐⓐⓢ</td>
+                            <td class="text-error font-semibold">Reads: &ldquo;Circled Latin Capital Letter T...&rdquo;</td>
+                            <td>Decorative bullet points, numbered lists on social feeds</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

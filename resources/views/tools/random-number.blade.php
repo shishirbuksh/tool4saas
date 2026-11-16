@@ -96,5 +96,55 @@
 
             <p class="text-xs text-[#868685] font-mono mt-5">Entropy sourced via browser Web Crypto CSPRNG API.</p>
         </div>
+
+        {{-- Technical Comparison: Random Number Generation Standards Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Random Number Generation Architectures: PRNG vs. CSPRNG vs. Hardware TRNG Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>RNG Architecture</th>
+                            <th>Underlying Algorithm</th>
+                            <th>Entropy Source</th>
+                            <th>Predictability / Security Level</th>
+                            <th>Safe Production Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Web Crypto CSPRNG</td>
+                            <td class="font-mono font-bold">crypto.getRandomValues() (AES-CTR/ChaCha20)</td>
+                            <td class="font-mono">OS kernel entropy pool (/dev/urandom, CryptGenRandom)</td>
+                            <td class="font-bold text-success font-mono">Cryptographically Unpredictable</td>
+                            <td>Passwords, cryptographic keys, OTP tokens, secure raffles</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-error">Standard PRNG (Math.random)</td>
+                            <td class="font-mono">xoshiro128+ / XorShift</td>
+                            <td class="font-mono">Deterministic seed state</td>
+                            <td class="font-bold text-error font-mono">Predictable (Reconstructible from ~5 outputs)</td>
+                            <td>UI particle animations, casual game physics, mock test data</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">Hardware TRNG (True Random)</td>
+                            <td class="font-mono">Thermal Johnson noise, quantum shot noise</td>
+                            <td class="font-mono">Physical atmospheric or electronic quantum jitter</td>
+                            <td class="font-bold text-success font-mono">100% Non-deterministic (Physics based)</td>
+                            <td>Hardware Security Modules (HSM), casino gaming certification</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Fisher-Yates Shuffle</td>
+                            <td class="font-mono">Unbiased in-place array permutation</td>
+                            <td class="font-mono">Coupled to CSPRNG uniform draw</td>
+                            <td class="font-mono text-success font-bold">Zero distribution bias (Exact N! permutations)</td>
+                            <td>Shuffling card decks, lottery drawings without replacement</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

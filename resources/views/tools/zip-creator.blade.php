@@ -62,5 +62,55 @@
                 </ul>
             </div>
         </template>
+
+        {{-- Technical Comparison: Archive Compression Formats Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Archive Compression Formats: ZIP vs. TAR.GZ vs. 7-Zip vs. RAR Standards Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Archive Format</th>
+                            <th>Compression Algorithm</th>
+                            <th>Compression Ratio</th>
+                            <th>Native OS Support (Without 3rd-party apps)</th>
+                            <th>Best Production Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">ZIP (.zip)</td>
+                            <td class="font-mono">DEFLATE / BZIP2 / Deflate64</td>
+                            <td class="font-mono">Moderate (~50%–70% text reduction)</td>
+                            <td class="font-bold text-success font-mono">100% Native (Windows Explorer, macOS Finder, Linux)</td>
+                            <td>Universal consumer file transfer, email attachments, digital products</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">TAR.GZ (.tar.gz / .tgz)</td>
+                            <td class="font-mono">POSIX tar + Gzip LZ77</td>
+                            <td class="font-mono">High (Solid stream compression)</td>
+                            <td>Native Linux / macOS / Unix terminal (<code class="font-mono">tar -xzf</code>)</td>
+                            <td>Linux packages, software source tarballs, Docker container layers</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">7-Zip (.7z)</td>
+                            <td class="font-mono font-bold text-success">LZMA / LZMA2 / BCJ2</td>
+                            <td class="font-bold text-success font-mono">Highest (30%–50% better than ZIP)</td>
+                            <td class="text-warning font-semibold">Requires 7-Zip or p7zip utility</td>
+                            <td>Archiving massive game assets, VM disk images, database dumps</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">RAR (.rar)</td>
+                            <td class="font-mono">Proprietary Roshal Archive</td>
+                            <td class="font-mono">Very High + Recovery Records</td>
+                            <td class="text-error font-semibold">Requires WinRAR or unrar license</td>
+                            <td>Multi-part split archives, error-recovery parity archives</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

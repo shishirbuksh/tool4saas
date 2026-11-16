@@ -107,5 +107,55 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: Browser Timing APIs & Precision Standards Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Browser High-Resolution Timing APIs &amp; Clock Accuracy Standards Matrix (W3C High Resolution Time)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Browser Timing API</th>
+                            <th>Resolution Precision</th>
+                            <th>Monotonic Clock Guarantee</th>
+                            <th>Spectre Security Jitter</th>
+                            <th>Best Web Application Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">performance.now()</td>
+                            <td class="font-mono font-bold text-success">Microsecond (5 μs to 20 μs)</td>
+                            <td class="text-success font-bold">Yes (Never steps backwards)</td>
+                            <td>Clamped to 5–20 μs to mitigate side-channel timing leaks</td>
+                            <td>High-precision stopwatches, animation loops, performance profiling</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">requestAnimationFrame (rAF)</td>
+                            <td class="font-mono">Syncs to display refresh (16.6ms at 60Hz / 8.3ms at 120Hz)</td>
+                            <td class="text-success font-semibold">Yes (Tied to VSync)</td>
+                            <td>None (Paused automatically in background tabs to save CPU)</td>
+                            <td>Silky 60/120 FPS UI stopwatch ticking, canvas games, CSS rendering</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-error">Date.now() / new Date()</td>
+                            <td class="font-mono text-warning">Millisecond (1 ms)</td>
+                            <td class="text-error font-semibold">No (Drifts with OS clock &amp; NTP sync)</td>
+                            <td>None</td>
+                            <td>Wall-clock calendar timestamps, database audit records</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Web Workers setInterval</td>
+                            <td class="font-mono">~4 ms minimum clamp</td>
+                            <td class="font-mono">Moderate</td>
+                            <td>Unthrottled in background tabs (bypasses browser tab sleep)</td>
+                            <td>Background persistent timer alerts, pomodoro tracking when tab hidden</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

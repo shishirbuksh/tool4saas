@@ -54,5 +54,62 @@
                 <p class="text-xs text-base-content/60 mt-2">Gross total with sales tax included</p>
             </div>
         </div>
+
+        {{-- Technical Comparison: US State Sales Tax Rates & Local City Surcharges Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                US State Baseline Sales Tax Rates vs. Max Local City Surcharges Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>US State Jurisdiction</th>
+                            <th>State Base Sales Tax</th>
+                            <th>Max Local City/County Surcharge</th>
+                            <th>Combined Average Rate</th>
+                            <th>Economic Nexus Threshold (Wayfair)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">California (CA)</td>
+                            <td class="font-mono font-bold">7.25% (Highest base)</td>
+                            <td class="font-mono">+3.00%</td>
+                            <td class="font-mono font-bold text-error">8.85% (Up to 10.75% in LA/SF)</td>
+                            <td>$500,000 annual gross sales</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Texas (TX)</td>
+                            <td class="font-mono">6.25%</td>
+                            <td class="font-mono">+2.00%</td>
+                            <td class="font-mono font-bold">8.20% (Common 8.25% cap)</td>
+                            <td>$500,000 annual sales</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">New York (NY)</td>
+                            <td class="font-mono">4.00%</td>
+                            <td class="font-mono">+4.875% (NYC)</td>
+                            <td class="font-mono font-bold text-error">8.52% (8.875% in NYC)</td>
+                            <td>$500,000 sales + 100 transactions</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Florida (FL)</td>
+                            <td class="font-mono">6.00%</td>
+                            <td class="font-mono">+1.50%</td>
+                            <td class="font-mono">7.02% average</td>
+                            <td>$100,000 remote seller revenue</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">NOMAD States (NH, OR, MT, DE)</td>
+                            <td class="font-mono font-bold text-success">0.00% (No Sales Tax)</td>
+                            <td class="font-mono font-bold text-success">0.00%</td>
+                            <td class="font-mono font-bold text-success">0.00% Total</td>
+                            <td class="text-success font-semibold">Exempt (Zero general state sales tax)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

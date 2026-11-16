@@ -102,5 +102,62 @@
                 </div>
             </div>
         </template>
+
+        {{-- Technical Comparison: Fair Coin Probability & Bernoulli Trials Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Bernoulli Trial Probabilities, Streaks &amp; Law of Large Numbers Convergence Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Trial Sequence / Streak Event</th>
+                            <th>Theoretical Probability</th>
+                            <th>Odds (1 in N Flips)</th>
+                            <th>Expected Standard Deviation</th>
+                            <th>Gambler's Fallacy Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Single Toss (Heads or Tails)</td>
+                            <td class="font-mono font-bold text-success">p = 0.50 (50.0%)</td>
+                            <td class="font-mono">1 in 2</td>
+                            <td class="font-mono">σ = 0.50</td>
+                            <td>Independent event; prior flips have zero memory</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">3 Consecutive in a Row</td>
+                            <td class="font-mono font-bold">p = 0.125 (12.5%)</td>
+                            <td class="font-mono">1 in 8</td>
+                            <td class="font-mono">σ = 1.15</td>
+                            <td>Common natural clustering in short sample runs</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">5 Consecutive in a Row</td>
+                            <td class="font-mono font-bold">p = 0.03125 (3.125%)</td>
+                            <td class="font-mono">1 in 32</td>
+                            <td class="font-mono">σ = 1.58</td>
+                            <td>Expected once every 32 five-flip trial cycles</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">10 Consecutive in a Row</td>
+                            <td class="font-mono">p = 0.000976 (~0.098%)</td>
+                            <td class="font-mono">1 in 1,024</td>
+                            <td class="font-mono">σ = 2.23</td>
+                            <td>Statistically rare; next flip is still exactly 50/50</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-success">100 Flips Convergence (LLN)</td>
+                            <td class="font-mono font-bold text-success">Mean = 50 Heads</td>
+                            <td class="font-mono">Bell curve (40–60 range)</td>
+                            <td class="font-mono font-bold text-success">σ = 5.0 (95.4% within ±10)</td>
+                            <td>Law of Large Numbers guarantees empirical convergence to 50%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

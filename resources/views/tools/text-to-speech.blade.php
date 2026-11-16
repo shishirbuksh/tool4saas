@@ -96,5 +96,55 @@
                 ⏹ Stop
             </button>
         </div>
+
+        {{-- Technical Comparison: Text-to-Speech Engine Architectures Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Text-to-Speech (TTS) Synthesis Architectures &amp; Voice Quality Standards Matrix
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>TTS Engine Architecture</th>
+                            <th>Underlying Technology</th>
+                            <th>Mean Opinion Score (MOS 1–5)</th>
+                            <th>Latency / Execution Mode</th>
+                            <th>Primary Production Advantage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Web Speech Synthesis API</td>
+                            <td>OS-level Concatenative / Formant synthesis (SAPI, Apple AVSpeech)</td>
+                            <td class="font-mono">3.4 – 4.1 MOS</td>
+                            <td class="font-bold text-success font-mono">&lt; 50 ms Instant Local Playback</td>
+                            <td class="font-bold text-success">Zero server cost, zero egress, 100% offline support</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono text-primary">Neural TTS (ElevenLabs / Azure)</td>
+                            <td>Autoregressive Diffusion + Tacotron / WaveNet vocoder</td>
+                            <td class="font-bold text-success font-mono">4.7 – 4.9 MOS (Human parity)</td>
+                            <td class="font-mono">300 ms – 800 ms streaming API</td>
+                            <td>Emotional inflection, breathing cues, celebrity voice cloning</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">OpenAI TTS (tts-1 / hd)</td>
+                            <td>Transformer neural latent vocoder</td>
+                            <td class="font-bold text-success font-mono">4.6 MOS</td>
+                            <td class="font-mono">~250 ms chunked WebSocket</td>
+                            <td>High conversational realism for AI agents &amp; assistants</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Embedded Wasm TTS (Piper / Sherpa)</td>
+                            <td>VITS neural model compiled to WebAssembly SIMD</td>
+                            <td class="font-mono">4.2 – 4.4 MOS</td>
+                            <td class="font-mono">&lt; 150 ms Local Client Inference</td>
+                            <td>Neural quality running completely private on the user device</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>
