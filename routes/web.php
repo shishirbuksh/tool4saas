@@ -19,6 +19,12 @@ Route::get('/rss.xml', [FeedController::class, 'rss'])->name('feed.rss');
 Route::get('/manifest.webmanifest', [FeedController::class, 'manifest'])->name('feed.manifest');
 Route::get('/llms.txt', [FeedController::class, 'llms'])->name('feed.llms');
 Route::get('/llms-full.txt', [FeedController::class, 'llms'])->name('feed.llms-full');
+Route::get('/e4a7d32c98b14e6da2019c43b876f512.txt', function () {
+    return response("e4a7d32c98b14e6da2019c43b876f512\n", 200, [
+        'Content-Type' => 'text/plain; charset=utf-8',
+        'Cache-Control' => 'public, max-age=86400',
+    ]);
+});
 
 // 1.5 API Endpoints
 Route::post('/api/ssl-check', [SslCheckController::class, 'check'])
