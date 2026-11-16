@@ -91,5 +91,56 @@
                 ></textarea>
             </div>
         </div>
+
+        {{-- Technical Comparison: Base64 Overhead Matrix --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Binary Data vs. Base64 Encoding Overhead Matrix (RFC 4648)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Raw Binary Size</th>
+                            <th>Base64 Encoded Size</th>
+                            <th>Size Overhead</th>
+                            <th>Architectural Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">1 KB (1,024 B)</td>
+                            <td class="font-mono">~1.37 KB</td>
+                            <td class="font-mono text-warning">+33.3%</td>
+                            <td>Zero latency impact; ideal for inline SVGs and favicon Data URIs</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">10 KB (10,240 B)</td>
+                            <td class="font-mono">~13.65 KB</td>
+                            <td class="font-mono text-warning">+33.3%</td>
+                            <td>Suitable for JWT authorization tokens and small cryptographic keys</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">100 KB (102,400 B)</td>
+                            <td class="font-mono">~136.5 KB</td>
+                            <td class="font-mono text-warning">+33.3%</td>
+                            <td>Threshold limit; beyond this, static asset CDN caching is preferred</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">1 MB (1,048,576 B)</td>
+                            <td class="font-mono">~1.33 MB</td>
+                            <td class="font-mono text-warning">+33.3%</td>
+                            <td>Increases mobile parse time; prefer multipart/form-data for transfer</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">10 MB (10,485,760 B)</td>
+                            <td class="font-mono">~13.33 MB</td>
+                            <td class="font-mono text-warning">+33.3%</td>
+                            <td>Heavy browser memory footprint; stream via Blob / Object URLs instead</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

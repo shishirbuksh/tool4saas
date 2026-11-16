@@ -77,4 +77,61 @@
             <div class="text-2xl font-black text-base-content mt-1 font-display tabular-nums"><span x-text="readingMinutes"></span>m</div>
         </div>
     </div>
+
+    {{-- Technical Comparison: Word Count Reference Matrix --}}
+    <div class="mt-8 pt-6 border-t border-base-300">
+        <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+            Word Count to Reading &amp; Speaking Time Reference Matrix
+        </h3>
+        <div class="overflow-x-auto rounded-3xl border border-base-300">
+            <table class="table table-zebra w-full text-xs sm:text-sm">
+                <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                    <tr>
+                        <th>Word Count</th>
+                        <th>Silent Reading (238 WPM)</th>
+                        <th>Speech / Speaking (130 WPM)</th>
+                        <th>Typical Document Format</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-bold font-mono">250 Words</td>
+                        <td class="font-mono">~1.0 Min</td>
+                        <td class="font-mono">~1.9 Mins</td>
+                        <td>Executive summary, LinkedIn thought-piece, email memo</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">500 Words</td>
+                        <td class="font-mono">~2.1 Mins</td>
+                        <td class="font-mono">~3.8 Mins</td>
+                        <td>Standard 1-page essay, press release, short newsletter</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">1,000 Words</td>
+                        <td class="font-mono">~4.2 Mins</td>
+                        <td class="font-mono">~7.7 Mins</td>
+                        <td>Technical tutorial, SEO blog article, 2-page document</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">1,500 Words</td>
+                        <td class="font-mono">~6.3 Mins</td>
+                        <td class="font-mono">~11.5 Mins</td>
+                        <td>Deep-dive product review, case study, pillar post</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">2,500 Words</td>
+                        <td class="font-mono">~10.5 Mins</td>
+                        <td class="font-mono">~19.2 Mins</td>
+                        <td>Undergraduate research paper, industry whitepaper</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">5,000 Words</td>
+                        <td class="font-mono">~21.0 Mins</td>
+                        <td class="font-mono">~38.5 Mins</td>
+                        <td>Master handbook, long-form eBook chapter, thesis</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </x-tool-paper>

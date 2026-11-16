@@ -67,5 +67,50 @@
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Income Tax: ₹' + inHand.tax.toLocaleString('en-IN') + ' · EPF: ₹' + inHand.epf.toLocaleString('en-IN')"></p>
             </div>
         </div>
+
+        {{-- Technical Comparison: New vs Old Tax Regime --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                New Tax Regime vs. Old Tax Regime Comparison (FY 2024-25 &amp; FY 2025-26)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Tax Dimension</th>
+                            <th>New Tax Regime (Section 115BAC)</th>
+                            <th>Old Tax Regime</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Standard Deduction</td>
+                            <td>₹75,000 for salaried employees (Budget 2024 update)</td>
+                            <td>₹50,000 for salaried employees</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Full Tax Rebate (Sec 87A)</td>
+                            <td>Zero tax up to ₹7.75 Lakhs total income</td>
+                            <td>Zero tax up to ₹5.00 Lakhs total income</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Tax Slabs Structure</td>
+                            <td>Concessional progressive slabs (5%, 10%, 15%, 20%, 30%)</td>
+                            <td>Steeper brackets: 0-2.5L: Nil, 2.5-5L: 5%, 5-10L: 20%, &gt;10L: 30%</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Deductions Allowed</td>
+                            <td>No Section 80C, 80D, or HRA exemptions (paperless filing)</td>
+                            <td>Permits 80C (₹1.5L), 80D (₹25k-₹50k), HRA, Sec 24b Home Loan</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Breakeven Threshold</td>
+                            <td>Better if total eligible exemptions are under ₹3.75 Lakhs</td>
+                            <td>Better only if total eligible exemptions exceed ₹3.75 Lakhs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

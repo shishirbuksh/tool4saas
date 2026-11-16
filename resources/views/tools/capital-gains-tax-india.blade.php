@@ -66,5 +66,55 @@
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Net Profit after Tax: ₹' + Math.round(gain - tax).toLocaleString('en-IN')"></p>
             </div>
         </div>
+
+        {{-- Technical Comparison: Post-Budget 2024 Capital Gains Tax Rates --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Short-Term vs. Long-Term Capital Gains Tax in India (Post-Budget 2024 Rules)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Asset Class</th>
+                            <th>LTCG Holding Period</th>
+                            <th>LTCG Tax Rate</th>
+                            <th>STCG Tax Rate</th>
+                            <th>Annual Exemption</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Listed Equity &amp; Mutual Funds</td>
+                            <td>&gt; 12 Months</td>
+                            <td>12.5% (Sec 112A)</td>
+                            <td>20% (Sec 111A)</td>
+                            <td>₹1,25,000 / FY</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Real Estate &amp; Property</td>
+                            <td>&gt; 24 Months</td>
+                            <td>12.5% (Without indexation)</td>
+                            <td>Applicable slab rates</td>
+                            <td>Sec 54 / 54EC rollover</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Unlisted Shares &amp; Startups</td>
+                            <td>&gt; 24 Months</td>
+                            <td>12.5% (Without indexation)</td>
+                            <td>Applicable slab rates</td>
+                            <td>Nil</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Debt Mutual Funds (Post Apr 2023)</td>
+                            <td>Any duration</td>
+                            <td>Taxed at slab rate</td>
+                            <td>Taxed at slab rate</td>
+                            <td>Nil</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-card>

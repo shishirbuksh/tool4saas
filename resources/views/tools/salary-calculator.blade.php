@@ -78,5 +78,76 @@
                 </div>
             </div>
         </div>
+
+        {{-- Technical Comparison: Hourly to Annual Salary Conversion Matrix --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Hourly Wage to Annual, Monthly &amp; Weekly Salary Reference Table (40 Hrs/Wk)
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Hourly Rate</th>
+                            <th>Weekly Pay (40h)</th>
+                            <th>Bi-Weekly Pay (80h)</th>
+                            <th>Monthly Gross (Avg)</th>
+                            <th>Annual Gross (2,080h)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">$15.00 / hr</td>
+                            <td class="font-mono">$600</td>
+                            <td class="font-mono">$1,200</td>
+                            <td class="font-mono">$2,600</td>
+                            <td class="font-bold font-mono text-primary">$31,200</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">$20.00 / hr</td>
+                            <td class="font-mono">$800</td>
+                            <td class="font-mono">$1,600</td>
+                            <td class="font-mono">$3,467</td>
+                            <td class="font-bold font-mono text-primary">$41,600</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">$25.00 / hr</td>
+                            <td class="font-mono">$1,000</td>
+                            <td class="font-mono">$2,000</td>
+                            <td class="font-mono">$4,333</td>
+                            <td class="font-bold font-mono text-primary">$52,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">$35.00 / hr</td>
+                            <td class="font-mono">$1,400</td>
+                            <td class="font-mono">$2,800</td>
+                            <td class="font-mono">$6,067</td>
+                            <td class="font-bold font-mono text-primary">$72,800</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">$50.00 / hr</td>
+                            <td class="font-mono">$2,000</td>
+                            <td class="font-mono">$4,000</td>
+                            <td class="font-mono">$8,667</td>
+                            <td class="font-bold font-mono text-primary">$104,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">$75.00 / hr</td>
+                            <td class="font-mono">$3,000</td>
+                            <td class="font-mono">$6,000</td>
+                            <td class="font-mono">$13,000</td>
+                            <td class="font-bold font-mono text-primary">$156,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">$100.00 / hr</td>
+                            <td class="font-mono">$4,000</td>
+                            <td class="font-mono">$8,000</td>
+                            <td class="font-mono">$17,333</td>
+                            <td class="font-bold font-mono text-primary">$208,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

@@ -84,5 +84,50 @@
             </svg>
             <span>Mutual fund and equity investments are subject to market risks. Past returns are not indicative of future performance.</span>
         </div>
+
+        {{-- Technical Comparison: SIP vs Lump Sum --}}
+        <div class="pt-4 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                SIP (Systematic Investment) vs. Lump Sum Investment Comparison
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Investment Parameter</th>
+                            <th>SIP (Systematic Plan)</th>
+                            <th>Lump Sum Investment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Capital Deployment</td>
+                            <td>Fixed monthly installments (e.g. $100/mo)</td>
+                            <td>Single upfront capital deposit (e.g. $12,000)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Market Timing Risk</td>
+                            <td>Zero market timing required; rupee/dollar cost averaging</td>
+                            <td>High timing risk; vulnerable if entered at market peak</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Volatility Management</td>
+                            <td>Buys more mutual fund units during market corrections</td>
+                            <td>Fixed unit count; entire capital exposed to fluctuations</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Income Suitability</td>
+                            <td>Ideal for salaried earners with regular monthly cash flow</td>
+                            <td>Ideal for windfalls, bonuses, dividends, or asset sales</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Behavioral Advantage</td>
+                            <td>Eliminates emotional impulse; enforces automated investing</td>
+                            <td>Requires discipline to avoid panic-selling during drawdowns</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

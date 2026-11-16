@@ -107,4 +107,67 @@
             <div class="text-base-content/60 mt-0.5 font-mono">&ge; 30.0</div>
         </div>
     </div>
+
+    {{-- Technical Comparison: WHO BMI Risk Matrix --}}
+    <div class="mt-8 pt-6 border-t border-base-300">
+        <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+            World Health Organization (WHO) BMI Classification &amp; Health Risk Matrix
+        </h3>
+        <div class="overflow-x-auto rounded-3xl border border-base-300">
+            <table class="table table-zebra w-full text-xs sm:text-sm">
+                <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                    <tr>
+                        <th>WHO Category</th>
+                        <th>BMI Range (kg/m²)</th>
+                        <th>Health Risk Level</th>
+                        <th>Clinical Guidance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-bold font-mono text-[#38c8ff]">Severe Underweight</td>
+                        <td class="font-mono">&lt; 16.0</td>
+                        <td>High nutritional deficiency</td>
+                        <td>Clinical health review; targeted caloric rehabilitation</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono text-[#38c8ff]">Underweight</td>
+                        <td class="font-mono">16.0 – 18.4</td>
+                        <td>Moderate deficiency risk</td>
+                        <td>Increase nutrient-dense whole foods and strength training</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono text-[#2ead4b]">Normal Weight</td>
+                        <td class="font-mono">18.5 – 24.9</td>
+                        <td>Lowest morbidity risk</td>
+                        <td>Maintain current energy balance and regular exercise</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono text-[#b86700]">Overweight</td>
+                        <td class="font-mono">25.0 – 29.9</td>
+                        <td>Moderate cardiovascular risk</td>
+                        <td>Modest 300–500 kcal deficit with 150m weekly activity</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono text-[#d03238]">Obese Class I</td>
+                        <td class="font-mono">30.0 – 34.9</td>
+                        <td>High risk for diabetes &amp; BP</td>
+                        <td>Physician-guided weight management and nutrition plan</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono text-[#d03238]">Obese Class II</td>
+                        <td class="font-mono">35.0 – 39.9</td>
+                        <td>Very high metabolic risk</td>
+                        <td>Comprehensive medical consultation and lifestyle therapy</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono text-[#d03238]">Obese Class III</td>
+                        <td class="font-mono">&ge; 40.0</td>
+                        <td>Extremely high morbid risk</td>
+                        <td>Specialized multidisciplinary clinical intervention</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </x-tool-paper>

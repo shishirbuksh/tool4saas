@@ -75,4 +75,55 @@
             <div class="text-xl font-black text-base-content mt-1 tabular-nums font-display">$<span x-text="Math.round(monthlyInsurance)"></span>/mo</div>
         </div>
     </div>
+
+    {{-- Technical Comparison: 15-Yr vs 30-Yr Mortgage --}}
+    <div class="mt-8 pt-6 border-t border-base-300">
+        <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+            15-Year vs. 30-Year Fixed Mortgage Comparison ($400,000 Loan at 6.5%)
+        </h3>
+        <div class="overflow-x-auto rounded-3xl border border-base-300">
+            <table class="table table-zebra w-full text-xs sm:text-sm">
+                <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                    <tr>
+                        <th>Loan Metric</th>
+                        <th>15-Year Fixed Mortgage</th>
+                        <th>30-Year Fixed Mortgage</th>
+                        <th>Financial Difference</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-bold font-mono">Monthly Payment (P&amp;I)</td>
+                        <td class="font-mono">~$3,485 / mo</td>
+                        <td class="font-mono">~$2,528 / mo</td>
+                        <td>15-Yr requires +$957/mo higher cash flow</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">Total Interest Paid</td>
+                        <td class="font-mono text-[#2ead4b]">~$227,330</td>
+                        <td class="font-mono text-warning">~$510,178</td>
+                        <td class="font-bold text-[#2ead4b]">15-Yr saves $282,848 in interest</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">Total Loan Cost</td>
+                        <td class="font-mono">~$627,330</td>
+                        <td class="font-mono">~$910,178</td>
+                        <td>30-Yr costs 45% more over life of loan</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">50% Principal Payoff</td>
+                        <td class="font-mono">Year 8.5</td>
+                        <td class="font-mono">Year 20.5</td>
+                        <td>15-Yr builds home equity 2.4x faster</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold font-mono">Lender Qualification</td>
+                        <td>Requires lower Debt-to-Income (DTI) ratio</td>
+                        <td>Easier approval with lower monthly commitment</td>
+                        <td>30-Yr maximizes initial borrowing power</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </x-tool-paper>

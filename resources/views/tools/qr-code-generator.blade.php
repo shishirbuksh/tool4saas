@@ -110,5 +110,50 @@
                 </div>
             </div>
         </div>
+
+        {{-- Technical Comparison: Static vs Dynamic QR Codes --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Static QR Codes vs. Dynamic QR Codes Comparison
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Feature Dimension</th>
+                            <th>Static QR Code (Tool4SaaS)</th>
+                            <th>Dynamic QR Code (SaaS Subscriptions)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Data Encoding Method</td>
+                            <td>Data embedded directly into module pattern</td>
+                            <td>Encodes a redirect URL pointing to remote server</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Lifespan &amp; Expiry</td>
+                            <td>Permanent; never expires or gets turned off</td>
+                            <td>Expires if subscription lapses or scan limit hit</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Privacy &amp; Data Logging</td>
+                            <td>Zero user tracking, zero server logging</td>
+                            <td>Logs scanner IP, geo-location, device, and time</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Post-Print Editing</td>
+                            <td>Fixed; cannot change destination after printing</td>
+                            <td>Editable anytime via cloud SaaS dashboard</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Scan Limits &amp; Cost</td>
+                            <td>100% Free with unlimited scans forever</td>
+                            <td>Typically limited to 50–100 scans before paywall</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>

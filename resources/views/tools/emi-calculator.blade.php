@@ -118,5 +118,50 @@
                 </button>
             </div>
         </div>
+
+        {{-- Technical Comparison: Reducing Balance vs Flat Rate EMI --}}
+        <div class="mt-8 pt-6 border-t border-base-300">
+            <h3 class="font-bold text-base sm:text-lg text-base-content font-display mb-4">
+                Reducing Balance Rate vs. Flat Interest Rate Loan EMI Comparison
+            </h3>
+            <div class="overflow-x-auto rounded-3xl border border-base-300">
+                <table class="table table-zebra w-full text-xs sm:text-sm">
+                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                        <tr>
+                            <th>Loan Feature</th>
+                            <th>Reducing Balance Method</th>
+                            <th>Flat Interest Rate Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold font-mono">Interest Accrual Base</td>
+                            <td>Calculated on the declining principal balance each month</td>
+                            <td>Calculated on the full original principal for entire tenure</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Effective APR Reality</td>
+                            <td>True nominal APR (a 10% rate costs exactly 10% APR)</td>
+                            <td>Deceptive APR (a 10% flat rate equals ~18.5% actual APR)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Total Interest ($50k, 5 Yrs @ 10%)</td>
+                            <td class="font-mono text-[#2ead4b]">~$13,741 total interest paid</td>
+                            <td class="font-mono text-warning">~$25,000 total interest paid (+82% cost)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Standard Use Cases</td>
+                            <td>Home mortgages, bank auto loans, education financing</td>
+                            <td>Promotional consumer electronics, informal payday loans</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold font-mono">Borrower Financial Impact</td>
+                            <td>Saves substantial money; rewards early extra repayments</td>
+                            <td>Higher repayment burden; no interest relief from prepayment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </x-tool-paper>
