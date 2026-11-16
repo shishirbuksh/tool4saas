@@ -225,25 +225,76 @@ final class SeoService
 
         $appCategory = $categoryMap[$tool->category] ?? 'UtilitiesApplication';
 
-        $graph = [
-            [
-                '@context' => 'https://schema.org',
-                '@type' => 'WebApplication',
-                '@id' => "{$url}#webapp",
-                'url' => $url,
-                'name' => $tool->title,
-                'applicationCategory' => $appCategory,
-                'operatingSystem' => 'Any',
-                'browserRequirements' => 'Requires JavaScript. Works in all modern browsers.',
-                'description' => $tool->description,
-                'isAccessibleForFree' => true,
-                'offers' => [
-                    '@type' => 'Offer',
-                    'price' => '0',
-                    'priceCurrency' => 'USD',
-                ],
-                'featureList' => array_slice($tool->keywords, 0, 5),
+        $wikidataMap = [
+            'uuid-generator' => 'https://www.wikidata.org/wiki/Q275296',
+            'json-to-yaml' => 'https://www.wikidata.org/wiki/Q2063',
+            'yaml-to-json' => 'https://www.wikidata.org/wiki/Q2063',
+            'json-formatter' => 'https://www.wikidata.org/wiki/Q2063',
+            'cagr-calculator' => 'https://www.wikidata.org/wiki/Q1121950',
+            'auto-loan-calculator' => 'https://www.wikidata.org/wiki/Q474088',
+            'simple-interest-calculator' => 'https://www.wikidata.org/wiki/Q178712',
+            'compound-interest-calculator' => 'https://www.wikidata.org/wiki/Q178712',
+            'invoice-generator' => 'https://www.wikidata.org/wiki/Q182190',
+            'resume-builder' => 'https://www.wikidata.org/wiki/Q186649',
+            'bmi-calculator' => 'https://www.wikidata.org/wiki/Q131238',
+            'qr-code-generator' => 'https://www.wikidata.org/wiki/Q12203',
+            'image-compressor' => 'https://www.wikidata.org/wiki/Q863777',
+            'word-counter' => 'https://www.wikidata.org/wiki/Q384976',
+            'password-generator' => 'https://www.wikidata.org/wiki/Q327349',
+            'base64-tool' => 'https://www.wikidata.org/wiki/Q219488',
+            'regex-tester' => 'https://www.wikidata.org/wiki/Q185612',
+            'percentage-calculator' => 'https://www.wikidata.org/wiki/Q11229',
+            'percentage-change' => 'https://www.wikidata.org/wiki/Q11229',
+            'case-converter' => 'https://www.wikidata.org/wiki/Q18535',
+            'timestamp-converter' => 'https://www.wikidata.org/wiki/Q14648',
+            'mortgage-calculator' => 'https://www.wikidata.org/wiki/Q184288',
+            'hash-generator' => 'https://www.wikidata.org/wiki/Q183493',
+            'markdown-editor' => 'https://www.wikidata.org/wiki/Q11936',
+            'svg-optimizer' => 'https://www.wikidata.org/wiki/Q6199',
+            'color-contrast' => 'https://www.wikidata.org/wiki/Q1202',
+            'color-converter' => 'https://www.wikidata.org/wiki/Q1075',
+            'unit-converter' => 'https://www.wikidata.org/wiki/Q13094',
+            'currency-converter' => 'https://www.wikidata.org/wiki/Q8142',
+            'age-calculator' => 'https://www.wikidata.org/wiki/Q185836',
+            'sip-calculator' => 'https://www.wikidata.org/wiki/Q7663806',
+            'emi-calculator' => 'https://www.wikidata.org/wiki/Q474088',
+        ];
+
+        $webAppEntity = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebApplication',
+            '@id' => "{$url}#webapp",
+            'url' => $url,
+            'name' => $tool->title,
+            'applicationCategory' => $appCategory,
+            'operatingSystem' => 'Any',
+            'browserRequirements' => 'Requires JavaScript. Works in all modern browsers.',
+            'description' => $tool->description,
+            'isAccessibleForFree' => true,
+            'offers' => [
+                '@type' => 'Offer',
+                'price' => '0',
+                'priceCurrency' => 'USD',
             ],
+            'featureList' => array_slice($tool->keywords, 0, 5),
+            'author' => [
+                '@type' => 'Organization',
+                'name' => 'Tool4SaaS Editorial & Engineering Team',
+                'url' => rtrim($baseUrl, '/').'/about',
+            ],
+            'provider' => [
+                '@type' => 'Organization',
+                'name' => 'Tool4SaaS',
+                'url' => rtrim($baseUrl, '/'),
+            ],
+        ];
+
+        if (isset($wikidataMap[$tool->slug])) {
+            $webAppEntity['sameAs'] = $wikidataMap[$tool->slug];
+        }
+
+        $graph = [
+            $webAppEntity,
             [
                 '@context' => 'https://schema.org',
                 '@type' => 'BreadcrumbList',
