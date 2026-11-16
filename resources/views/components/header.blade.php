@@ -63,7 +63,7 @@
                 href="{{ route('home') }}#tools"
                 class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-content font-bold text-sm hover:bg-[#cdffad] active:scale-95 transition-all shadow-sm"
             >
-                <span>Browse 127 Tools</span>
+                <span>Browse All Tools</span>
                 <span class="text-xs">→</span>
             </a>
 
@@ -106,7 +106,7 @@
                     @click="mobileMenuOpen = false"
                     class="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-primary text-primary-content font-bold text-base hover:bg-[#cdffad] transition-all shadow-sm"
                 >
-                    <span>Browse All 127 Tools</span>
+                    <span>Browse All Tools</span>
                     <span>→</span>
                 </a>
             </div>

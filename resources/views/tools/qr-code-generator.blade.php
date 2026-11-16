@@ -33,7 +33,10 @@
             link.href = canvas.toDataURL('image/png');
             link.click();
         },
-        init() {
+        async init() {
+            if (!window.QRCode && window.loadQRCode) {
+                await window.loadQRCode();
+            }
             this.$nextTick(() => {
                 this.renderQr();
             });

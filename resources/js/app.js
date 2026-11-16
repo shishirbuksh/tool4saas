@@ -1,10 +1,10 @@
 import Alpine from "alpinejs";
-import QRCode from "qrcode";
-import JsBarcode from "jsbarcode";
 
 window.Alpine = Alpine;
-window.QRCode = QRCode;
-window.JsBarcode = JsBarcode;
+
+// Dynamic code-split loaders for tool-specific libraries
+window.loadQRCode = () => import("qrcode").then((m) => { window.QRCode = m.default || m; return window.QRCode; });
+window.loadJsBarcode = () => import("jsbarcode").then((m) => { window.JsBarcode = m.default || m; return window.JsBarcode; });
 
 // Theme manager
 Alpine.data("themeManager", () => ({

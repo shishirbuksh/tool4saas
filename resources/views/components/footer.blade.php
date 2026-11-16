@@ -29,7 +29,7 @@
             <div class="flex flex-wrap items-center gap-2">
                 <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#242a20] text-primary text-xs font-semibold">
                     <span class="w-2 h-2 rounded-full bg-primary"></span>
-                    127 Free Tools
+                    125+ Free Tools
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#242a20] text-white text-xs font-semibold">
                     🔒 Zero Cloud Storage

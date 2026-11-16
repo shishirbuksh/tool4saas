@@ -1,6 +1,24 @@
 {
+  "node_modules/jsbarcode/bin/JsBarcode.js": {
+    "file": "assets/JsBarcode-XVYrr2IA.js",
+    "name": "JsBarcode",
+    "src": "node_modules/jsbarcode/bin/JsBarcode.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "node_modules/qrcode/lib/browser.js": {
+    "file": "assets/browser-C-FGtVwT.js",
+    "name": "browser",
+    "src": "node_modules/qrcode/lib/browser.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
   "resources/css/app.css": {
-    "file": "assets/app-CAidrN3u.css",
+    "file": "assets/app-7-N_LJ88.css",
     "name": "app",
     "names": [
       "app.css"
@@ -9,9 +27,13 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-C6Dclqfd.js",
+    "file": "assets/app-bW42pKxi.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true
+    "isEntry": true,
+    "dynamicImports": [
+      "node_modules/qrcode/lib/browser.js",
+      "node_modules/jsbarcode/bin/JsBarcode.js"
+    ]
   }
 }

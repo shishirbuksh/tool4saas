@@ -46,15 +46,18 @@
 
                         {{-- Instant Search Input (Wise styled pill input) --}}
                         <div class="relative max-w-xl pt-2">
+                            <label for="search-input" class="sr-only">Search free online utilities</label>
                             <div class="absolute inset-y-0 left-0 pl-5 pt-2 flex items-center pointer-events-none text-base-content/50">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                 </svg>
                             </div>
                             <input
+                                id="search-input"
                                 type="text"
                                 x-model="searchQuery"
-                                placeholder="Search 127 tools (e.g. invoice, percentage, QR, JSON, PDF, BMI)..."
+                                aria-label="Search {{ $counts['visible'] }} free online utilities"
+                                placeholder="Search {{ $counts['visible'] }} tools (e.g. invoice, percentage, QR, JSON, PDF, BMI)..."
                                 class="w-full pl-13 pr-10 py-4 rounded-full bg-base-100 border border-base-300 text-base-content placeholder:text-base-content/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm sm:text-base shadow-sm transition-all"
                             />
                             <div x-show="searchQuery.length > 0" style="display: none;" class="absolute inset-y-0 right-0 pr-4 pt-2 flex items-center">
@@ -115,13 +118,15 @@
                             <div class="space-y-4">
                                 {{-- Input 1: Starting Principal --}}
                                 <div class="p-4 rounded-2xl bg-base-200/60 border border-base-300/80">
-                                    <label class="block text-xs font-bold text-base-content/60 uppercase tracking-wider mb-1">
+                                    <label for="calc-amount" class="block text-xs font-bold text-base-content/60 uppercase tracking-wider mb-1">
                                         Principal Amount ($)
                                     </label>
                                     <div class="flex items-center justify-between">
                                         <input
+                                            id="calc-amount"
                                             type="number"
                                             x-model.number="amount"
+                                            aria-label="Starting principal amount in US dollars"
                                             class="w-full bg-transparent text-2xl font-black text-base-content focus:outline-none tabular-nums"
                                             min="0"
                                             step="100"
@@ -133,16 +138,31 @@
                                 {{-- Input 2: Rate & Years --}}
                                 <div class="grid grid-cols-2 gap-3">
                                     <div class="p-3.5 rounded-2xl bg-base-200/60 border border-base-300/80">
-                                        <label class="block text-[11px] font-bold text-base-content/60 uppercase tracking-wider mb-1">Annual Return</label>
+                                        <label for="calc-rate" class="block text-[11px] font-bold text-base-content/60 uppercase tracking-wider mb-1">Annual Return</label>
                                         <div class="flex items-center">
-                                            <input type="number" step="0.5" x-model.number="rate" class="w-full bg-transparent font-black text-lg focus:outline-none tabular-nums" />
+                                            <input
+                                                id="calc-rate"
+                                                type="number"
+                                                step="0.5"
+                                                x-model.number="rate"
+                                                aria-label="Annual return percentage"
+                                                class="w-full bg-transparent font-black text-lg focus:outline-none tabular-nums"
+                                            />
                                             <span class="text-xs font-bold text-base-content/50">%</span>
                                         </div>
                                     </div>
                                     <div class="p-3.5 rounded-2xl bg-base-200/60 border border-base-300/80">
-                                        <label class="block text-[11px] font-bold text-base-content/60 uppercase tracking-wider mb-1">Time Horizon</label>
+                                        <label for="calc-years" class="block text-[11px] font-bold text-base-content/60 uppercase tracking-wider mb-1">Time Horizon</label>
                                         <div class="flex items-center">
-                                            <input type="number" x-model.number="years" class="w-full bg-transparent font-black text-lg focus:outline-none tabular-nums" min="1" max="50" />
+                                            <input
+                                                id="calc-years"
+                                                type="number"
+                                                x-model.number="years"
+                                                aria-label="Investment time horizon in years"
+                                                class="w-full bg-transparent font-black text-lg focus:outline-none tabular-nums"
+                                                min="1"
+                                                max="50"
+                                            />
                                             <span class="text-xs font-bold text-base-content/50">Yrs</span>
                                         </div>
                                     </div>
@@ -181,7 +201,7 @@
                             <div class="w-11 h-11 rounded-2xl bg-[#e2f6d5] text-[#054d28] font-black flex items-center justify-center mb-4 text-xl">
                                 🔒
                             </div>
-                            <h3 class="font-bold text-lg text-base-content font-display mb-1.5">100% Client-Side Privacy</h3>
+                            <h2 class="font-bold text-lg text-base-content font-display mb-1.5">100% Client-Side Privacy</h2>
                             <p class="text-sm text-base-content/75 leading-relaxed">
                                 Your files, financial inputs, passwords, and source code never leave your browser. Zero cloud logging.
                             </p>
@@ -194,7 +214,7 @@
                             <div class="w-11 h-11 rounded-2xl bg-primary text-primary-content font-black flex items-center justify-center mb-4 text-xl">
                                 ⚡
                             </div>
-                            <h3 class="font-black text-lg text-[#054d28] font-display mb-1.5">Zero Accounts, Zero Paywalls</h3>
+                            <h2 class="font-black text-lg text-[#054d28] font-display mb-1.5">Zero Accounts, Zero Paywalls</h2>
                             <p class="text-sm text-[#054d28]/85 leading-relaxed">
                                 No paywalls, no signup modals, and no API rate-limits. Every utility loads instantly and runs offline.
                             </p>
@@ -207,7 +227,7 @@
                             <div class="w-11 h-11 rounded-2xl bg-[#242a20] text-primary font-black flex items-center justify-center mb-4 text-xl">
                                 📐
                             </div>
-                            <h3 class="font-bold text-lg text-primary font-display mb-1.5">Standardized Accuracy</h3>
+                            <h2 class="font-bold text-lg text-primary font-display mb-1.5">Standardized Accuracy</h2>
                             <p class="text-sm text-[#868685] leading-relaxed">
                                 Formulas verified against WHO, CFPB, and IEEE standards. Deterministic computations tested across browsers.
                             </p>

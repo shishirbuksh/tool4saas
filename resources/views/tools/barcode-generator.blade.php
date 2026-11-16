@@ -34,8 +34,11 @@
         a.download = 'barcode-' + this.format + '.svg';
         a.click();
     },
-    init() {
-        setTimeout(() => this.generate(), 100);
+    async init() {
+        if (!window.JsBarcode && window.loadJsBarcode) {
+            await window.loadJsBarcode();
+        }
+        setTimeout(() => this.generate(), 50);
     }
 }">
     <div class="space-y-6">

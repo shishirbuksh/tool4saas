@@ -1,7 +1,7 @@
 <button
     type="button"
     @click="toggle()"
-    class="btn btn-ghost btn-circle btn-sm text-base-content/70 hover:text-base-content hover:bg-base-300/50 rounded-full"
+    class="w-11 h-11 min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-base-content/70 hover:text-base-content hover:bg-base-300/50 rounded-full transition-colors"
     aria-label="Toggle theme mode"
     :title="theme === 'wise-dark' ? 'Switch to light mode' : 'Switch to dark mode'"
 >
