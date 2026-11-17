@@ -62,6 +62,18 @@ final class RouteTest extends TestCase
         }
     }
 
+    public function test_contact_form_submission(): void
+    {
+        $response = $this->post('/contact', [
+            'name' => 'Alice Test',
+            'email' => 'alice@example.com',
+            'message' => 'Great tools! Could you add a CSS Grid generator?',
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertSessionHas('success');
+    }
+
     public function test_legacy_301_redirects(): void
     {
         $response = $this->get('/es');
