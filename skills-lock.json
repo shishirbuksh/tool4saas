@@ -49,6 +49,20 @@
       "skillPath": "skills/laravel-specialist/SKILL.md",
       "computedHash": "576cc242c75c0b66f95de5843e96884ad6952e7df4d3e64a6c30309ba6559588"
     },
+    "page-speed": {
+      "source": "ominou5/funnel-architect-plugin",
+      "commit": "7c5acf6a576317d7c9daaa6739ea12e8666848db",
+      "sourceType": "github",
+      "skillPath": "skills/page-speed/SKILL.md",
+      "computedHash": "8ebf40db8e6c949b2a8d3e9dfe972750ea170238ae22a87567e5a0c5982592ca"
+    },
+    "pagespeed-insights": {
+      "source": "EnderPuentes/ai-agent-skills",
+      "commit": "1ed0e56cec30b34dedd17645a5b687cc916a1571",
+      "sourceType": "github",
+      "skillPath": "pagespeed-insights/SKILL.md",
+      "computedHash": "d35e9373765a698ffeaaa5ed8433a639177e7313e53efa0ec78c49439153ac44"
+    },
     "php-best-practices": {
       "source": "AsyrafHussin/agent-skills",
       "sourceType": "github",
