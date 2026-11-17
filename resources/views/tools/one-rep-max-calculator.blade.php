@@ -2,6 +2,17 @@
     weight: 225,
     reps: 5,
     unit: 'lbs',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('weight')) this.weight = parseFloat(params.get('weight')) || this.weight;
+        if (params.has('reps')) this.reps = parseInt(params.get('reps'), 10) || this.reps;
+        if (params.has('unit') && ['lbs', 'kg'].includes(params.get('unit'))) this.unit = params.get('unit');
+    },
+    setPreset(weight, reps, unit) {
+        this.weight = weight;
+        this.reps = reps;
+        if (unit) this.unit = unit;
+    },
     get epley() {
         const w = parseFloat(this.weight) || 0;
         const r = parseFloat(this.reps) || 0;
@@ -19,6 +30,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Strength Benchmarks:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(135, 8, 'lbs')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    1 Plate: 135 lbs × 8 Reps
+                </button>
+                <button type="button" @click="setPreset(225, 5, 'lbs')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    2 Plates: 225 lbs × 5 Reps
+                </button>
+                <button type="button" @click="setPreset(315, 3, 'lbs')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    3 Plates: 315 lbs × 3 Reps
+                </button>
+                <button type="button" @click="setPreset(100, 5, 'kg')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Metric: 100 kg × 5 Reps
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Weight Lifted</label>

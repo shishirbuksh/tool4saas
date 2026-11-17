@@ -4,6 +4,19 @@
     interestRate: 8.5,
     tenureYears: 20,
     foirPercent: 50,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('income')) this.monthlyIncome = parseFloat(params.get('income')) || this.monthlyIncome;
+        if (params.has('emi')) this.existingEmi = parseFloat(params.get('emi')) || this.existingEmi;
+        if (params.has('rate')) this.interestRate = parseFloat(params.get('rate')) || this.interestRate;
+        if (params.has('tenure')) this.tenureYears = parseInt(params.get('tenure'), 10) || this.tenureYears;
+    },
+    setPreset(income, emi, rate, tenure) {
+        this.monthlyIncome = income;
+        this.existingEmi = emi;
+        this.interestRate = rate;
+        this.tenureYears = tenure;
+    },
     get maxEligibleEmi() {
         const inc = parseFloat(this.monthlyIncome) || 0;
         const emi = parseFloat(this.existingEmi) || 0;
@@ -20,6 +33,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Monthly In-Hand Salary Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(50000, 5000, 8.5, 20)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    ₹50k / mo Salary
+                </button>
+                <button type="button" @click="setPreset(75000, 10000, 8.5, 20)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    ₹75k / mo Salary
+                </button>
+                <button type="button" @click="setPreset(100000, 15000, 8.5, 20)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    ₹1 Lakh / mo Salary
+                </button>
+                <button type="button" @click="setPreset(150000, 20000, 8.4, 25)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    ₹1.5 Lakh / mo (25 Yrs)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Gross Monthly Income (₹)</label>

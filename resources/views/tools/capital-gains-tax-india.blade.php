@@ -3,6 +3,19 @@
     salePrice: 250000,
     assetType: 'equity_listed',
     holdingPeriodYears: 2,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('buy')) this.purchasePrice = parseFloat(params.get('buy')) || this.purchasePrice;
+        if (params.has('sell')) this.salePrice = parseFloat(params.get('sell')) || this.salePrice;
+        if (params.has('type') && ['equity_listed', 'real_estate'].includes(params.get('type'))) this.assetType = params.get('type');
+        if (params.has('years')) this.holdingPeriodYears = parseFloat(params.get('years')) || this.holdingPeriodYears;
+    },
+    setPreset(buy, sell, type, years) {
+        this.purchasePrice = buy;
+        this.salePrice = sell;
+        this.assetType = type;
+        this.holdingPeriodYears = years;
+    },
     get gain() {
         return Math.max(0, (parseFloat(this.salePrice) || 0) - (parseFloat(this.purchasePrice) || 0));
     },
@@ -31,6 +44,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Budget 2024 Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(100000, 350000, 'equity_listed', 2)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Equity LTCG (₹2.5L Gain / 12.5%)
+                </button>
+                <button type="button" @click="setPreset(100000, 200000, 'equity_listed', 0.5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Equity STCG (₹1L Gain / 20%)
+                </button>
+                <button type="button" @click="setPreset(3000000, 5000000, 'real_estate', 4)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Real Estate (₹20L Gain / 12.5%)
+                </button>
+                <button type="button" @click="setPreset(100000, 200000, 'equity_listed', 1.5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    LTCG Under ₹1.25L Exemption (₹0 Tax)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Original Purchase Price (₹)</label>

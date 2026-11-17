@@ -23,6 +23,15 @@
         })();
     </script>
 
+    {{-- Critical Inline CSS for Instant First Contentful Paint & Zero Layout Shift --}}
+    <style nonce="{{ request()->attributes->get('csp_nonce') }}">
+        html { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { margin: 0; min-height: 100vh; background-color: #e8ebe6; color: #0e0f0c; }
+        [data-theme="wise-dark"] body { background-color: #161a14; color: #f2f5f0; }
+        .skip-link { position: absolute; top: -100px; left: 1rem; z-index: 100; padding: 0.5rem 1rem; background: #9fe870; color: #0e0f0c; font-weight: 700; border-radius: 9999px; text-decoration: none; }
+        .skip-link:focus { top: 1rem; }
+    </style>
+
     {{-- Google AdSense Verification Meta & Async Loader --}}
     <meta name="google-adsense-account" content="ca-pub-6310719489589992">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6310719489589992" crossorigin="anonymous" nonce="{{ request()->attributes->get('csp_nonce') }}"></script>

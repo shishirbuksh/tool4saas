@@ -4,6 +4,19 @@
     endDate: new Date(Date.now() + 30 * 86400000).toISOString().split('T')[0],
     shiftDays: 30,
     shiftOp: 'add',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('mode') && ['diff', 'shift'].includes(params.get('mode'))) this.mode = params.get('mode');
+        if (params.has('start')) this.startDate = params.get('start');
+        if (params.has('end')) this.endDate = params.get('end');
+        if (params.has('days')) this.shiftDays = parseInt(params.get('days'), 10) || this.shiftDays;
+        if (params.has('op') && ['add', 'sub'].includes(params.get('op'))) this.shiftOp = params.get('op');
+    },
+    setPreset(mode, days, op) {
+        this.mode = mode;
+        this.shiftDays = days;
+        if (op) this.shiftOp = op;
+    },
     get diffDays() {
         if (!this.startDate || !this.endDate) return 0;
         const d1 = new Date(this.startDate);
@@ -26,6 +39,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Date Shifts:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset('shift', 30, 'add')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    +30 Days from Today
+                </button>
+                <button type="button" @click="setPreset('shift', 60, 'add')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    +60 Days from Today
+                </button>
+                <button type="button" @click="setPreset('shift', 90, 'add')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    +90 Days (Quarter)
+                </button>
+                <button type="button" @click="setPreset('shift', 30, 'sub')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    −30 Days Ago
+                </button>
+            </div>
+        </div>
+
         {{-- Mode Selector --}}
         <div class="flex items-center gap-2 p-1.5 rounded-full bg-base-200 border border-base-300 w-fit">
             <button

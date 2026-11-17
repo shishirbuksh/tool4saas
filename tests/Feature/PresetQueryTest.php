@@ -55,6 +55,11 @@ final class PresetQueryTest extends TestCase
             '/sleep-cycle-calculator?mode=wake&time=07:00' => 'https://tool4saas.com/sleep-cycle-calculator',
             '/commission-calculator?sales=50000&rate=10&currency=$' => 'https://tool4saas.com/commission-calculator',
             '/period-calculator?cycle=28&date=2026-01-01' => 'https://tool4saas.com/period-calculator',
+            '/home-loan-eligibility-india?income=75000&emi=10000&rate=8.5&tenure=20' => 'https://tool4saas.com/home-loan-eligibility-india',
+            '/capital-gains-tax-india?buy=100000&sell=250000&type=equity_listed&years=2' => 'https://tool4saas.com/capital-gains-tax-india',
+            '/refinance-calculator?balance=300000&current=7.0&new=5.5&tenure=30&costs=5000' => 'https://tool4saas.com/refinance-calculator',
+            '/one-rep-max-calculator?weight=225&reps=5&unit=lbs' => 'https://tool4saas.com/one-rep-max-calculator',
+            '/date-calculator?start=2026-01-01&end=2026-03-31&mode=diff' => 'https://tool4saas.com/date-calculator',
         ];
 
         foreach ($routes as $url => $canonical) {

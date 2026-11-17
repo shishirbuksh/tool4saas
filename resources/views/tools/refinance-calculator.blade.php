@@ -4,6 +4,21 @@
     newRate: 5.5,
     tenureYears: 30,
     closingCosts: 5000,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('balance')) this.loanBalance = parseFloat(params.get('balance')) || this.loanBalance;
+        if (params.has('current')) this.currentRate = parseFloat(params.get('current')) || this.currentRate;
+        if (params.has('new')) this.newRate = parseFloat(params.get('new')) || this.newRate;
+        if (params.has('tenure')) this.tenureYears = parseInt(params.get('tenure'), 10) || this.tenureYears;
+        if (params.has('costs')) this.closingCosts = parseFloat(params.get('costs')) || this.closingCosts;
+    },
+    setPreset(balance, current, newR, tenure, costs) {
+        this.loanBalance = balance;
+        this.currentRate = current;
+        this.newRate = newR;
+        this.tenureYears = tenure;
+        this.closingCosts = costs;
+    },
     calcPmt(p, ratePct, years) {
         const r = (ratePct / 100) / 12;
         const n = years * 12;
@@ -25,6 +40,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Refinance Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(300000, 7.0, 5.5, 30, 5000)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    7.0% ➔ 5.5% ($300k / $5k Costs)
+                </button>
+                <button type="button" @click="setPreset(400000, 6.5, 5.0, 30, 6000)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    6.5% ➔ 5.0% ($400k / $6k Costs)
+                </button>
+                <button type="button" @click="setPreset(200000, 7.5, 6.0, 20, 3000)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    7.5% ➔ 6.0% ($200k / $3k Costs)
+                </button>
+                <button type="button" @click="setPreset(300000, 6.5, 4.75, 15, 4000)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    15-Yr Pivot (6.5% 30-Yr ➔ 4.75% 15-Yr)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Remaining Principal ($)</label>
