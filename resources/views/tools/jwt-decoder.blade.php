@@ -3,6 +3,51 @@
     headerStr: '',
     payloadStr: '',
     error: '',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('token')) {
+            this.token = params.get('token');
+        }
+        this.decodeJwt();
+    },
+    loadSample(type) {
+        if (type === 'active') {
+            this.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkphbmUgRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxODMxNjIzOTAyfQ.dummy_signature_hash';
+        } else if (type === 'expired') {
+            this.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ODc2NTQzMjEiLCJuYW1lIjoiQWxleCBWYW5kZXIiLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMDAwMDAwMCwiZXhwIjoxNjAwMDAzNjAwfQ.dummy_signature_expired';
+        } else if (type === 'clear') {
+            this.token = '';
+        }
+        this.decodeJwt();
+    },
+    get expStatus() {
+        if (!this.payloadStr) return null;
+        try {
+            const p = JSON.parse(this.payloadStr);
+            if (!p.exp) return { text: 'No expiration claim (exp) defined', color: 'text-base-content/60', badge: 'bg-base-200' };
+            const expMs = p.exp * 1000;
+            const diffMs = expMs - Date.now();
+            const dateStr = new Date(expMs).toUTCString();
+            if (diffMs > 0) {
+                const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                return {
+                    text: `Active · Expires in ${days > 0 ? days + 'd ' : ''}${hours}h (${dateStr})`,
+                    color: 'text-[#054d28]',
+                    badge: 'bg-[#e2f6d5]'
+                };
+            } else {
+                const pastDays = Math.floor(-diffMs / (1000 * 60 * 60 * 24));
+                return {
+                    text: `Expired ${pastDays > 0 ? pastDays + 'd ago' : 'recently'} (${dateStr})`,
+                    color: 'text-error',
+                    badge: 'bg-error/15'
+                };
+            }
+        } catch (e) {
+            return null;
+        }
+    },
     decodeJwt() {
         this.error = '';
         this.headerStr = '';
@@ -39,18 +84,17 @@
             this.error = 'Failed to decode JWT Payload: malformed base64url or JSON.';
             return;
         }
-    },
-    init() {
-        this.decodeJwt();
     }
 }">
     <div class="space-y-6">
         <div>
             <div class="flex items-center justify-between mb-2">
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Encoded JWT Token</label>
-                <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-[11px]">
-                    100% Client-Side Decoded
-                </span>
+                <div class="flex items-center gap-2">
+                    <button type="button" @click="loadSample('active')" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-[11px] font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Sample Active</button>
+                    <button type="button" @click="loadSample('expired')" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-[11px] font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Sample Expired</button>
+                    <button type="button" @click="loadSample('clear')" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-[11px] font-semibold hover:text-error transition-all">Clear</button>
+                </div>
             </div>
             <textarea
                 x-model="token"
@@ -58,6 +102,16 @@
                 rows="4"
                 placeholder="Paste JWT token (e.g. eyJhbGciOiJIUzI1Ni...)"
                 class="textarea textarea-bordered rounded-2xl w-full font-mono text-xs p-4 bg-base-100 break-all leading-relaxed"
+            ></textarea>
+        </div>
+
+        {{-- Expiry Status Badge --}}
+        <template x-if="expStatus">
+            <div class="p-3.5 rounded-2xl border border-base-300 flex items-center justify-between text-xs" :class="expStatus.badge">
+                <span class="font-bold font-mono">JWT Expiration Status:</span>
+                <span class="font-bold font-mono" :class="expStatus.color" x-text="expStatus.text"></span>
+            </div>
+        </template>
             ></textarea>
         </div>
 

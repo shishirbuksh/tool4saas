@@ -6,6 +6,34 @@
     numbers: true,
     symbols: true,
     strength: 'Strong',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('length')) {
+            const len = parseInt(params.get('length'), 10);
+            if (!isNaN(len) && len >= 4 && len <= 64) this.length = len;
+        }
+        if (params.has('symbols')) {
+            this.symbols = params.get('symbols') !== '0' && params.get('symbols') !== 'false';
+        }
+        if (params.has('numbers')) {
+            this.numbers = params.get('numbers') !== '0' && params.get('numbers') !== 'false';
+        }
+        if (params.has('type')) {
+            const t = params.get('type');
+            if (t === 'pin4') { this.length = 4; this.uppercase = false; this.lowercase = false; this.symbols = false; this.numbers = true; }
+            else if (t === 'pin6') { this.length = 6; this.uppercase = false; this.lowercase = false; this.symbols = false; this.numbers = true; }
+            else if (t === 'alphanumeric') { this.symbols = false; }
+        }
+        this.generate();
+    },
+    setPreset(len, sym, num, up, low) {
+        this.length = len;
+        this.symbols = sym;
+        this.numbers = num;
+        this.uppercase = up;
+        this.lowercase = low;
+        this.generate();
+    },
     generate() {
         let chars = '';
         if (this.uppercase) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -61,6 +89,19 @@
             >
                 <span x-text="copied ? 'Copied!' : 'Copy'"></span>
             </button>
+        </div>
+    </div>
+
+    {{-- Quick Password Security Presets --}}
+    <div class="mb-8">
+        <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">1-Click Security Presets</span>
+        <div class="flex flex-wrap gap-2">
+            <button type="button" @click="setPreset(12, true, true, true, true)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">12 Chars</button>
+            <button type="button" @click="setPreset(16, true, true, true, true)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">16 Chars (Standard)</button>
+            <button type="button" @click="setPreset(24, true, true, true, true)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">24 Chars (High Security)</button>
+            <button type="button" @click="setPreset(16, false, true, true, true)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">No Symbols (Alphanumeric)</button>
+            <button type="button" @click="setPreset(4, false, true, false, false)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">4-Digit PIN</button>
+            <button type="button" @click="setPreset(6, false, true, false, false)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">6-Digit PIN</button>
         </div>
     </div>
 

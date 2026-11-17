@@ -33,6 +33,8 @@ final class PresetQueryTest extends TestCase
             '/bmi-calculator?unit=metric&height=175&weight=70' => 'https://tool4saas.com/bmi-calculator',
             '/compound-interest-calculator?principal=10000&rate=8&years=10&freq=12' => 'https://tool4saas.com/compound-interest-calculator',
             '/us-sales-tax-calculator?state=California&subtotal=100' => 'https://tool4saas.com/us-sales-tax-calculator',
+            '/jwt-decoder?token=test' => 'https://tool4saas.com/jwt-decoder',
+            '/password-generator?length=16&symbols=1' => 'https://tool4saas.com/password-generator',
         ];
 
         foreach ($routes as $url => $canonical) {
