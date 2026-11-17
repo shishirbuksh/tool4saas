@@ -27,7 +27,7 @@
             return JSON.stringify(schema, null, 2);
         },
         copy() {
-            navigator.clipboard.writeText('<' + 'script type=\"application/ld+json\">\\n' + this.jsonLd + '\\n<' + '/script>');
+            navigator.clipboard.writeText('<' + 'script type=\'application/ld+json\'>\n' + this.jsonLd + '\n<' + '/script>');
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         }

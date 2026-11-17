@@ -12,7 +12,7 @@
             this.busy = true;
             setTimeout(() => {
                 this.pages = [
-                    { num: 1, url: 'data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"300\" height=\"400\"><rect width=\"100%\" height=\"100%\" fill=\"%23ffffff\"/><text x=\"50%\" y=\"50%\" dominant-baseline=\"middle\" text-anchor=\"middle\" fill=\"%23666666\">PDF Page 1 Converted</text></svg>' }
+                    { num: 1, url: 'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23ffffff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23666666\'>PDF Page 1 Converted</text></svg>' }
                 ];
                 this.busy = false;
             }, 600);

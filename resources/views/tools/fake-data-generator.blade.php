@@ -42,10 +42,11 @@
             if (this.format === 'json') {
                 return JSON.stringify(this.rows, null, 2);
             } else {
+                const q = String.fromCharCode(34);
                 const keys = Object.keys(this.rows[0]);
                 const lines = [keys.join(',')];
                 for (const r of this.rows) {
-                    lines.push(keys.map(k => '\"' + r[k] + '\"').join(','));
+                    lines.push(keys.map(k => q + r[k] + q).join(','));
                 }
                 return lines.join('\n');
             }

@@ -10,8 +10,8 @@
             if (rw) list.push({ type: 'Repeated Words', message: 'Repeated duplicate word(s) detected: ' + rw.join(', ') });
             const mc = this.text.match(/\.\s+[a-z]/g);
             if (mc) list.push({ type: 'Capitalization', message: 'Lowercase letter found immediately following a period.' });
-            if (/\bteh\b/i.test(this.text)) list.push({ type: 'Typo', message: 'Typo detected: \"teh\" should be \"the\"' });
-            if (/\brecieve\b/i.test(this.text)) list.push({ type: 'Typo', message: 'Typo detected: \"recieve\" should be \"receive\"' });
+            if (/\bteh\b/i.test(this.text)) list.push({ type: 'Typo', message: 'Typo detected: \'teh\' should be \'the\'' });
+            if (/\brecieve\b/i.test(this.text)) list.push({ type: 'Typo', message: 'Typo detected: \'recieve\' should be \'receive\'' });
             return list;
         },
         fixAll() {

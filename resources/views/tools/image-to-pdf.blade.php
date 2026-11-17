@@ -20,7 +20,7 @@
                 if (printWindow) {
                     let html = '<html><head><title>Document PDF</title><style>@page{margin:0;} body{margin:0;padding:20px;text-align:center;} img{max-width:100%;max-height:95vh;page-break-after:always;display:block;margin:0 auto 20px;}</style></head><body>';
                     this.images.forEach(img => {
-                        html += '<img src=\"' + img.dataUrl + '\" />';
+                        html += '<img src=\'' + img.dataUrl + '\' />';
                     });
                     html += '</body></html>';
                     printWindow.document.write(html);

@@ -14,7 +14,7 @@
     },
     get tokens() {
         if (!this.text.trim()) return 0;
-        const codeBoost = /[{}\[\]();=<>:/\\]{3,}|function |const |import |def |class /.test(this.text) ? 1.15 : 1;
+        const codeBoost = /[{}\[\]();=<>:\/\\\\]{3,}|function |const |import |def |class /.test(this.text) ? 1.15 : 1;
         return Math.ceil((this.chars / 4) * codeBoost);
     },
     calcCost(pricePerM) {

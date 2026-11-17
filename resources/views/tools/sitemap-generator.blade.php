@@ -8,8 +8,9 @@
             if (!this.urls.trim()) return '';
             const list = this.urls.split('\n').map(u => u.trim()).filter(Boolean);
             const today = new Date().toISOString().split('T')[0];
-            let out = '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n';
-            out += '<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n';
+            const q = String.fromCharCode(34);
+            let out = '<?xml version=' + q + '1.0' + q + ' encoding=' + q + 'UTF-8' + q + '?>\n';
+            out += '<urlset xmlns=' + q + 'http://www.sitemaps.org/schemas/sitemap/0.9' + q + '>\n';
             list.forEach(u => {
                 out += '  <url>\n';
                 out += '    <loc>' + u + '</loc>\n';

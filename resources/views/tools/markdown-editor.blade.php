@@ -10,24 +10,24 @@
             md = md.replace(/```([\s\S]*?)```/g, (_, code) => {
                 const idx = codeBlocks.length;
                 const esc = code.trim().replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                codeBlocks.push('<pre class=\"p-4 rounded-2xl bg-[#0e0f0c] text-white font-mono text-xs overflow-x-auto my-3 border border-[#242a20]\"><code>' + esc + '</code></pre>');
+                codeBlocks.push('<pre class=\'p-4 rounded-2xl bg-[#0e0f0c] text-white font-mono text-xs overflow-x-auto my-3 border border-[#242a20]\'><code>' + esc + '</code></pre>');
                 return '@@CODEBLOCK_' + idx + '@@';
             });
 
             let esc = md.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            esc = esc.replace(/^(#{1,6})\s+(.+)$/gm, (_, hashes, c) => '<h' + hashes.length + ' class=\"font-display font-black text-base-content mt-4 mb-2\">' + c.trim() + '</h' + hashes.length + '>');
-            esc = esc.replace(/^&gt;\s?(.*)$/gm, '<blockquote class=\"border-l-4 border-primary pl-4 py-1 italic my-3 text-base-content/80\">$1</blockquote>');
-            esc = esc.replace(/^[ \t]*[-*]\s+(.+)$/gm, '<li class=\"ml-4 list-disc text-sm\">$1</li>');
-            esc = esc.replace(/`([^`]+?)`/g, '<code class=\"px-1.5 py-0.5 rounded bg-base-200 text-xs font-mono text-primary\">$1</code>');
+            esc = esc.replace(/^(#{1,6})\s+(.+)$/gm, (_, hashes, c) => '<h' + hashes.length + ' class=\'font-display font-black text-base-content mt-4 mb-2\'>' + c.trim() + '</h' + hashes.length + '>');
+            esc = esc.replace(/^&gt;\s?(.*)$/gm, '<blockquote class=\'border-l-4 border-primary pl-4 py-1 italic my-3 text-base-content/80\'>$1</blockquote>');
+            esc = esc.replace(/^[ \t]*[-*]\s+(.+)$/gm, '<li class=\'ml-4 list-disc text-sm\'>$1</li>');
+            esc = esc.replace(/`([^`]+?)`/g, '<code class=\'px-1.5 py-0.5 rounded bg-base-200 text-xs font-mono text-primary\'>$1</code>');
             esc = esc.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
             esc = esc.replace(/\*([^*]+?)\*/g, '<em>$1</em>');
-            esc = esc.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href=\"$2\" target=\"_blank\" rel=\"noopener\" class=\"text-primary font-bold underline\">$1</a>');
+            esc = esc.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href=\'$2\' target=\'_blank\' rel=\'noopener\' class=\'text-primary font-bold underline\'>$1</a>');
 
             let paragraphs = esc.split(/\n{2,}/).map(b => {
                 b = b.trim();
                 if (!b) return '';
                 if (/^<(h[1-6]|blockquote|pre|li)/.test(b)) return b;
-                return '<p class=\"text-sm leading-relaxed mb-3 text-base-content/90\">' + b.replace(/\n/g, '<br>') + '</p>';
+                return '<p class=\'text-sm leading-relaxed mb-3 text-base-content/90\'>' + b.replace(/\n/g, '<br>') + '</p>';
             }).join('\n');
 
             codeBlocks.forEach((block, idx) => {

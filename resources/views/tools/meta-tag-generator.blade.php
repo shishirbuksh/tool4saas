@@ -9,21 +9,21 @@
         get generatedTags() {
             return '<!-- Primary Meta Tags -->\n' +
 '<title>' + this.title + '</title>\n' +
-'<meta name=\"title\" content=\"' + this.title + '\">\n' +
-'<meta name=\"description\" content=\"' + this.description + '\">\n' +
-'<link rel=\"canonical\" href=\"' + this.url + '\">\n\n' +
+'<meta name=\'title\' content=\'' + this.title + '\'>\n' +
+'<meta name=\'description\' content=\'' + this.description + '\'>\n' +
+'<link rel=\'canonical\' href=\'' + this.url + '\'>\n\n' +
 '<!-- Open Graph / Facebook -->\n' +
-'<meta property=\"og:type\" content=\"' + this.type + '\">\n' +
-'<meta property=\"og:url\" content=\"' + this.url + '\">\n' +
-'<meta property=\"og:title\" content=\"' + this.title + '\">\n' +
-'<meta property=\"og:description\" content=\"' + this.description + '\">\n' +
-'<meta property=\"og:image\" content=\"' + this.image + '\">\n\n' +
+'<meta property=\'og:type\' content=\'' + this.type + '\'>\n' +
+'<meta property=\'og:url\' content=\'' + this.url + '\'>\n' +
+'<meta property=\'og:title\' content=\'' + this.title + '\'>\n' +
+'<meta property=\'og:description\' content=\'' + this.description + '\'>\n' +
+'<meta property=\'og:image\' content=\'' + this.image + '\'>\n\n' +
 '<!-- Twitter -->\n' +
-'<meta name=\"twitter:card\" content=\"summary_large_image\">\n' +
-'<meta name=\"twitter:url\" content=\"' + this.url + '\">\n' +
-'<meta name=\"twitter:title\" content=\"' + this.title + '\">\n' +
-'<meta name=\"twitter:description\" content=\"' + this.description + '\">\n' +
-'<meta name=\"twitter:image\" content=\"' + this.image + '\">';
+'<meta name=\'twitter:card\' content=\'summary_large_image\'>\n' +
+'<meta name=\'twitter:url\' content=\'' + this.url + '\'>\n' +
+'<meta name=\'twitter:title\' content=\'' + this.title + '\'>\n' +
+'<meta name=\'twitter:description\' content=\'' + this.description + '\'>\n' +
+'<meta name=\'twitter:image\' content=\'' + this.image + '\'>';
         },
         copy() {
             navigator.clipboard.writeText(this.generatedTags);

@@ -12,8 +12,9 @@
                 return;
             }
             try {
+                const q = String.fromCharCode(34);
                 if (this.mode === 'json2csv') {
-                    const data = JSON.parse(this.input.replace(/'/g, '\"'));
+                    const data = JSON.parse(this.input.replace(/'/g, q));
                     if (!Array.isArray(data)) {
                         this.error = 'Input JSON must be an array of objects.';
                         this.output = '';
@@ -22,7 +23,7 @@
                     const keys = Array.from(new Set(data.flatMap(o => Object.keys(o))));
                     const escapeCsv = (v) => {
                         const s = v === null || v === undefined ? '' : String(v);
-                        return /[,\n]/.test(s) ? '\"' + s.replace(/\"/g, '\"\"') + '\"' : s;
+                        return /[,\n]/.test(s) ? q + s.split(q).join(q + q) + q : s;
                     };
                     const lines = [keys.join(',')];
                     for (const o of data) {
@@ -36,10 +37,17 @@
                         this.output = '';
                         return;
                     }
-                    const headers = lines[0].split(',').map(h => h.trim().replace(/^\"|\"$/g, ''));
+                    const cleanCell = (c) => {
+                        let t = c.trim();
+                        if ((t.startsWith('\'') && t.endsWith('\'')) || (t.startsWith(q) && t.endsWith(q))) {
+                            t = t.slice(1, -1);
+                        }
+                        return t;
+                    };
+                    const headers = lines[0].split(',').map(cleanCell);
                     const records = [];
                     for (let i = 1; i < lines.length; i++) {
-                        const row = lines[i].split(',').map(c => c.trim().replace(/^\"|\"$/g, ''));
+                        const row = lines[i].split(',').map(cleanCell);
                         const obj = {};
                         headers.forEach((h, idx) => {
                             obj[h] = row[idx] || '';
