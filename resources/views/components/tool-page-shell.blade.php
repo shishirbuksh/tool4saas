@@ -66,7 +66,7 @@
 
     {{-- How-To Steps (Wise rounded-3xl cards with lime step numbers) --}}
     @if(!empty($tool->howTo))
-        <section aria-label="Step-by-step instructions" class="my-14">
+        <section aria-label="Step-by-step instructions" class="my-14 content-visibility-auto">
             <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-base-content mb-6 font-display">
                 How to Use the {{ $tool->title }}
             </h2>
@@ -88,7 +88,7 @@
 
     {{-- Educational Guide Callout (Wise Polarity-Flipped Light/Dark Surface) --}}
     @if(!empty($guideCallout))
-        <section aria-label="Educational guide and reference" class="my-14 p-7 sm:p-8 rounded-3xl bg-base-100 border border-base-300 shadow-sm">
+        <section aria-label="Educational guide and reference" class="my-14 p-7 sm:p-8 rounded-3xl bg-base-100 border border-base-300 shadow-sm content-visibility-auto">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 {{ !empty($guideCallout['relatedPosts']) ? 'border-b border-base-200' : '' }}">
                 <div class="max-w-2xl">
                     <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-xs uppercase tracking-wider mb-2.5">
@@ -132,7 +132,7 @@
 
     {{-- Comprehensive Guide Sections --}}
     @if(!empty($tool->guide))
-        <section aria-label="In-depth guide and reference" class="my-14 prose max-w-none">
+        <section aria-label="In-depth guide and reference" class="my-14 prose max-w-none content-visibility-auto">
             @foreach($tool->guide as $section)
                 <div class="mb-10">
                     <h2 class="text-2xl font-bold text-base-content mb-3 font-display">{{ $section['heading'] }}</h2>
@@ -144,7 +144,7 @@
 
     {{-- FAQ Accordion (Wise rounded-2xl collapse) --}}
     @if(!empty($tool->faq))
-        <section aria-label="Frequently asked questions" class="my-14">
+        <section aria-label="Frequently asked questions" class="my-14 content-visibility-auto">
             <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-base-content mb-6 font-display">
                 Frequently Asked Questions
             </h2>

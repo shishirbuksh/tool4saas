@@ -73,4 +73,80 @@ final readonly class BlogPostDTO
 
         return $words === false ? 0 : count($words);
     }
+
+    public function primaryToolUrl(): string
+    {
+        if (empty($this->toolSlugs)) {
+            return '/';
+        }
+
+        $mainTool = $this->toolSlugs[0];
+
+        /** @var array<string, string> $presets */
+        $presets = [
+            'sip-5000-10-years' => '/sip-calculator?monthly=5000&years=10&rate=12&currency=₹',
+            'sip-1-crore-goal' => '/sip-calculator?monthly=10000&years=15&rate=12&currency=₹',
+            'monthly-vs-yearly-compounding' => '/compound-interest-calculator',
+            'tip-calculator-bill-split' => '/tip-calculator?bill=100&tip=18&people=4',
+            'discount-and-sale-price' => '/discount-calculator?price=120&discount=25&tax=8',
+            'percent-of-a-number' => '/percentage-calculator?rate=20&base=150',
+            'percentage-increase-decrease' => '/percentage-calculator?tab=change&oldVal=100&newVal=125',
+            'percentage-difference' => '/percentage-calculator?tab=diff&diffA=60&diffB=80',
+            'how-to-calculate-mortgage-payment' => '/mortgage-calculator?homePrice=400000&downPayment=80000&interestRate=6.5&loanYears=30',
+            '15-vs-30-year-mortgage' => '/mortgage-calculator?homePrice=400000&downPayment=80000&interestRate=6.5&loanYears=15',
+            'should-i-refinance-my-mortgage' => '/refinance-calculator',
+            'how-much-house-can-i-afford' => '/home-affordability-calculator',
+            'mortgage-amortization-schedule' => '/mortgage-calculator',
+            'down-payment-pmi-cost' => '/mortgage-calculator?homePrice=400000&downPayment=20000',
+            'rent-vs-buy-house' => '/mortgage-calculator',
+            'compress-jpg-100kb-portal' => '/image-compressor',
+            'compress-jpg-20kb' => '/image-compressor',
+            'compress-jpg-200kb' => '/image-compressor',
+            'png-vs-jpg-vs-webp' => '/image-converter',
+            'resize-image-exact-pixels' => '/image-resize',
+            'png-to-webp-transparency' => '/image-converter',
+            'strip-exif-before-upload' => '/exif-viewer',
+            'crop-passport-photos' => '/image-crop',
+            'compress-pdf-1mb-email' => '/pdf-merge',
+            'merge-multiple-pdfs-order' => '/pdf-merge',
+            'combine-pdf-and-images' => '/pdf-merge',
+            'json-parse-errors' => '/json-formatter',
+            'base64-url-safe-vs-standard' => '/base64-tool',
+            'jwt-expiry-without-trust' => '/jwt-decoder',
+            'cron-expression-guide' => '/cron-parser',
+            'how-to-create-signature-online' => '/signature-maker',
+            'transparent-signature-png' => '/signature-maker',
+            'how-to-create-invoice-online' => '/invoice-generator',
+            'freelancer-invoice-guide' => '/invoice-generator',
+            'gst-invoice-format-india' => '/invoice-generator',
+            'how-to-make-resume' => '/resume-builder',
+            'ats-resume-guide' => '/ats-resume-checker',
+            'wifi-qr-code-guide' => '/qr-code-generator',
+            'how-to-create-strong-password' => '/password-generator',
+            'what-makes-password-strong' => '/password-strength',
+            'final-exam-grade-needed' => '/grade-calculator',
+            'weighted-grade-calculation' => '/grade-calculator',
+            'percentage-to-gpa' => '/gpa-calculator',
+            'snowball-vs-avalanche' => '/debt-payoff-calculator',
+            'how-to-pay-off-credit-card-debt' => '/debt-payoff-calculator',
+            'calorie-deficit-for-weight-loss' => '/calorie-calculator',
+            'daily-water-intake' => '/water-intake-calculator',
+            'how-bmi-is-calculated' => '/bmi-calculator',
+            'bmi-for-women' => '/bmi-calculator',
+            'bmi-for-men' => '/bmi-calculator',
+            'how-to-calculate-age' => '/age-calculator',
+            'age-in-days-hours-minutes' => '/age-calculator',
+        ];
+
+        return $presets[$this->slug] ?? "/{$mainTool}";
+    }
+
+    public function primaryToolCtaText(): string
+    {
+        if (str_contains($this->primaryToolUrl(), '?')) {
+            return 'Calculate This Scenario Live →';
+        }
+
+        return 'Open Live Tool Online →';
+    }
 }

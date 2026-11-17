@@ -27,6 +27,14 @@ test('blog cluster page renders article and related links', function () {
     $response->assertSee('Related Tutorials');
 });
 
+test('blog cluster with preset scenario renders deep-link cta', function () {
+    $response = $this->get('/blog/sip-calculator-guide/sip-5000-10-years');
+
+    $response->assertStatus(200);
+    $response->assertSee('/sip-calculator?monthly=5000&amp;years=10&amp;rate=12&amp;currency=₹', false);
+    $response->assertSee('Calculate This Scenario Live →');
+});
+
 test('non-existent blog pillar returns 404', function () {
     $response = $this->get('/blog/non-existent-guide-xyz');
 

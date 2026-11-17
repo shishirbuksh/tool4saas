@@ -40,8 +40,8 @@
                     <h2 class="text-xl font-bold font-display text-base-content">Use the {{ ucwords(str_replace('-', ' ', $mainTool)) }} online</h2>
                     <p class="text-sm text-base-content/75 mt-1">Runs 100% locally in your browser. No signup, completely private and instant.</p>
                 </div>
-                <a href="/{{ $mainTool }}" class="px-6 py-3 rounded-full bg-primary text-primary-content font-bold text-sm hover:bg-[#cdffad] transition-all shrink-0 text-center shadow-sm">
-                    Open Tool Online →
+                <a href="{{ $post->primaryToolUrl() }}" class="px-6 py-3 rounded-full bg-primary text-primary-content font-bold text-sm hover:bg-[#cdffad] transition-all shrink-0 text-center shadow-sm">
+                    {{ $post->primaryToolCtaText() }}
                 </a>
             </div>
         @endif
