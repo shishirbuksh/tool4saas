@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 return [
+    '/index.html' => '/',
+    '/index.php' => '/',
+    '/index' => '/',
     '/es' => '/',
     '/fr' => '/',
     '/es/blog/qr-code-generator-guide/qr-code-size-print-guide' => '/blog/qr-code-generator-guide/qr-code-size-print-guide',

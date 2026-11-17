@@ -95,6 +95,21 @@ final class RouteTest extends TestCase
             $response->assertRedirect($canonical);
         }
 
+        // Test index.html, index.php and index canonical normalization
+        $indexVariants = [
+            '/index.html' => '/',
+            '/index.php' => '/',
+            '/index' => '/',
+            '/about/index.html' => '/about',
+            '/category/calculators/index.html' => '/category/calculators',
+            '/blog/index.php' => '/blog',
+        ];
+        foreach ($indexVariants as $from => $to) {
+            $response = $this->get($from);
+            $response->assertStatus(301);
+            $response->assertRedirect($to);
+        }
+
         // Test trailing slash canonical 301 normalization
         $request = Request::create('/percentage-calculator/', 'GET');
         $middleware = new HandleLegacyRedirects;

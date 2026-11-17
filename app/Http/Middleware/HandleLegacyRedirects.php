@@ -42,6 +42,18 @@ final class HandleLegacyRedirects
 
         $path = '/'.ltrim($request->path(), '/');
 
+        // 2. Canonical normalization: 301 redirect index.html, index.php, or index to clean URL
+        if (str_ends_with($path, '/index.html') || str_ends_with($path, '/index.php') || str_ends_with($path, '/index')) {
+            $clean = preg_replace('#/(?:index\.html|index\.php|index)$#i', '', $path) ?? '';
+            $destination = ($clean === '' ? '/' : $clean);
+            $query = $request->getQueryString();
+            if ($query !== null && $query !== '') {
+                $destination .= '?'.$query;
+            }
+
+            return redirect()->to($destination, 301);
+        }
+
         if (isset(self::$redirects[$path])) {
             $destination = self::$redirects[$path];
             $query = $request->getQueryString();
