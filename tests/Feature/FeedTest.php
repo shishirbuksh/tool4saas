@@ -86,8 +86,12 @@ test('ads txt returns valid adsense direct publisher line', function () {
 });
 
 test('indexnow verification file returns valid key', function () {
-    $response = $this->get('/e4a7d32c98b14e6da2019c43b876f512.txt');
+    $response = $this->get('/69c364974a3c4cafb3edf9bb5cc02902.txt');
 
     $response->assertStatus(200);
-    expect($response->getContent())->toContain('e4a7d32c98b14e6da2019c43b876f512');
+    expect($response->getContent())->toContain('69c364974a3c4cafb3edf9bb5cc02902');
+
+    $legacyResponse = $this->get('/e4a7d32c98b14e6da2019c43b876f512.txt');
+    $legacyResponse->assertStatus(200);
+    expect($legacyResponse->getContent())->toContain('e4a7d32c98b14e6da2019c43b876f512');
 });

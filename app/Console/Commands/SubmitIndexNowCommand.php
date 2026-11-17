@@ -20,7 +20,7 @@ final class SubmitIndexNowCommand extends Command
         $this->info('Gathering indexable URLs for IndexNow submission...');
 
         $base = 'https://tool4saas.com';
-        $key = 'e4a7d32c98b14e6da2019c43b876f512';
+        $key = '69c364974a3c4cafb3edf9bb5cc02902';
         $keyLocation = "{$base}/{$key}.txt";
 
         $urls = [];
