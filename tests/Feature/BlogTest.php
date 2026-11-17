@@ -33,6 +33,16 @@ test('blog cluster with preset scenario renders deep-link cta', function () {
     $response->assertStatus(200);
     $response->assertSee('/sip-calculator?monthly=5000&amp;years=10&amp;rate=12&amp;currency=₹', false);
     $response->assertSee('Calculate This Scenario Live →');
+
+    $rentVsBuy = $this->get('/blog/mortgage-calculator-guide/rent-vs-buy-house');
+    $rentVsBuy->assertStatus(200);
+    $rentVsBuy->assertSee('/rent-vs-buy-calculator?rent=2200&amp;price=450000', false);
+    $rentVsBuy->assertSee('Calculate This Scenario Live →');
+
+    $fd = $this->get('/blog/sip-calculator-guide/fd-quarterly-tds');
+    $fd->assertStatus(200);
+    $fd->assertSee('/fd-calculator?principal=100000&amp;rate=7.1', false);
+    $fd->assertSee('Calculate This Scenario Live →');
 });
 
 test('non-existent blog pillar returns 404', function () {
