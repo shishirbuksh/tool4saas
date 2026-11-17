@@ -74,9 +74,9 @@ async function run() {
 
   // 4. Sample Legacy Redirects Verification (Nginx HTTP 301)
   const sampleRedirects = [
-    { original: '/json-to-yaml', expected: '/json-formatter' },
+    { original: '/json-tree-viewer', expected: '/json-formatter' },
     { original: '/loan-calculator', expected: '/emi-calculator' },
-    { original: '/percentage-change', expected: '/percentage-calculator' },
+    { original: '/percentage-difference', expected: '/percentage-calculator' },
     { original: '/es/invoice-generator', expected: '/invoice-generator' },
     { original: '/fr/qr-code-generator', expected: '/qr-code-generator' },
   ];
