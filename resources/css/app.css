@@ -515,3 +515,9 @@ td, th, time, output, [data-numeric] {
     margin: 16mm;
   }
 }
+
+/* Core Web Vitals Mobile Performance Optimization: Off-screen layout deferral */
+.category-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 400px;
+}

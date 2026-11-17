@@ -250,7 +250,7 @@
                     @endphp
                     <div
                         id="category-{{ $group['category']->id }}"
-                        class="scroll-mt-24"
+                        class="scroll-mt-24 category-section"
                     >
                         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6 border-b border-base-300 pb-4">
                             <div>
@@ -274,7 +274,8 @@
                             @foreach($groupTools as $tool)
                                 <a
                                     href="{{ url('/' . $tool->slug) }}"
-                                    x-show="searchQuery === '' || '{{ strtolower(addslashes($tool->title . ' ' . $tool->short . ' ' . implode(' ', $tool->keywords))) }}'.includes(searchQuery.toLowerCase().trim())"
+                                    data-search="{{ strtolower($tool->title . ' ' . $tool->short . ' ' . implode(' ', $tool->keywords)) }}"
+                                    x-show="!searchQuery.trim() || $el.dataset.search.includes(searchQuery.toLowerCase().trim())"
                                     class="bg-base-100 border border-base-300 hover:border-primary hover:shadow-lg transition-all p-6 rounded-3xl flex flex-col justify-between group no-underline"
                                 >
                                     <div>
