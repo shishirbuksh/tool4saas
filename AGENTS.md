@@ -57,7 +57,7 @@ When operating across subagents or multi-agent swarms, assign work according to 
 - **Middleware**: `app/Http/Middleware/`
 - **Services**: `app/Services/`
 - **Domain Models & DTOs**: `app/DTOs/`, `app/Enums/`
-- **Catalog Registry**: `config/tools.php` (127 tools)
+- **Catalog Registry**: `config/tools.php` (135 tools)
 - **Category Registry**: `config/categories.php` (12 categories)
 - **Redirects**: `config/redirects.php` & `deploy/nginx-redirects.conf`
 - **Blog Data**: `storage/app/blog/posts.json` & `pillars.json`

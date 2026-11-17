@@ -227,10 +227,11 @@ final class FeedController extends Controller
 
     public function manifest(): Response
     {
+        $toolCount = count($this->toolRegistry->getAllTools());
         $manifest = [
             'name' => 'Tool4SaaS',
             'short_name' => 'Tool4SaaS',
-            'description' => '127 free browser tools for developers, designers, and founders.',
+            'description' => "{$toolCount} free browser tools for developers, designers, and founders.",
             'start_url' => '/',
             'display' => 'browser',
             'background_color' => '#FCFCF9',
