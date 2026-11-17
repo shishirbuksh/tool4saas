@@ -517,7 +517,9 @@ td, th, time, output, [data-numeric] {
 }
 
 /* Core Web Vitals Mobile Performance Optimization: Off-screen layout deferral */
-.category-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 400px;
+@media (max-width: 768px) {
+  .category-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 600px;
+  }
 }
