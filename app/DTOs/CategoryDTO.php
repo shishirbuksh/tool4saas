@@ -12,10 +12,11 @@ final readonly class CategoryDTO
         public string $id,
         public string $label,
         public string $description,
+        public bool $indexable = true,
     ) {}
 
     /**
-     * @param  array{id: string, label: string, description: string}  $data
+     * @param  array{id: string, label: string, description: string, indexable?: bool}  $data
      */
     public static function fromArray(array $data): self
     {
@@ -23,11 +24,24 @@ final readonly class CategoryDTO
             id: $data['id'],
             label: $data['label'],
             description: $data['description'],
+            indexable: (bool) ($data['indexable'] ?? true),
         );
     }
 
     public function toEnum(): ToolCategory
     {
         return ToolCategory::from($this->id);
+    }
+
+    public function isIndexable(): bool
+    {
+        if (! $this->indexable) {
+            return false;
+        }
+
+        /** @var list<string> $noindexCategories */
+        $noindexCategories = (array) config('indexing.noindex_categories', []);
+
+        return ! in_array($this->id, $noindexCategories, true);
     }
 }

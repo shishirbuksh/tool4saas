@@ -28,8 +28,11 @@
             </p>
 
             <div class="prose max-w-none text-base-content/80 leading-relaxed space-y-6">
+                @php
+                    $toolCount = count(app(\App\Services\ToolRegistryService::class)->all());
+                @endphp
                 <p class="text-lg text-base-content/90 font-medium">
-                    <strong>Tool4SaaS</strong> is a comprehensive collection of 135 free, privacy-first online utilities built on modern web standards. We believe everyday tasks — generating invoices, testing regex, calculating loan amortization, creating QR codes, or formatting payloads — should never require account signups, monthly fees, or transmitting private data to remote servers.
+                    <strong>Tool4SaaS</strong> is a comprehensive collection of {{ $toolCount }} free, privacy-first online utilities built on modern web standards. We believe everyday tasks — generating invoices, testing regex, calculating loan amortization, creating QR codes, or formatting payloads — should never require account signups, monthly fees, or transmitting private data to remote servers.
                 </p>
 
                 <h2 class="text-2xl font-black text-base-content pt-6 border-t border-base-200 font-display">Local-First Architecture</h2>

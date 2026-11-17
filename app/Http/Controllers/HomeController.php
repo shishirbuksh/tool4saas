@@ -38,14 +38,16 @@ final class HomeController
             }
         }
 
-        $metaTitle = "{$counts['visible']} Free Online Tools – PDF, Image, Text & Calculators";
-        $metaDescription = "Use {$counts['visible']} free online tools for PDFs, images, text, coding and calculations. No signup required. Most tools process your data locally in your browser.";
+        $totalTools = count($allTools);
+        $metaTitle = "Tool4SaaS — {$totalTools} Free Online Developer, PDF, Text & Utility Tools";
+        $metaDescription = "Use {$totalTools} free online tools for developer tasks, PDFs, images, text, and calculations. Zero accounts, 100% private, and runs entirely in your browser.";
         $jsonLd = $this->seo->buildHomeJsonLd(url('/'));
 
         return view('pages.home', [
             'metaTitle' => $metaTitle,
             'metaDescription' => $metaDescription,
             'counts' => $counts,
+            'toolCount' => $totalTools,
             'grouped' => $grouped,
             'featuredPillars' => $featuredPillars,
             'canonical' => url('/'),

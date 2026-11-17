@@ -28,6 +28,7 @@ final readonly class ToolDTO
         public array $guide = [],
         public ?string $seoTitle = null,
         public bool $isNoindex = false,
+        public bool $indexable = true,
     ) {}
 
     /**
@@ -35,7 +36,12 @@ final readonly class ToolDTO
      */
     public static function fromArray(array $data): self
     {
-        $noindexSlugs = ['pdf-compress', 'fancy-text-generator'];
+        /** @var list<string> $noindexSlugs */
+        $noindexSlugs = (array) config('indexing.noindex_tools', ['pdf-compress', 'fancy-text-generator']);
+        $slug = (string) $data['slug'];
+        $explicitIndexable = isset($data['indexable']) ? (bool) $data['indexable'] : true;
+        $explicitNoindex = isset($data['isNoindex']) ? (bool) $data['isNoindex'] : false;
+        $isNoindex = $explicitNoindex || ! $explicitIndexable || in_array($slug, $noindexSlugs, true);
 
         /** @var list<string> $keywords */
         $keywords = array_values((array) ($data['keywords'] ?? []));
@@ -47,7 +53,7 @@ final readonly class ToolDTO
         $guide = array_values((array) ($data['guide'] ?? []));
 
         return new self(
-            slug: (string) $data['slug'],
+            slug: $slug,
             title: (string) $data['title'],
             short: (string) $data['short'],
             description: (string) $data['description'],
@@ -58,8 +64,21 @@ final readonly class ToolDTO
             howTo: $howTo,
             guide: $guide,
             seoTitle: isset($data['seoTitle']) ? (string) $data['seoTitle'] : null,
-            isNoindex: in_array((string) $data['slug'], $noindexSlugs, true),
+            isNoindex: $isNoindex,
+            indexable: ! $isNoindex,
         );
+    }
+
+    public function isIndexable(): bool
+    {
+        if ($this->isNoindex || ! $this->indexable) {
+            return false;
+        }
+
+        /** @var list<string> $noindexCategories */
+        $noindexCategories = (array) config('indexing.noindex_categories', []);
+
+        return ! in_array($this->category, $noindexCategories, true);
     }
 
     public function categoryEnum(): ToolCategory

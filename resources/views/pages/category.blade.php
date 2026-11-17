@@ -4,6 +4,7 @@
             :title="$metaTitle"
             :description="$metaDescription"
             :canonical="$canonical"
+            :isNoindex="$isNoindex ?? false"
             :jsonLd="$jsonLd ?? null"
         />
     @endpush

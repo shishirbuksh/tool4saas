@@ -45,7 +45,7 @@ final class ToolController
             'jsonLd' => $jsonLd,
             'ymylType' => $tool->ymylType(),
             'canonical' => url('/'.$tool->slug),
-            'isNoindex' => $tool->isNoindex,
+            'isNoindex' => ! $tool->isIndexable(),
             'guideCallout' => $guideCallout,
         ]);
     }

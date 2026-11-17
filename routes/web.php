@@ -10,6 +10,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OgImageController;
 use App\Http\Controllers\ToolController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 // 1. Feeds & SEO Endpoints
@@ -54,14 +56,14 @@ Route::get('/', HomeController::class)->name('home');
 // 4. Static Informational Pages
 Route::view('/about', 'pages.about')->name('about');
 Route::get('/contact', fn () => view('pages.contact'))->name('contact');
-Route::post('/contact', function (\Illuminate\Http\Request $request) {
+Route::post('/contact', function (Request $request) {
     $validated = $request->validate([
         'name' => ['required', 'string', 'max:100'],
         'email' => ['required', 'email', 'max:150'],
         'message' => ['required', 'string', 'max:3000'],
     ]);
 
-    \Illuminate\Support\Facades\Log::info('Contact submission', [
+    Log::info('Contact submission', [
         'name' => $validated['name'],
         'email' => $validated['email'],
     ]);

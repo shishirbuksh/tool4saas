@@ -1,15 +1,17 @@
 @php
-    $categories = app(\App\Services\ToolRegistryService::class)->categories();
+    $registry = app(\App\Services\ToolRegistryService::class);
+    $categories = $registry->categories();
+    $toolCount = count($registry->all());
     $year = date('Y');
     $popularSlugs = [
+        'code-minifier' => 'Code Minifier',
         'invoice-generator' => 'Invoice Generator',
         'qr-code-generator' => 'QR Code Generator',
         'word-counter' => 'Word Counter',
         'json-formatter' => 'JSON Formatter',
+        'base64-tool' => 'Base64 Tool',
+        'password-generator' => 'Password Generator',
         'mortgage-calculator' => 'Mortgage Calculator',
-        'percentage-calculator' => 'Percentage Calculator',
-        'resume-builder' => 'Resume Builder',
-        'bmi-calculator' => 'BMI Calculator',
     ];
 @endphp
 
@@ -29,7 +31,7 @@
             <div class="flex flex-wrap items-center gap-2">
                 <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#242a20] text-primary text-xs font-semibold">
                     <span class="w-2 h-2 rounded-full bg-primary"></span>
-                    135 Free Tools
+                    {{ $toolCount }} Free Tools
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#242a20] text-white text-xs font-semibold">
                     🔒 Zero Cloud Storage

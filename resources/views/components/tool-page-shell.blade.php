@@ -38,7 +38,7 @@
         </h1>
 
         <p class="text-lg sm:text-xl text-base-content/80 font-normal leading-relaxed max-w-3xl tldr-passage">
-            {{ $tool->description }}
+            {!! App\Services\SeoService::renderInlineMarkdown($tool->description) !!}
         </p>
     </header>
 
@@ -78,7 +78,7 @@
                                 {{ $index + 1 }}
                             </div>
                             <h3 class="font-bold text-base text-base-content mb-1.5 font-display">{{ $step['name'] }}</h3>
-                            <p class="text-sm text-base-content/75 leading-relaxed">{{ $step['text'] }}</p>
+                            <p class="text-sm text-base-content/75 leading-relaxed">{!! App\Services\SeoService::renderInlineMarkdown($step['text']) !!}</p>
                         </div>
                     </div>
                 @endforeach
@@ -136,7 +136,43 @@
             @foreach($tool->guide as $section)
                 <div class="mb-10">
                     <h2 class="text-2xl font-bold text-base-content mb-3 font-display">{{ $section['heading'] }}</h2>
-                    <p class="text-base text-base-content/80 leading-relaxed mb-4">{{ $section['body'] }}</p>
+                    <p class="text-base text-base-content/80 leading-relaxed mb-4">{!! App\Services\SeoService::renderInlineMarkdown($section['body']) !!}</p>
+
+                    @if(!empty($section['paragraphs']))
+                        @foreach($section['paragraphs'] as $p)
+                            <p class="text-base text-base-content/80 leading-relaxed mb-4">{!! App\Services\SeoService::renderInlineMarkdown($p) !!}</p>
+                        @endforeach
+                    @endif
+
+                    @if(!empty($section['table']) && !empty($section['table']['rows']))
+                        <div class="my-6 not-prose overflow-x-auto rounded-3xl border border-base-300">
+                            <table class="table table-zebra w-full text-xs sm:text-sm">
+                                @if(!empty($section['table']['caption']))
+                                    <caption class="p-3 text-xs font-bold text-base-content/60 text-left bg-base-200/50">
+                                        {{ $section['table']['caption'] }}
+                                    </caption>
+                                @endif
+                                @if(!empty($section['table']['headers']))
+                                    <thead class="bg-base-200 text-base-content/70 uppercase text-[11px] font-mono">
+                                        <tr>
+                                            @foreach($section['table']['headers'] as $header)
+                                                <th>{{ $header }}</th>
+                                            @endforeach
+                                        </tr>
+                                    </thead>
+                                @endif
+                                <tbody>
+                                    @foreach($section['table']['rows'] as $row)
+                                        <tr>
+                                            @foreach($row as $cell)
+                                                <td class="font-mono">{!! App\Services\SeoService::renderInlineMarkdown((string) $cell) !!}</td>
+                                            @endforeach
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    @endif
                 </div>
             @endforeach
         </section>
@@ -156,7 +192,7 @@
                             {{ $f['question'] }}
                         </div>
                         <div class="collapse-content text-sm text-base-content/80 leading-relaxed">
-                            <p class="pt-2">{{ $f['answer'] }}</p>
+                            <p class="pt-2">{!! App\Services\SeoService::renderInlineMarkdown($f['answer']) !!}</p>
                         </div>
                     </div>
                 @endforeach

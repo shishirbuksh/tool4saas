@@ -14,7 +14,8 @@ final class RouteTest extends TestCase
     {
         $response = $this->get('/');
         $response->assertStatus(200);
-        $response->assertSee('Free Online Tools');
+        $response->assertSee('Tool4SaaS');
+        $response->assertSee('Free Online');
     }
 
     public function test_category_page_is_successful(): void
@@ -88,10 +89,10 @@ final class RouteTest extends TestCase
         $response->assertStatus(301);
         $response->assertRedirect('/invoice-generator');
 
-        // Test unmapped multi-language path stripping fallback
+        // Test unmapped multi-language path stripping fallback and tracking param stripping
         $response = $this->get('/fr/any-future-or-old-tool?ref=test');
         $response->assertStatus(301);
-        $response->assertRedirect('/any-future-or-old-tool?ref=test');
+        $response->assertRedirect('/any-future-or-old-tool');
 
         // Test Google Search Console reported legacy localized URLs
         $gscUrls = [

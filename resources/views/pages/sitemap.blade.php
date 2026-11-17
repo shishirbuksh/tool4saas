@@ -4,10 +4,14 @@
 @endphp
 
 <x-layouts.app>
+    @php
+        $toolCount = count($allTools);
+    @endphp
+
     @push('seo')
         <x-seo
             title="HTML Sitemap – All Free Tools & Categories | Tool4SaaS"
-            description="Complete index of all 135 free online calculators, formatters, generators, converters, and PDF tools on Tool4SaaS."
+            description="Complete index of all {{ $toolCount }} free online calculators, formatters, generators, converters, and PDF tools on Tool4SaaS."
             canonical="{{ route('sitemap.html') }}"
         />
     @endpush
@@ -29,8 +33,11 @@
 
         <div class="space-y-12">
             @foreach($categories as $category)
+                @if(!$category->isIndexable())
+                    @continue
+                @endif
                 @php
-                    $tools = array_values(array_filter($allTools, fn ($t) => $t->category === $category->id && !$t->isNoindex));
+                    $tools = array_values(array_filter($allTools, fn ($t) => $t->category === $category->id && $t->isIndexable()));
                 @endphp
                 <div class="border-b border-base-300 pb-8">
                     <h2 class="text-2xl font-bold text-base-content mb-2 flex items-center justify-between">

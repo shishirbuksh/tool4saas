@@ -88,7 +88,7 @@
                                         {{ $faq['question'] }}
                                     </div>
                                     <div class="collapse-content text-sm text-base-content/80 leading-relaxed">
-                                        <p class="pt-2">{{ $faq['answer'] }}</p>
+                                        <p class="pt-2">{!! App\Services\SeoService::renderInlineMarkdown($faq['answer']) !!}</p>
                                     </div>
                                 </div>
                             @endforeach

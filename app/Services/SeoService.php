@@ -269,7 +269,7 @@ final class SeoService
             'applicationCategory' => $appCategory,
             'operatingSystem' => 'Any',
             'browserRequirements' => 'Requires JavaScript. Works in all modern browsers.',
-            'description' => $tool->description,
+            'description' => self::stripMarkdown($tool->description),
             'isAccessibleForFree' => true,
             'offers' => [
                 '@type' => 'Offer',
@@ -326,10 +326,10 @@ final class SeoService
             foreach ($tool->faq as $f) {
                 $faqElements[] = [
                     '@type' => 'Question',
-                    'name' => $f['question'],
+                    'name' => self::stripMarkdown($f['question']),
                     'acceptedAnswer' => [
                         '@type' => 'Answer',
-                        'text' => $f['answer'],
+                        'text' => self::stripMarkdown($f['answer']),
                     ],
                 ];
             }
@@ -346,15 +346,15 @@ final class SeoService
                 $howToSteps[] = [
                     '@type' => 'HowToStep',
                     'position' => $idx + 1,
-                    'name' => $step['name'],
-                    'text' => $step['text'],
+                    'name' => self::stripMarkdown($step['name']),
+                    'text' => self::stripMarkdown($step['text']),
                 ];
             }
             $graph[] = [
                 '@context' => 'https://schema.org',
                 '@type' => 'HowTo',
                 'name' => "How to use the {$tool->title}",
-                'description' => $tool->description,
+                'description' => self::stripMarkdown($tool->description),
                 'step' => $howToSteps,
             ];
         }
@@ -551,6 +551,65 @@ final class SeoService
                 ],
             ],
         ];
+    }
+
+    /**
+     * Parse inline markdown (links, bold, code) into crawlable, accessible HTML.
+     */
+    public static function renderInlineMarkdown(string $text): string
+    {
+        if (trim($text) === '') {
+            return '';
+        }
+
+        // 1. Convert markdown links: [label](url)
+        $rendered = (string) preg_replace_callback(
+            '/\[([^\]]+)\]\(([^)]+)\)/',
+            function (array $matches): string {
+                $label = htmlspecialchars($matches[1], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+                $url = trim($matches[2]);
+                $isExternal = preg_match('#^https?://#i', $url) && ! str_contains($url, 'tool4saas.com');
+                $escapedUrl = htmlspecialchars($url, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+
+                $attr = $isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+
+                return "<a href=\"{$escapedUrl}\" class=\"font-semibold text-primary hover:underline\"{$attr}>{$label}</a>";
+            },
+            $text
+        );
+
+        // 2. Convert bold: **text**
+        $rendered = (string) preg_replace('/\*\*([^*]+)\*\*/', '<strong>$1</strong>', $rendered);
+
+        // 3. Convert inline code: `code`
+        $rendered = (string) preg_replace('/`([^`]+)`/', '<code class="px-1.5 py-0.5 rounded-md bg-base-200 text-xs font-mono">$1</code>', $rendered);
+
+        return $rendered;
+    }
+
+    /**
+     * Strip all markdown syntax and HTML tags into clean, human-readable plain text.
+     */
+    public static function stripMarkdown(string $text): string
+    {
+        if (trim($text) === '') {
+            return '';
+        }
+
+        // 1. Replace [label](url) with label
+        $clean = (string) preg_replace('/\[([^\]]+)\]\([^)]+\)/', '$1', $text);
+
+        // 2. Strip bold and italic
+        $clean = (string) preg_replace('/[*_]{1,3}([^*_]+)[*_]{1,3}/', '$1', $clean);
+
+        // 3. Strip inline code
+        $clean = (string) preg_replace('/`([^`]+)`/', '$1', $clean);
+
+        // 4. Strip any residual HTML tags
+        $clean = strip_tags($clean);
+
+        // 5. Normalize whitespace
+        return trim((string) preg_replace('/\s+/', ' ', $clean));
     }
 
     private function normalize(string $text): string

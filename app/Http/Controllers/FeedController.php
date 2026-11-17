@@ -52,8 +52,11 @@ final class FeedController extends Controller
             ];
         }
 
-        // 3. Category Hubs
+        // 3. Category Hubs (indexable only)
         foreach ($this->toolRegistry->getAllCategories() as $cat) {
+            if (! $cat->isIndexable()) {
+                continue;
+            }
             $modified = $categoryModified[$cat->id] ?? $sitePublished;
             $items[] = [
                 'url' => "{$base}/category/{$cat->id}",
@@ -62,9 +65,9 @@ final class FeedController extends Controller
             ];
         }
 
-        // 4. Tools (visible only)
+        // 4. Tools (indexable only)
         foreach ($this->toolRegistry->getAllTools() as $tool) {
-            if ($tool->isNoindex) {
+            if (! $tool->isIndexable()) {
                 continue;
             }
             $modified = $toolDates[$tool->slug]['modified'] ?? $sitePublished;

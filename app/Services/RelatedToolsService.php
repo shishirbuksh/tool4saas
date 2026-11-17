@@ -24,7 +24,7 @@ final class RelatedToolsService
         $allTools = $this->registry->all();
         $sameCategory = array_values(array_filter(
             $allTools,
-            fn (ToolDTO $t) => $t->category === $tool->category && ! $t->isNoindex
+            fn (ToolDTO $t) => $t->category === $tool->category && $t->isIndexable()
         ));
 
         $toolIdx = -1;
@@ -52,14 +52,16 @@ final class RelatedToolsService
             }
         }
 
+        // 1. See Also: 4 closely related same-category tools
         $seeAlso = array_map(
             fn (ToolDTO $t) => ['slug' => $t->slug, 'title' => $t->title, 'short' => $t->short],
-            array_slice($rotatedSameCat, 0, 2)
+            array_slice($rotatedSameCat, 0, 4)
         );
 
+        // 2. Related Tools: Prioritize 6 tools strictly within the same category
         $crossCategory = array_values(array_filter(
             $allTools,
-            fn (ToolDTO $t) => $t->category !== $tool->category && $t->slug !== $tool->slug && ! $t->isNoindex
+            fn (ToolDTO $t) => $t->category !== $tool->category && $t->slug !== $tool->slug && $t->isIndexable()
         ));
 
         $merged = array_merge($rotatedSameCat, $crossCategory);
@@ -69,7 +71,7 @@ final class RelatedToolsService
         );
 
         $cat = $this->registry->findCategory($tool->category);
-        $heading = 'More '.($cat !== null ? $cat->label : 'tools');
+        $heading = 'More '.($cat !== null ? $cat->label : 'Related').' Tools';
 
         return [
             'seeAlso' => $seeAlso,

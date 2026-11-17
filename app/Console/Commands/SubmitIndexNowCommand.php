@@ -32,14 +32,16 @@ final class SubmitIndexNowCommand extends Command
             $urls[] = "{$base}/{$p}";
         }
 
-        // 2. Category Hubs
+        // 2. Category Hubs (indexable only)
         foreach ($toolRegistry->categories() as $cat) {
-            $urls[] = "{$base}/category/{$cat->id}";
+            if ($cat->isIndexable()) {
+                $urls[] = "{$base}/category/{$cat->id}";
+            }
         }
 
         // 3. Active Indexable Tools
         foreach ($toolRegistry->all() as $tool) {
-            if (! $tool->isNoindex) {
+            if ($tool->isIndexable()) {
                 $urls[] = "{$base}/{$tool->slug}";
             }
         }

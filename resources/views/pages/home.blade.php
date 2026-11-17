@@ -20,7 +20,7 @@
                     <div class="lg:col-span-7 space-y-6 text-left">
                         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-xs uppercase tracking-wider shadow-xs">
                             <span class="w-2 h-2 rounded-full bg-[#2ead4b] animate-pulse"></span>
-                            <span>{{ $counts['visible'] }} Free Utilities · 100% Client-Side Privacy</span>
+                            <span>{{ $toolCount }} Free Utilities · 100% Client-Side Privacy</span>
                         </div>
 
                         <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-base-content leading-[1.05] font-display">
@@ -44,8 +44,8 @@
                                 id="search-input"
                                 type="text"
                                 x-model="searchQuery"
-                                aria-label="Search {{ $counts['visible'] }} free online utilities"
-                                placeholder="Search {{ $counts['visible'] }} tools (e.g. invoice, percentage, QR, JSON, PDF, BMI)..."
+                                aria-label="Search {{ $toolCount }} free online utilities"
+                                placeholder="Search {{ $toolCount }} tools (e.g. invoice, percentage, QR, JSON, PDF, BMI)..."
                                 class="w-full pl-13 pr-10 py-4 rounded-full bg-base-100 border border-base-300 text-base-content placeholder:text-base-content/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm sm:text-base shadow-sm transition-all"
                             />
                             <div x-show="searchQuery.length > 0" style="display: none;" class="absolute inset-y-0 right-0 pr-4 pt-2 flex items-center">

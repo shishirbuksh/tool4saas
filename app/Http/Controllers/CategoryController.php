@@ -53,6 +53,7 @@ final class CategoryController
             'metaDescription' => $metaDescription,
             'canonical' => url('/category/'.$category->id),
             'jsonLd' => $jsonLd,
+            'isNoindex' => ! $category->isIndexable(),
         ]);
     }
 }
