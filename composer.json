@@ -1,7 +1,7 @@
 {
     "name": "tool4saas/tool4saas",
     "type": "project",
-    "description": "Tool4SaaS — 127 Free online tools for PDFs, images, text, and calculators. Built with Laravel 11+, Tailwind CSS v4, DaisyUI v5.",
+    "description": "Tool4SaaS — 135 Free online tools for PDFs, images, text, and calculators. Built with Laravel 12, Tailwind CSS v4, DaisyUI v5.",
     "keywords": ["laravel", "framework", "tools", "tailwind", "daisyui"],
     "license": "MIT",
     "require": {
