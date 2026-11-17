@@ -2,6 +2,29 @@
     cost: 50,
     revenue: 120,
     currencySymbol: '$',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('cost')) {
+            const val = parseFloat(params.get('cost'));
+            if (!isNaN(val) && val >= 0) this.cost = val;
+        }
+        if (params.has('revenue')) {
+            const val = parseFloat(params.get('revenue'));
+            if (!isNaN(val) && val >= 0) this.revenue = val;
+        }
+        if (params.has('price')) {
+            const val = parseFloat(params.get('price'));
+            if (!isNaN(val) && val >= 0) this.revenue = val;
+        }
+        if (params.has('currency')) {
+            const c = params.get('currency');
+            if (['$', '€', '£', '₹', '¥'].includes(c)) this.currencySymbol = c;
+        }
+    },
+    setBenchmark(c, r) {
+        this.cost = c;
+        this.revenue = r;
+    },
     get numCost() {
         return Math.max(0, parseFloat(this.cost) || 0);
     },
@@ -33,6 +56,17 @@
                     <option value="₹">INR (₹)</option>
                     <option value="¥">JPY / CNY (¥)</option>
                 </select>
+            </div>
+        </div>
+
+        {{-- Quick Benchmark Chips --}}
+        <div>
+            <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Industry Margin Benchmarks</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setBenchmark(20, 100)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">SaaS Software (80% Margin)</button>
+                <button type="button" @click="setBenchmark(50, 100)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">E-Commerce (50% Margin)</button>
+                <button type="button" @click="setBenchmark(70, 100)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Retail / Physical Goods (30% Margin)</button>
+                <button type="button" @click="setBenchmark(85, 100)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Restaurant (15% Margin)</button>
             </div>
         </div>
 

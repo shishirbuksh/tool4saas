@@ -24,6 +24,10 @@ final class PresetQueryTest extends TestCase
             '/json-csv?mode=csv2json' => 'https://tool4saas.com/json-csv',
             '/utm-builder?channel=google_ads' => 'https://tool4saas.com/utm-builder',
             '/signature-maker?transparent=1' => 'https://tool4saas.com/signature-maker',
+            '/grade-calculator?mode=final&current=85&target=90&weight=30' => 'https://tool4saas.com/grade-calculator',
+            '/profit-margin-calculator?cost=50&revenue=120' => 'https://tool4saas.com/profit-margin-calculator',
+            '/debt-payoff-calculator?balance=15000&rate=18&payment=500' => 'https://tool4saas.com/debt-payoff-calculator',
+            '/age-calculator?dob=2000-01-01' => 'https://tool4saas.com/age-calculator',
         ];
 
         foreach ($routes as $url => $canonical) {

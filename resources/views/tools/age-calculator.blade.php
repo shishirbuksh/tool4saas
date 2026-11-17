@@ -46,10 +46,23 @@
         this.nextBirthdayDays = Math.ceil((nextBday.getTime() - t.getTime()) / (1000 * 60 * 60 * 24));
     },
     init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('dob') || params.has('birthDate')) {
+            const d = params.get('dob') || params.get('birthDate');
+            if (/^\d{4}-\d{2}-\d{2}$/.test(d)) this.birthDate = d;
+        }
+        if (params.has('target') || params.has('targetDate')) {
+            const d = params.get('target') || params.get('targetDate');
+            if (/^\d{4}-\d{2}-\d{2}$/.test(d)) this.targetDate = d;
+        }
+        this.calculate();
+    },
+    setDob(d) {
+        this.birthDate = d;
         this.calculate();
     }
 }">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div class="form-control">
             <label class="label py-1"><span class="label-text font-semibold text-sm">Date of Birth</span></label>
             <input type="date" x-model="birthDate" @change="calculate()" class="input input-bordered rounded-xl w-full text-base" />
@@ -57,6 +70,17 @@
         <div class="form-control">
             <label class="label py-1"><span class="label-text font-semibold text-sm">Age on Date</span></label>
             <input type="date" x-model="targetDate" @change="calculate()" class="input input-bordered rounded-xl w-full text-base" />
+        </div>
+    </div>
+
+    {{-- Quick Generational Milestone Presets --}}
+    <div class="mb-6">
+        <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Generational Milestones</span>
+        <div class="flex flex-wrap gap-2">
+            <button type="button" @click="setDob('2000-01-01')" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Born 2000 (Gen Z)</button>
+            <button type="button" @click="setDob('1990-01-01')" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Born 1990 (Millennial)</button>
+            <button type="button" @click="setDob('1980-01-01')" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Born 1980 (Gen X)</button>
+            <button type="button" @click="setDob('1965-01-01')" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Born 1965 (Boomer)</button>
         </div>
     </div>
 

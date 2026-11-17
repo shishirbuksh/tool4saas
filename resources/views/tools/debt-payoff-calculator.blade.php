@@ -2,6 +2,26 @@
     balance: 15000,
     rate: 18.0,
     monthlyPayment: 500,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('balance')) {
+            const val = parseFloat(params.get('balance'));
+            if (!isNaN(val) && val > 0) this.balance = val;
+        }
+        if (params.has('rate')) {
+            const val = parseFloat(params.get('rate'));
+            if (!isNaN(val) && val >= 0) this.rate = val;
+        }
+        if (params.has('payment') || params.has('monthlyPayment')) {
+            const val = parseFloat(params.get('payment') || params.get('monthlyPayment'));
+            if (!isNaN(val) && val > 0) this.monthlyPayment = val;
+        }
+    },
+    setScenario(b, r, p) {
+        this.balance = b;
+        this.rate = r;
+        this.monthlyPayment = p;
+    },
     get payoff() {
         let b = parseFloat(this.balance) || 0;
         const r = (parseFloat(this.rate) || 0) / 100 / 12;
@@ -40,6 +60,18 @@
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Monthly Budget ($)</label>
                 <input type="number" min="10" step="50" x-model="monthlyPayment" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+            </div>
+        </div>
+
+        {{-- Quick Scenario Presets --}}
+        <div>
+            <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Common Debt Payoff Scenarios</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setScenario(5000, 22.0, 250)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">$5k Card @ 22% ($250/mo)</button>
+                <button type="button" @click="setScenario(10000, 19.9, 350)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">$10k Card @ 19.9% ($350/mo)</button>
+                <button type="button" @click="setScenario(15000, 18.0, 500)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">$15k Card @ 18% ($500/mo)</button>
+                <button type="button" @click="setScenario(25000, 12.0, 600)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">$25k Personal Loan @ 12% ($600/mo)</button>
+                <button type="button" @click="setScenario(35000, 6.5, 400)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">$35k Student Loan @ 6.5% ($400/mo)</button>
             </div>
         </div>
 
