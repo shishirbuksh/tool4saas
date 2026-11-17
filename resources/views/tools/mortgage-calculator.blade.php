@@ -6,6 +6,15 @@
     propertyTaxAnnual: 4800,
     homeInsuranceAnnual: 1200,
     pmiMonthly: 0,
+    init() {
+        const p = new URLSearchParams(window.location.search);
+        if (p.has('homePrice')) this.homePrice = parseFloat(p.get('homePrice')) || this.homePrice;
+        if (p.has('downPayment')) this.downPayment = parseFloat(p.get('downPayment')) || this.downPayment;
+        if (p.has('interestRate')) this.interestRate = parseFloat(p.get('interestRate')) || this.interestRate;
+        if (p.has('loanYears')) this.loanYears = parseInt(p.get('loanYears'), 10) || this.loanYears;
+        if (p.has('propertyTax')) this.propertyTaxAnnual = parseFloat(p.get('propertyTax')) || this.propertyTaxAnnual;
+        if (p.has('insurance')) this.homeInsuranceAnnual = parseFloat(p.get('insurance')) || this.homeInsuranceAnnual;
+    },
     get loanAmount() {
         return Math.max(0, this.homePrice - this.downPayment);
     },

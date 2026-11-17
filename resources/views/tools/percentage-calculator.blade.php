@@ -1,8 +1,20 @@
 <x-tool-paper x-data="{
     tab: 'percent',
-    // Tab 1: X% of Y
     rate: 20,
     base: 150,
+    init() {
+        const p = new URLSearchParams(window.location.search);
+        if (p.has('tab')) this.tab = p.get('tab');
+        if (p.has('rate')) this.rate = parseFloat(p.get('rate')) || this.rate;
+        if (p.has('base')) this.base = parseFloat(p.get('base')) || this.base;
+        if (p.has('partX')) this.partX = parseFloat(p.get('partX')) || this.partX;
+        if (p.has('wholeY')) this.wholeY = parseFloat(p.get('wholeY')) || this.wholeY;
+        if (p.has('oldVal')) this.oldVal = parseFloat(p.get('oldVal')) || this.oldVal;
+        if (p.has('newVal')) this.newVal = parseFloat(p.get('newVal')) || this.newVal;
+        if (p.has('diffA')) this.diffA = parseFloat(p.get('diffA')) || this.diffA;
+        if (p.has('diffB')) this.diffB = parseFloat(p.get('diffB')) || this.diffB;
+    },
+    // Tab 1: X% of Y
     get percentResult() {
         const r = parseFloat(this.rate) || 0;
         const b = parseFloat(this.base) || 0;

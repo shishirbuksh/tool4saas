@@ -3,6 +3,13 @@
     discount: 25,
     tax: 8,
     includeTax: true,
+    init() {
+        const p = new URLSearchParams(window.location.search);
+        if (p.has('price')) this.price = parseFloat(p.get('price')) || this.price;
+        if (p.has('discount')) this.discount = parseFloat(p.get('discount')) || this.discount;
+        if (p.has('tax')) this.tax = parseFloat(p.get('tax')) || this.tax;
+        if (p.has('includeTax')) this.includeTax = p.get('includeTax') === 'true' || p.get('includeTax') === '1';
+    },
     get savings() {
         const p = parseFloat(this.price) || 0;
         const d = parseFloat(this.discount) || 0;

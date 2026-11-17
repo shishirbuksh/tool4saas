@@ -2,6 +2,12 @@
     bill: 84.50,
     tipPercent: 18,
     people: 3,
+    init() {
+        const p = new URLSearchParams(window.location.search);
+        if (p.has('bill')) this.bill = parseFloat(p.get('bill')) || this.bill;
+        if (p.has('tip')) this.tipPercent = parseFloat(p.get('tip')) || this.tipPercent;
+        if (p.has('people')) this.people = Math.max(1, parseInt(p.get('people'), 10) || this.people);
+    },
     get tipAmount() {
         const b = parseFloat(this.bill) || 0;
         const t = parseFloat(this.tipPercent) || 0;

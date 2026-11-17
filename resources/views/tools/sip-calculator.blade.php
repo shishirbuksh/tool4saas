@@ -3,6 +3,13 @@
     rate: 12,
     years: 10,
     currencySymbol: '$',
+    init() {
+        const p = new URLSearchParams(window.location.search);
+        if (p.has('monthly')) this.monthly = Math.max(0, parseFloat(p.get('monthly')) || this.monthly);
+        if (p.has('rate')) this.rate = Math.max(0, parseFloat(p.get('rate')) || this.rate);
+        if (p.has('years')) this.years = Math.max(1, parseFloat(p.get('years')) || this.years);
+        if (p.has('currency')) this.currencySymbol = p.get('currency');
+    },
     get months() {
         return Math.max(1, Math.round((parseFloat(this.years) || 0) * 12));
     },
