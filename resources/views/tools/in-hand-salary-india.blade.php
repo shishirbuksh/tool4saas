@@ -1,6 +1,17 @@
 <x-card class="p-6 md:p-8" x-data="{
     ctc: 1200000,
     regime: 'new',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('ctc')) {
+            const val = parseFloat(params.get('ctc'));
+            if (!isNaN(val) && val > 0) this.ctc = val;
+        }
+        if (params.has('regime')) {
+            const r = params.get('regime');
+            if (r === 'old' || r === 'new') this.regime = r;
+        }
+    },
     get inHand() {
         const gross = parseFloat(this.ctc) || 0;
         // Standard deduction FY 2024-25: ₹75,000 for new regime, ₹50,000 for old
@@ -51,6 +62,20 @@
                     <option value="new">New Tax Regime (₹75k Standard Deduction)</option>
                     <option value="old">Old Tax Regime (HRA & 80C Deductions)</option>
                 </select>
+            </div>
+        </div>
+
+        {{-- Quick CTC Preset Chips --}}
+        <div>
+            <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Popular CTC Packages (One-Click)</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="ctc = 600000" :class="ctc == 600000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">₹6 LPA</button>
+                <button type="button" @click="ctc = 1000000" :class="ctc == 1000000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">₹10 LPA</button>
+                <button type="button" @click="ctc = 1200000" :class="ctc == 1200000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">₹12 LPA</button>
+                <button type="button" @click="ctc = 1500000" :class="ctc == 1500000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">₹15 LPA</button>
+                <button type="button" @click="ctc = 2000000" :class="ctc == 2000000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">₹20 LPA</button>
+                <button type="button" @click="ctc = 2500000" :class="ctc == 2500000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">₹25 LPA</button>
+                <button type="button" @click="ctc = 5000000" :class="ctc == 5000000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">₹50 LPA</button>
             </div>
         </div>
 

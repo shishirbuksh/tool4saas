@@ -4,6 +4,25 @@
     deductions: 5000,
     freq: 12,
     currencySymbol: '$',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('gross')) {
+            const val = parseFloat(params.get('gross'));
+            if (!isNaN(val) && val > 0) this.gross = val;
+        }
+        if (params.has('taxRate')) {
+            const val = parseFloat(params.get('taxRate'));
+            if (!isNaN(val) && val >= 0) this.taxRate = val;
+        }
+        if (params.has('freq')) {
+            const val = parseInt(params.get('freq'), 10);
+            if ([12, 24, 26, 52].includes(val)) this.freq = val;
+        }
+        if (params.has('currency')) {
+            const c = params.get('currency');
+            if (['$', '€', '£', '₹'].includes(c)) this.currencySymbol = c;
+        }
+    },
     get numGross() { return Math.max(0, parseFloat(this.gross) || 0); },
     get numTaxRate() { return Math.max(0, parseFloat(this.taxRate) || 0) / 100; },
     get numDed() { return Math.max(0, parseFloat(this.deductions) || 0); },
@@ -37,14 +56,27 @@
             </div>
         </div>
 
-        <div class="form-control max-w-xs">
-            <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Paycheck Frequency</span></label>
-            <select x-model.number="freq" class="select select-bordered rounded-xl w-full text-sm">
-                <option value="12">Monthly (12 paychecks / yr)</option>
-                <option value="24">Semi-Monthly (24 paychecks / yr)</option>
-                <option value="26">Bi-Weekly (26 paychecks / yr)</option>
-                <option value="52">Weekly (52 paychecks / yr)</option>
-            </select>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="form-control max-w-xs">
+                <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Paycheck Frequency</span></label>
+                <select x-model.number="freq" class="select select-bordered rounded-xl w-full text-sm">
+                    <option value="12">Monthly (12 paychecks / yr)</option>
+                    <option value="24">Semi-Monthly (24 paychecks / yr)</option>
+                    <option value="26">Bi-Weekly (26 paychecks / yr)</option>
+                    <option value="52">Weekly (52 paychecks / yr)</option>
+                </select>
+            </div>
+
+            <div>
+                <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Benchmark Annual Salaries</span>
+                <div class="flex flex-wrap gap-1.5">
+                    <button type="button" @click="gross = 50000" :class="gross == 50000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3 py-1.5 rounded-full border text-xs font-bold transition-all"><span x-text="currencySymbol"></span>50,000 / yr</button>
+                    <button type="button" @click="gross = 75000" :class="gross == 75000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3 py-1.5 rounded-full border text-xs font-bold transition-all"><span x-text="currencySymbol"></span>75,000 / yr</button>
+                    <button type="button" @click="gross = 100000" :class="gross == 100000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3 py-1.5 rounded-full border text-xs font-bold transition-all"><span x-text="currencySymbol"></span>100,000 / yr</button>
+                    <button type="button" @click="gross = 150000" :class="gross == 150000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3 py-1.5 rounded-full border text-xs font-bold transition-all"><span x-text="currencySymbol"></span>150,000 / yr</button>
+                    <button type="button" @click="gross = 200000" :class="gross == 200000 ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3 py-1.5 rounded-full border text-xs font-bold transition-all"><span x-text="currencySymbol"></span>200,000 / yr</button>
+                </div>
+            </div>
         </div>
 
         {{-- Polarity-Flipped Dark Hero Display --}}

@@ -4,9 +4,34 @@
     origSize: 0,
     quality: 0.8,
     maxWidth: 1920,
+    targetKb: 100,
     compressedUrl: '',
     compressedSize: 0,
     busy: false,
+    init() {
+        const p = new URLSearchParams(window.location.search);
+        if (p.has('target')) {
+            const t = parseInt(p.get('target'), 10);
+            if ([20, 50, 100, 200].includes(t)) this.setTarget(t);
+        }
+    },
+    setTarget(kb) {
+        this.targetKb = kb;
+        if (kb === 20) {
+            this.quality = 0.5;
+            this.maxWidth = 400;
+        } else if (kb === 50) {
+            this.quality = 0.6;
+            this.maxWidth = 600;
+        } else if (kb === 100) {
+            this.quality = 0.7;
+            this.maxWidth = 1000;
+        } else if (kb === 200) {
+            this.quality = 0.8;
+            this.maxWidth = 1280;
+        }
+        if (this.file) this.compress();
+    },
     handleFile(e) {
         const f = e.target.files ? e.target.files[0] : (e.dataTransfer ? e.dataTransfer.files[0] : null);
         if (!f || !f.type.startsWith('image/')) return;
@@ -82,6 +107,43 @@
             <h3 class="text-base font-bold text-base-content font-display">Drag &amp; drop an image to compress</h3>
             <p class="text-xs text-base-content/60 mt-1">100% in-browser Canvas compression · No file uploaded to servers</p>
             <span class="btn btn-sm btn-primary rounded-full mt-3 font-bold">Select Local Image</span>
+        </div>
+
+        {{-- Quick Target Size Presets for Government & Exam Portals --}}
+        <div class="flex items-center flex-wrap gap-2 pt-1 pb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mr-1">Portal Targets:</span>
+            <button
+                type="button"
+                @click="setTarget(100)"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all"
+                :class="targetKb === 100 ? 'bg-primary text-primary-content border-primary font-bold shadow-xs' : 'bg-base-100 border-base-300 text-base-content hover:border-primary'"
+            >
+                Under 100 KB (Gov &amp; Exam Portal)
+            </button>
+            <button
+                type="button"
+                @click="setTarget(50)"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all"
+                :class="targetKb === 50 ? 'bg-primary text-primary-content border-primary font-bold shadow-xs' : 'bg-base-100 border-base-300 text-base-content hover:border-primary'"
+            >
+                Under 50 KB (Passport Photo)
+            </button>
+            <button
+                type="button"
+                @click="setTarget(20)"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all"
+                :class="targetKb === 20 ? 'bg-primary text-primary-content border-primary font-bold shadow-xs' : 'bg-base-100 border-base-300 text-base-content hover:border-primary'"
+            >
+                Under 20 KB (Signature Upload)
+            </button>
+            <button
+                type="button"
+                @click="setTarget(200)"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all"
+                :class="targetKb === 200 ? 'bg-primary text-primary-content border-primary font-bold shadow-xs' : 'bg-base-100 border-base-300 text-base-content hover:border-primary'"
+            >
+                Under 200 KB (Web Standard)
+            </button>
         </div>
 
         {{-- Controls --}}

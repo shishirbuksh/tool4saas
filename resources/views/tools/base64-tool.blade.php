@@ -1,9 +1,27 @@
 <x-tool-paper>
     <div x-data="{
         mode: 'encode',
+        urlSafe: false,
+        noPadding: false,
         input: '',
         output: '',
         copied: false,
+        init() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('mode') && ['encode', 'decode'].includes(params.get('mode'))) {
+                this.mode = params.get('mode');
+            }
+            if (params.has('urlsafe') || params.has('urlSafe')) {
+                this.urlSafe = true;
+            }
+            if (params.has('nopadding') || params.has('noPadding')) {
+                this.noPadding = true;
+            }
+            if (params.has('input')) {
+                this.input = params.get('input');
+                this.transform();
+            }
+        },
         transform() {
             if (!this.input) {
                 this.output = '';
@@ -16,9 +34,23 @@
                     for (let i = 0; i < bytes.byteLength; i++) {
                         binary += String.fromCharCode(bytes[i]);
                     }
-                    this.output = btoa(binary);
+                    let res = btoa(binary);
+                    if (this.urlSafe) {
+                        res = res.replace(/\+/g, '-').replace(/\//g, '_');
+                    }
+                    if (this.noPadding) {
+                        res = res.replace(/=+$/, '');
+                    }
+                    this.output = res;
                 } else {
-                    const binary = atob(this.input.trim().replace(/\s+/g, ''));
+                    let cleaned = this.input.trim().replace(/\s+/g, '');
+                    if (this.urlSafe) {
+                        cleaned = cleaned.replace(/-/g, '+').replace(/_/g, '/');
+                    }
+                    while (cleaned.length % 4 !== 0) {
+                        cleaned += '=';
+                    }
+                    const binary = atob(cleaned);
                     const bytes = new Uint8Array(binary.length);
                     for (let i = 0; i < binary.length; i++) {
                         bytes[i] = binary.charCodeAt(i);
@@ -36,24 +68,38 @@
             setTimeout(() => this.copied = false, 2000);
         }
     }">
-        {{-- Wise Pill Mode Switcher Tabs --}}
-        <div class="flex gap-1.5 p-1.5 rounded-full bg-base-200 border border-base-300 mb-6 inline-flex">
-            <button
-                type="button"
-                class="px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all"
-                :class="mode === 'encode' ? 'bg-primary text-primary-content shadow-xs' : 'text-base-content/70 hover:text-base-content hover:bg-base-100'"
-                @click="mode = 'encode'; transform()"
-            >
-                Encode Base64
-            </button>
-            <button
-                type="button"
-                class="px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all"
-                :class="mode === 'decode' ? 'bg-primary text-primary-content shadow-xs' : 'text-base-content/70 hover:text-base-content hover:bg-base-100'"
-                @click="mode = 'decode'; transform()"
-            >
-                Decode Base64
-            </button>
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+            {{-- Wise Pill Mode Switcher Tabs --}}
+            <div class="flex gap-1.5 p-1.5 rounded-full bg-base-200 border border-base-300 inline-flex">
+                <button
+                    type="button"
+                    class="px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all"
+                    :class="mode === 'encode' ? 'bg-primary text-primary-content shadow-xs' : 'text-base-content/70 hover:text-base-content hover:bg-base-100'"
+                    @click="mode = 'encode'; transform()"
+                >
+                    Encode Base64
+                </button>
+                <button
+                    type="button"
+                    class="px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition-all"
+                    :class="mode === 'decode' ? 'bg-primary text-primary-content shadow-xs' : 'text-base-content/70 hover:text-base-content hover:bg-base-100'"
+                    @click="mode = 'decode'; transform()"
+                >
+                    Decode Base64
+                </button>
+            </div>
+
+            {{-- URL Safe and No Padding Toggles --}}
+            <div class="flex items-center gap-3">
+                <label class="label cursor-pointer gap-2 bg-base-200/80 px-3.5 py-1.5 rounded-full border border-base-300">
+                    <input type="checkbox" x-model="urlSafe" @change="transform()" class="checkbox checkbox-primary checkbox-xs rounded-md" />
+                    <span class="label-text text-xs font-semibold">URL-Safe (<span class="font-mono">-</span>, <span class="font-mono">_</span>)</span>
+                </label>
+                <label class="label cursor-pointer gap-2 bg-base-200/80 px-3.5 py-1.5 rounded-full border border-base-300">
+                    <input type="checkbox" x-model="noPadding" @change="transform()" class="checkbox checkbox-primary checkbox-xs rounded-md" />
+                    <span class="label-text text-xs font-semibold">Strip Padding (<span class="font-mono">=</span>)</span>
+                </label>
+            </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -1,10 +1,22 @@
 <x-tool-paper>
     <div class="space-y-6" x-data="{
         mode: 'json2csv',
+        delimiter: ',',
         input: '[\n  { \'id\': 1, \'name\': \'Alice Smith\', \'role\': \'Lead Architect\', \'city\': \'San Francisco\' },\n  { \'id\': 2, \'name\': \'Bob Johnson\', \'role\': \'Frontend Engineer\', \'city\': \'London\' },\n  { \'id\': 3, \'name\': \'Carol Williams\', \'role\': \'DevOps Specialist\', \'city\': \'Berlin\' }\n]',
         output: '',
         error: '',
         copied: false,
+        init() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('mode') && ['json2csv', 'csv2json'].includes(params.get('mode'))) {
+                this.mode = params.get('mode');
+            }
+            if (params.has('delimiter')) {
+                const d = params.get('delimiter');
+                if ([',', ';', '\t'].includes(d)) this.delimiter = d;
+            }
+            this.process();
+        },
         process() {
             this.error = '';
             if (!this.input.trim()) {
@@ -13,6 +25,7 @@
             }
             try {
                 const q = String.fromCharCode(34);
+                const d = this.delimiter || ',';
                 if (this.mode === 'json2csv') {
                     const data = JSON.parse(this.input.replace(/'/g, q));
                     if (!Array.isArray(data)) {
@@ -23,11 +36,11 @@
                     const keys = Array.from(new Set(data.flatMap(o => Object.keys(o))));
                     const escapeCsv = (v) => {
                         const s = v === null || v === undefined ? '' : String(v);
-                        return /[,\n]/.test(s) ? q + s.split(q).join(q + q) + q : s;
+                        return (s.includes(d) || s.includes('\n')) ? q + s.split(q).join(q + q) + q : s;
                     };
-                    const lines = [keys.join(',')];
+                    const lines = [keys.join(d)];
                     for (const o of data) {
-                        lines.push(keys.map(k => escapeCsv(o[k])).join(','));
+                        lines.push(keys.map(k => escapeCsv(o[k])).join(d));
                     }
                     this.output = lines.join('\n');
                 } else {
@@ -44,10 +57,10 @@
                         }
                         return t;
                     };
-                    const headers = lines[0].split(',').map(cleanCell);
+                    const headers = lines[0].split(d).map(cleanCell);
                     const records = [];
                     for (let i = 1; i < lines.length; i++) {
-                        const row = lines[i].split(',').map(cleanCell);
+                        const row = lines[i].split(d).map(cleanCell);
                         const obj = {};
                         headers.forEach((h, idx) => {
                             obj[h] = row[idx] || '';
@@ -61,9 +74,6 @@
                 this.output = '';
             }
         },
-        init() {
-            this.process();
-        },
         copy() {
             if (!this.output) return;
             navigator.clipboard.writeText(this.output);
@@ -72,7 +82,8 @@
         },
         download() {
             if (!this.output) return;
-            const ext = this.mode === 'json2csv' ? 'csv' : 'json';
+            const isTsv = this.delimiter === '\t';
+            const ext = this.mode === 'json2csv' ? (isTsv ? 'tsv' : 'csv') : 'json';
             const type = this.mode === 'json2csv' ? 'text/csv;charset=utf-8;' : 'application/json;charset=utf-8;';
             const blob = new Blob([this.output], { type: type });
             const a = document.createElement('a');
@@ -81,23 +92,34 @@
             a.click();
         }
     }">
-        <div class="flex items-center gap-2 p-1.5 rounded-full bg-base-200 border border-base-300 w-fit">
-            <button
-                type="button"
-                @click="mode = 'json2csv'; process()"
-                class="px-5 py-2 rounded-full text-xs font-bold transition-all"
-                :class="mode === 'json2csv' ? 'bg-primary text-primary-content shadow-xs' : 'text-base-content/70 hover:text-base-content'"
-            >
-                JSON to CSV
-            </button>
-            <button
-                type="button"
-                @click="mode = 'csv2json'; process()"
-                class="px-5 py-2 rounded-full text-xs font-bold transition-all"
-                :class="mode === 'csv2json' ? 'bg-primary text-primary-content shadow-xs' : 'text-base-content/70 hover:text-base-content'"
-            >
-                CSV to JSON
-            </button>
+        <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-2 p-1.5 rounded-full bg-base-200 border border-base-300 w-fit">
+                <button
+                    type="button"
+                    @click="mode = 'json2csv'; process()"
+                    class="px-5 py-2 rounded-full text-xs font-bold transition-all"
+                    :class="mode === 'json2csv' ? 'bg-primary text-primary-content shadow-xs' : 'text-base-content/70 hover:text-base-content'"
+                >
+                    JSON to CSV
+                </button>
+                <button
+                    type="button"
+                    @click="mode = 'csv2json'; process()"
+                    class="px-5 py-2 rounded-full text-xs font-bold transition-all"
+                    :class="mode === 'csv2json' ? 'bg-primary text-primary-content shadow-xs' : 'text-base-content/70 hover:text-base-content'"
+                >
+                    CSV to JSON
+                </button>
+            </div>
+
+            <div class="flex items-center gap-2 bg-base-200/80 px-4 py-2 rounded-full border border-base-300">
+                <span class="text-xs font-bold text-base-content/60 uppercase tracking-wider font-mono">Separator:</span>
+                <select x-model="delimiter" @change="process()" class="select select-bordered select-xs rounded-lg font-mono text-xs">
+                    <option value=",">Comma (,)</option>
+                    <option value=";">Semicolon (;)</option>
+                    <option value="	">Tab (\t / TSV)</option>
+                </select>
+            </div>
         </div>
 
         <template x-if="error">

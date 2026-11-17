@@ -6,6 +6,27 @@
     term: 'saas_tools',
     content: 'hero_cta',
     copied: false,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('url')) this.url = params.get('url');
+        if (params.has('source')) this.source = params.get('source');
+        if (params.has('medium')) this.medium = params.get('medium');
+        if (params.has('campaign')) this.campaign = params.get('campaign');
+        if (params.has('term')) this.term = params.get('term');
+        if (params.has('content')) this.content = params.get('content');
+        if (params.has('channel')) {
+            const ch = params.get('channel');
+            if (ch === 'google_ads') { this.source = 'google'; this.medium = 'cpc'; }
+            else if (ch === 'facebook_ads') { this.source = 'facebook'; this.medium = 'paidsocial'; }
+            else if (ch === 'linkedin_ads') { this.source = 'linkedin'; this.medium = 'paidsocial'; }
+            else if (ch === 'newsletter') { this.source = 'newsletter'; this.medium = 'email'; }
+            else if (ch === 'twitter') { this.source = 'twitter'; this.medium = 'social'; }
+        }
+    },
+    setChannel(s, m) {
+        this.source = s;
+        this.medium = m;
+    },
     get generatedUrl() {
         if (!this.url.trim()) return '';
         try {
@@ -36,6 +57,18 @@
                 placeholder="https://yourwebsite.com/pricing"
                 class="input input-bordered rounded-2xl w-full text-sm font-mono p-4 bg-base-100"
             />
+        </div>
+
+        {{-- Quick Channel Presets --}}
+        <div>
+            <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">1-Click Channel Presets</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setChannel('google', 'cpc')" :class="source === 'google' && medium === 'cpc' ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">Google Ads (google / cpc)</button>
+                <button type="button" @click="setChannel('facebook', 'paidsocial')" :class="source === 'facebook' && medium === 'paidsocial' ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">Meta / FB Ads (facebook / paidsocial)</button>
+                <button type="button" @click="setChannel('linkedin', 'paidsocial')" :class="source === 'linkedin' && medium === 'paidsocial' ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">LinkedIn Ads (linkedin / paidsocial)</button>
+                <button type="button" @click="setChannel('newsletter', 'email')" :class="source === 'newsletter' && medium === 'email' ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">Email Newsletter (newsletter / email)</button>
+                <button type="button" @click="setChannel('twitter', 'social')" :class="source === 'twitter' && medium === 'social' ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">X / Twitter (twitter / social)</button>
+            </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

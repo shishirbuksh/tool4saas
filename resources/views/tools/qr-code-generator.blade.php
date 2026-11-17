@@ -34,6 +34,28 @@
             link.click();
         },
         async init() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('type')) {
+                const t = params.get('type');
+                if (t === 'wifi') {
+                    this.text = 'WIFI:T:WPA;S:MyNetwork;P:MyPassword;;';
+                } else if (t === 'upi') {
+                    this.text = 'upi://pay?pa=merchant@upi&pn=Store&am=100';
+                } else if (t === 'email') {
+                    this.text = 'mailto:hello@example.com?subject=Inquiry';
+                } else if (t === 'vcard') {
+                    this.text = 'BEGIN:VCARD\nVERSION:3.0\nN:Doe;John;;;\nFN:John Doe\nORG:Company\nTEL;TYPE=CELL:+1234567890\nEMAIL:john@example.com\nEND:VCARD';
+                }
+            } else if (params.has('text')) {
+                this.text = params.get('text');
+            } else if (params.has('url')) {
+                this.text = params.get('url');
+            }
+            if (params.has('size')) {
+                const s = parseInt(params.get('size'), 10);
+                if ([128, 256, 512, 1024].includes(s)) this.size = s;
+            }
+
             if (!window.QRCode && window.loadQRCode) {
                 await window.loadQRCode();
             }
@@ -64,6 +86,7 @@
                         <button type="button" @click="text = 'WIFI:T:WPA;S:MyNetwork;P:MyPassword;;'; renderQr()" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">WiFi Network</button>
                         <button type="button" @click="text = 'mailto:hello@example.com?subject=Inquiry'; renderQr()" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Email Link</button>
                         <button type="button" @click="text = 'upi://pay?pa=merchant@upi&pn=Store&am=100'; renderQr()" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">UPI Payment</button>
+                        <button type="button" @click="text = 'BEGIN:VCARD\nVERSION:3.0\nN:Doe;John;;;\nFN:John Doe\nORG:Company\nTEL;TYPE=CELL:+1234567890\nEMAIL:john@example.com\nEND:VCARD'; renderQr()" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">vCard Contact</button>
                     </div>
                 </div>
 
