@@ -5,6 +5,23 @@
     taxRate: 6.5,
     interestRate: 5.9,
     termMonths: 60,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('price')) this.price = parseFloat(params.get('price')) || this.price;
+        if (params.has('down')) this.downPayment = parseFloat(params.get('down')) || this.downPayment;
+        if (params.has('tradein')) this.tradeIn = parseFloat(params.get('tradein')) || this.tradeIn;
+        if (params.has('tax')) this.taxRate = parseFloat(params.get('tax')) || this.taxRate;
+        if (params.has('rate')) this.interestRate = parseFloat(params.get('rate')) || this.interestRate;
+        if (params.has('term')) this.termMonths = parseInt(params.get('term'), 10) || this.termMonths;
+    },
+    setPreset(price, down, tradeIn, tax, rate, term) {
+        this.price = price;
+        this.downPayment = down;
+        this.tradeIn = tradeIn;
+        this.taxRate = tax;
+        this.interestRate = rate;
+        this.termMonths = term;
+    },
 
     get netPrice() {
         const p = Math.max(0, parseFloat(this.price) || 0);
@@ -44,6 +61,25 @@
     }
 }">
     <div class="space-y-8">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Auto Loan Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(30000, 4000, 2000, 6.0, 5.5, 60)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    New Sedan ($30k / 60 Mos @ 5.5%)
+                </button>
+                <button type="button" @click="setPreset(18000, 2500, 1000, 6.0, 6.9, 48)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Used Car ($18k / 48 Mos @ 6.9%)
+                </button>
+                <button type="button" @click="setPreset(45000, 7000, 3000, 7.0, 5.9, 72)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Family SUV ($45k / 72 Mos @ 5.9%)
+                </button>
+                <button type="button" @click="setPreset(25000, 0, 0, 6.5, 6.5, 60)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Zero Down ($25k / 60 Mos @ 6.5%)
+                </button>
+            </div>
+        </div>
+
         {{-- Inputs Grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <div class="p-5 rounded-3xl bg-base-200/60 border border-base-300">

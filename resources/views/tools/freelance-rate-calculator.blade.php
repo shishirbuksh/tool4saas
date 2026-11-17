@@ -4,6 +4,21 @@
     weeksOff: 4,
     hoursPerWeek: 40,
     billableRatio: 65,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('income')) this.targetIncome = parseFloat(params.get('income')) || this.targetIncome;
+        if (params.has('expenses')) this.annualExpenses = parseFloat(params.get('expenses')) || this.annualExpenses;
+        if (params.has('weeks')) this.weeksOff = parseFloat(params.get('weeks')) || this.weeksOff;
+        if (params.has('hours')) this.hoursPerWeek = parseFloat(params.get('hours')) || this.hoursPerWeek;
+        if (params.has('billable')) this.billableRatio = parseFloat(params.get('billable')) || this.billableRatio;
+    },
+    setPreset(income, expenses, weeks, hours, billable) {
+        this.targetIncome = income;
+        this.annualExpenses = expenses;
+        this.weeksOff = weeks;
+        this.hoursPerWeek = hours;
+        this.billableRatio = billable;
+    },
     get hourlyRate() {
         const income = parseFloat(this.targetIncome) || 0;
         const exp = parseFloat(this.annualExpenses) || 0;
@@ -19,6 +34,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Freelancer Profiles:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(60000, 8000, 3, 35, 65)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Junior Freelancer ($60k)
+                </button>
+                <button type="button" @click="setPreset(90000, 15000, 4, 40, 65)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Mid-Level Pro ($90k)
+                </button>
+                <button type="button" @click="setPreset(150000, 25000, 5, 35, 60)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Senior Specialist ($150k)
+                </button>
+                <button type="button" @click="setPreset(220000, 40000, 6, 30, 50)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Fractional Lead ($220k)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Desired Net Annual Salary ($)</label>

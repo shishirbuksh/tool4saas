@@ -3,6 +3,19 @@
     rate: 6.5,
     tenureYears: 20,
     currencySymbol: '$',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('principal')) this.principal = parseFloat(params.get('principal')) || this.principal;
+        if (params.has('rate')) this.rate = parseFloat(params.get('rate')) || this.rate;
+        if (params.has('tenure')) this.tenureYears = parseFloat(params.get('tenure')) || this.tenureYears;
+        if (params.has('currency')) this.currencySymbol = params.get('currency');
+    },
+    setPreset(principal, rate, tenure, currency) {
+        this.principal = principal;
+        this.rate = rate;
+        this.tenureYears = tenure;
+        if (currency) this.currencySymbol = currency;
+    },
     get months() {
         return Math.max(1, Math.round((parseFloat(this.tenureYears) || 0) * 12));
     },
@@ -48,6 +61,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Loan Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(300000, 6.5, 30, '$')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Home Loan ($300k @ 6.5% 30 Yrs)
+                </button>
+                <button type="button" @click="setPreset(35000, 5.9, 5, '$')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Car Loan ($35k @ 5.9% 5 Yrs)
+                </button>
+                <button type="button" @click="setPreset(15000, 10.5, 3, '$')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Personal Loan ($15k @ 10.5% 3 Yrs)
+                </button>
+                <button type="button" @click="setPreset(5000000, 8.5, 20, '₹')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    India Home Loan (₹50 Lakh @ 8.5% 20 Yrs)
+                </button>
+            </div>
+        </div>
+
         {{-- Inputs Grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <x-numeric-field label="Loan Amount" model="principal" prefix="$" placeholder="250000" />

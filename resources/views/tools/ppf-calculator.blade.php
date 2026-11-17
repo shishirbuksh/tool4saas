@@ -2,6 +2,17 @@
     deposit: 150000,
     rate: 7.1,
     years: 15,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('deposit')) this.deposit = parseFloat(params.get('deposit')) || this.deposit;
+        if (params.has('rate')) this.rate = parseFloat(params.get('rate')) || this.rate;
+        if (params.has('years')) this.years = parseInt(params.get('years'), 10) || this.years;
+    },
+    setPreset(deposit, rate, years) {
+        this.deposit = deposit;
+        this.rate = rate;
+        this.years = years;
+    },
     get numDep() { return Math.max(0, parseFloat(this.deposit) || 0); },
     get numRate() { return Math.max(0, parseFloat(this.rate) || 0) / 100; },
     get numY() { return Math.max(1, parseInt(this.years, 10) || 15); },
@@ -31,6 +42,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular PPF Contribution Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(150000, 7.1, 15)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Max 80C (₹1.5 Lakh / 15 Yrs ➔ ₹40.68L)
+                </button>
+                <button type="button" @click="setPreset(50000, 7.1, 15)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    ₹50k / 15 Yrs ➔ ₹13.56L
+                </button>
+                <button type="button" @click="setPreset(100000, 7.1, 20)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    ₹1 Lakh / 20 Yrs (1 Block)
+                </button>
+                <button type="button" @click="setPreset(150000, 7.1, 25)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Max 80C / 25 Yrs (2 Blocks)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <x-numeric-field label="Yearly Investment (₹)" model="deposit" prefix="₹" min="500" max="150000" step="5000" placeholder="150000" />
             <x-numeric-field label="Current PPF Rate (% p.a.)" model="rate" suffix="%" step="0.1" placeholder="7.1" />

@@ -3,6 +3,19 @@
     rate: 7.1,
     years: 5,
     currencySymbol: '₹',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('principal')) this.principal = parseFloat(params.get('principal')) || this.principal;
+        if (params.has('rate')) this.rate = parseFloat(params.get('rate')) || this.rate;
+        if (params.has('years')) this.years = parseFloat(params.get('years')) || this.years;
+        if (params.has('currency')) this.currencySymbol = params.get('currency');
+    },
+    setPreset(principal, rate, years, currency) {
+        this.principal = principal;
+        this.rate = rate;
+        this.years = years;
+        if (currency) this.currencySymbol = currency;
+    },
     get numP() { return Math.max(0, parseFloat(this.principal) || 0); },
     get numR() { return Math.max(0, parseFloat(this.rate) || 0); },
     get numY() { return Math.max(0, parseFloat(this.years) || 0); },
@@ -19,6 +32,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Fixed Deposit Tenures:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(100000, 7.1, 1, '₹')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    ₹1 Lakh @ 7.1% 1 Yr
+                </button>
+                <button type="button" @click="setPreset(500000, 7.5, 3, '₹')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    ₹5 Lakh @ 7.5% 3 Yrs
+                </button>
+                <button type="button" @click="setPreset(150000, 7.25, 5, '₹')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Tax Saver 5 Yrs (₹1.5L @ 7.25%)
+                </button>
+                <button type="button" @click="setPreset(1000000, 7.75, 5, '₹')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Senior Citizen (₹10L @ 7.75% 5 Yrs)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
             <x-numeric-field label="Deposit Principal" model="principal" prefix="₹" placeholder="100000" />
             <x-numeric-field label="Interest Rate (% p.a.)" model="rate" suffix="%" step="0.1" placeholder="7.1" />

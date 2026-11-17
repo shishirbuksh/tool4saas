@@ -2,6 +2,17 @@
     initialValue: 10000,
     finalValue: 25000,
     years: 5,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('initial')) this.initialValue = parseFloat(params.get('initial')) || this.initialValue;
+        if (params.has('final')) this.finalValue = parseFloat(params.get('final')) || this.finalValue;
+        if (params.has('years')) this.years = parseFloat(params.get('years')) || this.years;
+    },
+    setPreset(initial, final, years) {
+        this.initialValue = initial;
+        this.finalValue = final;
+        this.years = years;
+    },
 
     get cagr() {
         const init = Math.max(0.01, parseFloat(this.initialValue) || 0);
@@ -50,6 +61,25 @@
     }
 }">
     <div class="space-y-8">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular CAGR Benchmarks:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(10000, 20000, 5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    2x in 5 Yrs (14.87% CAGR)
+                </button>
+                <button type="button" @click="setPreset(10000, 30000, 7)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    3x in 7 Yrs (16.99% CAGR)
+                </button>
+                <button type="button" @click="setPreset(10000, 100000, 10)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    10x in 10 Yrs (25.89% CAGR)
+                </button>
+                <button type="button" @click="setPreset(10000, 26000, 10)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Index Fund ($10k ➔ $26k in 10 Yrs)
+                </button>
+            </div>
+        </div>
+
         {{-- Inputs Grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <div class="p-5 rounded-3xl bg-base-200/60 border border-base-300">

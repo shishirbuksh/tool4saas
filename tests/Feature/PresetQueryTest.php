@@ -35,6 +35,13 @@ final class PresetQueryTest extends TestCase
             '/us-sales-tax-calculator?state=California&subtotal=100' => 'https://tool4saas.com/us-sales-tax-calculator',
             '/jwt-decoder?token=test' => 'https://tool4saas.com/jwt-decoder',
             '/password-generator?length=16&symbols=1' => 'https://tool4saas.com/password-generator',
+            '/freelance-rate-calculator?income=100000&expenses=20000&weeks=4&hours=35&billable=70' => 'https://tool4saas.com/freelance-rate-calculator',
+            '/cagr-calculator?initial=10000&final=25000&years=5' => 'https://tool4saas.com/cagr-calculator',
+            '/emi-calculator?principal=300000&rate=6.5&tenure=30' => 'https://tool4saas.com/emi-calculator',
+            '/fd-calculator?principal=100000&rate=7.1&years=5' => 'https://tool4saas.com/fd-calculator',
+            '/ppf-calculator?deposit=150000&rate=7.1&years=15' => 'https://tool4saas.com/ppf-calculator',
+            '/gst-calculator?amount=1000&rate=18&mode=exclusive' => 'https://tool4saas.com/gst-calculator',
+            '/auto-loan-calculator?price=30000&down=5000&rate=5.5&term=60' => 'https://tool4saas.com/auto-loan-calculator',
         ];
 
         foreach ($routes as $url => $canonical) {

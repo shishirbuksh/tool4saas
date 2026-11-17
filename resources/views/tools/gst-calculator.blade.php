@@ -3,6 +3,19 @@
     rate: 18,
     mode: 'exclusive',
     currencySymbol: '$',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('amount')) this.amount = parseFloat(params.get('amount')) || this.amount;
+        if (params.has('rate')) this.rate = parseFloat(params.get('rate')) || this.rate;
+        if (params.has('mode') && ['exclusive', 'inclusive'].includes(params.get('mode'))) this.mode = params.get('mode');
+        if (params.has('currency')) this.currencySymbol = params.get('currency');
+    },
+    setPreset(amount, rate, mode, currency) {
+        this.amount = amount;
+        this.rate = rate;
+        this.mode = mode;
+        if (currency) this.currencySymbol = currency;
+    },
     get numAmount() {
         return Math.max(0, parseFloat(this.amount) || 0);
     },
@@ -36,6 +49,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Common GST Calculations:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(1180, 18, 'inclusive', '₹')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Reverse GST 18% (Extract from ₹1,180 MRP)
+                </button>
+                <button type="button" @click="setPreset(1000, 18, 'exclusive', '₹')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Add 18% GST (Services / B2B)
+                </button>
+                <button type="button" @click="setPreset(500, 5, 'exclusive', '₹')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Add 5% GST (Essentials)
+                </button>
+                <button type="button" @click="setPreset(50000, 28, 'exclusive', '₹')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Add 28% GST (Luxury & Electronics)
+                </button>
+            </div>
+        </div>
+
         {{-- Mode Selector --}}
         <div class="flex items-center gap-2 p-1.5 rounded-full bg-base-200 border border-base-300 w-fit">
             <button
