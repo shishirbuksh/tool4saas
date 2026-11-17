@@ -22,6 +22,7 @@ yarn-error.log*
 /storage/framework/sessions/*
 /storage/framework/views/*
 /storage/framework/testing/*
+/storage/framework/lsp-*.php
 /storage/logs/*
 
 # Whitelist .gitkeep files in storage
