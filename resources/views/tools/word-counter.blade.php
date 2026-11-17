@@ -1,5 +1,12 @@
 <x-tool-paper x-data="{
     text: 'Type or paste your text here to count words, characters, sentences, paragraphs, and reading time in real time...',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('text')) this.text = decodeURIComponent(params.get('text') || '').trim() || this.text;
+    },
+    setText(t) {
+        this.text = t;
+    },
     get words() {
         if (!this.text.trim()) return 0;
         return this.text.trim().split(/\s+/).filter(Boolean).length;
@@ -29,6 +36,22 @@
         this.text = '';
     }
 }">
+    {{-- Platform Character Limit Chips --}}
+    <div class="mb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-1.5">Platform Character Limits:</span>
+        <div class="flex flex-wrap gap-2">
+            <button type="button" @click="setText('Exploring the frontiers of agentic AI workflows and client-side computational architecture. Building ultra-fast private utilities with zero data egress. #AI #SaaS')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                Twitter/X Post (280 Max)
+            </button>
+            <button type="button" @click="setText('Tool4SaaS — 100% Free, Private Online Tools for SaaS Founders & Developers')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                SEO Meta Title (60 Max)
+            </button>
+            <button type="button" @click="setText('Access 135+ free, private developer and business tools online. 100% client-side execution with zero sign up required. Fast, responsive, and secure.')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                SEO Meta Description (160 Max)
+            </button>
+        </div>
+    </div>
+
     <div class="flex items-center justify-between mb-3">
         <span class="text-sm font-bold text-base-content font-display">Document Input</span>
         <div class="flex items-center gap-2">

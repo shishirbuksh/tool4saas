@@ -46,9 +46,41 @@
         if (!this.running && this.mode === 'work') {
             this.timeLeft = m * 60;
         }
+    },
+    setPreset(work, breakM) {
+        this.pause();
+        this.workMin = work;
+        this.breakMin = breakM;
+        this.mode = 'work';
+        this.timeLeft = work * 60;
+    },
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('work')) this.workMin = parseInt(params.get('work'), 10) || this.workMin;
+        if (params.has('break')) this.breakMin = parseInt(params.get('break'), 10) || this.breakMin;
+        this.timeLeft = this.workMin * 60;
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Focus &amp; Productivity Protocols:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(25, 5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Classic Pomodoro (25m / 5m)
+                </button>
+                <button type="button" @click="setPreset(50, 10)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Deep Work (50m / 10m)
+                </button>
+                <button type="button" @click="setPreset(60, 15)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Sprint Interval (60m / 15m)
+                </button>
+                <button type="button" @click="setPreset(90, 20)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Ultradian Rhythm (90m / 20m)
+                </button>
+            </div>
+        </div>
+
         {{-- Mode Switcher Pills --}}
         <div class="flex justify-center">
             <div class="inline-flex gap-1.5 p-1.5 rounded-full bg-base-200 border border-base-300">

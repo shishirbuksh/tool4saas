@@ -62,10 +62,40 @@
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         },
+        setPreset(c, t) {
+            this.count = c;
+            this.type = t;
+            this.generate();
+        },
         init() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('count')) this.count = parseInt(params.get('count'), 10) || this.count;
+            if (params.has('type') && ['paragraphs', 'sentences', 'words'].includes(params.get('type'))) this.type = params.get('type');
             this.generate();
         }
     }">
+        {{-- Quick Presets --}}
+        <div class="mb-5">
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Text Quantities:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(1, 'paragraphs')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    1 Paragraph
+                </button>
+                <button type="button" @click="setPreset(3, 'paragraphs')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    3 Paragraphs (Standard)
+                </button>
+                <button type="button" @click="setPreset(5, 'paragraphs')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    5 Paragraphs (Longform)
+                </button>
+                <button type="button" @click="setPreset(50, 'words')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    50 Words (Teaser)
+                </button>
+                <button type="button" @click="setPreset(100, 'words')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    100 Words (Snippet)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 mb-1 font-mono">Generation Type</label>

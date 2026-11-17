@@ -60,6 +60,11 @@ final class PresetQueryTest extends TestCase
             '/refinance-calculator?balance=300000&current=7.0&new=5.5&tenure=30&costs=5000' => 'https://tool4saas.com/refinance-calculator',
             '/one-rep-max-calculator?weight=225&reps=5&unit=lbs' => 'https://tool4saas.com/one-rep-max-calculator',
             '/date-calculator?start=2026-01-01&end=2026-03-31&mode=diff' => 'https://tool4saas.com/date-calculator',
+            '/word-counter?text=Test+sample+input+for+word+counter' => 'https://tool4saas.com/word-counter',
+            '/pomodoro-timer?work=50&break=10' => 'https://tool4saas.com/pomodoro-timer',
+            '/lorem-ipsum?count=5&type=paragraphs' => 'https://tool4saas.com/lorem-ipsum',
+            '/uuid-generator?version=v4&count=5' => 'https://tool4saas.com/uuid-generator',
+            '/unit-converter?cat=length&val=1&from=m&to=ft' => 'https://tool4saas.com/unit-converter',
         ];
 
         foreach ($routes as $url => $canonical) {

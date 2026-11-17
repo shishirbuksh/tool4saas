@@ -61,6 +61,19 @@
         this.fromUnit = this.toUnit;
         this.toUnit = tmp;
     },
+    setPreset(c, v, from, to) {
+        this.category = c;
+        this.val = v;
+        this.fromUnit = from;
+        this.toUnit = to;
+    },
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('cat') && this.categories[params.get('cat')]) this.category = params.get('cat');
+        if (params.has('val')) this.val = parseFloat(params.get('val')) || this.val;
+        if (params.has('from')) this.fromUnit = params.get('from');
+        if (params.has('to')) this.toUnit = params.get('to');
+    },
     get converted() {
         const v = parseFloat(this.val);
         if (isNaN(v)) return 0;
@@ -86,6 +99,28 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Unit Conversions:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset('length', 1, 'm', 'ft')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Meters to Feet (1 m ➔ ft)
+                </button>
+                <button type="button" @click="setPreset('weight', 1, 'kg', 'lb')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Kg to Pounds (1 kg ➔ lbs)
+                </button>
+                <button type="button" @click="setPreset('temperature', 25, 'c', 'f')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Celsius to Fahrenheit (25°C ➔ °F)
+                </button>
+                <button type="button" @click="setPreset('data', 1024, 'mb', 'gb')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    MB to GB (1,024 MB ➔ GB)
+                </button>
+                <button type="button" @click="setPreset('length', 10, 'km', 'mi')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Km to Miles (10 km ➔ mi)
+                </button>
+            </div>
+        </div>
+
         {{-- Category Pills --}}
         <div class="flex flex-wrap gap-1.5 p-1.5 rounded-full bg-base-200 border border-base-300">
             <template x-for="(cat, key) in categories" :key="key">

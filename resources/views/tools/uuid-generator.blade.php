@@ -70,11 +70,46 @@
             a.click();
         },
 
+        setPreset(v, c, h, u) {
+            this.version = v;
+            this.count = c;
+            this.hyphens = h;
+            this.uppercase = u;
+            this.generate();
+        },
+
         init() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('version') && ['v4', 'v7'].includes(params.get('version'))) this.version = params.get('version');
+            if (params.has('count')) this.count = Math.min(500, Math.max(1, parseInt(params.get('count'), 10) || this.count));
+            if (params.has('hyphens')) this.hyphens = params.get('hyphens') === '1' || params.get('hyphens') === 'true';
+            if (params.has('uppercase')) this.uppercase = params.get('uppercase') === '1' || params.get('uppercase') === 'true';
             this.generate();
         }
     }">
         <div class="space-y-6">
+            {{-- Quick Presets --}}
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Common UUID Configurations:</span>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" @click="setPreset('v4', 1, true, false)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                        Single UUID v4
+                    </button>
+                    <button type="button" @click="setPreset('v4', 5, true, false)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                        5 × UUID v4 (Batch)
+                    </button>
+                    <button type="button" @click="setPreset('v7', 5, true, false)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                        UUID v7 (Time-Ordered DB Primary Keys)
+                    </button>
+                    <button type="button" @click="setPreset('v4', 1, false, false)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                        No Hyphens (32-Char Hex)
+                    </button>
+                    <button type="button" @click="setPreset('v4', 1, true, true)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                        Uppercase UUID
+                    </button>
+                </div>
+            </div>
+
             {{-- Configuration Controls --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 rounded-3xl bg-base-200/60 border border-base-300">
                 <div>
