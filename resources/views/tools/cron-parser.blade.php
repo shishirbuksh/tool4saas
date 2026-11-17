@@ -27,6 +27,11 @@
     },
     setPreset(exp) {
         this.expression = exp;
+    },
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('cron')) this.expression = decodeURIComponent(params.get('cron') || '').trim() || this.expression;
+        else if (params.has('expression')) this.expression = decodeURIComponent(params.get('expression') || '').trim() || this.expression;
     }
 }">
     <div class="space-y-6">

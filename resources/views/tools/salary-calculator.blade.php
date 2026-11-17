@@ -79,6 +79,25 @@
             </div>
         </div>
 
+        {{-- International Country Presets --}}
+        <div>
+            <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">International Salary Standards:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="gross = 120000; taxRate = 24; freq = 26; currencySymbol = '$'" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    US Tech ($120k / 24% Bi-Weekly)
+                </button>
+                <button type="button" @click="gross = 45000; taxRate = 20; freq = 12; currencySymbol = '£'" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    UK Average (£45k / 20% Monthly)
+                </button>
+                <button type="button" @click="gross = 65000; taxRate = 32; freq = 12; currencySymbol = '€'" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    EU Professional (€65k / 32% Monthly)
+                </button>
+                <button type="button" @click="gross = 1800000; taxRate = 15; freq = 12; currencySymbol = '₹'" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    India CTC (₹18 Lakh / 15% Monthly)
+                </button>
+            </div>
+        </div>
+
         {{-- Polarity-Flipped Dark Hero Display --}}
         <div class="p-6 sm:p-9 rounded-3xl bg-[#0e0f0c] text-white border border-[#242a20] shadow-sm text-center">
             <span class="text-xs font-bold uppercase tracking-wider text-[#868685] font-mono">Net Annual Take-Home Pay</span>

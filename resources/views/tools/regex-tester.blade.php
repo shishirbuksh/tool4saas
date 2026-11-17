@@ -38,11 +38,40 @@
             this.error = e.message;
         }
     },
+    setPattern(p, t) {
+        this.pattern = p;
+        if (t) this.text = t;
+        this.testRegex();
+    },
     init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('pattern')) this.pattern = decodeURIComponent(params.get('pattern') || '').trim() || this.pattern;
+        if (params.has('text')) this.text = decodeURIComponent(params.get('text') || '').trim() || this.text;
         this.testRegex();
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Regex Preset Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Common Regular Expression Patterns:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}', 'Contact: support@tool4saas.com or info@domain.org')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Email Address
+                </button>
+                <button type="button" @click="setPattern('https?:\\/\\/[^\\s/$.?#].[^\\s]*', 'Check out https://tool4saas.com or http://localhost:8000/test')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    URL / Web Link
+                </button>
+                <button type="button" @click="setPattern('\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b', 'Server IPs: 192.168.1.1, 10.0.0.1, and 127.0.0.1')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    IPv4 Address
+                </button>
+                <button type="button" @click="setPattern('\\b\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])\\b', 'Events on 2026-11-17 and 2027-01-01')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Date (YYYY-MM-DD)
+                </button>
+                <button type="button" @click="setPattern('[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}', 'Token: f4412083-6fb6-444e-b289-a3af58706d56')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    UUID v4
+                </button>
+            </div>
+        </div>
         {{-- Pattern & Flags Bar --}}
         <div class="space-y-3">
             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Regular Expression Pattern</label>

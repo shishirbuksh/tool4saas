@@ -38,9 +38,46 @@
         navigator.clipboard.writeText(val);
         this.copiedField = field;
         setTimeout(() => this.copiedField = '', 2000);
+    },
+    setHex(c) {
+        this.hex = c;
+    },
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        let val = params.get('hex') || params.get('color');
+        if (val) {
+            val = val.trim();
+            if (!val.startsWith('#')) val = '#' + val;
+            this.hex = val;
+        }
     }
 }">
     <div class="space-y-8">
+        {{-- Quick Color Palette Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Preset Palettes &amp; Brand Tokens:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setHex('#9fe870')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-base-200 font-mono">
+                    <span class="w-3 h-3 rounded-full mr-1" style="background-color: #9fe870;"></span> Wise Vivid Lime (#9fe870)
+                </button>
+                <button type="button" @click="setHex('#163300')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-base-200 font-mono">
+                    <span class="w-3 h-3 rounded-full mr-1" style="background-color: #163300;"></span> Forest Green (#163300)
+                </button>
+                <button type="button" @click="setHex('#10b981')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-base-200 font-mono">
+                    <span class="w-3 h-3 rounded-full mr-1" style="background-color: #10b981;"></span> Tailwind Emerald (#10b981)
+                </button>
+                <button type="button" @click="setHex('#6366f1')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-base-200 font-mono">
+                    <span class="w-3 h-3 rounded-full mr-1" style="background-color: #6366f1;"></span> Tailwind Indigo (#6366f1)
+                </button>
+                <button type="button" @click="setHex('#f59e0b')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-base-200 font-mono">
+                    <span class="w-3 h-3 rounded-full mr-1" style="background-color: #f59e0b;"></span> Tailwind Amber (#f59e0b)
+                </button>
+                <button type="button" @click="setHex('#ef4444')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-base-200 font-mono">
+                    <span class="w-3 h-3 rounded-full mr-1" style="background-color: #ef4444;"></span> Crimson Red (#ef4444)
+                </button>
+            </div>
+        </div>
+
         {{-- Interactive Color Picker & Live Swatch Card --}}
         <div class="p-6 sm:p-8 rounded-3xl bg-base-200/60 border border-base-300 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-5 w-full sm:w-auto">

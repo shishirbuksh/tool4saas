@@ -47,6 +47,9 @@ final class PresetQueryTest extends TestCase
             '/retirement-calculator?age=30&retire=65&spend=60000&savings=50000&rate=7' => 'https://tool4saas.com/retirement-calculator',
             '/rent-vs-buy-calculator?rent=2200&price=450000&down=20&rate=6.5&tenure=30' => 'https://tool4saas.com/rent-vs-buy-calculator',
             '/home-affordability-calculator?income=120000&debt=500&down=60000&rate=6.5' => 'https://tool4saas.com/home-affordability-calculator',
+            '/cron-parser?cron=0+0+*+*+*' => 'https://tool4saas.com/cron-parser',
+            '/color-converter?hex=%239fe870' => 'https://tool4saas.com/color-converter',
+            '/regex-tester?pattern=%5Ba-z%5D%2B' => 'https://tool4saas.com/regex-tester',
         ];
 
         foreach ($routes as $url => $canonical) {
