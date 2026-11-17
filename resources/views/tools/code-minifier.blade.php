@@ -1,5 +1,56 @@
-<x-tool-paper x-data="codeMinifier()">
-    <div class="space-y-6">
+<x-tool-paper>
+    <div class="space-y-6" x-data="{
+        input: 'function calculateTotal(price, taxRate) {\n  // calculate sales tax and total\n  const tax = price * (taxRate / 100);\n  const total = price + tax;\n  return {\n    subtotal: price,\n    tax: tax,\n    grandTotal: total\n  };\n}',
+        output: '',
+        mode: 'minify',
+        lang: 'js',
+        copied: false,
+        process() {
+            if (!this.input.trim()) {
+                this.output = '';
+                return;
+            }
+            if (this.mode === 'minify') {
+                let code = this.input.replace(/\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*$/gm, '$1');
+                code = code.replace(/\s+/g, ' ');
+                code = code.replace(/\s*([{};:(),[\]=+\-*\/<>])\s*/g, '$1');
+                this.output = code.trim();
+            } else {
+                let indent = 0;
+                const lines = this.input.replace(/\r\n/g, '\n').replace(/\s*{\s*/g, ' {\n').replace(/\s*}\s*/g, '\n}\n').replace(/\s*;\s*/g, ';\n').trim().split('\n');
+                const res = [];
+                for (let raw of lines) {
+                    let l = raw.trim();
+                    if (!l) continue;
+                    if (l.startsWith('}')) indent = Math.max(0, indent - 1);
+                    res.push('  '.repeat(indent) + l);
+                    if (l.endsWith('{')) indent++;
+                }
+                this.output = res.join('\n');
+            }
+        },
+        init() {
+            this.process();
+        },
+        get savings() {
+            if (!this.input.length || !this.output.length) return 0;
+            return Math.max(0, Math.round((1 - (this.output.length / this.input.length)) * 100));
+        },
+        copy() {
+            if (!this.output) return;
+            navigator.clipboard.writeText(this.output);
+            this.copied = true;
+            setTimeout(() => this.copied = false, 2000);
+        },
+        download() {
+            if (!this.output) return;
+            const blob = new Blob([this.output], { type: 'text/plain;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'minified.txt';
+            a.click();
+        }
+    }">
         <div class="flex items-center gap-2 p-1.5 rounded-full bg-base-200 border border-base-300 w-fit">
             <button
                 type="button"
@@ -120,60 +171,3 @@
         </div>
     </div>
 </x-tool-paper>
-
-<script>
-document.addEventListener('alpine:init', () => {
-    Alpine.data('codeMinifier', () => ({
-        input: 'function calculateTotal(price, taxRate) {\n  // calculate sales tax and total\n  const tax = price * (taxRate / 100);\n  const total = price + tax;\n  return {\n    subtotal: price,\n    tax: tax,\n    grandTotal: total\n  };\n}',
-        output: '',
-        mode: 'minify',
-        lang: 'js',
-        copied: false,
-        process() {
-            if (!this.input.trim()) {
-                this.output = '';
-                return;
-            }
-            if (this.mode === 'minify') {
-                let code = this.input.replace(/\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*$/gm, '$1');
-                code = code.replace(/\s+/g, ' ');
-                code = code.replace(/\s*([{};:(),[\]=+\-*\/<>])\s*/g, '$1');
-                this.output = code.trim();
-            } else {
-                let indent = 0;
-                const lines = this.input.replace(/\r\n/g, '\n').replace(/\s*{\s*/g, ' {\n').replace(/\s*}\s*/g, '\n}\n').replace(/\s*;\s*/g, ';\n').trim().split('\n');
-                const res = [];
-                for (let raw of lines) {
-                    let l = raw.trim();
-                    if (!l) continue;
-                    if (l.startsWith('}')) indent = Math.max(0, indent - 1);
-                    res.push('  '.repeat(indent) + l);
-                    if (l.endsWith('{')) indent++;
-                }
-                this.output = res.join('\n');
-            }
-        },
-        init() {
-            this.process();
-        },
-        get savings() {
-            if (!this.input.length || !this.output.length) return 0;
-            return Math.max(0, Math.round((1 - (this.output.length / this.input.length)) * 100));
-        },
-        copy() {
-            if (!this.output) return;
-            navigator.clipboard.writeText(this.output);
-            this.copied = true;
-            setTimeout(() => this.copied = false, 2000);
-        },
-        download() {
-            if (!this.output) return;
-            const blob = new Blob([this.output], { type: 'text/plain;charset=utf-8' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'minified.txt';
-            a.click();
-        }
-    }));
-});
-</script>

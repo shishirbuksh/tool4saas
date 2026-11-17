@@ -1,5 +1,70 @@
-<x-tool-paper x-data="markdownEditor()">
-    <div class="space-y-4">
+<x-tool-paper>
+    <div class="space-y-4" x-data="{
+        tab: 'split',
+        copied: false,
+        copiedHtml: false,
+        content: `# Welcome to Tool4SaaS Markdown Editor\n\nWrite, preview, and export clean documentation with zero data egress.\n\n## Core Features\n- **Deterministic**: 100% client-side conversion\n- *Instant Preview*: Real-time side-by-side editing\n- \`Code highlights\`: Monospace formatting for technical docs\n\n> Local-first architecture guarantees confidential contracts, notes, and memos never touch external servers.\n\n### Code Sample\n\`\`\`javascript\nfunction calculatePrivacy() {\n    return '100% local in-browser memory';\n}\n\`\`\`\n\n- [x] Fast response times\n- [x] Zero network overhead\n- [ ] Export to HTML or Markdown`,
+        get renderedHtml() {
+            let md = this.content || '';
+            const codeBlocks = [];
+            md = md.replace(/```([\s\S]*?)```/g, (_, code) => {
+                const idx = codeBlocks.length;
+                const esc = code.trim().replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                codeBlocks.push('<pre class=\"p-4 rounded-2xl bg-[#0e0f0c] text-white font-mono text-xs overflow-x-auto my-3 border border-[#242a20]\"><code>' + esc + '</code></pre>');
+                return '@@CODEBLOCK_' + idx + '@@';
+            });
+
+            let esc = md.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            esc = esc.replace(/^(#{1,6})\s+(.+)$/gm, (_, hashes, c) => '<h' + hashes.length + ' class=\"font-display font-black text-base-content mt-4 mb-2\">' + c.trim() + '</h' + hashes.length + '>');
+            esc = esc.replace(/^&gt;\s?(.*)$/gm, '<blockquote class=\"border-l-4 border-primary pl-4 py-1 italic my-3 text-base-content/80\">$1</blockquote>');
+            esc = esc.replace(/^[ \t]*[-*]\s+(.+)$/gm, '<li class=\"ml-4 list-disc text-sm\">$1</li>');
+            esc = esc.replace(/`([^`]+?)`/g, '<code class=\"px-1.5 py-0.5 rounded bg-base-200 text-xs font-mono text-primary\">$1</code>');
+            esc = esc.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            esc = esc.replace(/\*([^*]+?)\*/g, '<em>$1</em>');
+            esc = esc.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href=\"$2\" target=\"_blank\" rel=\"noopener\" class=\"text-primary font-bold underline\">$1</a>');
+
+            let paragraphs = esc.split(/\n{2,}/).map(b => {
+                b = b.trim();
+                if (!b) return '';
+                if (/^<(h[1-6]|blockquote|pre|li)/.test(b)) return b;
+                return '<p class=\"text-sm leading-relaxed mb-3 text-base-content/90\">' + b.replace(/\n/g, '<br>') + '</p>';
+            }).join('\n');
+
+            codeBlocks.forEach((block, idx) => {
+                paragraphs = paragraphs.replace('@@CODEBLOCK_' + idx + '@@', block);
+            });
+            return paragraphs;
+        },
+        insert(before, after = '') {
+            const ta = this.$refs.textarea;
+            if (!ta) return;
+            const start = ta.selectionStart;
+            const end = ta.selectionEnd;
+            const text = ta.value;
+            const sel = text.substring(start, end);
+            ta.value = text.substring(0, start) + before + sel + after + text.substring(end);
+            this.content = ta.value;
+            ta.focus();
+            ta.setSelectionRange(start + before.length, end + before.length);
+        },
+        copyMd() {
+            navigator.clipboard.writeText(this.content);
+            this.copied = true;
+            setTimeout(() => this.copied = false, 2000);
+        },
+        copyHtml() {
+            navigator.clipboard.writeText(this.renderedHtml);
+            this.copiedHtml = true;
+            setTimeout(() => this.copiedHtml = false, 2000);
+        },
+        downloadMd() {
+            const blob = new Blob([this.content], { type: 'text/markdown;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'document.md';
+            a.click();
+        }
+    }">
         {{-- Toolbar --}}
         <div class="flex flex-wrap items-center justify-between gap-3 p-2 rounded-2xl bg-base-200 border border-base-300">
             <div class="flex flex-wrap items-center gap-1">
@@ -114,74 +179,3 @@
         </div>
     </div>
 </x-tool-paper>
-
-<script>
-document.addEventListener('alpine:init', () => {
-    Alpine.data('markdownEditor', () => ({
-        tab: 'split',
-        copied: false,
-        copiedHtml: false,
-        content: `# Welcome to Tool4SaaS Markdown Editor\n\nWrite, preview, and export clean documentation with zero data egress.\n\n## Core Features\n- **Deterministic**: 100% client-side conversion\n- *Instant Preview*: Real-time side-by-side editing\n- \`Code highlights\`: Monospace formatting for technical docs\n\n> Local-first architecture guarantees confidential contracts, notes, and memos never touch external servers.\n\n### Code Sample\n\`\`\`javascript\nfunction calculatePrivacy() {\n    return '100% local in-browser memory';\n}\n\`\`\`\n\n- [x] Fast response times\n- [x] Zero network overhead\n- [ ] Export to HTML or Markdown`,
-        get renderedHtml() {
-            let md = this.content || '';
-            const codeBlocks = [];
-            md = md.replace(/```([\s\S]*?)```/g, (_, code) => {
-                const idx = codeBlocks.length;
-                const esc = code.trim().replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                codeBlocks.push('<pre class="p-4 rounded-2xl bg-[#0e0f0c] text-white font-mono text-xs overflow-x-auto my-3 border border-[#242a20]"><code>' + esc + '</code></pre>');
-                return '@@CODEBLOCK_' + idx + '@@';
-            });
-
-            let esc = md.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            esc = esc.replace(/^(#{1,6})\s+(.+)$/gm, (_, hashes, c) => '<h' + hashes.length + ' class="font-display font-black text-base-content mt-4 mb-2">' + c.trim() + '</h' + hashes.length + '>');
-            esc = esc.replace(/^&gt;\s?(.*)$/gm, '<blockquote class="border-l-4 border-primary pl-4 py-1 italic my-3 text-base-content/80">$1</blockquote>');
-            esc = esc.replace(/^[ \t]*[-*]\s+(.+)$/gm, '<li class="ml-4 list-disc text-sm">$1</li>');
-            esc = esc.replace(/`([^`]+?)`/g, '<code class="px-1.5 py-0.5 rounded bg-base-200 text-xs font-mono text-primary">$1</code>');
-            esc = esc.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-            esc = esc.replace(/\*([^*]+?)\*/g, '<em>$1</em>');
-            esc = esc.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="text-primary font-bold underline">$1</a>');
-
-            let paragraphs = esc.split(/\n{2,}/).map(b => {
-                b = b.trim();
-                if (!b) return '';
-                if (/^<(h[1-6]|blockquote|pre|li)/.test(b)) return b;
-                return '<p class="text-sm leading-relaxed mb-3 text-base-content/90">' + b.replace(/\n/g, '<br>') + '</p>';
-            }).join('\n');
-
-            codeBlocks.forEach((block, idx) => {
-                paragraphs = paragraphs.replace('@@CODEBLOCK_' + idx + '@@', block);
-            });
-            return paragraphs;
-        },
-        insert(before, after = '') {
-            const ta = this.$refs.textarea;
-            if (!ta) return;
-            const start = ta.selectionStart;
-            const end = ta.selectionEnd;
-            const text = ta.value;
-            const sel = text.substring(start, end);
-            ta.value = text.substring(0, start) + before + sel + after + text.substring(end);
-            this.content = ta.value;
-            ta.focus();
-            ta.setSelectionRange(start + before.length, end + before.length);
-        },
-        copyMd() {
-            navigator.clipboard.writeText(this.content);
-            this.copied = true;
-            setTimeout(() => this.copied = false, 2000);
-        },
-        copyHtml() {
-            navigator.clipboard.writeText(this.renderedHtml);
-            this.copiedHtml = true;
-            setTimeout(() => this.copiedHtml = false, 2000);
-        },
-        downloadMd() {
-            const blob = new Blob([this.content], { type: 'text/markdown;charset=utf-8' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'document.md';
-            a.click();
-        }
-    }));
-});
-</script>

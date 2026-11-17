@@ -1,5 +1,29 @@
-<x-card class="p-6 md:p-8" x-data="grammarChecker()">
-    <div class="space-y-6">
+<x-card class="p-6 md:p-8">
+    <div class="space-y-6" x-data="{
+        text: '',
+        get issues() {
+            if (!this.text) return [];
+            const list = [];
+            const ds = this.text.match(/ {2,}/g);
+            if (ds) list.push({ type: 'Spacing', message: 'Found ' + ds.length + ' instance(s) of double spaces.' });
+            const rw = this.text.match(/\b(\w+)\s+\1\b/gi);
+            if (rw) list.push({ type: 'Repeated Words', message: 'Repeated duplicate word(s) detected: ' + rw.join(', ') });
+            const mc = this.text.match(/\.\s+[a-z]/g);
+            if (mc) list.push({ type: 'Capitalization', message: 'Lowercase letter found immediately following a period.' });
+            if (/\bteh\b/i.test(this.text)) list.push({ type: 'Typo', message: 'Typo detected: \"teh\" should be \"the\"' });
+            if (/\brecieve\b/i.test(this.text)) list.push({ type: 'Typo', message: 'Typo detected: \"recieve\" should be \"receive\"' });
+            return list;
+        },
+        fixAll() {
+            let t = this.text;
+            t = t.replace(/ {2,}/g, ' ');
+            t = t.replace(/\b(\w+)\s+\1\b/gi, '$1');
+            t = t.replace(/\.\s+([a-z])/g, (m, c) => '. ' + c.toUpperCase());
+            t = t.replace(/\bteh\b/gi, 'the');
+            t = t.replace(/\brecieve\b/gi, 'receive');
+            this.text = t;
+        }
+    }">
         <div>
             <div class="flex justify-between items-center mb-2">
                 <label class="text-sm font-bold uppercase tracking-wider text-[#163300] dark:text-[#9fe870]">
@@ -94,33 +118,3 @@
         </div>
     </div>
 </x-card>
-
-<script>
-document.addEventListener('alpine:init', () => {
-    Alpine.data('grammarChecker', () => ({
-        text: '',
-        get issues() {
-            if (!this.text) return [];
-            const list = [];
-            const ds = this.text.match(/ {2,}/g);
-            if (ds) list.push({ type: 'Spacing', message: 'Found ' + ds.length + ' instance(s) of double spaces.' });
-            const rw = this.text.match(/\b(\w+)\s+\1\b/gi);
-            if (rw) list.push({ type: 'Repeated Words', message: 'Repeated duplicate word(s) detected: ' + rw.join(', ') });
-            const mc = this.text.match(/\.\s+[a-z]/g);
-            if (mc) list.push({ type: 'Capitalization', message: 'Lowercase letter found immediately following a period.' });
-            if (/\bteh\b/i.test(this.text)) list.push({ type: 'Typo', message: 'Typo detected: "teh" should be "the"' });
-            if (/\brecieve\b/i.test(this.text)) list.push({ type: 'Typo', message: 'Typo detected: "recieve" should be "receive"' });
-            return list;
-        },
-        fixAll() {
-            let t = this.text;
-            t = t.replace(/ {2,}/g, ' ');
-            t = t.replace(/\b(\w+)\s+\1\b/gi, '$1');
-            t = t.replace(/\.\s+([a-z])/g, (m, c) => '. ' + c.toUpperCase());
-            t = t.replace(/\bteh\b/gi, 'the');
-            t = t.replace(/\brecieve\b/gi, 'receive');
-            this.text = t;
-        }
-    }));
-});
-</script>

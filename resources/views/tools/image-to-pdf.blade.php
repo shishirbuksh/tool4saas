@@ -1,5 +1,41 @@
-<x-card class="p-6 md:p-8" x-data="imageToPdf()">
-    <div class="space-y-6">
+<x-card class="p-6 md:p-8">
+    <div class="space-y-6" x-data="{
+        images: [],
+        busy: false,
+        onFiles(e) {
+            const files = Array.from(e.target.files);
+            files.forEach(f => {
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    this.images.push({ name: f.name, dataUrl: ev.target.result });
+                };
+                reader.readAsDataURL(f);
+            });
+        },
+        downloadPdf() {
+            if (!this.images.length) return;
+            this.busy = true;
+            try {
+                const printWindow = window.open('', '_blank');
+                if (printWindow) {
+                    let html = '<html><head><title>Document PDF</title><style>@page{margin:0;} body{margin:0;padding:20px;text-align:center;} img{max-width:100%;max-height:95vh;page-break-after:always;display:block;margin:0 auto 20px;}</style></head><body>';
+                    this.images.forEach(img => {
+                        html += '<img src=\"' + img.dataUrl + '\" />';
+                    });
+                    html += '</body></html>';
+                    printWindow.document.write(html);
+                    printWindow.document.close();
+                    printWindow.focus();
+                    setTimeout(() => {
+                        printWindow.print();
+                    }, 500);
+                }
+            } catch(e) {
+                alert('PDF creation error: ' + e.message);
+            }
+            this.busy = false;
+        }
+    }">
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">
             <input type="file" accept="image/*" multiple @change="onFiles($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
             <p class="text-xs text-base-content/60 mt-3">Select one or multiple images to compile into a downloadable PDF document.</p>
@@ -76,45 +112,3 @@
         </div>
     </div>
 </x-card>
-
-<script>
-document.addEventListener('alpine:init', () => {
-    Alpine.data('imageToPdf', () => ({
-        images: [],
-        busy: false,
-        onFiles(e) {
-            const files = Array.from(e.target.files);
-            files.forEach(f => {
-                const reader = new FileReader();
-                reader.onload = (ev) => {
-                    this.images.push({ name: f.name, dataUrl: ev.target.result });
-                };
-                reader.readAsDataURL(f);
-            });
-        },
-        downloadPdf() {
-            if (!this.images.length) return;
-            this.busy = true;
-            try {
-                const printWindow = window.open('', '_blank');
-                if (printWindow) {
-                    let html = '<html><head><title>Document PDF</title><style>@page{margin:0;} body{margin:0;padding:20px;text-align:center;} img{max-width:100%;max-height:95vh;page-break-after:always;display:block;margin:0 auto 20px;}</style></head><body>';
-                    this.images.forEach(img => {
-                        html += '<img src="' + img.dataUrl + '" />';
-                    });
-                    html += '</body></html>';
-                    printWindow.document.write(html);
-                    printWindow.document.close();
-                    printWindow.focus();
-                    setTimeout(() => {
-                        printWindow.print();
-                    }, 500);
-                }
-            } catch(e) {
-                alert('PDF creation error: ' + e.message);
-            }
-            this.busy = false;
-        }
-    }));
-});
-</script>

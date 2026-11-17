@@ -33,7 +33,7 @@
     </noscript>
 
     {{-- Google AdSense Publisher Verification --}}
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6310719489589992" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6310719489589992" crossorigin="anonymous" nonce="{{ request()->attributes->get('csp_nonce') }}"></script>
 
     @stack('seo')
 

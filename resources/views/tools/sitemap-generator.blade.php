@@ -1,5 +1,40 @@
-<x-card class="p-6 md:p-8" x-data="sitemapGenerator()">
-    <div class="space-y-6">
+<x-card class="p-6 md:p-8">
+    <div class="space-y-6" x-data="{
+        urls: 'https://tool4saas.com/\nhttps://tool4saas.com/about\nhttps://tool4saas.com/contact',
+        changefreq: 'weekly',
+        priority: '0.8',
+        copied: false,
+        get xml() {
+            if (!this.urls.trim()) return '';
+            const list = this.urls.split('\n').map(u => u.trim()).filter(Boolean);
+            const today = new Date().toISOString().split('T')[0];
+            let out = '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n';
+            out += '<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n';
+            list.forEach(u => {
+                out += '  <url>\n';
+                out += '    <loc>' + u + '</loc>\n';
+                out += '    <lastmod>' + today + '</lastmod>\n';
+                out += '    <changefreq>' + this.changefreq + '</changefreq>\n';
+                out += '    <priority>' + this.priority + '</priority>\n';
+                out += '  </url>\n';
+            });
+            out += '</urlset>';
+            return out;
+        },
+        copy() {
+            navigator.clipboard.writeText(this.xml);
+            this.copied = true;
+            setTimeout(() => this.copied = false, 2000);
+        },
+        download() {
+            const blob = new Blob([this.xml], { type: 'application/xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sitemap.xml';
+            a.click();
+        }
+    }">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Enter URLs (One per line)</label>
             <textarea
@@ -100,44 +135,3 @@
         </div>
     </div>
 </x-card>
-
-<script>
-document.addEventListener('alpine:init', () => {
-    Alpine.data('sitemapGenerator', () => ({
-        urls: 'https://tool4saas.com/\nhttps://tool4saas.com/about\nhttps://tool4saas.com/contact',
-        changefreq: 'weekly',
-        priority: '0.8',
-        copied: false,
-        get xml() {
-            if (!this.urls.trim()) return '';
-            const list = this.urls.split('\n').map(u => u.trim()).filter(Boolean);
-            const today = new Date().toISOString().split('T')[0];
-            let out = '<?xml version="1.0" encoding="UTF-8"?>\n';
-            out += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-            list.forEach(u => {
-                out += '  <url>\n';
-                out += '    <loc>' + u + '</loc>\n';
-                out += '    <lastmod>' + today + '</lastmod>\n';
-                out += '    <changefreq>' + this.changefreq + '</changefreq>\n';
-                out += '    <priority>' + this.priority + '</priority>\n';
-                out += '  </url>\n';
-            });
-            out += '</urlset>';
-            return out;
-        },
-        copy() {
-            navigator.clipboard.writeText(this.xml);
-            this.copied = true;
-            setTimeout(() => this.copied = false, 2000);
-        },
-        download() {
-            const blob = new Blob([this.xml], { type: 'application/xml' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'sitemap.xml';
-            a.click();
-        }
-    }));
-});
-</script>

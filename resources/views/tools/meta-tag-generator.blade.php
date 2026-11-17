@@ -1,5 +1,36 @@
-<x-tool-paper x-data="metaTagGenerator()">
-    <div class="space-y-6">
+<x-tool-paper>
+    <div class="space-y-6" x-data="{
+        title: 'Free Online Developer & SEO Tools | Tool4SaaS',
+        description: 'Fast, private, client-side tools for web developers, designers, and digital marketers. Zero tracking, zero server egress.',
+        url: 'https://tool4saas.com',
+        image: 'https://tool4saas.com/og/home.png',
+        type: 'website',
+        copied: false,
+        get generatedTags() {
+            return '<!-- Primary Meta Tags -->\n' +
+'<title>' + this.title + '</title>\n' +
+'<meta name=\"title\" content=\"' + this.title + '\">\n' +
+'<meta name=\"description\" content=\"' + this.description + '\">\n' +
+'<link rel=\"canonical\" href=\"' + this.url + '\">\n\n' +
+'<!-- Open Graph / Facebook -->\n' +
+'<meta property=\"og:type\" content=\"' + this.type + '\">\n' +
+'<meta property=\"og:url\" content=\"' + this.url + '\">\n' +
+'<meta property=\"og:title\" content=\"' + this.title + '\">\n' +
+'<meta property=\"og:description\" content=\"' + this.description + '\">\n' +
+'<meta property=\"og:image\" content=\"' + this.image + '\">\n\n' +
+'<!-- Twitter -->\n' +
+'<meta name=\"twitter:card\" content=\"summary_large_image\">\n' +
+'<meta name=\"twitter:url\" content=\"' + this.url + '\">\n' +
+'<meta name=\"twitter:title\" content=\"' + this.title + '\">\n' +
+'<meta name=\"twitter:description\" content=\"' + this.description + '\">\n' +
+'<meta name=\"twitter:image\" content=\"' + this.image + '\">';
+        },
+        copy() {
+            navigator.clipboard.writeText(this.generatedTags);
+            this.copied = true;
+            setTimeout(() => this.copied = false, 2000);
+        }
+    }">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="sm:col-span-2">
                 <div class="flex items-center justify-between mb-1">
@@ -129,40 +160,3 @@
         </div>
     </div>
 </x-tool-paper>
-
-<script>
-document.addEventListener('alpine:init', () => {
-    Alpine.data('metaTagGenerator', () => ({
-        title: 'Free Online Developer & SEO Tools | Tool4SaaS',
-        description: 'Fast, private, client-side tools for web developers, designers, and digital marketers. Zero tracking, zero server egress.',
-        url: 'https://tool4saas.com',
-        image: 'https://tool4saas.com/og/home.png',
-        type: 'website',
-        copied: false,
-        get generatedTags() {
-            return '<!-- Primary Meta Tags -->\n' +
-'<title>' + this.title + '</title>\n' +
-'<meta name="title" content="' + this.title + '">\n' +
-'<meta name="description" content="' + this.description + '">\n' +
-'<link rel="canonical" href="' + this.url + '">\n\n' +
-'<!-- Open Graph / Facebook -->\n' +
-'<meta property="og:type" content="' + this.type + '">\n' +
-'<meta property="og:url" content="' + this.url + '">\n' +
-'<meta property="og:title" content="' + this.title + '">\n' +
-'<meta property="og:description" content="' + this.description + '">\n' +
-'<meta property="og:image" content="' + this.image + '">\n\n' +
-'<!-- Twitter -->\n' +
-'<meta name="twitter:card" content="summary_large_image">\n' +
-'<meta name="twitter:url" content="' + this.url + '">\n' +
-'<meta name="twitter:title" content="' + this.title + '">\n' +
-'<meta name="twitter:description" content="' + this.description + '">\n' +
-'<meta name="twitter:image" content="' + this.image + '">';
-        },
-        copy() {
-            navigator.clipboard.writeText(this.generatedTags);
-            this.copied = true;
-            setTimeout(() => this.copied = false, 2000);
-        }
-    }));
-});
-</script>
