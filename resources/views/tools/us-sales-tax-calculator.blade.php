@@ -7,6 +7,30 @@
         'Illinois': 6.25, 'Pennsylvania': 6.0, 'Ohio': 5.75, 'Georgia': 4.0,
         'North Carolina': 4.75, 'Michigan': 6.0, 'Washington': 6.5, 'Other': 6.0
     },
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('subtotal') || params.has('price')) {
+            const val = parseFloat(params.get('subtotal') || params.get('price'));
+            if (!isNaN(val) && val >= 0) this.subtotal = val;
+        }
+        if (params.has('state')) {
+            const st = params.get('state');
+            if (this.rates[st]) {
+                this.state = st;
+                this.updateState();
+            }
+        }
+        if (params.has('rate')) {
+            const r = parseFloat(params.get('rate'));
+            if (!isNaN(r) && r >= 0) this.rate = r;
+        }
+    },
+    setState(st) {
+        if (this.rates[st]) {
+            this.state = st;
+            this.updateState();
+        }
+    },
     updateState() {
         this.rate = this.rates[this.state] || 6.0;
     },
@@ -20,6 +44,18 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick State Presets --}}
+        <div>
+            <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Popular US States</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setState('California')" :class="state === 'California' ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">California (7.25%)</button>
+                <button type="button" @click="setState('Texas')" :class="state === 'Texas' ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">Texas (6.25%)</button>
+                <button type="button" @click="setState('New York')" :class="state === 'New York' ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">New York (4.0%)</button>
+                <button type="button" @click="setState('Florida')" :class="state === 'Florida' ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">Florida (6.0%)</button>
+                <button type="button" @click="setState('Washington')" :class="state === 'Washington' ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80 hover:bg-base-300'" class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all">Washington (6.5%)</button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Purchase Subtotal ($)</label>

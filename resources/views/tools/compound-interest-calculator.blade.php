@@ -5,6 +5,38 @@
     freq: 12,
     currency: 'USD',
     currencySymbol: '$',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('principal')) {
+            const p = parseFloat(params.get('principal'));
+            if (!isNaN(p) && p > 0) this.principal = p;
+        }
+        if (params.has('rate')) {
+            const r = parseFloat(params.get('rate'));
+            if (!isNaN(r) && r >= 0) this.rate = r;
+        }
+        if (params.has('years')) {
+            const y = parseFloat(params.get('years'));
+            if (!isNaN(y) && y > 0) this.years = y;
+        }
+        if (params.has('freq')) {
+            const f = parseInt(params.get('freq'), 10);
+            if ([1, 2, 4, 12, 365].includes(f)) this.freq = f;
+        }
+        if (params.has('currency')) {
+            const c = params.get('currency');
+            if (['USD', 'EUR', 'GBP', 'INR', '$', '€', '£', '₹'].includes(c)) {
+                const syms = { 'USD': '$', 'EUR': '€', 'GBP': '£', 'INR': '₹', '$': '$', '€': '€', '£': '£', '₹': '₹' };
+                this.currencySymbol = syms[c] || '$';
+            }
+        }
+    },
+    setPreset(p, r, y, f) {
+        this.principal = p;
+        this.rate = r;
+        this.years = y;
+        this.freq = f;
+    },
     get totalAmount() {
         const p = Math.max(0, parseFloat(this.principal) || 0);
         const r = Math.max(0, parseFloat(this.rate) || 0) / 100;
@@ -23,6 +55,17 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Compounding Presets --}}
+        <div>
+            <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Popular Investment Horizons</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(10000, 8.0, 10, 12)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all"><span x-text="currencySymbol"></span>10k @ 8% for 10 Yrs (Index Fund)</button>
+                <button type="button" @click="setPreset(25000, 5.0, 5, 12)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all"><span x-text="currencySymbol"></span>25k @ 5% for 5 Yrs (HYSA / CD)</button>
+                <button type="button" @click="setPreset(50000, 10.0, 20, 12)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all"><span x-text="currencySymbol"></span>50k @ 10% for 20 Yrs (Retirement)</button>
+                <button type="button" @click="setPreset(100000, 10.0, 30, 12)" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all"><span x-text="currencySymbol"></span>100k @ 10% for 30 Yrs (Wealth Compound)</button>
+            </div>
+        </div>
+
         {{-- Inputs Grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <x-numeric-field label="Principal Deposit" model="principal" prefix="$" placeholder="10000" />

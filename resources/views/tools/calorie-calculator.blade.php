@@ -4,6 +4,28 @@
     weight: 70,
     height: 175,
     activity: 1.375,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('age')) {
+            const a = parseInt(params.get('age'), 10);
+            if (!isNaN(a) && a > 10 && a < 120) this.age = a;
+        }
+        if (params.has('sex') && ['male', 'female'].includes(params.get('sex'))) {
+            this.sex = params.get('sex');
+        }
+        if (params.has('weight')) {
+            const w = parseFloat(params.get('weight'));
+            if (!isNaN(w) && w > 20 && w < 300) this.weight = w;
+        }
+        if (params.has('height')) {
+            const h = parseFloat(params.get('height'));
+            if (!isNaN(h) && h > 50 && h < 260) this.height = h;
+        }
+        if (params.has('activity')) {
+            const act = parseFloat(params.get('activity'));
+            if (!isNaN(act) && act >= 1.2 && act <= 2.0) this.activity = act;
+        }
+    },
     get bmr() {
         const a = parseInt(this.age, 10) || 0;
         const w = parseFloat(this.weight) || 0;
@@ -35,6 +57,16 @@
             >
                 Female
             </button>
+        </div>
+
+        {{-- Quick Benchmark Profiles --}}
+        <div>
+            <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">1-Click Benchmark Profiles</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="sex = 'male'; age = 28; weight = 75; height = 178; activity = 1.375" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Average Adult Male (75kg, 178cm)</button>
+                <button type="button" @click="sex = 'female'; age = 28; weight = 62; height = 165; activity = 1.375" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Average Adult Female (62kg, 165cm)</button>
+                <button type="button" @click="activity = 1.55" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Gym Goer (3-5 days/wk)</button>
+            </div>
         </div>
 
         {{-- Metrics Grid --}}

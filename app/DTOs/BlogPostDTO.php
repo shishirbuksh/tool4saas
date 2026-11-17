@@ -86,7 +86,7 @@ final readonly class BlogPostDTO
         $presets = [
             'sip-5000-10-years' => '/sip-calculator?monthly=5000&years=10&rate=12&currency=₹',
             'sip-1-crore-goal' => '/sip-calculator?monthly=10000&years=15&rate=12&currency=₹',
-            'monthly-vs-yearly-compounding' => '/compound-interest-calculator',
+            'monthly-vs-yearly-compounding' => '/compound-interest-calculator?principal=10000&rate=8&years=10&freq=12',
             'tip-calculator-bill-split' => '/tip-calculator?bill=100&tip=18&people=4',
             'discount-and-sale-price' => '/discount-calculator?price=120&discount=25&tax=8',
             'percent-of-a-number' => '/percentage-calculator?rate=20&base=150',
@@ -131,13 +131,14 @@ final readonly class BlogPostDTO
             'percentage-to-gpa' => '/gpa-calculator',
             'snowball-vs-avalanche' => '/debt-payoff-calculator?balance=15000&rate=18&payment=500',
             'how-to-pay-off-credit-card-debt' => '/debt-payoff-calculator?balance=10000&rate=19.9&payment=350',
-            'calorie-deficit-for-weight-loss' => '/calorie-calculator',
-            'daily-water-intake' => '/water-intake-calculator',
-            'how-bmi-is-calculated' => '/bmi-calculator',
-            'bmi-for-women' => '/bmi-calculator',
-            'bmi-for-men' => '/bmi-calculator',
+            'calorie-deficit-for-weight-loss' => '/calorie-calculator?age=28&sex=male&weight=75&height=178',
+            'daily-water-intake' => '/water-intake-calculator?weight=70&unit=kg',
+            'how-bmi-is-calculated' => '/bmi-calculator?unit=metric&height=175&weight=70',
+            'bmi-for-women' => '/bmi-calculator?unit=metric&height=165&weight=62',
+            'bmi-for-men' => '/bmi-calculator?unit=metric&height=178&weight=75',
             'how-to-calculate-age' => '/age-calculator?dob=2000-01-01',
             'age-in-days-hours-minutes' => '/age-calculator?dob=1995-06-15',
+            'sales-tax-on-a-price' => '/us-sales-tax-calculator?state=California&subtotal=100',
         ];
 
         return $presets[$this->slug] ?? "/{$mainTool}";

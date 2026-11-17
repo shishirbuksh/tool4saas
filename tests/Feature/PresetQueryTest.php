@@ -28,6 +28,11 @@ final class PresetQueryTest extends TestCase
             '/profit-margin-calculator?cost=50&revenue=120' => 'https://tool4saas.com/profit-margin-calculator',
             '/debt-payoff-calculator?balance=15000&rate=18&payment=500' => 'https://tool4saas.com/debt-payoff-calculator',
             '/age-calculator?dob=2000-01-01' => 'https://tool4saas.com/age-calculator',
+            '/calorie-calculator?age=28&sex=male&weight=75&height=178' => 'https://tool4saas.com/calorie-calculator',
+            '/water-intake-calculator?weight=70&unit=kg' => 'https://tool4saas.com/water-intake-calculator',
+            '/bmi-calculator?unit=metric&height=175&weight=70' => 'https://tool4saas.com/bmi-calculator',
+            '/compound-interest-calculator?principal=10000&rate=8&years=10&freq=12' => 'https://tool4saas.com/compound-interest-calculator',
+            '/us-sales-tax-calculator?state=California&subtotal=100' => 'https://tool4saas.com/us-sales-tax-calculator',
         ];
 
         foreach ($routes as $url => $canonical) {

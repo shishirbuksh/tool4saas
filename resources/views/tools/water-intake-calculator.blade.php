@@ -3,6 +3,26 @@
     unit: 'kg',
     activity: 'moderate',
     climate: 'normal',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('weight')) {
+            const w = parseFloat(params.get('weight'));
+            if (!isNaN(w) && w > 10 && w < 300) this.weight = w;
+        }
+        if (params.has('unit') && ['kg', 'lb'].includes(params.get('unit'))) {
+            this.unit = params.get('unit');
+        }
+        if (params.has('activity') && ['sedentary', 'moderate', 'active'].includes(params.get('activity'))) {
+            this.activity = params.get('activity');
+        }
+        if (params.has('climate') && ['normal', 'hot'].includes(params.get('climate'))) {
+            this.climate = params.get('climate');
+        }
+    },
+    setWeightPreset(w, u) {
+        this.weight = w;
+        this.unit = u;
+    },
     get weightKg() {
         const w = parseFloat(this.weight) || 0;
         return this.unit === 'kg' ? w : w * 0.453592;
@@ -23,6 +43,18 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Weight Presets --}}
+        <div>
+            <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Common Body Weights</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setWeightPreset(55, 'kg')" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">55 kg (121 lbs)</button>
+                <button type="button" @click="setWeightPreset(65, 'kg')" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">65 kg (143 lbs)</button>
+                <button type="button" @click="setWeightPreset(75, 'kg')" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">75 kg (165 lbs)</button>
+                <button type="button" @click="setWeightPreset(85, 'kg')" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">85 kg (187 lbs)</button>
+                <button type="button" @click="setWeightPreset(95, 'kg')" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">95 kg (209 lbs)</button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <x-numeric-field label="Body Weight" model="weight" suffix="kg" step="1" placeholder="70" />
             <div class="form-control">

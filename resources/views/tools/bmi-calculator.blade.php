@@ -6,6 +6,26 @@
     // Imperial
     weightLbs: 154,
     heightInches: 69,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('unit') && ['metric', 'imperial'].includes(params.get('unit'))) {
+            this.unit = params.get('unit');
+        }
+        if (params.has('weight')) {
+            const w = parseFloat(params.get('weight'));
+            if (!isNaN(w) && w > 0) {
+                if (this.unit === 'metric') this.weightKg = w;
+                else this.weightLbs = w;
+            }
+        }
+        if (params.has('height')) {
+            const h = parseFloat(params.get('height'));
+            if (!isNaN(h) && h > 0) {
+                if (this.unit === 'metric') this.heightCm = h;
+                else this.heightInches = h;
+            }
+        }
+    },
     get bmi() {
         if (this.unit === 'metric') {
             const h = parseFloat(this.heightCm) || 0;
@@ -74,6 +94,26 @@
     <div x-show="unit === 'imperial'" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8" style="display: none;">
         <x-numeric-field label="Height" model="heightInches" suffix="inches" placeholder="69" />
         <x-numeric-field label="Weight" model="weightLbs" suffix="lbs" placeholder="154" />
+    </div>
+
+    {{-- Quick Height Benchmarks --}}
+    <div class="mb-8">
+        <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Quick Height Benchmarks</span>
+        <div x-show="unit === 'metric'" class="flex flex-wrap gap-2">
+            <button type="button" @click="heightCm = 160" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">160 cm</button>
+            <button type="button" @click="heightCm = 165" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">165 cm</button>
+            <button type="button" @click="heightCm = 170" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">170 cm</button>
+            <button type="button" @click="heightCm = 175" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">175 cm</button>
+            <button type="button" @click="heightCm = 180" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">180 cm</button>
+            <button type="button" @click="heightCm = 185" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">185 cm</button>
+        </div>
+        <div x-show="unit === 'imperial'" class="flex flex-wrap gap-2" style="display: none;">
+            <button type="button" @click="heightInches = 64" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">5'4" (64 in)</button>
+            <button type="button" @click="heightInches = 67" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">5'7" (67 in)</button>
+            <button type="button" @click="heightInches = 69" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">5'9" (69 in)</button>
+            <button type="button" @click="heightInches = 71" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">5'11" (71 in)</button>
+            <button type="button" @click="heightInches = 72" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">6'0" (72 in)</button>
+        </div>
     </div>
 
     {{-- Result Hero Card (Wise Polarity-Flipped Dark Surface) --}}
