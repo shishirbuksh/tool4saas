@@ -42,6 +42,11 @@ final class PresetQueryTest extends TestCase
             '/ppf-calculator?deposit=150000&rate=7.1&years=15' => 'https://tool4saas.com/ppf-calculator',
             '/gst-calculator?amount=1000&rate=18&mode=exclusive' => 'https://tool4saas.com/gst-calculator',
             '/auto-loan-calculator?price=30000&down=5000&rate=5.5&term=60' => 'https://tool4saas.com/auto-loan-calculator',
+            '/simple-interest-calculator?principal=10000&rate=6.5&time=3&unit=years' => 'https://tool4saas.com/simple-interest-calculator',
+            '/inflation-calculator?amount=1000&rate=3.5&years=10' => 'https://tool4saas.com/inflation-calculator',
+            '/retirement-calculator?age=30&retire=65&spend=60000&savings=50000&rate=7' => 'https://tool4saas.com/retirement-calculator',
+            '/rent-vs-buy-calculator?rent=2200&price=450000&down=20&rate=6.5&tenure=30' => 'https://tool4saas.com/rent-vs-buy-calculator',
+            '/home-affordability-calculator?income=120000&debt=500&down=60000&rate=6.5' => 'https://tool4saas.com/home-affordability-calculator',
         ];
 
         foreach ($routes as $url => $canonical) {

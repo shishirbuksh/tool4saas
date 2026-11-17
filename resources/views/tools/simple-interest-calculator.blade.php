@@ -3,6 +3,19 @@
     rate: 6.5,
     time: 3,
     timeUnit: 'years',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('principal')) this.principal = parseFloat(params.get('principal')) || this.principal;
+        if (params.has('rate')) this.rate = parseFloat(params.get('rate')) || this.rate;
+        if (params.has('time')) this.time = parseFloat(params.get('time')) || this.time;
+        if (params.has('unit') && ['years', 'months', 'days'].includes(params.get('unit'))) this.timeUnit = params.get('unit');
+    },
+    setPreset(principal, rate, time, unit) {
+        this.principal = principal;
+        this.rate = rate;
+        this.time = time;
+        if (unit) this.timeUnit = unit;
+    },
 
     get timeInYears() {
         const t = Math.max(0, parseFloat(this.time) || 0);
@@ -34,6 +47,25 @@
     }
 }">
     <div class="space-y-8">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(10000, 6.5, 3, 'years')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Standard Deposit ($10k @ 6.5% 3 Yrs)
+                </button>
+                <button type="button" @click="setPreset(5000, 8.0, 6, 'months')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Short-Term Bridge ($5k @ 8% 6 Mos)
+                </button>
+                <button type="button" @click="setPreset(25000, 5.0, 5, 'years')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    High Yield ($25k @ 5% 5 Yrs)
+                </button>
+                <button type="button" @click="setPreset(2000, 12.0, 1, 'years')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    P2P Microloan ($2k @ 12% 1 Yr)
+                </button>
+            </div>
+        </div>
+
         {{-- Inputs Grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <div class="p-5 rounded-3xl bg-base-200/60 border border-base-300">

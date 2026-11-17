@@ -4,6 +4,21 @@
     annualSpend: 60000,
     currentSavings: 50000,
     returnRate: 7,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('age')) this.currentAge = parseInt(params.get('age'), 10) || this.currentAge;
+        if (params.has('retire')) this.retirementAge = parseInt(params.get('retire'), 10) || this.retirementAge;
+        if (params.has('spend')) this.annualSpend = parseFloat(params.get('spend')) || this.annualSpend;
+        if (params.has('savings')) this.currentSavings = parseFloat(params.get('savings')) || this.currentSavings;
+        if (params.has('rate')) this.returnRate = parseFloat(params.get('rate')) || this.returnRate;
+    },
+    setPreset(age, retire, spend, savings, rate) {
+        this.currentAge = age;
+        this.retirementAge = retire;
+        this.annualSpend = spend;
+        this.currentSavings = savings;
+        this.returnRate = rate;
+    },
     get nestEggTarget() {
         // Trinity Study 4% rule: annual spend * 25
         return (parseFloat(this.annualSpend) || 0) * 25;
@@ -23,6 +38,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Retirement Profiles:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(28, 45, 80000, 75000, 8)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    FIRE Early (Age 45 / $80k Spend)
+                </button>
+                <button type="button" @click="setPreset(30, 65, 60000, 50000, 7)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Standard Track (Age 65 / $60k Spend)
+                </button>
+                <button type="button" @click="setPreset(35, 60, 100000, 150000, 7.5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    High Earner (Age 60 / $100k Spend)
+                </button>
+                <button type="button" @click="setPreset(45, 67, 50000, 80000, 6.5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Catch-Up Mode (Age 67 / $50k Spend)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Current Age</label>

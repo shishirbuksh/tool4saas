@@ -3,6 +3,19 @@
     monthlyDebt: 500,
     downPayment: 60000,
     interestRate: 6.5,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('income')) this.annualIncome = parseFloat(params.get('income')) || this.annualIncome;
+        if (params.has('debt')) this.monthlyDebt = parseFloat(params.get('debt')) || this.monthlyDebt;
+        if (params.has('down')) this.downPayment = parseFloat(params.get('down')) || this.downPayment;
+        if (params.has('rate')) this.interestRate = parseFloat(params.get('rate')) || this.interestRate;
+    },
+    setPreset(income, debt, down, rate) {
+        this.annualIncome = income;
+        this.monthlyDebt = debt;
+        this.downPayment = down;
+        this.interestRate = rate;
+    },
     get maxMonthlyHousingPayment() {
         const monthlyGross = (parseFloat(this.annualIncome) || 0) / 12;
         // 28% front-end DTI rule
@@ -21,6 +34,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Household Income Benchmarks:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(80000, 400, 30000, 6.5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    $80k Income ($30k Down)
+                </button>
+                <button type="button" @click="setPreset(120000, 500, 60000, 6.5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    $120k Income ($60k Down)
+                </button>
+                <button type="button" @click="setPreset(180000, 800, 100000, 6.5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    $180k Income ($100k Down)
+                </button>
+                <button type="button" @click="setPreset(250000, 1200, 150000, 6.2)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    $250k Dual Earner ($150k Down)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Gross Annual Household Income ($)</label>

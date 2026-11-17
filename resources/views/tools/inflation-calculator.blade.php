@@ -2,6 +2,17 @@
     amount: 1000,
     rate: 3.5,
     years: 10,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('amount')) this.amount = parseFloat(params.get('amount')) || this.amount;
+        if (params.has('rate')) this.rate = parseFloat(params.get('rate')) || this.rate;
+        if (params.has('years')) this.years = parseFloat(params.get('years')) || this.years;
+    },
+    setPreset(amount, rate, years) {
+        this.amount = amount;
+        this.rate = rate;
+        this.years = years;
+    },
     get futureCost() {
         const p = parseFloat(this.amount) || 0;
         const r = parseFloat(this.rate) || 0;
@@ -21,6 +32,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Historical &amp; Target Inflation Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(1000, 3.0, 10)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    US Long-Term (3.0% / 10 Yrs)
+                </button>
+                <button type="button" @click="setPreset(1000, 6.0, 5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    High Inflation Spike (6.0% / 5 Yrs)
+                </button>
+                <button type="button" @click="setPreset(50000, 4.0, 18)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    College Fund ($50k @ 4% / 18 Yrs)
+                </button>
+                <button type="button" @click="setPreset(100000, 3.5, 25)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Retirement Purchasing Power ($100k / 25 Yrs)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Current Amount ($)</label>

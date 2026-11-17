@@ -4,6 +4,21 @@
     downPaymentPercent: 20,
     interestRate: 6.5,
     tenureYears: 30,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('rent')) this.monthlyRent = parseFloat(params.get('rent')) || this.monthlyRent;
+        if (params.has('price')) this.homePrice = parseFloat(params.get('price')) || this.homePrice;
+        if (params.has('down')) this.downPaymentPercent = parseFloat(params.get('down')) || this.downPaymentPercent;
+        if (params.has('rate')) this.interestRate = parseFloat(params.get('rate')) || this.interestRate;
+        if (params.has('tenure')) this.tenureYears = parseInt(params.get('tenure'), 10) || this.tenureYears;
+    },
+    setPreset(rent, price, down, rate, tenure) {
+        this.monthlyRent = rent;
+        this.homePrice = price;
+        this.downPaymentPercent = down;
+        this.interestRate = rate;
+        this.tenureYears = tenure;
+    },
     get monthlyMortgage() {
         const p = this.homePrice * (1 - this.downPaymentPercent / 100);
         const r = (parseFloat(this.interestRate) || 6.5) / 100 / 12;
@@ -21,6 +36,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Housing Market Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(3200, 750000, 20, 6.5, 30)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    High-Cost Metro (Rent $3,200 vs Buy $750k)
+                </button>
+                <button type="button" @click="setPreset(2000, 400000, 20, 6.5, 30)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Suburban Family (Rent $2,000 vs Buy $400k)
+                </button>
+                <button type="button" @click="setPreset(1200, 250000, 10, 6.5, 30)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Low-Cost Area (Rent $1,200 vs Buy $250k)
+                </button>
+                <button type="button" @click="setPreset(1800, 320000, 5, 6.8, 30)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Starter Home (Rent $1,800 vs Buy $320k)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Current Monthly Rent ($)</label>
