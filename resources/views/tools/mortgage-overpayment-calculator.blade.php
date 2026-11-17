@@ -3,6 +3,19 @@
     interestRate: 6.0,
     tenureYears: 25,
     extraMonthly: 200,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('loan')) this.loanAmount = parseFloat(params.get('loan')) || this.loanAmount;
+        if (params.has('rate')) this.interestRate = parseFloat(params.get('rate')) || this.interestRate;
+        if (params.has('tenure')) this.tenureYears = parseInt(params.get('tenure'), 10) || this.tenureYears;
+        if (params.has('extra')) this.extraMonthly = parseFloat(params.get('extra')) || this.extraMonthly;
+    },
+    setPreset(loan, rate, tenure, extra) {
+        this.loanAmount = loan;
+        this.interestRate = rate;
+        this.tenureYears = tenure;
+        this.extraMonthly = extra;
+    },
     calcEmi(p, rPct, yrs) {
         const r = (rPct / 100) / 12;
         const n = yrs * 12;
@@ -45,6 +58,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Overpayment Strategies:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(250000, 6.0, 25, 100)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    +$100/mo ($250k @ 6.0% 25 Yrs)
+                </button>
+                <button type="button" @click="setPreset(300000, 6.5, 30, 200)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    +$200/mo ($300k @ 6.5% 30 Yrs)
+                </button>
+                <button type="button" @click="setPreset(400000, 6.5, 30, 500)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    +$500/mo ($400k @ 6.5% 30 Yrs)
+                </button>
+                <button type="button" @click="setPreset(500000, 7.0, 30, 1000)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    +$1,000/mo Aggressive ($500k @ 7.0%)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Loan Principal ($)</label>

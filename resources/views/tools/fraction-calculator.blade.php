@@ -2,6 +2,21 @@
     n1: 1, d1: 2,
     op: '+',
     n2: 1, d2: 4,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('n1')) this.n1 = parseInt(params.get('n1'), 10) || this.n1;
+        if (params.has('d1')) this.d1 = parseInt(params.get('d1'), 10) || this.d1;
+        if (params.has('op') && ['+', '-', '*', '/'].includes(params.get('op'))) this.op = params.get('op');
+        if (params.has('n2')) this.n2 = parseInt(params.get('n2'), 10) || this.n2;
+        if (params.has('d2')) this.d2 = parseInt(params.get('d2'), 10) || this.d2;
+    },
+    setPreset(n1, d1, op, n2, d2) {
+        this.n1 = n1;
+        this.d1 = d1;
+        this.op = op;
+        this.n2 = n2;
+        this.d2 = d2;
+    },
     gcd(a, b) {
         return b === 0 ? a : this.gcd(b, a % b);
     },
@@ -29,6 +44,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Fraction Presets --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Common Fraction Operations:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(1, 2, '+', 1, 4)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    1/2 + 1/4
+                </button>
+                <button type="button" @click="setPreset(3, 4, '-', 1, 3)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    3/4 − 1/3
+                </button>
+                <button type="button" @click="setPreset(2, 3, '*', 3, 5)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    2/3 × 3/5
+                </button>
+                <button type="button" @click="setPreset(5, 8, '/', 1, 2)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    5/8 ÷ 1/2
+                </button>
+            </div>
+        </div>
+
         <div class="flex flex-wrap items-center justify-center gap-4 py-4">
             <!-- Fraction 1 -->
             <div class="flex flex-col items-center w-20">

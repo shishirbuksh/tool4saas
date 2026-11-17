@@ -50,6 +50,11 @@ final class PresetQueryTest extends TestCase
             '/cron-parser?cron=0+0+*+*+*' => 'https://tool4saas.com/cron-parser',
             '/color-converter?hex=%239fe870' => 'https://tool4saas.com/color-converter',
             '/regex-tester?pattern=%5Ba-z%5D%2B' => 'https://tool4saas.com/regex-tester',
+            '/fraction-calculator?n1=1&d1=2&op=%2B&n2=1&d2=4' => 'https://tool4saas.com/fraction-calculator',
+            '/mortgage-overpayment-calculator?loan=300000&rate=6.5&tenure=30&extra=200' => 'https://tool4saas.com/mortgage-overpayment-calculator',
+            '/sleep-cycle-calculator?mode=wake&time=07:00' => 'https://tool4saas.com/sleep-cycle-calculator',
+            '/commission-calculator?sales=50000&rate=10&currency=$' => 'https://tool4saas.com/commission-calculator',
+            '/period-calculator?cycle=28&date=2026-01-01' => 'https://tool4saas.com/period-calculator',
         ];
 
         foreach ($routes as $url => $canonical) {

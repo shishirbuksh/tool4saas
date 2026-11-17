@@ -1,6 +1,14 @@
 <x-card class="p-6 md:p-8" x-data="{
     lastDate: new Date().toISOString().split('T')[0],
     cycleDays: 28,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('date')) this.lastDate = params.get('date');
+        if (params.has('cycle')) this.cycleDays = parseInt(params.get('cycle'), 10) || this.cycleDays;
+    },
+    setPreset(days) {
+        this.cycleDays = days;
+    },
     formatDate(d) {
         return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
     },
@@ -27,6 +35,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Cycle Length Presets:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(24)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Short Cycle (24 Days)
+                </button>
+                <button type="button" @click="setPreset(28)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Standard Cycle (28 Days)
+                </button>
+                <button type="button" @click="setPreset(30)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Average Cycle (30 Days)
+                </button>
+                <button type="button" @click="setPreset(35)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Long Cycle (35 Days)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Start Date of Last Period</label>

@@ -2,6 +2,17 @@
     mode: 'wake',
     timeInput: '07:00',
     fallAsleepMin: 15,
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('mode') && ['wake', 'bed'].includes(params.get('mode'))) this.mode = params.get('mode');
+        if (params.has('time')) this.timeInput = params.get('time');
+        else if (params.has('wake')) { this.mode = 'wake'; this.timeInput = params.get('wake'); }
+        else if (params.has('bed')) { this.mode = 'bed'; this.timeInput = params.get('bed'); }
+    },
+    setPreset(mode, time) {
+        this.mode = mode;
+        this.timeInput = time;
+    },
     formatTime(totalMinutes) {
         let m = ((totalMinutes % 1440) + 1440) % 1440;
         let h24 = Math.floor(m / 60);
@@ -32,6 +43,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Common Sleep Schedules:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset('wake', '06:00')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Wake at 6:00 AM (Bed at 10:15 PM)
+                </button>
+                <button type="button" @click="setPreset('wake', '07:00')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Wake at 7:00 AM (Bed at 11:15 PM)
+                </button>
+                <button type="button" @click="setPreset('wake', '08:00')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Wake at 8:00 AM (Bed at 12:15 AM)
+                </button>
+                <button type="button" @click="setPreset('bed', '23:00')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Sleep at 11:00 PM (Wake at 6:45 AM)
+                </button>
+            </div>
+        </div>
+
         <div class="flex items-center gap-2 p-1.5 rounded-full bg-base-200 border border-base-300 w-fit">
             <button
                 type="button"

@@ -2,6 +2,17 @@
     sales: 10000,
     rate: 10,
     currency: '$',
+    init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('sales')) this.sales = parseFloat(params.get('sales')) || this.sales;
+        if (params.has('rate')) this.rate = parseFloat(params.get('rate')) || this.rate;
+        if (params.has('currency') && ['$', '€', '£', '₹', '¥'].includes(params.get('currency'))) this.currency = params.get('currency');
+    },
+    setPreset(sales, rate, currency) {
+        this.sales = sales;
+        this.rate = rate;
+        if (currency) this.currency = currency;
+    },
     get commissionAmount() {
         const s = parseFloat(this.sales) || 0;
         const r = parseFloat(this.rate) || 0;
@@ -13,6 +24,25 @@
     }
 }">
     <div class="space-y-6">
+        {{-- Quick Scenario Chips --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Commission Structures:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(500000, 3, '$')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Real Estate (3% on $500k)
+                </button>
+                <button type="button" @click="setPreset(100000, 10, '$')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    SaaS AE (10% on $100k)
+                </button>
+                <button type="button" @click="setPreset(5000, 20, '$')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Affiliate Referral (20% on $5k)
+                </button>
+                <button type="button" @click="setPreset(20000, 5, '$')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:bg-primary/20 font-mono">
+                    Retail Sales (5% on $20k)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Currency Symbol</label>
