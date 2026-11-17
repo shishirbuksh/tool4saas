@@ -23,13 +23,17 @@
         })();
     </script>
 
-    {{-- Google Fonts: High-performance preconnect & stylesheet with font-display: swap --}}
+    {{-- Google AdSense Verification Meta & Async Loader --}}
+    <meta name="google-adsense-account" content="ca-pub-6310719489589992">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6310719489589992" crossorigin="anonymous" nonce="{{ request()->attributes->get('csp_nonce') }}"></script>
+
+    {{-- Google Fonts: Preconnect & Non-render-blocking Stylesheet with display=swap --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800;900&display=swap">
-
-    {{-- Google AdSense Publisher Verification --}}
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6310719489589992" crossorigin="anonymous" nonce="{{ request()->attributes->get('csp_nonce') }}"></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800;900&display=swap">
+    </noscript>
 
     @stack('seo')
 

@@ -275,7 +275,7 @@
                                 <a
                                     href="{{ url('/' . $tool->slug) }}"
                                     data-search="{{ strtolower($tool->title . ' ' . $tool->short . ' ' . implode(' ', $tool->keywords)) }}"
-                                    x-show="!searchQuery.trim() || $el.dataset.search.includes(searchQuery.toLowerCase().trim())"
+                                    x-show="!searchQuery || $el.dataset.search.includes(searchQuery.toLowerCase().trim())"
                                     class="bg-base-100 border border-base-300 hover:border-primary hover:shadow-lg transition-all p-6 rounded-3xl flex flex-col justify-between group no-underline"
                                 >
                                     <div>
