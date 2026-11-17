@@ -1,19 +1,43 @@
 <x-tool-paper x-data="{
     penColor: '#0e0f0c',
     penWidth: 3,
+    transparentBg: true,
     isDrawing: false,
     hasDrawn: false,
     typedText: '',
     selectedFont: 'cursive',
     init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('transparent')) {
+            this.transparentBg = params.get('transparent') !== '0';
+        }
+        if (params.has('name')) {
+            this.typedText = params.get('name');
+        }
         const canvas = this.$refs.canvas;
         const ctx = canvas.getContext('2d');
         canvas.width = canvas.parentElement.clientWidth || 700;
         canvas.height = 260;
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        this.resetBackground();
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
+        if (this.typedText.trim()) {
+            this.$nextTick(() => this.applyTyped());
+        }
+    },
+    resetBackground() {
+        const canvas = this.$refs.canvas;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (!this.transparentBg) {
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+    },
+    toggleBg() {
+        this.transparentBg = !this.transparentBg;
+        this.clear();
     },
     startDraw(e) {
         this.isDrawing = true;
@@ -42,10 +66,7 @@
         this.isDrawing = false;
     },
     clear() {
-        const canvas = this.$refs.canvas;
-        const ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        this.resetBackground();
         this.hasDrawn = false;
     },
     applyTyped() {
@@ -63,10 +84,10 @@
     downloadPng() {
         const canvas = this.$refs.canvas;
         const url = canvas.toDataURL('image/png');
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'signature.png';
-        a.click();
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = this.transparentBg ? 'signature-transparent.png' : 'signature.png';
+        link.click();
     }
 }">
     <div class="space-y-6">
@@ -74,9 +95,22 @@
         <div>
             <div class="flex items-center justify-between mb-2">
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Draw Signature Pad</label>
-                <span class="text-xs text-base-content/50 font-mono">Mouse or Touch Supported</span>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-base-content/60 font-mono">Background:</span>
+                    <button
+                        type="button"
+                        @click="toggleBg()"
+                        class="px-2.5 py-1 rounded-full border text-[11px] font-bold transition-all"
+                        :class="transparentBg ? 'bg-[#163300] text-[#9fe870] border-[#163300]' : 'bg-base-200 border-base-300 text-base-content/80'"
+                    >
+                        <span x-text="transparentBg ? '✓ Transparent PNG' : 'Solid White'"></span>
+                    </button>
+                </div>
             </div>
-            <div class="border-2 border-dashed border-base-300 rounded-3xl overflow-hidden bg-white shadow-xs">
+            <div
+                class="border-2 border-dashed border-base-300 rounded-3xl overflow-hidden shadow-xs"
+                :style="transparentBg ? 'background-image: repeating-conic-gradient(#f0f0f0 0% 25%, #ffffff 0% 50%) 50% / 16px 16px' : 'background-color: #ffffff'"
+            >
                 <canvas
                     x-ref="canvas"
                     @mousedown="startDraw($event)"
@@ -119,7 +153,7 @@
                     :disabled="!hasDrawn"
                     class="px-5 py-2 rounded-full bg-primary text-primary-content hover:bg-primary/90 text-xs font-bold transition-all shadow-xs disabled:opacity-40"
                 >
-                    Download PNG
+                    <span x-text="transparentBg ? 'Download Transparent PNG' : 'Download Signature PNG'"></span>
                 </button>
             </div>
         </div>

@@ -115,7 +115,7 @@ final readonly class BlogPostDTO
             'jwt-expiry-without-trust' => '/jwt-decoder',
             'cron-expression-guide' => '/cron-parser',
             'how-to-create-signature-online' => '/signature-maker',
-            'transparent-signature-png' => '/signature-maker',
+            'transparent-signature-png' => '/signature-maker?transparent=1',
             'how-to-create-invoice-online' => '/invoice-generator',
             'freelancer-invoice-guide' => '/invoice-generator',
             'gst-invoice-format-india' => '/invoice-generator',

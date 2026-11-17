@@ -23,6 +23,7 @@ final class PresetQueryTest extends TestCase
             '/base64-tool?urlsafe=1' => 'https://tool4saas.com/base64-tool',
             '/json-csv?mode=csv2json' => 'https://tool4saas.com/json-csv',
             '/utm-builder?channel=google_ads' => 'https://tool4saas.com/utm-builder',
+            '/signature-maker?transparent=1' => 'https://tool4saas.com/signature-maker',
         ];
 
         foreach ($routes as $url => $canonical) {
