@@ -5,22 +5,17 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SslCheckRequest;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 final class SslCheckController extends Controller
 {
-    public function check(Request $request): JsonResponse
+    public function check(SslCheckRequest $request): JsonResponse
     {
-        $rawHost = (string) $request->input('domain', '');
-        $host = trim(strtolower($rawHost));
-
-        // Strip protocol, port and path if pasted
-        $host = (string) preg_replace('#^https?://#i', '', $host);
-        $host = (string) preg_replace('#[:/].*$#', '', $host);
+        $host = $request->normalizedDomain();
 
         // Validate domain format (must be valid FQDN)
-        if (! preg_match('/^(?!-)[a-z0-9-]{1,63}(?<!-)(\.[a-z0-9-]{1,63})+$/i', $host)) {
+        if (! $request->isValidFqdn($host)) {
             return response()->json([
                 'error' => 'Invalid domain format. Please enter a valid domain (e.g. example.com).',
             ], 422);
