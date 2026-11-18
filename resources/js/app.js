@@ -5,6 +5,9 @@ window.Alpine = Alpine;
 // Dynamic code-split loaders for tool-specific libraries
 window.loadQRCode = () => import("qrcode").then((m) => { window.QRCode = m.default || m; return window.QRCode; });
 window.loadJsBarcode = () => import("jsbarcode").then((m) => { window.JsBarcode = m.default || m; return window.JsBarcode; });
+window.loadPdfLib = () => import("pdf-lib").then((m) => { window.PDFLib = m.default || m; return window.PDFLib; });
+window.loadJsQR = () => import("jsqr").then((m) => { window.jsQR = m.default || m; return window.jsQR; });
+window.loadFflate = () => import("fflate").then((m) => { window.fflate = m.default || m; return window.fflate; });
 
 // Theme manager
 Alpine.data("themeManager", () => ({

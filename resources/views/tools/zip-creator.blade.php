@@ -15,6 +15,9 @@
                 const buf = await f.arrayBuffer();
                 zip[f.name] = new Uint8Array(buf);
             }
+            if (!window.fflate && window.loadFflate) {
+                await window.loadFflate();
+            }
             if (window.fflate) {
                 const zipped = window.fflate.zipSync(zip);
                 const blob = new Blob([zipped], { type: 'application/zip' });

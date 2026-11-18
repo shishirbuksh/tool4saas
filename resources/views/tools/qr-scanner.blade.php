@@ -7,13 +7,16 @@
         const reader = new FileReader();
         reader.onload = (ev) => {
             const img = new Image();
-            img.onload = () => {
+            img.onload = async () => {
                 const canvas = document.createElement('canvas');
                 canvas.width = img.width;
                 canvas.height = img.height;
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0);
                 const imageData = ctx.getImageData(0, 0, img.width, img.height);
+                if (!window.jsQR && window.loadJsQR) {
+                    await window.loadJsQR();
+                }
                 if (window.jsQR) {
                     const code = window.jsQR(imageData.data, imageData.width, imageData.height);
                     if (code) {

@@ -8,6 +8,9 @@
         if (this.files.length < 2) return alert('Please select at least 2 PDF files to merge.');
         this.busy = true;
         try {
+            if (!window.PDFLib && window.loadPdfLib) {
+                await window.loadPdfLib();
+            }
             if (window.PDFLib) {
                 const mergedPdf = await window.PDFLib.PDFDocument.create();
                 for (const f of this.files) {
