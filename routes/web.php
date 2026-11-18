@@ -42,6 +42,7 @@ Route::get('/ads.txt', function () {
 
 // 1.5 API Endpoints
 Route::post('/api/ssl-check', [SslCheckController::class, 'check'])
+    ->middleware('throttle:15,1')
     ->withoutMiddleware([VerifyCsrfToken::class])
     ->name('api.ssl-check');
 

@@ -2121,6 +2121,46 @@ return [
             1 => [
                 'heading' => 'How change and difference diverge',
                 'body' => 'The two comparison views answer different questions. Change is directional: 150 to 180 is +20% because the gap 30 divides by the old value 150, while the reverse divides by 180 for −16.67%. Difference is neutral: 60 versus 80 divides the gap 20 by the mean 70 for 28.57% either way. Edge case: a zero old value leaves change undefined and the tool flags it, whereas two zeros return 0% difference rather than an error. Limitation: both views use a single pair of values, so multi-step discounts and compounding need stepwise entry, and neither weights a value by reliability or volume. Percentage points differ from percent change too: moving a rate from 4% to 5% is one percentage point but a 25% relative rise.',
+                'table' => [
+                    'caption' => 'Common Percentage Formulas, Multipliers, and Algebraic Equivalents',
+                    'headers' => [
+                        0 => 'Calculation Goal',
+                        1 => 'Algebraic Formula',
+                        2 => 'Decimal Multiplier',
+                        3 => 'Example Scenario',
+                        4 => 'Result',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => 'Find X% of Y',
+                            1 => '(X / 100) * Y',
+                            2 => '0.25 (for 25%)',
+                            3 => '25% of $120',
+                            4 => '$30.00',
+                        ],
+                        1 => [
+                            0 => 'Find What % X is of Y',
+                            1 => '(X / Y) * 100',
+                            2 => 'Divide X by Y',
+                            3 => '30 of 150',
+                            4 => '20.00%',
+                        ],
+                        2 => [
+                            0 => 'Percentage Increase',
+                            1 => '((New - Old) / Old) * 100',
+                            2 => '1 + (X / 100)',
+                            3 => '$100 to $125',
+                            4 => '+25.00%',
+                        ],
+                        3 => [
+                            0 => 'Percentage Decrease',
+                            1 => '((Old - New) / Old) * 100',
+                            2 => '1 - (X / 100)',
+                            3 => '$100 to $75',
+                            4 => '-25.00%',
+                        ],
+                    ],
+                ],
             ],
             2 => [
                 'heading' => 'Worked example: a discount, a tip and a peer gap',
@@ -2944,6 +2984,47 @@ return [
             0 => [
                 'heading' => 'What Body Mass Index screens',
                 'body' => 'Body Mass Index estimates weight-for-height using four WHO bands that contextualize population risk without diagnosing individual adiposity. Seventy kilograms at 175 centimeters scores 22.9 normal, while 90 kilograms at identical height scores 29.4 overweight, illustrating sensitivity to twenty-kilogram shifts. Reference table organizes thresholds | Category | BMI interval | Example profile | Underweight | below 18.5 | 50 kilograms at 175 centimeters equals 16.3 | Normal | 18.5 to 24.9 | 70 kilograms at 175 centimeters equals 22.9 | Overweight | 25 to 29.9 | 90 kilograms at 175 centimeters equals 29.4 | Obesity | 30 and | 100 kilograms at 175 centimeters equals 32.7. Edge case includes pregnancy and amputation, where standard height-weight logic misleads. Limitation ignores muscularity, bone density, and visceral distribution. This is general information only, not medical advice. See /terms and compare with the Ideal Weight tab above.',
+                'table' => [
+                    'caption' => 'World Health Organization (WHO) Adult BMI Classifications and Risk Levels',
+                    'headers' => [
+                        0 => 'BMI Range (kg/m²)',
+                        1 => 'Weight Category',
+                        2 => 'Health Risk Level',
+                        3 => 'Suggested Lifestyle Focus',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => 'Below 18.5',
+                            1 => 'Underweight',
+                            2 => 'Nutritional deficiency & weakened immunity',
+                            3 => 'Nutrient-dense caloric surplus & strength training',
+                        ],
+                        1 => [
+                            0 => '18.5 – 24.9',
+                            1 => 'Normal Weight',
+                            2 => 'Lowest overall disease risk',
+                            3 => 'Balanced nutrition & cardiovascular maintenance',
+                        ],
+                        2 => [
+                            0 => '25.0 – 29.9',
+                            1 => 'Overweight',
+                            2 => 'Moderate risk of hypertension & cardiovascular issues',
+                            3 => 'Caloric deficit, aerobic activity & resistance training',
+                        ],
+                        3 => [
+                            0 => '30.0 – 34.9',
+                            1 => 'Obesity (Class 1)',
+                            2 => 'High risk of type 2 diabetes & heart disease',
+                            3 => 'Structured medical guidance & dietary intervention',
+                        ],
+                        4 => [
+                            0 => '35.0 and above',
+                            1 => 'Obesity (Class 2 & 3)',
+                            2 => 'Very high risk of chronic metabolic conditions',
+                            3 => 'Comprehensive clinical & lifestyle support',
+                        ],
+                    ],
+                ],
             ],
             1 => [
                 'heading' => 'How metric and imperial BMI math works',
@@ -3021,6 +3102,47 @@ return [
             1 => [
                 'heading' => 'How gratuity and division interact',
                 'body' => 'Gratuity equals bill multiplied by rate divided by one hundred, total adds bill and gratuity, share divides total by headcount. Eighty-four fifty at 18 percent gives 15.21, total 99.71, each 33.24 for three, while 20 percent gives 16.90, total 101.40, each 33.80. Second scenario at 62.40 dollars for four at 18 percent yields 11.23 tip, 73.63 total, 18.41 each, proving scalability. Calculation table shows flow | Step | Formula | Substitution | Tip | bill times rate | 84.50 times 0.18 equals 15.21 | Total | bill and tip | 84.50 and 15.21 equals 99.71 | Share | total divided by people | 99.71 divided by 3 equals 33.24. Edge case of cash rounding leaves penny remainder across shares. Limitation ignores card surcharges and coupons. Related splitting logic complements /fraction-calculator.',
+                'table' => [
+                    'caption' => 'Standard Dining Gratuity Benchmarks by Service Level and Venue Type',
+                    'headers' => [
+                        0 => 'Service Level',
+                        1 => 'Standard Tip %',
+                        2 => 'Typical Setting',
+                        3 => 'Calculation Method',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => 'Standard / Acceptable',
+                            1 => '15%',
+                            2 => 'Casual dining, diners, family restaurants',
+                            3 => 'Pre-tax subtotal * 0.15',
+                        ],
+                        1 => [
+                            0 => 'Good / Attentive',
+                            1 => '18%',
+                            2 => 'Full-service sit-down restaurants',
+                            3 => 'Pre-tax subtotal * 0.18',
+                        ],
+                        2 => [
+                            0 => 'Exceptional / Fine Dining',
+                            1 => '20% – 25%',
+                            2 => 'High-end dining, bespoke hospitality',
+                            3 => 'Pre-tax subtotal * 0.20+',
+                        ],
+                        3 => [
+                            0 => 'Buffet / Self-Service',
+                            1 => '10%',
+                            2 => 'Plate clearance and drink refills',
+                            3 => 'Pre-tax subtotal * 0.10',
+                        ],
+                        4 => [
+                            0 => 'Food Delivery / Takeout',
+                            1 => '10% – 15%',
+                            2 => 'Courier delivery (minimum $3-$5)',
+                            3 => 'Subtotal * 0.15 or flat courier fee',
+                        ],
+                    ],
+                ],
             ],
             2 => [
                 'heading' => 'Tip worked example: 84.50 dollars at 18 percent for 3 with validation',
@@ -4293,6 +4415,53 @@ return [
             1 => [
                 'heading' => 'How sequential cuts and levies compound',
                 'body' => 'Initial cut equals price times percent divided by one hundred, sale equals price minus cut, levy adds after reductions. One hundred twenty minus 25 percent gives 90 and 8 percent levy gives 97.20 through two stages. Stacked example at 100 with 20 percent then 10 percent gives 80 intermediate and 72 final, not 70. Mechanics table details order | Stage | Formula | Substitution | First markdown | 100 times 0.20 | 20 off, 80 left | Second markdown | 80 times 0.10 | 8 off, 72 left | Levy | 72 times 1.08 | 77.76 due. Edge case of adding percentages misleads, so run cuts in order. Limitation assumes single tax jurisdiction without tiered brackets. Related percent logic lives at /percentage-calculator.',
+                'table' => [
+                    'caption' => 'Single vs Sequential Double Discount Savings Comparison',
+                    'headers' => [
+                        0 => 'Original Price',
+                        1 => 'First Discount',
+                        2 => 'Second / Stacked Discount',
+                        3 => 'Final Payable Price',
+                        4 => 'Total Savings %',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => '$100.00',
+                            1 => '20% Off',
+                            2 => 'None',
+                            3 => '$80.00',
+                            4 => '20.00%',
+                        ],
+                        1 => [
+                            0 => '$100.00',
+                            1 => '20% Off',
+                            2 => 'Extra 10% Off Remaining',
+                            3 => '$72.00',
+                            4 => '28.00% (Not 30%)',
+                        ],
+                        2 => [
+                            0 => '$150.00',
+                            1 => '30% Off',
+                            2 => 'None',
+                            3 => '$105.00',
+                            4 => '30.00%',
+                        ],
+                        3 => [
+                            0 => '$150.00',
+                            1 => '30% Off',
+                            2 => 'Extra 15% Off Remaining',
+                            3 => '$89.25',
+                            4 => '40.50% (Not 45%)',
+                        ],
+                        4 => [
+                            0 => '$200.00',
+                            1 => '50% Off',
+                            2 => 'Extra 20% Off Remaining',
+                            3 => '$80.00',
+                            4 => '60.00% (Not 70%)',
+                        ],
+                    ],
+                ],
             ],
             2 => [
                 'heading' => 'Discount worked example: 120 dollars at 25 percent off is 90 with tax',
@@ -4737,6 +4906,47 @@ return [
             1 => [
                 'heading' => 'How add versus extract formulas diverge',
                 'body' => 'Add mode multiplies net times rate over one hundred, total sums net and levy in one operation. Extract mode divides total times one hundred by one hundred and rate for base, remainder forms levy. Eleven eighty at 18 percent recovers 1000 base and 180 levy, while 1050 at 5 percent recovers 1000 base and 50 levy. Operation table shows algebra | Direction | Formula | Substitution | Add 18 percent | 1000 times 0.18 | 180 levy, 1180 total | Extract 18 percent | 1180 times 100 divided by 118 | 1000 base | Add 5 percent | 1000 times 0.05 | 50 levy. Edge case of wrong slab selection skews totals by hundreds, so verify notification. Limitation ignores cess, reverse charge, and composition nuances. For United States checkout see /us-sales-tax-calculator. This is general information only, not tax advice. See /terms.',
+                'table' => [
+                    'caption' => 'Goods and Services Tax (GST) Slab Rates and Typical Product Categories',
+                    'headers' => [
+                        0 => 'GST Slab',
+                        1 => 'Levy Classification',
+                        2 => 'Typical Goods & Services',
+                        3 => 'Tax Computation Formula',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => '0% (Exempt)',
+                            1 => 'Essential Goods',
+                            2 => 'Fresh milk, grains, unprocessed food, eggs',
+                            3 => 'Levy = $0.00',
+                        ],
+                        1 => [
+                            0 => '5%',
+                            1 => 'Household Mass Goods',
+                            2 => 'Sugar, tea, spices, edible oil, domestic economy airfare',
+                            3 => 'Total = Base * 1.05',
+                        ],
+                        2 => [
+                            0 => '12%',
+                            1 => 'Processed Foods & Hardware',
+                            2 => 'Butter, cheese, frozen meat, business class air travel',
+                            3 => 'Total = Base * 1.12',
+                        ],
+                        3 => [
+                            0 => '18%',
+                            1 => 'Standard Goods & Services',
+                            2 => 'IT software, SaaS, telecommunications, restaurants',
+                            3 => 'Total = Base * 1.18',
+                        ],
+                        4 => [
+                            0 => '28%',
+                            1 => 'Luxury & Sin Goods',
+                            2 => 'Automobiles, high-end electronics, aerated drinks',
+                            3 => 'Total = Base * 1.28',
+                        ],
+                    ],
+                ],
             ],
             2 => [
                 'heading' => 'GST worked example: 1000 at 18 percent is 1180 with verification',
@@ -8062,6 +8272,65 @@ return [
             1 => [
                 'heading' => 'How points and hours blend across rows',
                 'body' => 'Points multiply grade value times hours per row in one pass, total points divide by total hours across two steps. Twelve and 13.2 gives 25.2 over seven for 3.60, while A-minus 3.7 lifts Mathematics to 14.8 and total to 26.8 for 3.83. Second scenario at History A 4.0 three hours and Chemistry B 3.0 four hours gives 24 over seven for 3.43. Blending table illustrates sensitivity precisely | Combination scenario | Points total | Resulting GPA | Bio A and Math B-plus | 25.2 over 7 | 3.60 | Bio A and Math A-minus | 26.8 over 7 | 3.83 | History A and Chem B | 24 over 7 | 3.43. Edge case of retakes varies by school, so consult handbook for replacement rules. Limitation excludes rank and transfer articulation nuances. Retest two rows within five seconds to confirm live math.',
+                'table' => [
+                    'caption' => 'Standard 4.0 GPA Grading Scale and Letter Grade Equivalencies',
+                    'headers' => [
+                        0 => 'Letter Grade',
+                        1 => 'Percentage Range',
+                        2 => '4.0 Scale Grade Points',
+                        3 => 'Academic Standing',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => 'A+ / A',
+                            1 => '93% – 100%',
+                            2 => '4.00',
+                            3 => 'Excellent / Honors Standing',
+                        ],
+                        1 => [
+                            0 => 'A-',
+                            1 => '90% – 92%',
+                            2 => '3.70',
+                            3 => 'Superior Achievement',
+                        ],
+                        2 => [
+                            0 => 'B+',
+                            1 => '87% – 89%',
+                            2 => '3.30',
+                            3 => 'Very Good Standing',
+                        ],
+                        3 => [
+                            0 => 'B',
+                            1 => '83% – 86%',
+                            2 => '3.00',
+                            3 => 'Good / Above Average',
+                        ],
+                        4 => [
+                            0 => 'B-',
+                            1 => '80% – 82%',
+                            2 => '2.70',
+                            3 => 'Average Plus Standing',
+                        ],
+                        5 => [
+                            0 => 'C+',
+                            1 => '77% – 79%',
+                            2 => '2.30',
+                            3 => 'Satisfactory Average',
+                        ],
+                        6 => [
+                            0 => 'C',
+                            1 => '73% – 76%',
+                            2 => '2.00',
+                            3 => 'Minimum Passing Standard',
+                        ],
+                        7 => [
+                            0 => 'F',
+                            1 => 'Below 60%',
+                            2 => '0.00',
+                            3 => 'Failing / Zero Credit Hours',
+                        ],
+                    ],
+                ],
             ],
             2 => [
                 'heading' => 'GPA worked example: Biology A and Mathematics B-plus is 3.60 validated',
@@ -10293,6 +10562,47 @@ FN:Ada Lovelace...',
             1 => [
                 'heading' => 'How angle modes, logs, and powers parse',
                 'body' => 'Trigonometry reads angles in selected DEG or RAD toggle in one switch, logs use base-ten and natural e across two keys, powers use caret for exponentiation. Sine thirty gives 0.5 DEG but negative 0.988 RAD, while open parenthesis two and three close parenthesis squared equals twenty-five. Second pair at cosine sixty gives 0.5 DEG and natural log ten gives 2.303. Parsing table shows distinctions methodically | Feature | DEG behavior | RAD behavior contrast | sine 30 | 0.50 | negative 0.988 | cosine 60 | 0.50 | negative 0.95 approx | log 100 | 2.00 | 2.00 same. Edge case of degree symbol duplication confuses parser, so use toggle exclusively. Limitation excludes complex numbers and matrix algebra. Type sine thirty and two-cubed for 8.5 in DEG then RAD to lock modes. For fractional shares see /fraction-calculator.',
+                'table' => [
+                    'caption' => 'Scientific Mathematical Functions and Operator Order of Precedence',
+                    'headers' => [
+                        0 => 'Function Group',
+                        1 => 'Key Syntax',
+                        2 => 'Algebraic Meaning',
+                        3 => 'Standard Evaluation Rules',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => 'Trigonometry',
+                            1 => 'sin(x), cos(x), tan(x)',
+                            2 => 'Trigonometric ratios of angles',
+                            3 => 'Evaluated in selected DEG or RAD mode',
+                        ],
+                        1 => [
+                            0 => 'Inverse Trigonometry',
+                            1 => 'asin(x), acos(x), atan(x)',
+                            2 => 'Arc functions returning angle',
+                            3 => 'Result constrained to principal branch',
+                        ],
+                        2 => [
+                            0 => 'Logarithms',
+                            1 => 'log(x), ln(x)',
+                            2 => 'Base-10 and Natural (base-e) logs',
+                            3 => 'Argument must be strictly greater than 0',
+                        ],
+                        3 => [
+                            0 => 'Exponents & Roots',
+                            1 => 'x^y, sqrt(x), cbrt(x)',
+                            2 => 'Powers and roots of real numbers',
+                            3 => 'Evaluated right-to-left for chained powers',
+                        ],
+                        4 => [
+                            0 => 'Constants',
+                            1 => 'π (pi), e (Euler)',
+                            2 => 'Transcendental constants',
+                            3 => 'Evaluated with 15-digit IEEE-754 precision',
+                        ],
+                    ],
+                ],
             ],
             2 => [
                 'heading' => 'Scientific worked example: sine 30 and 2-cubed is 8.5 validated',
@@ -11382,6 +11692,59 @@ FN:Ada Lovelace...',
             1 => [
                 'heading' => 'How divisor trimming and signs normalize',
                 'body' => 'Greatest divisor splits numerator and denominator by top shared cut across two trims, signs migrate to numerator in one fix. Three quarters and five sixths gives nineteen twelfths trimmed to one seven twelfths, multiplication uses top-top over base-base. Second example at two thirds and one half gives seven sixths or one one sixth with decimal 1.1667. Normalization table shows steps methodically | Raw fraction | Divisor applied | Trimmed result | 6/8 | divide by 2 | 3/4 simplified | 19/12 | divide by 1 | 19/12 unchanged | 4/6 | divide by 2 | 2/3 simplified. Edge case of eight-digit numerators may lag phones, so split two sums for performance. Limitation excludes repeating-decimal exactness beyond four places. Type three-fourths and five-sixths for nineteen-twelfths then six-eighths for three-fourths to lock trims. For decimals see /scientific-calculator.',
+                'table' => [
+                    'caption' => 'Common Fractions, Decimal Equivalents, and Reduced Lowest Terms',
+                    'headers' => [
+                        0 => 'Fraction',
+                        1 => 'Decimal Approximation',
+                        2 => 'Percentage Equivalent',
+                        3 => 'Reduction Rule',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => '1/2',
+                            1 => '0.5000',
+                            2 => '50.00%',
+                            3 => 'Already in irreducible lowest terms',
+                        ],
+                        1 => [
+                            0 => '1/3',
+                            1 => '0.3333...',
+                            2 => '33.33%',
+                            3 => 'Repeating decimal, denominator has prime 3',
+                        ],
+                        2 => [
+                            0 => '1/4',
+                            1 => '0.2500',
+                            2 => '25.00%',
+                            3 => 'Terminating decimal, denominator power of 2',
+                        ],
+                        3 => [
+                            0 => '3/4',
+                            1 => '0.7500',
+                            2 => '75.00%',
+                            3 => 'Terminating decimal, irreducible lowest terms',
+                        ],
+                        4 => [
+                            0 => '1/5',
+                            1 => '0.2000',
+                            2 => '20.00%',
+                            3 => 'Terminating decimal, denominator power of 5',
+                        ],
+                        5 => [
+                            0 => '1/8',
+                            1 => '0.1250',
+                            2 => '12.50%',
+                            3 => 'Terminating decimal, denominator 2 cubed',
+                        ],
+                        6 => [
+                            0 => '2/3',
+                            1 => '0.6667...',
+                            2 => '66.67%',
+                            3 => 'Repeating decimal, numerator 2, denominator 3',
+                        ],
+                    ],
+                ],
             ],
             2 => [
                 'heading' => 'Fraction worked example: 3/4 and 5/6 is 19/12 validated',
@@ -15214,6 +15577,41 @@ FN:Ada Lovelace...',
             0 => [
                 'heading' => 'Understanding Universally Unique Identifiers (UUID / GUID)',
                 'body' => 'A Universally Unique Identifier (UUID), also known as a Globally Unique Identifier (GUID) in Microsoft ecosystems, is a 128-bit label used to uniquely identify resources across distributed systems without centralized coordination. Standard canonical representation displays the 16 octets as 32 hexadecimal characters separated by four hyphens into five groups: 8-4-4-4-12. UUIDs prevent ID collisions across microservices, databases, and APIs without requiring round-trip database queries to negotiate sequence numbers.',
+                'table' => [
+                    'caption' => 'Universally Unique Identifier (UUID / GUID) Version Comparison',
+                    'headers' => [
+                        0 => 'UUID Version',
+                        1 => 'Generation Basis',
+                        2 => 'Sorting & Index Performance',
+                        3 => 'Primary Recommended Use Case',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => 'UUID v4',
+                            1 => 'CSPRNG Cryptographic Randomness',
+                            2 => 'Poor B-tree clustering (random I/O page splits)',
+                            3 => 'Ephemeral tokens, session identifiers, non-sequential IDs',
+                        ],
+                        1 => [
+                            0 => 'UUID v7 (RFC 9562)',
+                            1 => 'Unix epoch timestamp + random bits',
+                            2 => 'Excellent sequential B-tree clustering',
+                            3 => 'Database primary keys, distributed events, time-series IDs',
+                        ],
+                        2 => [
+                            0 => 'UUID v1',
+                            1 => 'Timestamp + Host MAC hardware address',
+                            2 => 'Sequential, but leaks host network identity',
+                            3 => 'Legacy systems requiring host machine tracking',
+                        ],
+                        3 => [
+                            0 => 'UUID v5',
+                            1 => 'SHA-1 hash of Namespace + Name string',
+                            2 => 'Deterministic (same name yields same UUID)',
+                            3 => 'Idempotent external entity syncing across systems',
+                        ],
+                    ],
+                ],
             ],
             1 => [
                 'heading' => 'Why modern databases prefer UUID v7 over UUID v4',
@@ -15291,6 +15689,50 @@ FN:Ada Lovelace...',
             0 => [
                 'heading' => 'Comparing JSON and YAML data serialization formats',
                 'body' => 'JavaScript Object Notation (JSON) and YAML Ain\'t Markup Language (YAML) are the two dominant data serialization formats in modern software engineering. While JSON prioritizes machine parseability, strict typing, and browser interoperability with explicit brackets and commas, YAML prioritizes human readability through clean whitespace indentation and minimal syntactic punctuation. DevOps pipelines, CI/CD systems, and container orchestrators widely prefer YAML for human-edited configuration files.',
+                'table' => [
+                    'caption' => 'JSON vs YAML Syntax and Data Type Transformation Matrix',
+                    'headers' => [
+                        0 => 'Data Concept',
+                        1 => 'JSON Canonical Syntax',
+                        2 => 'YAML Equivalent Syntax',
+                        3 => 'Conversion Notes',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => 'Key-Value Pair',
+                            1 => '"name": "Tool4SaaS"',
+                            2 => 'name: Tool4SaaS',
+                            3 => 'Quotes optional in YAML unless containing special chars',
+                        ],
+                        1 => [
+                            0 => 'Array / List',
+                            1 => '["a", "b", "c"]',
+                            2 => '- a
+- b
+- c',
+                            3 => 'YAML uses hyphens and indentation rather than brackets',
+                        ],
+                        2 => [
+                            0 => 'Nested Object',
+                            1 => '{"db": {"port": 3306}}',
+                            2 => 'db:
+  port: 3306',
+                            3 => 'Strict 2-space indentation standard in YAML',
+                        ],
+                        3 => [
+                            0 => 'Boolean Values',
+                            1 => 'true, false',
+                            2 => 'true, false',
+                            3 => 'Standard JSON booleans must be lowercase in YAML 1.2',
+                        ],
+                        4 => [
+                            0 => 'Null Values',
+                            1 => 'null',
+                            2 => 'null (or ~)',
+                            3 => 'Empty field or tilde represents null in YAML',
+                        ],
+                    ],
+                ],
             ],
             1 => [
                 'heading' => 'Best practices for converting JSON to YAML in DevOps',
@@ -15367,6 +15809,41 @@ FN:Ada Lovelace...',
             0 => [
                 'heading' => 'Why developers convert YAML to JSON',
                 'body' => 'While YAML is favored for authoring configuration files, JSON is the universal lingua franca for REST APIs, web applications, and database storage (such as PostgreSQL JSONB columns and MongoDB BSON). Converting YAML to JSON allows developers to ingest deployment configs into automated JavaScript/TypeScript scripts, query attributes with jq, and submit payloads to cloud APIs that require strict application/json headers.',
+                'table' => [
+                    'caption' => 'YAML to JSON Parsing Rules and Syntax Constraints',
+                    'headers' => [
+                        0 => 'YAML Syntax Feature',
+                        1 => 'JSON Compliance Requirement',
+                        2 => 'Parser Behavior',
+                        3 => 'Potential Pitfalls',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => 'Multi-line Strings (| or >)',
+                            1 => 'Single continuous string with \\n',
+                            2 => 'Preserves line breaks or folds spaces',
+                            3 => 'Must escape internal quotes in JSON',
+                        ],
+                        1 => [
+                            0 => 'Tab characters for indent',
+                            1 => 'Strictly forbidden in YAML',
+                            2 => 'Parser rejects tabs with syntax error',
+                            3 => 'Always use 2 spaces for YAML indentation',
+                        ],
+                        2 => [
+                            0 => 'Unquoted numeric strings',
+                            1 => 'Must be enclosed in quotes in JSON',
+                            2 => 'Interpreted as numbers or strings',
+                            3 => '"0123" preserved as string in JSON',
+                        ],
+                        3 => [
+                            0 => 'Anchors & Aliases (&, *)',
+                            1 => 'Not supported in JSON standard',
+                            2 => 'Resolved and duplicated inline in JSON',
+                            3 => 'Circular references must be rejected',
+                        ],
+                    ],
+                ],
             ],
             1 => [
                 'heading' => 'Handling YAML data types accurately',
@@ -15448,6 +15925,53 @@ FN:Ada Lovelace...',
             1 => [
                 'heading' => 'Comparing CAGR with Internal Rate of Return (IRR)',
                 'body' => 'CAGR is ideal for point-to-point investments with a single lump-sum deposit at the start and a lump-sum realization at the end. However, if you make periodic recurring investments or cash withdrawals over time (such as dollar-cost averaging or monthly SIPs), Internal Rate of Return (IRR) or XIRR is the appropriate metric, as it accounts for multiple cash flow dates.',
+                'table' => [
+                    'caption' => 'Compound Annual Growth Rate (CAGR) vs Absolute Return Across Investment Horizons',
+                    'headers' => [
+                        0 => 'Initial Capital',
+                        1 => 'Final Capital',
+                        2 => 'Tenure (Years)',
+                        3 => 'Absolute Total Return',
+                        4 => 'Annualized CAGR %',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => '$10,000',
+                            1 => '$15,000',
+                            2 => '3 Years',
+                            3 => '+50.00%',
+                            4 => '14.47% per year',
+                        ],
+                        1 => [
+                            0 => '$10,000',
+                            1 => '$20,000',
+                            2 => '5 Years',
+                            3 => '+100.00% (Doubled)',
+                            4 => '14.87% per year',
+                        ],
+                        2 => [
+                            0 => '$10,000',
+                            1 => '$20,000',
+                            2 => '7 Years',
+                            3 => '+100.00% (Doubled)',
+                            4 => '10.41% per year',
+                        ],
+                        3 => [
+                            0 => '$10,000',
+                            1 => '$30,000',
+                            2 => '10 Years',
+                            3 => '+200.00% (Tripled)',
+                            4 => '11.61% per year',
+                        ],
+                        4 => [
+                            0 => '$10,000',
+                            1 => '$50,000',
+                            2 => '15 Years',
+                            3 => '+400.00% (5x)',
+                            4 => '11.33% per year',
+                        ],
+                    ],
+                ],
             ],
             2 => [
                 'heading' => 'Practical benchmark returns across asset classes',
@@ -15524,6 +16048,53 @@ FN:Ada Lovelace...',
             1 => [
                 'heading' => 'The 20/4/10 budgeting rule for auto financing',
                 'body' => 'Financial advisors widely recommend the 20/4/10 rule when financing a personal vehicle: make at least a 20% down payment, finance the vehicle for no longer than 4 years (48 months), and ensure total monthly vehicle expenses (loan payment, auto insurance, and fuel) do not exceed 10% of your gross monthly income.',
+                'table' => [
+                    'caption' => 'Auto Financing Loan Term vs Monthly Payment and Total Interest Comparison',
+                    'headers' => [
+                        0 => 'Loan Term',
+                        1 => 'Sample Interest Rate',
+                        2 => 'Monthly Payment ($30k Loan)',
+                        3 => 'Total Interest Paid',
+                        4 => 'Total Overall Cost',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => '36 Months (3 Years)',
+                            1 => '5.50% APR',
+                            2 => '$905.82 / mo',
+                            3 => '$2,609.52',
+                            4 => '$32,609.52',
+                        ],
+                        1 => [
+                            0 => '48 Months (4 Years)',
+                            1 => '5.90% APR',
+                            2 => '$703.11 / mo',
+                            3 => '$3,749.28',
+                            4 => '$33,749.28',
+                        ],
+                        2 => [
+                            0 => '60 Months (5 Years)',
+                            1 => '6.50% APR',
+                            2 => '$586.98 / mo',
+                            3 => '$5,218.80',
+                            4 => '$35,218.80',
+                        ],
+                        3 => [
+                            0 => '72 Months (6 Years)',
+                            1 => '7.20% APR',
+                            2 => '$514.28 / mo',
+                            3 => '$7,028.16',
+                            4 => '$37,028.16',
+                        ],
+                        4 => [
+                            0 => '84 Months (7 Years)',
+                            1 => '8.10% APR',
+                            2 => '$468.85 / mo',
+                            3 => '$9,383.40',
+                            4 => '$39,383.40 (High Risk)',
+                        ],
+                    ],
+                ],
             ],
             2 => [
                 'heading' => 'Avoiding negative equity and gap insurance needs',
@@ -15596,6 +16167,53 @@ FN:Ada Lovelace...',
             1 => [
                 'heading' => 'Comparing simple interest vs compound interest in borrowing',
                 'body' => 'For borrowers, loans structured with simple interest are generally more favorable than compound interest loans because you do not pay interest on interest. Prepaying principal on a simple interest loan directly reduces the remaining interest liability without compounding penalties.',
+                'table' => [
+                    'caption' => 'Simple Interest vs Annual Compound Interest Growth on $10,000 Principal',
+                    'headers' => [
+                        0 => 'Time Elapsed',
+                        1 => 'Simple Interest (7% Annual)',
+                        2 => 'Total (Simple)',
+                        3 => 'Compound Interest (7% Annual)',
+                        4 => 'Total (Compound)',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => '1 Year',
+                            1 => '$700.00',
+                            2 => '$10,700.00',
+                            3 => '$700.00',
+                            4 => '$10,700.00',
+                        ],
+                        1 => [
+                            0 => '3 Years',
+                            1 => '$2,100.00',
+                            2 => '$12,100.00',
+                            3 => '$2,250.43',
+                            4 => '$12,250.43',
+                        ],
+                        2 => [
+                            0 => '5 Years',
+                            1 => '$3,500.00',
+                            2 => '$13,500.00',
+                            3 => '$4,025.52',
+                            4 => '$14,025.52',
+                        ],
+                        3 => [
+                            0 => '10 Years',
+                            1 => '$7,000.00',
+                            2 => '$17,000.00',
+                            3 => '$9,671.51',
+                            4 => '$19,671.51',
+                        ],
+                        4 => [
+                            0 => '20 Years',
+                            1 => '$14,000.00',
+                            2 => '$24,000.00',
+                            3 => '$28,696.84',
+                            4 => '$38,696.84 (2.7x more interest)',
+                        ],
+                    ],
+                ],
             ],
             2 => [
                 'heading' => 'Practical worked example',
@@ -15672,6 +16290,53 @@ FN:Ada Lovelace...',
             2 => [
                 'heading' => 'Avoiding the percentage asymmetry trap',
                 'body' => 'A frequent mathematical pitfall is assuming that an equal percentage increase and decrease cancel each other out. If a $100 stock loses 50%, its price falls to $50. To return to the original $100 price, that $50 stock must gain 100%, not 50%. Understanding this asymmetry is crucial for portfolio risk management.',
+                'table' => [
+                    'caption' => 'Percentage Increase vs Percentage Decrease Mathematical Asymmetry Matrix',
+                    'headers' => [
+                        0 => 'Initial Value',
+                        1 => 'Subsequent Value',
+                        2 => 'Direction of Change',
+                        3 => 'Percentage Change %',
+                        4 => 'Reversal % Required to Recover',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => '$100.00',
+                            1 => '$110.00',
+                            2 => 'Increase',
+                            3 => '+10.00%',
+                            4 => '-9.09% (drops back to $100)',
+                        ],
+                        1 => [
+                            0 => '$100.00',
+                            1 => '$125.00',
+                            2 => 'Increase',
+                            3 => '+25.00%',
+                            4 => '-20.00% (drops back to $100)',
+                        ],
+                        2 => [
+                            0 => '$100.00',
+                            1 => '$150.00',
+                            2 => 'Increase',
+                            3 => '+50.00%',
+                            4 => '-33.33% (drops back to $100)',
+                        ],
+                        3 => [
+                            0 => '$100.00',
+                            1 => '$200.00',
+                            2 => 'Increase',
+                            3 => '+100.00%',
+                            4 => '-50.00% (drops back to $100)',
+                        ],
+                        4 => [
+                            0 => '$100.00',
+                            1 => '$50.00',
+                            2 => 'Decrease',
+                            3 => '-50.00%',
+                            4 => '+100.00% (must double to recover)',
+                        ],
+                    ],
+                ],
             ],
         ],
     ],
@@ -15738,6 +16403,47 @@ FN:Ada Lovelace...',
             0 => [
                 'heading' => 'Software engineering naming conventions reference',
                 'body' => 'Different programming languages enforce specific naming conventions to maintain readable codebases. JavaScript and Java employ camelCase for variables and methods. Python (PEP 8) and Rust enforce snake_case for functions and variables. C# and TypeScript recommend PascalCase for classes and interfaces. CSS and HTML standards use kebab-case for class selectors and URL slugs. This tool converts between any format seamlessly.',
+                'table' => [
+                    'caption' => 'Programming Case Conventions, Formats, and Typical Language Ecosystems',
+                    'headers' => [
+                        0 => 'Naming Standard',
+                        1 => 'Formatted Example',
+                        2 => 'Character Separator',
+                        3 => 'Dominant Language Ecosystems',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => 'camelCase',
+                            1 => 'userProfileSettings',
+                            2 => 'Uppercase letter, no delimiter',
+                            3 => 'JavaScript, TypeScript, Java, Dart, Swift',
+                        ],
+                        1 => [
+                            0 => 'snake_case',
+                            1 => 'user_profile_settings',
+                            2 => 'Underscore delimiter (_)',
+                            3 => 'Python, Ruby, Rust, SQL column names, PHP functions',
+                        ],
+                        2 => [
+                            0 => 'kebab-case',
+                            1 => 'user-profile-settings',
+                            2 => 'Hyphen delimiter (-)',
+                            3 => 'CSS class names, HTML attributes, URL slugs, REST endpoints',
+                        ],
+                        3 => [
+                            0 => 'PascalCase',
+                            1 => 'UserProfileSettings',
+                            2 => 'Uppercase initial, no delimiter',
+                            3 => 'C#, React Components, Java/PHP Classes, TypeScript Types',
+                        ],
+                        4 => [
+                            0 => 'CONSTANT_CASE',
+                            1 => 'USER_PROFILE_SETTINGS',
+                            2 => 'Uppercase with underscore (_)',
+                            3 => 'Environment variables (.env), global constants, enum values',
+                        ],
+                    ],
+                ],
             ],
             1 => [
                 'heading' => 'Title Case vs Sentence Case in professional publishing',
