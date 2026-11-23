@@ -50,6 +50,9 @@ Route::post('/api/ssl-check', [SslCheckController::class, 'check'])
 Route::get('/og/blog/{pillar}.png', [OgImageController::class, 'blogPillar'])->name('og.blog.pillar');
 Route::get('/og/blog/{pillar}/{cluster}.png', [OgImageController::class, 'blogCluster'])->name('og.blog.cluster');
 Route::get('/og/{slug}.png', [OgImageController::class, 'show'])->name('og.show');
+Route::get('/og/blog/{pillar}/{cluster}', fn (string $pillar, string $cluster) => redirect("/og/blog/{$pillar}/{$cluster}.png", 301));
+Route::get('/og/blog/{pillar}', fn (string $pillar) => redirect("/og/blog/{$pillar}.png", 301));
+Route::get('/og/{slug}', fn (string $slug) => redirect("/og/{$slug}.png", 301));
 
 // 3. Homepage
 Route::get('/', HomeController::class)->name('home');

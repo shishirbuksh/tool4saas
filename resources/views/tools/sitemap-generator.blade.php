@@ -9,7 +9,7 @@
             const list = this.urls.split('\n').map(u => u.trim()).filter(Boolean);
             const today = new Date().toISOString().split('T')[0];
             const q = String.fromCharCode(34);
-            let out = '<?xml version=' + q + '1.0' + q + ' encoding=' + q + 'UTF-8' + q + '?>\n';
+            let out = '<' + '?xml version=' + q + '1.0' + q + ' encoding=' + q + 'UTF-8' + q + '?>\n';
             out += '<urlset xmlns=' + q + 'http://www.sitemaps.org/schemas/sitemap/0.9' + q + '>\n';
             list.forEach(u => {
                 out += '  <url>\n';

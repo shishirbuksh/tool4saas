@@ -6,7 +6,7 @@ return [
     [
         'id' => 'text-documents',
         'label' => 'Text & Documents',
-        'description' => 'Count words, convert case, clean text and compare documents with 12 free browser-based writing utilities for everyday editing.',
+        'description' => 'Count words, convert case, clean text and compare documents with 13 free browser-based writing utilities for everyday editing.',
         'indexable' => true,
     ],
     [
@@ -24,13 +24,13 @@ return [
     [
         'id' => 'converters',
         'label' => 'Converters',
-        'description' => 'Convert units, currencies, YAML, JSON, CSV and number systems instantly with 10 free offline converters in one click.',
+        'description' => 'Convert units, currencies, YAML, JSON, CSV and number systems instantly with 12 free offline converters in one click.',
         'indexable' => true,
     ],
     [
         'id' => 'generators',
         'label' => 'Generators',
-        'description' => 'Generate passwords, random numbers, UUIDs, coin flips, dice rolls, favicons and robots.txt with 8 free privacy-friendly generator tools.',
+        'description' => 'Generate passwords, random numbers, UUIDs, coin flips, dice rolls, favicons and robots.txt with 9 free privacy-friendly generator tools.',
         'indexable' => true,
     ],
     [
@@ -48,13 +48,13 @@ return [
     [
         'id' => 'calculators',
         'label' => 'Calculators',
-        'description' => 'Calculate percentages, loans, grades, discounts and BMI instantly with 11 free everyday calculators that work offline.',
+        'description' => 'Calculate percentages, loans, grades, discounts and BMI instantly with 12 free everyday calculators that work offline.',
         'indexable' => true,
     ],
     [
         'id' => 'finance',
         'label' => 'Finance & Money',
-        'description' => 'Mortgage, SIP, salary and tax calculators for planning - 20 free tools, informational only, not financial advice.',
+        'description' => 'Mortgage, SIP, salary and tax calculators for planning - 23 free tools, informational only, not financial advice.',
         'indexable' => true,
     ],
     [
