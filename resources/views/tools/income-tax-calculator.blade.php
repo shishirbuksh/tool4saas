@@ -29,9 +29,32 @@
     get takeHome() {
         const inc = parseFloat(this.income) || 0;
         return Math.max(0, inc - this.tax);
+    },
+    setPreset(inc, reg) {
+        this.income = inc;
+        this.regime = reg;
     }
 }">
     <div class="space-y-6">
+        {{-- 1-Click Tax Scenarios --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">1-Click Income Benchmarks:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(45000, 'us_single')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    US Entry Salary ($45k)
+                </button>
+                <button type="button" @click="setPreset(85000, 'us_single')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    US Median Tech ($85k)
+                </button>
+                <button type="button" @click="setPreset(150000, 'us_single')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    US Senior Professional ($150k)
+                </button>
+                <button type="button" @click="setPreset(50000, 'uk_standard')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    UK Average (£50k)
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Gross Annual Income</label>

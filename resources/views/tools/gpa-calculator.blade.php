@@ -26,9 +26,50 @@
     },
     get percentage() {
         return Math.round((this.gpa / 4) * 100);
+    },
+    loadPreset(tier) {
+        if (tier === 'deans') {
+            this.courses = [
+                { id: 1, name: 'Advanced Calculus', grade: 4.0, credits: 4 },
+                { id: 2, name: 'Physics Mechanics', grade: 3.7, credits: 4 },
+                { id: 3, name: 'Computer Science', grade: 4.0, credits: 3 },
+                { id: 4, name: 'Academic Writing', grade: 4.0, credits: 3 }
+            ];
+        } else if (tier === 'honors') {
+            this.courses = [
+                { id: 1, name: 'Macroeconomics', grade: 3.7, credits: 3 },
+                { id: 2, name: 'Business Law', grade: 3.3, credits: 3 },
+                { id: 3, name: 'Statistics', grade: 3.7, credits: 4 },
+                { id: 4, name: 'Marketing', grade: 3.3, credits: 3 }
+            ];
+        } else if (tier === 'standard') {
+            this.courses = [
+                { id: 1, name: 'Intro Biology', grade: 3.0, credits: 4 },
+                { id: 2, name: 'World History', grade: 3.0, credits: 3 },
+                { id: 3, name: 'Psychology', grade: 2.7, credits: 3 },
+                { id: 4, name: 'Sociology', grade: 3.3, credits: 3 }
+            ];
+        }
+        this.nextId = 5;
     }
 }">
     <div class="space-y-6">
+        {{-- 1-Click Academic Scenario Presets --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">1-Click Academic Benchmarks:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="loadPreset('deans')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    Dean's List (3.92 GPA)
+                </button>
+                <button type="button" @click="loadPreset('honors')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    Honors Student (3.51 GPA)
+                </button>
+                <button type="button" @click="loadPreset('standard')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    Good Standing (3.00 GPA)
+                </button>
+            </div>
+        </div>
+
         {{-- Polarity-Flipped Dark Hero Display --}}
         <div class="p-6 sm:p-9 rounded-3xl bg-[#0e0f0c] text-white border border-[#242a20] shadow-sm text-center">
             <span class="text-xs font-bold uppercase tracking-wider text-[#868685] font-mono">Cumulative Grade Point Average</span>

@@ -44,9 +44,32 @@
         } catch (e) {
             this.display = 'Error';
         }
+    },
+    loadFormula(expr) {
+        this.display = expr;
+        this.calculate();
     }
 }">
     <div class="max-w-md mx-auto space-y-4">
+        {{-- 1-Click Quick Formulas --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">1-Click Quick Calculations:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="loadFormula('sqrt(144)+25')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    √144 + 25
+                </button>
+                <button type="button" @click="loadFormula('cos(0)*50')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    cos(0) × 50
+                </button>
+                <button type="button" @click="loadFormula('log(1000)*10')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    log(1000) × 10
+                </button>
+                <button type="button" @click="loadFormula('3.14159*25')" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    π × 25
+                </button>
+            </div>
+        </div>
+
         {{-- Calculator Screen (Wise Polarity-Flipped Dark Surface) --}}
         <div class="p-6 rounded-3xl bg-[#0e0f0c] text-white border border-[#242a20] shadow-sm text-right space-y-1">
             <div class="text-xs font-mono text-[#868685] min-h-[16px]" x-text="equation"></div>

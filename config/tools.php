@@ -8229,24 +8229,24 @@ return [
         'category' => 'calculators',
         'faq' => [
             0 => [
-                'question' => 'How does credit weighting shape semester GPA?',
-                'answer' => 'Total grade points divided by total hours on 4.0 scale rewards high-credit excellence fairly. Biology A 4.0 with three hours and Mathematics B-plus 3.3 with four hours gives 25.2 points over seven hours, or 3.60 GPA. Adding rows locally offline preserves privacy at any time.',
+                'question' => 'How is weighted GPA calculated on a 4.0 scale?',
+                'answer' => 'Multiply each course\'s grade point value by its credit hours, sum all grade points, and divide by total credit hours. For example, an A (4.0) in a 4-credit course yields 16.0 quality points. If you earn 48.0 quality points across 14 credits, your GPA is 48.0 / 14 = 3.43.',
             ],
             1 => [
-                'question' => 'Does grade entry leave my device during calculation?',
-                'answer' => 'All course math remains inside the active tab without network dispatch or account linkage. Five courses with fifteen hours compute net-off instantly with no transfer or retention. Grades vanish on tab close because nothing persists remotely. No sign-in is requested here at any time.',
+                'question' => 'What are the letter grade values on a standard 4.0 GPA scale?',
+                'answer' => 'Standard 4.0 scale letter grade points are: A = 4.0, A- = 3.7, B+ = 3.3, B = 3.0, B- = 2.7, C+ = 2.3, C = 2.0, C- = 1.7, D+ = 1.3, D = 1.0, and F = 0.0. AP and Honors courses may award up to 5.0 on a weighted scale.',
             ],
             2 => [
-                'question' => 'How do plus-minus variants shift cumulative outcomes?',
-                'answer' => 'Plus-minus granularity distinguishes B-plus 3.3 from A-minus 3.7, altering trajectory by tenths meaningfully. Biology A with three hours and Mathematics B-plus gives 3.60, swapping Mathematics to A-minus lifts to 3.83 with recalculation. Retake and forgiveness rules depend on institutional policy specifically.',
+                'question' => 'How do I convert a 4.0 GPA to a percentage?',
+                'answer' => 'To convert a 4.0 GPA to an approximate percentage, divide your GPA by 4.0 and multiply by 100: GPA / 4.0 * 100. For example, a 3.5 GPA equals approximately 87.5% (or 90% on common high school conversion charts), while a 3.0 GPA equals 75% to 80%.',
             ],
             3 => [
-                'question' => 'What strategy recovers GPA after one low grade?',
-                'answer' => 'High-credit A grades dilute prior C impact faster than low-credit electives effectively. A three-credit C at 2.0 needs two three-credit A grades to rebound near 3.33 across nine hours total. Mapping what-if scenarios with 3.7 versus 4.0 previews recovery timelines. Advising office confirms repeat eligibility and rules.',
+                'question' => 'Are my course names, credits, and grades kept private?',
+                'answer' => 'Yes, 100% private. All course inputs and GPA math run exclusively in your browser memory via client-side JavaScript. No grades, transcripts, or personal data are ever uploaded or transmitted to any server.',
             ],
             4 => [
-                'question' => 'Why do transcripts differ from my calculated estimate?',
-                'answer' => 'Institutional rounding, repeated-course replacement, pass-fail exclusions, and transfer articulation cause divergence frequently. Our tool weights every entered row equally, while registrar may drop lowest attempt or cap Dean honors at 3.85. Comparing seven-credit sample against official audit identifies policy adjustments needed.',
+                'question' => 'What is the difference between semester GPA and cumulative CGPA?',
+                'answer' => 'Semester GPA measures performance within a single academic term, whereas Cumulative GPA (CGPA) calculates your grade point average across all completed semesters combined. To raise your CGPA faster, focus on earning high grades in higher-credit courses.',
             ],
         ],
         'howTo' => [
@@ -10519,24 +10519,24 @@ FN:Ada Lovelace...',
         'category' => 'calculators',
         'faq' => [
             0 => [
-                'question' => 'Does the lab support keyboard entry for speed?',
-                'answer' => 'Typing expressions with Enter for equals accelerates workflow alongside DEG or RAD selection. Sine thirty and two cubed gives 8.5 in DEG across two modes within one second. Brackets group three nesting levels safely. Each keystroke evaluates on-device net-off without transmission.',
+                'question' => 'What functions and operations does this scientific calculator support?',
+                'answer' => 'The calculator supports basic arithmetic (+, -, *, /), trigonometry (sin, cos, tan), powers and roots (sqrt), logarithms (log10, ln), constants (pi, e), and nested parentheses. All calculations evaluate according to standard PEMDAS algebraic hierarchy.',
             ],
             1 => [
-                'question' => 'How private are trigonometric histories?',
-                'answer' => 'Every sine, log, and power operation remains inside the current tab without server dispatch. Twenty daily sums process locally with no login and no retention. Entries stay resident until deletion on close. No sign-in is requested for laboratory math at any time.',
+                'question' => 'How do trigonometric functions handle degrees versus radians?',
+                'answer' => 'Standard scientific calculations evaluate angles based on mathematical circles: sin(30 deg) = 0.5, whereas sin(30 rad) = -0.988. Ensure parentheses are properly closed when computing composite trig expressions like cos(0) * 50.',
             ],
             2 => [
-                'question' => 'Why do DEG and RAD produce divergent sines?',
-                'answer' => 'Angle interpretation shifts dramatically between degree and radian circles fundamentally. Sine thirty equals 0.5 in DEG but negative 0.988 in RAD, reflecting distinct arc positions. Classroom geometry favors DEG, calculus favors RAD. Parentheses clarify nested powers before evaluation accurately.',
+                'question' => 'How do I calculate square roots, exponents, and logs?',
+                'answer' => 'Click or type sqrt(value) for square roots, log(value) for base-10 logarithms, and ln(value) for natural logarithms. For example, sqrt(144) produces 12, and log(1000) produces 3.',
             ],
             3 => [
-                'question' => 'How should nested parentheses be structured reliably?',
-                'answer' => 'Close every opened bracket inside-out to avoid parser stalls and syntax errors. Expression two and three squared as open parenthesis two and three close parenthesis caret two yields twenty-five. Three nesting levels accommodate fractions inside exponents inside trig. Reviewing highlighted pairs before equals prevents syntax errors effectively.',
+                'question' => 'Are my calculations and formulas private and secure?',
+                'answer' => 'Yes, 100% private. All mathematical parsing and expression evaluation occur locally on your device within the browser runtime. Zero expressions or history are sent to remote servers.',
             ],
             4 => [
-                'question' => 'When do logarithms require base-ten versus natural choice?',
-                'answer' => 'Base-ten suits decibel, pH, and order-of-magnitude contexts, while natural base e suits continuous growth and calculus. Log one hundred equals two in base-ten, ln e squared equals two naturally. Two cubed equals eight bridges power intuition. Matching domain conventions avoids mis-scaling experimental data significantly.',
+                'question' => 'Can I enter formulas using my physical computer keyboard?',
+                'answer' => 'Yes. You can type numeric keys, operational symbols (+, -, *, /), parentheses, and press Enter to calculate or Backspace to clear and correct characters seamlessly.',
             ],
         ],
         'howTo' => [
@@ -11649,24 +11649,24 @@ FN:Ada Lovelace...',
         'category' => 'calculators',
         'faq' => [
             0 => [
-                'question' => 'How does greatest-common-divisor simplification work?',
-                'answer' => 'Top shared divisor trims numerator and denominator while fixing signs in one pass. Six eighths trims to three quarters, while three quarters and five sixths gives nineteen twelfths or one seven twelfths. Zero denominator flags invalid in one warning. Each trim runs locally without posting or retention.',
+                'question' => 'How do you add or subtract fractions with different denominators?',
+                'answer' => 'Find a common denominator, convert both numerators, add or subtract the numerators, and simplify the result. For example, to add 1/2 and 1/4: convert 1/2 to 2/4, then calculate (2 + 1) / 4 = 3/4.',
             ],
             1 => [
-                'question' => 'Do fraction entries remain on my device?',
-                'answer' => 'Greatest-common-divisor sums stay on your phone alone without file sharing or login. Ten sums like three quarters and five sixths process locally offline with no dispatch. Cuts hold private, need no network, and wipe on close automatically. No account is requested here at any time.',
+                'question' => 'How do you multiply and divide fractions?',
+                'answer' => 'To multiply fractions, multiply the numerators straight across and multiply the denominators: (a/b) * (c/d) = (a*c)/(b*d). To divide fractions, multiply by the reciprocal of the second fraction: (a/b) / (c/d) = (a/b) * (d/c). For example, 1/2 / 3/4 = 1/2 * 4/3 = 4/6 = 2/3.',
             ],
             2 => [
-                'question' => 'What happens with zero or oversized denominators?',
-                'answer' => 'Zero denominator triggers rejection because division lacks meaning mathematically, while large denominators preserve precision accurately. Three quarters and five sixths equals nineteen twelfths or one seven twelfths with decimal 1.5833 shown. Simplification by divisor and sign normalization completes display.',
+                'question' => 'How do you simplify a fraction to lowest terms?',
+                'answer' => 'Divide both the numerator and denominator by their Greatest Common Divisor (GCD). For example, for 12/16, the GCD is 4: divide 12 by 4 = 3, and 16 by 4 = 4, yielding the simplified fraction 3/4.',
             ],
             3 => [
-                'question' => 'How are mixed numbers converted for baking scaling?',
-                'answer' => 'Whole part multiplies denominator and numerator over denominator unifies format before operation accurately. One seven twelfths becomes nineteen twelfths for arithmetic, then reconverts to mixed display. Halving three quarters cup gives three eighths cup precisely. Verifying divisor trimming after conversion keeps recipes accurate consistently.',
+                'question' => 'How do you convert a fraction to a decimal?',
+                'answer' => 'Divide the top numerator by the bottom denominator using simple division. For example, 3/4 = 3 / 4 = 0.75, 1/2 = 0.5, and 5/8 = 0.625. Our calculator displays both the simplified fraction and its 4-decimal equivalent instantly.',
             ],
             4 => [
-                'question' => 'Why do decimal equivalents sometimes repeat infinitely?',
-                'answer' => 'Prime factors beyond two and five in denominator create recurring expansions inevitably. One third equals 0.333 repeating, while nineteen twelfths equals 1.5833 with trailing threes. Displaying four decimals balances readability and precision effectively. Retaining fraction form avoids drift across chained recipe doublings.',
+                'question' => 'Are my fraction calculations and inputs kept private?',
+                'answer' => 'Yes, 100% client-side. All arithmetic and simplification algorithms run locally in your browser memory with zero tracking, zero cookies, and zero server communication.',
             ],
         ],
         'howTo' => [

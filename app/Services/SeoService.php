@@ -258,6 +258,14 @@ final class SeoService
             'age-calculator' => 'https://www.wikidata.org/wiki/Q185836',
             'sip-calculator' => 'https://www.wikidata.org/wiki/Q7663806',
             'emi-calculator' => 'https://www.wikidata.org/wiki/Q474088',
+            'scientific-calculator' => 'https://www.wikidata.org/wiki/Q1059533',
+            'fraction-calculator' => 'https://www.wikidata.org/wiki/Q1055745',
+            'gpa-calculator' => 'https://www.wikidata.org/wiki/Q1074127',
+            'calorie-calculator' => 'https://www.wikidata.org/wiki/Q130964',
+            'date-calculator' => 'https://www.wikidata.org/wiki/Q12138',
+            'income-tax-calculator' => 'https://www.wikidata.org/wiki/Q8161',
+            'concrete-calculator' => 'https://www.wikidata.org/wiki/Q22657',
+            'profit-margin-calculator' => 'https://www.wikidata.org/wiki/Q384074',
         ];
 
         $webAppEntity = [

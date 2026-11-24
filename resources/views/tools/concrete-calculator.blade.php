@@ -19,9 +19,33 @@
         const cy = parseFloat(this.cubicYards) || 0;
         // ~45 bags of 80lb concrete per cubic yard
         return Math.ceil(cy * 45);
+    },
+    setPreset(l, w, d) {
+        this.length = l;
+        this.width = w;
+        this.depth = d;
     }
 }">
     <div class="space-y-6">
+        {{-- 1-Click Concrete Slab Presets --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Popular Pour Projects:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(10, 10, 4)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    10' × 10' Patio (4" slab)
+                </button>
+                <button type="button" @click="setPreset(20, 20, 4)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    2-Car Garage (20' × 20' × 4")
+                </button>
+                <button type="button" @click="setPreset(50, 4, 4)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    Walkway Sidewalk (50' × 4' × 4")
+                </button>
+                <button type="button" @click="setPreset(12, 12, 6)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    Heavy Shed Pad (12' × 12' × 6")
+                </button>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Slab Length (Feet)</label>
