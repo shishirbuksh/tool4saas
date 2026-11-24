@@ -38,10 +38,11 @@ final class HomeController
             }
         }
 
+        $baseUrl = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
         $totalTools = count($allTools);
         $metaTitle = "Tool4SaaS — {$totalTools} Free Online Developer, PDF, Text & Utility Tools";
         $metaDescription = "Use {$totalTools} free online tools for developer tasks, PDFs, images, text, and calculations. Zero accounts, 100% private, and runs entirely in your browser.";
-        $jsonLd = $this->seo->buildHomeJsonLd(url('/'));
+        $jsonLd = $this->seo->buildHomeJsonLd($baseUrl);
 
         return view('pages.home', [
             'metaTitle' => $metaTitle,
@@ -50,7 +51,7 @@ final class HomeController
             'toolCount' => $totalTools,
             'grouped' => $grouped,
             'featuredPillars' => $featuredPillars,
-            'canonical' => url('/'),
+            'canonical' => "{$baseUrl}/",
             'jsonLd' => $jsonLd,
         ]);
     }

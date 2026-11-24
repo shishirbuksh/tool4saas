@@ -40,9 +40,10 @@ final class CategoryController
             ? $this->blogService->getGuideRecommendationForTool($tools[0]->slug, $id)
             : null;
 
+        $baseUrl = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
         $metaTitle = $this->seo->fitMetaTitle("{$category->label} Tools ({$count} Free Online Utilities)");
         $metaDescription = $this->seo->fitMetaDescription($category->description);
-        $jsonLd = $this->seo->buildCategoryJsonLd($category, $tools, url('/'));
+        $jsonLd = $this->seo->buildCategoryJsonLd($category, $tools, $baseUrl);
 
         return view('pages.category', [
             'category' => $category,
@@ -51,7 +52,7 @@ final class CategoryController
             'categoryGuide' => $categoryGuide,
             'metaTitle' => $metaTitle,
             'metaDescription' => $metaDescription,
-            'canonical' => url('/category/'.$category->id),
+            'canonical' => "{$baseUrl}/category/{$category->id}",
             'jsonLd' => $jsonLd,
             'isNoindex' => ! $category->isIndexable(),
         ]);

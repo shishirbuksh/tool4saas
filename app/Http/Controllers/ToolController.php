@@ -29,9 +29,10 @@ final class ToolController
 
         $relatedData = $this->relatedService->compute($tool);
         $category = $this->registry->findCategory($tool->category);
+        $baseUrl = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
         $metaTitle = $this->seo->toolMetaTitle($tool);
         $metaDescription = $this->seo->fitMetaDescription($tool->description);
-        $jsonLd = $this->seo->buildToolJsonLd($tool, url('/'));
+        $jsonLd = $this->seo->buildToolJsonLd($tool, $baseUrl);
         $guideCallout = $this->blogService->getGuideRecommendationForTool($tool->slug, $tool->category);
 
         return view('pages.tool', [
@@ -44,7 +45,7 @@ final class ToolController
             'metaDescription' => $metaDescription,
             'jsonLd' => $jsonLd,
             'ymylType' => $tool->ymylType(),
-            'canonical' => url('/'.$tool->slug),
+            'canonical' => "{$baseUrl}/{$tool->slug}",
             'isNoindex' => ! $tool->isIndexable(),
             'guideCallout' => $guideCallout,
         ]);
