@@ -24,9 +24,33 @@
         const nw = parseFloat(this.newVal);
         if (isNaN(orig) || isNaN(nw) || orig === 0) return 1;
         return (nw / orig).toFixed(2);
+    },
+
+    setPreset(orig, nw) {
+        this.originalVal = orig;
+        this.newVal = nw;
     }
 }">
-    <div class="space-y-8">
+    <div class="space-y-6">
+        {{-- Quick Calculation Presets --}}
+        <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">1-Click Change Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="setPreset(80, 100)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    +25% Growth ($80 → $100)
+                </button>
+                <button type="button" @click="setPreset(50, 40)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    -20% Discount ($50 → $40)
+                </button>
+                <button type="button" @click="setPreset(2000, 5000)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    +150% Traffic (2k → 5k)
+                </button>
+                <button type="button" @click="setPreset(1200, 1020)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                    -15% Budget Cut ($1.2k → $1.02k)
+                </button>
+            </div>
+        </div>
+
         {{-- Inputs Grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="p-6 rounded-3xl bg-base-200/60 border border-base-300">

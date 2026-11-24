@@ -60,10 +60,20 @@
             const max = ((24.9 * h * h) / 703).toFixed(1);
             return `${min} lbs – ${max} lbs`;
         }
+    },
+    setPreset(u, w, h) {
+        this.unit = u;
+        if (u === 'metric') {
+            this.weightKg = w;
+            this.heightCm = h;
+        } else {
+            this.weightLbs = w;
+            this.heightInches = h;
+        }
     }
 }">
     {{-- Wise Unit Toggle Pills --}}
-    <div class="flex justify-center mb-8">
+    <div class="flex justify-center mb-6">
         <div class="inline-flex p-1.5 rounded-full bg-base-200 border border-base-300 gap-1">
             <button
                 type="button"
@@ -80,6 +90,25 @@
                 @click="unit = 'imperial'"
             >
                 Imperial (lbs / inches)
+            </button>
+        </div>
+    </div>
+
+    {{-- 1-Click Population Benchmarks --}}
+    <div class="mb-6">
+        <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">1-Click Population Benchmarks:</span>
+        <div class="flex flex-wrap gap-2">
+            <button type="button" @click="setPreset('metric', 70, 175)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                Healthy Adult Male (70kg, 175cm)
+            </button>
+            <button type="button" @click="setPreset('metric', 58, 163)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                Healthy Adult Female (58kg, 163cm)
+            </button>
+            <button type="button" @click="setPreset('metric', 86, 172)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                Overweight Reference (86kg, 172cm)
+            </button>
+            <button type="button" @click="setPreset('imperial', 170, 70)" class="btn btn-xs rounded-full border border-base-300 bg-base-100 hover:border-primary hover:bg-[#e2f6d5] font-mono transition-all">
+                US Average Adult (170 lbs, 5'10")
             </button>
         </div>
     </div>
