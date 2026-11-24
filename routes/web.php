@@ -20,7 +20,7 @@ Route::get('/robots.txt', [FeedController::class, 'robots'])->name('feed.robots'
 Route::get('/rss.xml', [FeedController::class, 'rss'])->name('feed.rss');
 Route::get('/manifest.webmanifest', [FeedController::class, 'manifest'])->name('feed.manifest');
 Route::get('/llms.txt', [FeedController::class, 'llms'])->name('feed.llms');
-Route::get('/llms-full.txt', [FeedController::class, 'llms'])->name('feed.llms-full');
+Route::get('/llms-full.txt', [FeedController::class, 'llmsFull'])->name('feed.llms-full');
 Route::get('/69c364974a3c4cafb3edf9bb5cc02902.txt', function () {
     return response("69c364974a3c4cafb3edf9bb5cc02902\n", 200, [
         'Content-Type' => 'text/plain; charset=utf-8',

@@ -1,5 +1,5 @@
 <x-tool-paper x-data="{
-    title: 'Tool4SaaS — 125+ Free Online Developer & Financial Tools',
+    title: 'Tool4SaaS — 135+ Free Online Developer & Financial Tools',
     description: 'Instant, private, in-browser utilities for creators, engineers, and financial analysts. Zero data egress, no registration required.',
     url: 'https://tool4saas.com',
     device: 'desktop',

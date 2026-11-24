@@ -20,7 +20,7 @@ final class BlogController extends Controller
     public function index(Request $request): View
     {
         $sections = $this->blogService->getBlogIndexSections();
-        $baseUrl = $request->getSchemeAndHttpHost();
+        $baseUrl = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
 
         $meta = [
             'title' => 'Blog — Free Tool Guides & Tutorials',
@@ -58,7 +58,7 @@ final class BlogController extends Controller
         ));
 
         $related = $this->blogService->getRelatedPosts($post, 4);
-        $baseUrl = $request->getSchemeAndHttpHost();
+        $baseUrl = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
 
         $meta = [
             'title' => $this->seoService->formatTitle($post->title),
@@ -90,7 +90,7 @@ final class BlogController extends Controller
         }
 
         $related = $this->blogService->getRelatedPosts($post, 4);
-        $baseUrl = $request->getSchemeAndHttpHost();
+        $baseUrl = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
 
         $meta = [
             'title' => $this->seoService->formatTitle($post->title),

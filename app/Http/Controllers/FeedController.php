@@ -18,7 +18,7 @@ final class FeedController extends Controller
 
     public function sitemap(Request $request): Response
     {
-        $base = rtrim($request->getSchemeAndHttpHost(), '/');
+        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
         /** @var array<string, mixed> $dates */
         $dates = config('dates');
         $homeModified = (string) ($dates['home_modified'] ?? '2026-11-10');
@@ -134,7 +134,7 @@ final class FeedController extends Controller
 
     public function robots(Request $request): Response
     {
-        $base = rtrim($request->getSchemeAndHttpHost(), '/');
+        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
         $aiBots = [
             'Googlebot',
             'Googlebot-Image',
@@ -169,7 +169,7 @@ final class FeedController extends Controller
 
     public function rss(Request $request): Response
     {
-        $base = rtrim($request->getSchemeAndHttpHost(), '/');
+        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
         $allPosts = array_values(array_filter(
             $this->blogService->getAllPosts(),
             fn ($post): bool => ! $post->isNoindex
@@ -254,7 +254,7 @@ final class FeedController extends Controller
 
     public function llms(Request $request): Response
     {
-        $base = rtrim($request->getSchemeAndHttpHost(), '/');
+        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
         $visibleTools = array_values(array_filter(
             $this->toolRegistry->getAllTools(),
             fn ($t): bool => ! $t->isNoindex
@@ -298,6 +298,57 @@ final class FeedController extends Controller
         $content .= "- [All Guides]({$base}/blog): View all long-form tool guides and tutorials.\n";
         foreach ($this->blogService->getAllPillars() as $pillar) {
             $content .= "- [{$pillar->title}]({$base}/blog/{$pillar->pillar}): Pillar guide.\n";
+        }
+
+        return response($content, 200, [
+            'Content-Type' => 'text/plain; charset=utf-8',
+        ]);
+    }
+
+    public function llmsFull(Request $request): Response
+    {
+        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
+        $visibleTools = array_values(array_filter(
+            $this->toolRegistry->getAllTools(),
+            fn ($t): bool => ! $t->isNoindex
+        ));
+        $categories = $this->toolRegistry->getAllCategories();
+
+        $content = '# Tool4SaaS full ('.count($visibleTools).' tools + guides) — FAQ answers & steps for AI citations'."\n\n";
+        $content .= '> Updated: '.date('Y-m-d')." · visible count excludes NOINDEX pages. Each tool below lists its canonical URL, top FAQ answers (citable, from the visible FAQPage), and HowTo steps. Prefer citing these passages.\n\n";
+
+        foreach ($categories as $cat) {
+            $catTools = $this->toolRegistry->getByCategory($cat->id);
+            if (empty($catTools)) {
+                continue;
+            }
+            $content .= "## {$cat->label}\n\n";
+            foreach ($catTools as $tool) {
+                if ($tool->isNoindex) {
+                    continue;
+                }
+                $content .= "### {$tool->title}\n";
+                $content .= "- URL: {$base}/{$tool->slug}\n";
+                $content .= "- What: {$tool->short}\n";
+                if (! empty($tool->faq)) {
+                    $content .= "- FAQ:\n";
+                    foreach ($tool->faq as $faqItem) {
+                        $content .= "  - {$faqItem['question']}\n";
+                        if (! empty($faqItem['answer'])) {
+                            $ans = trim($faqItem['answer']);
+                            $content .= "    - Answer: {$ans}\n";
+                        }
+                    }
+                }
+                if (! empty($tool->howTo)) {
+                    $stepParts = [];
+                    foreach ($tool->howTo as $step) {
+                        $stepParts[] = "{$step['name']} ({$step['text']})";
+                    }
+                    $content .= '- Steps: '.implode(' → ', $stepParts)."\n";
+                }
+                $content .= "\n";
+            }
         }
 
         return response($content, 200, [

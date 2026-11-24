@@ -1,7 +1,7 @@
 {
   "name": "Tool4SaaS – Free Browser Productivity Tools",
   "short_name": "Tool4SaaS",
-  "description": "125+ free online tools for PDFs, images, text, coding, and financial calculations. 100% client-side privacy.",
+  "description": "135+ free online tools for PDFs, images, text, coding, and financial calculations. 100% client-side privacy.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

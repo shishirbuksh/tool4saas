@@ -1,27 +1,26 @@
-# Tool4SaaS (125 free tools across 12 categories + guides)
-> Updated: 2026-11-10 · visible count excludes 2 NOINDEX pages (pdf-compress, fancy-text-generator).
+# Tool4SaaS (133 free tools across 12 categories + guides)
+> Updated: 2026-11-24
 
-> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload; 4 network tools (currency, YouTube thumbnails, SSL checker, voice input) need internet - see /privacy. 125 tools across 12 categories + pillar/cluster guides below. Full FAQ + step hints for AI citations: https://tool4saas.com/llms-full.txt
+> Free, privacy-friendly online productivity and developer tools. Most run entirely in your browser with no account and no upload. Full FAQ + step hints: https://tool4saas.com/llms-full.txt
 
 ## Overview
-- [Tool4SaaS](https://tool4saas.com/): Home page with all 125 free tools grouped by 12 categories.
+- [Tool4SaaS](https://tool4saas.com/): Home page with all 133 free tools.
 - [About](https://tool4saas.com/about): What the site is and how it protects your privacy.
-- [Privacy Policy](https://tool4saas.com/privacy): How user data is handled (it stays in your browser).
+- [Privacy Policy](https://tool4saas.com/privacy): How user data is handled.
 - [Terms](https://tool4saas.com/terms): Terms of use for all tools and guides.
 - [Contact](https://tool4saas.com/contact): Contact the Tool4SaaS team.
 - [Author](https://tool4saas.com/author): About the author behind Tool4SaaS.
 - [Methodology](https://tool4saas.com/methodology): How we build and test tools.
-- [Categories](https://tool4saas.com/category/text-documents): Browse tools by category.
-- [Full tool + FAQ + steps dump](https://tool4saas.com/llms-full.txt): Every tool with its top FAQ questions and HowTo steps for AI citations.
-- [Text & Documents](https://tool4saas.com/category/text-documents): Count words, convert case, clean text and compare documents with 12 free browser-based writing utilities for everyday editing.
+
+- [Text & Documents](https://tool4saas.com/category/text-documents): Count words, convert case, clean text and compare documents with 13 free browser-based writing utilities for everyday editing.
 - [Business & Writing](https://tool4saas.com/category/business): Create invoices, resumes, quotations and receipts instantly in your browser with 7 free business document generators.
 - [Developer Tools](https://tool4saas.com/category/developer): Encode Base64, hash, format JSON and SQL, test regex and validate code with 22 free developer utilities that run locally.
-- [Converters](https://tool4saas.com/category/converters): Convert units, currencies, YAML, JSON, CSV and number systems instantly with 10 free offline converters in one click.
-- [Generators](https://tool4saas.com/category/generators): Generate passwords, random numbers, UUIDs, coin flips, dice rolls, favicons and robots.txt with 8 free privacy-friendly generator tools.
+- [Converters](https://tool4saas.com/category/converters): Convert units, currencies, YAML, JSON, CSV and number systems instantly with 12 free offline converters in one click.
+- [Generators](https://tool4saas.com/category/generators): Generate passwords, random numbers, UUIDs, coin flips, dice rolls, favicons and robots.txt with 9 free privacy-friendly generator tools.
 - [Images & Design](https://tool4saas.com/category/images-design): Generate QR codes, compress, resize, crop and frame images, extract colors and build gradients with 12 free design tools offline.
 - [PDF Tools](https://tool4saas.com/category/pdf): Merge, split, compress and convert PDFs and images to PDF securely in your browser with 4 free offline PDF utilities.
-- [Calculators](https://tool4saas.com/category/calculators): Calculate percentages, loans, grades, discounts and BMI instantly with 11 free everyday calculators that work offline.
-- [Finance & Money](https://tool4saas.com/category/finance): Mortgage, SIP, salary and tax calculators for planning - 20 free tools, informational only, not financial advice.
+- [Calculators](https://tool4saas.com/category/calculators): Calculate percentages, loans, grades, discounts and BMI instantly with 12 free everyday calculators that work offline.
+- [Finance & Money](https://tool4saas.com/category/finance): Mortgage, SIP, salary and tax calculators for planning - 23 free tools, informational only, not financial advice.
 - [Health & Fitness](https://tool4saas.com/category/health): Calorie, BMI and macro calculators for informational purposes only - not medical advice, consult a professional.
 - [SEO & Marketing](https://tool4saas.com/category/seo): Generate meta tags, sitemaps, robots.txt and SERP previews to rank higher with 7 free SEO and marketing utilities offline.
 - [Time & Date](https://tool4saas.com/category/time): Calculate age, workdays, timezones and durations with clocks, timers and converters in 6 free time and date utilities.
@@ -39,14 +38,15 @@
 - [Plagiarism Checker](https://tool4saas.com/plagiarism-checker): Scan text for internal duplicates
 - [Typing Speed Test](https://tool4saas.com/typing-speed-test): Test typing speed in WPM with accuracy
 - [Speech to Text Converter](https://tool4saas.com/speech-to-text): Transcribe speech to text with mic
+- [Case Converter](https://tool4saas.com/case-converter): Camel, snake, pascal & kebab case
 
 ## Business & Writing
-- [Business Document Generator](https://tool4saas.com/document-generator): Generate quotations, POs & receipts
 - [Invoice Generator](https://tool4saas.com/invoice-generator): Free PDF with GST & logo
 - [Resume Builder](https://tool4saas.com/resume-builder): Build a clean resume and export to PDF
 - [Commission Calculator](https://tool4saas.com/commission-calculator): Calculate sales commission
 - [ATS Resume Checker](https://tool4saas.com/ats-resume-checker): Check resume keyword match for ATS
 - [Online Signature Maker](https://tool4saas.com/signature-maker): Draw or type digital signatures
+- [Business Document Generator](https://tool4saas.com/document-generator): Generate quotations, POs & receipts
 - [Cover Letter Builder](https://tool4saas.com/cover-letter-builder): Create tailored job cover letters
 
 ## Developer Tools
@@ -84,6 +84,8 @@
 - [JSON to Excel Converter](https://tool4saas.com/json-to-excel): Convert JSON arrays to Excel sheets
 - [ZIP File Creator](https://tool4saas.com/zip-creator): Bundle and compress files into ZIP
 - [Currency Converter](https://tool4saas.com/currency-converter): Convert currencies with live forex rates
+- [JSON to YAML Converter](https://tool4saas.com/json-to-yaml): Convert JSON to clean YAML
+- [YAML to JSON Converter](https://tool4saas.com/yaml-to-json): Convert YAML to formatted JSON
 
 ## Generators
 - [Password & Passphrase Generator](https://tool4saas.com/password-generator): Strong passwords & passphrases
@@ -94,6 +96,7 @@
 - [Barcode Generator](https://tool4saas.com/barcode-generator): Generate CODE128, EAN13 & UPC
 - [Fake Data Generator](https://tool4saas.com/fake-data-generator): Generate mock data for software testing
 - [Business Name Generator](https://tool4saas.com/business-name-generator): Generate creative business & brand names
+- [UUID Generator](https://tool4saas.com/uuid-generator): v4 & v7 cryptographic UUIDs
 
 ## Images & Design
 - [QR Code Generator](https://tool4saas.com/qr-code-generator): Generate QR codes for links, text & more
@@ -127,6 +130,7 @@
 - [Grade Calculator](https://tool4saas.com/grade-calculator): Weighted average & final exam grade
 - [Concrete Calculator](https://tool4saas.com/concrete-calculator): Cubic yards & concrete bag estimator
 - [US Sales Tax Calculator](https://tool4saas.com/us-sales-tax-calculator): Calculate state & local US sales tax
+- [Percentage Change Calculator](https://tool4saas.com/percentage-change): Calculate % increase & decrease
 
 ## Finance & Money
 - [Mortgage Calculator](https://tool4saas.com/mortgage-calculator): EMI & amortization schedule
@@ -149,6 +153,9 @@
 - [PPF Calculator India](https://tool4saas.com/ppf-calculator): Calculate PPF 15-year maturity & tax-free interest
 - [Debt Payoff Calculator](https://tool4saas.com/debt-payoff-calculator): Compare debt snowball vs avalanche payoff methods
 - [Capital Gains Tax Calculator India](https://tool4saas.com/capital-gains-tax-india): Calculate LTCG & STCG tax for FY 2024-25 & FY 2025-26
+- [CAGR Calculator](https://tool4saas.com/cagr-calculator): Compound Annual Growth Rate
+- [Auto Loan Calculator](https://tool4saas.com/auto-loan-calculator): Car loan payment & amortization
+- [Simple Interest Calculator](https://tool4saas.com/simple-interest-calculator): Calculate P × R × T interest
 
 ## Health & Fitness
 - [Calorie & Macro Calculator](https://tool4saas.com/calorie-calculator): Calculate daily calories & macros
@@ -177,173 +184,20 @@
 
 ## Guides & Blog
 - [All Guides](https://tool4saas.com/blog): View all long-form tool guides and tutorials.
-- [How to Calculate Exact Age in Years, Months & Days](https://tool4saas.com/blog/age-calculator-guide/how-to-calculate-age) (updated 2026-10-23)
-- [Age Difference Between Two Dates (With Examples)](https://tool4saas.com/blog/age-calculator-guide/age-difference-between-dates) (updated 2026-10-23)
-- [Date Difference Calculator: Days, Weeks & Months](https://tool4saas.com/blog/age-calculator-guide/date-difference-calculation) (updated 2026-10-23)
-- [Time Zone Converter: Schedule Across Zones Without Errors](https://tool4saas.com/blog/age-calculator-guide/timezone-conversion) (updated 2026-10-23)
-- [Unix Timestamp Converter: Seconds, Milliseconds & Dates](https://tool4saas.com/blog/age-calculator-guide/unix-timestamp-conversion) (updated 2026-10-23)
-- [Leap Year Birthdays: How Age and Dates Work](https://tool4saas.com/blog/age-calculator-guide/leap-year-birthdays) (updated 2026-10-23)
-- [Add or Subtract Days From a Date (Including Weekends)](https://tool4saas.com/blog/age-calculator-guide/add-subtract-dates) (updated 2026-10-23)
-- [Age in Days, Hours and Minutes: Exact Conversion](https://tool4saas.com/blog/age-calculator-guide/age-in-days-hours-minutes) (updated 2026-10-23)
-- [Age Calculator Guide: Exact Age, Dates & Time Zones](https://tool4saas.com/blog/age-calculator-guide): Pillar guide. (updated 2026-10-23)
-- [How BMI Is Calculated: Formula, Metric & Imperial](https://tool4saas.com/blog/bmi-calculator-guide/how-bmi-is-calculated) (updated 2026-10-23)
-- [BMI for Women: Ranges, Limitations & Better Metrics](https://tool4saas.com/blog/bmi-calculator-guide/bmi-for-women) (updated 2026-10-23)
-- [BMI for Men: What the Number Does and Doesn't Tell You](https://tool4saas.com/blog/bmi-calculator-guide/bmi-for-men) (updated 2026-10-23)
-- [Healthy Weight Range for Your Height (BMI Chart)](https://tool4saas.com/blog/bmi-calculator-guide/healthy-weight-range) (updated 2026-10-23)
-- [Calorie Deficit for Weight Loss: Safe Starting Point](https://tool4saas.com/blog/bmi-calculator-guide/calorie-deficit-for-weight-loss) (updated 2026-10-23)
-- [Daily Water Intake: Formula, Exercise & Climate](https://tool4saas.com/blog/bmi-calculator-guide/daily-water-intake) (updated 2026-10-23)
-- [Why BMI Misreads Athletes (and What to Use Instead)](https://tool4saas.com/blog/bmi-calculator-guide/bmi-for-athletes) (updated 2026-10-23)
-- [BMI for Children and Teens: Percentiles, Not Cutoffs](https://tool4saas.com/blog/bmi-calculator-guide/bmi-for-children-teens) (updated 2026-10-23)
-- [BMI Calculator Guide: Healthy Weight, Calories & Water Needs](https://tool4saas.com/blog/bmi-calculator-guide): Pillar guide. (updated 2026-10-23)
-- [Snowball vs Avalanche: Which Debt Payoff Method Fits?](https://tool4saas.com/blog/debt-payoff-guide/snowball-vs-avalanche) (updated 2026-10-23)
-- [How to Pay Off Credit Card Debt: Order, APR and Minimums](https://tool4saas.com/blog/debt-payoff-guide/how-to-pay-off-credit-card-debt) (updated 2026-10-23)
-- [Debt Avalanche Method: Steps, Example and Rolled Payments](https://tool4saas.com/blog/debt-payoff-guide/debt-avalanche-method) (updated 2026-10-23)
-- [Debt Snowball Method: Steps, Example and Limits](https://tool4saas.com/blog/debt-payoff-guide/debt-snowball-method) (updated 2026-10-23)
-- [The Minimum Payment Trap: Why Balances Stall](https://tool4saas.com/blog/debt-payoff-guide/minimum-payment-trap) (updated 2026-10-23)
-- [Extra Payment Strategy: Monthly vs Lump Sum](https://tool4saas.com/blog/debt-payoff-guide/extra-payment-strategy) (updated 2026-10-23)
-- [Debt Consolidation vs Payoff: Key Trade-Offs](https://tool4saas.com/blog/debt-payoff-guide/debt-consolidation-vs-payoff) (updated 2026-10-23)
-- [Debt-Free Date: How to Read Your Payoff Timeline](https://tool4saas.com/blog/debt-payoff-guide/debt-free-date) (updated 2026-10-23)
-- [Debt Payoff Guide: Snowball vs Avalanche Methods](https://tool4saas.com/blog/debt-payoff-guide): Pillar guide. (updated 2026-10-23)
-- [Weighted Grade Calculation: How Weights Shape Your Score](https://tool4saas.com/blog/grade-calculator-guide/weighted-grade-calculation) (updated 2026-10-23)
-- [Final Exam Grade Needed: Formula, Targets & Examples](https://tool4saas.com/blog/grade-calculator-guide/final-exam-grade-needed) (updated 2026-10-23)
-- [Percentage to GPA: Conversion Tables and Caveats](https://tool4saas.com/blog/grade-calculator-guide/percentage-to-gpa) (updated 2026-10-23)
-- [GPA vs CGPA: Term, Cumulative and Scale Differences](https://tool4saas.com/blog/grade-calculator-guide/gpa-vs-cgpa) (updated 2026-10-23)
-- [Semester GPA Calculation: Credits, Grades and Examples](https://tool4saas.com/blog/grade-calculator-guide/semester-gpa-calculation) (updated 2026-10-23)
-- [Cumulative GPA: Formula, Prior Credits and Examples](https://tool4saas.com/blog/grade-calculator-guide/cumulative-gpa-calculation) (updated 2026-10-23)
-- [How to Raise GPA: Realistic Math and Recovery Steps](https://tool4saas.com/blog/grade-calculator-guide/how-to-raise-gpa) (updated 2026-10-23)
-- [Weighted vs Unweighted GPA: How Schools Calculate](https://tool4saas.com/blog/grade-calculator-guide/weighted-vs-unweighted-gpa) (updated 2026-10-23)
-- [Grade Calculator Guide: Weighted Grades & Final Exam Score](https://tool4saas.com/blog/grade-calculator-guide): Pillar guide. (updated 2026-10-23)
-- [Compress JPG to 200KB Without Visible Quality Loss](https://tool4saas.com/blog/image-compressor-guide/compress-jpg-200kb) (updated 2026-10-23)
-- [Instagram Image Size 2026: Resize Without Cropping](https://tool4saas.com/blog/image-compressor-guide/instagram-image-resize) (updated 2026-10-23)
-- [JPG to PNG: Convert Without Losing Quality](https://tool4saas.com/blog/image-compressor-guide/jpg-to-png) (updated 2026-10-23)
-- [Image to Base64: Data URLs in Practice](https://tool4saas.com/blog/image-compressor-guide/image-to-base64-data-url) (updated 2026-10-23)
-- [WCAG Contrast Checker: Pass AA and AAA](https://tool4saas.com/blog/image-compressor-guide/wcag-contrast-check) (updated 2026-10-23)
-- [Optimize SVG Logos Without Breaking Them](https://tool4saas.com/blog/image-compressor-guide/optimize-svg-logos) (updated 2026-10-19)
-- [Compress JPG to 20KB: Pass Strict Upload Limits](https://tool4saas.com/blog/image-compressor-guide/compress-jpg-20kb) (updated 2026-10-23)
-- [Compress Images for Web Without Losing Quality: 80% Guide](https://tool4saas.com/blog/image-compressor-guide): Pillar guide. (updated 2026-10-23)
-- [How to Create an Invoice Online Free in 5 Steps (PDF, No Signup)](https://tool4saas.com/blog/invoice-generator-guide/how-to-create-invoice-online) (updated 2026-10-20)
-- [Proforma Invoice vs Tax Invoice: Key Differences](https://tool4saas.com/blog/invoice-generator-guide/proforma-vs-tax-invoice) (updated 2026-10-23)
-- [Credit Note vs Debit Note: When to Use Each](https://tool4saas.com/blog/invoice-generator-guide/credit-note-vs-debit-note) (updated 2026-10-23)
-- [Invoice International Clients: Currency, Tax & Terms](https://tool4saas.com/blog/invoice-generator-guide/international-client-invoicing) (updated 2026-10-23)
-- [GST Invoice Format India: Mandatory Fields, HSN & Sample (2026)](https://tool4saas.com/blog/invoice-generator-guide/gst-invoice-format-india) (updated 2026-10-20)
-- [Freelancer Invoice Guide: What to Include & Get Paid on Time](https://tool4saas.com/blog/invoice-generator-guide/freelancer-invoice-guide) (updated 2026-10-20)
-- [Small Business Invoicing Without Paid Software: Complete Setup](https://tool4saas.com/blog/invoice-generator-guide/small-business-invoicing) (updated 2026-10-20)
-- [Free Invoice Template Guide: Word, Excel, PDF & Printable (2026)](https://tool4saas.com/blog/invoice-generator-guide/invoice-template-formats) (updated 2026-10-20)
-- [Invoice vs Quotation vs Receipt vs Purchase Order: Key Differences](https://tool4saas.com/blog/invoice-generator-guide/invoice-vs-quotation-vs-receipt) (updated 2026-10-20)
-- [Invoice Numbering: GST-Compliant Formats, HSN & Tax Fields (2026)](https://tool4saas.com/blog/invoice-generator-guide/invoice-numbering) (updated 2026-10-19)
-- [Invoice Payment Terms + Follow-Up Scripts That Get You Paid Faster](https://tool4saas.com/blog/invoice-generator-guide/payment-terms-and-followups) (updated 2026-10-20)
-- [12 Invoice Mistakes That Delay Payment (and How to Fix Them)](https://tool4saas.com/blog/invoice-generator-guide/invoicing-mistakes-to-avoid) (updated 2026-10-20)
-- [Free Invoice Generator Guide: Create Professional Invoices in Minutes](https://tool4saas.com/blog/invoice-generator-guide): Pillar guide. (updated 2026-10-20)
-- [Cron Expression Guide: 5 Fields and Next Runs](https://tool4saas.com/blog/json-formatter-guide/cron-expression-guide) (updated 2026-10-23)
-- [Format XML for Sitemaps, Feeds and Configs](https://tool4saas.com/blog/json-formatter-guide/format-xml-sitemaps-feeds) (updated 2026-10-23)
-- [HTML Entities: Encode and Decode Without Breaking Markup](https://tool4saas.com/blog/json-formatter-guide/html-entities-encode-decode) (updated 2026-10-23)
-- [URL Slugs: Rules for Readable, Stable Links](https://tool4saas.com/blog/json-formatter-guide/url-slug-rules) (updated 2026-10-23)
-- [MIME Types: What Content-Type Actually Controls](https://tool4saas.com/blog/json-formatter-guide/mime-type-content-type) (updated 2026-10-23)
-- [Inspect a CSV File Before You Import It](https://tool4saas.com/blog/json-formatter-guide/inspect-csv-before-import) (updated 2026-10-23)
-- [Minify CSS and JavaScript Without a Build Step](https://tool4saas.com/blog/json-formatter-guide/minify-css-js-safely) (updated 2026-10-23)
-- [Estimate AI Token Cost Before Sending a Prompt](https://tool4saas.com/blog/json-formatter-guide/estimate-ai-token-cost) (updated 2026-10-23)
-- [Seed Test Databases With UUIDs: Math and Workflow](https://tool4saas.com/blog/json-formatter-guide/uuid-seed-test-database) (updated 2026-10-23)
-- [JSON to CSV: Convert Flat Arrays Correctly](https://tool4saas.com/blog/json-formatter-guide/json-to-csv) (updated 2026-10-23)
-- [Format SQL Queries: Readable Joins and Clauses](https://tool4saas.com/blog/json-formatter-guide/format-sql-queries) (updated 2026-10-23)
-- [Debug API Responses Locally: JSON, Base64, JWT, Regex Guide](https://tool4saas.com/blog/json-formatter-guide): Pillar guide. (updated 2026-10-20)
-- [How Much House Can I Afford? 28/36 Rule Explained (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/how-much-house-can-i-afford) (updated 2026-10-19)
-- [15 vs 30 Year Mortgage: Interest, Payoff & When 15 Wins (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/15-vs-30-year-mortgage) (updated 2026-10-19)
-- [Should I Refinance? Break-Even Rule + Checklist (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/should-i-refinance-my-mortgage) (updated 2026-10-19)
-- [Extra Mortgage Payments: Interest Saved & 10% Rules (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/mortgage-overpayment-extra-payment) (updated 2026-10-19)
-- [Home Loan EMI & Eligibility India: CIBIL, FOIR, Prepayment (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/home-loan-emi-eligibility-india) (updated 2026-10-19)
-- [Mortgage Amortization Schedule: How Payments Split (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/mortgage-amortization-schedule) (updated 2026-10-19)
-- [Down Payment & PMI: 20% Rule, Costs & Strategy (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/down-payment-pmi-cost) (updated 2026-10-19)
-- [Rent vs Buy a House: 5% Rule + Break-Even Math (2026)](https://tool4saas.com/blog/mortgage-calculator-guide/rent-vs-buy-house) (updated 2026-10-19)
-- [Mortgage Calculator Guide: Payments, PMI & Amortization](https://tool4saas.com/blog/mortgage-calculator-guide): Pillar guide. (updated 2026-10-19)
-- [How to Create a Strong Password: The 16-Character Rule (2026)](https://tool4saas.com/blog/password-generator-guide/how-to-create-strong-password) (updated 2026-10-19)
-- [What Makes a Password Strong? Length, Entropy & Blacklists (2026)](https://tool4saas.com/blog/password-generator-guide/what-makes-password-strong) (updated 2026-10-19)
-- [Password Strength Tester: Check Without Uploading (2026)](https://tool4saas.com/blog/password-generator-guide/password-strength-tester) (updated 2026-10-19)
-- [Passphrase vs Password: When 5 Words Beat 12 Characters (2026)](https://tool4saas.com/blog/password-generator-guide/passphrase-vs-password) (updated 2026-10-19)
-- [How to Remember Passwords Without Reusing Them (2026)](https://tool4saas.com/blog/password-generator-guide/how-to-remember-passwords) (updated 2026-10-19)
-- [Random Password Ideas: Patterns to Generate (Never Copy) 2026](https://tool4saas.com/blog/password-generator-guide/random-password-ideas) (updated 2026-10-23)
-- [What to Do After a Data Breach: 7-Step Checklist (2026)](https://tool4saas.com/blog/password-generator-guide/what-to-do-after-data-breach) (updated 2026-10-19)
-- [2FA vs Passkeys: Strength Ladder + Setup Order (2026)](https://tool4saas.com/blog/password-generator-guide/2fa-vs-passkeys) (updated 2026-10-23)
-- [How to Generate a Strong Password (Free Offline Tool)](https://tool4saas.com/blog/password-generator-guide): Pillar guide. (updated 2026-10-19)
-- [Merge PDFs in Reading Order: Limits and What Survives](https://tool4saas.com/blog/pdf-merge-guide/merge-multiple-pdfs-order) (updated 2026-10-23)
-- [Merge PDFs on Android in Your Browser](https://tool4saas.com/blog/pdf-merge-guide/merge-pdfs-on-android) (updated 2026-10-23)
-- [Combine PDF and Images Into One File](https://tool4saas.com/blog/pdf-merge-guide/combine-pdf-and-images) (updated 2026-10-23)
-- [JPG Scans to Single PDF: A4 Size and Order Guide](https://tool4saas.com/blog/pdf-merge-guide/jpg-scans-single-pdf) (updated 2026-10-23)
-- [Extract PDF Pages by Range: 1-3,5 Syntax Guide](https://tool4saas.com/blog/pdf-merge-guide/extract-pages-range) (updated 2026-10-23)
-- [Fix Sideways Scans: Rotate PDF Pages Upright](https://tool4saas.com/blog/pdf-merge-guide/fix-sideways-scans) (updated 2026-10-29)
-- [Add DRAFT Watermark to PDF Without Blocking Text](https://tool4saas.com/blog/pdf-merge-guide/add-draft-watermark) (updated 2026-10-23)
-- [Merge PDFs on iPhone Without an App](https://tool4saas.com/blog/pdf-merge-guide/merge-pdfs-on-iphone) (updated 2026-10-23)
-- [Manage PDFs Locally: Merge, Split, Rotate, Watermark and Convert](https://tool4saas.com/blog/pdf-merge-guide): Pillar guide. (updated 2026-10-23)
-- [How to Calculate Percent of a Number (With Examples)](https://tool4saas.com/blog/percentage-calculator-guide/percent-of-a-number) (updated 2026-10-23)
-- [Sales Tax on a Price: Formula and Examples](https://tool4saas.com/blog/percentage-calculator-guide/sales-tax-on-a-price) (updated 2026-10-23)
-- [Percentage Increase and Decrease: Formula & Examples](https://tool4saas.com/blog/percentage-calculator-guide/percentage-increase-decrease) (updated 2026-10-23)
-- [Discount Calculator: Sale Price and Savings Explained](https://tool4saas.com/blog/percentage-calculator-guide/discount-and-sale-price) (updated 2026-10-23)
-- [Markup vs Margin: Formula, Examples & Pricing](https://tool4saas.com/blog/percentage-calculator-guide/markup-vs-margin) (updated 2026-10-23)
-- [Percentage Difference vs Change: When to Use Each](https://tool4saas.com/blog/percentage-calculator-guide/percentage-difference) (updated 2026-10-23)
-- [Reverse Percentage: Find the Original Price or Number](https://tool4saas.com/blog/percentage-calculator-guide/reverse-percentage) (updated 2026-10-23)
-- [Percentage Error Formula: Measure Accuracy Correctly](https://tool4saas.com/blog/percentage-calculator-guide/percentage-error) (updated 2026-10-23)
-- [Percentage Points vs Percent: Avoid the Classic Mistake](https://tool4saas.com/blog/percentage-calculator-guide/percentage-points-vs-percent) (updated 2026-10-23)
-- [Tip Calculator: How to Split a Bill Fairly](https://tool4saas.com/blog/percentage-calculator-guide/tip-calculator-bill-split) (updated 2026-10-23)
-- [Percentage Calculator Guide: Formulas, Discounts & Real-Life Uses](https://tool4saas.com/blog/percentage-calculator-guide): Pillar guide. (updated 2026-10-23)
-- [How to Create a QR Code Free in 60 Seconds (PNG, No Signup)](https://tool4saas.com/blog/qr-code-generator-guide/how-to-create-qr-code) (updated 2026-10-20)
-- [Google Review QR Code: Get More Reviews](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-google-reviews) (updated 2026-10-23)
-- [Restaurant Menu QR Code: Setup & Best Practices](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-restaurant-menu) (updated 2026-10-23)
-- [QR Code for Google Forms: Share a Survey Fast](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-google-forms) (updated 2026-10-23)
-- [WiFi QR Code: Share Guest WiFi With One Scan (2026)](https://tool4saas.com/blog/qr-code-generator-guide/wifi-qr-code-guide) (updated 2026-10-20)
-- [QR Codes for Small Business: 6 Placements That Pay (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-for-business) (updated 2026-10-20)
-- [QR Code Print Size: cm, Inches & Pixels Chart (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-size-print-guide) (updated 2026-10-20)
-- [QR Code Not Scanning? 5 Causes & Fixes That Work (2026)](https://tool4saas.com/blog/qr-code-generator-guide/qr-code-not-scanning-fix) (updated 2026-10-20)
-- [vCard QR Code: Digital Business Card That Saves in 5 Seconds](https://tool4saas.com/blog/qr-code-generator-guide/vcard-contact-qr-code) (updated 2026-10-20)
-- [UPI QR Code for Payments: Setup, Counter Tips & Safety (India)](https://tool4saas.com/blog/qr-code-generator-guide/upi-payment-qr-code-india) (updated 2026-10-20)
-- [Static vs Dynamic QR Codes: Which to Choose (Honest Guide)](https://tool4saas.com/blog/qr-code-generator-guide/static-vs-dynamic-qr-codes) (updated 2026-10-20)
-- [Free QR Code Generator Guide: Create Scannable QR Codes Fast](https://tool4saas.com/blog/qr-code-generator-guide): Pillar guide. (updated 2026-10-20)
-- [How to Make a Resume in 15 Minutes + Tailor It Per Job (2026)](https://tool4saas.com/blog/resume-builder-guide/how-to-make-resume) (updated 2026-10-19)
-- [Resume Summary Examples for Every Experience Level](https://tool4saas.com/blog/resume-builder-guide/resume-summary-examples) (updated 2026-10-23)
-- [Resume Skills Section: What to List and What to Cut](https://tool4saas.com/blog/resume-builder-guide/resume-skills-section) (updated 2026-10-23)
-- [Career Change Resume: Transferable Skills That Land](https://tool4saas.com/blog/resume-builder-guide/career-change-resume) (updated 2026-10-23)
-- [Resume Format Guide: Sections, Order & India/US/UK Norms (2026)](https://tool4saas.com/blog/resume-builder-guide/resume-format-guide) (updated 2026-10-19)
-- [ATS-Friendly Resume: Beat Applicant Tracking Software (2026)](https://tool4saas.com/blog/resume-builder-guide/ats-resume-guide) (updated 2026-10-19)
-- [Fresher Resume Guide: Get Interviews With Zero Experience (2026)](https://tool4saas.com/blog/resume-builder-guide/fresher-resume-guide) (updated 2026-10-19)
-- [Resume for Experienced Professionals: Positioning That Wins (2026)](https://tool4saas.com/blog/resume-builder-guide/experienced-resume-guide) (updated 2026-10-20)
-- [7 Resume Mistakes That Kill Interviews (With Before/After Fixes)](https://tool4saas.com/blog/resume-builder-guide/resume-mistakes) (updated 2026-10-19)
-- [Offer Letter Guide: CTC Math, Clauses & Negotiation (India, 2026)](https://tool4saas.com/blog/resume-builder-guide/offer-letter-guide) (updated 2026-10-20)
-- [Free Resume Builder Guide: Build a Job-Winning Resume Fast](https://tool4saas.com/blog/resume-builder-guide): Pillar guide. (updated 2026-10-20)
-- [Canonical Tags: Fix Duplicate URLs Safely](https://tool4saas.com/blog/seo-analyzer-guide/canonical-tag-guide) (updated 2026-10-23)
-- [Internal Linking: Build a Crawlable Topic Map](https://tool4saas.com/blog/seo-analyzer-guide/internal-linking-guide) (updated 2026-10-23)
-- [Title and Meta Lengths That Avoid Truncation (2026)](https://tool4saas.com/blog/seo-analyzer-guide/title-meta-length-2026) (updated 2026-10-23)
-- [Split Large Sitemaps for Search Console Correctly](https://tool4saas.com/blog/seo-analyzer-guide/split-large-sitemap) (updated 2026-10-23)
-- [Name UTM Campaigns Without Splitting Reports](https://tool4saas.com/blog/seo-analyzer-guide/utm-naming-governance) (updated 2026-10-23)
-- [GEO Checklist: Get Cited by AI Search in 2026](https://tool4saas.com/blog/seo-analyzer-guide/geo-checklist-ai-citations) (updated 2026-10-19)
-- [Meta Description Guide: Write Snippets That Earn Clicks](https://tool4saas.com/blog/seo-analyzer-guide/meta-description-guide) (updated 2026-10-23)
-- [Score 80+ On-Page SEO Without a Plugin: 11 Checks](https://tool4saas.com/blog/seo-analyzer-guide): Pillar guide. (updated 2026-10-20)
-- [How to Create a Signature Online (Step-by-Step)](https://tool4saas.com/blog/signature-maker-guide/how-to-create-signature-online) (updated 2026-10-23)
-- [Transparent Signature PNG: Clean Edges, No White Box](https://tool4saas.com/blog/signature-maker-guide/transparent-signature-png) (updated 2026-10-23)
-- [Signature Size for PDF: Dimensions, DPI and Scaling](https://tool4saas.com/blog/signature-maker-guide/signature-size-for-pdf) (updated 2026-10-23)
-- [Drawn vs Typed Signature: Which Should You Use?](https://tool4saas.com/blog/signature-maker-guide/drawn-vs-typed-signature) (updated 2026-10-23)
-- [How to Sign a PDF Without Printing: Image Method](https://tool4saas.com/blog/signature-maker-guide/sign-pdf-without-printing) (updated 2026-10-23)
-- [Signature Image for Email: Size, PNG and Alt Text](https://tool4saas.com/blog/signature-maker-guide/signature-image-for-email) (updated 2026-10-23)
-- [Electronic Signature Validity: ESIGN, eIDAS and India](https://tool4saas.com/blog/signature-maker-guide/electronic-signature-validity) (updated 2026-10-23)
-- [Signature for Exam Forms: 20-50KB and 140x60 Rules](https://tool4saas.com/blog/signature-maker-guide/signature-for-exam-forms) (updated 2026-10-23)
-- [Signature Maker Guide: Draw, Type & Download a Transparent PNG](https://tool4saas.com/blog/signature-maker-guide): Pillar guide. (updated 2026-10-23)
-- [₹5,000 SIP for 10, 15 and 20 Years at 12%](https://tool4saas.com/blog/sip-calculator-guide/sip-5000-10-years) (updated 2026-10-23)
-- [Monthly vs Yearly Compounding: The Real Gap](https://tool4saas.com/blog/sip-calculator-guide/monthly-vs-yearly-compounding) (updated 2026-10-23)
-- [Lump Sum Compounding: Annual vs Monthly Rests](https://tool4saas.com/blog/sip-calculator-guide/lumpsum-compounding-frequency) (updated 2026-10-23)
-- [FD Interest, TDS and Quarterly Compounding (2026)](https://tool4saas.com/blog/sip-calculator-guide/fd-quarterly-tds) (updated 2026-10-23)
-- [PPF After 15 Years: Extend, Withdraw or Close](https://tool4saas.com/blog/sip-calculator-guide/ppf-extend-15-years) (updated 2026-10-23)
-- [SIP Needed for ₹1 Crore by Age 60](https://tool4saas.com/blog/sip-calculator-guide/sip-1-crore-goal) (updated 2026-10-23)
-- [Budget 2026 Verdict: What Changed for Salaried Savers](https://tool4saas.com/blog/sip-calculator-guide/budget-2026-verdict-salaried) (updated 2026-10-23)
-- [SIP vs FD vs PPF: Where Should ₹5,000/Month Go (2026)](https://tool4saas.com/blog/sip-calculator-guide): Pillar guide. (updated 2026-10-19)
-- [Twitter/X Character Counter: What Actually Counts](https://tool4saas.com/blog/word-counter-guide/twitter-character-counter) (updated 2026-10-23)
-- [Pages per 1,000 Words: Formatting and Examples](https://tool4saas.com/blog/word-counter-guide/pages-per-1000-words) (updated 2026-10-23)
-- [Compare Two Texts Word by Word](https://tool4saas.com/blog/word-counter-guide/compare-two-texts-word-diff) (updated 2026-10-23)
-- [Markdown Preview: Check Formatting Before Publishing](https://tool4saas.com/blog/word-counter-guide/markdown-preview-before-publishing) (updated 2026-10-23)
-- [Keyword Density Explained: How to Check and Fix Stuffing](https://tool4saas.com/blog/word-counter-guide/keyword-density-seo-check) (updated 2026-10-20)
-- [How to Summarize Text Fast: Extractive Method](https://tool4saas.com/blog/word-counter-guide/how-to-summarize-text-fast) (updated 2026-10-20)
-- [Lorem Ipsum: When to Use Placeholder Text](https://tool4saas.com/blog/word-counter-guide/lorem-ipsum-generator-use) (updated 2026-10-20)
-- [Grammar Check Before You Publish: Self-Editing Checklist](https://tool4saas.com/blog/word-counter-guide/grammar-check-before-publish) (updated 2026-10-20)
-- [Proofread by Listening: Text-to-Speech Workflow](https://tool4saas.com/blog/word-counter-guide/text-to-speech-proofreading-use) (updated 2026-10-20)
-- [Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup](https://tool4saas.com/blog/word-counter-guide): Pillar guide. (updated 2026-10-20)
-
-## Site
-- [Sitemap](https://tool4saas.com/sitemap.xml): Machine-readable list of all pages.
-- [Robots](https://tool4saas.com/robots.txt): Crawler directives.
-- [LLMs full](https://tool4saas.com/llms-full.txt): Full FAQ + HowTo step hints per tool.
+- [Free Invoice Generator Guide: Create Professional Invoices Fast](https://tool4saas.com/blog/invoice-generator-guide): Pillar guide.
+- [Free QR Code Generator Guide: Create Scannable QR Codes Fast](https://tool4saas.com/blog/qr-code-generator-guide): Pillar guide.
+- [Free Resume Builder Guide: Build a Job-Winning Resume Fast](https://tool4saas.com/blog/resume-builder-guide): Pillar guide.
+- [Mortgage Calculator Guide: Payments, PMI & Amortization](https://tool4saas.com/blog/mortgage-calculator-guide): Pillar guide.
+- [How to Generate a Strong Password (Free Offline Tool)](https://tool4saas.com/blog/password-generator-guide): Pillar guide.
+- [Word Counter Guide: Count Words, Reading Time & Readability Free, No Signup](https://tool4saas.com/blog/word-counter-guide): Pillar guide.
+- [Compress Images for Web Without Losing Quality: 80% Guide](https://tool4saas.com/blog/image-compressor-guide): Pillar guide.
+- [Manage PDFs Offline: Merge, Split, Compress Without Uploading](https://tool4saas.com/blog/pdf-merge-guide): Pillar guide.
+- [Debug API Responses Locally: JSON, Base64, JWT, Regex Guide](https://tool4saas.com/blog/json-formatter-guide): Pillar guide.
+- [Score 80+ On-Page SEO Without a Plugin: 11 Checks](https://tool4saas.com/blog/seo-analyzer-guide): Pillar guide.
+- [SIP vs FD vs PPF: Where Should ₹5,000/Month Go (2026)](https://tool4saas.com/blog/sip-calculator-guide): Pillar guide.
+- [Percentage Calculator Guide: Formulas, Discounts & Real-Life Uses](https://tool4saas.com/blog/percentage-calculator-guide): Pillar guide.
+- [BMI Calculator Guide: Healthy Weight, Calories & Water Needs](https://tool4saas.com/blog/bmi-calculator-guide): Pillar guide.
+- [Age Calculator Guide: Exact Age, Dates & Time Zones](https://tool4saas.com/blog/age-calculator-guide): Pillar guide.
+- [Signature Maker Guide: Draw, Type & Download a Transparent PNG](https://tool4saas.com/blog/signature-maker-guide): Pillar guide.
+- [Debt Payoff Guide: Snowball vs Avalanche Methods](https://tool4saas.com/blog/debt-payoff-guide): Pillar guide.
+- [Grade Calculator Guide: Weighted Grades & Final Exam Score](https://tool4saas.com/blog/grade-calculator-guide): Pillar guide.
