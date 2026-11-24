@@ -94,6 +94,17 @@
             <x-numeric-field label="Base Number" model="base" placeholder="150" />
         </div>
 
+        {{-- Quick Percentage Presets --}}
+        <div>
+            <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Popular Percentage Calculations</span>
+            <div class="flex flex-wrap gap-2">
+                <button type="button" @click="rate = 15; base = 100;" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">15% Tip on $100</button>
+                <button type="button" @click="rate = 20; base = 80;" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">20% Discount on $80</button>
+                <button type="button" @click="rate = 8.25; base = 150;" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">8.25% Tax on $150</button>
+                <button type="button" @click="rate = 50; base = 250;" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">50% of 250</button>
+            </div>
+        </div>
+
         <div class="p-6 sm:p-8 rounded-3xl bg-[#0e0f0c] text-white text-center border border-[#242a20] shadow-sm">
             <span class="text-xs font-bold uppercase tracking-wider text-[#868685] font-mono">Calculated Result</span>
             <div class="text-4xl sm:text-6xl font-black text-primary my-2 font-display tabular-nums" x-text="percentResult"></div>

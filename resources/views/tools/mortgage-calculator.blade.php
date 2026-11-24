@@ -54,6 +54,17 @@
         </div>
     </div>
 
+    {{-- Quick Loan Scenario Presets --}}
+    <div class="mb-6">
+        <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Popular Mortgage Scenarios</span>
+        <div class="flex flex-wrap gap-2">
+            <button type="button" @click="homePrice = 300000; downPayment = 30000; interestRate = 6.5; loanYears = 30;" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Starter Home ($300k, 10% Down)</button>
+            <button type="button" @click="homePrice = 420000; downPayment = 84000; interestRate = 6.5; loanYears = 30;" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Median Home ($420k, 20% Down)</button>
+            <button type="button" @click="homePrice = 350000; downPayment = 70000; interestRate = 5.8; loanYears = 15;" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">15-Year Wealth Builder ($350k, 5.8%)</button>
+            <button type="button" @click="homePrice = 800000; downPayment = 160000; interestRate = 6.75; loanYears = 30;" class="px-3.5 py-1.5 rounded-full bg-base-200 border border-base-300 text-xs font-semibold hover:border-primary hover:bg-[#e2f6d5] transition-all">Jumbo Loan ($800k, 20% Down)</button>
+        </div>
+    </div>
+
     {{-- Main Monthly Payment Hero Banner (Wise Lime Surface) --}}
     <div class="p-6 sm:p-9 rounded-3xl bg-primary text-primary-content border border-primary shadow-sm text-center mb-8">
         <span class="text-xs font-bold uppercase tracking-wider text-primary-content/80 font-mono">Estimated Total Monthly Payment</span>
