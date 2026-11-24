@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Http;
 
 final class SubmitIndexNowCommand extends Command
 {
-    protected $signature = 'seo:indexnow {--dry-run : Output URLs without sending HTTP request}';
+    protected $signature = 'seo:indexnow {--dry-run : Output URLs without sending HTTP request} {--insecure : Skip SSL verification (useful for local environments without root CA bundles)}';
 
     protected $description = 'Submit all active, indexable URLs to IndexNow search engine protocol';
 
@@ -82,7 +82,9 @@ final class SubmitIndexNowCommand extends Command
         $this->info('Submitting batch to https://api.indexnow.org/indexnow ...');
 
         try {
+            $verify = ! (bool) $this->option('insecure');
             $response = Http::timeout(15)
+                ->withOptions(['verify' => $verify])
                 ->withHeaders([
                     'Content-Type' => 'application/json; charset=utf-8',
                     'User-Agent' => 'Tool4SaaS-IndexNow/1.0',
