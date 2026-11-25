@@ -18,7 +18,7 @@ final class FeedController extends Controller
 
     public function sitemap(Request $request): Response
     {
-        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
+        $base = $this->getBaseUrl($request);
         /** @var array<string, mixed> $dates */
         $dates = config('dates');
         $homeModified = (string) ($dates['home_modified'] ?? '2026-11-10');
@@ -134,7 +134,7 @@ final class FeedController extends Controller
 
     public function robots(Request $request): Response
     {
-        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
+        $base = $this->getBaseUrl($request);
         $aiBots = [
             'Googlebot',
             'Googlebot-Image',
@@ -169,7 +169,7 @@ final class FeedController extends Controller
 
     public function rss(Request $request): Response
     {
-        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
+        $base = $this->getBaseUrl($request);
         $allPosts = array_values(array_filter(
             $this->blogService->getAllPosts(),
             fn ($post): bool => ! $post->isNoindex
@@ -254,7 +254,7 @@ final class FeedController extends Controller
 
     public function llms(Request $request): Response
     {
-        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
+        $base = $this->getBaseUrl($request);
         $visibleTools = array_values(array_filter(
             $this->toolRegistry->getAllTools(),
             fn ($t): bool => ! $t->isNoindex
@@ -307,7 +307,7 @@ final class FeedController extends Controller
 
     public function llmsFull(Request $request): Response
     {
-        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
+        $base = $this->getBaseUrl($request);
         $visibleTools = array_values(array_filter(
             $this->toolRegistry->getAllTools(),
             fn ($t): bool => ! $t->isNoindex
@@ -354,5 +354,20 @@ final class FeedController extends Controller
         return response($content, 200, [
             'Content-Type' => 'text/plain; charset=utf-8',
         ]);
+    }
+
+    private function getBaseUrl(Request $request): string
+    {
+        $host = $request->getHost();
+        if ($host === 'tool4saas.com' || $host === 'www.tool4saas.com') {
+            return 'https://tool4saas.com';
+        }
+
+        $base = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
+        if (str_contains($base, 'localhost') || str_contains($base, '127.0.0.1')) {
+            return 'https://tool4saas.com';
+        }
+
+        return $base;
     }
 }

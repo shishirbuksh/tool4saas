@@ -2,11 +2,16 @@
 
 declare(strict_types=1);
 
+$appUrl = env('APP_URL', 'https://tool4saas.com');
+if (empty($appUrl) || (env('APP_ENV') === 'production' && str_contains((string) $appUrl, 'localhost'))) {
+    $appUrl = 'https://tool4saas.com';
+}
+
 return [
     'name' => env('APP_NAME', 'Tool4SaaS'),
     'env' => env('APP_ENV', 'production'),
     'debug' => (bool) env('APP_DEBUG', false),
-    'url' => env('APP_URL', 'https://tool4saas.com'),
+    'url' => (string) $appUrl,
     'timezone' => env('APP_TIMEZONE', 'UTC'),
     'locale' => env('APP_LOCALE', 'en'),
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),

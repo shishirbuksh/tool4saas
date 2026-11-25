@@ -6,6 +6,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Routing\UrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 
 final class HandleLegacyRedirects
@@ -53,6 +54,13 @@ final class HandleLegacyRedirects
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $host = $request->getHost();
+        if ($host === 'tool4saas.com' || $host === 'www.tool4saas.com') {
+            $urlGenerator = app(UrlGenerator::class);
+            $urlGenerator->forceScheme('https');
+            $urlGenerator->forceRootUrl('https://tool4saas.com');
+        }
+
         // Only inspect safe HTTP methods (GET, HEAD)
         if (! $request->isMethodSafe()) {
             return $next($request);
