@@ -42,7 +42,7 @@ final class FeedController extends Controller
         ];
 
         // 2. Static Pages
-        $staticPages = ['about', 'privacy', 'terms', 'contact', 'author', 'methodology', 'sitemap', 'student-tools'];
+        $staticPages = ['about', 'privacy', 'terms', 'contact', 'author', 'methodology', 'sitemap', 'student-tools', 'developer-tools'];
         foreach ($staticPages as $page) {
             $modified = $pageDates[$page]['modified'] ?? $sitePublished;
             $items[] = [

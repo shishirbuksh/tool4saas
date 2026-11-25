@@ -31,6 +31,7 @@ final class InternalLinksGraphTest extends TestCase
             '/author',
             '/sitemap',
             '/student-tools',
+            '/developer-tools',
             '/blog',
         ];
 
@@ -56,7 +57,7 @@ final class InternalLinksGraphTest extends TestCase
         }
 
         $allPages = array_values(array_unique($allPages));
-        expect($allPages)->toHaveCount(324);
+        expect($allPages)->toHaveCount(325);
 
         // Sample representative pages across all layers
         $samplePages = array_merge(

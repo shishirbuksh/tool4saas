@@ -69,6 +69,12 @@
                             >
                                 <span>🎓</span> Student Tools Hub (13)
                             </a>
+                            <a
+                                href="{{ route('developer-tools') }}"
+                                class="px-3.5 py-1.5 rounded-full bg-base-300 text-base-content text-xs font-bold hover:bg-primary hover:text-primary-content transition-all flex items-center gap-1.5 shadow-xs no-underline"
+                            >
+                                <span>⚡</span> Developer Tools Hub (22)
+                            </a>
                             @foreach($grouped as $group)
                                 <a
                                     href="#category-{{ $group['category']->id }}"

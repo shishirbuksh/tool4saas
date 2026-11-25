@@ -25,7 +25,7 @@
         } elseif (str_starts_with($path, 'category/')) {
             $catId = substr($path, strlen('category/'));
             $finalOgImage = url('/og/category-'.$catId.'.png');
-        } elseif (in_array($path, ['about', 'contact', 'privacy', 'terms', 'methodology', 'author', 'sitemap', 'student-tools'], true)) {
+        } elseif (in_array($path, ['about', 'contact', 'privacy', 'terms', 'methodology', 'author', 'sitemap', 'student-tools', 'developer-tools'], true)) {
             $finalOgImage = url('/og/static-'.$path.'.png');
         } else {
             $finalOgImage = url('/og/'.$path.'.png');

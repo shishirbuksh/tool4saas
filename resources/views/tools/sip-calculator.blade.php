@@ -32,6 +32,24 @@
     get gainPercent() {
         if (this.invested <= 0) return 0;
         return Math.round((this.estimatedGains / this.invested) * 100);
+    },
+    exportScheduleCsv() {
+        const m = Math.max(0, parseFloat(this.monthly) || 0);
+        const annualRate = Math.max(0, parseFloat(this.rate) || 0);
+        const mr = annualRate / 100 / 12;
+        let csv = 'Year,Invested Amount,Maturity Value,Wealth Returns\n';
+        for (let y = 1; y <= this.years; y++) {
+            const months = y * 12;
+            const inv = m * months;
+            const fv = mr > 0 ? (m * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)) : inv;
+            const gain = Math.max(0, fv - inv);
+            csv += [y, inv.toFixed(2), fv.toFixed(2), gain.toFixed(2)].join(',') + '\n';
+        }
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'sip-growth-schedule.csv';
+        a.click();
     }
 }">
     <div class="space-y-6">
@@ -83,6 +101,20 @@
                     +<span x-text="gainPercent"></span>%
                 </div>
             </div>
+        </div>
+
+        {{-- Growth Schedule Export Action --}}
+        <div class="p-4 rounded-2xl bg-base-100 border border-base-300 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
+            <span class="text-xs text-base-content/70">
+                Download your complete <strong><span x-text="years"></span>-year</strong> annualized SIP compounding schedule.
+            </span>
+            <button
+                type="button"
+                @click="exportScheduleCsv()"
+                class="px-4 py-2 rounded-full bg-base-200 hover:bg-primary hover:text-primary-content text-xs font-bold transition-all shrink-0"
+            >
+                📥 Export Growth CSV
+            </button>
         </div>
 
         <div class="p-4 rounded-2xl bg-base-100 border border-base-300 text-xs text-base-content/70 flex items-center gap-3">

@@ -37,6 +37,34 @@
     },
     get totalInterestPaid() {
         return Math.max(0, (this.monthlyPrincipalInterest * this.loanYears * 12) - this.loanAmount);
+    },
+    exportScheduleCsv() {
+        const principal = this.loanAmount;
+        const totalMonths = this.loanYears * 12;
+        const monthlyRate = (this.interestRate / 100) / 12;
+        const pmt = this.monthlyPrincipalInterest;
+        let balance = principal;
+        let csv = 'Year,Starting Balance,Principal Paid,Interest Paid,Total Installment,Ending Balance\n';
+        for (let y = 1; y <= this.loanYears; y++) {
+            let startBal = balance;
+            let yrPrincipal = 0;
+            let yrInterest = 0;
+            for (let m = 1; m <= 12; m++) {
+                if (balance <= 0) break;
+                const int = balance * monthlyRate;
+                const pr = Math.min(pmt - int, balance);
+                yrInterest += int;
+                yrPrincipal += pr;
+                balance = Math.max(0, balance - pr);
+            }
+            csv += [y, startBal.toFixed(2), yrPrincipal.toFixed(2), yrInterest.toFixed(2), (yrPrincipal + yrInterest).toFixed(2), balance.toFixed(2)].join(',') + '\n';
+            if (balance <= 0) break;
+        }
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'mortgage-amortization-schedule.csv';
+        a.click();
     }
 }">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -94,6 +122,20 @@
             <div class="text-[11px] font-bold text-base-content/60 uppercase tracking-wider font-mono">Home Insurance</div>
             <div class="text-xl font-black text-base-content mt-1 tabular-nums font-display">$<span x-text="Math.round(monthlyInsurance)"></span>/mo</div>
         </div>
+    </div>
+
+    {{-- Amortization Schedule CSV Export Action --}}
+    <div class="mt-4 p-4 rounded-2xl bg-base-100 border border-base-300 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
+        <div class="text-xs text-base-content/70">
+            <span>Download your complete <strong><span x-text="loanYears"></span>-year</strong> mortgage amortization schedule with principal and interest breakdown.</span>
+        </div>
+        <button
+            type="button"
+            @click="exportScheduleCsv()"
+            class="px-4 py-2 rounded-full bg-base-200 hover:bg-primary hover:text-primary-content text-xs font-bold transition-all shrink-0"
+        >
+            📥 Export Amortization CSV
+        </button>
     </div>
 
     {{-- Technical Comparison: 15-Yr vs 30-Yr Mortgage --}}

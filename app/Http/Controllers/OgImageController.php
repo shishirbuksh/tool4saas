@@ -31,9 +31,19 @@ final class OgImageController extends Controller
             $badge = 'Local-First · No Signup';
         } elseif (str_starts_with($slug, 'static-')) {
             $staticKey = substr($slug, strlen('static-'));
-            $title = ucwords(str_replace('-', ' ', $staticKey)).' — Tool4SaaS';
-            $desc = 'Learn more about Tool4SaaS, our local-first browser tools, and privacy principles.';
-            $badge = 'About Tool4SaaS';
+            if ($staticKey === 'developer-tools') {
+                $title = '22 Free Developer Utilities — Tool4SaaS';
+                $desc = 'JSON, JWT, SQL, Regex, WebCrypto hashes, Base64 & AI token calculators with 100% local privacy.';
+                $badge = 'Developer Tools Hub';
+            } elseif ($staticKey === 'student-tools') {
+                $title = 'Free Student & College GPA Tools — Tool4SaaS';
+                $desc = 'GPA calculators, Final exam target planners, 75% attendance bunk planners, and student loan payoff engines.';
+                $badge = 'Student Tools Hub';
+            } else {
+                $title = ucwords(str_replace('-', ' ', $staticKey)).' — Tool4SaaS';
+                $desc = 'Learn more about Tool4SaaS, our local-first browser tools, and privacy principles.';
+                $badge = 'About Tool4SaaS';
+            }
         } elseif (str_starts_with($slug, 'category-')) {
             $catId = substr($slug, strlen('category-'));
             $category = $this->toolRegistry->getCategory($catId);

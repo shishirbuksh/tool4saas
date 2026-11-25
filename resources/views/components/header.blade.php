@@ -29,6 +29,10 @@
                     <span>🎓 Student Hub</span>
                 </a>
 
+                <a href="{{ route('developer-tools') }}" class="px-3.5 py-1.5 rounded-full bg-base-200 text-base-content font-bold text-xs hover:bg-primary hover:text-primary-content transition-all flex items-center gap-1.5 shadow-xs">
+                    <span>⚡ Dev Hub</span>
+                </a>
+
                 {{-- Categories Dropdown --}}
                 <div class="dropdown dropdown-hover">
                     <div tabindex="0" role="button" class="px-3.5 py-2 rounded-full hover:bg-base-200 hover:text-base-content transition-colors flex items-center gap-1 cursor-pointer">
@@ -124,7 +128,15 @@
                     class="px-4 py-2.5 rounded-xl bg-[#e2f6d5] text-[#054d28] font-bold hover:bg-[#9fe870] hover:text-[#163300] transition-colors flex items-center justify-between shadow-xs mb-1"
                 >
                     <span class="flex items-center gap-2"><span>🎓</span> Student Tools Hub</span>
-                    <span class="text-[11px] font-mono uppercase bg-[#054d28] text-white px-2 py-0.5 rounded-md">12 Tools</span>
+                    <span class="text-[11px] font-mono uppercase bg-[#054d28] text-white px-2 py-0.5 rounded-md">13 Tools</span>
+                </a>
+                <a
+                    href="{{ route('developer-tools') }}"
+                    @click="mobileMenuOpen = false"
+                    class="px-4 py-2.5 rounded-xl bg-base-200 text-base-content font-bold hover:bg-primary hover:text-primary-content transition-colors flex items-center justify-between shadow-xs mb-1"
+                >
+                    <span class="flex items-center gap-2"><span>⚡</span> Developer Tools Hub</span>
+                    <span class="text-[11px] font-mono uppercase bg-base-content/10 px-2 py-0.5 rounded-md">22 Tools</span>
                 </a>
                 <a
                     href="{{ route('home') }}"

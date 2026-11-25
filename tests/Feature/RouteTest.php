@@ -55,7 +55,7 @@ final class RouteTest extends TestCase
 
     public function test_static_pages_are_successful(): void
     {
-        $pages = ['/about', '/contact', '/privacy', '/terms', '/methodology', '/author', '/sitemap', '/student-tools'];
+        $pages = ['/about', '/contact', '/privacy', '/terms', '/methodology', '/author', '/sitemap', '/student-tools', '/developer-tools'];
 
         foreach ($pages as $page) {
             $response = $this->get($page);

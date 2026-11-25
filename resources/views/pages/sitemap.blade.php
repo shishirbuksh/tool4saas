@@ -31,6 +31,40 @@
             Quick directory access to every tool, guide, category, and reference utility available across Tool4SaaS.
         </p>
 
+        <div class="mb-10 p-6 rounded-3xl bg-base-200/60 border border-base-300">
+            <h2 class="text-xl font-bold text-base-content mb-3 font-display">
+                Featured Utility Hubs
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a
+                    href="{{ route('student-tools') }}"
+                    class="p-4 rounded-2xl bg-base-100 border border-base-300 hover:border-primary text-sm font-bold text-base-content hover:text-primary transition-all flex items-center justify-between group shadow-xs"
+                >
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🎓</span>
+                        <div>
+                            <div>Student Tools Hub</div>
+                            <div class="text-xs text-base-content/60 font-normal">Attendance bunk planner, GPA, CGPA to %, and finals target calculators</div>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                <a
+                    href="{{ route('developer-tools') }}"
+                    class="p-4 rounded-2xl bg-base-100 border border-base-300 hover:border-primary text-sm font-bold text-base-content hover:text-primary transition-all flex items-center justify-between group shadow-xs"
+                >
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">⚡</span>
+                        <div>
+                            <div>Developer Tools Hub</div>
+                            <div class="text-xs text-base-content/60 font-normal">JSON formatter, JWT decoder, Regex tester, SQL beautifier, and WebCrypto hashes</div>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
+        </div>
+
         <div class="space-y-12">
             @foreach($categories as $category)
                 @if(!$category->isIndexable())
