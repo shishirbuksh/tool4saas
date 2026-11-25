@@ -56,7 +56,7 @@ final class InternalLinksGraphTest extends TestCase
         }
 
         $allPages = array_values(array_unique($allPages));
-        expect($allPages)->toHaveCount(323);
+        expect($allPages)->toHaveCount(324);
 
         // Sample representative pages across all layers
         $samplePages = array_merge(

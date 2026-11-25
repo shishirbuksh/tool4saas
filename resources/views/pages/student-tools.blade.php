@@ -131,6 +131,16 @@
                     icon: '⌨️',
                     description: 'Test and improve typing words per minute (WPM), keystroke accuracy, and error rate before taking timed online examinations.',
                     features: ['1-minute speed trials', 'Live gross & net WPM', 'Real-time accuracy analysis']
+                },
+                {
+                    slug: 'student-loan-calculator',
+                    name: 'Student Loan Repayment & Payoff Calculator',
+                    category: 'gpa',
+                    categoryLabel: 'GPA & Finance',
+                    badge: 'Student Debt & IDR',
+                    icon: '💳',
+                    description: 'Calculate student loan monthly payments, extra principal interest savings, and federal IDR/SAVE income-driven repayment plans.',
+                    features: ['10-year standard vs IDR', 'Extra payment savings', 'Full amortization schedule']
                 }
             ],
             get filteredTools() {
@@ -162,7 +172,7 @@
 
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-xs uppercase tracking-wider shadow-xs">
                         <span class="w-2 h-2 rounded-full bg-[#2ead4b] animate-pulse"></span>
-                        <span>12 Free Academic Utilities · 100% Client-Side Privacy</span>
+                        <span>13 Free Academic Utilities · 100% Client-Side Privacy</span>
                     </div>
 
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-base-content leading-tight font-display">

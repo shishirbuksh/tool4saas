@@ -67,7 +67,7 @@
                                 href="{{ route('student-tools') }}"
                                 class="px-3.5 py-1.5 rounded-full bg-[#163300] text-[#9fe870] border border-[#163300] text-xs font-bold hover:bg-[#204702] transition-all flex items-center gap-1.5 shadow-xs no-underline"
                             >
-                                <span>🎓</span> Student Tools Hub (12)
+                                <span>🎓</span> Student Tools Hub (13)
                             </a>
                             @foreach($grouped as $group)
                                 <a

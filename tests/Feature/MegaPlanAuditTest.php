@@ -11,14 +11,14 @@ use Tests\TestCase;
 
 final class MegaPlanAuditTest extends TestCase
 {
-    public function test_all_138_tools_meet_mega_plan_seo_standards(): void
+    public function test_all_139_tools_meet_mega_plan_seo_standards(): void
     {
         $toolRegistry = app(ToolRegistryService::class);
         $seoService = app(SeoService::class);
         $blogService = app(BlogService::class);
 
         $tools = $toolRegistry->all();
-        expect($tools)->toHaveCount(138);
+        expect($tools)->toHaveCount(139);
 
         $seenKeywords = [];
 
@@ -83,13 +83,13 @@ final class MegaPlanAuditTest extends TestCase
         }
     }
 
-    public function test_sitemap_and_indexnow_have_exact_323_urls(): void
+    public function test_sitemap_and_indexnow_have_exact_324_urls(): void
     {
         $response = $this->get('/sitemap.xml');
         $response->assertStatus(200);
 
         $xml = (string) $response->getContent();
-        expect(substr_count($xml, '<url>'))->toBe(323);
+        expect(substr_count($xml, '<url>'))->toBe(324);
         expect($xml)->not->toContain('hreflang');
     }
 }

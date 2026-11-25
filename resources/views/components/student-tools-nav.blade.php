@@ -33,6 +33,12 @@
             'badge' => 'Syllabus',
         ],
         [
+            'slug' => 'student-loan-calculator',
+            'name' => 'Student Loan Payoff',
+            'icon' => '💳',
+            'badge' => 'High CPC',
+        ],
+        [
             'slug' => 'scientific-calculator',
             'name' => 'Scientific Calculator',
             'icon' => '🔬',
@@ -59,7 +65,7 @@
             href="{{ route('student-tools') }}"
             class="text-xs font-bold text-primary hover:underline flex items-center gap-1 group no-underline"
         >
-            <span>Browse All 12 Student Tools</span>
+            <span>Browse All 13 Student Tools</span>
             <span class="group-hover:translate-x-0.5 transition-transform">→</span>
         </a>
     </div>

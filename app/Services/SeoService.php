@@ -269,6 +269,7 @@ final class SeoService
             'attendance-calculator' => 'https://www.wikidata.org/wiki/Q11023',
             'final-grade-calculator' => 'https://www.wikidata.org/wiki/Q182548',
             'cgpa-to-percentage-calculator' => 'https://www.wikidata.org/wiki/Q1074127',
+            'student-loan-calculator' => 'https://www.wikidata.org/wiki/Q1058223',
         ];
 
         $webAppEntity = [

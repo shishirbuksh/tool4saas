@@ -10,12 +10,12 @@ use Tests\TestCase;
 
 final class FullCatalogAuditTest extends TestCase
 {
-    public function test_all_138_tools_render_successfully(): void
+    public function test_all_139_tools_render_successfully(): void
     {
         $registry = app(ToolRegistryService::class);
         $tools = $registry->getAllTools();
 
-        expect($tools)->toHaveCount(138);
+        expect($tools)->toHaveCount(139);
 
         foreach ($tools as $tool) {
             // Guarantee 100% dedicated tool view exists (zero generic fallback)

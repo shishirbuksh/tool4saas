@@ -27,6 +27,15 @@
     get percentage() {
         return Math.round((this.gpa / 4) * 100);
     },
+    get latinHonors() {
+        const g = parseFloat(this.gpa) || 0;
+        if (g >= 3.90) return { title: 'Summa Cum Laude (Highest Honors)', badge: 'bg-[#9fe870] text-[#163300]' };
+        if (g >= 3.70) return { title: 'Magna Cum Laude (High Honors)', badge: 'bg-[#e2f6d5] text-[#054d28]' };
+        if (g >= 3.50) return { title: 'Cum Laude (Honors)', badge: 'bg-[#e2f6d5] text-[#054d28]' };
+        if (g >= 3.00) return { title: 'Deans List / Good Standing', badge: 'bg-white/10 text-white' };
+        if (g >= 2.00) return { title: 'Academic Good Standing', badge: 'bg-white/10 text-white' };
+        return { title: 'Academic Warning (<2.0)', badge: 'bg-error/20 text-error' };
+    },
     loadPreset(tier) {
         if (tier === 'deans') {
             this.courses = [
@@ -77,6 +86,9 @@
             <span class="text-xs font-bold uppercase tracking-wider text-[#868685] font-mono">Cumulative Grade Point Average</span>
             <div class="text-4xl sm:text-6xl font-black text-primary my-2 font-display tabular-nums">
                 <span x-text="gpa"></span> <span class="text-2xl font-mono text-white">/ 4.0</span>
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold font-mono my-1" :class="latinHonors.badge">
+                <span>🎓</span> <span x-text="latinHonors.title"></span>
             </div>
             <p class="text-xs sm:text-sm text-[#868685]">
                 Equivalent to approx. <span class="text-white font-bold" x-text="percentage + '%'"></span> academic grade score
