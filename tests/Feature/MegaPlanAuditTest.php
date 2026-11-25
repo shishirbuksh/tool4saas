@@ -83,13 +83,13 @@ final class MegaPlanAuditTest extends TestCase
         }
     }
 
-    public function test_sitemap_and_indexnow_have_exact_322_urls(): void
+    public function test_sitemap_and_indexnow_have_exact_323_urls(): void
     {
         $response = $this->get('/sitemap.xml');
         $response->assertStatus(200);
 
         $xml = (string) $response->getContent();
-        expect(substr_count($xml, '<url>'))->toBe(322);
+        expect(substr_count($xml, '<url>'))->toBe(323);
         expect($xml)->not->toContain('hreflang');
     }
 }

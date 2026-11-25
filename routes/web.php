@@ -79,6 +79,7 @@ Route::view('/terms', 'pages.terms')->name('terms');
 Route::view('/methodology', 'pages.methodology')->name('methodology');
 Route::view('/author', 'pages.author')->name('author');
 Route::view('/sitemap', 'pages.sitemap')->name('sitemap.html');
+Route::view('/student-tools', 'pages.student-tools')->name('student-tools');
 
 // 5. Blog Silo (Pillars & Clusters)
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');

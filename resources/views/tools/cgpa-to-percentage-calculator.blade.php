@@ -69,6 +69,8 @@
     }
 }">
     <div class="space-y-6">
+        <x-student-tools-nav active="cgpa-to-percentage-calculator" />
+
         {{-- Board / University Selector Tabs --}}
         <div>
             <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">Select Educational Board or University Formula</span>

@@ -88,6 +88,8 @@
     }
 }">
     <div class="space-y-6">
+        <x-student-tools-nav active="grade-calculator" />
+
         {{-- Mode Switcher Tabs --}}
         <div class="flex gap-1.5 p-1.5 rounded-full bg-base-200 border border-base-300 inline-flex">
             <button

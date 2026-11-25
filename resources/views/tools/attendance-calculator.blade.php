@@ -54,6 +54,8 @@
     }
 }">
     <div class="space-y-6">
+        <x-student-tools-nav active="attendance-calculator" />
+
         {{-- Quick 1-Click Regulatory Attendance Presets --}}
         <div>
             <span class="text-xs font-bold text-base-content/60 block mb-2 uppercase tracking-wider font-mono">1-Click University Attendance Targets</span>

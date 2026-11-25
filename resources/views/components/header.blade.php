@@ -24,6 +24,11 @@
                     All Tools
                 </a>
 
+                <a href="{{ route('student-tools') }}" class="px-3.5 py-1.5 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-xs hover:bg-[#9fe870] hover:text-[#163300] transition-all flex items-center gap-1.5 shadow-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#2ead4b] animate-pulse"></span>
+                    <span>🎓 Student Hub</span>
+                </a>
+
                 {{-- Categories Dropdown --}}
                 <div class="dropdown dropdown-hover">
                     <div tabindex="0" role="button" class="px-3.5 py-2 rounded-full hover:bg-base-200 hover:text-base-content transition-colors flex items-center gap-1 cursor-pointer">
@@ -113,6 +118,14 @@
 
             {{-- Mobile Nav Links --}}
             <nav class="flex flex-col gap-1 text-sm font-semibold text-base-content">
+                <a
+                    href="{{ route('student-tools') }}"
+                    @click="mobileMenuOpen = false"
+                    class="px-4 py-2.5 rounded-xl bg-[#e2f6d5] text-[#054d28] font-bold hover:bg-[#9fe870] hover:text-[#163300] transition-colors flex items-center justify-between shadow-xs mb-1"
+                >
+                    <span class="flex items-center gap-2"><span>🎓</span> Student Tools Hub</span>
+                    <span class="text-[11px] font-mono uppercase bg-[#054d28] text-white px-2 py-0.5 rounded-md">12 Tools</span>
+                </a>
                 <a
                     href="{{ route('home') }}"
                     @click="mobileMenuOpen = false"

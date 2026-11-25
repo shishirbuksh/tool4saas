@@ -27,7 +27,7 @@ final class SubmitIndexNowCommand extends Command
 
         // 1. Homepage & Static Pages
         $urls[] = $base;
-        $static = ['about', 'privacy', 'terms', 'contact', 'author', 'methodology', 'sitemap'];
+        $static = ['about', 'privacy', 'terms', 'contact', 'author', 'methodology', 'sitemap', 'student-tools'];
         foreach ($static as $p) {
             $urls[] = "{$base}/{$p}";
         }

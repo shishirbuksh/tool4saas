@@ -54,6 +54,8 @@
     }
 }">
     <div class="space-y-6">
+        <x-student-tools-nav active="gpa-calculator" />
+
         {{-- 1-Click Academic Scenario Presets --}}
         <div>
             <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">1-Click Academic Benchmarks:</span>
