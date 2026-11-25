@@ -16460,4 +16460,339 @@ FN:Ada Lovelace...',
             ],
         ],
     ],
+    135 => [
+        'slug' => 'attendance-calculator',
+        'title' => 'Attendance Calculator',
+        'seoTitle' => '75% Attendance & College Bunk Calculator',
+        'short' => 'College 75% attendance and bunk planner',
+        'description' => 'Calculate your college attendance percentage and see how many classes you can bunk or must attend to maintain 75%. Fast, free, and runs securely in your browser.',
+        'icon' => 'CalendarRange',
+        'keywords' => [
+            0 => 'attendance calculator',
+            1 => '75 attendance calculator',
+            2 => 'how many classes can i bunk calculator',
+            3 => 'college attendance percentage calculator',
+            4 => 'bunk calculator engineering',
+            5 => 'attendance tracker student',
+        ],
+        'category' => 'calculators',
+        'faq' => [
+            0 => [
+                'question' => 'How is the 75% attendance requirement calculated?',
+                'answer' => 'Divide your total attended lectures by the total number of classes held, then multiply by 100. If the resulting percentage is 75% or higher, your attendance satisfies standard UGC, AICTE, and university semester regulations.',
+            ],
+            1 => [
+                'question' => 'How does the bunk calculator determine how many classes I can miss?',
+                'answer' => 'The calculator computes the surplus attendance buffer. If your current attendance is above your target cutoff (such as 75%), it calculates exactly how many future classes you can skip before your overall percentage drops below the threshold.',
+            ],
+            2 => [
+                'question' => 'What if my current attendance is below 75%?',
+                'answer' => 'The tool determines the exact recovery number: how many consecutive lectures and lab sessions you must attend without missing a single class to restore your attendance back to the mandatory cutoff level.',
+            ],
+            3 => [
+                'question' => 'Can medical certificates condone low attendance?',
+                'answer' => 'Most universities permit a condonation of up to 10% (lowering the threshold from 75% to 65%) upon submission of an authenticated medical certificate and dean approval. Check your university handbook for local limits.',
+            ],
+            4 => [
+                'question' => 'Does this attendance calculator store my personal class data?',
+                'answer' => 'No. All calculations run 100% locally on your device within your browser using client-side JavaScript. Zero class records, roll numbers, or student data are ever transmitted to external servers.',
+            ],
+        ],
+        'howTo' => [
+            0 => [
+                'name' => 'Enter classes attended',
+                'text' => 'Type the total number of lectures and laboratory sessions you have physically attended so far this semester.',
+            ],
+            1 => [
+                'name' => 'Enter total classes held',
+                'text' => 'Input the total number of lectures delivered by the faculty to date across your course syllabus.',
+            ],
+            2 => [
+                'name' => 'Choose your target threshold',
+                'text' => 'Select 75% for standard university requirements, 80% for medical programs, or enter a custom institutional cutoff percentage.',
+            ],
+            3 => [
+                'name' => 'Review bunk and attendance projections',
+                'text' => 'Read your instant attendance percentage along with the exact number of classes you can safely skip or must attend to remain eligible.',
+            ],
+        ],
+        'guide' => [
+            0 => [
+                'heading' => 'Understanding mandatory college attendance regulations',
+                'body' => 'Higher education regulatory authorities, including India’s UGC and AICTE as well as international accreditation bodies, enforce strict minimum attendance quotas to ensure adequate pedagogical exposure. In most universities, students falling below 75% aggregate attendance face semester debarment, withholding of exam admit cards, or mandatory course repetition. Monitoring your attendance trajectory weekly prevents last-minute exam disqualification.',
+                'table' => [
+                    'caption' => 'Standard Higher Education Attendance Thresholds by Regulatory Council',
+                    'headers' => [
+                        0 => 'Regulatory Council / Board',
+                        1 => 'Mandatory Cutoff',
+                        2 => 'Medical Leave Condonation',
+                        3 => 'Exam Debarment Penalty',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => 'UGC / AICTE (Engineering & Sciences)',
+                            1 => '75.0%',
+                            2 => 'Down to 65% with official medical certificate',
+                            3 => 'Detained from semester end-term exams',
+                        ],
+                        1 => [
+                            0 => 'National Medical Commission (NMC / MBBS)',
+                            1 => '75% Theory / 80% Practical',
+                            2 => 'Strict; rarely condoned',
+                            3 => 'Non-eligible for university professional exams',
+                        ],
+                        2 => [
+                            0 => 'Bar Council of India (BCI / Law Degrees)',
+                            1 => '70.0%',
+                            2 => 'Down to 65% on dean recommendation',
+                            3 => 'Debarred from taking LL.B semester exams',
+                        ],
+                        3 => [
+                            0 => 'CBSE / State Secondary School Boards',
+                            1 => '75.0%',
+                            2 => 'Up to 15% condonation by regional director',
+                            3 => 'Admit card withheld for board examinations',
+                        ],
+                    ],
+                ],
+            ],
+            1 => [
+                'heading' => 'The mathematics behind attendance recovery',
+                'body' => 'When attendance dips below the required percentage, recovering requires disproportionately more classes than students intuitively assume. For every single class missed while below 75%, a student must attend three additional consecutive classes just to neutralize that absence. Using this calculator helps identify the exact point of non-recovery before absences accumulate irreversibly.',
+            ],
+            2 => [
+                'heading' => 'Private in-browser tracking for students',
+                'body' => 'Student privacy is paramount. Unlike campus portals that log student tracking queries or sell data to advertisers, Tool4SaaS executes all mathematical equations locally on your machine with zero server logs.',
+            ],
+        ],
+    ],
+    136 => [
+        'slug' => 'final-grade-calculator',
+        'title' => 'Final Grade Calculator',
+        'seoTitle' => 'Final Exam Grade & Syllabus Target Calculator',
+        'short' => 'Calculate final exam score needed to pass',
+        'description' => 'Calculate the exact grade you need on your final exam to pass or earn an A, B, or C. Fast, free, and computes weighted class syllabus scores in your browser.',
+        'icon' => 'BarChart3',
+        'keywords' => [
+            0 => 'final exam calculator',
+            1 => 'what do i need on my final exam calculator',
+            2 => 'final exam grade calculator with current grade',
+            3 => 'weighted final exam score calculator',
+            4 => 'how much do i need on my final to pass',
+            5 => 'final grade target planner',
+        ],
+        'category' => 'calculators',
+        'faq' => [
+            0 => [
+                'question' => 'How does the final exam calculator determine the score I need?',
+                'answer' => 'The calculator uses weighted average algebra: Required Score = (Target Grade - [Current Grade × (1 - Final Weight)]) / Final Weight. It factors in your current coursework average and the percentage weight assigned to your final exam in the course syllabus.',
+            ],
+            1 => [
+                'question' => 'What if the calculator says I need more than 100% on the final?',
+                'answer' => 'If the required score exceeds 100%, it means that even a perfect score on the final exam will not mathematically elevate your running coursework average to your desired target. You will need extra credit or an instructor grading curve to reach that mark.',
+            ],
+            2 => [
+                'question' => 'What does a negative required score mean?',
+                'answer' => 'A negative required score means your current cumulative coursework average is already so high that you have mathematically secured your target grade, even if you were to score 0% on the final examination.',
+            ],
+            3 => [
+                'question' => 'How do I calculate with letter grades instead of percentages?',
+                'answer' => 'Convert your letter grades to standard percentage benchmarks: A = 93%, A- = 90%, B+ = 87%, B = 83%, B- = 80%, C+ = 77%, C = 73%, D = 65%. Input these target percentages into the calculator.',
+            ],
+            4 => [
+                'question' => 'Is my class syllabus data kept private?',
+                'answer' => 'Yes. Calculations run client-side in your web browser. No course titles, student names, grades, or syllabus details are sent to external databases or recorded on remote servers.',
+            ],
+        ],
+        'howTo' => [
+            0 => [
+                'name' => 'Enter your current class grade',
+                'text' => 'Type your current running grade percentage based on submitted homework, quizzes, and midterm exams.',
+            ],
+            1 => [
+                'name' => 'Specify your target final grade',
+                'text' => 'Enter the final percentage you want to achieve for the entire course, such as 90% for an A or 80% for a B.',
+            ],
+            2 => [
+                'name' => 'Enter the final exam syllabus weight',
+                'text' => 'Input how much your final exam counts toward your total grade (typically between 20% and 50% on university syllabi).',
+            ],
+            3 => [
+                'name' => 'Review the needed exam score and difficulty',
+                'text' => 'Examine the exact exam score required and review alternate grade thresholds in the feasibility table.',
+            ],
+        ],
+        'guide' => [
+            0 => [
+                'heading' => 'How syllabus weighting affects your final exam score',
+                'body' => 'In standard university and high school syllabi, assessments are organized into weighted category pools rather than simple point additions. A final exam carrying a 40% syllabus weighting exerts double the mathematical leverage on your GPA compared to a 20% exam. Knowing the exact threshold required allows students to allocate study hours strategically across their exam schedule.',
+                'table' => [
+                    'caption' => 'Required Final Exam Score Matrix Based on Current Standing and Syllabus Weight',
+                    'headers' => [
+                        0 => 'Current Standing',
+                        1 => 'Target Grade',
+                        2 => 'Final Weight: 20%',
+                        3 => 'Final Weight: 30%',
+                        4 => 'Final Weight: 40%',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => '85% (Solid B)',
+                            1 => '90% (A-)',
+                            2 => '110.0% (Extra Credit)',
+                            3 => '101.7% (High)',
+                            4 => '97.5% (Achievable)',
+                        ],
+                        1 => [
+                            0 => '80% (B-)',
+                            1 => '85% (B)',
+                            2 => '105.0% (Extra Credit)',
+                            3 => '96.7% (Challenging)',
+                            4 => '92.5% (Realistic)',
+                        ],
+                        2 => [
+                            0 => '75% (C)',
+                            1 => '80% (B-)',
+                            2 => '100.0% (Difficult)',
+                            3 => '91.7% (Challenging)',
+                            4 => '87.5% (Realistic)',
+                        ],
+                        3 => [
+                            0 => '65% (D)',
+                            1 => '70% (Pass / C-)',
+                            2 => '90.0% (Challenging)',
+                            3 => '81.7% (Moderate)',
+                            4 => '77.5% (Comfortable)',
+                        ],
+                    ],
+                ],
+            ],
+            1 => [
+                'heading' => 'Managing syllabus curves and extra credit',
+                'body' => 'Instructors in rigorous STEM courses often apply a normal distribution curve or drop the lowest quiz score before calculating the final syllabus grade. If your target score appears out of reach, check whether your syllabus includes dropped assignments, bonus participation points, or curved exam scaling.',
+            ],
+            2 => [
+                'heading' => 'Strategic final exam revision planning',
+                'body' => 'High-performing students prioritize revision time by mathematical payoff. If one subject requires a 45% on the final to pass while another requires an 88% to secure an honors grade, allocating study hours according to marginal grade impact maximizes overall semester GPA.',
+            ],
+        ],
+    ],
+    137 => [
+        'slug' => 'cgpa-to-percentage-calculator',
+        'title' => 'CGPA to Percentage Calculator',
+        'seoTitle' => 'CGPA to Percentage Calculator – CBSE & VTU',
+        'short' => 'Convert 10-point CGPA to percentage',
+        'description' => 'Convert 10-point CGPA to percentage instantly. Supports CBSE 9.5 multiplier, VTU, Mumbai University, and standard 10x formulas directly in your browser.',
+        'icon' => 'Percent',
+        'keywords' => [
+            0 => 'cgpa to percentage calculator',
+            1 => 'cbse cgpa to percentage calculator',
+            2 => 'vtu cgpa to percentage calculator',
+            3 => 'mumbai university cgpa to percentage',
+            4 => 'convert 10 point cgpa to percentage online',
+            5 => 'sgpa to percentage calculator engineering',
+        ],
+        'category' => 'calculators',
+        'faq' => [
+            0 => [
+                'question' => 'Why does CBSE multiply CGPA by 9.5 instead of 10?',
+                'answer' => 'CBSE analyzed historical board examination mark distributions and determined that multiplying CGPA by 9.5 closely matches the actual average percentage scored by students within each grade point bracket, preventing mark inflation compared to previous marking systems.',
+            ],
+            1 => [
+                'question' => 'How does VTU convert CGPA to percentage?',
+                'answer' => 'Visvesvaraya Technological University (VTU) uses the official formula: Percentage = (CGPA - 0.75) × 10. For example, a CGPA of 8.25 converts to (8.25 - 0.75) × 10 = 75.0%.',
+            ],
+            2 => [
+                'question' => 'What is Mumbai University’s CGPA to percentage formula?',
+                'answer' => 'Mumbai University engineering faculty uses a piecewise formula: for CGPA below 7.0, Percentage = 7.1 + (7.25 × CGPA); for CGPA of 7.0 and above, Percentage = (7.4 × CGPA) + 12.0.',
+            ],
+            3 => [
+                'question' => 'Can I use this calculator to convert SGPA to percentage?',
+                'answer' => 'Yes. Semester Grade Point Average (SGPA) represents your single-semester grade point, whereas CGPA represents cumulative performance. For most university boards, the conversion formula applied to SGPA is identical to CGPA.',
+            ],
+            4 => [
+                'question' => 'How do I provide proof of percentage conversion for job applications?',
+                'answer' => 'Most employers (such as TCS, Infosys, and government service commissions) require you to submit an official conversion certificate issued by your university or attach a copy of the university conversion circular printed on the back of your grade transcript.',
+            ],
+        ],
+        'howTo' => [
+            0 => [
+                'name' => 'Select your university or board',
+                'text' => 'Choose CBSE for 10th/12th secondary, VTU for Karnataka engineering, Mumbai University, or Standard 10x for general universities.',
+            ],
+            1 => [
+                'name' => 'Enter your CGPA or SGPA',
+                'text' => 'Type your cumulative grade point average on the standard 10-point scale (such as 8.45).',
+            ],
+            2 => [
+                'name' => 'View the converted percentage',
+                'text' => 'Read your instant equivalent aggregate percentage computed with the official institutional multiplier.',
+            ],
+            3 => [
+                'name' => 'Consult the conversion matrix',
+                'text' => 'Review the comparative equivalence table to verify grade brackets from 6.0 to 10.0 across all major universities.',
+            ],
+        ],
+        'guide' => [
+            0 => [
+                'heading' => 'Comparative analysis of Indian university CGPA conversion formulas',
+                'body' => 'Across Indian higher education and secondary examination boards, institutions use distinct mathematical transformations to translate 10-point Choice Based Credit System (CBCS) grades into percentage equivalents. Corporate recruitment cutoffs (typically 60% for first class or 70% for distinction) and national entrance exams like CAT and GATE require candidate percentages calculated strictly according to the issuing university’s official formula.',
+                'table' => [
+                    'caption' => 'Official CGPA to Percentage Conversion Matrix Across Major Indian Educational Institutions',
+                    'headers' => [
+                        0 => 'CGPA (10-Point)',
+                        1 => 'CBSE (×9.5)',
+                        2 => 'VTU ([CGPA-0.75]×10)',
+                        3 => 'Mumbai University',
+                        4 => 'Standard (×10.0)',
+                    ],
+                    'rows' => [
+                        0 => [
+                            0 => '10.0',
+                            1 => '95.0%',
+                            2 => '92.5%',
+                            3 => '86.0%',
+                            4 => '100.0%',
+                        ],
+                        1 => [
+                            0 => '9.0',
+                            1 => '85.5%',
+                            2 => '82.5%',
+                            3 => '78.6%',
+                            4 => '90.0%',
+                        ],
+                        2 => [
+                            0 => '8.0',
+                            1 => '76.0%',
+                            2 => '72.5%',
+                            3 => '71.2%',
+                            4 => '80.0%',
+                        ],
+                        3 => [
+                            0 => '7.0',
+                            1 => '66.5%',
+                            2 => '62.5%',
+                            3 => '63.8%',
+                            4 => '70.0%',
+                        ],
+                        4 => [
+                            0 => '6.0',
+                            1 => '57.0%',
+                            2 => '52.5%',
+                            3 => '50.6%',
+                            4 => '60.0%',
+                        ],
+                    ],
+                ],
+            ],
+            1 => [
+                'heading' => 'Difference between SGPA, CGPA, and aggregate percentage',
+                'body' => 'Semester Grade Point Average (SGPA) measures performance across course credits completed in a single semester. Cumulative Grade Point Average (CGPA) represents the credit-weighted average across all completed semesters. Converting CGPA into percentage requires applying institutional formulas rather than simple multiplication by 10, as regulatory bodies design multipliers to correlate with historical bell-curve grading standards.',
+            ],
+            2 => [
+                'heading' => 'Official conversion certificate requirements for job applications',
+                'body' => 'When applying for corporate campus placements, IT services firms, or public sector examinations, verification teams check for formal conversion criteria. Candidates should ensure the formula used matches the text printed on the reverse of their university marks card.',
+            ],
+        ],
+    ],
 ];

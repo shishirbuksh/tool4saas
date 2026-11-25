@@ -266,6 +266,9 @@ final class SeoService
             'income-tax-calculator' => 'https://www.wikidata.org/wiki/Q8161',
             'concrete-calculator' => 'https://www.wikidata.org/wiki/Q22657',
             'profit-margin-calculator' => 'https://www.wikidata.org/wiki/Q384074',
+            'attendance-calculator' => 'https://www.wikidata.org/wiki/Q11023',
+            'final-grade-calculator' => 'https://www.wikidata.org/wiki/Q182548',
+            'cgpa-to-percentage-calculator' => 'https://www.wikidata.org/wiki/Q1074127',
         ];
 
         $webAppEntity = [
