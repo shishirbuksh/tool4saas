@@ -158,5 +158,10 @@ final class RouteTest extends TestCase
         $response->assertStatus(404);
         $response->assertSee('Page Not Found');
         $response->assertSee('Return to Homepage');
+
+        expect(view()->exists('errors.403'))->toBeTrue();
+        expect(view()->exists('errors.404'))->toBeTrue();
+        expect(view()->exists('errors.419'))->toBeTrue();
+        expect(view()->exists('errors.503'))->toBeTrue();
     }
 }
