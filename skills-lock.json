@@ -1,11 +1,25 @@
 {
   "version": 2,
   "skills": {
+    "Alpine.js Expert": {
+      "source": "labs-web/lab-alpinejs",
+      "commit": "cb654d37f69cb86cbb52f5cc47c15e47ba8bc8f3",
+      "sourceType": "github",
+      "skillPath": ".agent/skills/alpinejs/SKILL.md",
+      "computedHash": "32289a45e9c95b88f5d036d052282ddca0d582959484e7ce974dc5539ed38218"
+    },
     "adsense-site-auditor": {
       "source": "yantoumu/adsense-site-auditor-skill",
       "sourceType": "github",
       "skillPath": "adsense-site-auditor/SKILL.md",
       "computedHash": "2d29cb79f79c2bf5ad9c4bee7a2c583d808faa3d5d6f9859fa2a439a70fee7fd"
+    },
+    "alpine-js": {
+      "source": "Mindrally/skills",
+      "commit": "7682ca77710e0971eab4e0ae5dddfa281aea0ba5",
+      "sourceType": "github",
+      "skillPath": "alpine-js/SKILL.md",
+      "computedHash": "f7a9d78988248f32cfba61f8b1b87b4dc0ca2db42a6eadcf301b66b7367e03a2"
     },
     "daisyui": {
       "source": "saadeghi/daisyui",

@@ -94,6 +94,7 @@
                 <input
                     type="number"
                     min="0"
+                    value="42"
                     x-model.number="attended"
                     class="input input-bordered w-full rounded-xl font-mono text-xl font-bold bg-base-100"
                     placeholder="42"
@@ -106,6 +107,7 @@
                 <input
                     type="number"
                     min="1"
+                    value="50"
                     x-model.number="total"
                     class="input input-bordered w-full rounded-xl font-mono text-xl font-bold bg-base-100"
                     placeholder="50"
@@ -119,6 +121,7 @@
                     type="number"
                     min="1"
                     max="100"
+                    value="75"
                     x-model.number="targetPercent"
                     class="input input-bordered w-full rounded-xl font-mono text-xl font-bold bg-base-100"
                     placeholder="75"
@@ -132,7 +135,7 @@
             <div class="flex items-center justify-between border-b border-white/10 pb-4">
                 <div>
                     <span class="text-xs uppercase tracking-widest text-[#9fe870] font-bold font-mono">Current Attendance Standing</span>
-                    <p class="font-mono text-4xl sm:text-5xl font-black mt-1 text-[#9fe870]" x-text="currentPercent + '%'"></p>
+                    <p class="font-mono text-4xl sm:text-5xl font-black mt-1 text-[#9fe870]" x-text="currentPercent + '%'">84.0%</p>
                 </div>
                 <div class="text-right">
                     <span

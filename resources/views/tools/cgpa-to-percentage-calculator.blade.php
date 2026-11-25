@@ -206,6 +206,7 @@
                         min="0"
                         max="10"
                         step="0.01"
+                        value="8.50"
                         x-model.number="cgpa"
                         class="input input-bordered w-full rounded-xl font-mono text-2xl font-bold bg-base-100"
                         placeholder="8.50"
@@ -233,15 +234,15 @@
                 <div class="flex items-center justify-between border-b border-white/10 pb-4">
                     <div>
                         <span class="text-xs uppercase tracking-widest text-[#9fe870] font-bold font-mono">Equivalent Aggregate Percentage</span>
-                        <p class="font-mono text-4xl sm:text-5xl font-black mt-1 text-[#9fe870]" x-text="percentage + '%'"></p>
+                        <p class="font-mono text-4xl sm:text-5xl font-black mt-1 text-[#9fe870]" x-text="percentage + '%'">80.75%</p>
                     </div>
                     <div class="text-right">
-                        <span class="px-3 py-1 rounded-full text-xs font-bold font-mono uppercase tracking-wider bg-[#9fe870]/20 text-[#9fe870] border border-[#9fe870]/30" x-text="'10-Point Scale'"></span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold font-mono uppercase tracking-wider bg-[#9fe870]/20 text-[#9fe870] border border-[#9fe870]/30" x-text="'10-Point Scale'">10-Point Scale</span>
                     </div>
                 </div>
 
                 <div class="pt-2 space-y-2">
-                    <p class="text-base sm:text-lg font-medium text-white/90" x-text="formulaExplanation"></p>
+                    <p class="text-base sm:text-lg font-medium text-white/90" x-text="formulaExplanation">CBSE Formula: Percentage = CGPA (8.5) × 9.5 = 80.75%</p>
                     <p class="text-xs text-white/60">
                         Calculated accurately according to official institutional conversion circulars for academic admissions and corporate verification.
                     </p>

@@ -105,6 +105,7 @@
                     min="0"
                     max="100"
                     step="0.1"
+                    value="85"
                     x-model.number="currentGrade"
                     class="input input-bordered w-full rounded-xl font-mono text-xl font-bold bg-base-100"
                     placeholder="85"
@@ -119,6 +120,7 @@
                     min="0"
                     max="100"
                     step="0.1"
+                    value="90"
                     x-model.number="targetGrade"
                     class="input input-bordered w-full rounded-xl font-mono text-xl font-bold bg-base-100"
                     placeholder="90"
@@ -133,6 +135,7 @@
                     min="1"
                     max="99"
                     step="1"
+                    value="30"
                     x-model.number="finalWeight"
                     class="input input-bordered w-full rounded-xl font-mono text-xl font-bold bg-base-100"
                     placeholder="30"
@@ -146,7 +149,7 @@
             <div class="flex items-center justify-between border-b border-white/10 pb-4">
                 <div>
                     <span class="text-xs uppercase tracking-widest text-[#9fe870] font-bold font-mono">Required Final Exam Score</span>
-                    <p class="font-mono text-4xl sm:text-5xl font-black mt-1 text-[#9fe870]" x-text="neededScore + '%'"></p>
+                    <p class="font-mono text-4xl sm:text-5xl font-black mt-1 text-[#9fe870]" x-text="neededScore + '%'">101.7%</p>
                 </div>
                 <div class="text-right">
                     <span

@@ -49,6 +49,11 @@
 
     {{-- Main Interactive Tool Island (Wise white rounded-3xl container) --}}
     <section aria-label="{{ $tool->title }} interactive utility" class="my-10">
+        <noscript>
+            <div class="mb-6 p-4 rounded-2xl bg-warning/15 border border-warning/30 text-warning-content text-xs font-semibold">
+                ⚡ Note: Interactive calculations run locally in your browser and require JavaScript enabled. All educational guides, formulas, comparison tables, and FAQ explanations below remain fully readable offline.
+            </div>
+        </noscript>
         {{ $slot }}
     </section>
 

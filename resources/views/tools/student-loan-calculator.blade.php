@@ -276,6 +276,7 @@
                     min="500"
                     max="500000"
                     step="500"
+                    value="35000"
                     x-model.number="loanAmount"
                     class="input input-bordered w-full rounded-xl font-mono text-lg font-bold bg-base-100"
                 />
@@ -291,6 +292,7 @@
                     min="0"
                     max="25"
                     step="0.05"
+                    value="6.5"
                     x-model.number="interestRate"
                     class="input input-bordered w-full rounded-xl font-mono text-lg font-bold bg-base-100"
                 />
@@ -324,6 +326,7 @@
                     min="0"
                     max="10000"
                     step="25"
+                    value="0"
                     x-model.number="extraMonthly"
                     class="input input-bordered w-full rounded-xl font-mono text-lg font-bold bg-base-100"
                     placeholder="0"
@@ -406,25 +409,29 @@
                     </span>
                     <p class="font-mono text-4xl sm:text-5xl font-black mt-1 text-[#9fe870]">
                         <template x-if="planMode === 'standard'">
-                            <span x-text="'$' + Math.round(standardSummary.monthlyPayment).toLocaleString()"></span>
+                            <span x-text="'$' + Math.round(standardSummary.monthlyPayment).toLocaleString()">$397</span>
                         </template>
                         <template x-if="planMode === 'idr'">
-                            <span x-text="'$' + Math.round(idrEstimate.monthlyPayment).toLocaleString()"></span>
+                            <span x-text="'$' + Math.round(idrEstimate.monthlyPayment).toLocaleString()">$176</span>
                         </template>
                     </p>
-                    <span class="text-xs text-white/60 block mt-1" x-text="planMode === 'standard' ? (totalMonths + ' scheduled installments') : '10% discretionary income cap'"></span>
+                    <span class="text-xs text-white/60 block mt-1" x-text="planMode === 'standard' ? (totalMonths + ' scheduled installments') : '10% discretionary income cap'">120 scheduled installments</span>
                 </div>
 
                 <div>
                     <span class="text-xs uppercase tracking-widest text-white/70 font-bold font-mono">Total Interest Cost</span>
-                    <p class="font-mono text-3xl sm:text-4xl font-bold mt-1 text-white" x-text="'$' + Math.round(acceleratedSummary.totalInterest).toLocaleString()"></p>
-                    <span class="text-xs text-white/60 block mt-1" x-text="'Principal: $' + Math.round(principal).toLocaleString()"></span>
+                    <p class="font-mono text-3xl sm:text-4xl font-bold mt-1 text-white">
+                        <span x-text="'$' + Math.round(acceleratedSummary.totalInterest).toLocaleString()">$12,693</span>
+                    </p>
+                    <span class="text-xs text-white/60 block mt-1" x-text="'Principal: $' + Math.round(principal).toLocaleString()">Principal: $35,000</span>
                 </div>
 
                 <div>
                     <span class="text-xs uppercase tracking-widest text-white/70 font-bold font-mono">Total Lifetime Out-of-Pocket</span>
-                    <p class="font-mono text-3xl sm:text-4xl font-bold mt-1 text-white" x-text="'$' + Math.round(acceleratedSummary.totalPaid).toLocaleString()"></p>
-                    <span class="text-xs text-white/60 block mt-1" x-text="'Payoff in ' + acceleratedSummary.years + ' years (' + acceleratedSummary.months + ' mo)'"></span>
+                    <p class="font-mono text-3xl sm:text-4xl font-bold mt-1 text-white">
+                        <span x-text="'$' + Math.round(acceleratedSummary.totalPaid).toLocaleString()">$47,693</span>
+                    </p>
+                    <span class="text-xs text-white/60 block mt-1" x-text="'Payoff in ' + acceleratedSummary.years + ' years (' + acceleratedSummary.months + ' mo)'">Payoff in 10.0 years (120 mo)</span>
                 </div>
             </div>
 
