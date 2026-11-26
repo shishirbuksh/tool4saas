@@ -46,11 +46,15 @@ final class SecurityHeaders
         $response->headers->set('Content-Security-Policy', $csp);
         $response->headers->set('X-Content-Type-Options', 'nosniff');
         $response->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
-        $response->headers->set('Permissions-Policy', 'camera=(self), microphone=(self), geolocation=()');
+        $response->headers->set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
         $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
 
         if (! $isEmbed) {
-            $response->headers->set('X-Frame-Options', 'DENY');
+            $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
+        }
+
+        if ($request->isMethodSafe() && $response->getStatusCode() === 200 && ! $request->is('api/*')) {
+            $response->headers->set('Cache-Control', 'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400');
         }
 
         return $response;

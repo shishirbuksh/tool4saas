@@ -262,7 +262,7 @@
                     @endphp
                     <div
                         id="category-{{ $group['category']->id }}"
-                        class="scroll-mt-24 category-section"
+                        class="scroll-mt-24 category-section [content-visibility:auto] [contain-intrinsic-size:0_450px]"
                     >
                         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6 border-b border-base-300 pb-4">
                             <div>

@@ -138,7 +138,8 @@ final class RouteTest extends TestCase
         $response->assertHeader('X-Content-Type-Options', 'nosniff');
         $response->assertHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
         $response->assertHeader('Strict-Transport-Security');
-        $response->assertHeader('Permissions-Policy', 'camera=(self), microphone=(self), geolocation=()');
+        $response->assertHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
+        $response->assertHeader('X-Frame-Options', 'SAMEORIGIN');
     }
 
     public function test_ssl_checker_api_validation_and_ssrf_protection(): void
