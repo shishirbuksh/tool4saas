@@ -52,6 +52,26 @@
     updateCurrency(code, symbol) {
         this.currency = code;
         this.currencySymbol = symbol;
+    },
+    exportScheduleCsv() {
+        const p = Math.max(0, parseFloat(this.principal) || 0);
+        const r = Math.max(0, parseFloat(this.rate) || 0) / 100;
+        const totalYears = Math.max(1, parseInt(this.years, 10) || 1);
+        const n = parseInt(this.freq, 10) || 1;
+        let csv = 'Year,Starting Principal,Interest Earned,Ending Balance\n';
+        let currentBalance = p;
+        for (let y = 1; y <= totalYears; y++) {
+            const startBal = currentBalance;
+            const endBal = p * Math.pow(1 + (r / n), n * y);
+            const yrInterest = endBal - startBal;
+            currentBalance = endBal;
+            csv += [y, startBal.toFixed(2), yrInterest.toFixed(2), endBal.toFixed(2)].join(',') + '\n';
+        }
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'compound-interest-growth-schedule.csv';
+        a.click();
     }
 }">
     <div class="space-y-6">
@@ -92,6 +112,16 @@
             <p class="text-xs sm:text-sm text-[#868685]">
                 Includes <span class="font-bold text-white"><span x-text="currencySymbol"></span><span x-text="Math.round(interestEarned).toLocaleString()"></span></span> compound interest over <span x-text="years"></span> years
             </p>
+            <div class="mt-5 flex items-center justify-center gap-3">
+                <button
+                    type="button"
+                    @click="exportScheduleCsv()"
+                    class="px-5 py-2.5 rounded-full bg-primary text-primary-content text-xs font-bold hover:bg-[#cdffad] transition-all shadow-xs inline-flex items-center gap-2 cursor-pointer"
+                >
+                    <span>📥</span>
+                    <span>Export Annual Compounding Schedule (.CSV)</span>
+                </button>
+            </div>
         </div>
 
         {{-- Growth Breakdown Cards --}}

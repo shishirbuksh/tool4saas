@@ -112,13 +112,13 @@
         <div class="border-t border-[#242a20] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#868685]">
             <p class="text-center sm:text-left">© {{ $year }} Tool4SaaS. Built with a local-first architecture for maximum privacy.</p>
             <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
-                <a href="{{ route('privacy') }}" class="hover:text-white transition-colors py-1">Privacy Policy</a>
+                <a href="{{ route('privacy') }}" class="hover:text-white transition-colors py-2 inline-flex items-center min-h-[44px]">Privacy Policy</a>
                 <span>·</span>
-                <a href="{{ route('terms') }}" class="hover:text-white transition-colors py-1">Terms of Service</a>
+                <a href="{{ route('terms') }}" class="hover:text-white transition-colors py-2 inline-flex items-center min-h-[44px]">Terms of Service</a>
                 <span>·</span>
-                <a href="{{ url('/sitemap.xml') }}" class="hover:text-white transition-colors py-1">XML Sitemap</a>
+                <a href="{{ url('/sitemap.xml') }}" class="hover:text-white transition-colors py-2 inline-flex items-center min-h-[44px]">XML Sitemap</a>
                 <span>·</span>
-                <a href="{{ url('/llms.txt') }}" class="hover:text-white transition-colors py-1">llms.txt</a>
+                <a href="{{ url('/llms.txt') }}" class="hover:text-white transition-colors py-2 inline-flex items-center min-h-[44px]">llms.txt</a>
             </div>
         </div>
     </div>

@@ -45,7 +45,18 @@
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800;900&display=swap">
+
+    {{-- Non-Blocking Asynchronous Typography Loading (Zero Render Blocking & Zero CSP Violations) --}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800;900&display=swap" media="print" id="gfonts-css">
+    <script nonce="{{ request()->attributes->get('csp_nonce') }}">
+        (function() {
+            var gf = document.getElementById('gfonts-css');
+            if (gf) { gf.media = 'all'; }
+        })();
+    </script>
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800;900&display=swap">
+    </noscript>
 
     @stack('seo')
 
