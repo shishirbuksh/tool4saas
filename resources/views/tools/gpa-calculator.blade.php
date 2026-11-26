@@ -15,17 +15,17 @@
         }
     },
     get totalCredits() {
-        return this.courses.reduce((acc, c) => acc + (parseFloat(c.credits) || 0), 0);
+        return this.courses.reduce((acc, c) => acc + Math.max(0, parseFloat(c.credits) || 0), 0);
     },
     get totalPoints() {
-        return this.courses.reduce((acc, c) => acc + ((parseFloat(c.grade) || 0) * (parseFloat(c.credits) || 0)), 0);
+        return this.courses.reduce((acc, c) => acc + (Math.max(0, parseFloat(c.grade) || 0) * Math.max(0, parseFloat(c.credits) || 0)), 0);
     },
     get gpa() {
-        if (this.totalCredits <= 0) return 0;
+        if (this.totalCredits <= 0) return '0.00';
         return (this.totalPoints / this.totalCredits).toFixed(2);
     },
     get percentage() {
-        return Math.round((this.gpa / 4) * 100);
+        return Math.round(((parseFloat(this.gpa) || 0) / 4) * 100);
     },
     get latinHonors() {
         const g = parseFloat(this.gpa) || 0;

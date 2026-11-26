@@ -65,4 +65,13 @@ final class OgImageTest extends TestCase
         $response->assertStatus(200);
         $response->assertHeader('Content-Type', 'image/png');
     }
+
+    public function test_og_static_hub_and_blog_images_are_successful(): void
+    {
+        foreach (['/og/static-blog.png', '/og/static-student-tools.png', '/og/static-developer-tools.png'] as $uri) {
+            $response = $this->get($uri);
+            $response->assertStatus(200);
+            $response->assertHeader('Content-Type', 'image/png');
+        }
+    }
 }

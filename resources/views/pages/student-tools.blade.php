@@ -4,6 +4,41 @@
             title="Free Student Tools &amp; Study Calculators — Attendance, GPA, Finals"
             description="Free online student tools: calculate 75% attendance bunk limits, final exam target scores, CGPA to percentage, and 4.0 GPA with zero signup and 100% privacy."
             canonical="{{ url('/student-tools') }}"
+            :jsonLd="[
+                '@context' => 'https://schema.org',
+                '@graph' => [
+                    [
+                        '@type' => 'CollectionPage',
+                        '@id' => url('/student-tools') . '#collection',
+                        'url' => url('/student-tools'),
+                        'name' => 'Free Student Tools & Study Calculators',
+                        'description' => 'Free online student tools: calculate 75% attendance bunk limits, final exam target scores, CGPA to percentage, and 4.0 GPA with zero signup and 100% privacy.',
+                        'inLanguage' => 'en',
+                        'isPartOf' => [
+                            '@type' => 'WebSite',
+                            'name' => 'Tool4SaaS',
+                            'url' => url('/') . '/',
+                        ],
+                    ],
+                    [
+                        '@type' => 'BreadcrumbList',
+                        'itemListElement' => [
+                            [
+                                '@type' => 'ListItem',
+                                'position' => 1,
+                                'name' => 'Home',
+                                'item' => url('/'),
+                            ],
+                            [
+                                '@type' => 'ListItem',
+                                'position' => 2,
+                                'name' => 'Student Tools Hub',
+                                'item' => url('/student-tools'),
+                            ],
+                        ],
+                    ],
+                ],
+            ]"
         />
     @endpush
 
@@ -185,12 +220,14 @@
 
                     {{-- Search Input --}}
                     <div class="relative pt-2">
+                        <label for="student-tools-search" class="sr-only">Filter student tools</label>
                         <div class="absolute inset-y-0 left-0 pl-4 pt-2 flex items-center pointer-events-none text-base-content/50">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
                         <input
+                            id="student-tools-search"
                             type="text"
                             x-model="searchQuery"
                             placeholder="Filter student tools (e.g. bunk, attendance, gpa, cbse, finals, essay, fraction)..."
@@ -198,8 +235,10 @@
                         />
                         <button
                             x-show="searchQuery.length > 0"
+                            x-cloak
                             style="display: none;"
                             type="button"
+                            aria-label="Clear filter"
                             @click="searchQuery = ''"
                             class="absolute inset-y-0 right-0 pr-4 pt-2 flex items-center text-xs font-bold text-base-content/60 hover:text-base-content"
                         >
@@ -212,40 +251,40 @@
                         <button
                             type="button"
                             @click="selectedCategory = 'all'"
-                            class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all min-h-[38px]"
-                            :class="selectedCategory === 'all' ? 'bg-[#163300] text-[#9fe870] border-[#163300] shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5]'"
+                            class="px-3.5 py-2 rounded-full border text-xs font-bold transition-all min-h-[44px]"
+                            :class="selectedCategory === 'all' ? 'bg-[#163300] text-[#9fe870] border-[#163300] shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5] hover:text-[#054d28]'"
                         >
-                            All Student Tools (12)
+                            All Student Tools (13)
                         </button>
                         <button
                             type="button"
                             @click="selectedCategory = 'attendance'"
-                            class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all min-h-[38px]"
-                            :class="selectedCategory === 'attendance' ? 'bg-[#163300] text-[#9fe870] border-[#163300] shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5]'"
+                            class="px-3.5 py-2 rounded-full border text-xs font-bold transition-all min-h-[44px]"
+                            :class="selectedCategory === 'attendance' ? 'bg-[#163300] text-[#9fe870] border-[#163300] shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5] hover:text-[#054d28]'"
                         >
                             🏫 Attendance &amp; Finals
                         </button>
                         <button
                             type="button"
                             @click="selectedCategory = 'gpa'"
-                            class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all min-h-[38px]"
-                            :class="selectedCategory === 'gpa' ? 'bg-[#163300] text-[#9fe870] border-[#163300] shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5]'"
+                            class="px-3.5 py-2 rounded-full border text-xs font-bold transition-all min-h-[44px]"
+                            :class="selectedCategory === 'gpa' ? 'bg-[#163300] text-[#9fe870] border-[#163300] shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5] hover:text-[#054d28]'"
                         >
                             📊 GPA &amp; Grade Conversions
                         </button>
                         <button
                             type="button"
                             @click="selectedCategory = 'math'"
-                            class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all min-h-[38px]"
-                            :class="selectedCategory === 'math' ? 'bg-[#163300] text-[#9fe870] border-[#163300] shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5]'"
+                            class="px-3.5 py-2 rounded-full border text-xs font-bold transition-all min-h-[44px]"
+                            :class="selectedCategory === 'math' ? 'bg-[#163300] text-[#9fe870] border-[#163300] shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5] hover:text-[#054d28]'"
                         >
                             🔬 Math &amp; STEM
                         </button>
                         <button
                             type="button"
                             @click="selectedCategory = 'writing'"
-                            class="px-3.5 py-1.5 rounded-full border text-xs font-bold transition-all min-h-[38px]"
-                            :class="selectedCategory === 'writing' ? 'bg-[#163300] text-[#9fe870] border-[#163300] shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5]'"
+                            class="px-3.5 py-2 rounded-full border text-xs font-bold transition-all min-h-[44px]"
+                            :class="selectedCategory === 'writing' ? 'bg-[#163300] text-[#9fe870] border-[#163300] shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5] hover:text-[#054d28]'"
                         >
                             ✍️ Writing &amp; Research
                         </button>
@@ -255,7 +294,7 @@
         </section>
 
         {{-- Tools Grid Section --}}
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14">
+        <section aria-label="Student Tools Directory" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14">
             <div class="flex items-center justify-between mb-8">
                 <div>
                     <h2 class="text-xl sm:text-2xl font-black text-base-content font-display">
@@ -316,6 +355,15 @@
                 </button>
             </div>
 
+            {{-- Crawlable SSR fallback links for non-JS crawlers --}}
+            <noscript>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+                    @foreach (['attendance-calculator' => 'Attendance & Bunk Calculator', 'final-grade-calculator' => 'Final Exam Grade Calculator', 'cgpa-to-percentage-calculator' => 'CGPA to Percentage Converter', 'gpa-calculator' => 'Cumulative GPA Calculator', 'grade-calculator' => 'Weighted Course Grade Calculator', 'percentage-calculator' => 'Percentage Calculator', 'scientific-calculator' => 'Scientific Calculator', 'fraction-calculator' => 'Fraction & Mixed Number Calculator', 'percentage-change' => 'Percentage Change Calculator', 'word-counter' => 'Essay Word & Reading Time Counter', 'plagiarism-checker' => 'Plagiarism & Text Similarity Checker', 'typing-speed-test' => 'Typing Speed Test (WPM & Accuracy)', 'student-loan-calculator' => 'Student Loan Repayment Calculator'] as $sSlug => $sTitle)
+                        <a href="/{{ $sSlug }}" class="p-4 rounded-2xl bg-base-100 border border-base-300 text-sm font-bold text-base-content block">{{ $sTitle }}</a>
+                    @endforeach
+                </div>
+            </noscript>
+
             {{-- Educational Method & Privacy Guarantee Card --}}
             <div class="mt-14 bg-base-100 border border-base-300 rounded-3xl p-8 sm:p-10 shadow-sm space-y-6">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-xs uppercase tracking-wider">
@@ -339,6 +387,6 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </section>
     </div>
 </x-layouts.app>

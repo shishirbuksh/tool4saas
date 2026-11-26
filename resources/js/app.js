@@ -6,8 +6,27 @@ window.Alpine = Alpine;
 window.loadQRCode = () => import("qrcode").then((m) => { window.QRCode = m.default || m; return window.QRCode; });
 window.loadJsBarcode = () => import("jsbarcode").then((m) => { window.JsBarcode = m.default || m; return window.JsBarcode; });
 window.loadPdfLib = () => import("pdf-lib").then((m) => { window.PDFLib = m.default || m; return window.PDFLib; });
+window.loadPdfJs = async () => {
+  if (window.pdfjsLib) return window.pdfjsLib;
+  const [pdfjsLib, workerMod] = await Promise.all([
+    import("pdfjs-dist/build/pdf.mjs"),
+    import("pdfjs-dist/build/pdf.worker.min.mjs?url"),
+  ]);
+  pdfjsLib.GlobalWorkerOptions.workerSrc = workerMod.default;
+  window.pdfjsLib = pdfjsLib;
+  return pdfjsLib;
+};
 window.loadJsQR = () => import("jsqr").then((m) => { window.jsQR = m.default || m; return window.jsQR; });
 window.loadFflate = () => import("fflate").then((m) => { window.fflate = m.default || m; return window.fflate; });
+window.downloadCsvBlob = (csvContent, filename) => {
+  const blob = new Blob(["\uFEFF" + csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+};
 
 // Theme manager
 Alpine.data("themeManager", () => ({

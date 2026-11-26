@@ -31,7 +31,7 @@
                             </span>
                         </div>
                         <a href="/blog/{{ $section['meta']->pillar }}" class="no-underline group">
-                            <h2 class="text-2xl font-black tracking-tight text-base-content group-hover:text-primary transition-colors font-display">
+                            <h2 class="text-2xl font-black tracking-tight text-base-content group-hover:text-[#163300] dark:group-hover:text-[#9fe870] transition-colors font-display">
                                 {{ $section['meta']->title }}
                             </h2>
                         </a>
@@ -45,8 +45,8 @@
                                 <ul class="space-y-2 text-sm">
                                     @foreach (array_slice($section['clusters'], 0, 3) as $cluster)
                                         <li>
-                                            <a href="/blog/{{ $section['meta']->pillar }}/{{ $cluster->slug }}" class="hover:text-primary text-base-content/85 line-clamp-1 transition-colors flex items-center gap-1.5 font-medium">
-                                                <span class="text-primary font-bold">→</span>
+                                            <a href="/blog/{{ $section['meta']->pillar }}/{{ $cluster->slug }}" class="hover:text-[#163300] dark:hover:text-[#9fe870] text-base-content/85 line-clamp-1 transition-colors flex items-center gap-1.5 font-medium">
+                                                <span class="text-[#163300] dark:text-[#9fe870] font-bold">→</span>
                                                 <span>{{ $cluster->title }}</span>
                                             </a>
                                         </li>
@@ -58,13 +58,13 @@
 
                     <div class="pt-5 border-t border-base-200 flex items-center justify-between">
                         @if ($section['meta']->toolSlug)
-                            <a href="/{{ $section['meta']->toolSlug }}" class="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline">
+                            <a href="/{{ $section['meta']->toolSlug }}" class="inline-flex items-center gap-1 text-xs font-bold text-[#163300] dark:text-[#9fe870] hover:underline">
                                 <span>⚡ Launch Free {{ ucwords(str_replace('-', ' ', $section['meta']->toolSlug)) }}</span>
                             </a>
                         @else
                             <span class="text-xs font-semibold text-base-content/60">Comprehensive guide</span>
                         @endif
-                        <a href="/blog/{{ $section['meta']->pillar }}" class="inline-flex items-center gap-1 text-sm font-bold text-base-content group-hover:text-primary transition-colors">
+                        <a href="/blog/{{ $section['meta']->pillar }}" class="inline-flex items-center gap-1 text-sm font-bold text-base-content group-hover:text-[#163300] dark:group-hover:text-[#9fe870] transition-colors">
                             <span>Read guide</span>
                             <span>→</span>
                         </a>

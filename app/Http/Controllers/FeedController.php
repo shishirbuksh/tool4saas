@@ -88,6 +88,9 @@ final class FeedController extends Controller
         // 6. Blog Pillars
         foreach ($this->blogService->getAllPillars() as $pillar) {
             $post = $this->blogService->getPillarPost($pillar->pillar);
+            if ($post !== null && $post->isNoindex) {
+                continue;
+            }
             $items[] = [
                 'url' => "{$base}/blog/{$pillar->pillar}",
                 'lastModified' => $post !== null ? $post->updated : $pillar->updated,
@@ -198,12 +201,14 @@ final class FeedController extends Controller
         $xml .= "    <atom:link href=\"{$base}/rss.xml\" rel=\"self\" type=\"application/rss+xml\" />\n";
 
         foreach ($items as $post) {
-            $url = $post->kind === 'pillar'
+            $rawUrl = $post->kind === 'pillar'
                 ? "{$base}/blog/{$post->pillar}"
                 : "{$base}/blog/{$post->pillar}/{$post->slug}";
 
+            $url = htmlspecialchars($rawUrl, ENT_XML1, 'UTF-8');
             $title = htmlspecialchars($post->title, ENT_XML1, 'UTF-8');
             $desc = htmlspecialchars($post->description, ENT_XML1, 'UTF-8');
+            $category = htmlspecialchars($post->pillar, ENT_XML1, 'UTF-8');
             $pubTimestamp = strtotime($post->published) ?: time();
             $updTimestamp = strtotime($post->updated) ?: time();
             $pubDate = date(DATE_RSS, $pubTimestamp);
@@ -216,7 +221,7 @@ final class FeedController extends Controller
             $xml .= "      <pubDate>{$pubDate}</pubDate>\n";
             $xml .= "      <atom:updated>{$updated}</atom:updated>\n";
             $xml .= "      <description>{$desc}</description>\n";
-            $xml .= "      <category>{$post->pillar}</category>\n";
+            $xml .= "      <category>{$category}</category>\n";
             $xml .= "    </item>\n";
         }
 
@@ -257,9 +262,12 @@ final class FeedController extends Controller
         $base = $this->getBaseUrl($request);
         $visibleTools = array_values(array_filter(
             $this->toolRegistry->getAllTools(),
-            fn ($t): bool => ! $t->isNoindex
+            fn ($t): bool => $t->isIndexable()
         ));
-        $categories = $this->toolRegistry->getAllCategories();
+        $categories = array_values(array_filter(
+            $this->toolRegistry->getAllCategories(),
+            fn ($c): bool => $c->isIndexable()
+        ));
 
         $content = '# Tool4SaaS ('.count($visibleTools).' free tools across '.count($categories)." categories + guides)\n";
         $content .= '> Updated: '.date('Y-m-d')."\n\n";
@@ -280,15 +288,15 @@ final class FeedController extends Controller
         $content .= "\n";
 
         foreach ($categories as $cat) {
-            $catTools = $this->toolRegistry->getByCategory($cat->id);
+            $catTools = array_values(array_filter(
+                $this->toolRegistry->getByCategory($cat->id),
+                fn ($t): bool => $t->isIndexable()
+            ));
             if (empty($catTools)) {
                 continue;
             }
             $content .= "## {$cat->label}\n";
             foreach ($catTools as $tool) {
-                if ($tool->isNoindex) {
-                    continue;
-                }
                 $content .= "- [{$tool->title}]({$base}/{$tool->slug}): {$tool->short}\n";
             }
             $content .= "\n";
@@ -297,6 +305,10 @@ final class FeedController extends Controller
         $content .= "## Guides & Blog\n";
         $content .= "- [All Guides]({$base}/blog): View all long-form tool guides and tutorials.\n";
         foreach ($this->blogService->getAllPillars() as $pillar) {
+            $pillarPost = $this->blogService->getPillarPost($pillar->pillar);
+            if ($pillarPost !== null && $pillarPost->isNoindex) {
+                continue;
+            }
             $content .= "- [{$pillar->title}]({$base}/blog/{$pillar->pillar}): Pillar guide.\n";
         }
 
@@ -310,23 +322,26 @@ final class FeedController extends Controller
         $base = $this->getBaseUrl($request);
         $visibleTools = array_values(array_filter(
             $this->toolRegistry->getAllTools(),
-            fn ($t): bool => ! $t->isNoindex
+            fn ($t): bool => $t->isIndexable()
         ));
-        $categories = $this->toolRegistry->getAllCategories();
+        $categories = array_values(array_filter(
+            $this->toolRegistry->getAllCategories(),
+            fn ($c): bool => $c->isIndexable()
+        ));
 
         $content = '# Tool4SaaS full ('.count($visibleTools).' tools + guides) — FAQ answers & steps for AI citations'."\n\n";
         $content .= '> Updated: '.date('Y-m-d')." · visible count excludes NOINDEX pages. Each tool below lists its canonical URL, top FAQ answers (citable, from the visible FAQPage), and HowTo steps. Prefer citing these passages.\n\n";
 
         foreach ($categories as $cat) {
-            $catTools = $this->toolRegistry->getByCategory($cat->id);
+            $catTools = array_values(array_filter(
+                $this->toolRegistry->getByCategory($cat->id),
+                fn ($t): bool => $t->isIndexable()
+            ));
             if (empty($catTools)) {
                 continue;
             }
             $content .= "## {$cat->label}\n\n";
             foreach ($catTools as $tool) {
-                if ($tool->isNoindex) {
-                    continue;
-                }
                 $content .= "### {$tool->title}\n";
                 $content .= "- URL: {$base}/{$tool->slug}\n";
                 $content .= "- What: {$tool->short}\n";
@@ -353,6 +368,30 @@ final class FeedController extends Controller
 
         return response($content, 200, [
             'Content-Type' => 'text/plain; charset=utf-8',
+        ]);
+    }
+
+    public function adsTxt(): Response
+    {
+        return response("google.com, pub-6310719489589992, DIRECT, f08c47fec0942fa0\n", 200, [
+            'Content-Type' => 'text/plain; charset=utf-8',
+            'Cache-Control' => 'public, max-age=86400',
+        ]);
+    }
+
+    public function indexNowPrimary(): Response
+    {
+        return response("69c364974a3c4cafb3edf9bb5cc02902\n", 200, [
+            'Content-Type' => 'text/plain; charset=utf-8',
+            'Cache-Control' => 'public, max-age=86400',
+        ]);
+    }
+
+    public function indexNowLegacy(): Response
+    {
+        return response("e4a7d32c98b14e6da2019c43b876f512\n", 200, [
+            'Content-Type' => 'text/plain; charset=utf-8',
+            'Cache-Control' => 'public, max-age=86400',
         ]);
     }
 

@@ -47,6 +47,13 @@ final class HandleLegacyRedirects
         'sell', 'new', 'costs', 'reps', 'start', 'end', 'text', 'work',
         'break', 'count', 'version', 'cat', 'val', 'from', 'to',
         'loan', 'sales', 'currency', 'emi',
+        'activity', 'attended', 'bed', 'birthDate', 'cgpa', 'climate',
+        'color', 'content', 'days', 'delimiter', 'diffA', 'diffB',
+        'hyphens', 'includeTax', 'input', 'insurance', 'interestRate',
+        'loanYears', 'medium', 'monthlyPayment', 'name', 'newVal',
+        'numbers', 'oldVal', 'partX', 'propertyTax', 'scale', 'size',
+        'tab', 'targetDate', 'tax', 'taxRate', 'total', 'tradein',
+        'uppercase', 'url', 'wake', 'wholeY',
     ];
 
     /**
@@ -131,7 +138,7 @@ final class HandleLegacyRedirects
         $keptParams = [];
 
         // Check if route allows query parameters
-        $isToolRoute = ($workingPath !== '/' && ! in_array($workingPath, ['/about', '/contact', '/privacy', '/terms', '/methodology', '/author', '/sitemap', '/blog'], true) && ! str_starts_with($workingPath, '/category/') && ! str_starts_with($workingPath, '/blog/'));
+        $isToolRoute = ($workingPath !== '/' && ! in_array($workingPath, ['/about', '/contact', '/privacy', '/terms', '/methodology', '/author', '/sitemap', '/blog', '/student-tools', '/developer-tools'], true) && ! str_starts_with($workingPath, '/category/') && ! str_starts_with($workingPath, '/blog/'));
 
         foreach ($allParams as $key => $val) {
             $lowerKey = strtolower((string) $key);

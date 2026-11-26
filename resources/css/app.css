@@ -12,6 +12,7 @@
 @plugin "daisyui" {
   themes: false;
   logs: false;
+  exclude: avatar, chat, countdown, divider, dock, drawer, fab, indicator, kbd, modal, navbar, progress, radial-progress, radio, rating, skeleton, stat, swap, timeline, toast, toggle, tooltip, validator, fieldset;
 }
 
 @plugin "daisyui/theme" {
@@ -501,10 +502,12 @@ td, th, time, output, [data-numeric] {
   }
   #invoice-print, #invoice-print *,
   #resume-print, #resume-print *,
-  #gst-invoice-print, #gst-invoice-print * {
+  #gst-invoice-print, #gst-invoice-print *,
+  #document-print, #document-print *,
+  #code-print, #code-print * {
     visibility: visible !important;
   }
-  #invoice-print, #resume-print, #gst-invoice-print {
+  #invoice-print, #resume-print, #gst-invoice-print, #document-print, #code-print {
     position: absolute !important;
     left: 0 !important;
     top: 0 !important;

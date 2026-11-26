@@ -5,9 +5,9 @@
     currencySymbol: '$',
     init() {
         const params = new URLSearchParams(window.location.search);
-        if (params.has('principal')) this.principal = parseFloat(params.get('principal')) || this.principal;
-        if (params.has('rate')) this.rate = parseFloat(params.get('rate')) || this.rate;
-        if (params.has('tenure')) this.tenureYears = parseFloat(params.get('tenure')) || this.tenureYears;
+        if (params.has('principal')) { const v = parseFloat(params.get('principal')); if (!isNaN(v) && v >= 0) this.principal = v; }
+        if (params.has('rate')) { const v = parseFloat(params.get('rate')); if (!isNaN(v) && v >= 0) this.rate = v; }
+        if (params.has('tenure')) { const v = parseFloat(params.get('tenure')); if (!isNaN(v) && v > 0) this.tenureYears = v; }
         if (params.has('currency')) this.currencySymbol = params.get('currency');
     },
     setPreset(principal, rate, tenure, currency) {

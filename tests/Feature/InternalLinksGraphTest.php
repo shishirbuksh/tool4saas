@@ -59,9 +59,9 @@ final class InternalLinksGraphTest extends TestCase
         $allPages = array_values(array_unique($allPages));
         expect($allPages)->toHaveCount(325);
 
-        // Sample representative pages across all layers
+        // Sample representative pages across all layers (including dedicated utility hubs)
         $samplePages = array_merge(
-            ['/', '/about', '/contact', '/privacy', '/terms', '/methodology', '/author', '/sitemap', '/blog'],
+            ['/', '/about', '/contact', '/privacy', '/terms', '/methodology', '/author', '/sitemap', '/blog', '/student-tools', '/developer-tools'],
             array_slice(array_filter($allPages, fn ($p) => str_starts_with($p, '/category/')), 0, 4),
             array_slice(array_filter($allPages, fn ($p) => str_starts_with($p, '/blog/') && substr_count($p, '/') === 2), 0, 4),
             array_slice(array_filter($allPages, fn ($p) => str_starts_with($p, '/blog/') && substr_count($p, '/') === 3), 0, 6),
@@ -109,6 +109,18 @@ final class InternalLinksGraphTest extends TestCase
                     ->toBe(200, "Internal link to '{$path}' failed with status {$targetResponse->getStatusCode()}");
                 $testedTargets[$path] = true;
             }
+        }
+    }
+
+    public function test_all_blog_post_presets_and_tool_urls_return_200(): void
+    {
+        $blogService = app(BlogService::class);
+        foreach ($blogService->getAllPosts() as $post) {
+            $target = $post->primaryToolUrl();
+            $pathOnly = (string) (parse_url($target, PHP_URL_PATH) ?: '/');
+            $response = $this->get($target);
+            expect($response->getStatusCode())
+                ->toBe(200, "Blog post preset CTA '{$target}' for '{$post->slug}' failed with {$response->getStatusCode()} (path '{$pathOnly}')");
         }
     }
 }

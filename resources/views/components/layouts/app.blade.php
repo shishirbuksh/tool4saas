@@ -1,9 +1,10 @@
 @props([
     'meta' => null,
     'jsonLd' => null,
+    'hideAds' => false,
 ])
 
-<x-layouts.base>
+<x-layouts.base :hideAds="$hideAds">
     @if($meta)
         @push('seo')
             <x-seo
@@ -12,6 +13,7 @@
                 :canonical="$meta['canonical'] ?? ''"
                 :isNoindex="$meta['isNoindex'] ?? false"
                 :ogImage="$meta['ogImage'] ?? null"
+                :ogType="$meta['ogType'] ?? 'website'"
                 :jsonLd="$jsonLd"
             />
         @endpush

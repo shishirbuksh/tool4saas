@@ -66,6 +66,7 @@ final class BlogController extends Controller
             'canonical' => "{$baseUrl}/blog/{$pillar}",
             'isNoindex' => $post->isNoindex,
             'ogImage' => "{$baseUrl}/og/blog/{$pillar}.png",
+            'ogType' => 'article',
         ];
 
         $jsonLd = $this->seoService->generateBlogPostJsonLd($post, $baseUrl, $pillarMeta->title);
@@ -98,6 +99,7 @@ final class BlogController extends Controller
             'canonical' => "{$baseUrl}/blog/{$pillar}/{$cluster}",
             'isNoindex' => $post->isNoindex,
             'ogImage' => "{$baseUrl}/og/blog/{$pillar}/{$cluster}.png",
+            'ogType' => 'article',
         ];
 
         $jsonLd = $this->seoService->generateBlogPostJsonLd($post, $baseUrl, $pillarMeta->title);

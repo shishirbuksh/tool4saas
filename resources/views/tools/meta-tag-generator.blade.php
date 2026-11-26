@@ -6,6 +6,13 @@
         image: 'https://tool4saas.com/og/home.png',
         type: 'website',
         copied: false,
+        safeHostname(rawUrl) {
+            try {
+                return rawUrl ? new URL(rawUrl).hostname : '';
+            } catch (e) {
+                return '';
+            }
+        },
         get generatedTags() {
             return '<!-- Primary Meta Tags -->\n' +
 '<title>' + this.title + '</title>\n' +
@@ -65,7 +72,7 @@
             <div class="p-6 rounded-3xl bg-base-100 border border-base-300 space-y-2">
                 <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Google SERP Preview</span>
                 <div class="text-xs text-base-content/60 truncate font-mono" x-text="url"></div>
-                <div class="text-lg font-bold text-primary hover:underline cursor-pointer leading-snug line-clamp-1" x-text="title"></div>
+                <div class="text-lg font-bold text-[#163300] dark:text-[#9fe870] hover:underline cursor-pointer leading-snug line-clamp-1" x-text="title"></div>
                 <div class="text-xs text-base-content/80 leading-relaxed line-clamp-2" x-text="description"></div>
             </div>
 
@@ -79,7 +86,7 @@
                         </template>
                     </div>
                     <div class="p-3">
-                        <span class="text-[10px] uppercase font-mono text-base-content/50 block" x-text="url ? new URL(url).hostname : ''"></span>
+                        <span class="text-[10px] uppercase font-mono text-base-content/50 block" x-text="safeHostname(url)"></span>
                         <div class="text-sm font-bold text-base-content truncate mt-0.5" x-text="title"></div>
                         <div class="text-xs text-base-content/70 line-clamp-1 mt-0.5" x-text="description"></div>
                     </div>

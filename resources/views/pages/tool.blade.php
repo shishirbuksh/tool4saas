@@ -129,12 +129,13 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <div class="flex items-center justify-between mb-2">
-                                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Source Input</label>
+                                <label for="fallback-tool-input" class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Source Input</label>
                                 <span class="text-xs text-base-content/50 font-mono">
                                     <span x-text="input.length"></span> chars · <span x-text="input.trim() ? input.trim().split(/\s+/).length : 0"></span> words
                                 </span>
                             </div>
                             <textarea
+                                id="fallback-tool-input"
                                 x-model="input"
                                 @input="run()"
                                 rows="9"
@@ -145,13 +146,13 @@
 
                         <div>
                             <div class="flex items-center justify-between mb-2">
-                                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Processed Output</label>
+                                <label for="fallback-tool-output" class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Processed Output</label>
                                 <div class="flex items-center gap-2">
                                     <button
                                         type="button"
                                         @click="copy()"
                                         :disabled="!output"
-                                        class="px-3 py-1 rounded-full bg-base-200 hover:bg-primary hover:text-primary-content text-xs font-bold transition-all disabled:opacity-50"
+                                        class="px-3 py-1 min-h-[44px] rounded-full bg-base-200 hover:bg-primary hover:text-primary-content text-xs font-bold transition-all disabled:opacity-50"
                                     >
                                         <span x-text="copied ? 'Copied!' : 'Copy'"></span>
                                     </button>
@@ -159,13 +160,14 @@
                                         type="button"
                                         @click="download()"
                                         :disabled="!output"
-                                        class="px-3 py-1 rounded-full bg-base-200 hover:bg-primary hover:text-primary-content text-xs font-bold transition-all disabled:opacity-50"
+                                        class="px-3 py-1 min-h-[44px] rounded-full bg-base-200 hover:bg-primary hover:text-primary-content text-xs font-bold transition-all disabled:opacity-50"
                                     >
                                         Download
                                     </button>
                                 </div>
                             </div>
                             <textarea
+                                id="fallback-tool-output"
                                 x-model="output"
                                 readonly
                                 rows="9"

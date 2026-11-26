@@ -2,14 +2,16 @@
     files: [],
     zipName: 'archive.zip',
     busy: false,
+    errorMsg: '',
     onFiles(e) {
         this.files = Array.from(e.target.files);
+        this.errorMsg = '';
     },
     async createZip() {
         if (!this.files.length) return;
         this.busy = true;
+        this.errorMsg = '';
         try {
-            // Using browser fflate or standard zip structure
             const zip = {};
             for (const f of this.files) {
                 const buf = await f.arrayBuffer();
@@ -26,19 +28,21 @@
                 a.href = url;
                 a.download = this.zipName || 'archive.zip';
                 a.click();
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
             } else {
-                alert('Zip compressor active. Download initiated.');
+                this.errorMsg = 'ZIP compression module is loading. Please try again.';
             }
         } catch(e) {
-            alert('Zip error: ' + e.message);
+            this.errorMsg = 'Zip error: ' + e.message;
         }
         this.busy = false;
     }
 }">
     <div class="space-y-6">
+        <div x-show="errorMsg" x-cloak role="alert" class="alert alert-error rounded-2xl text-xs font-semibold" x-text="errorMsg"></div>
         <div>
-            <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Archive Name</label>
-            <input type="text" x-model="zipName" class="input input-bordered w-full max-w-xs rounded-[12px] font-mono text-sm" />
+            <label for="zip-archive-name" class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Archive Name</label>
+            <input id="zip-archive-name" type="text" x-model="zipName" class="input input-bordered w-full max-w-xs rounded-[12px] font-mono text-sm" />
         </div>
 
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">

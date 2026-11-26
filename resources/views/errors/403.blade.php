@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app :hideAds="true">
     @push('seo')
         <title>403 Access Forbidden — Tool4SaaS</title>
         <meta name="robots" content="noindex, follow">

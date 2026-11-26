@@ -6,7 +6,7 @@ return [
     [
         'id' => 'text-documents',
         'label' => 'Text & Documents',
-        'description' => 'Count words, convert case, clean text and compare documents with 13 free browser-based writing utilities for everyday editing.',
+        'description' => 'Count words, convert case, clean text and compare documents with 14 free browser-based writing utilities for everyday editing.',
         'indexable' => true,
     ],
     [
@@ -48,13 +48,13 @@ return [
     [
         'id' => 'calculators',
         'label' => 'Calculators',
-        'description' => 'Calculate percentages, loans, grades, discounts and BMI instantly with 12 free everyday calculators that work offline.',
+        'description' => 'Calculate percentages, loans, grades, discounts and BMI instantly with 15 free everyday calculators that work offline.',
         'indexable' => true,
     ],
     [
         'id' => 'finance',
         'label' => 'Finance & Money',
-        'description' => 'Mortgage, SIP, salary and tax calculators for planning - 23 free tools, informational only, not financial advice.',
+        'description' => 'Mortgage, SIP, salary and tax calculators for planning - 24 free tools, informational only, not financial advice.',
         'indexable' => true,
     ],
     [

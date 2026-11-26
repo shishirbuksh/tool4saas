@@ -2,47 +2,79 @@
     file: null,
     level: 'recommended',
     busy: false,
+    errorMsg: '',
+    originalSize: 0,
+    compressedSize: 0,
     compressedUrl: '',
     onFile(e) {
+        if (this.compressedUrl) {
+            URL.revokeObjectURL(this.compressedUrl);
+        }
         this.file = e.target.files[0];
+        this.originalSize = this.file ? this.file.size : 0;
+        this.compressedSize = 0;
         this.compressedUrl = '';
+        this.errorMsg = '';
     },
-    compress() {
+    async compress() {
         if (!this.file) return;
         this.busy = true;
-        setTimeout(() => {
-            // Native client-side PDF downsample wrapper
-            this.compressedUrl = URL.createObjectURL(this.file);
+        this.errorMsg = '';
+        try {
+            const PDFLib = await window.loadPdfLib();
+            const bytes = await this.file.arrayBuffer();
+            const doc = await PDFLib.PDFDocument.load(bytes, { ignoreEncryption: true });
+            if (this.level === 'extreme') {
+                doc.setTitle('');
+                doc.setAuthor('');
+                doc.setSubject('');
+                doc.setKeywords([]);
+                doc.setProducer('');
+                doc.setCreator('');
+            }
+            const outBytes = await doc.save({ useObjectStreams: this.level !== 'low', addDefaultPage: false });
+            const blob = new Blob([outBytes], { type: 'application/pdf' });
+            this.compressedSize = blob.size;
+            if (this.compressedUrl) URL.revokeObjectURL(this.compressedUrl);
+            this.compressedUrl = URL.createObjectURL(blob);
+        } catch (err) {
+            this.errorMsg = 'Could not optimize PDF structure: ' + (err?.message || 'File may be encrypted.');
+        } finally {
             this.busy = false;
-        }, 800);
+        }
     }
 }">
     <div class="space-y-6">
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">
-            <input type="file" accept="application/pdf" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
-            <p class="text-xs text-base-content/60 mt-3">Upload your PDF document to downsample images and remove redundant objects.</p>
+            <label for="pdf-compress-input" class="sr-only">Upload PDF file to optimize</label>
+            <input id="pdf-compress-input" type="file" accept="application/pdf" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
+            <p class="text-xs text-base-content/60 mt-3">Upload your PDF document to repack object streams and remove redundant metadata locally.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div @click="level = 'low'" class="p-4 rounded-[14px] border cursor-pointer transition-all" :class="level === 'low' ? 'border-primary bg-primary/10' : 'border-base-300'">
-                <h5 class="font-bold text-xs uppercase">Mild Compression</h5>
-                <p class="text-xs text-base-content/60 mt-1">High quality, light reduction (~20%)</p>
-            </div>
-            <div @click="level = 'recommended'" class="p-4 rounded-[14px] border cursor-pointer transition-all" :class="level === 'recommended' ? 'border-primary bg-primary/10' : 'border-base-300'">
-                <h5 class="font-bold text-xs uppercase">Recommended</h5>
-                <p class="text-xs text-base-content/60 mt-1">Balanced quality & size (~40-50%)</p>
-            </div>
-            <div @click="level = 'extreme'" class="p-4 rounded-[14px] border cursor-pointer transition-all" :class="level === 'extreme' ? 'border-primary bg-primary/10' : 'border-base-300'">
-                <h5 class="font-bold text-xs uppercase">Maximum Compression</h5>
-                <p class="text-xs text-base-content/60 mt-1">Smallest size for email (~70%)</p>
-            </div>
+            <button type="button" @click="level = 'low'" class="p-4 rounded-[14px] border cursor-pointer transition-all text-left" :class="level === 'low' ? 'border-primary bg-primary/10' : 'border-base-300'">
+                <span class="block font-bold text-xs uppercase text-base-content">Mild Optimization</span>
+                <span class="block text-xs text-base-content/60 mt-1">Preserves metadata &amp; layout structure</span>
+            </button>
+            <button type="button" @click="level = 'recommended'" class="p-4 rounded-[14px] border cursor-pointer transition-all text-left" :class="level === 'recommended' ? 'border-primary bg-primary/10' : 'border-base-300'">
+                <span class="block font-bold text-xs uppercase text-base-content">Recommended</span>
+                <span class="block text-xs text-base-content/60 mt-1">Balanced object-stream repacking</span>
+            </button>
+            <button type="button" @click="level = 'extreme'" class="p-4 rounded-[14px] border cursor-pointer transition-all text-left" :class="level === 'extreme' ? 'border-primary bg-primary/10' : 'border-base-300'">
+                <span class="block font-bold text-xs uppercase text-base-content">Maximum Stripping</span>
+                <span class="block text-xs text-base-content/60 mt-1">Object streams + metadata stripping</span>
+            </button>
         </div>
 
-        <div class="flex items-center justify-between">
-            <button type="button" @click="compress()" :disabled="!file || busy" class="btn btn-primary rounded-[12px] font-bold">
-                <span x-show="!busy">Compress PDF</span>
+        <div x-show="errorMsg" x-cloak role="alert" class="alert alert-error rounded-2xl text-xs font-semibold" x-text="errorMsg"></div>
+
+        <div class="flex flex-wrap items-center justify-between gap-3">
+            <button type="button" @click="compress()" :disabled="!file || busy" class="btn btn-primary rounded-[12px] font-bold min-h-[44px]">
+                <span x-show="!busy">Optimize PDF</span>
                 <span x-show="busy" x-cloak>Optimizing...</span>
             </button>
+            <span x-show="compressedSize > 0" x-cloak class="text-xs font-mono text-base-content/70" x-text="(originalSize/1024).toFixed(1) + ' KB → ' + (compressedSize/1024).toFixed(1) + ' KB'"></span>
+        </div>
 
             <a :href="compressedUrl" download="compressed.pdf" x-show="compressedUrl" class="btn btn-outline rounded-[12px] font-bold">
                 Download Optimized PDF

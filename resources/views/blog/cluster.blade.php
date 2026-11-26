@@ -46,6 +46,15 @@
             </div>
         @endif
 
+        @php
+            $clusterToolSlug = $post->toolSlugs[0] ?? $pillarMeta->toolSlug ?? null;
+            $clusterTool = $clusterToolSlug ? app(\App\Services\ToolRegistryService::class)->findBySlug($clusterToolSlug) : null;
+        @endphp
+
+        @if ($clusterTool && $clusterTool->ymylType() !== \App\Enums\YmylType::General)
+            <x-ymyl-disclaimer :type="$clusterTool->ymylType()" />
+        @endif
+
         {{-- Two-column content layout --}}
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 items-start">
             {{-- Main article body (3 cols) --}}
@@ -61,7 +70,7 @@
                         <h3 class="text-xl font-bold font-display text-base-content mt-1">{{ $pillarMeta->title }}</h3>
                         <p class="text-xs text-base-content/70 mt-1">Explore all related tutorials, comparison tables, and calculators.</p>
                     </div>
-                    <a href="/blog/{{ $pillarMeta->pillar }}" class="px-5 py-2.5 rounded-full border border-base-300 bg-base-200 font-bold text-xs text-base-content hover:border-primary hover:text-primary transition-all shrink-0 text-center">
+                    <a href="/blog/{{ $pillarMeta->pillar }}" class="px-5 py-2.5 rounded-full border border-base-300 bg-base-200 font-bold text-xs text-base-content hover:border-primary hover:bg-[#e2f6d5] hover:text-[#054d28] transition-all shrink-0 text-center">
                         View Hub Index →
                     </a>
                 </div>

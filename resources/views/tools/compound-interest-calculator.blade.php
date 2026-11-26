@@ -67,11 +67,7 @@
             currentBalance = endBal;
             csv += [y, startBal.toFixed(2), yrInterest.toFixed(2), endBal.toFixed(2)].join(',') + '\n';
         }
-        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'compound-interest-growth-schedule.csv';
-        a.click();
+        window.downloadCsvBlob(csv, 'compound-interest-growth-schedule.csv');
     }
 }">
     <div class="space-y-6">

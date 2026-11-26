@@ -27,7 +27,7 @@ final class CategoryController
 
         $tools = array_values(array_filter(
             $this->registry->getByCategory($id),
-            fn ($t) => ! $t->isNoindex
+            fn ($t) => $t->isIndexable()
         ));
         $count = count($tools);
 
@@ -41,7 +41,8 @@ final class CategoryController
             : null;
 
         $baseUrl = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
-        $metaTitle = $this->seo->fitMetaTitle("{$category->label} Tools ({$count} Free Online Utilities)");
+        $titleBase = str_ends_with($category->label, 'Tools') ? $category->label : "{$category->label} Tools";
+        $metaTitle = $this->seo->fitMetaTitle("{$titleBase} — {$count} Free Browser Utilities");
         $metaDescription = $this->seo->fitMetaDescription($category->description);
         $jsonLd = $this->seo->buildCategoryJsonLd($category, $tools, $baseUrl);
 

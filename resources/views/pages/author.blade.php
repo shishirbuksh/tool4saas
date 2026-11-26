@@ -22,37 +22,48 @@
             Tool4SaaS is developed and maintained by a dedicated team of software engineers, financial analysts, and technical writers committed to building private, accessible, local-first web utilities.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <x-tool-paper class="p-6">
-                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary font-bold text-lg flex items-center justify-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-lg flex items-center justify-center mb-4">
                     FE
                 </div>
-                <h3 class="font-bold text-lg text-base-content">Financial Editorial Desk</h3>
-                <p class="text-xs text-primary font-medium mt-0.5 mb-3">Finance & Tax Verification</p>
+                <h2 class="font-bold text-lg text-base-content">Financial Editorial Desk</h2>
+                <p class="text-xs text-[#163300] dark:text-[#9fe870] font-semibold mt-0.5 mb-3">Finance &amp; Tax Verification</p>
                 <p class="text-xs text-base-content/70 leading-relaxed">
-                    Audits all loan calculators, amortization formulas, and GST calculations against current financial regulations and authoritative benchmarks.
+                    Audits all loan calculators, amortization formulas, and GST calculations against Consumer Financial Protection Bureau (CFPB), IRS, and RBI/CBDT benchmarks.
                 </p>
             </x-tool-paper>
 
             <x-tool-paper class="p-6">
-                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary font-bold text-lg flex items-center justify-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-lg flex items-center justify-center mb-4">
+                    HE
+                </div>
+                <h2 class="font-bold text-lg text-base-content">Health &amp; Anthropometric Review</h2>
+                <p class="text-xs text-[#163300] dark:text-[#9fe870] font-semibold mt-0.5 mb-3">WHO &amp; Clinical Benchmarks</p>
+                <p class="text-xs text-base-content/70 leading-relaxed">
+                    Verifies BMI, BMR/Mifflin-St Jeor caloric equations, hydration ratios, and pregnancy window estimates against published World Health Organization (WHO) standards.
+                </p>
+            </x-tool-paper>
+
+            <x-tool-paper class="p-6">
+                <div class="w-12 h-12 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-lg flex items-center justify-center mb-4">
                     DE
                 </div>
-                <h3 class="font-bold text-lg text-base-content">Developer Utilities Team</h3>
-                <p class="text-xs text-primary font-medium mt-0.5 mb-3">Engineering & Cryptography</p>
+                <h2 class="font-bold text-lg text-base-content">Developer Utilities Team</h2>
+                <p class="text-xs text-[#163300] dark:text-[#9fe870] font-semibold mt-0.5 mb-3">Engineering &amp; Cryptography</p>
                 <p class="text-xs text-base-content/70 leading-relaxed">
-                    Maintains formatting engines, regex testers, JSON tools, and WebAssembly implementations for offline client processing.
+                    Maintains formatting engines, regex testers, JSON tools, and WebCrypto / client-side PDF implementations for offline browser processing.
                 </p>
             </x-tool-paper>
 
             <x-tool-paper class="p-6">
-                <div class="w-12 h-12 rounded-full bg-primary/10 text-primary font-bold text-lg flex items-center justify-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-lg flex items-center justify-center mb-4">
                     QA
                 </div>
-                <h3 class="font-bold text-lg text-base-content">Quality & Verification</h3>
-                <p class="text-xs text-primary font-medium mt-0.5 mb-3">Cross-Browser Testing</p>
+                <h2 class="font-bold text-lg text-base-content">Quality &amp; Verification</h2>
+                <p class="text-xs text-[#163300] dark:text-[#9fe870] font-semibold mt-0.5 mb-3">Automated &amp; Cross-Browser Testing</p>
                 <p class="text-xs text-base-content/70 leading-relaxed">
-                    Executes automated regression runs and manual testing across desktop and mobile devices to guarantee 100% reliability.
+                    Executes automated PHPStan Level 8 checks and 8,000+ Feature test assertions across routes, security headers, and UI breakpoints.
                 </p>
             </x-tool-paper>
         </div>

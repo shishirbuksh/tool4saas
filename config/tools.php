@@ -4484,7 +4484,7 @@ return [
             3 => 'card number validator',
             4 => 'luhn check online',
             5 => 'test credit card validator',
-            6 => 'credit card payoff calculator',
+            6 => 'luhn check digit calculator',
             7 => 'card brand detector',
         ],
         'category' => 'developer',

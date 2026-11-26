@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Services\BlogService;
 use App\Services\ToolRegistryService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 
 final class OgImageController extends Controller
@@ -19,14 +20,30 @@ final class OgImageController extends Controller
         private readonly BlogService $blogService,
     ) {}
 
+    public function redirectCluster(string $pillar, string $cluster): RedirectResponse
+    {
+        return redirect("/og/blog/{$pillar}/{$cluster}.png", 301);
+    }
+
+    public function redirectPillar(string $pillar): RedirectResponse
+    {
+        return redirect("/og/blog/{$pillar}.png", 301);
+    }
+
+    public function redirectSlug(string $slug): RedirectResponse
+    {
+        return redirect("/og/{$slug}.png", 301);
+    }
+
     public function show(string $slug): Response
     {
+        $toolCount = count($this->toolRegistry->all());
         $title = 'Tool4SaaS';
-        $desc = '120+ free browser tools for developers, designers, and founders.';
+        $desc = "{$toolCount} free browser tools for developers, designers, and founders.";
         $badge = 'Free Online Tools';
 
         if ($slug === 'home') {
-            $title = '120+ Free Online Tools, One Browser Tab';
+            $title = "{$toolCount} Free Online Tools, One Browser Tab";
             $desc = 'Invoices, PDFs, images, code and calculators. No signup; all tools run locally.';
             $badge = 'Local-First · No Signup';
         } elseif (str_starts_with($slug, 'static-')) {
@@ -39,6 +56,10 @@ final class OgImageController extends Controller
                 $title = 'Free Student & College GPA Tools — Tool4SaaS';
                 $desc = 'GPA calculators, Final exam target planners, 75% attendance bunk planners, and student loan payoff engines.';
                 $badge = 'Student Tools Hub';
+            } elseif ($staticKey === 'blog') {
+                $title = 'Tool Guides & Practical Tutorials — Tool4SaaS';
+                $desc = 'Step-by-step guides, formulas, regulatory frameworks, and worked scenarios across all 139 utilities.';
+                $badge = 'Educational Guides Hub';
             } else {
                 $title = ucwords(str_replace('-', ' ', $staticKey)).' — Tool4SaaS';
                 $desc = 'Learn more about Tool4SaaS, our local-first browser tools, and privacy principles.';
@@ -95,13 +116,13 @@ final class OgImageController extends Controller
             abort(500, 'Unable to create image');
         }
 
-        // Colors
-        $bg = imagecolorallocate($img, 15, 23, 42); // #0f172a (dark slate)
-        $cardBg = imagecolorallocate($img, 30, 41, 59); // #1e293b
-        $accent = imagecolorallocate($img, 99, 102, 241); // #6366f1 (indigo)
-        $textPrimary = imagecolorallocate($img, 248, 250, 252); // #f8fafc
-        $textSecondary = imagecolorallocate($img, 148, 163, 184); // #94a3b8
-        $borderCol = imagecolorallocate($img, 51, 65, 85); // #334155
+        // Wise Design System Colors
+        $bg = imagecolorallocate($img, 14, 15, 12); // #0e0f0c (Wise near-black ink)
+        $cardBg = imagecolorallocate($img, 22, 26, 20); // #161a14 (Wise dark olive surface)
+        $accent = imagecolorallocate($img, 159, 232, 112); // #9fe870 (Wise Vivid Lime)
+        $textPrimary = imagecolorallocate($img, 242, 245, 240); // #f2f5f0 (Wise off-white)
+        $textSecondary = imagecolorallocate($img, 168, 174, 164); // Accessible sage gray
+        $borderCol = imagecolorallocate($img, 36, 42, 32); // #242a20 (Wise dark border)
 
         if ($bg === false || $cardBg === false || $accent === false || $textPrimary === false || $textSecondary === false || $borderCol === false) {
             imagedestroy($img);

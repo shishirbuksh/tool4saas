@@ -21,27 +21,31 @@
         this.targetPercent = target;
     },
     get currentPercent() {
-        const t = parseFloat(this.total) || 0;
-        const a = parseFloat(this.attended) || 0;
+        const t = Math.max(0, parseFloat(this.total) || 0);
+        const a = Math.max(0, Math.min(t, parseFloat(this.attended) || 0));
         if (t <= 0) return '0.0';
         return ((a / t) * 100).toFixed(1);
     },
     get isSafe() {
-        return parseFloat(this.currentPercent) >= parseFloat(this.targetPercent);
+        const t = Math.max(0, parseFloat(this.total) || 0);
+        const a = Math.max(0, Math.min(t, parseFloat(this.attended) || 0));
+        const target = Math.max(0, Math.min(100, parseFloat(this.targetPercent) || 75)) / 100;
+        if (t <= 0) return false;
+        return (a + 1e-9) >= (target * t);
     },
     get maxBunks() {
-        const t = parseFloat(this.total) || 0;
-        const a = parseFloat(this.attended) || 0;
-        const target = (parseFloat(this.targetPercent) || 75) / 100;
+        const t = Math.max(0, parseFloat(this.total) || 0);
+        const a = Math.max(0, Math.min(t, parseFloat(this.attended) || 0));
+        const target = Math.max(0, Math.min(100, parseFloat(this.targetPercent) || 75)) / 100;
         if (!this.isSafe || target <= 0) return 0;
-        return Math.floor((a - (target * t)) / target);
+        return Math.max(0, Math.floor(((a + 1e-9) - (target * t)) / target));
     },
     get classesNeeded() {
-        const t = parseFloat(this.total) || 0;
-        const a = parseFloat(this.attended) || 0;
-        const target = (parseFloat(this.targetPercent) || 75) / 100;
+        const t = Math.max(0, parseFloat(this.total) || 0);
+        const a = Math.max(0, Math.min(t, parseFloat(this.attended) || 0));
+        const target = Math.max(0, Math.min(100, parseFloat(this.targetPercent) || 75)) / 100;
         if (this.isSafe || target >= 1) return 0;
-        return Math.ceil(((target * t) - a) / (1 - target));
+        return Math.max(0, Math.ceil(((target * t) - (a + 1e-9)) / (1 - target)));
     },
     get futureProjections() {
         const t = parseFloat(this.total) || 0;

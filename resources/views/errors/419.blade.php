@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app :hideAds="true">
     @push('seo')
         <title>419 Page Expired — Tool4SaaS</title>
         <meta name="robots" content="noindex, follow">
@@ -18,10 +18,10 @@
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
-            <button onclick="window.location.reload()" class="px-6 py-3 rounded-full bg-primary text-primary-content font-bold text-sm hover:bg-[#cdffad] transition-all shadow-sm cursor-pointer">
+            <a href="" class="px-6 py-3 rounded-full bg-primary text-primary-content font-bold text-sm hover:bg-[#cdffad] transition-all shadow-sm inline-flex items-center min-h-[44px]">
                 ↻ Refresh Page
-            </button>
-            <a href="/" class="px-6 py-3 rounded-full bg-base-100 border border-base-300 font-bold text-sm text-base-content hover:border-primary transition-all shadow-sm">
+            </a>
+            <a href="/" class="px-6 py-3 rounded-full bg-base-100 border border-base-300 font-bold text-sm text-base-content hover:border-primary transition-all shadow-sm inline-flex items-center min-h-[44px]">
                 Return to Homepage →
             </a>
         </div>

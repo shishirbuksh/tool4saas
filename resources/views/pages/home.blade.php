@@ -78,7 +78,7 @@
                             @foreach($grouped as $group)
                                 <a
                                     href="#category-{{ $group['category']->id }}"
-                                    class="px-3.5 py-1.5 rounded-full bg-base-100 border border-base-300 text-xs font-semibold text-base-content hover:border-primary hover:bg-[#e2f6d5] transition-all"
+                                    class="px-3.5 py-2 rounded-full bg-base-100 border border-base-300 text-xs font-semibold text-base-content hover:border-primary hover:bg-[#e2f6d5] hover:text-[#054d28] transition-all inline-flex items-center min-h-[40px]"
                                 >
                                     {{ $group['category']->label }}
                                 </a>
@@ -238,10 +238,10 @@
         </section>
 
         {{-- Categorized Tool Directory with Live Search Filter --}}
-        <main id="main-content" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="tools-directory" aria-label="Categorized Tool Directory" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <span id="tools" class="scroll-mt-24"></span>
             {{-- Search Results Banner (When Search Query Active) --}}
-            <div x-show="searchQuery.trim().length > 0" class="mb-8 p-4 rounded-2xl bg-base-100 border border-base-300 flex items-center justify-between gap-4">
+            <div x-show="searchQuery.trim().length > 0" x-cloak style="display: none;" class="mb-8 p-4 rounded-2xl bg-base-100 border border-base-300 flex items-center justify-between gap-4">
                 <div class="flex items-center gap-2">
                     <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Filtering by:</span>
                     <span class="badge badge-primary font-bold text-xs" x-text="searchQuery"></span>
@@ -249,7 +249,7 @@
                 <button
                     type="button"
                     @click="searchQuery = ''"
-                    class="text-xs font-bold text-primary hover:underline"
+                    class="text-xs font-bold text-[#163300] dark:text-[#9fe870] hover:underline"
                 >
                     Clear Filter
                 </button>
@@ -336,7 +336,7 @@
                         </div>
                         <a
                             href="{{ route('blog.index') }}"
-                            class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-base-100 border border-base-300 hover:border-primary text-sm font-bold text-base-content hover:text-primary transition-all shrink-0"
+                            class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-base-100 border border-base-300 hover:border-primary text-sm font-bold text-base-content hover:text-[#163300] dark:hover:text-[#9fe870] transition-all shrink-0"
                         >
                             <span>Browse all 17 guides</span>
                             <span>→</span>
@@ -357,7 +357,7 @@
                                             </a>
                                         @endif
                                     </div>
-                                    <h3 class="font-bold text-lg text-base-content group-hover:text-primary transition-colors font-display mb-2">
+                                    <h3 class="font-bold text-lg text-base-content group-hover:text-[#163300] dark:group-hover:text-[#9fe870] transition-colors font-display mb-2">
                                         <a href="/blog/{{ $pillar->pillar }}" class="no-underline text-inherit">
                                             {{ $pillar->title }}
                                         </a>
@@ -367,12 +367,12 @@
                                     </p>
                                 </div>
                                 <div class="mt-6 pt-4 border-t border-base-200 flex items-center justify-between">
-                                    <a href="/blog/{{ $pillar->pillar }}" class="inline-flex items-center gap-1 text-xs font-bold text-base-content group-hover:text-primary transition-colors">
+                                    <a href="/blog/{{ $pillar->pillar }}" class="inline-flex items-center gap-1 text-xs font-bold text-base-content group-hover:text-[#163300] dark:group-hover:text-[#9fe870] transition-colors">
                                         <span>Read guide</span>
                                         <span>→</span>
                                     </a>
                                     @if($pillar->toolSlug)
-                                        <a href="/{{ $pillar->toolSlug }}" class="text-xs font-semibold text-base-content/60 hover:text-primary transition-colors">
+                                        <a href="/{{ $pillar->toolSlug }}" class="text-xs font-semibold text-base-content/60 hover:text-[#163300] dark:hover:text-[#9fe870] transition-colors">
                                             Open {{ ucwords(str_replace('-', ' ', $pillar->toolSlug)) }}
                                         </a>
                                     @endif
@@ -382,6 +382,6 @@
                     </div>
                 </section>
             @endif
-        </main>
+        </section>
     </div>
 </x-layouts.app>

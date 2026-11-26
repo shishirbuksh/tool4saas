@@ -9,7 +9,7 @@
         />
     @endpush
 
-    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         {{-- Breadcrumb --}}
         <nav aria-label="Breadcrumb" class="breadcrumbs text-xs text-base-content/60 mb-8">
             <ul>
@@ -25,7 +25,7 @@
                 <span>{{ count($tools) }} Online Utilities</span>
             </div>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-base-content tracking-tight mb-4 font-display">
-                {{ $category->label }} Tools
+                {{ str_ends_with($category->label, 'Tools') ? $category->label : "{$category->label} Tools" }}
             </h1>
             <p class="text-lg sm:text-xl text-base-content/75 leading-relaxed font-normal">
                 {{ $category->description }}
@@ -48,7 +48,7 @@
                                 Free &amp; Local
                             </span>
                         </div>
-                        <h2 class="font-bold text-xl text-base-content group-hover:text-primary transition-colors font-display">
+                        <h2 class="font-bold text-xl text-base-content group-hover:text-[#163300] dark:group-hover:text-[#9fe870] transition-colors font-display">
                             {{ $tool->title }}
                         </h2>
                         <p class="text-sm text-base-content/70 mt-2.5 line-clamp-3 leading-relaxed">
@@ -56,7 +56,7 @@
                         </p>
                     </div>
 
-                    <div class="mt-8 pt-4 border-t border-base-200 flex items-center justify-between text-xs font-bold text-base-content group-hover:text-primary transition-colors">
+                    <div class="mt-8 pt-4 border-t border-base-200 flex items-center justify-between text-xs font-bold text-base-content group-hover:text-[#163300] dark:group-hover:text-[#9fe870] transition-colors">
                         <span>Launch utility</span>
                         <span class="w-7 h-7 rounded-full bg-base-200 group-hover:bg-primary group-hover:text-primary-content flex items-center justify-center transition-all text-sm">
                             →
@@ -122,7 +122,7 @@
                             Discover free, client-side productivity utilities across all domains.
                         </p>
                     </div>
-                    <a href="{{ route('home') }}#tools" class="text-xs font-bold text-primary hover:underline">
+                    <a href="{{ route('home') }}#tools" class="text-xs font-bold text-[#163300] dark:text-[#9fe870] hover:underline">
                         View All Tools →
                     </a>
                 </div>
@@ -130,7 +130,7 @@
                     @foreach($otherCategories as $other)
                         <a
                             href="{{ route('category.show', $other->id) }}"
-                            class="px-4 py-2 rounded-full bg-base-100 border border-base-300 text-xs font-semibold text-base-content hover:border-primary hover:bg-[#e2f6d5] transition-all"
+                            class="px-4 py-2 rounded-full bg-base-100 border border-base-300 text-xs font-semibold text-base-content hover:border-primary hover:bg-[#e2f6d5] hover:text-[#054d28] transition-all inline-flex items-center min-h-[40px]"
                         >
                             {{ $other->label }}
                         </a>
@@ -138,5 +138,5 @@
                 </div>
             </section>
         @endif
-    </main>
+    </div>
 </x-layouts.app>

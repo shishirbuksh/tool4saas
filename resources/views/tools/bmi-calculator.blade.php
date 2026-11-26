@@ -30,18 +30,19 @@
         if (this.unit === 'metric') {
             const h = parseFloat(this.heightCm) || 0;
             const w = parseFloat(this.weightKg) || 0;
-            if (!h || !w) return '0.0';
+            if (h <= 0 || w <= 0) return '0.0';
             const hM = h / 100;
             return (w / (hM * hM)).toFixed(1);
         } else {
             const h = parseFloat(this.heightInches) || 0;
             const w = parseFloat(this.weightLbs) || 0;
-            if (!h || !w) return '0.0';
+            if (h <= 0 || w <= 0) return '0.0';
             return ((703 * w) / (h * h)).toFixed(1);
         }
     },
     get category() {
         const val = parseFloat(this.bmi);
+        if (val <= 0) return { label: 'Enter measurements', color: 'text-[#868685]', bg: 'bg-base-200', textBadge: 'text-base-content' };
         if (val < 18.5) return { label: 'Underweight', color: 'text-[#38c8ff]', bg: 'bg-[#38c8ff]/15', textBadge: 'text-[#0e0f0c]' };
         if (val < 25) return { label: 'Normal weight', color: 'text-[#2ead4b]', bg: 'bg-[#e2f6d5]', textBadge: 'text-[#054d28]' };
         if (val < 30) return { label: 'Overweight', color: 'text-[#ffd11a]', bg: 'bg-[#ffd11a]/20', textBadge: 'text-[#4a3b1c]' };
@@ -163,12 +164,12 @@
             <div class="text-[#38c8ff] font-bold">Underweight</div>
             <div class="text-base-content/60 mt-0.5 font-mono">&lt; 18.5</div>
         </div>
-        <div class="p-3.5 rounded-2xl border border-base-300" :class="category.label === 'Normal weight' ? 'bg-[#e2f6d5] font-bold border-[#2ead4b]' : 'bg-base-200/50'">
-            <div class="text-[#2ead4b] font-bold">Normal</div>
-            <div class="text-base-content/60 mt-0.5 font-mono">18.5 – 24.9</div>
+        <div class="p-3.5 rounded-2xl border border-base-300" :class="category.label === 'Normal weight' ? 'bg-[#e2f6d5] text-[#054d28] font-bold border-[#2ead4b]' : 'bg-base-200/50'">
+            <div class="font-bold" :class="category.label === 'Normal weight' ? 'text-[#054d28]' : 'text-[#2ead4b]'">Normal</div>
+            <div class="mt-0.5 font-mono" :class="category.label === 'Normal weight' ? 'text-[#054d28]/80' : 'text-base-content/60'">18.5 – 24.9</div>
         </div>
         <div class="p-3.5 rounded-2xl border border-base-300" :class="category.label === 'Overweight' ? 'bg-[#ffd11a]/20 font-bold border-[#ffd11a]' : 'bg-base-200/50'">
-            <div class="text-[#b86700] font-bold">Overweight</div>
+            <div class="text-[#b86700] dark:text-[#ffd11a] font-bold">Overweight</div>
             <div class="text-base-content/60 mt-0.5 font-mono">25 – 29.9</div>
         </div>
         <div class="p-3.5 rounded-2xl border border-base-300" :class="category.label === 'Obesity' ? 'bg-[#d03238]/15 font-bold border-[#d03238]' : 'bg-base-200/50'">

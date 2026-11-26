@@ -56,7 +56,7 @@ final class GenerateOgImagesCommand extends Command
         $this->info('1. Generating Homepage and Static Pages...');
         $saveImage("{$baseDir}/home.png", fn () => $ogController->show('home'));
 
-        $staticSlugs = ['about', 'contact', 'privacy', 'terms', 'methodology', 'author', 'sitemap'];
+        $staticSlugs = ['about', 'contact', 'privacy', 'terms', 'methodology', 'author', 'sitemap', 'student-tools', 'developer-tools', 'blog'];
         foreach ($staticSlugs as $slug) {
             $saveImage("{$baseDir}/static-{$slug}.png", fn () => $ogController->show("static-{$slug}"));
         }

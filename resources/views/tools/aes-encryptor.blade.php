@@ -3,9 +3,14 @@
     text: '',
     password: '',
     output: '',
+    errorMsg: '',
     copied: false,
     async process() {
-        if (!this.text || !this.password) return alert('Please enter both text and a secret password.');
+        this.errorMsg = '';
+        if (!this.text || !this.password) {
+            this.errorMsg = 'Please enter both text and a secret password.';
+            return;
+        }
         const enc = new TextEncoder();
         const pwKey = await crypto.subtle.importKey('raw', enc.encode(this.password), { name: 'PBKDF2' }, false, ['deriveKey']);
         const salt = enc.encode('tool4saas-salt-constant');
@@ -23,7 +28,9 @@
             const combined = new Uint8Array(iv.length + cipher.byteLength);
             combined.set(iv);
             combined.set(new Uint8Array(cipher), iv.length);
-            this.output = btoa(String.fromCharCode.apply(null, combined));
+            let binary = '';
+            for (let i = 0; i < combined.length; i++) binary += String.fromCharCode(combined[i]);
+            this.output = btoa(binary);
         } else {
             try {
                 const combined = Uint8Array.from(atob(this.text), c => c.charCodeAt(0));
@@ -32,7 +39,7 @@
                 const dec = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, cipher);
                 this.output = new TextDecoder().decode(dec);
             } catch(e) {
-                alert('Decryption failed! Incorrect password or corrupted payload.');
+                this.errorMsg = 'Decryption failed: incorrect password or corrupted payload.';
             }
         }
     },
@@ -43,6 +50,7 @@
     }
 }">
     <div class="space-y-6">
+        <div x-show="errorMsg" x-cloak role="alert" class="alert alert-error rounded-2xl text-xs font-semibold" x-text="errorMsg"></div>
         <div class="flex items-center justify-between">
             <div class="join">
                 <button type="button" @click="mode = 'encrypt'" class="btn btn-sm join-item" :class="mode === 'encrypt' ? 'btn-primary' : 'btn-outline'">AES-256-GCM Encrypt</button>

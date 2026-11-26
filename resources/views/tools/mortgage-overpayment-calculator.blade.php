@@ -5,10 +5,10 @@
     extraMonthly: 200,
     init() {
         const params = new URLSearchParams(window.location.search);
-        if (params.has('loan')) this.loanAmount = parseFloat(params.get('loan')) || this.loanAmount;
-        if (params.has('rate')) this.interestRate = parseFloat(params.get('rate')) || this.interestRate;
-        if (params.has('tenure')) this.tenureYears = parseInt(params.get('tenure'), 10) || this.tenureYears;
-        if (params.has('extra')) this.extraMonthly = parseFloat(params.get('extra')) || this.extraMonthly;
+        if (params.has('loan')) { const v = parseFloat(params.get('loan')); if (!isNaN(v) && v >= 0) this.loanAmount = v; }
+        if (params.has('rate')) { const v = parseFloat(params.get('rate')); if (!isNaN(v) && v >= 0) this.interestRate = v; }
+        if (params.has('tenure')) { const v = parseInt(params.get('tenure'), 10); if (!isNaN(v) && v > 0) this.tenureYears = v; }
+        if (params.has('extra')) { const v = parseFloat(params.get('extra')); if (!isNaN(v) && v >= 0) this.extraMonthly = v; }
     },
     setPreset(loan, rate, tenure, extra) {
         this.loanAmount = loan;
@@ -17,24 +17,33 @@
         this.extraMonthly = extra;
     },
     calcEmi(p, rPct, yrs) {
-        const r = (rPct / 100) / 12;
-        const n = yrs * 12;
-        if (r === 0) return p / n;
-        return (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+        const cleanP = Math.max(0, p);
+        const cleanYrs = Math.max(1, yrs);
+        const cleanR = Math.max(0, rPct);
+        if (cleanP <= 0) return 0;
+        const r = (cleanR / 100) / 12;
+        const n = cleanYrs * 12;
+        if (r === 0) return cleanP / n;
+        return (cleanP * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
     },
     get standardEmi() {
-        return this.calcEmi(parseFloat(this.loanAmount) || 0, parseFloat(this.interestRate) || 0, parseInt(this.tenureYears) || 25);
+        return this.calcEmi(parseFloat(this.loanAmount) || 0, parseFloat(this.interestRate) || 0, Math.max(1, parseInt(this.tenureYears, 10) || 1));
     },
     get simulation() {
-        const p0 = parseFloat(this.loanAmount) || 0;
-        const r = (parseFloat(this.interestRate) || 0) / 100 / 12;
+        const p0 = Math.max(0, parseFloat(this.loanAmount) || 0);
+        const years = Math.max(1, parseInt(this.tenureYears, 10) || 1);
+        const r = Math.max(0, parseFloat(this.interestRate) || 0) / 100 / 12;
         const stdPmt = this.standardEmi;
-        const extra = parseFloat(this.extraMonthly) || 0;
+        const extra = Math.max(0, parseFloat(this.extraMonthly) || 0);
         const totalPmt = stdPmt + extra;
+
+        if (p0 <= 0) {
+            return { yearsSaved: '0.0', interestSaved: 0, newMonths: 0 };
+        }
 
         let bal1 = p0;
         let totalIntStd = 0;
-        for (let i = 0; i < this.tenureYears * 12; i++) {
+        for (let i = 0; i < years * 12; i++) {
             const int = bal1 * r;
             totalIntStd += int;
             bal1 -= (stdPmt - int);
@@ -44,14 +53,14 @@
         let bal2 = p0;
         let totalIntNew = 0;
         let months = 0;
-        while (bal2 > 0 && months < this.tenureYears * 12) {
+        while (bal2 > 0 && months < years * 12) {
             const int = bal2 * r;
             totalIntNew += int;
             bal2 -= (totalPmt - int);
             months++;
         }
 
-        const yearsSaved = Math.max(0, ((this.tenureYears * 12 - months) / 12).toFixed(1));
+        const yearsSaved = Math.max(0, (years * 12 - months) / 12).toFixed(1);
         const interestSaved = Math.max(0, Math.round(totalIntStd - totalIntNew));
 
         return { yearsSaved, interestSaved, newMonths: months };

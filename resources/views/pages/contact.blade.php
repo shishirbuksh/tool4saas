@@ -31,25 +31,49 @@
             </div>
         @endif
 
+        @if($errors->any())
+            <div role="alert" class="alert alert-error rounded-2xl mb-8 font-semibold shadow-xs">
+                <ul class="list-disc pl-5 text-sm space-y-1">
+                    @foreach($errors->all() as $err)
+                        <li>{{ $err }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <x-tool-paper class="p-6 sm:p-8">
             <form action="{{ route('contact') }}" method="POST" class="space-y-5">
                 @csrf
-                <div class="form-control w-full">
-                    <label class="label"><span class="label-text font-semibold text-sm">Your Name</span></label>
-                    <input type="text" name="name" required placeholder="Jane Doe" class="input input-bordered rounded-xl w-full" />
+                <div class="hidden" aria-hidden="true">
+                    <label for="contact-website">Leave blank</label>
+                    <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off" />
                 </div>
 
                 <div class="form-control w-full">
-                    <label class="label"><span class="label-text font-semibold text-sm">Email Address</span></label>
-                    <input type="email" name="email" required placeholder="jane@example.com" class="input input-bordered rounded-xl w-full" />
+                    <label for="contact-name" class="label"><span class="label-text font-semibold text-sm">Your Name</span></label>
+                    <input id="contact-name" type="text" name="name" value="{{ old('name') }}" required placeholder="Jane Doe" class="input input-bordered rounded-xl w-full @error('name') input-error @enderror" />
+                    @error('name')
+                        <span class="text-xs text-error mt-1 font-medium">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="form-control w-full">
-                    <label class="label"><span class="label-text font-semibold text-sm">Message</span></label>
-                    <textarea name="message" rows="5" required placeholder="Tell us what you need help with or suggest a tool..." class="textarea textarea-bordered rounded-xl w-full text-base"></textarea>
+                    <label for="contact-email" class="label"><span class="label-text font-semibold text-sm">Email Address</span></label>
+                    <input id="contact-email" type="email" name="email" value="{{ old('email') }}" required placeholder="jane@example.com" class="input input-bordered rounded-xl w-full @error('email') input-error @enderror" />
+                    @error('email')
+                        <span class="text-xs text-error mt-1 font-medium">{{ $message }}</span>
+                    @enderror
                 </div>
 
-                <button type="submit" class="btn btn-primary rounded-xl w-full sm:w-auto px-8">
+                <div class="form-control w-full">
+                    <label for="contact-message" class="label"><span class="label-text font-semibold text-sm">Message</span></label>
+                    <textarea id="contact-message" name="message" rows="5" required placeholder="Tell us what you need help with or suggest a tool..." class="textarea textarea-bordered rounded-xl w-full text-base @error('message') textarea-error @enderror">{{ old('message') }}</textarea>
+                    @error('message')
+                        <span class="text-xs text-error mt-1 font-medium">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <button type="submit" class="btn btn-primary rounded-xl w-full sm:w-auto px-8 min-h-[44px]">
                     Send Message
                 </button>
             </form>

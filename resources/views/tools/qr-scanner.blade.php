@@ -1,9 +1,12 @@
 <x-card class="p-6 md:p-8" x-data="{
     result: '',
+    errorMsg: '',
     copied: false,
     onFile(e) {
         const file = e.target.files[0];
         if (!file) return;
+        this.errorMsg = '';
+        this.result = '';
         const reader = new FileReader();
         reader.onload = (ev) => {
             const img = new Image();
@@ -22,10 +25,10 @@
                     if (code) {
                         this.result = code.data;
                     } else {
-                        alert('No QR code detected in this image.');
+                        this.errorMsg = 'No QR code detected in this image.';
                     }
                 } else {
-                    alert('QR scanner module loading... Please retry in a moment.');
+                    this.errorMsg = 'QR scanner module loading... Please retry in a moment.';
                 }
             };
             img.src = ev.target.result;
@@ -39,8 +42,11 @@
     }
 }">
     <div class="space-y-6">
+        <div x-show="errorMsg" x-cloak role="alert" class="alert alert-error rounded-2xl text-xs font-semibold" x-text="errorMsg"></div>
+
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">
-            <input type="file" accept="image/*" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
+            <label for="qr-scanner-input" class="sr-only">Upload QR code image</label>
+            <input id="qr-scanner-input" type="file" accept="image/*" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
             <p class="text-xs text-base-content/60 mt-3">Upload a screenshot or photo of any QR code to decode its URL or data payload.</p>
         </div>
 

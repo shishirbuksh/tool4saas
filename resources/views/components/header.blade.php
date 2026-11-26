@@ -34,14 +34,15 @@
                 </a>
 
                 {{-- Categories Dropdown (Full ARIA menu semantics for 3/3 Agentic Browsing & Screen Readers) --}}
-                <div class="dropdown dropdown-hover">
+                <div class="dropdown dropdown-hover" x-data="{ catOpen: false }" @mouseenter="catOpen = true" @mouseleave="catOpen = false" @keydown.escape.window="catOpen = false">
                     <button
                         type="button"
                         tabindex="0"
+                        @click="catOpen = !catOpen"
                         aria-haspopup="menu"
-                        aria-expanded="false"
+                        :aria-expanded="catOpen.toString()"
                         aria-label="Browse tool categories"
-                        class="px-3.5 py-2 rounded-full hover:bg-base-200 hover:text-base-content transition-colors flex items-center gap-1 cursor-pointer font-semibold text-sm border-none bg-transparent"
+                        class="px-3.5 py-2 rounded-full hover:bg-base-200 hover:text-base-content transition-colors flex items-center gap-1 cursor-pointer font-semibold text-sm border-none bg-transparent min-h-[44px]"
                     >
                         <span>Categories</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -51,7 +52,7 @@
                     <ul tabindex="0" role="menu" aria-label="Tool categories" class="dropdown-content menu p-3 shadow-2xl bg-base-100 rounded-3xl w-72 border border-base-300 z-50 mt-1">
                         @foreach($categories as $category)
                             <li role="none">
-                                <a role="menuitem" href="{{ route('category.show', $category->id) }}" class="rounded-xl py-2 px-3 hover:bg-base-200 flex flex-col items-start gap-0.5">
+                                <a role="menuitem" href="{{ route('category.show', $category->id) }}" @click="catOpen = false" class="rounded-xl py-2 px-3 hover:bg-base-200 flex flex-col items-start gap-0.5">
                                     <span class="font-bold text-sm text-base-content">{{ $category->label }}</span>
                                     <span class="text-xs text-base-content/60 line-clamp-1">{{ $category->description }}</span>
                                 </a>

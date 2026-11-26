@@ -8,7 +8,7 @@
     'guideCallout' => null,
 ])
 
-<main id="main-content" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14">
     {{-- Breadcrumbs --}}
     <nav aria-label="Breadcrumb" class="breadcrumbs text-xs text-base-content/60 mb-6">
         <ul>
@@ -62,7 +62,7 @@
         <div class="flex items-center flex-wrap gap-2 my-10 pt-6 border-t border-base-300">
             <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 mr-1">See Also:</span>
             @foreach($seeAlso as $also)
-                <a href="{{ url('/' . $also['slug']) }}" class="px-3.5 py-1.5 rounded-full bg-base-100 border border-base-300 text-xs font-semibold text-base-content hover:border-primary hover:bg-[#e2f6d5] transition-all">
+                <a href="{{ url('/' . $also['slug']) }}" class="px-3.5 py-2 rounded-full bg-base-100 border border-base-300 text-xs font-semibold text-base-content hover:border-primary hover:bg-[#e2f6d5] hover:text-[#054d28] transition-all inline-flex items-center min-h-[40px]">
                     {{ $also['title'] }}
                 </a>
             @endforeach
@@ -123,10 +123,10 @@
                         @foreach($guideCallout['relatedPosts'] as $relPost)
                             <a
                                 href="{{ $relPost['url'] }}"
-                                class="p-3.5 rounded-2xl bg-base-200/60 border border-base-300 hover:border-primary hover:bg-base-100 transition-all text-xs font-semibold text-base-content hover:text-primary flex items-center justify-between group no-underline"
+                                class="p-3.5 rounded-2xl bg-base-200/60 border border-base-300 hover:border-primary hover:bg-base-100 transition-all text-xs font-semibold text-base-content hover:text-[#163300] dark:hover:text-[#9fe870] flex items-center justify-between group no-underline"
                             >
                                 <span class="line-clamp-1">{{ $relPost['title'] }}</span>
-                                <span class="text-primary font-bold opacity-0 group-hover:opacity-100 transition-opacity ml-2">→</span>
+                                <span class="text-[#163300] dark:text-[#9fe870] font-bold opacity-0 group-hover:opacity-100 transition-opacity ml-2">→</span>
                             </a>
                         @endforeach
                     </div>
@@ -192,7 +192,7 @@
             <div class="space-y-3.5">
                 @foreach($tool->faq as $f)
                     <div class="collapse collapse-plus bg-base-100 border border-base-300 rounded-2xl shadow-sm">
-                        <input type="radio" name="tool-faq" />
+                        <input type="checkbox" aria-label="{{ $f['question'] }}" />
                         <div class="collapse-title font-bold text-base text-base-content font-display">
                             {{ $f['question'] }}
                         </div>
@@ -213,7 +213,7 @@
                 @foreach($relatedTools as $rel)
                     <a
                         href="{{ url('/' . $rel['slug']) }}"
-                        class="inline-flex items-center px-4 py-2 rounded-full bg-base-100 border border-base-300 text-sm font-semibold text-base-content hover:border-primary hover:text-primary transition-all"
+                        class="inline-flex items-center px-4 py-2 rounded-full bg-base-100 border border-base-300 text-sm font-semibold text-base-content hover:border-primary hover:text-[#163300] dark:hover:text-[#9fe870] transition-all min-h-[40px]"
                         title="{{ $rel['title'] }} – {{ $rel['short'] }}"
                     >
                         {{ $rel['title'] }}
@@ -229,10 +229,12 @@
             4S
         </div>
         <div>
-            <h4 class="font-bold text-sm text-base-content font-display">Tool4SaaS Editorial &amp; Engineering Team</h4>
+            <h2 class="font-bold text-sm text-base-content font-display">Tool4SaaS Editorial &amp; Engineering Team</h2>
             <p class="text-xs text-base-content/70 mt-1.5 leading-relaxed">
                 Reviewed and maintained by our in-house engineering team. Each algorithm and client-side processing script is tested across Chrome, Firefox, Safari, and Edge to guarantee mathematical accuracy, zero server data egress, and WCAG accessibility standards.
+                <a href="{{ route('methodology') }}" class="underline font-semibold text-[#163300] dark:text-[#9fe870] ml-1">Review Methodology</a> ·
+                <a href="{{ route('author') }}" class="underline font-semibold text-[#163300] dark:text-[#9fe870]">Editorial Team</a>
             </p>
         </div>
     </aside>
-</main>
+</div>

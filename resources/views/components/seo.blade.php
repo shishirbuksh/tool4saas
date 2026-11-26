@@ -5,6 +5,7 @@
     'isNoindex' => false,
     'jsonLd' => null,
     'ogImage' => null,
+    'ogType' => 'website',
 ])
 
 @php
@@ -44,7 +45,7 @@
 @endif
 
 {{-- Open Graph --}}
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ $ogType }}">
 <meta property="og:url" content="{{ $canonical }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description }}">

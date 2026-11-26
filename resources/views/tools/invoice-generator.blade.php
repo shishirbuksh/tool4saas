@@ -179,7 +179,7 @@
                 </div>
                 <div class="flex justify-between py-3 border-t-2 border-base-300 text-lg font-black font-display text-base-content">
                     <span>Grand Total:</span>
-                    <span class="tabular-nums text-primary"><span x-text="currency"></span><span x-text="grandTotal.toFixed(2)"></span></span>
+                    <span class="tabular-nums text-[#163300] dark:text-[#9fe870]"><span x-text="currency"></span><span x-text="grandTotal.toFixed(2)"></span></span>
                 </div>
             </div>
         </div>

@@ -33,7 +33,7 @@
             <textarea x-model="body" rows="4" class="textarea textarea-bordered w-full rounded-[16px] text-sm"></textarea>
         </div>
 
-        <div class="p-8 bg-white text-black rounded-[20px] shadow-sm border border-base-300 space-y-6">
+        <div id="document-print" class="p-8 bg-white text-black rounded-[20px] shadow-sm border border-base-300 space-y-6">
             <div class="flex justify-between items-start border-b pb-4">
                 <div>
                     <h2 class="text-2xl font-black uppercase tracking-wide" x-text="title"></h2>

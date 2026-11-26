@@ -1,3 +1,6 @@
+@props([
+    'hideAds' => false,
+])
 <!DOCTYPE html>
 <html lang="en" data-theme="wise-light" class="h-full">
 <head>
@@ -32,9 +35,11 @@
         .skip-link:focus { top: 1rem; }
     </style>
 
-    {{-- Google AdSense Verification Meta & Deferred Script Loader --}}
+    {{-- Google AdSense Verification Meta & High-Efficiency Script Loader (Excluded on Error Views) --}}
     <meta name="google-adsense-account" content="ca-pub-6310719489589992">
-    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6310719489589992" crossorigin="anonymous" nonce="{{ request()->attributes->get('csp_nonce') }}"></script>
+    @unless($hideAds)
+        <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6310719489589992" crossorigin="anonymous" nonce="{{ request()->attributes->get('csp_nonce') }}"></script>
+    @endunless
 
     {{-- Agentic Browsing & LLM Discovery --}}
     <link rel="alternate" type="text/plain" href="{{ url('/llms.txt') }}" title="LLM Context">

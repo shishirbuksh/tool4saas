@@ -41,16 +41,16 @@
         }
     },
     get percentage() {
-        const c = parseFloat(this.cgpa) || 0;
+        const c = Math.max(0, Math.min(10, parseFloat(this.cgpa) || 0));
         if (c <= 0) return '0.0';
         switch (this.scale) {
             case 'cbse':
-                return (c * 9.5).toFixed(2);
+                return Math.min(100, c * 9.5).toFixed(2);
             case 'vtu':
-                return Math.max(0, (c - 0.75) * 10).toFixed(2);
+                return Math.max(0, Math.min(100, (c - 0.75) * 10)).toFixed(2);
             case 'mumbai':
                 if (c < 7.0) {
-                    return (7.1 + (7.25 * c)).toFixed(2);
+                    return Math.min(100, 7.1 + (7.25 * c)).toFixed(2);
                 } else {
                     return Math.min(100, (7.4 * c) + 12).toFixed(2);
                 }
@@ -61,15 +61,15 @@
         }
     },
     get formulaExplanation() {
-        const c = parseFloat(this.cgpa) || 0;
+        const c = Math.max(0, Math.min(10, parseFloat(this.cgpa) || 0));
         switch (this.scale) {
             case 'cbse':
-                return `CBSE Formula: Percentage = CGPA (${c}) × 9.5 = ${(c * 9.5).toFixed(2)}%`;
+                return `CBSE Formula: Percentage = CGPA (${c}) × 9.5 = ${Math.min(100, c * 9.5).toFixed(2)}%`;
             case 'vtu':
-                return `VTU Formula: Percentage = (CGPA (${c}) - 0.75) × 10 = ${Math.max(0, (c - 0.75) * 10).toFixed(2)}%`;
+                return `VTU Formula: Percentage = (CGPA (${c}) - 0.75) × 10 = ${Math.max(0, Math.min(100, (c - 0.75) * 10)).toFixed(2)}%`;
             case 'mumbai':
                 if (c < 7.0) {
-                    return `Mumbai University (<7.0): Percentage = 7.1 + (7.25 × ${c}) = ${(7.1 + (7.25 * c)).toFixed(2)}%`;
+                    return `Mumbai University (<7.0): Percentage = 7.1 + (7.25 × ${c}) = ${(c <= 0 ? 0 : Math.min(100, 7.1 + (7.25 * c))).toFixed(2)}%`;
                 } else {
                     return `Mumbai University (≥7.0): Percentage = (7.4 × ${c}) + 12 = ${Math.min(100, (7.4 * c) + 12).toFixed(2)}%`;
                 }
@@ -93,13 +93,13 @@
         let totalCredits = 0;
         let weightedPoints = 0;
         this.sgpaList.forEach(s => {
-            const c = parseFloat(s.credits) || 0;
-            const pt = parseFloat(s.sgpa) || 0;
+            const c = Math.max(0, parseFloat(s.credits) || 0);
+            const pt = Math.max(0, Math.min(10, parseFloat(s.sgpa) || 0));
             totalCredits += c;
             weightedPoints += (pt * c);
         });
         const cumulativeCgpa = totalCredits > 0 ? (weightedPoints / totalCredits) : 0;
-        const pct = (cumulativeCgpa * 9.5).toFixed(2);
+        const pct = Math.min(100, cumulativeCgpa * 9.5).toFixed(2);
         return {
             totalCredits: totalCredits,
             cumulativeCgpa: cumulativeCgpa.toFixed(2),
@@ -107,10 +107,10 @@
         };
     },
     get marksCalculation() {
-        const obtained = parseFloat(this.marksObtained) || 0;
-        const total = parseFloat(this.totalMarks) || 1;
+        const obtained = Math.max(0, parseFloat(this.marksObtained) || 0);
+        const total = Math.max(0, parseFloat(this.totalMarks) || 0);
         const pct = total > 0 ? Math.min(100, (obtained / total) * 100) : 0;
-        const estCgpa = (pct / 9.5).toFixed(2);
+        const estCgpa = Math.min(10, pct / 9.5).toFixed(2);
         return {
             obtained: obtained,
             total: total,
@@ -357,7 +357,7 @@
                     </thead>
                     <tbody class="divide-y divide-base-200">
                         <template x-for="(row, idx) in equivalenceRows" :key="idx">
-                            <tr :class="parseFloat(cgpa).toFixed(1) === row.pt.toFixed(1) ? 'bg-[#e2f6d5] font-bold' : ''">
+                            <tr :class="parseFloat(cgpa).toFixed(1) === row.pt.toFixed(1) ? 'bg-[#e2f6d5] text-[#054d28] font-bold' : ''">
                                 <td class="font-mono font-bold" x-text="row.pt.toFixed(1)"></td>
                                 <td class="font-mono" x-text="row.cbsePct + '%'"></td>
                                 <td class="font-mono" x-text="row.vtuPct + '%'"></td>

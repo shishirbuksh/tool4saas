@@ -14,7 +14,7 @@
         }
         if (params.has('weight')) {
             const w = parseFloat(params.get('weight'));
-            if (!isNaN(w) && w > 0 && w < 100) this.finalWeight = w;
+            if (!isNaN(w) && w > 0 && w <= 100) this.finalWeight = w;
         }
     },
     setPreset(cur, tgt, w) {
@@ -23,10 +23,11 @@
         this.finalWeight = w;
     },
     get neededScore() {
-        const cur = parseFloat(this.currentGrade) || 0;
-        const tgt = parseFloat(this.targetGrade) || 0;
-        const w = (parseFloat(this.finalWeight) || 0) / 100;
-        if (w <= 0 || w >= 1) return '0.0';
+        const cur = Math.max(0, parseFloat(this.currentGrade) || 0);
+        const tgt = Math.max(0, parseFloat(this.targetGrade) || 0);
+        const w = Math.max(0, Math.min(100, parseFloat(this.finalWeight) || 0)) / 100;
+        if (w <= 0) return '0.0';
+        if (w >= 1) return tgt.toFixed(1);
         const needed = (tgt - (cur * (1 - w))) / w;
         return needed.toFixed(1);
     },

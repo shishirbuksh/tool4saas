@@ -23,7 +23,7 @@
         }
         if (params.has('weight')) {
             const val = parseFloat(params.get('weight'));
-            if (!isNaN(val) && val > 0 && val < 100) this.finalWeight = val;
+            if (!isNaN(val) && val > 0 && val <= 100) this.finalWeight = val;
         }
     },
     setCollegePreset() {
@@ -59,12 +59,12 @@
         let totalWeight = 0;
         let weightedSum = 0;
         this.rows.forEach(r => {
-            const w = parseFloat(r.weight) || 0;
-            const s = parseFloat(r.score) || 0;
+            const w = Math.max(0, parseFloat(r.weight) || 0);
+            const s = Math.max(0, parseFloat(r.score) || 0);
             totalWeight += w;
             weightedSum += s * (w / 100);
         });
-        if (totalWeight === 0) return 0;
+        if (totalWeight <= 0) return '0.0';
         return (weightedSum / (totalWeight / 100)).toFixed(1);
     },
     get letterGrade() {
@@ -79,10 +79,11 @@
         return 'F';
     },
     get neededFinalScore() {
-        const cur = parseFloat(this.currentGrade) || 0;
-        const tgt = parseFloat(this.targetGrade) || 0;
-        const w = (parseFloat(this.finalWeight) || 0) / 100;
-        if (w <= 0 || w >= 1) return 0;
+        const cur = Math.max(0, parseFloat(this.currentGrade) || 0);
+        const tgt = Math.max(0, parseFloat(this.targetGrade) || 0);
+        const w = Math.max(0, Math.min(100, parseFloat(this.finalWeight) || 0)) / 100;
+        if (w <= 0) return '0.0';
+        if (w >= 1) return tgt.toFixed(1);
         const needed = (tgt - (cur * (1 - w))) / w;
         return needed.toFixed(1);
     }

@@ -44,6 +44,14 @@
             </div>
         @endif
 
+        @php
+            $pillarTool = $pillarMeta->toolSlug ? app(\App\Services\ToolRegistryService::class)->findBySlug($pillarMeta->toolSlug) : null;
+        @endphp
+
+        @if ($pillarTool && $pillarTool->ymylType() !== \App\Enums\YmylType::General)
+            <x-ymyl-disclaimer :type="$pillarTool->ymylType()" />
+        @endif
+
         {{-- Two-column content layout --}}
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 items-start">
             {{-- Main article body (3 cols) --}}
@@ -64,7 +72,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             @foreach ($clusters as $cluster)
                                 <a href="/blog/{{ $pillarMeta->pillar }}/{{ $cluster->slug }}" class="p-5 rounded-2xl border border-base-300 bg-base-200/50 hover:border-primary hover:bg-base-100 transition-all no-underline block group">
-                                    <h3 class="text-base font-bold text-base-content group-hover:text-primary transition-colors mb-1.5 font-display">
+                                    <h3 class="text-base font-bold text-base-content group-hover:text-[#163300] dark:group-hover:text-[#9fe870] transition-colors mb-1.5 font-display">
                                         {{ $cluster->title }}
                                     </h3>
                                     <p class="text-xs text-base-content/70 line-clamp-2 leading-relaxed">

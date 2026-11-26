@@ -2,31 +2,55 @@
     <div class="space-y-6" x-data="{
         file: null,
         busy: false,
+        errorMsg: '',
         pages: [],
         onFile(e) {
             this.file = e.target.files[0];
             this.pages = [];
+            this.errorMsg = '';
         },
-        convert() {
+        async convert() {
             if (!this.file) return;
             this.busy = true;
-            setTimeout(() => {
-                this.pages = [
-                    { num: 1, url: 'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23ffffff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23666666\'>PDF Page 1 Converted</text></svg>' }
-                ];
+            this.errorMsg = '';
+            this.pages = [];
+            try {
+                const pdfjsLib = await window.loadPdfJs();
+                const buffer = await this.file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(buffer) }).promise;
+                const rendered = [];
+                for (let num = 1; num <= pdf.numPages; num++) {
+                    const page = await pdf.getPage(num);
+                    const viewport = page.getViewport({ scale: 1.75 });
+                    const canvas = document.createElement('canvas');
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    await page.render({ canvasContext: ctx, viewport }).promise;
+                    rendered.push({ num, url: canvas.toDataURL('image/jpeg', 0.92) });
+                }
+                this.pages = rendered;
+            } catch (err) {
+                this.errorMsg = 'Could not render PDF pages: ' + (err?.message || 'Encrypted or malformed PDF.');
+            } finally {
                 this.busy = false;
-            }, 600);
+            }
         }
     }">
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">
-            <input type="file" accept="application/pdf" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
-            <p class="text-xs text-base-content/60 mt-3">Upload any PDF file to render pages into individual JPG images.</p>
+            <label for="pdf-to-jpg-input" class="sr-only">Upload PDF document</label>
+            <input id="pdf-to-jpg-input" type="file" accept="application/pdf" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
+            <p class="text-xs text-base-content/60 mt-3">Upload any PDF file to render pages into individual JPG images cleanly in your browser.</p>
         </div>
 
+        <div x-show="errorMsg" x-cloak role="alert" class="alert alert-error rounded-2xl text-xs font-semibold" x-text="errorMsg"></div>
+
         <div class="flex items-center justify-between">
-            <button type="button" @click="convert()" :disabled="!file || busy" class="btn btn-primary rounded-[12px] font-bold">
+            <button type="button" @click="convert()" :disabled="!file || busy" class="btn btn-primary rounded-[12px] font-bold min-h-[44px]">
                 <span x-show="!busy">Convert PDF to JPG</span>
-                <span x-show="busy" x-cloak>Extracting Pages...</span>
+                <span x-show="busy" x-cloak>Rendering Pages...</span>
             </button>
         </div>
 
@@ -34,8 +58,8 @@
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <template x-for="p in pages" :key="p.num">
                     <div class="p-3 rounded-[14px] bg-base-200/50 border border-base-300 space-y-2 text-center">
-                        <img :src="p.url" class="w-full aspect-[3/4] object-contain rounded-[8px] bg-white border" />
-                        <a :href="p.url" :download="'page-' + p.num + '.jpg'" class="btn btn-xs btn-primary rounded-[6px] w-full">
+                        <img :src="p.url" :alt="'Converted PDF page ' + p.num" class="w-full aspect-[3/4] object-contain rounded-[8px] bg-white border" />
+                        <a :href="p.url" :download="'page-' + p.num + '.jpg'" class="btn btn-sm btn-primary rounded-[8px] w-full min-h-[36px]">
                             Download JPG
                         </a>
                     </div>

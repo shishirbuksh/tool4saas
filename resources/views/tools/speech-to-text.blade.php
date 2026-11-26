@@ -1,6 +1,7 @@
 <x-card class="p-6 md:p-8" x-data="{
     listening: false,
     transcript: '',
+    errorMsg: '',
     recognition: null,
     copied: false,
     init() {
@@ -16,13 +17,21 @@
                 }
                 this.transcript = res.trim();
             };
+            this.recognition.onerror = (ev) => {
+                this.errorMsg = 'Microphone / speech error: ' + (ev.error || 'permission denied');
+                this.listening = false;
+            };
             this.recognition.onend = () => {
                 this.listening = false;
             };
         }
     },
     toggle() {
-        if (!this.recognition) return alert('Speech Recognition is not supported by your browser.');
+        this.errorMsg = '';
+        if (!this.recognition) {
+            this.errorMsg = 'Speech Recognition API is not supported in this browser (use Chrome, Edge, or Safari).';
+            return;
+        }
         if (this.listening) {
             this.recognition.stop();
             this.listening = false;
@@ -38,6 +47,7 @@
     }
 }">
     <div class="space-y-6">
+        <div x-show="errorMsg" x-cloak role="alert" class="alert alert-error rounded-2xl text-xs font-semibold" x-text="errorMsg"></div>
         <div class="flex items-center justify-between">
             <button type="button" @click="toggle()" class="btn rounded-[12px] font-bold px-6" :class="listening ? 'btn-error animate-pulse' : 'btn-primary'">
                 <span x-show="!listening">🎙️ Start Listening</span>

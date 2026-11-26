@@ -311,11 +311,14 @@
                     {{-- Search & Category Filter Control Center --}}
                     <div class="pt-2 space-y-3">
                         <div class="relative">
+                            <label for="dev-tools-search" class="sr-only">Search 22 developer utilities</label>
                             <input
+                                id="dev-tools-search"
                                 type="text"
                                 x-model="searchQuery"
+                                aria-label="Search 22 developer utilities"
                                 placeholder="Search 22 dev utilities (e.g., json, jwt, regex, sql, cron, subnet, sha256)..."
-                                class="input input-bordered w-full rounded-2xl pl-11 pr-4 text-sm font-medium bg-base-100 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/20"
+                                class="input input-bordered w-full rounded-2xl pl-11 pr-14 text-sm font-medium bg-base-100 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/20"
                             />
                             <svg class="size-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -323,8 +326,11 @@
                             <button
                                 type="button"
                                 x-show="searchQuery.length > 0"
+                                x-cloak
+                                style="display: none;"
                                 @click="searchQuery = ''"
-                                class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-base-content/40 hover:text-base-content"
+                                aria-label="Clear search"
+                                class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-base-content/60 hover:text-base-content"
                             >
                                 Clear
                             </button>
@@ -427,7 +433,7 @@
             </div>
 
             {{-- Empty Search Fallback --}}
-            <div x-show="filteredTools.length === 0" class="text-center py-16 bg-base-100 rounded-3xl border border-base-300 mt-6">
+            <div x-show="filteredTools.length === 0" x-cloak style="display: none;" class="text-center py-16 bg-base-100 rounded-3xl border border-base-300 mt-6">
                 <span class="text-4xl block mb-2">🔍</span>
                 <h3 class="font-bold text-base text-base-content">No developer tools found</h3>
                 <p class="text-xs text-base-content/60 mt-1">Try searching for keywords like "json", "jwt", "sql", or "hash"</p>
@@ -439,6 +445,15 @@
                     Reset Filters
                 </button>
             </div>
+
+            {{-- Crawlable SSR fallback links for non-JS crawlers --}}
+            <noscript>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+                    @foreach (['json-formatter' => 'JSON Formatter & Validator', 'sql-formatter' => 'SQL Query Formatter', 'xml-formatter' => 'XML Formatter & Beautifier', 'code-minifier' => 'Code Minifier (HTML, CSS, JS)', 'code-to-image' => 'Code to Image Converter', 'html-entities' => 'HTML Entities Encoder & Decoder', 'jwt-decoder' => 'JWT Decoder & Inspector', 'hash-generator' => 'Cryptographic Hash Generator', 'aes-encryptor' => 'AES-256 Encryptor & Decryptor', 'otp-generator' => 'TOTP 2FA Authenticator Generator', 'password-strength' => 'Password Entropy & Strength Tester', 'ssl-checker' => 'SSL Certificate Checker', 'subnet-calculator' => 'IPv4 Subnet CIDR Calculator', 'url-encoder' => 'URL Encoder & Decoder', 'mime-type-lookup' => 'MIME Type Lookup', 'screen-resolution' => 'Screen Resolution Inspector', 'credit-card-validator' => 'Credit Card Validator (Luhn)', 'regex-tester' => 'Regex Pattern Tester', 'cron-parser' => 'Cron Expression Parser', 'base64-tool' => 'Base64 Encoder & Decoder', 'ai-token-counter' => 'AI Token Counter', 'chmod-calculator' => 'Unix Chmod Calculator'] as $dSlug => $dTitle)
+                        <a href="/{{ $dSlug }}" class="p-4 rounded-2xl bg-base-100 border border-base-300 text-sm font-bold text-base-content block">{{ $dTitle }}</a>
+                    @endforeach
+                </div>
+            </noscript>
         </section>
 
         {{-- Educational FAQ Section --}}
@@ -453,7 +468,7 @@
 
                 <div class="space-y-3">
                     <div class="collapse collapse-plus bg-base-200/50 rounded-2xl border border-base-300">
-                        <input type="radio" name="dev-faq" checked />
+                        <input type="checkbox" checked aria-label="Are my confidential API tokens, passwords, or JSON payloads logged on a server?" />
                         <div class="collapse-title text-sm sm:text-base font-bold text-base-content">
                             Are my confidential API tokens, passwords, or JSON payloads logged on a server?
                         </div>
@@ -463,7 +478,7 @@
                     </div>
 
                     <div class="collapse collapse-plus bg-base-200/50 rounded-2xl border border-base-300">
-                        <input type="radio" name="dev-faq" />
+                        <input type="checkbox" aria-label="Can I use these developer tools offline without an active internet connection?" />
                         <div class="collapse-title text-sm sm:text-base font-bold text-base-content">
                             Can I use these developer tools offline without an active internet connection?
                         </div>
@@ -473,7 +488,7 @@
                     </div>
 
                     <div class="collapse collapse-plus bg-base-200/50 rounded-2xl border border-base-300">
-                        <input type="radio" name="dev-faq" />
+                        <input type="checkbox" aria-label="How does the SSL Certificate Checker prevent Server-Side Request Forgery (SSRF)?" />
                         <div class="collapse-title text-sm sm:text-base font-bold text-base-content">
                             How does the SSL Certificate Checker prevent Server-Side Request Forgery (SSRF)?
                         </div>

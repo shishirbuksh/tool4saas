@@ -5,9 +5,9 @@
     currencySymbol: '$',
     init() {
         const p = new URLSearchParams(window.location.search);
-        if (p.has('monthly')) this.monthly = Math.max(0, parseFloat(p.get('monthly')) || this.monthly);
-        if (p.has('rate')) this.rate = Math.max(0, parseFloat(p.get('rate')) || this.rate);
-        if (p.has('years')) this.years = Math.max(1, parseFloat(p.get('years')) || this.years);
+        if (p.has('monthly')) { const v = parseFloat(p.get('monthly')); if (!isNaN(v) && v >= 0) this.monthly = v; }
+        if (p.has('rate')) { const v = parseFloat(p.get('rate')); if (!isNaN(v) && v >= 0) this.rate = v; }
+        if (p.has('years')) { const v = parseFloat(p.get('years')); if (!isNaN(v) && v > 0) this.years = v; }
         if (p.has('currency')) this.currencySymbol = p.get('currency');
     },
     get months() {
@@ -36,20 +36,25 @@
     exportScheduleCsv() {
         const m = Math.max(0, parseFloat(this.monthly) || 0);
         const annualRate = Math.max(0, parseFloat(this.rate) || 0);
+        const totalYears = Math.max(0.5, parseFloat(this.years) || 1);
         const mr = annualRate / 100 / 12;
         let csv = 'Year,Invested Amount,Maturity Value,Wealth Returns\n';
-        for (let y = 1; y <= this.years; y++) {
+        const wholeYears = Math.floor(totalYears);
+        for (let y = 1; y <= wholeYears; y++) {
             const months = y * 12;
             const inv = m * months;
             const fv = mr > 0 ? (m * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)) : inv;
             const gain = Math.max(0, fv - inv);
             csv += [y, inv.toFixed(2), fv.toFixed(2), gain.toFixed(2)].join(',') + '\n';
         }
-        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'sip-growth-schedule.csv';
-        a.click();
+        if (totalYears > wholeYears) {
+            const months = Math.round(totalYears * 12);
+            const inv = m * months;
+            const fv = mr > 0 ? (m * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)) : inv;
+            const gain = Math.max(0, fv - inv);
+            csv += [totalYears.toFixed(1), inv.toFixed(2), fv.toFixed(2), gain.toFixed(2)].join(',') + '\n';
+        }
+        window.downloadCsvBlob(csv, 'sip-growth-schedule.csv');
     }
 }">
     <div class="space-y-6">

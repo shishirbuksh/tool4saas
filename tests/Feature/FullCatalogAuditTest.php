@@ -68,7 +68,9 @@ final class FullCatalogAuditTest extends TestCase
     public function test_blog_clusters_render_successfully(): void
     {
         $blogService = app(BlogService::class);
-        $posts = array_slice($blogService->getAllPosts(), 0, 20);
+        $posts = $blogService->getAllPosts();
+
+        expect($posts)->toHaveCount(197);
 
         foreach ($posts as $post) {
             if ($post->kind !== 'cluster') {

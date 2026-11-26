@@ -2,58 +2,91 @@
     <div class="space-y-6" x-data="{
         images: [],
         busy: false,
+        errorMsg: '',
         onFiles(e) {
+            this.errorMsg = '';
             const files = Array.from(e.target.files);
             files.forEach(f => {
                 const reader = new FileReader();
                 reader.onload = (ev) => {
-                    this.images.push({ name: f.name, dataUrl: ev.target.result });
+                    this.images.push({ name: f.name, type: f.type, dataUrl: ev.target.result });
                 };
                 reader.readAsDataURL(f);
             });
         },
-        downloadPdf() {
+        async toPngBytes(dataUrl) {
+            const img = new Image();
+            await new Promise((resolve, reject) => {
+                img.onload = resolve;
+                img.onerror = reject;
+                img.src = dataUrl;
+            });
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth || img.width;
+            canvas.height = img.naturalHeight || img.height;
+            canvas.getContext('2d').drawImage(img, 0, 0);
+            const pngUrl = canvas.toDataURL('image/png');
+            const res = await fetch(pngUrl);
+            return await res.arrayBuffer();
+        },
+        async downloadPdf() {
             if (!this.images.length) return;
             this.busy = true;
+            this.errorMsg = '';
             try {
-                const printWindow = window.open('', '_blank');
-                if (printWindow) {
-                    let html = '<html><head><title>Document PDF</title><style>@page{margin:0;} body{margin:0;padding:20px;text-align:center;} img{max-width:100%;max-height:95vh;page-break-after:always;display:block;margin:0 auto 20px;}</style></head><body>';
-                    this.images.forEach(img => {
-                        html += '<img src=\'' + img.dataUrl + '\' />';
-                    });
-                    html += '</body></html>';
-                    printWindow.document.write(html);
-                    printWindow.document.close();
-                    printWindow.focus();
-                    setTimeout(() => {
-                        printWindow.print();
-                    }, 500);
+                const PDFLib = await window.loadPdfLib();
+                const pdfDoc = await PDFLib.PDFDocument.create();
+                for (const item of this.images) {
+                    let embedded;
+                    if (item.type === 'image/jpeg' || item.type === 'image/jpg') {
+                        const bytes = await (await fetch(item.dataUrl)).arrayBuffer();
+                        embedded = await pdfDoc.embedJpg(bytes);
+                    } else {
+                        const pngBytes = item.type === 'image/png'
+                            ? await (await fetch(item.dataUrl)).arrayBuffer()
+                            : await this.toPngBytes(item.dataUrl);
+                        embedded = await pdfDoc.embedPng(pngBytes);
+                    }
+                    const page = pdfDoc.addPage([embedded.width, embedded.height]);
+                    page.drawImage(embedded, { x: 0, y: 0, width: embedded.width, height: embedded.height });
                 }
-            } catch(e) {
-                alert('PDF creation error: ' + e.message);
+                const pdfBytes = await pdfDoc.save();
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'images-compiled.pdf';
+                a.click();
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+            } catch (e) {
+                this.errorMsg = 'PDF creation error: ' + (e?.message || 'Unsupported image format.');
+            } finally {
+                this.busy = false;
             }
-            this.busy = false;
         }
     }">
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">
-            <input type="file" accept="image/*" multiple @change="onFiles($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
-            <p class="text-xs text-base-content/60 mt-3">Select one or multiple images to compile into a downloadable PDF document.</p>
+            <label for="image-to-pdf-input" class="sr-only">Upload images to compile into PDF</label>
+            <input id="image-to-pdf-input" type="file" accept="image/*" multiple @change="onFiles($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
+            <p class="text-xs text-base-content/60 mt-3">Select one or multiple images to compile cleanly into a downloadable binary PDF document.</p>
         </div>
+
+        <div x-show="errorMsg" x-cloak role="alert" class="alert alert-error rounded-2xl text-xs font-semibold" x-text="errorMsg"></div>
 
         <template x-if="images.length > 0">
             <div class="space-y-4">
                 <div class="flex items-center justify-between">
                     <span class="text-xs font-bold uppercase tracking-wider text-base-content/70" x-text="'Ready Pages (' + images.length + ')'"></span>
-                    <button type="button" @click="downloadPdf()" class="btn btn-primary rounded-[12px] font-bold">
-                        Compile & Export PDF
+                    <button type="button" @click="downloadPdf()" :disabled="busy" class="btn btn-primary rounded-[12px] font-bold min-h-[44px]">
+                        <span x-show="!busy">Compile &amp; Download PDF</span>
+                        <span x-show="busy" x-cloak>Compiling PDF...</span>
                     </button>
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     <template x-for="(img, idx) in images" :key="idx">
                         <div class="relative rounded-[12px] overflow-hidden border border-base-300 aspect-[3/4] bg-base-200">
-                            <img :src="img.dataUrl" class="w-full h-full object-cover" />
+                            <img :src="img.dataUrl" :alt="img.name || ('Page ' + (idx + 1))" class="w-full h-full object-cover" />
                             <div class="absolute bottom-1 left-1 bg-black/60 text-white text-[10px] px-1.5 py-0.5 rounded" x-text="'Page ' + (idx + 1)"></div>
                         </div>
                     </template>

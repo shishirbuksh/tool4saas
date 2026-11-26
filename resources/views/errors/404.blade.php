@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app :hideAds="true">
     @push('seo')
         <title>404 Page Not Found — Tool4SaaS</title>
         <meta name="robots" content="noindex, follow">

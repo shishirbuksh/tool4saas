@@ -33,12 +33,12 @@ final class SecurityHeaders
             "script-src 'self' 'nonce-{$nonce}' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://adservice.google.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google",
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
             "font-src 'self' https://fonts.gstatic.com data:",
-            "img-src 'self' data: blob: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google-analytics.com https://i.ytimg.com https://ep1.adtrafficquality.google https://*.adtrafficquality.google https://*.adtrafficquality.google.com https://www.google.com https://*.google.com",
+            "img-src 'self' data: blob: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google-analytics.com https://i.ytimg.com https://img.youtube.com https://ep1.adtrafficquality.google https://*.adtrafficquality.google https://*.adtrafficquality.google.com https://www.google.com https://*.google.com",
             "media-src 'self' blob:",
             "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google.com https://*.adtrafficquality.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://fundingchoicesmessages.google.com https://api.exchangerate-api.com",
             "frame-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://pagead2.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://*.adtrafficquality.google.com",
             "worker-src 'self' blob:",
-            "frame-ancestors {$frameAncestors}",
+            "frame-ancestors 'self'",
             "base-uri 'self'",
             "form-action 'self'",
         ]);
@@ -46,15 +46,17 @@ final class SecurityHeaders
         $response->headers->set('Content-Security-Policy', $csp);
         $response->headers->set('X-Content-Type-Options', 'nosniff');
         $response->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
-        $response->headers->set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
+        $response->headers->set('Permissions-Policy', 'camera=(), microphone=(self), geolocation=(), payment=()');
         $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+        $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
 
-        if (! $isEmbed) {
-            $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
-        }
-
-        if ($request->isMethodSafe() && $response->getStatusCode() === 200 && ! $request->is('api/*')) {
-            $response->headers->set('Cache-Control', 'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400');
+        if ($request->is('contact', 'api/*') || $response->getStatusCode() !== 200) {
+            $response->headers->set('Cache-Control', 'private, no-store, no-cache, must-revalidate');
+        } elseif ($request->isMethodSafe()) {
+            $existingCache = (string) $response->headers->get('Cache-Control', '');
+            if (! str_contains($existingCache, 'public')) {
+                $response->headers->set('Cache-Control', 'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400');
+            }
         }
 
         return $response;

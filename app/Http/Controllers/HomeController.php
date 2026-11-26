@@ -28,7 +28,7 @@ final class HomeController
         foreach ($categories as $cat) {
             $catTools = array_values(array_filter(
                 $allTools,
-                fn ($t) => $t->category === $cat->id && ! $t->isNoindex
+                fn ($t) => $t->category === $cat->id && $t->isIndexable()
             ));
             if (! empty($catTools)) {
                 $grouped[] = [

@@ -8,44 +8,46 @@
     pmiMonthly: 0,
     init() {
         const p = new URLSearchParams(window.location.search);
-        if (p.has('homePrice')) this.homePrice = parseFloat(p.get('homePrice')) || this.homePrice;
-        if (p.has('downPayment')) this.downPayment = parseFloat(p.get('downPayment')) || this.downPayment;
-        if (p.has('interestRate')) this.interestRate = parseFloat(p.get('interestRate')) || this.interestRate;
-        if (p.has('loanYears')) this.loanYears = parseInt(p.get('loanYears'), 10) || this.loanYears;
-        if (p.has('propertyTax')) this.propertyTaxAnnual = parseFloat(p.get('propertyTax')) || this.propertyTaxAnnual;
-        if (p.has('insurance')) this.homeInsuranceAnnual = parseFloat(p.get('insurance')) || this.homeInsuranceAnnual;
+        if (p.has('homePrice')) { const v = parseFloat(p.get('homePrice')); if (!isNaN(v) && v >= 0) this.homePrice = v; }
+        if (p.has('downPayment')) { const v = parseFloat(p.get('downPayment')); if (!isNaN(v) && v >= 0) this.downPayment = v; }
+        if (p.has('interestRate')) { const v = parseFloat(p.get('interestRate')); if (!isNaN(v) && v >= 0) this.interestRate = v; }
+        if (p.has('loanYears')) { const v = parseInt(p.get('loanYears'), 10); if (!isNaN(v) && v > 0) this.loanYears = v; }
+        if (p.has('propertyTax')) { const v = parseFloat(p.get('propertyTax')); if (!isNaN(v) && v >= 0) this.propertyTaxAnnual = v; }
+        if (p.has('insurance')) { const v = parseFloat(p.get('insurance')); if (!isNaN(v) && v >= 0) this.homeInsuranceAnnual = v; }
     },
     get loanAmount() {
-        return Math.max(0, this.homePrice - this.downPayment);
+        return Math.max(0, (parseFloat(this.homePrice) || 0) - Math.max(0, parseFloat(this.downPayment) || 0));
     },
     get monthlyPrincipalInterest() {
         const principal = this.loanAmount;
+        const years = Math.max(1, parseInt(this.loanYears, 10) || 1);
         if (principal <= 0) return 0;
-        const monthlyRate = (this.interestRate / 100) / 12;
-        const totalMonths = this.loanYears * 12;
+        const monthlyRate = Math.max(0, parseFloat(this.interestRate) || 0) / 100 / 12;
+        const totalMonths = years * 12;
         if (monthlyRate === 0) return principal / totalMonths;
         return (principal * (monthlyRate * Math.pow(1 + monthlyRate, totalMonths))) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
     },
     get monthlyPropertyTax() {
-        return (this.propertyTaxAnnual || 0) / 12;
+        return Math.max(0, parseFloat(this.propertyTaxAnnual) || 0) / 12;
     },
     get monthlyInsurance() {
-        return (this.homeInsuranceAnnual || 0) / 12;
+        return Math.max(0, parseFloat(this.homeInsuranceAnnual) || 0) / 12;
     },
     get totalMonthlyPayment() {
-        return this.monthlyPrincipalInterest + this.monthlyPropertyTax + this.monthlyInsurance + (this.pmiMonthly || 0);
+        return this.monthlyPrincipalInterest + this.monthlyPropertyTax + this.monthlyInsurance + Math.max(0, parseFloat(this.pmiMonthly) || 0);
     },
     get totalInterestPaid() {
-        return Math.max(0, (this.monthlyPrincipalInterest * this.loanYears * 12) - this.loanAmount);
+        const years = Math.max(1, parseInt(this.loanYears, 10) || 1);
+        return Math.max(0, (this.monthlyPrincipalInterest * years * 12) - this.loanAmount);
     },
     exportScheduleCsv() {
         const principal = this.loanAmount;
-        const totalMonths = this.loanYears * 12;
-        const monthlyRate = (this.interestRate / 100) / 12;
+        const years = Math.max(1, parseInt(this.loanYears, 10) || 1);
+        const monthlyRate = Math.max(0, parseFloat(this.interestRate) || 0) / 100 / 12;
         const pmt = this.monthlyPrincipalInterest;
         let balance = principal;
         let csv = 'Year,Starting Balance,Principal Paid,Interest Paid,Total Installment,Ending Balance\n';
-        for (let y = 1; y <= this.loanYears; y++) {
+        for (let y = 1; y <= years; y++) {
             let startBal = balance;
             let yrPrincipal = 0;
             let yrInterest = 0;
@@ -60,11 +62,7 @@
             csv += [y, startBal.toFixed(2), yrPrincipal.toFixed(2), yrInterest.toFixed(2), (yrPrincipal + yrInterest).toFixed(2), balance.toFixed(2)].join(',') + '\n';
             if (balance <= 0) break;
         }
-        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'mortgage-amortization-schedule.csv';
-        a.click();
+        window.downloadCsvBlob(csv, 'mortgage-amortization-schedule.csv');
     }
 }">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">

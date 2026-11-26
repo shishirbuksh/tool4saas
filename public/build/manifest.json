@@ -6,7 +6,7 @@
     "isDynamicEntry": true
   },
   "node_modules/jsbarcode/bin/JsBarcode.js": {
-    "file": "assets/JsBarcode-BjqvcNta.js",
+    "file": "assets/JsBarcode-C9pECtea.js",
     "name": "JsBarcode",
     "src": "node_modules/jsbarcode/bin/JsBarcode.js",
     "isDynamicEntry": true,
@@ -15,7 +15,7 @@
     ]
   },
   "node_modules/jsqr/dist/jsQR.js": {
-    "file": "assets/jsQR-CSXbljhg.js",
+    "file": "assets/jsQR-talfJbPa.js",
     "name": "jsQR",
     "src": "node_modules/jsqr/dist/jsQR.js",
     "isDynamicEntry": true,
@@ -24,7 +24,7 @@
     ]
   },
   "node_modules/pdf-lib/es/index.js": {
-    "file": "assets/es-D1ewtNDa.js",
+    "file": "assets/es-BlCPdzB9.js",
     "name": "es",
     "src": "node_modules/pdf-lib/es/index.js",
     "isDynamicEntry": true,
@@ -32,8 +32,27 @@
       "resources/js/app.js"
     ]
   },
+  "node_modules/pdfjs-dist/build/pdf.mjs": {
+    "file": "assets/pdf-CyczeqB8.js",
+    "name": "pdf",
+    "src": "node_modules/pdfjs-dist/build/pdf.mjs",
+    "isDynamicEntry": true
+  },
+  "node_modules/pdfjs-dist/build/pdf.worker.min.mjs": {
+    "file": "assets/pdf.worker.min-Dswkl-cV.mjs",
+    "src": "node_modules/pdfjs-dist/build/pdf.worker.min.mjs"
+  },
+  "node_modules/pdfjs-dist/build/pdf.worker.min.mjs?url": {
+    "file": "assets/pdf.worker.min-DxaqaZIw.js",
+    "name": "pdf.worker.min",
+    "src": "node_modules/pdfjs-dist/build/pdf.worker.min.mjs?url",
+    "isDynamicEntry": true,
+    "assets": [
+      "assets/pdf.worker.min-Dswkl-cV.mjs"
+    ]
+  },
   "node_modules/qrcode/lib/browser.js": {
-    "file": "assets/browser-12ejRhdl.js",
+    "file": "assets/browser-B_lhADch.js",
     "name": "browser",
     "src": "node_modules/qrcode/lib/browser.js",
     "isDynamicEntry": true,
@@ -42,7 +61,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-CEPgLOGH.css",
+    "file": "assets/app-DJsKA813.css",
     "name": "app",
     "names": [
       "app.css"
@@ -51,7 +70,7 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-CwlhLfBU.js",
+    "file": "assets/app-DfGEQukH.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -59,6 +78,8 @@
       "node_modules/qrcode/lib/browser.js",
       "node_modules/jsbarcode/bin/JsBarcode.js",
       "node_modules/pdf-lib/es/index.js",
+      "node_modules/pdfjs-dist/build/pdf.mjs",
+      "node_modules/pdfjs-dist/build/pdf.worker.min.mjs?url",
       "node_modules/jsqr/dist/jsQR.js",
       "node_modules/fflate/esm/browser.js"
     ]

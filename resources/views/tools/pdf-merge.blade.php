@@ -1,11 +1,17 @@
 <x-card class="p-6 md:p-8" x-data="{
     files: [],
     busy: false,
+    errorMsg: '',
     onFiles(e) {
         this.files = Array.from(e.target.files);
+        this.errorMsg = '';
     },
     async merge() {
-        if (this.files.length < 2) return alert('Please select at least 2 PDF files to merge.');
+        this.errorMsg = '';
+        if (this.files.length < 2) {
+            this.errorMsg = 'Please select at least 2 PDF files to merge.';
+            return;
+        }
         this.busy = true;
         try {
             if (!window.PDFLib && window.loadPdfLib) {
@@ -26,18 +32,22 @@
                 a.href = url;
                 a.download = 'merged-document.pdf';
                 a.click();
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
             } else {
-                alert('PDF Merge engine loaded in browser memory.');
+                this.errorMsg = 'PDF Merge engine could not initialize in this browser.';
             }
         } catch(e) {
-            alert('Merge error: ' + e.message);
+            this.errorMsg = 'Merge error: ' + e.message;
         }
         this.busy = false;
     }
 }">
     <div class="space-y-6">
+        <div x-show="errorMsg" x-cloak role="alert" class="alert alert-error rounded-2xl text-xs font-semibold" x-text="errorMsg"></div>
+
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">
-            <input type="file" accept="application/pdf" multiple @change="onFiles($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
+            <label for="pdf-merge-input" class="sr-only">Select 2 or more PDF files</label>
+            <input id="pdf-merge-input" type="file" accept="application/pdf" multiple @change="onFiles($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
             <p class="text-xs text-base-content/60 mt-3">Select 2 or more PDF files to combine into a unified multi-page document.</p>
         </div>
 

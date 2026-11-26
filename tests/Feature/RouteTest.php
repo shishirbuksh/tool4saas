@@ -138,7 +138,7 @@ final class RouteTest extends TestCase
         $response->assertHeader('X-Content-Type-Options', 'nosniff');
         $response->assertHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
         $response->assertHeader('Strict-Transport-Security');
-        $response->assertHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
+        $response->assertHeader('Permissions-Policy', 'camera=(), microphone=(self), geolocation=(), payment=()');
         $response->assertHeader('X-Frame-Options', 'SAMEORIGIN');
     }
 
@@ -159,10 +159,39 @@ final class RouteTest extends TestCase
         $response->assertStatus(404);
         $response->assertSee('Page Not Found');
         $response->assertSee('Return to Homepage');
+        expect((string) $response->getContent())->not->toContain('adsbygoogle');
 
         expect(view()->exists('errors.403'))->toBeTrue();
         expect(view()->exists('errors.404'))->toBeTrue();
         expect(view()->exists('errors.419'))->toBeTrue();
         expect(view()->exists('errors.503'))->toBeTrue();
+    }
+
+    public function test_stateless_routes_emit_no_cookies_and_contact_form_works(): void
+    {
+        $home = $this->get('/');
+        $home->assertStatus(200);
+        expect($home->headers->getCookies())->toBe([]);
+
+        $tool = $this->get('/word-counter');
+        $tool->assertStatus(200);
+        expect($tool->headers->getCookies())->toBe([]);
+
+        $badContact = $this->from('/contact')->post('/contact', [
+            'name' => '',
+            'email' => 'not-an-email',
+            'message' => '',
+        ]);
+        $badContact->assertRedirect('/contact');
+        $badContact->assertSessionHasErrors(['name', 'email', 'message']);
+
+        $honeypot = $this->from('/contact')->post('/contact', [
+            'name' => 'Bot',
+            'email' => 'bot@example.com',
+            'message' => 'Spam message long enough to pass validation.',
+            'website' => 'https://spam.example.com',
+        ]);
+        $honeypot->assertRedirect('/contact');
+        $honeypot->assertSessionHas('success');
     }
 }

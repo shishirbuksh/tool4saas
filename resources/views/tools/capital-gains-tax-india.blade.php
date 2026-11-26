@@ -5,10 +5,10 @@
     holdingPeriodYears: 2,
     init() {
         const params = new URLSearchParams(window.location.search);
-        if (params.has('buy')) this.purchasePrice = parseFloat(params.get('buy')) || this.purchasePrice;
-        if (params.has('sell')) this.salePrice = parseFloat(params.get('sell')) || this.salePrice;
+        if (params.has('buy')) { const b = parseFloat(params.get('buy')); if (!isNaN(b) && b >= 0) this.purchasePrice = b; }
+        if (params.has('sell')) { const s = parseFloat(params.get('sell')); if (!isNaN(s) && s >= 0) this.salePrice = s; }
         if (params.has('type') && ['equity_listed', 'real_estate'].includes(params.get('type'))) this.assetType = params.get('type');
-        if (params.has('years')) this.holdingPeriodYears = parseFloat(params.get('years')) || this.holdingPeriodYears;
+        if (params.has('years')) { const y = parseFloat(params.get('years')); if (!isNaN(y) && y >= 0) this.holdingPeriodYears = y; }
     },
     setPreset(buy, sell, type, years) {
         this.purchasePrice = buy;
@@ -20,7 +20,7 @@
         return Math.max(0, (parseFloat(this.salePrice) || 0) - (parseFloat(this.purchasePrice) || 0));
     },
     get isLtcg() {
-        const y = parseFloat(this.holdingPeriodYears) || 0;
+        const y = Math.max(0, parseFloat(this.holdingPeriodYears) || 0);
         if (this.assetType === 'equity_listed') return y > 1;
         if (this.assetType === 'real_estate') return y > 2;
         return false;
@@ -33,14 +33,16 @@
                 // Post-Budget 2024: 12.5% above ₹1.25 Lakh exemption
                 const taxable = Math.max(0, g - 125000);
                 return taxable * 0.125 * 1.04;
-            } else {
-                // STCG: 20%
-                return g * 0.20 * 1.04;
             }
-        } else {
-            // Real estate post-July 2024: 12.5% without indexation
+            // Equity STCG: 20% + 4% cess
+            return g * 0.20 * 1.04;
+        }
+        if (this.isLtcg) {
+            // Real estate LTCG (>2 yrs) post-July 2024: 12.5% without indexation + 4% cess
             return g * 0.125 * 1.04;
         }
+        // Real estate STCG (<=2 yrs): Taxed at income slab (estimated at 30% top marginal slab + 4% cess)
+        return g * 0.30 * 1.04;
     }
 }">
     <div class="space-y-6">
@@ -94,7 +96,7 @@
 
             <div class="p-6 rounded-[20px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase tracking-widest text-base-content/60 font-bold font-mono">Total Capital Gain Profit</span>
-                <p class="font-mono text-4xl font-extrabold mt-2 text-primary" x-text="'₹' + Math.round(gain).toLocaleString('en-IN')"></p>
+                <p class="font-mono text-4xl font-extrabold mt-2 text-[#163300] dark:text-[#9fe870]" x-text="'₹' + Math.round(gain).toLocaleString('en-IN')"></p>
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Net Profit after Tax: ₹' + Math.round(gain - tax).toLocaleString('en-IN')"></p>
             </div>
         </div>

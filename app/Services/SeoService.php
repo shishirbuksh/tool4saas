@@ -273,7 +273,6 @@ final class SeoService
         ];
 
         $webAppEntity = [
-            '@context' => 'https://schema.org',
             '@type' => 'WebApplication',
             '@id' => "{$url}#webapp",
             'url' => $url,
@@ -308,7 +307,6 @@ final class SeoService
         $graph = [
             $webAppEntity,
             [
-                '@context' => 'https://schema.org',
                 '@type' => 'BreadcrumbList',
                 'itemListElement' => [
                     [
@@ -346,7 +344,6 @@ final class SeoService
                 ];
             }
             $graph[] = [
-                '@context' => 'https://schema.org',
                 '@type' => 'FAQPage',
                 'mainEntity' => $faqElements,
             ];
@@ -363,7 +360,6 @@ final class SeoService
                 ];
             }
             $graph[] = [
-                '@context' => 'https://schema.org',
                 '@type' => 'HowTo',
                 'name' => "How to use the {$tool->title}",
                 'description' => self::stripMarkdown($tool->description),
@@ -371,7 +367,7 @@ final class SeoService
             ];
         }
 
-        return ['@graph' => $graph];
+        return ['@context' => 'https://schema.org', '@graph' => $graph];
     }
 
     /**
@@ -531,7 +527,7 @@ final class SeoService
                     '@type' => 'CollectionPage',
                     '@id' => "{$canonical}#collection",
                     'url' => $canonical,
-                    'name' => "{$category->label} Tools",
+                    'name' => str_ends_with($category->label, 'Tools') ? $category->label : "{$category->label} Tools",
                     'description' => $category->description,
                     'inLanguage' => 'en',
                     'isPartOf' => [

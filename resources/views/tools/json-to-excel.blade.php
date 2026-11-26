@@ -1,29 +1,43 @@
 <x-card class="p-6 md:p-8" x-data="{
     input: '[{\x22id\x22:1,\x22name\x22:\x22Alice\x22,\x22role\x22:\x22Engineer\x22},{\x22id\x22:2,\x22name\x22:\x22Bob\x22,\x22role\x22:\x22Designer\x22}]',
+    errorMsg: '',
+    escapeCsvCell(val) {
+        if (val === null || val === undefined) return '\x22\x22';
+        const s = typeof val === 'object' ? JSON.stringify(val) : String(val);
+        return '\x22' + s.replace(/\x22/g, '\x22\x22') + '\x22';
+    },
     downloadCsv() {
+        this.errorMsg = '';
         try {
             const data = JSON.parse(this.input);
-            if (!Array.isArray(data) || !data.length) return alert('JSON must be an array of objects.');
+            if (!Array.isArray(data) || !data.length || typeof data[0] !== 'object') {
+                this.errorMsg = 'JSON input must be a non-empty array of objects.';
+                return;
+            }
             const headers = Object.keys(data[0]);
-            let csv = headers.join(',') + '\n';
+            let csv = headers.map(h => this.escapeCsvCell(h)).join(',') + '\n';
             data.forEach(row => {
-                csv += headers.map(h => JSON.stringify(row[h] !== undefined ? row[h] : '')).join(',') + '\n';
+                csv += headers.map(h => this.escapeCsvCell(row[h])).join(',') + '\n';
             });
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
             a.download = 'export.csv';
             a.click();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
         } catch(e) {
-            alert('Invalid JSON: ' + e.message);
+            this.errorMsg = 'Invalid JSON: ' + e.message;
         }
     }
 }">
     <div class="space-y-6">
+        <div x-show="errorMsg" x-cloak role="alert" class="alert alert-error rounded-2xl text-xs font-semibold" x-text="errorMsg"></div>
+
         <div>
-            <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">JSON Array Input</label>
+            <label for="json-excel-input" class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">JSON Array Input</label>
             <textarea
+                id="json-excel-input"
                 x-model="input"
                 rows="8"
                 placeholder='[{"id": 1, "name": "Item"}]'
@@ -31,8 +45,8 @@
             ></textarea>
         </div>
 
-        <button type="button" @click="downloadCsv()" class="btn btn-primary rounded-[12px] font-bold">
-            Export & Download CSV (Excel Compatible)
+        <button type="button" @click="downloadCsv()" class="btn btn-primary rounded-[12px] font-bold min-h-[44px]">
+            Export &amp; Download CSV (Excel Compatible)
         </button>
 
         {{-- Technical Comparison: Structured Data Exchange Formats Matrix --}}
