@@ -8,7 +8,7 @@
         lightColor: '#ffffff',
         renderQr() {
             if (!this.text.trim()) return;
-            const canvas = document.getElementById('qr-canvas');
+            const canvas = this.$refs.qrCanvas;
             if (!canvas) return;
 
             if (window.QRCode && window.QRCode.toCanvas) {
@@ -26,7 +26,7 @@
             }
         },
         downloadPng() {
-            const canvas = document.getElementById('qr-canvas');
+            const canvas = this.$refs.qrCanvas;
             if (!canvas) return;
             const link = document.createElement('a');
             link.download = 'qrcode.png';
@@ -116,7 +116,7 @@
             {{-- Right: QR Code Preview & Action Buttons --}}
             <div class="flex flex-col items-center justify-center p-7 rounded-3xl bg-base-200/60 border border-base-300 text-center">
                 <div class="p-5 bg-white rounded-3xl shadow-sm mb-6 inline-block">
-                    <canvas id="qr-canvas" class="max-w-full h-auto rounded-xl"></canvas>
+                    <canvas x-ref="qrCanvas" id="qr-canvas" class="max-w-full h-auto rounded-xl"></canvas>
                 </div>
 
                 <div class="space-y-2 w-full max-w-xs">

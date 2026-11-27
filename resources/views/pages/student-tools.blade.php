@@ -1,7 +1,134 @@
+@php
+    $studentTools = [
+        [
+            'slug' => 'attendance-calculator',
+            'name' => 'Attendance & Bunk Calculator',
+            'category' => 'attendance',
+            'badge' => '75% Mandatory Rule',
+            'icon' => '🏫',
+            'description' => 'Calculate your college attendance percentage and find out how many classes you can safely bunk or must attend to maintain 75% or 80%.',
+            'features' => ['75% UGC/AICTE presets', 'Bunk margin calculation', 'Recovery class quota'],
+        ],
+        [
+            'slug' => 'final-grade-calculator',
+            'name' => 'Final Exam Grade Calculator',
+            'category' => 'attendance',
+            'badge' => 'Exam Target',
+            'icon' => '🎯',
+            'description' => 'Determine the exact score you need on your final exam to pass or secure an A, B, or C based on your syllabus category weightings.',
+            'features' => ['Weighted syllabus algebra', 'Alternate letter grade matrix', 'Difficulty status meter'],
+        ],
+        [
+            'slug' => 'cgpa-to-percentage-calculator',
+            'name' => 'CGPA to Percentage Calculator',
+            'category' => 'gpa',
+            'badge' => 'CBSE, VTU & Uni Scales',
+            'icon' => '🇮🇳',
+            'description' => 'Convert 10-point CGPA to equivalent percentage using official CBSE 9.5 multiplier, VTU, Mumbai University, and standard formulas.',
+            'features' => ['CBSE 9.5x official rule', 'VTU [CGPA-0.75]x10', 'Mumbai Uni piecewise engine'],
+        ],
+        [
+            'slug' => 'gpa-calculator',
+            'name' => 'College & High School GPA Calculator',
+            'category' => 'gpa',
+            'badge' => '4.0 Scale & Weighted',
+            'icon' => '📊',
+            'description' => 'Calculate cumulative semester GPA on standard 4.0 scale with support for AP, IB, and college course unit credit weightings.',
+            'features' => ["Dean's list 3.92 benchmark", 'Letter grade conversions', 'Credit hour weighting'],
+        ],
+        [
+            'slug' => 'grade-calculator',
+            'name' => 'Weighted Course Grade Calculator',
+            'category' => 'gpa',
+            'badge' => 'Syllabus Planner',
+            'icon' => '⚖️',
+            'description' => 'Compute overall weighted course average across homework assignments, quizzes, lab reports, midterms, and final exam categories.',
+            'features' => ['Custom weight percentages', 'Multi-assessment rows', 'College & STEM lab presets'],
+        ],
+        [
+            'slug' => 'percentage-calculator',
+            'name' => 'Percentage & Marks Calculator',
+            'category' => 'gpa',
+            'badge' => 'Exam Marks',
+            'icon' => '🔢',
+            'description' => 'Calculate exam marks percentage, fraction of totals, percentage increase, discounts, and proportional academic mark distributions.',
+            'features' => ['Marks to percentage', 'Percentage of a number', 'Step-by-step breakdown'],
+        ],
+        [
+            'slug' => 'scientific-calculator',
+            'name' => 'Scientific Calculator',
+            'category' => 'math',
+            'badge' => 'Trig & Calculus',
+            'icon' => '🔬',
+            'description' => 'Advanced browser scientific calculator supporting trigonometry, logarithms, roots, powers, factorials, and Deg/Rad angle modes.',
+            'features' => ['PEMDAS hierarchy', 'Trigonometric functions', 'Logarithmic calculations'],
+        ],
+        [
+            'slug' => 'fraction-calculator',
+            'name' => 'Fraction & Mixed Number Calculator',
+            'category' => 'math',
+            'badge' => 'Mixed Fractions',
+            'icon' => '➗',
+            'description' => 'Add, subtract, multiply, and divide proper, improper, and mixed fractions with automatic unlike-denominator simplification.',
+            'features' => ['Greatest common divisor', 'Unlike denominators', 'Decimal fraction conversion'],
+        ],
+        [
+            'slug' => 'percentage-change',
+            'name' => 'Percentage Change & Growth Calculator',
+            'category' => 'math',
+            'badge' => 'Score Growth',
+            'icon' => '📈',
+            'description' => 'Measure score improvement, test score changes, grade growth, and percentage difference between baseline and final exams.',
+            'features' => ['Percent increase / decrease', 'Initial vs final values', 'Absolute difference'],
+        ],
+        [
+            'slug' => 'word-counter',
+            'name' => 'Essay Word & Reading Time Counter',
+            'category' => 'writing',
+            'badge' => 'Essay Helper',
+            'icon' => '📝',
+            'description' => 'Count words, characters, sentences, paragraphs, and estimated speech and reading times for thesis papers and term essays.',
+            'features' => ['Character limits tracker', 'Reading time estimator', 'Keyword density checker'],
+        ],
+        [
+            'slug' => 'plagiarism-checker',
+            'name' => 'Plagiarism & Text Similarity Checker',
+            'category' => 'writing',
+            'badge' => 'Originality Check',
+            'icon' => '🔍',
+            'description' => 'Compare essay drafts, assignments, and reference papers to identify matching phrases and uncredited text overlap locally.',
+            'features' => ['100% private comparison', 'N-gram phrase matching', 'Zero data transmission'],
+        ],
+        [
+            'slug' => 'typing-speed-test',
+            'name' => 'Typing Speed Test (WPM & Accuracy)',
+            'category' => 'writing',
+            'badge' => 'WPM Test',
+            'icon' => '⌨️',
+            'description' => 'Test and improve typing words per minute (WPM), keystroke accuracy, and error rate before taking timed online examinations.',
+            'features' => ['1-minute speed trials', 'Live gross & net WPM', 'Real-time accuracy analysis'],
+        ],
+        [
+            'slug' => 'student-loan-calculator',
+            'name' => 'Student Loan Repayment & Payoff Calculator',
+            'category' => 'gpa',
+            'badge' => 'Student Debt & IDR',
+            'icon' => '💳',
+            'description' => 'Calculate student loan monthly payments, extra principal interest savings, and federal IDR/SAVE income-driven repayment plans.',
+            'features' => ['10-year standard vs IDR', 'Extra payment savings', 'Full amortization schedule'],
+        ],
+    ];
+
+    $filterIndex = array_map(fn (array $t): array => [
+        'cat' => $t['category'],
+        'hay' => strtolower($t['name'].' '.$t['description'].' '.$t['badge'].' '.implode(' ', $t['features'])),
+    ], $studentTools);
+@endphp
+
 <x-layouts.app>
     @push('seo')
         <x-seo
-            title="Free Student Tools &amp; Study Calculators — Attendance, GPA, Finals"
+            title="Free Student Tools & Study Calculators — Attendance, GPA"
             description="Free online student tools: calculate 75% attendance bunk limits, final exam target scores, CGPA to percentage, and 4.0 GPA with zero signup and 100% privacy."
             canonical="{{ url('/student-tools') }}"
             :jsonLd="[
@@ -46,149 +173,14 @@
         x-data="{
             searchQuery: '',
             selectedCategory: 'all',
-            tools: [
-                {
-                    slug: 'attendance-calculator',
-                    name: 'Attendance & Bunk Calculator',
-                    category: 'attendance',
-                    categoryLabel: 'Attendance & Finals',
-                    badge: '75% Mandatory Rule',
-                    icon: '🏫',
-                    description: 'Calculate your college attendance percentage and find out how many classes you can safely bunk or must attend to maintain 75% or 80%.',
-                    features: ['75% UGC/AICTE presets', 'Bunk margin calculation', 'Recovery class quota']
-                },
-                {
-                    slug: 'final-grade-calculator',
-                    name: 'Final Exam Grade Calculator',
-                    category: 'attendance',
-                    categoryLabel: 'Attendance & Finals',
-                    badge: 'Exam Target',
-                    icon: '🎯',
-                    description: 'Determine the exact score you need on your final exam to pass or secure an A, B, or C based on your syllabus category weightings.',
-                    features: ['Weighted syllabus algebra', 'Alternate letter grade matrix', 'Difficulty status meter']
-                },
-                {
-                    slug: 'cgpa-to-percentage-calculator',
-                    name: 'CGPA to Percentage Calculator',
-                    category: 'gpa',
-                    categoryLabel: 'GPA & Grades',
-                    badge: 'CBSE, VTU & Uni Scales',
-                    icon: '🇮🇳',
-                    description: 'Convert 10-point CGPA to equivalent percentage using official CBSE 9.5 multiplier, VTU, Mumbai University, and standard formulas.',
-                    features: ['CBSE 9.5x official rule', 'VTU [CGPA-0.75]x10', 'Mumbai Uni piecewise engine']
-                },
-                {
-                    slug: 'gpa-calculator',
-                    name: 'College & High School GPA Calculator',
-                    category: 'gpa',
-                    categoryLabel: 'GPA & Grades',
-                    badge: '4.0 Scale & Weighted',
-                    icon: '📊',
-                    description: 'Calculate cumulative semester GPA on standard 4.0 scale with support for AP, IB, and college course unit credit weightings.',
-                    features: ['Dean\'s list 3.92 benchmark', 'Letter grade conversions', 'Credit hour weighting']
-                },
-                {
-                    slug: 'grade-calculator',
-                    name: 'Weighted Course Grade Calculator',
-                    category: 'gpa',
-                    categoryLabel: 'GPA & Grades',
-                    badge: 'Syllabus Planner',
-                    icon: '⚖️',
-                    description: 'Compute overall weighted course average across homework assignments, quizzes, lab reports, midterms, and final exam categories.',
-                    features: ['Custom weight percentages', 'Multi-assessment rows', 'College & STEM lab presets']
-                },
-                {
-                    slug: 'percentage-calculator',
-                    name: 'Percentage & Marks Calculator',
-                    category: 'gpa',
-                    categoryLabel: 'GPA & Grades',
-                    badge: 'Exam Marks',
-                    icon: '🔢',
-                    description: 'Calculate exam marks percentage, fraction of totals, percentage increase, discounts, and proportional academic mark distributions.',
-                    features: ['Marks to percentage', 'Percentage of a number', 'Step-by-step breakdown']
-                },
-                {
-                    slug: 'scientific-calculator',
-                    name: 'Scientific Calculator',
-                    category: 'math',
-                    categoryLabel: 'Math & STEM',
-                    badge: 'Trig & Calculus',
-                    icon: '🔬',
-                    description: 'Advanced browser scientific calculator supporting trigonometry, logarithms, roots, powers, factorials, and Deg/Rad angle modes.',
-                    features: ['PEMDAS hierarchy', 'Trigonometric functions', 'Logarithmic calculations']
-                },
-                {
-                    slug: 'fraction-calculator',
-                    name: 'Fraction & Mixed Number Calculator',
-                    category: 'math',
-                    categoryLabel: 'Math & STEM',
-                    badge: 'Mixed Fractions',
-                    icon: '➗',
-                    description: 'Add, subtract, multiply, and divide proper, improper, and mixed fractions with automatic unlike-denominator simplification.',
-                    features: ['Greatest common divisor', 'Unlike denominators', 'Decimal fraction conversion']
-                },
-                {
-                    slug: 'percentage-change',
-                    name: 'Percentage Change & Growth Calculator',
-                    category: 'math',
-                    categoryLabel: 'Math & STEM',
-                    badge: 'Score Growth',
-                    icon: '📈',
-                    description: 'Measure score improvement, test score changes, grade growth, and percentage difference between baseline and final exams.',
-                    features: ['Percent increase / decrease', 'Initial vs final values', 'Absolute difference']
-                },
-                {
-                    slug: 'word-counter',
-                    name: 'Essay Word & Reading Time Counter',
-                    category: 'writing',
-                    categoryLabel: 'Writing & Essays',
-                    badge: 'Essay Helper',
-                    icon: '📝',
-                    description: 'Count words, characters, sentences, paragraphs, and estimated speech and reading times for thesis papers and term essays.',
-                    features: ['Character limits tracker', 'Reading time estimator', 'Keyword density checker']
-                },
-                {
-                    slug: 'plagiarism-checker',
-                    name: 'Plagiarism & Text Similarity Checker',
-                    category: 'writing',
-                    categoryLabel: 'Writing & Essays',
-                    badge: 'Originality Check',
-                    icon: '🔍',
-                    description: 'Compare essay drafts, assignments, and reference papers to identify matching phrases and uncredited text overlap locally.',
-                    features: ['100% private comparison', 'N-gram phrase matching', 'Zero data transmission']
-                },
-                {
-                    slug: 'typing-speed-test',
-                    name: 'Typing Speed Test (WPM & Accuracy)',
-                    category: 'writing',
-                    categoryLabel: 'Writing & Essays',
-                    badge: 'WPM Test',
-                    icon: '⌨️',
-                    description: 'Test and improve typing words per minute (WPM), keystroke accuracy, and error rate before taking timed online examinations.',
-                    features: ['1-minute speed trials', 'Live gross & net WPM', 'Real-time accuracy analysis']
-                },
-                {
-                    slug: 'student-loan-calculator',
-                    name: 'Student Loan Repayment & Payoff Calculator',
-                    category: 'gpa',
-                    categoryLabel: 'GPA & Finance',
-                    badge: 'Student Debt & IDR',
-                    icon: '💳',
-                    description: 'Calculate student loan monthly payments, extra principal interest savings, and federal IDR/SAVE income-driven repayment plans.',
-                    features: ['10-year standard vs IDR', 'Extra payment savings', 'Full amortization schedule']
-                }
-            ],
-            get filteredTools() {
+            index: @js($filterIndex),
+            matches(cat, hay) {
                 const q = this.searchQuery.toLowerCase().trim();
-                return this.tools.filter(t => {
-                    const matchesCategory = this.selectedCategory === 'all' || t.category === this.selectedCategory;
-                    const matchesQuery = q === '' ||
-                        t.name.toLowerCase().includes(q) ||
-                        t.description.toLowerCase().includes(q) ||
-                        t.badge.toLowerCase().includes(q) ||
-                        t.features.some(f => f.toLowerCase().includes(q));
-                    return matchesCategory && matchesQuery;
-                });
+                const catOk = this.selectedCategory === 'all' || cat === this.selectedCategory;
+                return catOk && (q === '' || hay.includes(q));
+            },
+            get filteredCount() {
+                return this.index.filter((item) => this.matches(item.cat, item.hay)).length;
             }
         }"
         class="min-h-screen pb-16"
@@ -293,12 +285,12 @@
             </div>
         </section>
 
-        {{-- Tools Grid Section --}}
+        {{-- Tools Grid Section (100% SSR HTML cards + Alpine reactive filtering) --}}
         <section aria-label="Student Tools Directory" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14">
             <div class="flex items-center justify-between mb-8">
                 <div>
                     <h2 class="text-xl sm:text-2xl font-black text-base-content font-display">
-                        <span x-text="filteredTools.length"></span> Student Utilities Ready to Launch
+                        <span x-text="filteredCount">13</span> Student Utilities Ready to Launch
                     </h2>
                     <p class="text-xs text-base-content/60 font-mono mt-1">
                         Select any tool below to compute results instantly in your browser with zero data storage.
@@ -306,47 +298,52 @@
                 </div>
             </div>
 
-            {{-- Grid of Tools --}}
+            {{-- SSR Grid of Tools --}}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <template x-for="tool in filteredTools" :key="tool.slug">
-                    <div class="bg-base-100 border border-base-300 rounded-3xl p-6 sm:p-7 shadow-sm hover:border-primary hover:shadow-md transition-all flex flex-col justify-between group">
+                @foreach ($studentTools as $idx => $tool)
+                    <div
+                        x-show="matches(index[{{ $idx }}].cat, index[{{ $idx }}].hay)"
+                        class="bg-base-100 border border-base-300 rounded-3xl p-6 sm:p-7 shadow-sm hover:border-primary hover:shadow-md transition-all flex flex-col justify-between group"
+                    >
                         <div class="space-y-4">
                             <div class="flex items-start justify-between gap-3">
                                 <div class="w-12 h-12 rounded-2xl bg-base-200 border border-base-300 flex items-center justify-center text-2xl group-hover:scale-105 transition-transform">
-                                    <span x-text="tool.icon"></span>
+                                    <span>{{ $tool['icon'] }}</span>
                                 </div>
-                                <span class="px-3 py-1 rounded-full text-[11px] font-bold font-mono uppercase tracking-wider bg-[#e2f6d5] text-[#054d28]" x-text="tool.badge"></span>
+                                <span class="px-3 py-1 rounded-full text-[11px] font-bold font-mono uppercase tracking-wider bg-[#e2f6d5] text-[#054d28]">{{ $tool['badge'] }}</span>
                             </div>
 
                             <div>
-                                <h3 class="text-lg font-bold text-base-content font-display group-hover:text-primary transition-colors" x-text="tool.name"></h3>
-                                <p class="text-xs text-base-content/70 mt-2 leading-relaxed" x-text="tool.description"></p>
+                                <h3 class="text-lg font-bold text-base-content font-display group-hover:text-[#163300] dark:group-hover:text-[#9fe870] transition-colors">
+                                    <a href="/{{ $tool['slug'] }}" class="no-underline text-inherit">{{ $tool['name'] }}</a>
+                                </h3>
+                                <p class="text-xs text-base-content/70 mt-2 leading-relaxed">{{ $tool['description'] }}</p>
                             </div>
 
                             {{-- Feature Chips --}}
                             <div class="flex flex-wrap gap-1.5 pt-2">
-                                <template x-for="(feat, fIdx) in tool.features" :key="fIdx">
-                                    <span class="px-2 py-0.5 rounded-md bg-base-200/80 text-[10px] font-mono text-base-content/70" x-text="'✓ ' + feat"></span>
-                                </template>
+                                @foreach ($tool['features'] as $feat)
+                                    <span class="px-2 py-0.5 rounded-md bg-base-200/80 text-[10px] font-mono text-base-content/70">✓ {{ $feat }}</span>
+                                @endforeach
                             </div>
                         </div>
 
                         {{-- Action Launch Button --}}
                         <div class="pt-6 mt-6 border-t border-base-200">
                             <a
-                                :href="'/' + tool.slug"
-                                class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-base-200 group-hover:bg-[#163300] text-base-content group-hover:text-[#9fe870] font-bold text-xs sm:text-sm transition-all no-underline shadow-xs"
+                                href="/{{ $tool['slug'] }}"
+                                class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-base-200 group-hover:bg-[#163300] text-base-content group-hover:text-[#9fe870] font-bold text-xs sm:text-sm transition-all no-underline shadow-xs min-h-[44px]"
                             >
-                                <span>Open Tool</span>
+                                <span>Open {{ $tool['name'] }}</span>
                                 <span class="group-hover:translate-x-1 transition-transform">→</span>
                             </a>
                         </div>
                     </div>
-                </template>
+                @endforeach
             </div>
 
             {{-- Empty State --}}
-            <div x-show="filteredTools.length === 0" style="display: none;" class="text-center py-16 bg-base-100 rounded-3xl border border-base-300 p-8">
+            <div x-show="filteredCount === 0" x-cloak style="display: none;" class="text-center py-16 bg-base-100 rounded-3xl border border-base-300 p-8">
                 <span class="text-4xl block mb-2">🔍</span>
                 <h3 class="text-lg font-bold">No student tools match your search</h3>
                 <p class="text-xs text-base-content/60 mt-1">Try searching for keywords like "bunk", "attendance", "grade", "gpa", or "fraction".</p>
@@ -355,23 +352,14 @@
                 </button>
             </div>
 
-            {{-- Crawlable SSR fallback links for non-JS crawlers --}}
-            <noscript>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-                    @foreach (['attendance-calculator' => 'Attendance & Bunk Calculator', 'final-grade-calculator' => 'Final Exam Grade Calculator', 'cgpa-to-percentage-calculator' => 'CGPA to Percentage Converter', 'gpa-calculator' => 'Cumulative GPA Calculator', 'grade-calculator' => 'Weighted Course Grade Calculator', 'percentage-calculator' => 'Percentage Calculator', 'scientific-calculator' => 'Scientific Calculator', 'fraction-calculator' => 'Fraction & Mixed Number Calculator', 'percentage-change' => 'Percentage Change Calculator', 'word-counter' => 'Essay Word & Reading Time Counter', 'plagiarism-checker' => 'Plagiarism & Text Similarity Checker', 'typing-speed-test' => 'Typing Speed Test (WPM & Accuracy)', 'student-loan-calculator' => 'Student Loan Repayment Calculator'] as $sSlug => $sTitle)
-                        <a href="/{{ $sSlug }}" class="p-4 rounded-2xl bg-base-100 border border-base-300 text-sm font-bold text-base-content block">{{ $sTitle }}</a>
-                    @endforeach
-                </div>
-            </noscript>
-
             {{-- Educational Method & Privacy Guarantee Card --}}
             <div class="mt-14 bg-base-100 border border-base-300 rounded-3xl p-8 sm:p-10 shadow-sm space-y-6">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e2f6d5] text-[#054d28] font-bold text-xs uppercase tracking-wider">
                     <span>Student Privacy Guarantee</span>
                 </div>
-                <h3 class="text-2xl font-black text-base-content font-display">
+                <h2 class="text-2xl font-black text-base-content font-display">
                     Why Students Worldwide Trust Tool4SaaS
-                </h3>
+                </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-base-content/80 leading-relaxed">
                     <div class="p-4 rounded-2xl bg-base-200/50 border border-base-300 space-y-2">
                         <span class="font-bold text-sm text-base-content block">🔒 100% Browser Local</span>

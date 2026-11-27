@@ -6,30 +6,42 @@ on:
   pull_request:
 
 jobs:
-  unit:
+  laravel-quality-and-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run validate
-      - run: npm test
-      - run: npm run adsense:check
 
-  e2e:
-    runs-on: ubuntu-latest
-    needs: unit
-    steps:
-      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: mbstring, gd, intl, xml, curl, zip
+          coverage: none
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "20"
           cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - run: npm run build
-      - run: npm run test:e2e
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Install NPM dependencies & build Vite assets
+        run: |
+          npm ci --legacy-peer-deps
+          npm run build
+
+      - name: Verify Laravel route caching
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          php artisan route:cache
+          php artisan route:clear
+
+      - name: Run Laravel Pint code style check
+        run: ./vendor/bin/pint --test
+
+      - name: Run PHPStan Level 8 static analysis
+        run: ./vendor/bin/phpstan analyse --memory-limit=1G
+
+      - name: Run Pest test suite
+        run: php artisan test --parallel

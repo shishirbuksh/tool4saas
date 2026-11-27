@@ -60,7 +60,18 @@ final class RouteTest extends TestCase
         foreach ($pages as $page) {
             $response = $this->get($page);
             $response->assertStatus(200);
+            expect((string) $response->getContent())->not->toContain('&amp;amp;');
         }
+
+        $studentContent = (string) $this->get('/student-tools')->getContent();
+        expect($studentContent)
+            ->toContain('href="/attendance-calculator"')
+            ->not->toContain('<template x-for');
+
+        $devContent = (string) $this->get('/developer-tools')->getContent();
+        expect($devContent)
+            ->toContain('href="/json-formatter"')
+            ->not->toContain('<template x-for');
     }
 
     public function test_contact_form_submission(): void
