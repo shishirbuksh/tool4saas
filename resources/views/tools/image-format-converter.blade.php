@@ -28,6 +28,7 @@
                 const q = (parseInt(this.quality) || 90) / 100;
                 canvas.toBlob((blob) => {
                     if (blob) {
+                        if (this.convertedUrl) URL.revokeObjectURL(this.convertedUrl);
                         this.convertedSize = blob.size;
                         this.convertedUrl = URL.createObjectURL(blob);
                     }

@@ -63,6 +63,7 @@
                 const mime = this.file.type === 'image/png' ? 'image/png' : 'image/jpeg';
                 canvas.toBlob((blob) => {
                     if (blob) {
+                        if (this.compressedUrl) URL.revokeObjectURL(this.compressedUrl);
                         this.compressedUrl = URL.createObjectURL(blob);
                         this.compressedSize = blob.size;
                     }

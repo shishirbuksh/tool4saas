@@ -45,10 +45,12 @@
         download() {
             if (!this.output) return;
             const blob = new Blob([this.output], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
+            a.href = url;
             a.download = 'minified.txt';
             a.click();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
         }
     }">
         <div class="flex items-center gap-2 p-1.5 rounded-full bg-base-200 border border-base-300 w-fit">

@@ -60,10 +60,12 @@
             const ext = this.format === 'json' ? 'json' : 'csv';
             const type = this.format === 'json' ? 'application/json' : 'text/csv';
             const blob = new Blob([this.outputText], { type });
+            const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
+            a.href = url;
             a.download = 'fake-data.' + ext;
             a.click();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
         }
     }">
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 items-end">

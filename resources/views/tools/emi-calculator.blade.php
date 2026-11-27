@@ -54,10 +54,12 @@
             if (balance <= 0) break;
         }
         const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
+        a.href = url;
         a.download = 'emi-amortization-schedule.csv';
         a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
     }
 }">
     <div class="space-y-6">

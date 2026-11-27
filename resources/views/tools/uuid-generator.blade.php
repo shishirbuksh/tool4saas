@@ -64,10 +64,12 @@
         downloadTxt() {
             if (!this.uuids.length) return;
             const blob = new Blob([this.uuids.join('\n')], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
+            a.href = url;
             a.download = `uuids-${this.version}-${Date.now()}.txt`;
             a.click();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
         },
 
         setPreset(v, c, h, u) {

@@ -33,6 +33,7 @@
         a.href = url;
         a.download = 'barcode-' + this.format + '.svg';
         a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
     },
     async init() {
         if (!window.JsBarcode && window.loadJsBarcode) {

@@ -86,10 +86,12 @@
             const ext = this.mode === 'json2csv' ? (isTsv ? 'tsv' : 'csv') : 'json';
             const type = this.mode === 'json2csv' ? 'text/csv;charset=utf-8;' : 'application/json;charset=utf-8;';
             const blob = new Blob([this.output], { type: type });
+            const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
+            a.href = url;
             a.download = 'converted.' + ext;
             a.click();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
         }
     }">
         <div class="flex flex-wrap items-center justify-between gap-4">

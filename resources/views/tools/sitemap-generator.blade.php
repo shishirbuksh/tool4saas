@@ -34,6 +34,7 @@
             a.href = url;
             a.download = 'sitemap.xml';
             a.click();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
         }
     }">
         <div>
