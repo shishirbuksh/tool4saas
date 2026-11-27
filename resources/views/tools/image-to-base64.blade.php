@@ -18,7 +18,7 @@
     },
     copy(text) {
         if (!text) return;
-        navigator.clipboard.writeText(text);
+        window.copyTextSafe(text);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     },
@@ -66,8 +66,8 @@
                     class="border-2 border-dashed border-base-300 rounded-3xl p-8 sm:p-12 text-center hover:border-primary transition-colors bg-base-100 cursor-pointer"
                     @click="$refs.fileInput.click()"
                 >
-                    <input type="file" x-ref="fileInput" @change="handleFile($event)" accept="image/*" class="hidden" />
-                    <div class="size-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                    <input aria-label="Upload file for Image To Base64" type="file" x-ref="fileInput" @change="handleFile($event)" accept="image/*" class="hidden" />
+                    <div class="size-16 rounded-full bg-primary/10 text-[#163300] dark:text-[#9fe870] flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                         📁
                     </div>
                     <h3 class="text-lg font-bold text-base-content font-display">Drag &amp; drop your image here</h3>
@@ -116,7 +116,7 @@
 
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Full Base64 Encoded String</label>
-                            <textarea x-model="dataUrl" readonly rows="5" class="textarea textarea-bordered rounded-2xl w-full text-xs font-mono p-4 bg-base-200/40 select-all"></textarea>
+                            <textarea aria-label="Full Base64 Encoded String" x-model="dataUrl" readonly rows="5" class="textarea textarea-bordered rounded-2xl w-full text-xs font-mono p-4 bg-base-200/40 select-all"></textarea>
                         </div>
                     </div>
                 </template>
@@ -128,7 +128,7 @@
             <div class="space-y-6">
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Paste Base64 Data URL</label>
-                    <textarea
+                    <textarea aria-label="Paste Base64 Data URL"
                         x-model="base64Input"
                         rows="6"
                         placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
@@ -174,14 +174,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Base64 Data URI Inlined</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Base64 Data URI Inlined</td>
                             <td class="font-mono text-error font-bold">+33.3% size penalty (4:3 byte ratio)</td>
                             <td class="text-error font-semibold">Tied to HTML/CSS cache (no separate asset cache)</td>
                             <td class="text-warning font-semibold">Blocks DOM/CSSOM parsing if &gt; 5 KB</td>
                             <td>Tiny SVG icons (&lt; 2 KB), email signature badges, single-file HTML apps</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">External HTTP/2 &amp; 3 Asset</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">External HTTP/2 &amp; 3 Asset</td>
                             <td class="font-mono font-bold text-success">Zero penalty (Binary transmission)</td>
                             <td class="text-success font-bold">Independent HTTP 304 / Cache-Control headers</td>
                             <td class="text-success font-bold">Non-blocking parallel streaming</td>

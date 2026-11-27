@@ -42,14 +42,14 @@
             <div>
                 <div class="flex items-center justify-between mb-1">
                     <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Date &amp; Time</label>
-                    <button type="button" @click="useNow()" class="text-xs text-primary font-bold hover:underline font-mono">Set to Now</button>
+                    <button type="button" @click="useNow()" class="text-xs text-[#163300] dark:text-[#9fe870] font-bold hover:underline font-mono">Set to Now</button>
                 </div>
-                <input type="datetime-local" x-model="dt" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <input aria-label="Date &amp; Time" type="datetime-local" x-model="dt" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Source Timezone</label>
-                <select x-model="fromTz" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Source Timezone" x-model="fromTz" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="America/New_York">New York (EST/EDT)</option>
                     <option value="America/Los_Angeles">San Francisco (PST/PDT)</option>
                     <option value="America/Chicago">Chicago (CST/CDT)</option>
@@ -66,7 +66,7 @@
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Target Timezone</label>
-                <select x-model="toTz" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Target Timezone" x-model="toTz" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="Europe/London">London (GMT/BST)</option>
                     <option value="America/New_York">New York (EST/EDT)</option>
                     <option value="America/Los_Angeles">San Francisco (PST/PDT)</option>
@@ -123,49 +123,49 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">UTC / GMT</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">UTC / GMT</td>
                             <td>Coordinated Universal Time</td>
                             <td class="font-mono font-bold">UTC +00:00</td>
                             <td>London, Dublin, Lisbon, Reykjavik</td>
                             <td>UTC fixed (UK uses BST UTC+1 in summer)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">EST / EDT</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">EST / EDT</td>
                             <td>Eastern Standard Time</td>
                             <td class="font-mono">UTC −05:00 (−04:00 DST)</td>
                             <td>New York, Toronto, Miami, Washington DC</td>
                             <td>Observed (2nd Sun Mar to 1st Sun Nov)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">PST / PDT</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">PST / PDT</td>
                             <td>Pacific Standard Time</td>
                             <td class="font-mono">UTC −08:00 (−07:00 DST)</td>
                             <td>Los Angeles, San Francisco, Seattle, Vancouver</td>
                             <td>Observed (2nd Sun Mar to 1st Sun Nov)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">CET / CEST</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">CET / CEST</td>
                             <td>Central European Time</td>
                             <td class="font-mono">UTC +01:00 (+02:00 DST)</td>
                             <td>Paris, Berlin, Rome, Madrid, Amsterdam</td>
                             <td>Observed (Last Sun Mar to Last Sun Oct)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">IST</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">IST</td>
                             <td>Indian Standard Time</td>
                             <td class="font-mono">UTC +05:30</td>
                             <td>New Delhi, Mumbai, Bengaluru, Hyderabad</td>
                             <td>No DST (Uniform year-round)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">JST / KST</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">JST / KST</td>
                             <td>Japan &amp; Korea Standard Time</td>
                             <td class="font-mono">UTC +09:00</td>
                             <td>Tokyo, Seoul, Osaka, Kyoto</td>
                             <td>No DST (Uniform year-round)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">AEST / AEDT</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">AEST / AEDT</td>
                             <td>Australian Eastern Standard</td>
                             <td class="font-mono">UTC +10:00 (+11:00 DST)</td>
                             <td>Sydney, Melbourne, Canberra, Brisbane</td>

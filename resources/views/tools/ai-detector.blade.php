@@ -34,7 +34,7 @@
     <div class="space-y-6">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Analyze Text for AI Patterns</label>
-            <textarea
+            <textarea aria-label="Analyze Text for AI Patterns"
                 x-model="text"
                 rows="8"
                 placeholder="Paste articles, essays, or paragraphs to evaluate statistical burstiness and perplexity heuristics..."
@@ -53,7 +53,7 @@
 
                     <div class="p-6 rounded-[20px] bg-base-200/50 border border-base-300">
                         <span class="text-xs uppercase tracking-widest text-base-content/60 font-bold font-mono">Human Probability</span>
-                        <p class="font-mono text-4xl font-extrabold mt-2 text-primary" x-text="metrics.humanScore + '%'"></p>
+                        <p class="font-mono text-4xl font-extrabold mt-2 text-[#163300] dark:text-[#9fe870]" x-text="metrics.humanScore + '%'"></p>
                         <p class="text-xs text-base-content/60 mt-2" x-text="'Sentence length burstiness index: ' + metrics.burstiness"></p>
                     </div>
                 </div>
@@ -77,13 +77,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Sentence Length Variance (Burstiness)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Sentence Length Variance (Burstiness)</td>
                             <td class="font-mono">Uniform (std dev &lt; 4.0 words)</td>
                             <td class="font-mono font-bold text-success">High variance (mix of 3 to 35+ words)</td>
                             <td>Calculates standard deviation across sentence tokens</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Vocabulary Perplexity</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Vocabulary Perplexity</td>
                             <td class="font-mono">Low (Picks highest probability tokens)</td>
                             <td class="font-mono font-bold text-success">High (Uses idiosyncratic idioms &amp; slang)</td>
                             <td>Evaluates cross-entropy loss against n-gram models</td>

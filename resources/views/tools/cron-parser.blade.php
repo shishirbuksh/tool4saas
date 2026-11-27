@@ -37,7 +37,7 @@
     <div class="space-y-6">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Cron Schedule Expression (5 Fields)</label>
-            <input
+            <input aria-label="Cron Schedule Expression (5 Fields)"
                 type="text"
                 x-model="expression"
                 placeholder="0 0 * * *"
@@ -109,37 +109,37 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">* * * * *</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">* * * * *</td>
                             <td>Every 60 Seconds</td>
                             <td>Every single minute</td>
                             <td>High-frequency job queues, health checks</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">*/5 * * * *</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">*/5 * * * *</td>
                             <td>Every 5 Minutes</td>
                             <td>At 00, 05, 10, 15, 20... past hour</td>
                             <td>Webhook retries, stock price sync, feed polling</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">0 * * * *</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">0 * * * *</td>
                             <td>Every 1 Hour</td>
                             <td>At minute 0 of every hour</td>
                             <td>Hourly analytics aggregation, sitemap check</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">0 0 * * *</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">0 0 * * *</td>
                             <td>Daily Midnight</td>
                             <td>At 00:00 every night</td>
                             <td>Database backups, transaction archiving</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">0 0 * * 0</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">0 0 * * 0</td>
                             <td>Weekly (Sunday)</td>
                             <td>At 00:00 on Sunday</td>
                             <td>Newsletter digests, disk cleanup &amp; vacuum</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">0 0 1 * *</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">0 0 1 * *</td>
                             <td>Monthly (1st)</td>
                             <td>At 00:00 on day 1 of month</td>
                             <td>SaaS invoice generation, monthly quota reset</td>

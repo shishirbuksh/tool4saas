@@ -73,7 +73,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div class="p-5 rounded-2xl bg-base-200/70 border border-base-300">
                 <span class="text-[11px] font-bold text-base-content/60 uppercase tracking-wider font-mono">Heads (Total)</span>
-                <div class="text-2xl font-black text-primary mt-1 font-display tabular-nums">
+                <div class="text-2xl font-black text-[#163300] dark:text-[#9fe870] mt-1 font-display tabular-nums">
                     <span x-text="headsCount"></span>
                     <span class="text-xs font-mono font-normal text-base-content/60" x-text="history.length ? '(' + Math.round((headsCount / history.length) * 100) + '%)' : ''"></span>
                 </div>
@@ -121,21 +121,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Single Toss (Heads or Tails)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Single Toss (Heads or Tails)</td>
                             <td class="font-mono font-bold text-success">p = 0.50 (50.0%)</td>
                             <td class="font-mono">1 in 2</td>
                             <td class="font-mono">σ = 0.50</td>
                             <td>Independent event; prior flips have zero memory</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">3 Consecutive in a Row</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">3 Consecutive in a Row</td>
                             <td class="font-mono font-bold">p = 0.125 (12.5%)</td>
                             <td class="font-mono">1 in 8</td>
                             <td class="font-mono">σ = 1.15</td>
                             <td>Common natural clustering in short sample runs</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">5 Consecutive in a Row</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">5 Consecutive in a Row</td>
                             <td class="font-mono font-bold">p = 0.03125 (3.125%)</td>
                             <td class="font-mono">1 in 32</td>
                             <td class="font-mono">σ = 1.58</td>

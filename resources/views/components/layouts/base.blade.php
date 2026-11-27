@@ -56,7 +56,12 @@
     <script nonce="{{ request()->attributes->get('csp_nonce') }}">
         (function() {
             var gf = document.getElementById('gfonts-css');
-            if (gf) { gf.media = 'all'; }
+            if (!gf) return;
+            if (gf.sheet) {
+                gf.media = 'all';
+            } else {
+                gf.addEventListener('load', function() { gf.media = 'all'; }, { once: true });
+            }
         })();
     </script>
     <noscript>

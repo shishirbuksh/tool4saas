@@ -56,23 +56,23 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Desired Net Annual Salary ($)</label>
-                <input type="number" min="10000" step="5000" x-model="targetIncome" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Desired Net Annual Salary ($)" type="number" min="10000" step="5000" x-model="targetIncome" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Annual Business Overhead ($)</label>
-                <input type="number" min="0" step="1000" x-model="annualExpenses" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Annual Business Overhead ($)" type="number" min="0" step="1000" x-model="annualExpenses" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Vacation & Holidays (Weeks/yr)</label>
-                <input type="number" min="0" max="20" x-model="weeksOff" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Vacation &amp; Holidays (Weeks/yr)" type="number" min="0" max="20" x-model="weeksOff" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Working Hours per Week</label>
-                <input type="number" min="10" max="60" x-model="hoursPerWeek" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Working Hours per Week" type="number" min="10" max="60" x-model="hoursPerWeek" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Billable Work Ratio (%)</label>
-                <input type="number" min="20" max="100" step="5" x-model="billableRatio" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Billable Work Ratio (%)" type="number" min="20" max="100" step="5" x-model="billableRatio" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
                 <span class="text-xs text-base-content/50 mt-1 block">Excludes admin, sales, invoicing (~60-70%)</span>
             </div>
         </div>
@@ -86,7 +86,7 @@
 
             <div class="p-6 rounded-[20px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase tracking-widest text-base-content/60 font-bold font-mono">Suggested Day Rate (8 hrs)</span>
-                <p class="font-mono text-4xl font-extrabold mt-2 text-primary" x-text="'$' + Math.ceil(dayRate) + '/day'"></p>
+                <p class="font-mono text-4xl font-extrabold mt-2 text-[#163300] dark:text-[#9fe870]" x-text="'$' + Math.ceil(dayRate) + '/day'"></p>
                 <p class="text-xs text-base-content/60 mt-2">Standard client daily consulting retainer.</p>
             </div>
         </div>
@@ -109,21 +109,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Hourly Billing ($/hr)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Hourly Billing ($/hr)</td>
                             <td class="font-mono">Time tracked (T&amp;M)</td>
                             <td>Low (Varies with logged hours)</td>
                             <td class="text-success font-semibold">Low (Every extra hour paid)</td>
                             <td>Early freelancers, debugging, maintenance, shifting specs</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Day / Half-Day Rate</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Day / Half-Day Rate</td>
                             <td class="font-mono">Per 8-hour block reserved</td>
                             <td>Moderate (Blocks booked in advance)</td>
                             <td class="text-success font-semibold">Low (Dedicated time commitment)</td>
                             <td>Senior contractors, design sprints, technical audits</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Monthly Retainer</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Monthly Retainer</td>
                             <td class="font-mono">Fixed recurring fee (e.g. $5k/mo)</td>
                             <td class="text-success font-bold">Highest (Guaranteed monthly cash flow)</td>
                             <td class="text-warning font-semibold">Moderate (Cap hours strictly in SLA)</td>

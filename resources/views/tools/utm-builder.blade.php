@@ -43,7 +43,7 @@
     },
     copy() {
         if (!this.generatedUrl) return;
-        navigator.clipboard.writeText(this.generatedUrl);
+        window.copyTextSafe(this.generatedUrl);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -51,7 +51,7 @@
     <div class="space-y-6">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Base Website URL</label>
-            <input
+            <input aria-label="Base Website URL"
                 type="url"
                 x-model="url"
                 placeholder="https://yourwebsite.com/pricing"
@@ -73,24 +73,24 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Campaign Source (<code class="text-primary font-bold">utm_source</code>)</label>
-                <input type="text" x-model="source" placeholder="google, newsletter, linkedin" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Campaign Source (<code class="text-[#163300] dark:text-[#9fe870] font-bold">utm_source</code>)</label>
+                <input aria-label="Campaign Source (utm_source)" type="text" x-model="source" placeholder="google, newsletter, linkedin" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
             <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Campaign Medium (<code class="text-primary font-bold">utm_medium</code>)</label>
-                <input type="text" x-model="medium" placeholder="cpc, email, social, referral" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Campaign Medium (<code class="text-[#163300] dark:text-[#9fe870] font-bold">utm_medium</code>)</label>
+                <input aria-label="Campaign Medium (utm_medium)" type="text" x-model="medium" placeholder="cpc, email, social, referral" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
             <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Campaign Name (<code class="text-primary font-bold">utm_campaign</code>)</label>
-                <input type="text" x-model="campaign" placeholder="summer_sale, launch_2026" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Campaign Name (<code class="text-[#163300] dark:text-[#9fe870] font-bold">utm_campaign</code>)</label>
+                <input aria-label="Campaign Name (utm_campaign)" type="text" x-model="campaign" placeholder="summer_sale, launch_2026" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
             <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Campaign Term (<code class="text-primary font-bold">utm_term</code>)</label>
-                <input type="text" x-model="term" placeholder="paid keyword (optional)" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Campaign Term (<code class="text-[#163300] dark:text-[#9fe870] font-bold">utm_term</code>)</label>
+                <input aria-label="Campaign Term (utm_term)" type="text" x-model="term" placeholder="paid keyword (optional)" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
             <div class="sm:col-span-2">
-                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Campaign Content (<code class="text-primary font-bold">utm_content</code>)</label>
-                <input type="text" x-model="content" placeholder="sidebar_ad, button_green, variant_b" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Campaign Content (<code class="text-[#163300] dark:text-[#9fe870] font-bold">utm_content</code>)</label>
+                <input aria-label="Campaign Content (utm_content)" type="text" x-model="content" placeholder="sidebar_ad, button_green, variant_b" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
         </div>
 
@@ -128,21 +128,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">utm_source</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">utm_source</td>
                             <td class="font-bold text-error">Mandatory</td>
                             <td>Platform / Traffic Source</td>
                             <td>Lowercase, hyphen-delimited</td>
                             <td class="font-mono">google, newsletter, linkedin</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">utm_medium</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">utm_medium</td>
                             <td class="font-bold text-error">Mandatory</td>
                             <td>Marketing Channel Class</td>
                             <td>Standard GA4 medium taxonomy</td>
                             <td class="font-mono">cpc, email, social, referral</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">utm_campaign</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">utm_campaign</td>
                             <td class="text-warning">Recommended</td>
                             <td>Individual Marketing Campaign</td>
                             <td>Consistent naming convention</td>

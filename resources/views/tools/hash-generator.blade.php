@@ -29,14 +29,14 @@
         },
         copy(type, val) {
             if (!val) return;
-            navigator.clipboard.writeText(val);
+            window.copyTextSafe(val);
             this.copied = type;
             setTimeout(() => this.copied = '', 2000);
         }
     }">
         <div class="mb-6">
             <label class="block text-sm font-bold text-base-content font-display mb-2">Input String to Hash</label>
-            <textarea
+            <textarea aria-label="Input String to Hash"
                 x-model="input"
                 @input="computeHashes()"
                 rows="4"
@@ -133,14 +133,14 @@
                             <td>Legacy Git commits (migrating to SHA-256)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">SHA-256</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">SHA-256</td>
                             <td class="font-mono">256 Bits (64 Hex)</td>
                             <td class="text-[#2ead4b]">Unbroken (2¹²⁸ ops)</td>
                             <td class="text-[#2ead4b]">Secure Standard</td>
                             <td>TLS 1.3 certificates, Bitcoin, software verify</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">SHA-512</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">SHA-512</td>
                             <td class="font-mono">512 Bits (128 Hex)</td>
                             <td class="text-[#2ead4b]">Unbroken (2²⁵⁶ ops)</td>
                             <td class="text-[#2ead4b]">Maximum Security</td>

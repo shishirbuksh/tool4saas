@@ -120,7 +120,7 @@
             <div class="space-y-1.5 text-base-content/80">
                 <p><strong>Step 1:</strong> Calculate the difference = <span class="bg-base-100 px-2 py-0.5 rounded-lg border border-base-300" x-text="newVal + ' - ' + originalVal + ' = ' + difference"></span></p>
                 <p><strong>Step 2:</strong> Divide difference by original value = <span class="bg-base-100 px-2 py-0.5 rounded-lg border border-base-300" x-text="difference + ' / ' + Math.abs(originalVal) + ' = ' + (originalVal != 0 ? (difference / Math.abs(originalVal)).toFixed(4) : 0)"></span></p>
-                <p><strong>Step 3:</strong> Multiply by 100 for percentage = <span class="bg-base-100 px-2 py-0.5 rounded-lg border border-base-300 font-bold text-primary" x-text="change.toFixed(2) + '%'"></span></p>
+                <p><strong>Step 3:</strong> Multiply by 100 for percentage = <span class="bg-base-100 px-2 py-0.5 rounded-lg border border-base-300 font-bold text-[#163300] dark:text-[#9fe870]" x-text="change.toFixed(2) + '%'"></span></p>
             </div>
         </div>
 

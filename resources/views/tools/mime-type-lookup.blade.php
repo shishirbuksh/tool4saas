@@ -22,7 +22,7 @@
         return 'none';
     },
     copy(text) {
-        navigator.clipboard.writeText(text);
+        window.copyTextSafe(text);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -32,7 +32,7 @@
             <label class="block text-sm font-bold text-[#163300] dark:text-[#9fe870] uppercase tracking-wider mb-2">
                 Search by Extension or MIME Type
             </label>
-            <input
+            <input aria-label="Search by Extension or MIME Type"
                 type="text"
                 x-model="query"
                 placeholder="e.g. .pdf, image/png, json, text/css..."
@@ -45,7 +45,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="p-4 bg-base-100 rounded-[14px] border border-base-300">
                         <span class="text-xs uppercase font-bold text-base-content/70">File Extension</span>
-                        <p class="font-mono text-xl font-bold mt-1 text-primary" x-text="'.' + result.ext"></p>
+                        <p class="font-mono text-xl font-bold mt-1 text-[#163300] dark:text-[#9fe870]" x-text="'.' + result.ext"></p>
                     </div>
                     <div class="p-4 bg-base-100 rounded-[14px] border border-base-300">
                         <span class="text-xs uppercase font-bold text-base-content/70">MIME Content-Type</span>
@@ -87,37 +87,37 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">.json</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">.json</td>
                             <td class="font-mono font-bold">application/json</td>
                             <td>Application</td>
                             <td>REST API data transfer, app configs</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">.html</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">.html</td>
                             <td class="font-mono font-bold">text/html</td>
                             <td>Text</td>
                             <td>Web markup document structure</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">.js / .mjs</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">.js / .mjs</td>
                             <td class="font-mono font-bold">text/javascript</td>
                             <td>Text</td>
                             <td>Client browser scripting &amp; ES modules</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">.webp</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">.webp</td>
                             <td class="font-mono font-bold">image/webp</td>
                             <td>Image</td>
                             <td>Modern lightweight web photos</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">.pdf</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">.pdf</td>
                             <td class="font-mono font-bold">application/pdf</td>
                             <td>Application</td>
                             <td>Downloadable invoices, resumes, reports</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">.xml</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">.xml</td>
                             <td class="font-mono font-bold">application/xml</td>
                             <td>Application</td>
                             <td>XML Sitemaps, RSS feeds, data exchange</td>

@@ -35,7 +35,7 @@
         return `hsl(${this.hsl.h}, ${this.hsl.s}%, ${this.hsl.l}%)`;
     },
     copy(field, val) {
-        navigator.clipboard.writeText(val);
+        window.copyTextSafe(val);
         this.copiedField = field;
         setTimeout(() => this.copiedField = '', 2000);
     },
@@ -81,14 +81,14 @@
         {{-- Interactive Color Picker & Live Swatch Card --}}
         <div class="p-6 sm:p-8 rounded-3xl bg-base-200/60 border border-base-300 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-5 w-full sm:w-auto">
-                <input
+                <input aria-label="Hex color picker"
                     type="color"
                     x-model="hex"
                     class="w-18 h-18 rounded-2xl cursor-pointer border-none p-1 bg-transparent shrink-0"
                 />
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Pick / Enter HEX</label>
-                    <input
+                    <input aria-label="Pick / Enter HEX"
                         type="text"
                         x-model="hex"
                         class="input input-bordered rounded-xl font-mono text-xl font-black w-36 uppercase"
@@ -109,7 +109,7 @@
             {{-- HEX Card --}}
             <div class="p-5 rounded-2xl bg-base-100 border border-base-300 flex flex-col justify-between shadow-xs">
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-primary font-mono block mb-1">HEX Code</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-[#163300] dark:text-[#9fe870] font-mono block mb-1">HEX Code</span>
                     <div class="font-mono text-xl font-black text-base-content uppercase select-all" x-text="hex"></div>
                 </div>
                 <div class="pt-4 mt-2 border-t border-base-200">
@@ -176,21 +176,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">HEX (#RRGGBB)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">HEX (#RRGGBB)</td>
                             <td class="font-mono">Hexadecimal (00-FF)</td>
                             <td>sRGB Standard</td>
                             <td>Low (Hex strings)</td>
                             <td>Traditional web CSS, brand guidelines</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">RGB</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">RGB</td>
                             <td class="font-mono">Red, Green, Blue (0-255)</td>
                             <td>sRGB Standard</td>
                             <td>Moderate</td>
                             <td>Canvas API, graphic rendering engines</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">HSL</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">HSL</td>
                             <td class="font-mono">Hue (360°), Sat (%), Light (%)</td>
                             <td>sRGB Standard</td>
                             <td class="text-[#2ead4b] font-bold">High (Intuitive)</td>

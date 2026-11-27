@@ -63,7 +63,7 @@
         },
         copy() {
             if (!this.output) return;
-            navigator.clipboard.writeText(this.output);
+            window.copyTextSafe(this.output);
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         }
@@ -106,7 +106,7 @@
             {{-- Input Area --}}
             <div>
                 <label class="block text-sm font-semibold mb-2" x-text="mode === 'encode' ? 'Plain Text Input' : 'Base64 Encoded Text'"></label>
-                <textarea
+                <textarea aria-label="Enter text to convert"
                     x-model="input"
                     @input="transform()"
                     rows="9"
@@ -128,7 +128,7 @@
                         <span x-text="copied ? 'Copied!' : 'Copy Result'"></span>
                     </button>
                 </div>
-                <textarea
+                <textarea aria-label="Result will appear here"
                     x-model="output"
                     readonly
                     rows="9"

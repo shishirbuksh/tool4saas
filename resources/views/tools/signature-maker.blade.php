@@ -129,12 +129,12 @@
         <div class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-base-100 border border-base-300">
             <div class="flex items-center gap-4">
                 <div class="flex items-center gap-2">
-                    <input type="color" x-model="penColor" class="size-8 rounded-lg cursor-pointer border-0 bg-transparent" />
+                    <input aria-label="Pen color color picker" type="color" x-model="penColor" class="size-8 rounded-lg cursor-pointer border-0 bg-transparent" />
                     <span class="text-xs font-mono font-bold uppercase" x-text="penColor"></span>
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-xs font-mono text-base-content/60">Width:</span>
-                    <input type="range" x-model.number="penWidth" min="1" max="8" class="range range-xs range-primary w-24" />
+                    <input aria-label="Pen width" type="range" x-model.number="penWidth" min="1" max="8" class="range range-xs range-primary w-24" />
                     <span class="text-xs font-mono font-bold" x-text="penWidth + 'px'"></span>
                 </div>
             </div>
@@ -163,7 +163,7 @@
             <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block">Alternative: Type Handwriting Signature</span>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div class="sm:col-span-2">
-                    <input type="text" x-model="typedText" placeholder="Type your full name (e.g. John Doe)" class="input input-bordered rounded-xl w-full text-sm" />
+                    <input aria-label="Type your full name (e.g. John Doe)" type="text" x-model="typedText" placeholder="Type your full name (e.g. John Doe)" class="input input-bordered rounded-xl w-full text-sm" />
                 </div>
                 <div>
                     <button
@@ -195,19 +195,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Simple E-Signature (SES)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Simple E-Signature (SES)</td>
                             <td>Drawn signature, typed name, click-to-sign</td>
                             <td>Valid under US ESIGN &amp; UETA</td>
                             <td>Sales orders, internal memos, NDAs, invoices</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Advanced E-Signature (AES)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Advanced E-Signature (AES)</td>
                             <td>Cryptographic hash tied uniquely to signer</td>
                             <td>High evidentiary weight in court</td>
                             <td>Commercial vendor contracts, commercial leases</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Qualified E-Signature (QES)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Qualified E-Signature (QES)</td>
                             <td>Government-certified cryptographic hardware token</td>
                             <td class="text-[#2ead4b] font-bold">Equivalent to handwritten pen</td>
                             <td>Mortgage deeds, government tenders, court submissions</td>

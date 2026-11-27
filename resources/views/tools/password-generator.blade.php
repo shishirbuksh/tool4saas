@@ -136,7 +136,7 @@
                 <span class="text-sm font-bold text-base-content font-display">Character Length</span>
                 <span class="font-mono font-black text-xl text-base-content" x-text="length"></span>
             </div>
-            <input type="range" min="6" max="64" x-model.number="length" @input="generate()" class="range range-primary range-sm w-full" />
+            <input aria-label="Length" type="range" min="6" max="64" x-model.number="length" @input="generate()" class="range range-primary range-sm w-full" />
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">

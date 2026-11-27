@@ -27,7 +27,7 @@
             return JSON.stringify(schema, null, 2);
         },
         copy() {
-            navigator.clipboard.writeText('<' + 'script type=\'application/ld+json\'>\n' + this.jsonLd + '\n<' + '/script>');
+            window.copyTextSafe('<' + 'script type=\'application/ld+json\'>\n' + this.jsonLd + '\n<' + '/script>');
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         }
@@ -39,8 +39,8 @@
                         <span class="text-xs uppercase font-bold text-base-content/70" x-text="'Question #' + (idx + 1)"></span>
                         <button type="button" @click="removeFaq(idx)" class="btn btn-ghost btn-xs text-error" x-show="faqs.length > 1">Remove</button>
                     </div>
-                    <input type="text" x-model="faq.q" placeholder="Enter Question..." class="input input-bordered input-sm w-full rounded-[8px]" />
-                    <textarea x-model="faq.a" rows="2" placeholder="Enter Answer..." class="textarea textarea-bordered textarea-sm w-full rounded-[8px]"></textarea>
+                    <input aria-label="Enter Question" type="text" x-model="faq.q" placeholder="Enter Question..." class="input input-bordered input-sm w-full rounded-[8px]" />
+                    <textarea aria-label="Enter Answer" x-model="faq.a" rows="2" placeholder="Enter Answer..." class="textarea textarea-bordered textarea-sm w-full rounded-[8px]"></textarea>
                 </div>
             </template>
 
@@ -57,7 +57,7 @@
                     <span x-show="copied" x-cloak>✓ Copied!</span>
                 </button>
             </div>
-            <textarea readonly :value="jsonLd" rows="8" class="textarea textarea-bordered w-full font-mono text-xs bg-base-100"></textarea>
+            <textarea aria-label="Copied!" readonly :value="jsonLd" rows="8" class="textarea textarea-bordered w-full font-mono text-xs bg-base-100"></textarea>
         </div>
 
         {{-- Technical Comparison: Schema.org Structured Data Types Matrix --}}
@@ -78,21 +78,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">FAQPage</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">FAQPage</td>
                             <td class="font-mono">mainEntity (Question + acceptedAnswer)</td>
                             <td>Collapsible accordion questions under snippet</td>
                             <td class="text-warning font-semibold">Limited to authoritative government &amp; healthcare sites since Aug 2023</td>
                             <td>Official support hubs, government agency guidelines</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">QAPage</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">QAPage</td>
                             <td class="font-mono">mainEntity (Question + suggestedAnswer list)</td>
                             <td>Highlighted accepted answer &amp; vote count badge</td>
                             <td class="text-success font-semibold">User-generated community forums only (StackOverflow style)</td>
                             <td>Community discussion boards, product forums</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">WebApplication / SoftwareApplication</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">WebApplication / SoftwareApplication</td>
                             <td class="font-mono">name, operatingSystem, applicationCategory</td>
                             <td>Star rating, software badge, price ($0 free)</td>
                             <td class="text-success font-bold">100% eligible for interactive web tools &amp; SaaS</td>

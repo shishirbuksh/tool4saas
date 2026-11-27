@@ -54,13 +54,13 @@
     },
     exportJson() {
         const json = JSON.stringify(this.filteredRows, null, 2);
-        navigator.clipboard.writeText(json);
+        window.copyTextSafe(json);
     }
 }">
     <div class="space-y-6">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">CSV Source Text</label>
-            <textarea
+            <textarea aria-label="CSV Source Text"
                 x-model="input"
                 rows="6"
                 placeholder="name,role,email&#10;Alice,Developer,alice@example.com"
@@ -70,7 +70,7 @@
 
         <div class="flex flex-wrap items-center justify-between gap-3">
             <div class="flex-1 max-w-sm">
-                <input
+                <input aria-label="Search table rows"
                     type="text"
                     x-model="search"
                     placeholder="Search table rows..."

@@ -59,14 +59,14 @@
             <x-numeric-field label="Body Weight" model="weight" suffix="kg" step="1" placeholder="70" />
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Weight Unit</span></label>
-                <select x-model="unit" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Weight Unit" x-model="unit" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="kg">Kilograms (kg)</option>
                     <option value="lb">Pounds (lb)</option>
                 </select>
             </div>
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Exercise Level</span></label>
-                <select x-model="activity" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Exercise Level" x-model="activity" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="sedentary">Sedentary (No exercise)</option>
                     <option value="moderate">Moderate (30-60m workout)</option>
                     <option value="active">Active (Heavy training / sports)</option>
@@ -74,7 +74,7 @@
             </div>
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Climate</span></label>
-                <select x-model="climate" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Climate" x-model="climate" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="normal">Temperate / AC</option>
                     <option value="hot">Hot / Tropical / Humid</option>
                 </select>
@@ -133,35 +133,35 @@
                         <tr>
                             <td class="font-bold font-mono">50 kg (110 lbs)</td>
                             <td class="font-mono">1.75 L</td>
-                            <td class="font-mono text-primary font-bold">2.10 L</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">2.10 L</td>
                             <td class="font-mono">2.50 L</td>
                             <td>7 – 10 Cups</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">60 kg (132 lbs)</td>
                             <td class="font-mono">2.10 L</td>
-                            <td class="font-mono text-primary font-bold">2.50 L</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">2.50 L</td>
                             <td class="font-mono">3.00 L</td>
                             <td>9 – 12 Cups</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">70 kg (154 lbs)</td>
                             <td class="font-mono">2.45 L</td>
-                            <td class="font-mono text-primary font-bold">2.90 L</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">2.90 L</td>
                             <td class="font-mono">3.40 L</td>
                             <td>10 – 14 Cups</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">80 kg (176 lbs)</td>
                             <td class="font-mono">2.80 L</td>
-                            <td class="font-mono text-primary font-bold">3.30 L</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">3.30 L</td>
                             <td class="font-mono">3.90 L</td>
                             <td>12 – 16 Cups</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">90 kg (198 lbs)</td>
                             <td class="font-mono">3.15 L</td>
-                            <td class="font-mono text-primary font-bold">3.70 L</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">3.70 L</td>
                             <td class="font-mono">4.40 L</td>
                             <td>13 – 18 Cups</td>
                         </tr>

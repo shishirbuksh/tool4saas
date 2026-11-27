@@ -88,13 +88,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">PDF 1.7 (Universal)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">PDF 1.7 (Universal)</td>
                             <td class="font-mono">ISO 32000-1</td>
                             <td>Universal reader compatibility</td>
                             <td>General office documents, web downloads</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">PDF 2.0 (Modern)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">PDF 2.0 (Modern)</td>
                             <td class="font-mono">ISO 32000-2</td>
                             <td>Native 256-bit AES, unbundled open spec</td>
                             <td>Modern cloud workflows, secure signing</td>

@@ -60,23 +60,23 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Current Age</label>
-                <input type="number" min="18" max="90" x-model="currentAge" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Current Age" type="number" min="18" max="90" x-model="currentAge" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Target Retirement Age</label>
-                <input type="number" min="30" max="100" x-model="retirementAge" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Target Retirement Age" type="number" min="30" max="100" x-model="retirementAge" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Annual Retirement Expenses ($)</label>
-                <input type="number" min="1000" step="5000" x-model="annualSpend" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Annual Retirement Expenses ($)" type="number" min="1000" step="5000" x-model="annualSpend" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Current Savings ($)</label>
-                <input type="number" min="0" step="5000" x-model="currentSavings" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Current Savings ($)" type="number" min="0" step="5000" x-model="currentSavings" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Expected Annual Return (%)</label>
-                <input type="number" min="1" max="15" step="0.5" x-model="returnRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Expected Annual Return (%)" type="number" min="1" max="15" step="0.5" x-model="returnRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
         </div>
 
@@ -89,7 +89,7 @@
 
             <div class="p-6 rounded-[20px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase tracking-widest text-base-content/60 font-bold font-mono">Required Monthly Investment</span>
-                <p class="font-mono text-4xl font-extrabold mt-2 text-primary" x-text="'$' + Math.round(requiredMonthlySaving).toLocaleString()"></p>
+                <p class="font-mono text-4xl font-extrabold mt-2 text-[#163300] dark:text-[#9fe870]" x-text="'$' + Math.round(requiredMonthlySaving).toLocaleString()"></p>
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Monthly contribution across the next ' + yearsToRetire + ' years.'"></p>
             </div>
         </div>
@@ -112,22 +112,22 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">4% Trinity Study Rule</td>
-                            <td class="font-mono text-primary font-bold">$40,000 / Year</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">4% Trinity Study Rule</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">$40,000 / Year</td>
                             <td class="font-mono">30 Years</td>
                             <td>95% historical survival; risk in early bear market</td>
                             <td>Fixed mechanical formula; inflation adjusted</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">3.25% Conservative (FIRE)</td>
-                            <td class="font-mono text-primary font-bold">$32,500 / Year</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">3.25% Conservative (FIRE)</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">$32,500 / Year</td>
                             <td class="font-mono">40–50+ Years</td>
                             <td>Near 100% survival; immune to multi-year drawdowns</td>
                             <td>Maximum safety for early retirees under age 50</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Guyton-Klinger Guardrails</td>
-                            <td class="font-mono text-primary font-bold">$45,000 / Year</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Guyton-Klinger Guardrails</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">$45,000 / Year</td>
                             <td class="font-mono">Indefinite</td>
                             <td>Trims spending by 10% only during market crashes</td>
                             <td>Dynamic; rewards market booms and protects during dips</td>

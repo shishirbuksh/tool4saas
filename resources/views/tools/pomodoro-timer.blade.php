@@ -181,14 +181,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Classic Pomodoro (Cirillo)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Classic Pomodoro (Cirillo)</td>
                             <td class="font-mono font-bold">25 minutes</td>
                             <td class="font-mono font-bold">5 min (20m after 4 cycles)</td>
                             <td>Attention span reset; mitigates mental fatigue &amp; procrastination</td>
                             <td>Coding sprints, inbox clearing, proofreading, repetitive tasks</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">The 52/17 Rule (DeskTime)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">The 52/17 Rule (DeskTime)</td>
                             <td class="font-mono font-bold">52 minutes</td>
                             <td class="font-mono font-bold">17 minutes</td>
                             <td>Derived from telemetry tracking the top 10% most productive knowledge workers</td>

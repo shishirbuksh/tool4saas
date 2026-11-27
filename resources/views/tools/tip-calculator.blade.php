@@ -34,7 +34,7 @@
             <span class="text-sm font-bold text-base-content font-display">Tip Percentage</span>
             <span class="text-xl font-black text-base-content font-display"><span x-text="tipPercent"></span>%</span>
         </div>
-        <input type="range" min="0" max="35" step="1" x-model.number="tipPercent" class="range range-primary range-sm w-full" />
+        <input aria-label="Tip percent" type="range" min="0" max="35" step="1" x-model.number="tipPercent" class="range range-primary range-sm w-full" />
         <div class="flex flex-wrap gap-2 mt-4">
             @foreach([10, 15, 18, 20, 25] as $rate)
                 <button
@@ -92,14 +92,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">United States</td>
-                            <td class="font-mono text-primary font-bold">18% – 22%</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">United States</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">18% – 22%</td>
                             <td class="text-error font-bold">Expected / Customary</td>
                             <td>Servers earn lower base wage offset by tip credit laws</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Canada</td>
-                            <td class="font-mono text-primary font-bold">15% – 20%</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Canada</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">15% – 20%</td>
                             <td class="text-warning font-bold">Expected / Customary</td>
                             <td>Standard dining norm across all provinces</td>
                         </tr>

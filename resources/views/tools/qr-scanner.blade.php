@@ -36,7 +36,7 @@
         reader.readAsDataURL(file);
     },
     copy() {
-        navigator.clipboard.writeText(this.result);
+        window.copyTextSafe(this.result);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -53,7 +53,7 @@
         <template x-if="result">
             <div class="p-6 bg-base-200/50 rounded-[20px] border border-base-300 space-y-3">
                 <span class="text-xs uppercase font-bold text-base-content/60">Decoded QR Code Content</span>
-                <p class="font-mono text-base font-bold text-primary break-all" x-text="result"></p>
+                <p class="font-mono text-base font-bold text-[#163300] dark:text-[#9fe870] break-all" x-text="result"></p>
                 <div class="flex gap-2 pt-2">
                     <button type="button" @click="copy()" class="btn btn-sm btn-primary rounded-[10px]">
                         <span x-show="!copied">Copy Content</span>
@@ -84,21 +84,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Level L (Low)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Level L (Low)</td>
                             <td class="font-mono font-bold">~7% recovery</td>
                             <td class="font-bold text-success font-mono">Lowest density (Smallest modules)</td>
                             <td class="text-error font-semibold">No logo overlay allowed</td>
                             <td>Clean screen displays, high-density URL encoding, mobile apps</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Level M (Medium)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Level M (Medium)</td>
                             <td class="font-mono font-bold">~15% recovery</td>
                             <td class="font-mono">Standard density</td>
                             <td>Small subtle icon (up to 5% area)</td>
                             <td>Default global commercial standard; marketing flyers, receipts</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Level Q (Quartile)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Level Q (Quartile)</td>
                             <td class="font-mono font-bold">~25% recovery</td>
                             <td class="font-mono">High density</td>
                             <td class="text-success font-semibold">Center brand logo (15% area)</td>

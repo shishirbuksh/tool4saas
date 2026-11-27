@@ -53,12 +53,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Annual CTC Package (₹)</label>
-                <input type="number" min="100000" step="50000" x-model="ctc" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Annual CTC Package (₹)" type="number" min="100000" step="50000" x-model="ctc" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Income Tax Regime (FY 2024-25)</label>
-                <select x-model="regime" class="select select-bordered w-full rounded-[12px] font-semibold text-sm">
+                <select aria-label="Income Tax Regime (FY 2024-25)" x-model="regime" class="select select-bordered w-full rounded-[12px] font-semibold text-sm">
                     <option value="new">New Tax Regime (₹75k Standard Deduction)</option>
                     <option value="old">Old Tax Regime (HRA & 80C Deductions)</option>
                 </select>

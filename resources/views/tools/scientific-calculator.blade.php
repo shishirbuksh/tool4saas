@@ -132,31 +132,31 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">π (Pi)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">π (Pi)</td>
                             <td>Archimedes' Constant</td>
-                            <td class="font-mono text-primary font-bold">3.1415926535...</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">3.1415926535...</td>
                             <td>Ratio of circle circumference to its diameter</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">e</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">e</td>
                             <td>Euler's Constant</td>
-                            <td class="font-mono text-primary font-bold">2.7182818284...</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">2.7182818284...</td>
                             <td>Base of natural logarithm; continuous compounding</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">φ (Phi)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">φ (Phi)</td>
                             <td>The Golden Ratio</td>
                             <td class="font-mono">1.6180339887...</td>
                             <td>Geometric proportion; Fibonacci sequence limit</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">c</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">c</td>
                             <td>Speed of Light</td>
                             <td class="font-mono">299,792,458 m/s</td>
                             <td>Universal speed limit in vacuum (E = mc²)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">h</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">h</td>
                             <td>Planck Constant</td>
                             <td class="font-mono">6.62607015 × 10⁻³⁴ J·s</td>
                             <td>Fundamental quantum scale proportionality constant</td>

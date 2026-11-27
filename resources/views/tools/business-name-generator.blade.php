@@ -15,7 +15,7 @@
         return list;
     },
     copy(name) {
-        navigator.clipboard.writeText(name);
+        window.copyTextSafe(name);
         this.copied = name;
         setTimeout(() => this.copied = '', 2000);
     }
@@ -24,12 +24,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Seed Keyword</label>
-                <input type="text" x-model="keyword" placeholder="e.g. cloud, pay, data, swift..." class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Seed Keyword" type="text" x-model="keyword" placeholder="e.g. cloud, pay, data, swift..." class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Industry Theme</label>
-                <select x-model="industry" class="select select-bordered w-full rounded-[12px] text-sm">
+                <select aria-label="Industry Theme" x-model="industry" class="select select-bordered w-full rounded-[12px] text-sm">
                     <option value="tech">Tech & SaaS Software</option>
                     <option value="finance">Fintech & Banking</option>
                     <option value="commerce">E-Commerce & Retail</option>
@@ -68,21 +68,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Fanciful / Neologisms</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Fanciful / Neologisms</td>
                             <td>Coined, invented words with no prior dictionary meaning</td>
                             <td class="font-mono">Kodak, Xerox, Spotify, Rolex</td>
                             <td class="font-bold text-success font-mono">Strongest (Immediate registered mark)</td>
                             <td>Zero competition; requires educational ad spend</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Arbitrary</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Arbitrary</td>
                             <td>Real dictionary words applied out of contextual context</td>
                             <td class="font-mono">Apple (Computers), Amazon (Retail)</td>
                             <td class="font-bold text-success font-mono">Very High (Full legal presumption)</td>
                             <td>Memorable; easy brand recall and trademark defense</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Suggestive</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Suggestive</td>
                             <td>Hints at attributes or benefits requiring consumer imagination</td>
                             <td class="font-mono">Netflix, Airbus, Ray-Ban, Slack</td>
                             <td class="text-success font-semibold">High (Protectable without secondary meaning)</td>

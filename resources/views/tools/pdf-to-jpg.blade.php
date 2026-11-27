@@ -85,21 +85,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Web Screen (Low)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Web Screen (Low)</td>
                             <td class="font-mono">72 DPI</td>
                             <td class="font-mono">595 × 842 px</td>
                             <td class="font-mono text-success font-bold">~80 KB – 150 KB</td>
                             <td>Fast web page previews, mobile carousel thumbnails</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Standard Presentation</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Standard Presentation</td>
                             <td class="font-mono font-bold">150 DPI</td>
                             <td class="font-mono">1240 × 1754 px</td>
                             <td class="font-mono">~350 KB – 600 KB</td>
                             <td>Email attachments, tablet viewing, digital slide decks</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Commercial Print Ready</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Commercial Print Ready</td>
                             <td class="font-mono font-bold text-success">300 DPI</td>
                             <td class="font-mono">2480 × 3508 px</td>
                             <td class="font-mono">~1.5 MB – 3.2 MB</td>

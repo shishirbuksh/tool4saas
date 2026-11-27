@@ -63,7 +63,7 @@
         </div>
         <a
             href="{{ route('student-tools') }}"
-            class="text-xs font-bold text-primary hover:underline flex items-center gap-1 group no-underline"
+            class="text-xs font-bold text-[#163300] dark:text-[#9fe870] hover:underline flex items-center gap-1 group no-underline"
         >
             <span>Browse All 13 Student Tools</span>
             <span class="group-hover:translate-x-0.5 transition-transform">→</span>
@@ -78,7 +78,7 @@
             @endphp
             <a
                 href="{{ url('/' . $tool['slug']) }}"
-                class="px-3.5 py-2 rounded-xl border flex items-center gap-1.5 whitespace-nowrap transition-all min-h-[38px] no-underline shrink-0 {{ $isActive ? 'bg-[#163300] text-[#9fe870] border-[#163300] font-bold shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5] hover:text-[#054d28] hover:border-primary font-medium' }}"
+                class="px-3.5 py-2 rounded-xl border flex items-center gap-1.5 whitespace-nowrap transition-all min-h-[44px] no-underline shrink-0 {{ $isActive ? 'bg-[#163300] text-[#9fe870] border-[#163300] font-bold shadow-xs' : 'bg-base-100 border-base-300 text-base-content/80 hover:bg-[#e2f6d5] hover:text-[#054d28] hover:border-primary font-medium' }}"
             >
                 <span>{{ $tool['icon'] }}</span>
                 <span>{{ $tool['name'] }}</span>
@@ -90,7 +90,7 @@
 
         <a
             href="{{ route('student-tools') }}"
-            class="px-3.5 py-2 rounded-xl bg-primary text-primary-content font-bold whitespace-nowrap transition-all min-h-[38px] no-underline shrink-0 hover:bg-[#cdffad] flex items-center gap-1 shadow-xs"
+            class="px-3.5 py-2 rounded-xl bg-primary text-primary-content font-bold whitespace-nowrap transition-all min-h-[44px] no-underline shrink-0 hover:bg-[#cdffad] flex items-center gap-1 shadow-xs"
         >
             <span>All Hub Tools</span>
             <span>→</span>

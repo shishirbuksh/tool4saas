@@ -54,17 +54,17 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Current Amount ($)</label>
-                <input type="number" min="1" step="100" x-model="amount" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Current Amount ($)" type="number" min="1" step="100" x-model="amount" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Annual Inflation Rate (%)</label>
-                <input type="number" min="0" max="50" step="0.1" x-model="rate" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Annual Inflation Rate (%)" type="number" min="0" max="50" step="0.1" x-model="rate" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Horizon Period (Years)</label>
-                <input type="number" min="1" max="50" x-model="years" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Horizon Period (Years)" type="number" min="1" max="50" x-model="years" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
         </div>
 

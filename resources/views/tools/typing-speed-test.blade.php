@@ -115,7 +115,7 @@
 
         {{-- Typing Input Box --}}
         <div>
-            <textarea
+            <textarea aria-label="Click here and start typing the passage above"
                 x-model="input"
                 @input="onInput()"
                 :disabled="finished"
@@ -186,28 +186,28 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Beginner / Casual</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Beginner / Casual</td>
                             <td class="font-mono">20 – 35 WPM</td>
                             <td class="font-mono">100 – 175 CPM</td>
                             <td class="font-mono">Bottom 25th percentile</td>
                             <td>Hunt-and-peck typists, casual web browsing</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Average Knowledge Worker</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Average Knowledge Worker</td>
                             <td class="font-mono font-bold">38 – 45 WPM</td>
                             <td class="font-mono">190 – 225 CPM</td>
                             <td class="font-bold text-success font-mono">50th percentile (Median global speed)</td>
                             <td>Standard office tasks, email drafting, administrative work</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Proficient / Touch Typist</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Proficient / Touch Typist</td>
                             <td class="font-mono font-bold text-success">50 – 70 WPM</td>
                             <td class="font-mono">250 – 350 CPM</td>
                             <td class="font-mono font-bold text-success">Top 15% – 20th percentile</td>
                             <td>Software engineers, technical writers, customer support agents</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">High Speed / Professional</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">High Speed / Professional</td>
                             <td class="font-mono font-bold text-success">75 – 95 WPM</td>
                             <td class="font-mono">375 – 475 CPM</td>
                             <td class="font-mono font-bold text-success">Top 2% – 5th percentile</td>

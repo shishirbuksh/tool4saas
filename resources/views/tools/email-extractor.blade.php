@@ -4,12 +4,12 @@
     copyAll() {
         const emails = this.extractedEmails;
         if (!emails.length) return;
-        navigator.clipboard.writeText(emails.join('\n'));
+        window.copyTextSafe(emails.join('\n'));
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     },
     copySingle(email) {
-        navigator.clipboard.writeText(email);
+        window.copyTextSafe(email);
     },
     get extractedEmails() {
         if (!this.input) return [];
@@ -23,7 +23,7 @@
             <label class="block text-sm font-bold text-[#163300] dark:text-[#9fe870] uppercase tracking-wider mb-2">
                 Paste Text Containing Email Addresses
             </label>
-            <textarea
+            <textarea aria-label="Paste Text Containing Email Addresses"
                 x-model="input"
                 rows="6"
                 placeholder="Paste customer logs, raw CSVs, contact pages, or inquiries here..."
@@ -98,14 +98,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Standard Mailbox</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Standard Mailbox</td>
                             <td class="font-mono">user@example.com</td>
                             <td class="text-success font-semibold">Fully Valid (Standard)</td>
                             <td class="font-mono">254 chars (64 local / 255 domain)</td>
                             <td>100% universal support across all MTAs</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Sub-addressing (Plus)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Sub-addressing (Plus)</td>
                             <td class="font-mono">user+tag@example.com</td>
                             <td class="text-success font-semibold">Fully Valid (RFC 5233)</td>
                             <td class="font-mono">64 chars local part</td>

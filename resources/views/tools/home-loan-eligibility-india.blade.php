@@ -55,19 +55,19 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Gross Monthly Income (₹)</label>
-                <input type="number" min="10000" step="5000" x-model="monthlyIncome" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Gross Monthly Income (₹)" type="number" min="10000" step="5000" x-model="monthlyIncome" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Existing EMIs / Obligations (₹)</label>
-                <input type="number" min="0" step="1000" x-model="existingEmi" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Existing EMIs / Obligations (₹)" type="number" min="0" step="1000" x-model="existingEmi" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Home Loan Interest Rate (%)</label>
-                <input type="number" min="5" max="15" step="0.25" x-model="interestRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Home Loan Interest Rate (%)" type="number" min="5" max="15" step="0.25" x-model="interestRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Loan Tenure (Years)</label>
-                <input type="number" min="5" max="30" step="5" x-model="tenureYears" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Loan Tenure (Years)" type="number" min="5" max="30" step="5" x-model="tenureYears" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
         </div>
 
@@ -80,7 +80,7 @@
 
             <div class="p-6 rounded-[20px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase tracking-widest text-base-content/60 font-bold font-mono">Maximum Allowable Monthly EMI</span>
-                <p class="font-mono text-4xl font-extrabold mt-2 text-primary" x-text="'₹' + Math.round(maxEligibleEmi).toLocaleString('en-IN') + '/mo'"></p>
+                <p class="font-mono text-4xl font-extrabold mt-2 text-[#163300] dark:text-[#9fe870]" x-text="'₹' + Math.round(maxEligibleEmi).toLocaleString('en-IN') + '/mo'"></p>
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Capped at ' + foirPercent + '% Indian Bank FOIR ceiling'"></p>
             </div>
         </div>
@@ -103,21 +103,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">₹30,000 – ₹50,000 / mo</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">₹30,000 – ₹50,000 / mo</td>
                             <td class="font-mono font-bold">40% – 45%</td>
                             <td class="font-mono">750+ (Prime rate)</td>
                             <td class="font-mono">Up to 90% (Loans ≤ ₹30 Lakhs)</td>
                             <td>Standard repo linked lending rate (RLLR + spread)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">₹50,000 – ₹1,00,000 / mo</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">₹50,000 – ₹1,00,000 / mo</td>
                             <td class="font-mono font-bold">50%</td>
                             <td class="font-mono">750 – 799</td>
                             <td class="font-mono">Up to 80% (Loans ₹30L to ₹75 Lakhs)</td>
                             <td>Lowest concessions for salaried borrowers</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">₹1,00,000+ / mo</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">₹1,00,000+ / mo</td>
                             <td class="font-mono font-bold text-success">55% – 65%</td>
                             <td class="font-mono">800+</td>
                             <td class="font-mono">Up to 75% (Loans &gt; ₹75 Lakhs)</td>

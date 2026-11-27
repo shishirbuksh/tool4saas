@@ -46,7 +46,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Currency Symbol</label>
-                <select x-model="currency" class="select select-bordered w-full rounded-[12px] font-mono text-base">
+                <select aria-label="Currency Symbol" x-model="currency" class="select select-bordered w-full rounded-[12px] font-mono text-base">
                     <option value="$">$ (USD / CAD / AUD)</option>
                     <option value="€">€ (EUR)</option>
                     <option value="£">£ (GBP)</option>
@@ -57,12 +57,12 @@
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Gross Sales Volume</label>
-                <input type="number" min="0" step="100" x-model="sales" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Gross Sales Volume" type="number" min="0" step="100" x-model="sales" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Commission Rate (%)</label>
-                <input type="number" min="0" max="100" step="0.5" x-model="rate" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Commission Rate (%)" type="number" min="0" max="100" step="0.5" x-model="rate" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
         </div>
 
@@ -98,14 +98,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Flat Percentage (Straight)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Flat Percentage (Straight)</td>
                             <td class="font-mono">Revenue × Fixed % (e.g. 10%)</td>
                             <td>Predictable &amp; Linear</td>
                             <td class="text-warning font-semibold">Low (Ignores discounting)</td>
                             <td>Real estate, affiliate marketing, simple retail</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Tiered / Graduated (Accelerators)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Tiered / Graduated (Accelerators)</td>
                             <td class="font-mono">5% to $100k, 10% to $250k, 15%+ over quota</td>
                             <td class="text-success font-bold">Highest (Drives quota outperformance)</td>
                             <td>High (High tiers funded by volume scale)</td>

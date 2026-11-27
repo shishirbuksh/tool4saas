@@ -32,12 +32,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">First Day of Last Menstrual Period (LMP)</label>
-                <input type="date" x-model="lmp" class="input input-bordered w-full rounded-[12px] font-mono text-sm" />
+                <input aria-label="First Day of Last Menstrual Period (LMP)" type="date" x-model="lmp" class="input input-bordered w-full rounded-[12px] font-mono text-sm" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Average Menstrual Cycle (Days)</label>
-                <input type="number" min="20" max="45" x-model="cycle" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Average Menstrual Cycle (Days)" type="number" min="20" max="45" x-model="cycle" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
                 <span class="text-xs text-base-content/50 mt-1 block">Standard human cycle is 28 days</span>
             </div>
         </div>
@@ -53,7 +53,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="p-4 rounded-[14px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase font-bold text-base-content/60">Current Gestational Age</span>
-                <p class="font-mono text-2xl font-bold mt-1 text-primary" x-text="weeksPregnant"></p>
+                <p class="font-mono text-2xl font-bold mt-1 text-[#163300] dark:text-[#9fe870]" x-text="weeksPregnant"></p>
             </div>
 
             <div class="p-4 rounded-[14px] bg-base-200/50 border border-base-300">
@@ -79,19 +79,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">First Trimester</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">First Trimester</td>
                             <td class="font-mono font-bold">Weeks 1 – 13</td>
                             <td>Organogenesis: Neural tube closes, heartbeat detected (w6), limb buds form</td>
                             <td>Nuchal translucency ultrasound, NIPT cell-free DNA blood panel</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Second Trimester</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Second Trimester</td>
                             <td class="font-mono font-bold">Weeks 14 – 27</td>
                             <td>Quickening (fetal movement felt ~w18-20), auditory development, sex determination</td>
                             <td>Anatomy ultrasound scan (w18-22), maternal serum quad screen</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Third Trimester</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Third Trimester</td>
                             <td class="font-mono font-bold">Weeks 28 – 40+</td>
                             <td>Rapid brain &amp; lung surfactant maturation, subcutaneous fat deposition</td>
                             <td>Gestational diabetes glucose tolerance test (w24-28), Group B Strep (w36)</td>

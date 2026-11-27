@@ -98,15 +98,15 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Web / Email (Compact)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Web / Email (Compact)</td>
                             <td class="font-mono">72 DPI</td>
                             <td class="font-mono text-[#2ead4b] font-bold">−70% to −85%</td>
                             <td>Email attachments, portal uploads, fast mobile downloads</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">eBook / Office (Medium)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">eBook / Office (Medium)</td>
                             <td class="font-mono">150 DPI</td>
-                            <td class="font-mono text-primary">−40% to −60%</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">−40% to −60%</td>
                             <td>Tablet readers, office memos, internal business reports</td>
                         </tr>
                         <tr>

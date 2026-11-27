@@ -53,7 +53,7 @@
     },
     copy() {
         if (!this.stats.summary) return;
-        navigator.clipboard.writeText(this.stats.summary);
+        window.copyTextSafe(this.stats.summary);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -81,7 +81,7 @@
         </div>
 
         {{-- Text Input Area --}}
-        <textarea
+        <textarea aria-label="Text"
             x-model="text"
             rows="8"
             placeholder="Paste your long article, essay, report or meeting notes here to extract key takeaways..."
@@ -96,7 +96,7 @@
                     <span x-text="ratio"></span>% length
                 </span>
             </div>
-            <input
+            <input aria-label="Ratio"
                 type="range"
                 min="10"
                 max="60"
@@ -163,7 +163,7 @@
                 </div>
                 <div class="p-4 rounded-2xl bg-base-100 border border-base-300 shadow-xs">
                     <span class="text-[11px] font-bold text-base-content/60 uppercase font-mono">Processing</span>
-                    <div class="text-xl font-black text-primary mt-1">100% Local</div>
+                    <div class="text-xl font-black text-[#163300] dark:text-[#9fe870] mt-1">100% Local</div>
                 </div>
             </div>
         </template>
@@ -186,14 +186,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Extractive Frequency (TF-IDF / Lexical)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Extractive Frequency (TF-IDF / Lexical)</td>
                             <td>Scores sentences by raw term frequency and positional centrality</td>
                             <td class="font-bold text-success font-mono">0% (Exact verbatim quotes only)</td>
                             <td class="font-bold text-success font-mono">&lt; 5 ms (Client-side browser JS)</td>
                             <td>Legal contract clauses, executive briefs, news excerpts</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Graph-Based Extractive (TextRank)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Graph-Based Extractive (TextRank)</td>
                             <td>PageRank variant modeling sentences as nodes connected by lexical overlap</td>
                             <td class="font-bold text-success font-mono">0% (Zero hallucination)</td>
                             <td class="font-mono">&lt; 50 ms</td>

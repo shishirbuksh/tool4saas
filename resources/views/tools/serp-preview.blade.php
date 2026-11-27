@@ -15,7 +15,7 @@
         }
     },
     copyAll() {
-        navigator.clipboard.writeText(`Title: ${this.title}\nURL: ${this.url}\nDescription: ${this.description}`);
+        window.copyTextSafe(`Title: ${this.title}\nURL: ${this.url}\nDescription: ${this.description}`);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -27,14 +27,14 @@
                     <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">SERP Title Tag</label>
                     <span class="text-xs font-mono" :class="title.length > 60 ? 'text-warning font-bold' : 'text-base-content/50'" x-text="title.length + ' / 60 chars'"></span>
                 </div>
-                <input type="text" x-model="title" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <input aria-label="SERP Title Tag" type="text" x-model="title" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
 
             <div>
                 <div class="flex items-center justify-between mb-1">
                     <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Target Destination URL</label>
                 </div>
-                <input type="url" x-model="url" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <input aria-label="Target Destination URL" type="url" x-model="url" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
 
             <div>
@@ -42,7 +42,7 @@
                     <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Meta Description Snippet</label>
                     <span class="text-xs font-mono" :class="description.length > 160 ? 'text-warning font-bold' : 'text-base-content/50'" x-text="description.length + ' / 160 chars'"></span>
                 </div>
-                <textarea x-model="description" rows="3" class="textarea textarea-bordered rounded-xl w-full text-sm font-mono"></textarea>
+                <textarea aria-label="Meta Description Snippet" x-model="description" rows="3" class="textarea textarea-bordered rounded-xl w-full text-sm font-mono"></textarea>
             </div>
         </div>
 
@@ -107,14 +107,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">SEO Title Tag</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">SEO Title Tag</td>
                             <td class="font-mono font-bold">~600 px limit</td>
                             <td class="font-mono font-bold">~600 px limit</td>
                             <td class="font-bold text-success font-mono">50 – 60 characters</td>
                             <td>Ellipsis (<code class="font-mono">&hellip;</code>) appended if pixel width exceeded; front-load primary keyword</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Meta Description</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Meta Description</td>
                             <td class="font-mono">~960 px (~2 lines)</td>
                             <td class="font-mono">~680 px (~3 lines)</td>
                             <td class="font-bold text-success font-mono">140 – 160 characters</td>

@@ -94,7 +94,7 @@
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">GST Rate Slab</span></label>
                 <div class="flex gap-2">
-                    <select x-model.number="rate" class="select select-bordered rounded-xl w-full text-sm">
+                    <select aria-label="GST Rate Slab" x-model.number="rate" class="select select-bordered rounded-xl w-full text-sm">
                         <option value="3">3% (Precious Metals)</option>
                         <option value="5">5% (Essential Goods)</option>
                         <option value="12">12% (Standard Low)</option>
@@ -105,7 +105,7 @@
             </div>
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Currency</span></label>
-                <select x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Currency" x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="$">USD / CAD / AUD ($)</option>
                     <option value="€">EUR (€)</option>
                     <option value="£">GBP (£)</option>
@@ -148,7 +148,7 @@
             </div>
             <div class="p-5 rounded-2xl bg-base-200/70 border border-base-300">
                 <span class="text-[11px] font-bold text-base-content/60 uppercase tracking-wider font-mono">Gross Total Bill</span>
-                <div class="text-2xl font-black text-primary mt-1 font-display tabular-nums">
+                <div class="text-2xl font-black text-[#163300] dark:text-[#9fe870] mt-1 font-display tabular-nums">
                     <span x-text="currencySymbol"></span><span x-text="totalPrice.toFixed(2)"></span>
                 </div>
             </div>
@@ -172,14 +172,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">GST (Goods &amp; Services Tax)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">GST (Goods &amp; Services Tax)</td>
                             <td>Multi-stage at every supply transaction</td>
                             <td class="text-[#2ead4b]">Full B2B Input Credit</td>
                             <td class="text-[#2ead4b]">Complete Elimination</td>
                             <td>Canada, Australia, India, Singapore, NZ</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">VAT (Value Added Tax)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">VAT (Value Added Tax)</td>
                             <td>Fractional tax on incremental value added</td>
                             <td class="text-[#2ead4b]">Full Input VAT Refund</td>
                             <td class="text-[#2ead4b]">Complete Elimination</td>

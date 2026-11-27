@@ -66,13 +66,13 @@
         <div class="flex flex-wrap items-center justify-center gap-4 py-4">
             <!-- Fraction 1 -->
             <div class="flex flex-col items-center w-20">
-                <input type="number" x-model="n1" class="input input-bordered w-full rounded-[10px] text-center font-bold text-lg" />
+                <input aria-label="First numerator" type="number" x-model="n1" class="input input-bordered w-full rounded-[10px] text-center font-bold text-lg" />
                 <div class="w-full h-0.5 bg-base-content/40 my-1"></div>
-                <input type="number" min="1" x-model="d1" class="input input-bordered w-full rounded-[10px] text-center font-bold text-lg" />
+                <input aria-label="First denominator" type="number" min="1" x-model="d1" class="input input-bordered w-full rounded-[10px] text-center font-bold text-lg" />
             </div>
 
             <!-- Operator -->
-            <select x-model="op" class="select select-bordered rounded-[12px] font-mono text-xl font-bold">
+            <select aria-label="Fraction operator" x-model="op" class="select select-bordered rounded-[12px] font-mono text-xl font-bold">
                 <option value="+">+</option>
                 <option value="-">−</option>
                 <option value="*">×</option>
@@ -81,9 +81,9 @@
 
             <!-- Fraction 2 -->
             <div class="flex flex-col items-center w-20">
-                <input type="number" x-model="n2" class="input input-bordered w-full rounded-[10px] text-center font-bold text-lg" />
+                <input aria-label="Second numerator" type="number" x-model="n2" class="input input-bordered w-full rounded-[10px] text-center font-bold text-lg" />
                 <div class="w-full h-0.5 bg-base-content/40 my-1"></div>
-                <input type="number" min="1" x-model="d2" class="input input-bordered w-full rounded-[10px] text-center font-bold text-lg" />
+                <input aria-label="Second denominator" type="number" min="1" x-model="d2" class="input input-bordered w-full rounded-[10px] text-center font-bold text-lg" />
             </div>
 
             <span class="text-2xl font-bold px-2">=</span>
@@ -119,26 +119,26 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Addition (+)</td>
-                            <td class="font-mono text-primary">(a/b) + (c/d)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Addition (+)</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">(a/b) + (c/d)</td>
                             <td>Find LCD: ((a × d) + (b × c)) ÷ (b × d)</td>
                             <td>1/2 + 1/3 = (3 + 2)/6 = 5/6</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Subtraction (−)</td>
-                            <td class="font-mono text-primary">(a/b) − (c/d)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Subtraction (−)</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">(a/b) − (c/d)</td>
                             <td>Find LCD: ((a × d) − (b × c)) ÷ (b × d)</td>
                             <td>3/4 − 1/3 = (9 − 4)/12 = 5/12</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Multiplication (×)</td>
-                            <td class="font-mono text-primary">(a/b) × (c/d)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Multiplication (×)</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">(a/b) × (c/d)</td>
                             <td>Direct multiply: (a × c) ÷ (b × d)</td>
                             <td>2/3 × 3/5 = 6/15 = 2/5</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Division (÷)</td>
-                            <td class="font-mono text-primary">(a/b) ÷ (c/d)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Division (÷)</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">(a/b) ÷ (c/d)</td>
                             <td>Multiply by reciprocal: (a × d) ÷ (b × c)</td>
                             <td>1/2 ÷ 3/4 = (1 × 4)/(2 × 3) = 2/3</td>
                         </tr>

@@ -33,7 +33,7 @@
     },
     copy() {
         if (!this.input) return;
-        navigator.clipboard.writeText(this.input);
+        window.copyTextSafe(this.input);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -54,7 +54,7 @@
         </div>
 
         <div>
-            <textarea
+            <textarea aria-label="Paste XML or SVG code here (e.g. Data)"
                 x-model="input"
                 rows="12"
                 placeholder="Paste XML or SVG code here (e.g. <root><item id='1'>Data</item></root>)..."
@@ -80,14 +80,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">XML 1.0 (Fifth Edition)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">XML 1.0 (Fifth Edition)</td>
                             <td class="font-mono font-bold text-error">Strict (Must self-close or end tag)</td>
                             <td class="font-mono font-bold">Mandatory (Double or single quotes)</td>
                             <td class="font-mono">&lt;![CDATA[ raw text ]]&gt; or &amp;lt; &amp;gt; &amp;amp;</td>
                             <td>SOAP APIs, RSS/Atom feeds, Android manifests, SVG vectors</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">HTML5 (WHATWG Living)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">HTML5 (WHATWG Living)</td>
                             <td class="font-mono text-success">Forgiving (Void tags &lt;img&gt;, &lt;br&gt; optional close)</td>
                             <td class="font-mono">Optional for unspaced values</td>
                             <td class="font-mono">HTML entity names (&amp;copy;, &amp;nbsp;, &amp;mdash;)</td>

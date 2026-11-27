@@ -126,13 +126,13 @@
             <div class="space-y-3">
                 <template x-for="(r, idx) in rows" :key="idx">
                     <div class="flex items-center gap-3 p-3 rounded-[14px] bg-base-200/50 border border-base-300">
-                        <input type="text" x-model="r.name" placeholder="Assessment Name" class="input input-sm input-bordered flex-1 rounded-[8px]" />
+                        <input aria-label="Assessment Name" type="text" x-model="r.name" placeholder="Assessment Name" class="input input-sm input-bordered flex-1 rounded-[8px]" />
                         <div class="flex items-center gap-1 w-28">
-                            <input type="number" min="0" max="100" x-model="r.weight" placeholder="Weight" class="input input-sm input-bordered w-full rounded-[8px] text-center" />
+                            <input aria-label="Weight" type="number" min="0" max="100" x-model="r.weight" placeholder="Weight" class="input input-sm input-bordered w-full rounded-[8px] text-center" />
                             <span class="text-xs text-base-content/60 font-bold">%</span>
                         </div>
                         <div class="flex items-center gap-1 w-28">
-                            <input type="number" min="0" max="100" x-model="r.score" placeholder="Score" class="input input-sm input-bordered w-full rounded-[8px] text-center" />
+                            <input aria-label="Score" type="number" min="0" max="100" x-model="r.score" placeholder="Score" class="input input-sm input-bordered w-full rounded-[8px] text-center" />
                             <span class="text-xs text-base-content/60 font-bold">%</span>
                         </div>
                         <button type="button" @click="removeRow(idx)" class="btn btn-ghost btn-xs text-error" x-show="rows.length > 1">✕</button>
@@ -161,15 +161,15 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Current Class Grade (%)</label>
-                    <input type="number" min="0" max="100" step="0.5" x-model="currentGrade" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                    <input aria-label="Current Class Grade (%)" type="number" min="0" max="100" step="0.5" x-model="currentGrade" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
                 </div>
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Target Desired Grade (%)</label>
-                    <input type="number" min="0" max="100" step="0.5" x-model="targetGrade" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                    <input aria-label="Target Desired Grade (%)" type="number" min="0" max="100" step="0.5" x-model="targetGrade" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
                 </div>
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Final Exam Weight (%)</label>
-                    <input type="number" min="1" max="99" step="1" x-model="finalWeight" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                    <input aria-label="Final Exam Weight (%)" type="number" min="1" max="99" step="1" x-model="finalWeight" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
                 </div>
             </div>
 
@@ -200,14 +200,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Final Exam / Capstone</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Final Exam / Capstone</td>
                             <td class="font-mono font-bold text-error">30% – 40%</td>
                             <td class="font-mono">1 comprehensive exam</td>
                             <td class="font-bold text-error font-mono">Very High (±1 letter grade)</td>
                             <td>High-yield practice exams, spaced retrieval review</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Midterm Exams</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Midterm Exams</td>
                             <td class="font-mono font-bold">20% – 30%</td>
                             <td class="font-mono">1 to 2 midterms</td>
                             <td class="font-bold text-warning font-mono">High (±0.5 letter grade)</td>

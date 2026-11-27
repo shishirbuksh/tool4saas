@@ -71,33 +71,33 @@
     <div id="resume-print" class="bg-base-100 rounded-2xl border border-base-300 p-6 sm:p-10 shadow-sm space-y-8">
         {{-- Resume Header --}}
         <div class="border-b border-base-300 pb-6">
-            <input type="text" x-model="name" placeholder="Your Full Name" class="text-3xl sm:text-4xl font-black font-display text-base-content bg-transparent border-b border-transparent hover:border-base-300 focus:border-primary focus:outline-none w-full" />
-            <input type="text" x-model="title" placeholder="Professional Headline / Title" class="text-base sm:text-lg font-bold text-primary bg-transparent border-b border-transparent hover:border-base-300 focus:border-primary focus:outline-none w-full mt-1" />
+            <input aria-label="Your Full Name" type="text" x-model="name" placeholder="Your Full Name" class="text-3xl sm:text-4xl font-black font-display text-base-content bg-transparent border-b border-transparent hover:border-base-300 focus:border-primary focus:outline-none w-full" />
+            <input aria-label="Professional Headline / Title" type="text" x-model="title" placeholder="Professional Headline / Title" class="text-base sm:text-lg font-bold text-[#163300] dark:text-[#9fe870] bg-transparent border-b border-transparent hover:border-base-300 focus:border-primary focus:outline-none w-full mt-1" />
             <div class="flex flex-wrap items-center gap-3 mt-3 text-xs text-base-content/70">
-                <input type="email" x-model="email" placeholder="email@domain.com" class="bg-transparent border-b border-base-300 focus:outline-none" />
+                <input aria-label="Email address" type="email" x-model="email" placeholder="email@domain.com" class="bg-transparent border-b border-base-300 focus:outline-none" />
                 <span>·</span>
-                <input type="text" x-model="phone" placeholder="+1 (555) 000-0000" class="bg-transparent border-b border-base-300 focus:outline-none" />
+                <input aria-label="1 (555) 000-0000" type="text" x-model="phone" placeholder="+1 (555) 000-0000" class="bg-transparent border-b border-base-300 focus:outline-none" />
                 <span>·</span>
-                <input type="text" x-model="location" placeholder="City, State" class="bg-transparent border-b border-base-300 focus:outline-none" />
+                <input aria-label="City, State" type="text" x-model="location" placeholder="City, State" class="bg-transparent border-b border-base-300 focus:outline-none" />
             </div>
         </div>
 
         {{-- Professional Summary --}}
         <div>
-            <h3 class="text-xs font-bold uppercase tracking-wider text-primary font-mono mb-2">Professional Summary</h3>
-            <textarea x-model="summary" rows="3" class="textarea textarea-bordered rounded-xl w-full text-sm leading-relaxed"></textarea>
+            <h3 class="text-xs font-bold uppercase tracking-wider text-[#163300] dark:text-[#9fe870] font-mono mb-2">Professional Summary</h3>
+            <textarea aria-label="Summary" x-model="summary" rows="3" class="textarea textarea-bordered rounded-xl w-full text-sm leading-relaxed"></textarea>
         </div>
 
         {{-- Core Skills --}}
         <div>
-            <h3 class="text-xs font-bold uppercase tracking-wider text-primary font-mono mb-2">Core Competencies &amp; Skills</h3>
-            <input type="text" x-model="skills" placeholder="Comma-separated skills (e.g. Figma, React, Laravel, Product Strategy)" class="input input-bordered rounded-xl w-full text-sm" />
+            <h3 class="text-xs font-bold uppercase tracking-wider text-[#163300] dark:text-[#9fe870] font-mono mb-2">Core Competencies &amp; Skills</h3>
+            <input aria-label="Comma-separated skills (e.g. Figma, React, Laravel, Product Strategy)" type="text" x-model="skills" placeholder="Comma-separated skills (e.g. Figma, React, Laravel, Product Strategy)" class="input input-bordered rounded-xl w-full text-sm" />
         </div>
 
         {{-- Experience Section --}}
         <div class="space-y-4">
             <div class="flex items-center justify-between">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-primary font-mono">Work Experience</h3>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-[#163300] dark:text-[#9fe870] font-mono">Work Experience</h3>
                 <button
                     type="button"
                     @click="addExperience()"
@@ -111,8 +111,8 @@
                 <div class="p-5 rounded-2xl bg-base-200/50 border border-base-300 space-y-3">
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
-                            <input type="text" x-model="exp.role" placeholder="Job Title" class="input input-sm input-bordered rounded-xl font-bold text-sm" />
-                            <input type="text" x-model="exp.company" placeholder="Company Name" class="input input-sm input-bordered rounded-xl text-sm" />
+                            <input aria-label="Job Title" type="text" x-model="exp.role" placeholder="Job Title" class="input input-sm input-bordered rounded-xl font-bold text-sm" />
+                            <input aria-label="Company Name" type="text" x-model="exp.company" placeholder="Company Name" class="input input-sm input-bordered rounded-xl text-sm" />
                         </div>
                         <button
                             type="button"
@@ -123,8 +123,8 @@
                             ✕
                         </button>
                     </div>
-                    <input type="text" x-model="exp.period" placeholder="Duration (e.g. 2021 — Present)" class="input input-xs input-bordered rounded-lg w-48 text-xs" />
-                    <textarea x-model="exp.desc" rows="2" placeholder="Key responsibilities and measurable achievements..." class="textarea textarea-bordered rounded-xl w-full text-xs leading-relaxed"></textarea>
+                    <input aria-label="Duration (e.g. 2021 — Present)" type="text" x-model="exp.period" placeholder="Duration (e.g. 2021 — Present)" class="input input-xs input-bordered rounded-lg w-48 text-xs" />
+                    <textarea aria-label="Key responsibilities and measurable achievements" x-model="exp.desc" rows="2" placeholder="Key responsibilities and measurable achievements..." class="textarea textarea-bordered rounded-xl w-full text-xs leading-relaxed"></textarea>
                 </div>
             </template>
         </div>
@@ -132,7 +132,7 @@
         {{-- Education Section --}}
         <div class="space-y-4">
             <div class="flex items-center justify-between">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-primary font-mono">Education</h3>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-[#163300] dark:text-[#9fe870] font-mono">Education</h3>
                 <button
                     type="button"
                     @click="addEducation()"
@@ -146,8 +146,8 @@
                 <div class="p-5 rounded-2xl bg-base-200/50 border border-base-300 space-y-3">
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
-                            <input type="text" x-model="edu.school" placeholder="University / School" class="input input-sm input-bordered rounded-xl font-bold text-sm" />
-                            <input type="text" x-model="edu.degree" placeholder="Degree / Major" class="input input-sm input-bordered rounded-xl text-sm" />
+                            <input aria-label="University / School" type="text" x-model="edu.school" placeholder="University / School" class="input input-sm input-bordered rounded-xl font-bold text-sm" />
+                            <input aria-label="Degree / Major" type="text" x-model="edu.degree" placeholder="Degree / Major" class="input input-sm input-bordered rounded-xl text-sm" />
                         </div>
                         <button
                             type="button"
@@ -158,7 +158,7 @@
                             ✕
                         </button>
                     </div>
-                    <input type="text" x-model="edu.period" placeholder="Graduation Year (e.g. 2016 — 2020)" class="input input-xs input-bordered rounded-lg w-48 text-xs" />
+                    <input aria-label="Graduation Year (e.g. 2016 — 2020)" type="text" x-model="edu.period" placeholder="Graduation Year (e.g. 2016 — 2020)" class="input input-xs input-bordered rounded-lg w-48 text-xs" />
                 </div>
             </template>
         </div>

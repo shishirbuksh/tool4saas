@@ -89,7 +89,7 @@
             <x-numeric-field label="Investment Term" model="years" suffix="Yrs" min="1" max="50" placeholder="5" />
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Frequency</span></label>
-                <select x-model.number="freq" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Frequency" x-model.number="freq" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="1">Annually (1x/yr)</option>
                     <option value="2">Semi-Annually (2x/yr)</option>
                     <option value="4">Quarterly (4x/yr)</option>
@@ -191,7 +191,7 @@
                             <td class="font-bold font-mono">Daily (Standard Bank)</td>
                             <td class="font-mono">n = 365</td>
                             <td class="font-mono">8.328%</td>
-                            <td class="font-mono text-primary font-bold">$22,253.46</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">$22,253.46</td>
                             <td class="text-[#2ead4b] font-bold">+$664.21</td>
                         </tr>
                     </tbody>

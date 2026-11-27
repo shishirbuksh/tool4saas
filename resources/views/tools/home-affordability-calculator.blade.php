@@ -56,19 +56,19 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Gross Annual Household Income ($)</label>
-                <input type="number" min="10000" step="5000" x-model="annualIncome" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Gross Annual Household Income ($)" type="number" min="10000" step="5000" x-model="annualIncome" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Monthly Debt Payments ($)</label>
-                <input type="number" min="0" step="100" x-model="monthlyDebt" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Monthly Debt Payments ($)" type="number" min="0" step="100" x-model="monthlyDebt" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Available Down Payment ($)</label>
-                <input type="number" min="0" step="5000" x-model="downPayment" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Available Down Payment ($)" type="number" min="0" step="5000" x-model="downPayment" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Interest Rate (%)</label>
-                <input type="number" min="1" max="15" step="0.1" x-model="interestRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Interest Rate (%)" type="number" min="1" max="15" step="0.1" x-model="interestRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
         </div>
 
@@ -81,7 +81,7 @@
 
             <div class="p-6 rounded-[20px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase tracking-widest text-base-content/60 font-bold font-mono">Max Monthly Mortgage Payment</span>
-                <p class="font-mono text-4xl font-extrabold mt-2 text-primary" x-text="'$' + Math.round(maxMonthlyHousingPayment).toLocaleString() + '/mo'"></p>
+                <p class="font-mono text-4xl font-extrabold mt-2 text-[#163300] dark:text-[#9fe870]" x-text="'$' + Math.round(maxMonthlyHousingPayment).toLocaleString() + '/mo'"></p>
                 <p class="text-xs text-base-content/60 mt-2">Recommended ceiling for principal, interest, taxes, and insurance.</p>
             </div>
         </div>
@@ -104,21 +104,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Conventional (Fannie Mae)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Conventional (Fannie Mae)</td>
                             <td class="font-mono">3% – 5% (20% avoids PMI)</td>
                             <td class="font-mono font-bold">28%</td>
                             <td class="font-mono font-bold">36% (up to 45% automated)</td>
                             <td class="font-mono">620</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">FHA Loan (Govt Insured)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">FHA Loan (Govt Insured)</td>
                             <td class="font-mono">3.5%</td>
                             <td class="font-mono">31%</td>
                             <td class="font-mono">43% (up to 50% with compensating factors)</td>
                             <td class="font-mono font-bold text-success">580 (500 with 10% down)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">VA Loan (Veterans)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">VA Loan (Veterans)</td>
                             <td class="font-mono font-bold text-success">0% Down</td>
                             <td class="font-mono">No fixed ceiling</td>
                             <td class="font-mono">41% benchmark</td>

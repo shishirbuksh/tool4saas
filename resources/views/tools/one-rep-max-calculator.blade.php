@@ -52,17 +52,17 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Weight Lifted</label>
-                <input type="number" min="1" step="5" x-model="weight" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Weight Lifted" type="number" min="1" step="5" x-model="weight" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Repetitions Completed</label>
-                <input type="number" min="1" max="25" x-model="reps" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Repetitions Completed" type="number" min="1" max="25" x-model="reps" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Measurement Unit</label>
-                <select x-model="unit" class="select select-bordered w-full rounded-[12px] text-sm">
+                <select aria-label="Measurement Unit" x-model="unit" class="select select-bordered w-full rounded-[12px] text-sm">
                     <option value="lbs">Pounds (lbs)</option>
                     <option value="kg">Kilograms (kg)</option>
                 </select>
@@ -78,19 +78,19 @@
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             <div class="p-3 rounded-[12px] bg-base-200/50 border border-base-300 text-center">
                 <span class="text-xs text-base-content/60 font-bold block">95% (2 Reps)</span>
-                <span class="font-mono text-lg font-bold text-primary" x-text="Math.round(oneRepMax * 0.95) + ' ' + unit"></span>
+                <span class="font-mono text-lg font-bold text-[#163300] dark:text-[#9fe870]" x-text="Math.round(oneRepMax * 0.95) + ' ' + unit"></span>
             </div>
             <div class="p-3 rounded-[12px] bg-base-200/50 border border-base-300 text-center">
                 <span class="text-xs text-base-content/60 font-bold block">90% (4 Reps)</span>
-                <span class="font-mono text-lg font-bold text-primary" x-text="Math.round(oneRepMax * 0.90) + ' ' + unit"></span>
+                <span class="font-mono text-lg font-bold text-[#163300] dark:text-[#9fe870]" x-text="Math.round(oneRepMax * 0.90) + ' ' + unit"></span>
             </div>
             <div class="p-3 rounded-[12px] bg-base-200/50 border border-base-300 text-center">
                 <span class="text-xs text-base-content/60 font-bold block">80% (8 Reps)</span>
-                <span class="font-mono text-lg font-bold text-primary" x-text="Math.round(oneRepMax * 0.80) + ' ' + unit"></span>
+                <span class="font-mono text-lg font-bold text-[#163300] dark:text-[#9fe870]" x-text="Math.round(oneRepMax * 0.80) + ' ' + unit"></span>
             </div>
             <div class="p-3 rounded-[12px] bg-base-200/50 border border-base-300 text-center">
                 <span class="text-xs text-base-content/60 font-bold block">70% (12 Reps)</span>
-                <span class="font-mono text-lg font-bold text-primary" x-text="Math.round(oneRepMax * 0.70) + ' ' + unit"></span>
+                <span class="font-mono text-lg font-bold text-[#163300] dark:text-[#9fe870]" x-text="Math.round(oneRepMax * 0.70) + ' ' + unit"></span>
             </div>
         </div>
 
@@ -112,15 +112,15 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Epley Formula (Default)</td>
-                            <td class="font-mono text-primary">Weight × (1 + Reps ÷ 30)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Epley Formula (Default)</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">Weight × (1 + Reps ÷ 30)</td>
                             <td class="text-[#2ead4b] font-bold">~98% Accurate</td>
                             <td class="text-[#2ead4b]">~95% Accurate</td>
                             <td>Powerlifting, strength training, collegiate athletics</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Brzycki Formula</td>
-                            <td class="font-mono text-primary">Weight × (36 ÷ (37 − Reps))</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Brzycki Formula</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">Weight × (36 ÷ (37 − Reps))</td>
                             <td class="text-[#2ead4b] font-bold">~98% Accurate</td>
                             <td>~93% Accurate</td>
                             <td>Bodybuilding, general gym strength baselines</td>

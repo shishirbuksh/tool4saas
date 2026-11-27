@@ -41,7 +41,7 @@
             <label class="block text-sm font-bold text-[#163300] dark:text-[#9fe870] uppercase tracking-wider mb-2">
                 Text to Read Aloud
             </label>
-            <textarea
+            <textarea aria-label="Text to Read Aloud"
                 x-model="text"
                 rows="5"
                 placeholder="Type or paste the narrative, article, or script you want spoken..."
@@ -54,7 +54,7 @@
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">
                     Voice Selection
                 </label>
-                <select x-model="selectedVoice" class="select select-bordered w-full rounded-[12px] text-sm">
+                <select aria-label="Voice Selection" x-model="selectedVoice" class="select select-bordered w-full rounded-[12px] text-sm">
                     <template x-for="v in voices" :key="v.name">
                         <option :value="v.name" x-text="v.name + ' (' + v.lang + ')'"></option>
                     </template>
@@ -66,7 +66,7 @@
                     <label class="text-xs font-bold uppercase tracking-wider text-base-content/70">Playback Speed</label>
                     <span class="text-xs font-mono font-bold" x-text="rate + 'x'"></span>
                 </div>
-                <input type="range" min="0.5" max="2.0" step="0.1" x-model="rate" class="range range-primary range-sm" />
+                <input aria-label="Playback Speed" type="range" min="0.5" max="2.0" step="0.1" x-model="rate" class="range range-primary range-sm" />
             </div>
 
             <div>
@@ -74,7 +74,7 @@
                     <label class="text-xs font-bold uppercase tracking-wider text-base-content/70">Pitch Level</label>
                     <span class="text-xs font-mono font-bold" x-text="pitch"></span>
                 </div>
-                <input type="range" min="0.5" max="1.5" step="0.1" x-model="pitch" class="range range-primary range-sm" />
+                <input aria-label="Pitch Level" type="range" min="0.5" max="1.5" step="0.1" x-model="pitch" class="range range-primary range-sm" />
             </div>
         </div>
 
@@ -115,14 +115,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Web Speech Synthesis API</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Web Speech Synthesis API</td>
                             <td>OS-level Concatenative / Formant synthesis (SAPI, Apple AVSpeech)</td>
                             <td class="font-mono">3.4 – 4.1 MOS</td>
                             <td class="font-bold text-success font-mono">&lt; 50 ms Instant Local Playback</td>
                             <td class="font-bold text-success">Zero server cost, zero egress, 100% offline support</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Neural TTS (ElevenLabs / Azure)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Neural TTS (ElevenLabs / Azure)</td>
                             <td>Autoregressive Diffusion + Tacotron / WaveNet vocoder</td>
                             <td class="font-bold text-success font-mono">4.7 – 4.9 MOS (Human parity)</td>
                             <td class="font-mono">300 ms – 800 ms streaming API</td>

@@ -37,7 +37,7 @@
     <div class="space-y-6">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Card Number</label>
-            <input
+            <input aria-label="Card Number"
                 type="text"
                 x-model="input"
                 @input="formatInput($event.target.value)"
@@ -74,7 +74,7 @@
         </div>
 
         <div class="p-4 rounded-2xl bg-base-100 border border-base-300 text-xs text-base-content/70 flex items-center gap-3 font-mono">
-            <span class="text-primary font-bold">🔒 Secure Local Check:</span>
+            <span class="text-[#163300] dark:text-[#9fe870] font-bold">🔒 Secure Local Check:</span>
             <span>Card numbers are validated mathematically using the standard ISO/IEC 7812 checksum in your browser. No cardholder data is stored or transmitted.</span>
         </div>
 
@@ -96,28 +96,28 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Visa</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Visa</td>
                             <td class="font-mono">4</td>
                             <td class="font-mono">16 Digits</td>
                             <td>3 Digits (CVV2)</td>
                             <td class="text-[#2ead4b]">Required</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Mastercard</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Mastercard</td>
                             <td class="font-mono">51–55, 2221–2720</td>
                             <td class="font-mono">16 Digits</td>
                             <td>3 Digits (CVC2)</td>
                             <td class="text-[#2ead4b]">Required</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">American Express</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">American Express</td>
                             <td class="font-mono">34, 37</td>
                             <td class="font-mono">15 Digits</td>
                             <td>4 Digits (CID front)</td>
                             <td class="text-[#2ead4b]">Required</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Discover</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Discover</td>
                             <td class="font-mono">6011, 65, 644–649</td>
                             <td class="font-mono">16 Digits</td>
                             <td>3 Digits (CID)</td>

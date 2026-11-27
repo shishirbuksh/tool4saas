@@ -187,31 +187,31 @@
                     <tr>
                         <td class="font-bold font-mono">Percent of Value</td>
                         <td>What is P% of number X?</td>
-                        <td class="font-mono text-primary">(P ÷ 100) × X</td>
+                        <td class="font-mono text-[#163300] dark:text-[#9fe870]">(P ÷ 100) × X</td>
                         <td>20% of 150 = 30</td>
                     </tr>
                     <tr>
                         <td class="font-bold font-mono">Percent Ratio</td>
                         <td>What percent is X of Y?</td>
-                        <td class="font-mono text-primary">(X ÷ Y) × 100</td>
+                        <td class="font-mono text-[#163300] dark:text-[#9fe870]">(X ÷ Y) × 100</td>
                         <td>25 of 200 = 12.5%</td>
                     </tr>
                     <tr>
                         <td class="font-bold font-mono">Percentage Increase</td>
                         <td>Growth from value A to B</td>
-                        <td class="font-mono text-primary">((B − A) ÷ A) × 100</td>
+                        <td class="font-mono text-[#163300] dark:text-[#9fe870]">((B − A) ÷ A) × 100</td>
                         <td>$80 to $100 = +25% increase</td>
                     </tr>
                     <tr>
                         <td class="font-bold font-mono">Percentage Decrease</td>
                         <td>Reduction from value A to B</td>
-                        <td class="font-mono text-primary">((A − B) ÷ A) × 100</td>
+                        <td class="font-mono text-[#163300] dark:text-[#9fe870]">((A − B) ÷ A) × 100</td>
                         <td>$100 to $70 = −30% discount</td>
                     </tr>
                     <tr>
                         <td class="font-bold font-mono">Percentage Difference</td>
                         <td>Relative spread between A &amp; B</td>
-                        <td class="font-mono text-primary">(|A − B| ÷ ((A + B) ÷ 2)) × 100</td>
+                        <td class="font-mono text-[#163300] dark:text-[#9fe870]">(|A − B| ÷ ((A + B) ÷ 2)) × 100</td>
                         <td>Between 50 and 70 = 33.33% variance</td>
                     </tr>
                 </tbody>

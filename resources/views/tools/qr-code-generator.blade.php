@@ -69,7 +69,7 @@
             <div class="lg:col-span-2 space-y-6">
                 <div>
                     <label class="block text-sm font-semibold mb-2">QR Code Content (URL or Text)</label>
-                    <textarea
+                    <textarea aria-label="QR Code Content (URL or Text)"
                         x-model="text"
                         @input="renderQr()"
                         rows="3"
@@ -93,7 +93,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 rounded-3xl bg-base-200/60 border border-base-300">
                     <div>
                         <label class="block text-xs font-bold mb-1.5 text-base-content/70">Error Correction Level</label>
-                        <select x-model="errorCorrection" @change="renderQr()" class="select select-bordered select-sm w-full rounded-xl">
+                        <select aria-label="Error Correction Level" x-model="errorCorrection" @change="renderQr()" class="select select-bordered select-sm w-full rounded-xl">
                             <option value="L">Low (7% recovery)</option>
                             <option value="M">Medium (15% recovery)</option>
                             <option value="Q">Quartile (25% recovery)</option>
@@ -103,7 +103,7 @@
 
                     <div>
                         <label class="block text-xs font-bold mb-1.5 text-base-content/70">Export Resolution (Pixels)</label>
-                        <select x-model="size" @change="renderQr()" class="select select-bordered select-sm w-full rounded-xl">
+                        <select aria-label="Export Resolution (Pixels)" x-model="size" @change="renderQr()" class="select select-bordered select-sm w-full rounded-xl">
                             <option value="128">128 × 128 px (Thumbnail)</option>
                             <option value="256">256 × 256 px (Standard Web)</option>
                             <option value="512">512 × 512 px (High-Res Web)</option>

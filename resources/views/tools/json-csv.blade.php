@@ -76,7 +76,7 @@
         },
         copy() {
             if (!this.output) return;
-            navigator.clipboard.writeText(this.output);
+            window.copyTextSafe(this.output);
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         },
@@ -116,7 +116,7 @@
 
             <div class="flex items-center gap-2 bg-base-200/80 px-4 py-2 rounded-full border border-base-300">
                 <span class="text-xs font-bold text-base-content/60 uppercase tracking-wider font-mono">Separator:</span>
-                <select x-model="delimiter" @change="process()" class="select select-bordered select-xs rounded-lg font-mono text-xs">
+                <select aria-label="Delimiter" x-model="delimiter" @change="process()" class="select select-bordered select-xs rounded-lg font-mono text-xs">
                     <option value=",">Comma (,)</option>
                     <option value=";">Semicolon (;)</option>
                     <option value="	">Tab (\t / TSV)</option>
@@ -131,7 +131,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2" x-text="mode === 'json2csv' ? 'JSON Array Input' : 'CSV Lines Input'"></label>
-                <textarea
+                <textarea aria-label="Input"
                     x-model="input"
                     @input="process()"
                     rows="13"
@@ -161,7 +161,7 @@
                         </button>
                     </div>
                 </div>
-                <textarea
+                <textarea aria-label="Output"
                     x-model="output"
                     readonly
                     rows="13"
@@ -188,14 +188,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Standard Comma (CSV)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Standard Comma (CSV)</td>
                             <td class="font-mono">, (ASCII 44)</td>
                             <td class="font-mono">Wrap in double quotes: <code class="font-mono">&quot;a,b&quot;</code></td>
                             <td>US, UK, India, English-speaking world</td>
                             <td>RFC 4180 standard, PostgreSQL COPY, Pandas, Excel</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Semicolon (European CSV)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Semicolon (European CSV)</td>
                             <td class="font-mono">; (ASCII 59)</td>
                             <td class="font-mono">Wrap in quotes: <code class="font-mono">&quot;a;b&quot;</code></td>
                             <td>Germany, France, Spain, Brazil (where comma is decimal)</td>

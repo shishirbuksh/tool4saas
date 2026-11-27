@@ -77,7 +77,7 @@
             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Regular Expression Pattern</label>
             <div class="flex items-center gap-2">
                 <span class="text-xl font-mono text-base-content/50 font-bold">/</span>
-                <input
+                <input aria-label="Regular Expression Pattern"
                     type="text"
                     x-model="pattern"
                     @input="testRegex()"
@@ -122,7 +122,7 @@
         {{-- Test String Input --}}
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Test String / Haystack</label>
-            <textarea
+            <textarea aria-label="Test String / Haystack"
                 x-model="text"
                 @input="testRegex()"
                 rows="6"
@@ -148,7 +148,7 @@
                         <template x-for="(m, idx) in matches" :key="idx">
                             <div class="flex items-center justify-between p-3 rounded-xl bg-base-100 border border-base-300 font-mono text-xs">
                                 <span class="font-bold text-base-content break-all" x-text="m.val"></span>
-                                <span class="text-base-content/50 shrink-0 ml-2">Index: <span x-text="m.index" class="font-bold text-primary"></span></span>
+                                <span class="text-base-content/50 shrink-0 ml-2">Index: <span x-text="m.index" class="font-bold text-[#163300] dark:text-[#9fe870]"></span></span>
                             </div>
                         </template>
                     </div>
@@ -179,14 +179,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">JavaScript (ES2018+)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">JavaScript (ES2018+)</td>
                             <td>Full lookbehind in modern V8</td>
                             <td class="font-mono text-[#2ead4b]">(?&lt;name&gt;...)</td>
                             <td class="text-error">No</td>
                             <td>Supported (/u flag)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">PCRE2 (PHP / Nginx)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">PCRE2 (PHP / Nginx)</td>
                             <td>Full fixed &amp; variable length</td>
                             <td class="font-mono text-[#2ead4b]">(?P&lt;name&gt;...)</td>
                             <td class="text-[#2ead4b]">Supported (++ / *+)</td>

@@ -95,7 +95,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="bg-base-200/50 p-4 rounded-2xl border border-base-300">
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Classes Attended</label>
-                <input
+                <input aria-label="Classes Attended"
                     type="number"
                     min="0"
                     value="42"
@@ -108,7 +108,7 @@
 
             <div class="bg-base-200/50 p-4 rounded-2xl border border-base-300">
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Total Classes Held</label>
-                <input
+                <input aria-label="Total Classes Held"
                     type="number"
                     min="1"
                     value="50"
@@ -121,7 +121,7 @@
 
             <div class="bg-base-200/50 p-4 rounded-2xl border border-base-300">
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Required Target (%)</label>
-                <input
+                <input aria-label="Required Target (%)"
                     type="number"
                     min="1"
                     max="100"
@@ -204,25 +204,25 @@
                     <tbody class="divide-y divide-base-200">
                         <tr>
                             <td class="font-semibold">UGC / AICTE (Engineering &amp; Sciences)</td>
-                            <td class="font-mono font-bold text-primary">75.0%</td>
+                            <td class="font-mono font-bold text-[#163300] dark:text-[#9fe870]">75.0%</td>
                             <td>Down to 65% with official medical certificate</td>
                             <td>Detained from semester end-term exams</td>
                         </tr>
                         <tr>
                             <td class="font-semibold">National Medical Commission (NMC / MBBS)</td>
-                            <td class="font-mono font-bold text-primary">75% Theory / 80% Practical</td>
+                            <td class="font-mono font-bold text-[#163300] dark:text-[#9fe870]">75% Theory / 80% Practical</td>
                             <td>Strict; rarely condoned</td>
                             <td>Non-eligible for university professional exams</td>
                         </tr>
                         <tr>
                             <td class="font-semibold">Bar Council of India (BCI / Law Degrees)</td>
-                            <td class="font-mono font-bold text-primary">70.0%</td>
+                            <td class="font-mono font-bold text-[#163300] dark:text-[#9fe870]">70.0%</td>
                             <td>Down to 65% on dean recommendation</td>
                             <td>Debarred from taking LL.B semester exams</td>
                         </tr>
                         <tr>
                             <td class="font-semibold">CBSE / State Secondary School Boards</td>
-                            <td class="font-mono font-bold text-primary">75.0%</td>
+                            <td class="font-mono font-bold text-[#163300] dark:text-[#9fe870]">75.0%</td>
                             <td>Up to 15% condonation by regional director</td>
                             <td>Admit card withheld for board examinations</td>
                         </tr>

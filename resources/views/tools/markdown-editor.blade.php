@@ -18,10 +18,10 @@
             esc = esc.replace(/^(#{1,6})\s+(.+)$/gm, (_, hashes, c) => '<h' + hashes.length + ' class=\'font-display font-black text-base-content mt-4 mb-2\'>' + c.trim() + '</h' + hashes.length + '>');
             esc = esc.replace(/^&gt;\s?(.*)$/gm, '<blockquote class=\'border-l-4 border-primary pl-4 py-1 italic my-3 text-base-content/80\'>$1</blockquote>');
             esc = esc.replace(/^[ \t]*[-*]\s+(.+)$/gm, '<li class=\'ml-4 list-disc text-sm\'>$1</li>');
-            esc = esc.replace(/`([^`]+?)`/g, '<code class=\'px-1.5 py-0.5 rounded bg-base-200 text-xs font-mono text-primary\'>$1</code>');
+            esc = esc.replace(/`([^`]+?)`/g, '<code class=\'px-1.5 py-0.5 rounded bg-base-200 text-xs font-mono text-[#163300] dark:text-[#9fe870]\'>$1</code>');
             esc = esc.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
             esc = esc.replace(/\*([^*]+?)\*/g, '<em>$1</em>');
-            esc = esc.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href=\'$2\' target=\'_blank\' rel=\'noopener\' class=\'text-primary font-bold underline\'>$1</a>');
+            esc = esc.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href=\'$2\' target=\'_blank\' rel=\'noopener\' class=\'text-[#163300] dark:text-[#9fe870] font-bold underline\'>$1</a>');
 
             let paragraphs = esc.split(/\n{2,}/).map(b => {
                 b = b.trim();
@@ -48,12 +48,12 @@
             ta.setSelectionRange(start + before.length, end + before.length);
         },
         copyMd() {
-            navigator.clipboard.writeText(this.content);
+            window.copyTextSafe(this.content);
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         },
         copyHtml() {
-            navigator.clipboard.writeText(this.renderedHtml);
+            window.copyTextSafe(this.renderedHtml);
             this.copiedHtml = true;
             setTimeout(() => this.copiedHtml = false, 2000);
         },
@@ -102,7 +102,7 @@
                         <span x-text="content.length"></span> chars · <span x-text="content.trim() ? content.trim().split(/\s+/).length : 0"></span> words
                     </span>
                 </div>
-                <textarea
+                <textarea aria-label="Markdown Input"
                     x-ref="textarea"
                     x-model="content"
                     rows="18"
@@ -114,7 +114,7 @@
             <div>
                 <div class="flex items-center justify-between mb-2">
                     <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Live HTML Preview</label>
-                    <span class="text-xs text-primary font-bold font-mono">Real-Time Render</span>
+                    <span class="text-xs text-[#163300] dark:text-[#9fe870] font-bold font-mono">Real-Time Render</span>
                 </div>
                 <div
                     class="p-6 rounded-3xl bg-base-100 border border-base-300 min-h-[440px] max-h-[440px] overflow-y-auto"
@@ -141,37 +141,37 @@
                     <tbody>
                         <tr>
                             <td class="font-bold font-mono">Primary Title</td>
-                            <td class="font-mono text-primary"># Document Title</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]"># Document Title</td>
                             <td class="font-mono">&lt;h1&gt;Document Title&lt;/h1&gt;</td>
                             <td>Page-level H1 document header</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Section Subtitle</td>
-                            <td class="font-mono text-primary">## Major Section</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">## Major Section</td>
                             <td class="font-mono">&lt;h2&gt;Major Section&lt;/h2&gt;</td>
                             <td>Section divisions and table of contents</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Hyperlink</td>
-                            <td class="font-mono text-primary">[Anchor](https://...)</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">[Anchor](https://...)</td>
                             <td class="font-mono">&lt;a href="..."&gt;Anchor&lt;/a&gt;</td>
                             <td>Contextual anchor links to external resources</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Blockquote</td>
-                            <td class="font-mono text-primary">&gt; Important note</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">&gt; Important note</td>
                             <td class="font-mono">&lt;blockquote&gt;...&lt;/blockquote&gt;</td>
                             <td>Callout boxes, editorial quotes, warnings</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Inline Code</td>
-                            <td class="font-mono text-primary">`const x = 10;`</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">`const x = 10;`</td>
                             <td class="font-mono">&lt;code&gt;const x = 10;&lt;/code&gt;</td>
                             <td>Variable names, file paths, CLI flags</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Fenced Code Block</td>
-                            <td class="font-mono text-primary">```python ... ```</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">```python ... ```</td>
                             <td class="font-mono">&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</td>
                             <td>Multi-line scripts with language syntax highlighting</td>
                         </tr>

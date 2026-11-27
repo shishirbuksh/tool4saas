@@ -101,7 +101,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="bg-base-200/50 p-4 rounded-2xl border border-base-300">
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Current Class Grade (%)</label>
-                <input
+                <input aria-label="Current Class Grade (%)"
                     type="number"
                     min="0"
                     max="100"
@@ -116,7 +116,7 @@
 
             <div class="bg-base-200/50 p-4 rounded-2xl border border-base-300">
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Desired Final Grade (%)</label>
-                <input
+                <input aria-label="Desired Final Grade (%)"
                     type="number"
                     min="0"
                     max="100"
@@ -131,7 +131,7 @@
 
             <div class="bg-base-200/50 p-4 rounded-2xl border border-base-300">
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Final Exam Weight (%)</label>
-                <input
+                <input aria-label="Final Exam Weight (%)"
                     type="number"
                     min="1"
                     max="99"
@@ -189,7 +189,7 @@
                             <tr>
                                 <td class="font-semibold" x-text="row.grade"></td>
                                 <td class="font-mono" x-text="row.target + '%'"></td>
-                                <td class="font-mono font-bold" :class="row.possible ? 'text-primary' : 'text-error'" x-text="row.needed"></td>
+                                <td class="font-mono font-bold" :class="row.possible ? 'text-[#163300] dark:text-[#9fe870]' : 'text-error'" x-text="row.needed"></td>
                                 <td>
                                     <span
                                         class="badge badge-xs font-bold"

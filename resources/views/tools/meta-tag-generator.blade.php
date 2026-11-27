@@ -33,7 +33,7 @@
 '<meta name=\'twitter:image\' content=\'' + this.image + '\'>';
         },
         copy() {
-            navigator.clipboard.writeText(this.generatedTags);
+            window.copyTextSafe(this.generatedTags);
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         }
@@ -44,7 +44,7 @@
                     <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Page Title</label>
                     <span class="text-xs font-mono" :class="title.length > 60 ? 'text-warning font-bold' : 'text-base-content/50'" x-text="title.length + ' / 60 chars'"></span>
                 </div>
-                <input type="text" x-model="title" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <input aria-label="Page Title" type="text" x-model="title" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
 
             <div class="sm:col-span-2">
@@ -52,17 +52,17 @@
                     <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Meta Description</label>
                     <span class="text-xs font-mono" :class="description.length > 160 ? 'text-warning font-bold' : 'text-base-content/50'" x-text="description.length + ' / 160 chars'"></span>
                 </div>
-                <textarea x-model="description" rows="3" class="textarea textarea-bordered rounded-xl w-full text-sm font-mono"></textarea>
+                <textarea aria-label="Meta Description" x-model="description" rows="3" class="textarea textarea-bordered rounded-xl w-full text-sm font-mono"></textarea>
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Canonical URL</label>
-                <input type="url" x-model="url" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <input aria-label="Canonical URL" type="url" x-model="url" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">OG Image URL (1200×630)</label>
-                <input type="url" x-model="image" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <input aria-label="OG Image URL (1200×630)" type="url" x-model="image" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
         </div>
 
@@ -106,7 +106,7 @@
                     <span x-text="copied ? 'Copied to Clipboard!' : 'Copy Tags'"></span>
                 </button>
             </div>
-            <textarea x-model="generatedTags" readonly rows="8" class="textarea textarea-bordered rounded-2xl w-full text-xs font-mono bg-black/60 text-primary border-[#242a20] p-4"></textarea>
+            <textarea aria-label="Generated tags" x-model="generatedTags" readonly rows="8" class="textarea textarea-bordered rounded-2xl w-full text-xs font-mono bg-black/60 text-primary border-[#242a20] p-4"></textarea>
         </div>
 
         {{-- Technical Comparison: Essential SEO & Social Meta Tags Matrix --}}
@@ -126,19 +126,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">&lt;title&gt;</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">&lt;title&gt;</td>
                             <td class="font-mono font-bold text-success">50 – 60 characters</td>
                             <td>Google, Bing, Yahoo, Yandex</td>
                             <td>Primary ranking signal; SERP clickable headline</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">&lt;meta name="description"&gt;</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">&lt;meta name="description"&gt;</td>
                             <td class="font-mono font-bold text-success">120 – 160 characters</td>
                             <td>Google Search (SERP snippet)</td>
                             <td>Drives organic CTR; bolded matched user keywords</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">&lt;link rel="canonical"&gt;</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">&lt;link rel="canonical"&gt;</td>
                             <td class="font-mono">Absolute URL (https://)</td>
                             <td>Googlebot, Bingbot</td>
                             <td>Eliminates duplicate content; consolidates PageRank</td>

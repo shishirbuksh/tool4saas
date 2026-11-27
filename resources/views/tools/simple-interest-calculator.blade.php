@@ -104,7 +104,7 @@
                     <label for="si-time" class="block text-xs font-bold uppercase tracking-wider text-base-content/70">
                         Time Duration
                     </label>
-                    <select x-model="timeUnit" class="select select-ghost select-xs font-bold uppercase text-[11px] text-primary">
+                    <select aria-label="Time Duration" x-model="timeUnit" class="select select-ghost select-xs font-bold uppercase text-[11px] text-[#163300] dark:text-[#9fe870]">
                         <option value="years">Years</option>
                         <option value="months">Months</option>
                         <option value="days">Days</option>

@@ -32,14 +32,14 @@
         reader.readAsDataURL(file);
     },
     copy(hex) {
-        navigator.clipboard.writeText(hex);
+        window.copyTextSafe(hex);
         this.copied = hex;
         setTimeout(() => this.copied = '', 2000);
     }
 }">
     <div class="space-y-6">
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">
-            <input type="file" accept="image/*" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
+            <input aria-label="Upload file for Image Color Extractor" type="file" accept="image/*" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
             <p class="text-xs text-base-content/60 mt-3">Upload any image to extract dominant brand colors, hex codes, and visual palettes.</p>
         </div>
 
@@ -79,21 +79,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Complementary</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Complementary</td>
                             <td>Exact opposite sides (180° separation)</td>
                             <td class="font-bold text-success">Maximum visual contrast &amp; punch</td>
                             <td>High energy, bold, action-oriented</td>
                             <td>Primary CTAs, conversion buttons against neutral backgrounds</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Analogous</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Analogous</td>
                             <td>Adjacent hues (30° to 60° proximity)</td>
                             <td>Low contrast, harmonious gradient flow</td>
                             <td>Calm, serene, cohesive, natural</td>
                             <td>Backgrounds, illustrations, corporate hero cards</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Triadic</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Triadic</td>
                             <td>Equilateral triangle (120° equidistant)</td>
                             <td>Vibrant balance across diverse spectra</td>
                             <td>Playful, vibrant, dynamic</td>

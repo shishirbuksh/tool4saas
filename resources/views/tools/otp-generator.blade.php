@@ -11,7 +11,7 @@
     },
     copy() {
         if (!this.code) return;
-        navigator.clipboard.writeText(this.code);
+        window.copyTextSafe(this.code);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     },
@@ -66,14 +66,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">TOTP (Time-Based OTP)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">TOTP (Time-Based OTP)</td>
                             <td class="font-mono font-bold">RFC 6238 (HMAC-SHA1/256)</td>
                             <td class="font-mono">30 – 60 seconds</td>
                             <td class="text-warning font-semibold">Moderate (Vulnerable to reverse proxies)</td>
                             <td>Google Authenticator, Authy, 1Password, Bitwarden</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">HOTP (Counter-Based OTP)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">HOTP (Counter-Based OTP)</td>
                             <td class="font-mono">RFC 4226 (HMAC-SHA1)</td>
                             <td class="font-mono">Event counter increment</td>
                             <td class="text-warning font-semibold">Moderate (Subject to desync)</td>

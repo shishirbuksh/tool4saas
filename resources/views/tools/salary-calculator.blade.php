@@ -47,7 +47,7 @@
             <x-numeric-field label="Pre-Tax Deductions" model="deductions" prefix="$" placeholder="5000" />
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Currency</span></label>
-                <select x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Currency" x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="$">USD / CAD / AUD ($)</option>
                     <option value="€">EUR (€)</option>
                     <option value="£">GBP (£)</option>
@@ -59,7 +59,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div class="form-control max-w-xs">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Paycheck Frequency</span></label>
-                <select x-model.number="freq" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Paycheck Frequency" x-model.number="freq" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="12">Monthly (12 paychecks / yr)</option>
                     <option value="24">Semi-Monthly (24 paychecks / yr)</option>
                     <option value="26">Bi-Weekly (26 paychecks / yr)</option>
@@ -152,49 +152,49 @@
                             <td class="font-mono">$600</td>
                             <td class="font-mono">$1,200</td>
                             <td class="font-mono">$2,600</td>
-                            <td class="font-bold font-mono text-primary">$31,200</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">$31,200</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">$20.00 / hr</td>
                             <td class="font-mono">$800</td>
                             <td class="font-mono">$1,600</td>
                             <td class="font-mono">$3,467</td>
-                            <td class="font-bold font-mono text-primary">$41,600</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">$41,600</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">$25.00 / hr</td>
                             <td class="font-mono">$1,000</td>
                             <td class="font-mono">$2,000</td>
                             <td class="font-mono">$4,333</td>
-                            <td class="font-bold font-mono text-primary">$52,000</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">$52,000</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">$35.00 / hr</td>
                             <td class="font-mono">$1,400</td>
                             <td class="font-mono">$2,800</td>
                             <td class="font-mono">$6,067</td>
-                            <td class="font-bold font-mono text-primary">$72,800</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">$72,800</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">$50.00 / hr</td>
                             <td class="font-mono">$2,000</td>
                             <td class="font-mono">$4,000</td>
                             <td class="font-mono">$8,667</td>
-                            <td class="font-bold font-mono text-primary">$104,000</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">$104,000</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">$75.00 / hr</td>
                             <td class="font-mono">$3,000</td>
                             <td class="font-mono">$6,000</td>
                             <td class="font-mono">$13,000</td>
-                            <td class="font-bold font-mono text-primary">$156,000</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">$156,000</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">$100.00 / hr</td>
                             <td class="font-mono">$4,000</td>
                             <td class="font-mono">$8,000</td>
                             <td class="font-mono">$17,333</td>
-                            <td class="font-bold font-mono text-primary">$208,000</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">$208,000</td>
                         </tr>
                     </tbody>
                 </table>

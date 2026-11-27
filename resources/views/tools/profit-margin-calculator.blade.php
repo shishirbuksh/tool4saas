@@ -49,7 +49,7 @@
             <x-numeric-field label="Selling Price (Revenue)" model="revenue" prefix="$" placeholder="120" />
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Currency</span></label>
-                <select x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Currency" x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="$">USD / CAD / AUD ($)</option>
                     <option value="€">EUR (€)</option>
                     <option value="£">GBP (£)</option>
@@ -91,7 +91,7 @@
             </div>
             <div class="p-5 rounded-2xl bg-base-200/70 border border-base-300">
                 <span class="text-[11px] font-bold text-base-content/60 uppercase tracking-wider font-mono">Markup Percentage</span>
-                <div class="text-3xl font-black text-primary mt-1 font-display tabular-nums">
+                <div class="text-3xl font-black text-[#163300] dark:text-[#9fe870] mt-1 font-display tabular-nums">
                     <span x-text="markupPercent"></span>%
                 </div>
                 <span class="text-[10px] text-base-content/60 font-mono">(Profit ÷ Cost) × 100</span>
@@ -115,20 +115,20 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Gross Margin</td>
-                            <td class="font-mono text-primary">((Revenue − COGS) ÷ Rev) × 100</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Gross Margin</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">((Revenue − COGS) ÷ Rev) × 100</td>
                             <td>Direct materials, labor &amp; production</td>
                             <td>Measures product manufacturing pricing power</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Operating Margin</td>
-                            <td class="font-mono text-primary">(Operating Income ÷ Rev) × 100</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Operating Margin</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">(Operating Income ÷ Rev) × 100</td>
                             <td>COGS + SG&amp;A, marketing, salaries, R&amp;D</td>
                             <td>Measures managerial efficiency &amp; sales overhead</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Net Profit Margin</td>
-                            <td class="font-mono text-primary">(Net Income ÷ Revenue) × 100</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Net Profit Margin</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">(Net Income ÷ Revenue) × 100</td>
                             <td>All expenses: COGS, overhead, interest, taxes</td>
                             <td>True bottom-line cash generation capacity</td>
                         </tr>

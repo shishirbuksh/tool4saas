@@ -23,7 +23,7 @@
     },
     copy() {
         if (!this.output) return;
-        navigator.clipboard.writeText(this.output);
+        window.copyTextSafe(this.output);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -40,7 +40,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70" x-text="mode === 'encode' ? 'Standard English Input' : 'Morse Code Input (. and -)'"></label>
-                <textarea
+                <textarea aria-label="Input"
                     x-model="input"
                     rows="6"
                     :placeholder="mode === 'encode' ? 'Type English text here (e.g. SOS)...' : 'Type Morse code here (e.g. ... --- ...)...'"
@@ -77,13 +77,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Dot / Dit (.)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Dot / Dit (.)</td>
                             <td class="font-mono font-bold">1 unit</td>
                             <td class="font-mono">Short tone (beep) or flash</td>
                             <td>Fundamental baseline time unit of Morse transmission</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Dash / Dah (-)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Dash / Dah (-)</td>
                             <td class="font-mono font-bold">3 units</td>
                             <td class="font-mono">Long continuous tone</td>
                             <td>Exactly three times the duration of one dit (3 × dot)</td>
@@ -101,7 +101,7 @@
                             <td>Pause separating distinct letters within the same word</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Inter-Word Space</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Inter-Word Space</td>
                             <td class="font-mono font-bold">7 units</td>
                             <td class="font-mono">Long silence or slash ( / )</td>
                             <td>Pause separating complete words in a sentence</td>

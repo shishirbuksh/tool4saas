@@ -271,7 +271,7 @@
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-base-content/70">
                     Total Loan Balance ($)
                 </label>
-                <input
+                <input aria-label="Total Loan Balance ($)"
                     type="number"
                     min="500"
                     max="500000"
@@ -287,7 +287,7 @@
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-base-content/70">
                     Interest Rate APR (%)
                 </label>
-                <input
+                <input aria-label="Interest Rate APR (%)"
                     type="number"
                     min="0"
                     max="25"
@@ -303,7 +303,7 @@
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-base-content/70">
                     Repayment Term (Years)
                 </label>
-                <select
+                <select aria-label="Repayment Term (Years)"
                     x-model.number="loanTermYears"
                     class="select select-bordered w-full rounded-xl font-mono text-base font-bold bg-base-100"
                 >
@@ -321,7 +321,7 @@
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1.5 text-base-content/70">
                     Extra Monthly Payment ($)
                 </label>
-                <input
+                <input aria-label="Extra Monthly Payment ($)"
                     type="number"
                     min="0"
                     max="10000"
@@ -348,7 +348,7 @@
                     <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">
                         Adjusted Gross Income (AGI) ($/yr)
                     </label>
-                    <input
+                    <input aria-label="Adjusted Gross Income (AGI) ($/yr)"
                         type="number"
                         min="0"
                         step="1000"
@@ -362,7 +362,7 @@
                     <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">
                         Family / Household Size
                     </label>
-                    <select
+                    <select aria-label="Family / Household Size"
                         x-model.number="familySize"
                         class="select select-bordered w-full rounded-xl font-mono text-base font-bold bg-base-100"
                     >
@@ -384,7 +384,7 @@
                 <span class="text-xs text-base-content/60">Direct Unsubsidized loans capitalize unpaid interest at repayment onset</span>
             </div>
             <div class="flex items-center gap-3 shrink-0">
-                <input
+                <input aria-label="Accrued grace interest"
                     type="number"
                     min="0"
                     step="100"

@@ -75,7 +75,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Original Text</label>
-                <textarea
+                <textarea aria-label="Original Text"
                     x-model="originalText"
                     rows="7"
                     placeholder="Enter original text..."
@@ -84,7 +84,7 @@
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Modified Text</label>
-                <textarea
+                <textarea aria-label="Modified Text"
                     x-model="modifiedText"
                     rows="7"
                     placeholder="Enter modified text to compare..."
@@ -137,19 +137,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Myers Algorithm (Default)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Myers Algorithm (Default)</td>
                             <td class="font-mono">O(N × D)</td>
                             <td>Finds minimal Shortest Edit Script (SES)</td>
                             <td>Git standard diff engine, Unix diff, command line</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Histogram Diff</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Histogram Diff</td>
                             <td class="font-mono">O(N) Average</td>
                             <td>Anchors on low-frequency unique tokens</td>
                             <td>Git --histogram, reduces noise in refactored code</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Patience Diff</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Patience Diff</td>
                             <td class="font-mono">O(N log N)</td>
                             <td>Superior matching of moved functions and classes</td>
                             <td>Git --patience, complex merge conflict resolution</td>

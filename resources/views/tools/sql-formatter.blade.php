@@ -33,7 +33,7 @@
     },
     copy() {
         if (!this.output) return;
-        navigator.clipboard.writeText(this.output);
+        window.copyTextSafe(this.output);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     },
@@ -70,7 +70,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Input SQL Statement</label>
-                <textarea
+                <textarea aria-label="Input SQL Statement"
                     x-model="input"
                     rows="12"
                     placeholder="Paste unformatted SQL query here..."
@@ -90,7 +90,7 @@
                         <span x-text="copied ? 'Copied!' : 'Copy SQL'"></span>
                     </button>
                 </div>
-                <textarea
+                <textarea aria-label="Formatted query will appear here"
                     x-model="output"
                     readonly
                     rows="12"
@@ -118,14 +118,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">PostgreSQL (16+)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">PostgreSQL (16+)</td>
                             <td class="font-mono">Double quotes: <code class="font-mono">&quot;users&quot;</code></td>
                             <td class="font-mono font-bold">|| (Pipe operator)</td>
                             <td class="font-mono">LIMIT n OFFSET o / FETCH FIRST</td>
                             <td class="font-bold text-success font-mono">Native JSONB with GIN index indexing</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">MySQL (8.0+) / MariaDB</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">MySQL (8.0+) / MariaDB</td>
                             <td class="font-mono">Backticks: <code class="font-mono">`users`</code></td>
                             <td class="font-mono">CONCAT(str1, str2)</td>
                             <td class="font-mono font-bold">LIMIT offset, count</td>

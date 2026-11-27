@@ -37,18 +37,18 @@
     <div class="space-y-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
             <div class="flex items-center gap-3 p-3 rounded-2xl bg-base-100 border border-base-300">
-                <input type="color" x-model="fg" class="size-11 rounded-xl cursor-pointer border-0 bg-transparent" />
+                <input aria-label="Foreground color picker" type="color" x-model="fg" class="size-11 rounded-xl cursor-pointer border-0 bg-transparent" />
                 <div class="flex-1">
                     <label class="block text-[10px] font-bold uppercase tracking-wider text-base-content/60 font-mono">Foreground (Text)</label>
-                    <input type="text" x-model="fg" class="input input-ghost input-sm p-0 text-sm font-mono font-bold uppercase w-full" />
+                    <input aria-label="Foreground (Text)" type="text" x-model="fg" class="input input-ghost input-sm p-0 text-sm font-mono font-bold uppercase w-full" />
                 </div>
             </div>
 
             <div class="flex items-center gap-3 p-3 rounded-2xl bg-base-100 border border-base-300">
-                <input type="color" x-model="bg" class="size-11 rounded-xl cursor-pointer border-0 bg-transparent" />
+                <input aria-label="Background color picker" type="color" x-model="bg" class="size-11 rounded-xl cursor-pointer border-0 bg-transparent" />
                 <div class="flex-1">
                     <label class="block text-[10px] font-bold uppercase tracking-wider text-base-content/60 font-mono">Background</label>
-                    <input type="text" x-model="bg" class="input input-ghost input-sm p-0 text-sm font-mono font-bold uppercase w-full" />
+                    <input aria-label="Background" type="text" x-model="bg" class="input input-ghost input-sm p-0 text-sm font-mono font-bold uppercase w-full" />
                 </div>
                 <button type="button" @click="swap()" class="btn btn-circle btn-ghost btn-sm" title="Swap colors">
                     ⇄
@@ -112,15 +112,15 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Normal Body Text (&lt; 18pt)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Normal Body Text (&lt; 18pt)</td>
                             <td class="font-mono font-bold text-[#2ead4b]">4.5 : 1 Ratio</td>
-                            <td class="font-mono font-bold text-primary">7.0 : 1 Ratio</td>
+                            <td class="font-mono font-bold text-[#163300] dark:text-[#9fe870]">7.0 : 1 Ratio</td>
                             <td>Required for readable paragraphs, links, labels</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Large Text (&ge; 18pt / 14pt Bold)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Large Text (&ge; 18pt / 14pt Bold)</td>
                             <td class="font-mono font-bold text-[#2ead4b]">3.0 : 1 Ratio</td>
-                            <td class="font-mono font-bold text-primary">4.5 : 1 Ratio</td>
+                            <td class="font-mono font-bold text-[#163300] dark:text-[#9fe870]">4.5 : 1 Ratio</td>
                             <td>Page titles, major section headings, hero text</td>
                         </tr>
                         <tr>

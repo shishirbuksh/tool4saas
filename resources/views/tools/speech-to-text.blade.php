@@ -41,7 +41,7 @@
         }
     },
     copy() {
-        navigator.clipboard.writeText(this.transcript);
+        window.copyTextSafe(this.transcript);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -64,7 +64,7 @@
         </div>
 
         <div>
-            <textarea
+            <textarea aria-label="Transcript"
                 x-model="transcript"
                 rows="8"
                 placeholder="Click 'Start Listening' and speak into your microphone to transcribe live speech to text..."
@@ -90,14 +90,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Web Speech API (W3C)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Web Speech API (W3C)</td>
                             <td>Browser native (Google Speech / Apple Dictation)</td>
                             <td class="font-mono">16 kHz / 48 kHz mono PCM</td>
                             <td class="font-mono">~4% – 8% WER</td>
                             <td class="font-bold text-success font-mono">&lt; 150 ms real-time streaming</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">OpenAI Whisper (large-v3)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">OpenAI Whisper (large-v3)</td>
                             <td>Encoder-Decoder Transformer (1550M params)</td>
                             <td class="font-mono font-bold">16,000 Hz 16-bit mono</td>
                             <td class="font-bold text-success font-mono">&lt; 2.5% WER (Human level)</td>

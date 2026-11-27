@@ -51,13 +51,13 @@
             {{-- From Input --}}
             <div class="md:col-span-3 space-y-2">
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">You Send</label>
-                <input
+                <input aria-label="You Send"
                     type="number"
                     step="any"
                     x-model.number="amount"
                     class="input input-bordered rounded-2xl w-full text-2xl font-black p-4 tabular-nums"
                 />
-                <select x-model="from" class="select select-bordered rounded-xl w-full text-xs font-bold">
+                <select aria-label="From" x-model="from" class="select select-bordered rounded-xl w-full text-xs font-bold">
                     <template x-for="c in currencies" :key="c.code">
                         <option :value="c.code" x-text="`${c.code} – ${c.name}`" :selected="from === c.code"></option>
                     </template>
@@ -82,7 +82,7 @@
                 <div class="p-4 rounded-2xl bg-base-200/70 border border-base-300 min-h-[52px] flex items-center font-display text-2xl font-black text-base-content tabular-nums">
                     <span x-text="converted"></span>
                 </div>
-                <select x-model="to" class="select select-bordered rounded-xl w-full text-xs font-bold">
+                <select aria-label="Recipient Gets" x-model="to" class="select select-bordered rounded-xl w-full text-xs font-bold">
                     <template x-for="c in currencies" :key="c.code">
                         <option :value="c.code" x-text="`${c.code} – ${c.name}`" :selected="to === c.code"></option>
                     </template>
@@ -117,35 +117,35 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">USD ($)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">USD ($)</td>
                             <td>United States Dollar</td>
                             <td>Federal Reserve (Fed)</td>
                             <td class="font-mono text-[#2ead4b] font-bold">~88.5%</td>
                             <td>Dominant global reserve; world commodity settlement</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">EUR (€)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">EUR (€)</td>
                             <td>European Euro</td>
                             <td>European Central Bank (ECB)</td>
                             <td class="font-mono text-[#2ead4b]">~30.5%</td>
                             <td>Second largest global reserve; 20 Eurozone nations</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">JPY (¥)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">JPY (¥)</td>
                             <td>Japanese Yen</td>
                             <td>Bank of Japan (BOJ)</td>
                             <td class="font-mono">~16.8%</td>
                             <td>Premier Asian safe-haven; global carry trade standard</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">GBP (£)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">GBP (£)</td>
                             <td>British Pound Sterling</td>
                             <td>Bank of England (BOE)</td>
                             <td class="font-mono">~12.9%</td>
                             <td>Oldest active currency; London financial market hub</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">INR (₹)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">INR (₹)</td>
                             <td>Indian Rupee</td>
                             <td>Reserve Bank of India (RBI)</td>
                             <td class="font-mono">Expanding</td>

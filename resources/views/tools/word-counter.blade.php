@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <textarea
+    <textarea aria-label="Start typing or paste content"
         x-model="text"
         rows="9"
         placeholder="Start typing or paste content..."

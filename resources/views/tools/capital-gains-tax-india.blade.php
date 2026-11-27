@@ -68,22 +68,22 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Original Purchase Price (₹)</label>
-                <input type="number" min="0" step="10000" x-model="purchasePrice" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Original Purchase Price (₹)" type="number" min="0" step="10000" x-model="purchasePrice" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Final Sale Proceeds (₹)</label>
-                <input type="number" min="0" step="10000" x-model="salePrice" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Final Sale Proceeds (₹)" type="number" min="0" step="10000" x-model="salePrice" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Asset Class</label>
-                <select x-model="assetType" class="select select-bordered w-full rounded-[12px] text-sm">
+                <select aria-label="Asset Class" x-model="assetType" class="select select-bordered w-full rounded-[12px] text-sm">
                     <option value="equity_listed">Listed Shares / Mutual Funds</option>
                     <option value="real_estate">Real Estate & Property</option>
                 </select>
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Holding Duration (Years)</label>
-                <input type="number" min="0" max="40" step="0.5" x-model="holdingPeriodYears" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Holding Duration (Years)" type="number" min="0" max="40" step="0.5" x-model="holdingPeriodYears" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
         </div>
 

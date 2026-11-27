@@ -40,7 +40,7 @@
     },
     copy() {
         if (!this.input) return;
-        navigator.clipboard.writeText(this.input);
+        window.copyTextSafe(this.input);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     },
@@ -68,8 +68,8 @@
 
         <div class="flex flex-wrap items-center gap-3 p-3 bg-base-200/50 rounded-[12px] border border-base-300">
             <span class="text-xs font-bold uppercase tracking-wider text-base-content/70">Find & Replace:</span>
-            <input type="text" x-model="findText" placeholder="Find..." class="input input-sm input-bordered rounded-[8px] w-36" />
-            <input type="text" x-model="replaceText" placeholder="Replace with..." class="input input-sm input-bordered rounded-[8px] w-36" />
+            <input aria-label="Find" type="text" x-model="findText" placeholder="Find..." class="input input-sm input-bordered rounded-[8px] w-36" />
+            <input aria-label="Replace with" type="text" x-model="replaceText" placeholder="Replace with..." class="input input-sm input-bordered rounded-[8px] w-36" />
             <button type="button" @click="applyAction('replace')" class="btn btn-sm btn-primary rounded-[8px]">Replace All</button>
         </div>
 
@@ -84,7 +84,7 @@
                     <span>Chars: <strong x-text="charCount"></strong></span>
                 </div>
             </div>
-            <textarea
+            <textarea aria-label="Type or paste your text to clean, format, sort, or modify"
                 x-model="input"
                 rows="10"
                 placeholder="Type or paste your text to clean, format, sort, or modify..."
@@ -131,21 +131,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">camelCase</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">camelCase</td>
                             <td class="font-mono">lowerUpper (No separator)</td>
                             <td class="font-mono font-bold text-success">toolForSaaS</td>
                             <td>JavaScript, TypeScript, Java, Dart, Swift</td>
                             <td>Variable identifiers, function &amp; method names</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">snake_case</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">snake_case</td>
                             <td class="font-mono">lower_lower (Underscore delimited)</td>
                             <td class="font-mono font-bold text-success">tool_for_saas</td>
                             <td>Python, Rust, Ruby, PHP (Laravel DB columns)</td>
                             <td>Database table columns, function names, Python variables</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">kebab-case</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">kebab-case</td>
                             <td class="font-mono">lower-lower (Hyphen delimited)</td>
                             <td class="font-mono font-bold text-success">tool-for-saas</td>
                             <td>CSS class selectors, HTML attributes, URL slugs</td>

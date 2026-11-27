@@ -62,7 +62,7 @@
         <div class="flex items-center flex-wrap gap-2 my-10 pt-6 border-t border-base-300">
             <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 mr-1">See Also:</span>
             @foreach($seeAlso as $also)
-                <a href="{{ url('/' . $also['slug']) }}" class="px-3.5 py-2 rounded-full bg-base-100 border border-base-300 text-xs font-semibold text-base-content hover:border-primary hover:bg-[#e2f6d5] hover:text-[#054d28] transition-all inline-flex items-center min-h-[40px]">
+                <a href="{{ url('/' . $also['slug']) }}" class="px-3.5 py-2 rounded-full bg-base-100 border border-base-300 text-xs font-semibold text-base-content hover:border-primary hover:bg-[#e2f6d5] hover:text-[#054d28] transition-all inline-flex items-center min-h-[44px]">
                     {{ $also['title'] }}
                 </a>
             @endforeach
@@ -213,7 +213,7 @@
                 @foreach($relatedTools as $rel)
                     <a
                         href="{{ url('/' . $rel['slug']) }}"
-                        class="inline-flex items-center px-4 py-2 rounded-full bg-base-100 border border-base-300 text-sm font-semibold text-base-content hover:border-primary hover:text-[#163300] dark:hover:text-[#9fe870] transition-all min-h-[40px]"
+                        class="inline-flex items-center px-4 py-2 rounded-full bg-base-100 border border-base-300 text-sm font-semibold text-base-content hover:border-primary hover:text-[#163300] dark:hover:text-[#9fe870] transition-all min-h-[44px]"
                         title="{{ $rel['title'] }} – {{ $rel['short'] }}"
                     >
                         {{ $rel['title'] }}

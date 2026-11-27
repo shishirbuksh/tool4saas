@@ -32,7 +32,7 @@
         }
     },
     copy() {
-        navigator.clipboard.writeText(this.extractedText);
+        window.copyTextSafe(this.extractedText);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -78,14 +78,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Born-Digital PDF (Exported)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Born-Digital PDF (Exported)</td>
                             <td class="font-mono">Tj / TJ text operators + ToUnicode CMap</td>
                             <td class="font-bold text-success font-mono">Direct stream parsing (100% exact text)</td>
                             <td class="text-success font-semibold">High (Font metrics preserved)</td>
                             <td class="font-bold text-success font-mono">&lt; 100 ms / 50 pages</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Scanned Image PDF</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Scanned Image PDF</td>
                             <td class="font-mono">Raw CCITT / DCTDecode bitmapped pages</td>
                             <td class="font-mono">OCR Engine (Tesseract LSTM / Google Cloud Vision)</td>
                             <td class="text-warning font-semibold">Moderate (Depends on bounding box detection)</td>

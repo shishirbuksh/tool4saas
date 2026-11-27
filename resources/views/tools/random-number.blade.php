@@ -35,7 +35,7 @@
     },
     copy() {
         if (!this.results.length) return;
-        navigator.clipboard.writeText(this.results.join(', '));
+        window.copyTextSafe(this.results.join(', '));
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     },
@@ -47,15 +47,15 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Minimum Value</label>
-                <input type="number" x-model.number="minVal" class="input input-bordered rounded-xl w-full text-base font-bold tabular-nums" />
+                <input aria-label="Minimum Value" type="number" x-model.number="minVal" class="input input-bordered rounded-xl w-full text-base font-bold tabular-nums" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Maximum Value</label>
-                <input type="number" x-model.number="maxVal" class="input input-bordered rounded-xl w-full text-base font-bold tabular-nums" />
+                <input aria-label="Maximum Value" type="number" x-model.number="maxVal" class="input input-bordered rounded-xl w-full text-base font-bold tabular-nums" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Quantity (How Many)</label>
-                <input type="number" min="1" max="100" x-model.number="count" class="input input-bordered rounded-xl w-full text-base font-bold tabular-nums" />
+                <input aria-label="Quantity (How Many)" type="number" min="1" max="100" x-model.number="count" class="input input-bordered rounded-xl w-full text-base font-bold tabular-nums" />
             </div>
         </div>
 
@@ -115,7 +115,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Web Crypto CSPRNG</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Web Crypto CSPRNG</td>
                             <td class="font-mono font-bold">crypto.getRandomValues() (AES-CTR/ChaCha20)</td>
                             <td class="font-mono">OS kernel entropy pool (/dev/urandom, CryptGenRandom)</td>
                             <td class="font-bold text-success font-mono">Cryptographically Unpredictable</td>

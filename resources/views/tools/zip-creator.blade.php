@@ -46,7 +46,7 @@
         </div>
 
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">
-            <input type="file" multiple @change="onFiles($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
+            <input aria-label="Upload file for Zip Creator" type="file" multiple @change="onFiles($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
             <p class="text-xs text-base-content/60 mt-3">Select multiple files (images, documents, code) to bundle into a single .zip file.</p>
         </div>
 
@@ -88,14 +88,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">ZIP (.zip)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">ZIP (.zip)</td>
                             <td class="font-mono">DEFLATE / BZIP2 / Deflate64</td>
                             <td class="font-mono">Moderate (~50%–70% text reduction)</td>
                             <td class="font-bold text-success font-mono">100% Native (Windows Explorer, macOS Finder, Linux)</td>
                             <td>Universal consumer file transfer, email attachments, digital products</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">TAR.GZ (.tar.gz / .tgz)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">TAR.GZ (.tar.gz / .tgz)</td>
                             <td class="font-mono">POSIX tar + Gzip LZ77</td>
                             <td class="font-mono">High (Solid stream compression)</td>
                             <td>Native Linux / macOS / Unix terminal (<code class="font-mono">tar -xzf</code>)</td>

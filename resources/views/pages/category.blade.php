@@ -98,10 +98,10 @@
                             @foreach($categoryGuide['relatedPosts'] as $relPost)
                                 <a
                                     href="{{ $relPost['url'] }}"
-                                    class="p-3.5 rounded-2xl bg-base-200/60 border border-base-300 hover:border-primary hover:bg-base-100 transition-all text-xs font-semibold text-base-content hover:text-primary flex items-center justify-between group no-underline"
+                                    class="p-3.5 rounded-2xl bg-base-200/60 border border-base-300 hover:border-primary hover:bg-base-100 transition-all text-xs font-semibold text-base-content hover:text-[#163300] dark:hover:text-[#9fe870] flex items-center justify-between group no-underline"
                                 >
                                     <span class="line-clamp-1">{{ $relPost['title'] }}</span>
-                                    <span class="text-primary font-bold opacity-0 group-hover:opacity-100 transition-opacity ml-2">→</span>
+                                    <span class="text-[#163300] dark:text-[#9fe870] font-bold opacity-0 group-hover:opacity-100 transition-opacity ml-2">→</span>
                                 </a>
                             @endforeach
                         </div>

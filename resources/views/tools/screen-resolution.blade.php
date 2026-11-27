@@ -42,7 +42,7 @@
 
             <div class="p-5 rounded-[20px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase font-bold text-base-content/60">Browser Viewport</span>
-                <p class="font-mono text-2xl font-bold mt-1 text-primary" x-text="metrics.innerWidth + ' × ' + metrics.innerHeight"></p>
+                <p class="font-mono text-2xl font-bold mt-1 text-[#163300] dark:text-[#9fe870]" x-text="metrics.innerWidth + ' × ' + metrics.innerHeight"></p>
                 <span class="text-xs text-base-content/50">Usable inner window area</span>
             </div>
 
@@ -67,7 +67,7 @@
             <div class="p-5 rounded-[20px] bg-base-200/50 border border-base-300 flex items-center justify-center">
                 <button
                     type="button"
-                    @click="navigator.clipboard.writeText('Screen: ' + metrics.screenWidth + 'x' + metrics.screenHeight + ', Viewport: ' + metrics.innerWidth + 'x' + metrics.innerHeight + ', DPR: ' + metrics.pixelRatio)"
+                    @click="window.copyTextSafe('Screen: ' + metrics.screenWidth + 'x' + metrics.screenHeight + ', Viewport: ' + metrics.innerWidth + 'x' + metrics.innerHeight + ', DPR: ' + metrics.pixelRatio)"
                     class="btn btn-primary rounded-[12px] font-bold w-full"
                 >
                     Copy Display Specs
@@ -93,21 +93,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">4K Ultra HD (UHD-1)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">4K Ultra HD (UHD-1)</td>
                             <td class="font-mono font-bold">3840 × 2160 px</td>
                             <td class="font-mono">16:9 Wide</td>
                             <td class="font-mono">1920 × 1080 (2.0x DPR)</td>
                             <td>High-end desktop monitors, 4K TVs, creative workstations</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">QHD / 1440p (2K)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">QHD / 1440p (2K)</td>
                             <td class="font-mono font-bold">2560 × 1440 px</td>
                             <td class="font-mono">16:9 Wide</td>
                             <td class="font-mono">2560 × 1440 (1.0x) or 1280 × 720 (2.0x)</td>
                             <td>Sweet spot for PC gaming monitors &amp; 27-inch iMacs</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Full HD / 1080p (FHD)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Full HD / 1080p (FHD)</td>
                             <td class="font-mono font-bold">1920 × 1080 px</td>
                             <td class="font-mono">16:9 Wide</td>
                             <td class="font-mono">1920 × 1080 (1.0x DPR)</td>

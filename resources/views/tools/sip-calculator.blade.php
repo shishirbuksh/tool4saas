@@ -65,7 +65,7 @@
             <x-numeric-field label="Investment Period (Years)" model="years" suffix="Yrs" min="1" max="40" placeholder="10" />
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Currency</span></label>
-                <select x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Currency" x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="$">USD / CAD / AUD ($)</option>
                     <option value="€">EUR (€)</option>
                     <option value="£">GBP (£)</option>
@@ -123,7 +123,7 @@
         </div>
 
         <div class="p-4 rounded-2xl bg-base-100 border border-base-300 text-xs text-base-content/70 flex items-center gap-3">
-            <svg class="size-5 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="size-5 text-[#163300] dark:text-[#9fe870] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>Mutual fund and equity investments are subject to market risks. Past returns are not indicative of future performance.</span>

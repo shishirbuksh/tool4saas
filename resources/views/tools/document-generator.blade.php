@@ -12,25 +12,25 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Document Title</label>
-                <input type="text" x-model="title" class="input input-bordered w-full rounded-[12px] text-sm" />
+                <input aria-label="Document Title" type="text" x-model="title" class="input input-bordered w-full rounded-[12px] text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Issuing Company</label>
-                <input type="text" x-model="company" class="input input-bordered w-full rounded-[12px] text-sm" />
+                <input aria-label="Issuing Company" type="text" x-model="company" class="input input-bordered w-full rounded-[12px] text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Recipient Name</label>
-                <input type="text" x-model="recipient" class="input input-bordered w-full rounded-[12px] text-sm" />
+                <input aria-label="Recipient Name" type="text" x-model="recipient" class="input input-bordered w-full rounded-[12px] text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Issue Date</label>
-                <input type="date" x-model="date" class="input input-bordered w-full rounded-[12px] text-sm font-mono" />
+                <input aria-label="Issue Date" type="date" x-model="date" class="input input-bordered w-full rounded-[12px] text-sm font-mono" />
             </div>
         </div>
 
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Document Body Content</label>
-            <textarea x-model="body" rows="4" class="textarea textarea-bordered w-full rounded-[16px] text-sm"></textarea>
+            <textarea aria-label="Document Body Content" x-model="body" rows="4" class="textarea textarea-bordered w-full rounded-[16px] text-sm"></textarea>
         </div>
 
         <div id="document-print" class="p-8 bg-white text-black rounded-[20px] shadow-sm border border-base-300 space-y-6">
@@ -76,19 +76,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Non-Disclosure (NDA)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Non-Disclosure (NDA)</td>
                             <td>Safeguards proprietary data &amp; trade secrets</td>
                             <td>Confidentiality terms, duration, breach damages</td>
                             <td>Strict Legal Liability</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Master Services (MSA)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Master Services (MSA)</td>
                             <td>Governs overarching relationship between parties</td>
                             <td>Payment schedules, liability caps, dispute venue</td>
                             <td>Master Framework Agreement</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Statement of Work (SOW)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Statement of Work (SOW)</td>
                             <td>Defines exact deliverables, milestones &amp; deadlines</td>
                             <td>Scope of work, project roadmap, acceptance criteria</td>
                             <td>Project-Specific Binding Scope</td>

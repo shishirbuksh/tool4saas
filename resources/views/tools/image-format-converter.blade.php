@@ -56,7 +56,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Convert Target Format</label>
-                <select x-model="format" class="select select-bordered w-full rounded-[12px] font-semibold text-sm">
+                <select aria-label="Convert Target Format" x-model="format" class="select select-bordered w-full rounded-[12px] font-semibold text-sm">
                     <option value="image/webp">WebP (Modern Next-Gen Web)</option>
                     <option value="image/jpeg">JPEG / JPG (Standard Photo)</option>
                     <option value="image/png">PNG (Lossless Transparent)</option>
@@ -68,12 +68,12 @@
                     <label class="text-xs font-bold uppercase tracking-wider text-base-content/70">Image Quality</label>
                     <span class="text-xs font-mono font-bold" x-text="quality + '%'"></span>
                 </div>
-                <input type="range" min="10" max="100" step="5" x-model="quality" class="range range-primary range-sm" />
+                <input aria-label="Image Quality" type="range" min="10" max="100" step="5" x-model="quality" class="range range-primary range-sm" />
             </div>
         </div>
 
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">
-            <input type="file" accept="image/*" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
+            <input aria-label="Upload file for Image Format Converter" type="file" accept="image/*" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
             <p class="text-xs text-base-content/60 mt-3">Select any PNG, JPG, WebP, GIF, or BMP image. 100% in-browser processing.</p>
         </div>
 
@@ -85,7 +85,7 @@
                         <div class="flex items-center gap-3 text-xs text-base-content/70 mt-1">
                             <span>Original: <strong x-text="formatBytes(originalSize)"></strong></span>
                             <span>→</span>
-                            <span class="text-primary font-bold">Converted: <strong x-text="formatBytes(convertedSize)"></strong></span>
+                            <span class="text-[#163300] dark:text-[#9fe870] font-bold">Converted: <strong x-text="formatBytes(convertedSize)"></strong></span>
                         </div>
                     </div>
 
@@ -118,14 +118,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">WebP (Google)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">WebP (Google)</td>
                             <td class="font-mono">Lossy &amp; Lossless</td>
                             <td class="text-success font-semibold">Yes (8-bit alpha)</td>
                             <td class="font-bold text-success font-mono">25% – 35% smaller</td>
                             <td>Universal web standard (97%+ browser support)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">AVIF (AOMedia)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">AVIF (AOMedia)</td>
                             <td class="font-mono">AV1 Intra Keyframe</td>
                             <td class="text-success font-semibold">Yes (10/12-bit HDR)</td>
                             <td class="font-bold text-success font-mono">50% – 60% smaller</td>
@@ -146,7 +146,7 @@
                             <td>Icons, UI screenshots, graphics requiring pixel perfection</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">SVG</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">SVG</td>
                             <td class="font-mono">XML Vector Markup</td>
                             <td class="text-success font-semibold">Yes (Native vector)</td>
                             <td class="font-mono font-bold text-success">Infinite scale (&lt; 5 KB)</td>

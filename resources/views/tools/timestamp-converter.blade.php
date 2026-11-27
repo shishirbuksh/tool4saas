@@ -65,7 +65,7 @@
                     <h3 class="font-bold text-lg mb-4 text-base-content font-display">Unix Timestamp → Human Date</h3>
                     <div class="mb-4">
                         <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 mb-1.5 font-mono">Enter Timestamp (Seconds or ms)</label>
-                        <input
+                        <input aria-label="Enter Timestamp (Seconds or ms)"
                             type="text"
                             x-model="inputTs"
                             @input="convertFromTs()"
@@ -92,7 +92,7 @@
                     <h3 class="font-bold text-lg mb-4 text-base-content font-display">Human Date → Unix Timestamp</h3>
                     <div class="mb-4">
                         <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 mb-1.5 font-mono">Select Date &amp; Time</label>
-                        <input
+                        <input aria-label="Select Date &amp; Time"
                             type="datetime-local"
                             x-model="inputDateStr"
                             @change="convertFromDate()"
@@ -128,25 +128,25 @@
                     <tbody>
                         <tr>
                             <td class="font-bold font-mono">Epoch Baseline Origin</td>
-                            <td class="font-mono text-primary">0</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">0</td>
                             <td class="font-mono">1970-01-01 00:00:00 UTC</td>
                             <td>Zero second mark for POSIX timekeeping standard</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Y2K Millennium Rollover</td>
-                            <td class="font-mono text-primary">946,684,800</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">946,684,800</td>
                             <td class="font-mono">2000-01-01 00:00:00 UTC</td>
                             <td>Transition into 21st century calendar systems</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">One Billion Seconds</td>
-                            <td class="font-mono text-primary">1,000,000,000</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">1,000,000,000</td>
                             <td class="font-mono">2001-09-09 01:46:40 UTC</td>
                             <td>Major decimal rollover milestone celebrated in tech</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Two Billion Seconds</td>
-                            <td class="font-mono text-primary">2,000,000,000</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">2,000,000,000</td>
                             <td class="font-mono">2033-05-18 03:33:20 UTC</td>
                             <td>Second major decimal milestone of the 21st century</td>
                         </tr>

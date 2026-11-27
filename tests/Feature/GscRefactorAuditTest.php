@@ -44,10 +44,10 @@ final class GscRefactorAuditTest extends TestCase
         // 1. Zero raw markdown links remaining
         expect($content)->not->toMatch('/\[[^\]]+\]\(\/[^)]+\)/');
 
-        // 2. Internal references must render as crawlable <a> tags
+        // 2. Internal references must render as crawlable <a> tags with accessible contrast
         expect($content)
-            ->toContain('<a href="/html-entities" class="font-semibold text-primary hover:underline">HTML Entity Encoder</a>')
-            ->toContain('<a href="/json-formatter" class="font-semibold text-primary hover:underline">JSON Formatter</a>');
+            ->toContain('<a href="/html-entities" class="font-semibold text-[#163300] dark:text-[#9fe870] hover:underline">HTML Entity Encoder</a>')
+            ->toContain('<a href="/json-formatter" class="font-semibold text-[#163300] dark:text-[#9fe870] hover:underline">JSON Formatter</a>');
 
         // 3. Comparison table must be rendered right below the specification section
         expect($content)

@@ -27,28 +27,28 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Icon / Letter (1-2 chars)</label>
-                <input type="text" x-model="text" @input="generate()" maxlength="2" class="input input-bordered w-full rounded-[12px] font-bold text-center text-xl" />
+                <input aria-label="Icon / Letter (1-2 chars)" type="text" x-model="text" @input="generate()" maxlength="2" class="input input-bordered w-full rounded-[12px] font-bold text-center text-xl" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Background Color</label>
                 <div class="flex items-center gap-2">
-                    <input type="color" x-model="bg" @input="generate()" class="w-10 h-10 rounded-[10px] cursor-pointer border-0 bg-transparent" />
-                    <input type="text" x-model="bg" @input="generate()" class="input input-sm input-bordered rounded-[8px] font-mono w-28 uppercase" />
+                    <input aria-label="Background color picker" type="color" x-model="bg" @input="generate()" class="w-10 h-10 rounded-[10px] cursor-pointer border-0 bg-transparent" />
+                    <input aria-label="Background Color" type="text" x-model="bg" @input="generate()" class="input input-sm input-bordered rounded-[8px] font-mono w-28 uppercase" />
                 </div>
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Text / Symbol Color</label>
                 <div class="flex items-center gap-2">
-                    <input type="color" x-model="fg" @input="generate()" class="w-10 h-10 rounded-[10px] cursor-pointer border-0 bg-transparent" />
-                    <input type="text" x-model="fg" @input="generate()" class="input input-sm input-bordered rounded-[8px] font-mono w-28 uppercase" />
+                    <input aria-label="Foreground color picker" type="color" x-model="fg" @input="generate()" class="w-10 h-10 rounded-[10px] cursor-pointer border-0 bg-transparent" />
+                    <input aria-label="Text / Symbol Color" type="text" x-model="fg" @input="generate()" class="input input-sm input-bordered rounded-[8px] font-mono w-28 uppercase" />
                 </div>
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Output Size</label>
-                <select x-model="size" @change="generate()" class="select select-bordered w-full rounded-[12px] text-sm font-mono">
+                <select aria-label="Output Size" x-model="size" @change="generate()" class="select select-bordered w-full rounded-[12px] text-sm font-mono">
                     <option :value="32">32 x 32 px (Standard Favicon)</option>
                     <option :value="64">64 x 64 px (Retina Favicon)</option>
                     <option :value="192">192 x 192 px (PWA Android)</option>
@@ -88,31 +88,31 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">16 × 16 px</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">16 × 16 px</td>
                             <td class="font-mono">ICO / PNG</td>
                             <td class="font-mono text-xs">&lt;link rel="icon"&gt;</td>
                             <td>Standard desktop browser tabs, URL bookmarks</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">32 × 32 px</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">32 × 32 px</td>
                             <td class="font-mono">ICO / PNG</td>
                             <td class="font-mono text-xs">&lt;link rel="icon"&gt;</td>
                             <td>High-DPI Retina browser tabs, Windows taskbar</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">180 × 180 px</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">180 × 180 px</td>
                             <td class="font-mono">PNG</td>
                             <td class="font-mono text-xs">&lt;link rel="apple-touch-icon"&gt;</td>
                             <td>Apple iOS Home Screen bookmark icon</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">192 × 192 px</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">192 × 192 px</td>
                             <td class="font-mono">PNG</td>
                             <td class="font-mono text-xs">manifest.webmanifest</td>
                             <td>Android Home Screen launcher shortcut</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">512 × 512 px</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">512 × 512 px</td>
                             <td class="font-mono">PNG</td>
                             <td class="font-mono text-xs">manifest.webmanifest</td>
                             <td>Progressive Web App (PWA) splash screen</td>

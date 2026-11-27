@@ -46,12 +46,12 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Data to Encode</label>
-                <input type="text" x-model="text" @input="generate()" class="input input-bordered w-full rounded-[12px] font-mono text-sm" />
+                <input aria-label="Data to Encode" type="text" x-model="text" @input="generate()" class="input input-bordered w-full rounded-[12px] font-mono text-sm" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Symbology Format</label>
-                <select x-model="format" @change="generate()" class="select select-bordered w-full rounded-[12px] text-sm font-semibold">
+                <select aria-label="Symbology Format" x-model="format" @change="generate()" class="select select-bordered w-full rounded-[12px] text-sm font-semibold">
                     <option value="CODE128">CODE128 (Alphanumeric)</option>
                     <option value="EAN13">EAN-13 (13 Digits Retail)</option>
                     <option value="UPC">UPC-A (12 Digits Retail)</option>
@@ -61,11 +61,11 @@
             <div class="grid grid-cols-2 gap-2">
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Width</label>
-                    <input type="number" min="1" max="4" x-model="width" @input="generate()" class="input input-bordered w-full rounded-[12px] text-sm" />
+                    <input aria-label="Width" type="number" min="1" max="4" x-model="width" @input="generate()" class="input input-bordered w-full rounded-[12px] text-sm" />
                 </div>
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Height</label>
-                    <input type="number" min="30" max="200" step="10" x-model="height" @input="generate()" class="input input-bordered w-full rounded-[12px] text-sm" />
+                    <input aria-label="Height" type="number" min="30" max="200" step="10" x-model="height" @input="generate()" class="input input-bordered w-full rounded-[12px] text-sm" />
                 </div>
             </div>
         </div>
@@ -104,21 +104,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Code 128</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Code 128</td>
                             <td class="font-mono">High (Variable length)</td>
                             <td class="font-mono">Full 128 ASCII table</td>
                             <td class="font-mono">Modulo-103 checksum</td>
                             <td>Shipping, logistics, FedEx/UPS labels</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">EAN-13</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">EAN-13</td>
                             <td class="font-mono">13 numeric digits</td>
                             <td class="font-mono">Numeric (0-9)</td>
                             <td class="font-mono">Modulo-10 check digit</td>
                             <td>Global retail POS (Europe, Asia, LatAm)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">UPC-A</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">UPC-A</td>
                             <td class="font-mono">12 numeric digits</td>
                             <td class="font-mono">Numeric (0-9)</td>
                             <td class="font-mono">Modulo-10 check digit</td>

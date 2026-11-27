@@ -89,19 +89,19 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Loan Principal ($)</label>
-                <input type="number" min="10000" step="10000" x-model="loanAmount" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Loan Principal ($)" type="number" min="10000" step="10000" x-model="loanAmount" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Interest Rate (%)</label>
-                <input type="number" min="1" max="15" step="0.1" x-model="interestRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Interest Rate (%)" type="number" min="1" max="15" step="0.1" x-model="interestRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Loan Term (Years)</label>
-                <input type="number" min="5" max="35" step="5" x-model="tenureYears" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Loan Term (Years)" type="number" min="5" max="35" step="5" x-model="tenureYears" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Extra Monthly Payment ($)</label>
-                <input type="number" min="0" step="50" x-model="extraMonthly" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Extra Monthly Payment ($)" type="number" min="0" step="50" x-model="extraMonthly" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
         </div>
 
@@ -114,7 +114,7 @@
 
             <div class="p-6 rounded-[20px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase tracking-widest text-base-content/60 font-bold font-mono">Time Saved on Loan</span>
-                <p class="font-mono text-4xl font-extrabold mt-2 text-primary" x-text="simulation.yearsSaved + ' Years Earlier'"></p>
+                <p class="font-mono text-4xl font-extrabold mt-2 text-[#163300] dark:text-[#9fe870]" x-text="simulation.yearsSaved + ' Years Earlier'"></p>
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Paid off in ' + (simulation.newMonths / 12).toFixed(1) + ' years instead of ' + tenureYears + ' years.'"></p>
             </div>
         </div>
@@ -137,14 +137,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Monthly Extra Principal</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Monthly Extra Principal</td>
                             <td class="font-mono">Add $100–$500 to regular monthly check</td>
                             <td class="font-bold text-success font-mono">Compounds monthly (Cuts 4–8 yrs off 30-yr loan)</td>
                             <td class="text-success font-semibold">Zero on standard conventional/FHA</td>
                             <td class="text-success font-semibold">High (Can pause extra payment any month)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Bi-Weekly Payment Schedule</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Bi-Weekly Payment Schedule</td>
                             <td class="font-mono">Pay half monthly EMI every 2 weeks (26 halves = 13 full payments)</td>
                             <td class="font-bold text-success font-mono">1 full extra monthly principal payment / yr</td>
                             <td class="text-success font-semibold">Zero</td>

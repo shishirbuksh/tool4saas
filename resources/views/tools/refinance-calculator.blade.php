@@ -62,19 +62,19 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Remaining Principal ($)</label>
-                <input type="number" min="10000" step="5000" x-model="loanBalance" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Remaining Principal ($)" type="number" min="10000" step="5000" x-model="loanBalance" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Current Interest Rate (%)</label>
-                <input type="number" min="1" max="15" step="0.1" x-model="currentRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Current Interest Rate (%)" type="number" min="1" max="15" step="0.1" x-model="currentRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">New Refinance Rate (%)</label>
-                <input type="number" min="1" max="15" step="0.1" x-model="newRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="New Refinance Rate (%)" type="number" min="1" max="15" step="0.1" x-model="newRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Closing Costs ($)</label>
-                <input type="number" min="0" step="500" x-model="closingCosts" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Closing Costs ($)" type="number" min="0" step="500" x-model="closingCosts" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
         </div>
 
@@ -87,7 +87,7 @@
 
             <div class="p-6 rounded-[20px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase tracking-widest text-base-content/60 font-bold font-mono">Closing Costs Break-Even Point</span>
-                <p class="font-mono text-4xl font-extrabold mt-2 text-primary" x-text="breakEvenMonths + ' Months'"></p>
+                <p class="font-mono text-4xl font-extrabold mt-2 text-[#163300] dark:text-[#9fe870]" x-text="breakEvenMonths + ' Months'"></p>
                 <p class="text-xs text-base-content/60 mt-2" x-text="'Refinancing pays for itself in ' + (breakEvenMonths / 12).toFixed(1) + ' years.'"></p>
             </div>
         </div>
@@ -110,14 +110,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Rate-and-Term Refinance</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Rate-and-Term Refinance</td>
                             <td>Lower monthly interest rate or switch 30-yr to 15-yr</td>
                             <td class="font-mono">2% – 5% of loan balance ($3k–$8k)</td>
                             <td>Standard full appraisal + income verification</td>
                             <td class="font-bold text-success">Viable if staying in home &gt; break-even months (usually 2–3 yrs)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Cash-Out Refinance</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Cash-Out Refinance</td>
                             <td>Liquidate accumulated home equity for home improvements/debt</td>
                             <td class="font-mono">3% – 5% (Often rolled into new principal)</td>
                             <td>Strict full appraisal (Capped at 80% LTV maximum)</td>

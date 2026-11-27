@@ -24,11 +24,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Original Source Text</label>
-                <textarea x-model="originalText" rows="7" placeholder="Paste source reference text..." class="textarea textarea-bordered w-full rounded-[16px] text-sm"></textarea>
+                <textarea aria-label="Original Source Text" x-model="originalText" rows="7" placeholder="Paste source reference text..." class="textarea textarea-bordered w-full rounded-[16px] text-sm"></textarea>
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Comparison / Suspect Text</label>
-                <textarea x-model="suspectText" rows="7" placeholder="Paste text to compare for similarity..." class="textarea textarea-bordered w-full rounded-[16px] text-sm"></textarea>
+                <textarea aria-label="Comparison / Suspect Text" x-model="suspectText" rows="7" placeholder="Paste text to compare for similarity..." class="textarea textarea-bordered w-full rounded-[16px] text-sm"></textarea>
             </div>
         </div>
 

@@ -77,7 +77,7 @@
 
             <div class="p-6 rounded-[20px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase tracking-widest text-base-content/60 font-bold font-mono">Symbolic String</span>
-                <p class="font-mono text-3xl font-extrabold mt-3 text-primary" x-text="symbolic"></p>
+                <p class="font-mono text-3xl font-extrabold mt-3 text-[#163300] dark:text-[#9fe870]" x-text="symbolic"></p>
                 <p class="text-xs text-base-content/60 mt-3 font-mono">ls -l permission representation</p>
             </div>
         </div>
@@ -100,28 +100,28 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">644</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">644</td>
                             <td class="font-mono">rw-r--r--</td>
                             <td>Owner: Read/Write · Public: Read</td>
                             <td class="text-[#2ead4b]">Safe (Standard)</td>
                             <td>Web server files (.html, .css, .php, images)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">755</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">755</td>
                             <td class="font-mono">rwxr-xr-x</td>
                             <td>Owner: Full · Public: Read/Execute</td>
                             <td class="text-[#2ead4b]">Safe (Standard)</td>
                             <td>Directories, folders, executable CLI scripts</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">600</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">600</td>
                             <td class="font-mono">rw-------</td>
                             <td>Owner: Read/Write · Public: None</td>
                             <td class="text-[#38c8ff]">High Privacy</td>
                             <td>Private SSH keys (id_rsa), credentials (.env)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">700</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">700</td>
                             <td class="font-mono">rwx------</td>
                             <td>Owner: Full · Public: None</td>
                             <td class="text-[#38c8ff]">High Privacy</td>

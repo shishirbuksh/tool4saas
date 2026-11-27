@@ -101,8 +101,8 @@
             class="border-2 border-dashed border-base-300 rounded-3xl p-8 text-center hover:border-primary transition-colors bg-base-100 cursor-pointer"
             @click="$refs.fileInput.click()"
         >
-            <input type="file" x-ref="fileInput" @change="handleFile($event)" accept="image/*" class="hidden" />
-            <div class="size-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3 text-2xl font-bold">
+            <input aria-label="Upload file for Image Compressor" type="file" x-ref="fileInput" @change="handleFile($event)" accept="image/*" class="hidden" />
+            <div class="size-16 rounded-full bg-primary/10 text-[#163300] dark:text-[#9fe870] flex items-center justify-center mx-auto mb-3 text-2xl font-bold">
                 ⚡
             </div>
             <h3 class="text-base font-bold text-base-content font-display">Drag &amp; drop an image to compress</h3>
@@ -154,9 +154,9 @@
                     <div>
                         <div class="flex items-center justify-between mb-1">
                             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Compression Quality</label>
-                            <span class="text-xs font-bold font-mono text-primary" x-text="Math.round(quality * 100) + '%'"></span>
+                            <span class="text-xs font-bold font-mono text-[#163300] dark:text-[#9fe870]" x-text="Math.round(quality * 100) + '%'"></span>
                         </div>
-                        <input
+                        <input aria-label="Compression Quality"
                             type="range"
                             x-model="quality"
                             @change="compress()"
@@ -171,7 +171,7 @@
                             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Max Width (Scaling)</label>
                             <span class="text-xs font-bold font-mono" x-text="maxWidth + 'px'"></span>
                         </div>
-                        <select x-model.number="maxWidth" @change="compress()" class="select select-bordered rounded-xl w-full text-xs font-mono">
+                        <select aria-label="Max Width (Scaling)" x-model.number="maxWidth" @change="compress()" class="select select-bordered rounded-xl w-full text-xs font-mono">
                             <option value="1920">1920px (Full HD)</option>
                             <option value="1280">1280px (Web standard)</option>
                             <option value="800">800px (Blog images)</option>
@@ -256,7 +256,7 @@
                             <td>Best for UI screenshots and diagrams requiring crisp pixel lines</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">SVG</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">SVG</td>
                             <td>Vector XML Math</td>
                             <td class="font-mono text-[#2ead4b]">Ultra-Light (&lt; 10 KB)</td>
                             <td>Supported</td>

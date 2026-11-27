@@ -56,7 +56,7 @@
                 >
                     Minify
                 </button>
-                <select
+                <select aria-label="Indent"
                     x-model="indent"
                     @change="beautify()"
                     class="select select-sm rounded-full bg-base-100 border-base-300 text-xs font-semibold px-3 py-1"
@@ -86,7 +86,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Raw Input Payload</span></label>
-                <textarea
+                <textarea aria-label="Raw Input Payload"
                     x-model="input"
                     rows="14"
                     placeholder="Paste raw JSON here..."
@@ -106,7 +106,7 @@
                         <span x-text="copied ? 'Copied!' : 'Copy Formatted'"></span>
                     </button>
                 </div>
-                <textarea
+                <textarea aria-label="Formatted JSON will appear here"
                     x-model="output"
                     rows="14"
                     readonly

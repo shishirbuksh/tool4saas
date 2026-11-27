@@ -49,11 +49,11 @@ final class HandleLegacyRedirects
         'loan', 'sales', 'currency', 'emi',
         'activity', 'attended', 'bed', 'birthDate', 'cgpa', 'climate',
         'color', 'content', 'days', 'delimiter', 'diffA', 'diffB',
-        'hyphens', 'includeTax', 'input', 'insurance', 'interestRate',
+        'expression', 'hyphens', 'includeTax', 'input', 'insurance', 'interestRate',
         'loanYears', 'medium', 'monthlyPayment', 'name', 'newVal',
-        'numbers', 'oldVal', 'partX', 'propertyTax', 'scale', 'size',
-        'tab', 'targetDate', 'tax', 'taxRate', 'total', 'tradein',
-        'uppercase', 'url', 'wake', 'wholeY',
+        'noPadding', 'nopadding', 'numbers', 'oldVal', 'partX', 'propertyTax', 'scale', 'size',
+        'campaign', 'source', 'tab', 'targetDate', 'tax', 'taxRate', 'total', 'tradein',
+        'uppercase', 'url', 'urlSafe', 'wake', 'wholeY',
     ];
 
     /**
@@ -140,11 +140,14 @@ final class HandleLegacyRedirects
         // Check if route allows query parameters
         $isToolRoute = ($workingPath !== '/' && ! in_array($workingPath, ['/about', '/contact', '/privacy', '/terms', '/methodology', '/author', '/sitemap', '/blog', '/student-tools', '/developer-tools'], true) && ! str_starts_with($workingPath, '/category/') && ! str_starts_with($workingPath, '/blog/'));
 
+        // Route-specific override: /utm-builder accepts ?source= and ?campaign= as functional builder presets
+        $isUtmBuilder = $workingPath === '/utm-builder';
+
         foreach ($allParams as $key => $val) {
             $lowerKey = strtolower((string) $key);
 
-            // Strip any UTM parameter or known tracking query parameter
-            if (str_starts_with($lowerKey, 'utm_') || in_array($lowerKey, self::TRACKING_PARAMS, true)) {
+            // Strip any UTM parameter or known tracking query parameter (preserving builder fields on /utm-builder)
+            if (str_starts_with($lowerKey, 'utm_') || (in_array($lowerKey, self::TRACKING_PARAMS, true) && ! ($isUtmBuilder && in_array($lowerKey, ['source', 'campaign'], true)))) {
                 $queryChanged = true;
 
                 continue;

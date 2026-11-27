@@ -38,7 +38,7 @@
         },
         copy() {
             if (!this.output) return;
-            navigator.clipboard.writeText(this.output);
+            window.copyTextSafe(this.output);
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         },
@@ -78,7 +78,7 @@
                     <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Source Code (JS / CSS / HTML)</label>
                     <span class="text-xs text-base-content/50 font-mono"><span x-text="input.length"></span> chars</span>
                 </div>
-                <textarea
+                <textarea aria-label="Source Code (JS / CSS / HTML)"
                     x-model="input"
                     @input="process()"
                     rows="13"
@@ -113,7 +113,7 @@
                         </button>
                     </div>
                 </div>
-                <textarea
+                <textarea aria-label="Output"
                     x-model="output"
                     readonly
                     rows="13"
@@ -140,14 +140,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">JavaScript (ES6+ Bundle)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">JavaScript (ES6+ Bundle)</td>
                             <td class="font-mono">100 KB (100%)</td>
                             <td class="font-mono font-bold">~45 KB (−55%)</td>
                             <td class="font-mono">~14 KB (−86%)</td>
                             <td class="font-mono text-success font-bold">~11 KB (−89%)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">CSS Stylesheet (Tailwind)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">CSS Stylesheet (Tailwind)</td>
                             <td class="font-mono">100 KB (100%)</td>
                             <td class="font-mono font-bold">~52 KB (−48%)</td>
                             <td class="font-mono">~12 KB (−88%)</td>

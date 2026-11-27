@@ -78,7 +78,7 @@
 
         <div class="form-control">
             <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Activity Level</span></label>
-            <select x-model.number="activity" class="select select-bordered rounded-xl w-full text-sm">
+            <select aria-label="Activity Level" x-model.number="activity" class="select select-bordered rounded-xl w-full text-sm">
                 <option value="1.2">Sedentary (Little or no exercise, desk job)</option>
                 <option value="1.375">Lightly Active (Light exercise 1-3 days/week)</option>
                 <option value="1.55">Moderately Active (Moderate exercise 3-5 days/week)</option>
@@ -123,7 +123,7 @@
             </div>
             <div class="p-5 rounded-2xl bg-base-200/70 border border-base-300">
                 <span class="text-[11px] font-bold text-base-content/60 uppercase tracking-wider font-mono">Lean Muscle Gain</span>
-                <div class="text-2xl font-black text-primary mt-1 font-display tabular-nums">
+                <div class="text-2xl font-black text-[#163300] dark:text-[#9fe870] mt-1 font-display tabular-nums">
                     <span x-text="(tdee + 300).toLocaleString()"></span> kcal
                 </div>
                 <span class="text-[10px] text-base-content/60 font-mono">+300 kcal surplus</span>
@@ -147,7 +147,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Mifflin-St Jeor (Default)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Mifflin-St Jeor (Default)</td>
                             <td>Weight, Height, Age, Biological Sex</td>
                             <td class="text-[#2ead4b]">~90% within ±5% error</td>
                             <td>Universal standard; recommended by Academy of Nutrition</td>
@@ -159,7 +159,7 @@
                             <td>Legacy dietetics standard; clinical historical research</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Katch-McArdle</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Katch-McArdle</td>
                             <td>Lean Body Mass (LBM) only</td>
                             <td class="text-[#2ead4b]">~95% for lean athletes</td>
                             <td>Athletes and bodybuilders with verified body fat %</td>

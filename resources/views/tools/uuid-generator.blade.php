@@ -50,13 +50,13 @@
 
         copyAll() {
             if (!this.uuids.length) return;
-            navigator.clipboard.writeText(this.uuids.join('\n'));
+            window.copyTextSafe(this.uuids.join('\n'));
             this.copiedAll = true;
             setTimeout(() => this.copiedAll = false, 2000);
         },
 
         copySingle(text, index) {
-            navigator.clipboard.writeText(text);
+            window.copyTextSafe(text);
             this.copiedIndex = index;
             setTimeout(() => this.copiedIndex = null, 1500);
         },

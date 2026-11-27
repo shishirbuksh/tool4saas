@@ -23,7 +23,7 @@
             <label class="block text-sm font-bold text-[#163300] dark:text-[#9fe870] uppercase tracking-wider mb-2">
                 Paste YouTube Video Link
             </label>
-            <input
+            <input aria-label="Paste YouTube Video Link"
                 type="text"
                 x-model="url"
                 placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ or https://youtu.be/..."
@@ -35,7 +35,7 @@
             <div class="space-y-6">
                 <div class="p-4 bg-base-200/50 rounded-[14px] border border-base-300 flex items-center justify-between">
                     <span class="text-xs uppercase font-bold text-base-content/70">Detected YouTube Video ID:</span>
-                    <span class="font-mono font-bold text-primary" x-text="videoId"></span>
+                    <span class="font-mono font-bold text-[#163300] dark:text-[#9fe870]" x-text="videoId"></span>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -77,21 +77,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Maximum Resolution (MaxRes)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Maximum Resolution (MaxRes)</td>
                             <td class="font-mono font-bold text-success">1280 × 720 px (HD)</td>
                             <td class="font-mono">16:9 Widescreen</td>
                             <td class="font-mono text-xs">/vi/{id}/maxresdefault.jpg</td>
                             <td class="font-bold text-success font-mono">Best (Available if source video is 720p+)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Standard Definition (SD)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Standard Definition (SD)</td>
                             <td class="font-mono font-bold">640 × 480 px</td>
                             <td class="font-mono">4:3 Box (with black pillar bars)</td>
                             <td class="font-mono text-xs">/vi/{id}/sddefault.jpg</td>
                             <td>Guaranteed on 480p+ videos; video carousel fallback</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">High Quality (HQ)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">High Quality (HQ)</td>
                             <td class="font-mono font-bold">480 × 360 px</td>
                             <td class="font-mono">4:3 Box</td>
                             <td class="font-mono text-xs">/vi/{id}/hqdefault.jpg</td>

@@ -67,21 +67,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">JSON (.json)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">JSON (.json)</td>
                             <td class="font-mono">Implicit (Numbers, Strings, Booleans)</td>
                             <td class="text-success font-semibold">Native (Arbitrary nesting)</td>
                             <td class="text-warning font-semibold">Requires Power Query import</td>
                             <td>REST APIs, NoSQL documents, state serialization</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">CSV (.csv)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">CSV (.csv)</td>
                             <td class="font-mono text-warning">None (All plain strings)</td>
                             <td class="text-error font-semibold">Flat 2D tabular only</td>
                             <td class="text-success font-bold">100% universal 1-click open</td>
                             <td>Spreadsheet data sharing, database bulk dumps</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Excel (.xlsx)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Excel (.xlsx)</td>
                             <td class="font-mono font-bold">Rich (Formulas, cell types, styles)</td>
                             <td class="font-mono">Multi-sheet workbooks</td>
                             <td class="text-success font-bold">Native Microsoft Office standard</td>

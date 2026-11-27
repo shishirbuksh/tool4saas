@@ -58,7 +58,7 @@
         },
         copy() {
             if (!this.output) return;
-            navigator.clipboard.writeText(this.output);
+            window.copyTextSafe(this.output);
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         },
@@ -99,7 +99,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 mb-1 font-mono">Generation Type</label>
-                <select x-model="type" @change="generate()" class="select select-bordered w-full select-sm rounded-xl">
+                <select aria-label="Generation Type" x-model="type" @change="generate()" class="select select-bordered w-full select-sm rounded-xl">
                     <option value="paragraphs">Paragraphs</option>
                     <option value="sentences">Sentences</option>
                     <option value="words">Words</option>
@@ -107,7 +107,7 @@
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 mb-1 font-mono">Count</label>
-                <input type="number" x-model="count" @input="generate()" min="1" max="100" class="input input-bordered w-full input-sm rounded-xl" />
+                <input aria-label="Count" type="number" x-model="count" @input="generate()" min="1" max="100" class="input input-bordered w-full input-sm rounded-xl" />
             </div>
             <div class="sm:col-span-2 flex items-end">
                 <button
@@ -132,7 +132,7 @@
                     <span x-text="copied ? 'Copied!' : 'Copy to Clipboard'"></span>
                 </button>
             </div>
-            <textarea
+            <textarea aria-label="Output"
                 x-model="output"
                 readonly
                 rows="10"
@@ -158,14 +158,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Classical Lorem Ipsum</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Classical Lorem Ipsum</td>
                             <td>Cicero's &ldquo;De finibus bonorum et malorum&rdquo; (45 BC)</td>
                             <td class="font-bold text-success font-mono">Near-identical to Western English (ETAOIN)</td>
                             <td class="font-bold text-success">Zero (Readers ignore meaning)</td>
                             <td>Wireframing, typesetting, print layout, UI mockups</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">English Pangrams</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">English Pangrams</td>
                             <td>&ldquo;The quick brown fox jumps over the lazy dog&rdquo;</td>
                             <td class="font-mono">Contains all 26 English alphabets</td>
                             <td>Moderate (Readable sentence)</td>

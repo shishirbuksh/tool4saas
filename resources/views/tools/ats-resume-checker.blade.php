@@ -25,7 +25,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Your Resume Content</label>
-                <textarea
+                <textarea aria-label="Your Resume Content"
                     x-model="resume"
                     rows="8"
                     placeholder="Paste resume text, skills, employment history..."
@@ -35,7 +35,7 @@
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Target Job Description</label>
-                <textarea
+                <textarea aria-label="Target Job Description"
                     x-model="job"
                     rows="8"
                     placeholder="Paste target job responsibilities, skills, requirements..."
@@ -97,14 +97,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Workday</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Workday</td>
                             <td>Fortune 500 &amp; Global Enterprises</td>
                             <td class="font-mono font-bold">.docx or clean .pdf</td>
                             <td class="text-error font-semibold">Fails / Scrambles text order</td>
                             <td>Completely skipped (Never put contact info in header)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Oracle Taleo</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Oracle Taleo</td>
                             <td>Legacy Enterprise &amp; Government</td>
                             <td class="font-mono font-bold">Plain text or .docx</td>
                             <td class="text-error font-semibold">Strict linear single-column only</td>

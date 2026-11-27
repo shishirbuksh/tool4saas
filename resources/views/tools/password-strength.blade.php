@@ -51,12 +51,12 @@
                 <button
                     type="button"
                     @click="showPassword = !showPassword"
-                    class="text-xs font-bold text-primary hover:underline font-mono"
+                    class="text-xs font-bold text-[#163300] dark:text-[#9fe870] hover:underline font-mono"
                 >
                     <span x-text="showPassword ? 'Hide Text' : 'Show Text'"></span>
                 </button>
             </div>
-            <input
+            <input aria-label="Enter password to test entropy"
                 :type="showPassword ? 'text' : 'password'"
                 x-model="password"
                 placeholder="Enter password to test entropy..."
@@ -100,7 +100,7 @@
         </div>
 
         <div class="p-4 rounded-2xl bg-base-100 border border-base-300 text-xs text-base-content/70 flex items-center gap-3 font-mono">
-            <span class="text-primary font-bold">🔒 Zero Egress:</span>
+            <span class="text-[#163300] dark:text-[#9fe870] font-bold">🔒 Zero Egress:</span>
             <span>Passwords are evaluated strictly in client-side memory. No keystroke is ever sent across the network.</span>
         </div>
 
@@ -136,14 +136,14 @@
                             <td class="text-warning font-semibold">Vulnerable to rainbow tables</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Moderate</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Moderate</td>
                             <td class="font-mono">36 – 59 bits</td>
                             <td class="font-mono">10–12 mixed-case alphanumeric</td>
                             <td class="font-mono">Several hours to 3 weeks</td>
                             <td>Acceptable for low-risk casual logins</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Strong</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Strong</td>
                             <td class="font-mono">60 – 79 bits</td>
                             <td class="font-mono">14+ mixed-case with symbols</td>
                             <td class="font-mono text-success">Several decades to 500 years</td>

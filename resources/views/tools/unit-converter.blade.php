@@ -139,13 +139,13 @@
             {{-- From Input --}}
             <div class="md:col-span-3 space-y-2">
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">From</label>
-                <input
+                <input aria-label="From"
                     type="number"
                     step="any"
                     x-model="val"
                     class="input input-bordered rounded-2xl w-full text-xl font-bold p-4 tabular-nums"
                 />
-                <select x-model="fromUnit" class="select select-bordered rounded-xl w-full text-xs font-semibold">
+                <select aria-label="From unit" x-model="fromUnit" class="select select-bordered rounded-xl w-full text-xs font-semibold">
                     <template x-for="(u, k) in currentUnits" :key="k">
                         <option :value="k" x-text="u.label" :selected="fromUnit === k"></option>
                     </template>
@@ -170,7 +170,7 @@
                 <div class="p-4 rounded-2xl bg-base-200/70 border border-base-300 min-h-[48px] flex items-center font-display text-xl font-black text-base-content tabular-nums">
                     <span x-text="converted"></span>
                 </div>
-                <select x-model="toUnit" class="select select-bordered rounded-xl w-full text-xs font-semibold">
+                <select aria-label="To (Converted)" x-model="toUnit" class="select select-bordered rounded-xl w-full text-xs font-semibold">
                     <template x-for="(u, k) in currentUnits" :key="k">
                         <option :value="k" x-text="u.label" :selected="toUnit === k"></option>
                     </template>
@@ -208,35 +208,35 @@
                             <td class="font-bold font-mono">Length</td>
                             <td class="font-mono">1 Meter (m)</td>
                             <td class="font-mono">3.28084 Feet (ft)</td>
-                            <td class="font-mono text-primary">ft = m × 3.28084</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">ft = m × 3.28084</td>
                             <td>Multiply meters by 3.3</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Distance</td>
                             <td class="font-mono">1 Kilometer (km)</td>
                             <td class="font-mono">0.621371 Miles (mi)</td>
-                            <td class="font-mono text-primary">mi = km × 0.621371</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">mi = km × 0.621371</td>
                             <td>Multiply km by 0.6 or divide by 1.6</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Mass / Weight</td>
                             <td class="font-mono">1 Kilogram (kg)</td>
                             <td class="font-mono">2.20462 Pounds (lbs)</td>
-                            <td class="font-mono text-primary">lbs = kg × 2.20462</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">lbs = kg × 2.20462</td>
                             <td>Double the kg value and add 10%</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Liquid Volume</td>
                             <td class="font-mono">1 Liter (L)</td>
                             <td class="font-mono">0.264172 US Gallons</td>
-                            <td class="font-mono text-primary">gal = L × 0.264172</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">gal = L × 0.264172</td>
                             <td>~3.785 Liters per US Gallon</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">Temperature</td>
                             <td class="font-mono">0° Celsius (°C)</td>
                             <td class="font-mono">32° Fahrenheit (°F)</td>
-                            <td class="font-mono text-primary">°F = (°C × 1.8) + 32</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">°F = (°C × 1.8) + 32</td>
                             <td>Double Celsius, add 30</td>
                         </tr>
                     </tbody>

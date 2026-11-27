@@ -24,7 +24,7 @@
     <div class="space-y-6">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Target URL to Inspect</label>
-            <input
+            <input aria-label="Target URL to Inspect"
                 type="url"
                 x-model="rawUrl"
                 placeholder="https://example.com:8080/path?param=val#hash"
@@ -79,7 +79,7 @@
                                 <tbody class="divide-y divide-base-200">
                                     <template x-for="p in parsed.params" :key="p.key">
                                         <tr>
-                                            <td class="font-bold text-primary" x-text="p.key"></td>
+                                            <td class="font-bold text-[#163300] dark:text-[#9fe870]" x-text="p.key"></td>
                                             <td class="break-all" x-text="p.val"></td>
                                         </tr>
                                     </template>

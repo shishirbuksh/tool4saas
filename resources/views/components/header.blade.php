@@ -129,7 +129,7 @@
             </div>
 
             {{-- Mobile Nav Links --}}
-            <nav class="flex flex-col gap-1 text-sm font-semibold text-base-content">
+            <nav aria-label="Mobile Navigation" class="flex flex-col gap-1 text-sm font-semibold text-base-content">
                 <a
                     href="{{ route('student-tools') }}"
                     @click="mobileMenuOpen = false"

@@ -25,7 +25,7 @@
                 </div>
                 <div>
                     <h3 class="font-bold text-lg text-white font-display">Tool4SaaS — Local-First Productivity</h3>
-                    <p class="text-sm text-[#868685]">Zero server uploads. 100% private calculations running in your browser.</p>
+                    <p class="text-sm text-[#a6a9a3]">Zero server uploads. 100% private calculations running in your browser.</p>
                 </div>
             </div>
             <div class="flex flex-wrap items-center gap-2">

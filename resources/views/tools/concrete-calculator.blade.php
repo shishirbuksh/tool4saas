@@ -49,15 +49,15 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Slab Length (Feet)</label>
-                <input type="number" min="1" step="0.5" x-model="length" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Slab Length (Feet)" type="number" min="1" step="0.5" x-model="length" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Slab Width (Feet)</label>
-                <input type="number" min="1" step="0.5" x-model="width" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Slab Width (Feet)" type="number" min="1" step="0.5" x-model="width" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Thickness / Depth (Inches)</label>
-                <input type="number" min="1" max="24" step="0.5" x-model="depth" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Thickness / Depth (Inches)" type="number" min="1" max="24" step="0.5" x-model="depth" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
         </div>
 
@@ -70,7 +70,7 @@
 
             <div class="p-6 rounded-[20px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase tracking-widest text-base-content/60 font-bold font-mono">60 lb Premix Bags</span>
-                <p class="font-mono text-3xl font-extrabold mt-2 text-primary" x-text="bags60lb + ' Bags'"></p>
+                <p class="font-mono text-3xl font-extrabold mt-2 text-[#163300] dark:text-[#9fe870]" x-text="bags60lb + ' Bags'"></p>
                 <p class="text-xs text-base-content/60 mt-1">Pre-bagged dry mix equivalent</p>
             </div>
 
@@ -98,37 +98,37 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">M5</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">M5</td>
                             <td class="font-mono">1 : 5 : 10</td>
                             <td class="font-mono">725 psi (5 MPa)</td>
                             <td>Mass concrete, non-structural sub-bases</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">M7.5</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">M7.5</td>
                             <td class="font-mono">1 : 4 : 8</td>
                             <td class="font-mono">1,087 psi (7.5 MPa)</td>
                             <td>PCC foundation bedding, trench fill</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">M10</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">M10</td>
                             <td class="font-mono">1 : 3 : 6</td>
                             <td class="font-mono">1,450 psi (10 MPa)</td>
                             <td>Patio sub-bases, leveling courses, pathways</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">M15</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">M15</td>
                             <td class="font-mono">1 : 2 : 4</td>
                             <td class="font-mono">2,175 psi (15 MPa)</td>
                             <td>Residential driveways, sidewalks, light slabs</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">M20</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">M20</td>
                             <td class="font-mono">1 : 1.5 : 3</td>
                             <td class="font-mono">2,900 psi (20 MPa)</td>
                             <td>Reinforced concrete (RCC) beams, slabs, columns</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">M25</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">M25</td>
                             <td class="font-mono">1 : 1 : 2</td>
                             <td class="font-mono">3,625 psi (25 MPa)</td>
                             <td>Heavy-duty structural footings, load-bearing walls</td>

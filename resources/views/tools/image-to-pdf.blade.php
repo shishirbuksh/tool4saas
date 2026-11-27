@@ -112,31 +112,31 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">ISO A4 (Global)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">ISO A4 (Global)</td>
                             <td class="font-mono">210 × 297 mm</td>
                             <td class="font-mono">8.27 × 11.69 in</td>
-                            <td class="font-mono text-primary">2,480 × 3,508 px</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">2,480 × 3,508 px</td>
                             <td>International standard (Europe, Asia, UK, Australia)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">US Letter</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">US Letter</td>
                             <td class="font-mono">215.9 × 279.4 mm</td>
                             <td class="font-mono">8.50 × 11.00 in</td>
-                            <td class="font-mono text-primary">2,550 × 3,300 px</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">2,550 × 3,300 px</td>
                             <td>North America (United States, Canada, Mexico)</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">US Legal</td>
                             <td class="font-mono">215.9 × 355.6 mm</td>
                             <td class="font-mono">8.50 × 14.00 in</td>
-                            <td class="font-mono text-primary">2,550 × 4,200 px</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">2,550 × 4,200 px</td>
                             <td>Legal court records, real estate deeds, contracts</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">ISO A3</td>
                             <td class="font-mono">297 × 420 mm</td>
                             <td class="font-mono">11.69 × 16.54 in</td>
-                            <td class="font-mono text-primary">3,508 × 4,960 px</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">3,508 × 4,960 px</td>
                             <td>Drawings, presentations, large financial sheets</td>
                         </tr>
                     </tbody>

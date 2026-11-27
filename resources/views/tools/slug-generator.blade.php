@@ -26,14 +26,14 @@
         },
         copy() {
             if (!this.output) return;
-            navigator.clipboard.writeText(this.output);
+            window.copyTextSafe(this.output);
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         }
     }">
         <div class="mb-6">
             <label class="block text-sm font-bold text-base-content font-display mb-2">Input Article Headline or String</label>
-            <input
+            <input aria-label="Input Article Headline or String"
                 type="text"
                 x-model="input"
                 @input="slugify()"
@@ -45,7 +45,7 @@
         <div class="flex flex-wrap items-center gap-6 mb-8 p-4 rounded-2xl bg-base-200/60 border border-base-300">
             <div>
                 <label class="block text-xs font-bold text-base-content/60 uppercase tracking-wider mb-1 font-mono">Separator</label>
-                <select x-model="separator" @change="slugify()" class="select select-bordered select-sm rounded-xl">
+                <select aria-label="Separator" x-model="separator" @change="slugify()" class="select select-bordered select-sm rounded-xl">
                     <option value="-">Hyphen (-)</option>
                     <option value="_">Underscore (_)</option>
                 </select>
@@ -90,19 +90,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Word Separator</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Word Separator</td>
                             <td class="font-mono font-bold text-success">Hyphen / Dash (-)</td>
                             <td class="text-success font-semibold">Treated strictly as a word delimiter</td>
                             <td>Underscores (<code class="font-mono">_</code>) join words into one compound token in legacy parsers</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Character Case</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Character Case</td>
                             <td class="font-mono font-bold text-success">100% Lowercase (a-z)</td>
                             <td>Case-sensitive on Linux/Unix Nginx web servers</td>
                             <td>Uppercase characters cause duplicate content canonical splitting &amp; 404s</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Slug Word Count Target</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Slug Word Count Target</td>
                             <td class="font-mono font-bold text-success">3 to 5 words (≤ 60 chars)</td>
                             <td>Optimal keyword relevance extraction</td>
                             <td>Keyword stuffing diluted in long complex query parameters</td>

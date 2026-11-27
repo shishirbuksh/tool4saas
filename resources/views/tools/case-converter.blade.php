@@ -55,7 +55,7 @@
 
     copy() {
         if (!this.output) return;
-        navigator.clipboard.writeText(this.output);
+        window.copyTextSafe(this.output);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     },

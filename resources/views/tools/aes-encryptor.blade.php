@@ -44,7 +44,7 @@
         }
     },
     copy() {
-        navigator.clipboard.writeText(this.output);
+        window.copyTextSafe(this.output);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -61,12 +61,12 @@
 
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70" x-text="mode === 'encrypt' ? 'Plaintext Message' : 'Encrypted Base64 String'"></label>
-            <textarea x-model="text" rows="4" class="textarea textarea-bordered w-full rounded-[16px] text-sm font-mono"></textarea>
+            <textarea aria-label="Text" x-model="text" rows="4" class="textarea textarea-bordered w-full rounded-[16px] text-sm font-mono"></textarea>
         </div>
 
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Secret Encryption Passphrase</label>
-            <input type="password" x-model="password" placeholder="Enter high-entropy secret key..." class="input input-bordered w-full rounded-[12px] text-sm font-mono" />
+            <input aria-label="Secret Encryption Passphrase" type="password" x-model="password" placeholder="Enter high-entropy secret key..." class="input input-bordered w-full rounded-[12px] text-sm font-mono" />
         </div>
 
         <button type="button" @click="process()" class="btn btn-primary rounded-[12px] font-bold">
@@ -104,14 +104,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">AES-256-GCM</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">AES-256-GCM</td>
                             <td class="font-mono font-bold">256-bit (14 rounds)</td>
                             <td class="font-mono">Galois/Counter Mode</td>
                             <td class="text-success font-semibold">Built-in (AEAD Auth Tag)</td>
                             <td>Top Secret / NSA Suite B (Web standard)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">AES-128-GCM</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">AES-128-GCM</td>
                             <td class="font-mono">128-bit (10 rounds)</td>
                             <td class="font-mono">Galois/Counter Mode</td>
                             <td class="text-success font-semibold">Built-in (AEAD Auth Tag)</td>

@@ -80,7 +80,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Syntax Language</label>
-                <select x-model="language" class="select select-bordered w-full rounded-[12px] text-sm">
+                <select aria-label="Syntax Language" x-model="language" class="select select-bordered w-full rounded-[12px] text-sm">
                     <option value="javascript">JavaScript / TypeScript</option>
                     <option value="php">PHP / Blade</option>
                     <option value="python">Python</option>
@@ -90,7 +90,7 @@
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Card Gradient Theme</label>
-                <select x-model="theme" class="select select-bordered w-full rounded-[12px] text-sm">
+                <select aria-label="Card Gradient Theme" x-model="theme" class="select select-bordered w-full rounded-[12px] text-sm">
                     <option value="gradient-dark">Wise Deep Forest (#163300)</option>
                     <option value="gradient-purple">Synthwave Purple</option>
                     <option value="gradient-blue">Cyber Blue</option>
@@ -99,7 +99,7 @@
         </div>
 
         <div>
-            <textarea x-model="code" rows="5" class="textarea textarea-bordered w-full rounded-[16px] font-mono text-xs bg-base-100 dark:bg-base-200"></textarea>
+            <textarea aria-label="Code" x-model="code" rows="5" class="textarea textarea-bordered w-full rounded-[16px] font-mono text-xs bg-base-100 dark:bg-base-200"></textarea>
         </div>
 
         <!-- Rendered Code Frame -->
@@ -145,21 +145,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Twitter / X In-Feed</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Twitter / X In-Feed</td>
                             <td class="font-mono">1200 × 675 px</td>
                             <td class="font-mono font-bold text-success">2400 × 1350 px</td>
                             <td class="font-mono">16:9 Landscape</td>
                             <td>PNG-24 or WebP (Avoids aggressive JPEG artifacts)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">LinkedIn Post Banner</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">LinkedIn Post Banner</td>
                             <td class="font-mono">1200 × 627 px</td>
                             <td class="font-mono font-bold text-success">2400 × 1254 px</td>
                             <td class="font-mono">1.91:1 Landscape</td>
                             <td>High contrast font rendering for desktop feed</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Blog Open Graph (og:image)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Blog Open Graph (og:image)</td>
                             <td class="font-mono">1200 × 630 px</td>
                             <td class="font-mono font-bold text-success">2400 × 1260 px</td>
                             <td class="font-mono">1.91:1 Universal</td>

@@ -36,7 +36,7 @@ final class FeedController extends Controller
 
         // 1. Home
         $items[] = [
-            'url' => $base,
+            'url' => "{$base}/",
             'lastModified' => $homeModified,
             'image' => "{$base}/og/home.png",
         ];
@@ -167,6 +167,7 @@ final class FeedController extends Controller
 
         return response($body, 200, [
             'Content-Type' => 'text/plain; charset=utf-8',
+            'Cache-Control' => 'public, max-age=86400, s-maxage=86400',
         ]);
     }
 
@@ -280,7 +281,9 @@ final class FeedController extends Controller
         $content .= "- [Terms]({$base}/terms): Terms of use for all tools and guides.\n";
         $content .= "- [Contact]({$base}/contact): Contact the Tool4SaaS team.\n";
         $content .= "- [Author]({$base}/author): About the author behind Tool4SaaS.\n";
-        $content .= "- [Methodology]({$base}/methodology): How we build and test tools.\n\n";
+        $content .= "- [Methodology]({$base}/methodology): How we build and test tools.\n";
+        $content .= "- [Student Tools Hub]({$base}/student-tools): Academic calculators for attendance, GPA, CGPA, and loans.\n";
+        $content .= "- [Developer Tools Hub]({$base}/developer-tools): Client-side JSON, regex, JWT, base64, and formatting utilities.\n\n";
 
         foreach ($categories as $cat) {
             $content .= "- [{$cat->label}]({$base}/category/{$cat->id}): {$cat->description}\n";
@@ -314,6 +317,7 @@ final class FeedController extends Controller
 
         return response($content, 200, [
             'Content-Type' => 'text/plain; charset=utf-8',
+            'Cache-Control' => 'public, max-age=3600, s-maxage=3600',
         ]);
     }
 
@@ -368,6 +372,7 @@ final class FeedController extends Controller
 
         return response($content, 200, [
             'Content-Type' => 'text/plain; charset=utf-8',
+            'Cache-Control' => 'public, max-age=3600, s-maxage=3600',
         ]);
     }
 

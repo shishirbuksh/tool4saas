@@ -52,7 +52,7 @@
             }
         },
         copy() {
-            navigator.clipboard.writeText(this.outputText);
+            window.copyTextSafe(this.outputText);
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         },
@@ -71,7 +71,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 items-end">
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Dataset Category</span></label>
-                <select x-model="dataType" @change="generate()" class="select select-bordered rounded-xl w-full text-xs">
+                <select aria-label="Dataset Category" x-model="dataType" @change="generate()" class="select select-bordered rounded-xl w-full text-xs">
                     <option value="person">Users (Name, Email, City)</option>
                     <option value="company">B2B (Company, Contact, Email)</option>
                     <option value="uuid">Identities (UUID v4, Name, Status)</option>
@@ -82,7 +82,7 @@
 
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Output Format</span></label>
-                <select x-model="format" class="select select-bordered rounded-xl w-full text-xs font-mono">
+                <select aria-label="Output Format" x-model="format" class="select select-bordered rounded-xl w-full text-xs font-mono">
                     <option value="json">JSON Array</option>
                     <option value="csv">CSV Spreadsheet</option>
                 </select>

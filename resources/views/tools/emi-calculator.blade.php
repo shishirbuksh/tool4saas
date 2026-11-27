@@ -89,7 +89,7 @@
             <x-numeric-field label="Loan Tenure (Years)" model="tenureYears" suffix="Yrs" min="1" max="40" placeholder="20" />
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Currency</span></label>
-                <select x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Currency" x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="$">USD / CAD / AUD ($)</option>
                     <option value="€">EUR (€)</option>
                     <option value="£">GBP (£)</option>

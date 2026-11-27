@@ -63,16 +63,16 @@
             <div>
                 <span class="text-3xl font-black font-display text-base-content tracking-tight">INVOICE</span>
                 <div class="mt-2 text-xs font-mono text-base-content/60">
-                    <div>Invoice #: <input type="text" x-model="invoiceNumber" class="font-bold text-base-content bg-transparent border-b border-base-300 focus:outline-none w-36" /></div>
-                    <div class="mt-1">Date: <input type="date" x-model="invoiceDate" class="bg-transparent text-base-content focus:outline-none" /></div>
-                    <div class="mt-1">Due Date: <input type="date" x-model="dueDate" class="bg-transparent text-base-content focus:outline-none" /></div>
+                    <div>Invoice #: <input aria-label="Invoice number" type="text" x-model="invoiceNumber" class="font-bold text-base-content bg-transparent border-b border-base-300 focus:outline-none w-36" /></div>
+                    <div class="mt-1">Date: <input aria-label="Invoice date" type="date" x-model="invoiceDate" class="bg-transparent text-base-content focus:outline-none" /></div>
+                    <div class="mt-1">Due Date: <input aria-label="Due date" type="date" x-model="dueDate" class="bg-transparent text-base-content focus:outline-none" /></div>
                 </div>
             </div>
 
             <div class="sm:text-right">
                 <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono">Currency</span>
                 <div class="mt-1">
-                    <select x-model="currency" class="select select-sm select-bordered rounded-xl text-xs font-bold">
+                    <select aria-label="Currency" x-model="currency" class="select select-sm select-bordered rounded-xl text-xs font-bold">
                         <option value="$">USD ($)</option>
                         <option value="€">EUR (€)</option>
                         <option value="£">GBP (£)</option>
@@ -88,17 +88,17 @@
         {{-- From & To Grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div class="p-5 rounded-2xl bg-base-200/50 border border-base-300">
-                <span class="text-xs font-bold uppercase tracking-wider text-primary font-mono block mb-2">Billed From (Your Business)</span>
-                <input type="text" x-model="fromName" placeholder="Your Business / Full Name" class="input input-bordered input-sm rounded-xl w-full font-bold mb-2 text-sm" />
-                <input type="email" x-model="fromEmail" placeholder="your@email.com" class="input input-bordered input-sm rounded-xl w-full text-xs mb-2" />
-                <textarea x-model="fromAddress" rows="2" placeholder="Full street address, city, tax ID" class="textarea textarea-bordered rounded-xl w-full text-xs"></textarea>
+                <span class="text-xs font-bold uppercase tracking-wider text-[#163300] dark:text-[#9fe870] font-mono block mb-2">Billed From (Your Business)</span>
+                <input aria-label="Your Business / Full Name" type="text" x-model="fromName" placeholder="Your Business / Full Name" class="input input-bordered input-sm rounded-xl w-full font-bold mb-2 text-sm" />
+                <input aria-label="Your business email address" type="email" x-model="fromEmail" placeholder="your@email.com" class="input input-bordered input-sm rounded-xl w-full text-xs mb-2" />
+                <textarea aria-label="Full street address, city, tax ID" x-model="fromAddress" rows="2" placeholder="Full street address, city, tax ID" class="textarea textarea-bordered rounded-xl w-full text-xs"></textarea>
             </div>
 
             <div class="p-5 rounded-2xl bg-base-200/50 border border-base-300">
                 <span class="text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono block mb-2">Billed To (Client Details)</span>
-                <input type="text" x-model="toName" placeholder="Client Name / Corporation" class="input input-bordered input-sm rounded-xl w-full font-bold mb-2 text-sm" />
-                <input type="email" x-model="toEmail" placeholder="client@email.com" class="input input-bordered input-sm rounded-xl w-full text-xs mb-2" />
-                <textarea x-model="toAddress" rows="2" placeholder="Client street address, tax ID" class="textarea textarea-bordered rounded-xl w-full text-xs"></textarea>
+                <input aria-label="Client Name / Corporation" type="text" x-model="toName" placeholder="Client Name / Corporation" class="input input-bordered input-sm rounded-xl w-full font-bold mb-2 text-sm" />
+                <input aria-label="Client email address" type="email" x-model="toEmail" placeholder="client@email.com" class="input input-bordered input-sm rounded-xl w-full text-xs mb-2" />
+                <textarea aria-label="Client street address, tax ID" x-model="toAddress" rows="2" placeholder="Client street address, tax ID" class="textarea textarea-bordered rounded-xl w-full text-xs"></textarea>
             </div>
         </div>
 
@@ -119,13 +119,13 @@
                         <template x-for="(item, index) in items" :key="index">
                             <tr class="border-b border-base-200">
                                 <td>
-                                    <input type="text" x-model="item.desc" placeholder="Service or product description..." class="input input-sm input-bordered rounded-xl w-full text-xs sm:text-sm" />
+                                    <input aria-label="Service or product description" type="text" x-model="item.desc" placeholder="Service or product description..." class="input input-sm input-bordered rounded-xl w-full text-xs sm:text-sm" />
                                 </td>
                                 <td>
-                                    <input type="number" x-model.number="item.qty" min="1" step="1" class="input input-sm input-bordered rounded-xl w-20 text-center text-xs tabular-nums" />
+                                    <input aria-label="Qty" type="number" x-model.number="item.qty" min="1" step="1" class="input input-sm input-bordered rounded-xl w-20 text-center text-xs tabular-nums" />
                                 </td>
                                 <td>
-                                    <input type="number" x-model.number="item.rate" min="0" step="any" class="input input-sm input-bordered rounded-xl w-28 text-right text-xs tabular-nums" />
+                                    <input aria-label="Rate" type="number" x-model.number="item.rate" min="0" step="any" class="input input-sm input-bordered rounded-xl w-28 text-right text-xs tabular-nums" />
                                 </td>
                                 <td class="text-right font-bold text-sm tabular-nums">
                                     <span x-text="currency"></span><span x-text="((item.qty || 0) * (item.rate || 0)).toFixed(2)"></span>
@@ -161,7 +161,7 @@
         <div class="flex flex-col sm:flex-row justify-between items-start gap-8 pt-4 border-t border-base-300">
             <div class="w-full sm:max-w-md">
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Notes &amp; Payment Instructions</label>
-                <textarea x-model="notes" rows="3" class="textarea textarea-bordered rounded-2xl w-full text-xs leading-relaxed"></textarea>
+                <textarea aria-label="Notes &amp; Payment Instructions" x-model="notes" rows="3" class="textarea textarea-bordered rounded-2xl w-full text-xs leading-relaxed"></textarea>
             </div>
 
             <div class="w-full sm:w-72 space-y-2 text-sm">
@@ -172,7 +172,7 @@
                 <div class="flex items-center justify-between py-1">
                     <div class="flex items-center gap-1 text-base-content/70">
                         <span>Tax Rate:</span>
-                        <input type="number" x-model.number="taxRate" step="0.1" class="input input-xs input-bordered rounded-lg w-14 text-center" />
+                        <input aria-label="Tax rate" type="number" x-model.number="taxRate" step="0.1" class="input input-xs input-bordered rounded-lg w-14 text-center" />
                         <span>%</span>
                     </div>
                     <span class="tabular-nums"><span x-text="currency"></span><span x-text="taxAmount.toFixed(2)"></span></span>

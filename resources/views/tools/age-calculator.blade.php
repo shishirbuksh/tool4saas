@@ -65,11 +65,11 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div class="form-control">
             <label class="label py-1"><span class="label-text font-semibold text-sm">Date of Birth</span></label>
-            <input type="date" x-model="birthDate" @change="calculate()" class="input input-bordered rounded-xl w-full text-base" />
+            <input aria-label="Date of Birth" type="date" x-model="birthDate" @change="calculate()" class="input input-bordered rounded-xl w-full text-base" />
         </div>
         <div class="form-control">
             <label class="label py-1"><span class="label-text font-semibold text-sm">Age on Date</span></label>
-            <input type="date" x-model="targetDate" @change="calculate()" class="input input-bordered rounded-xl w-full text-base" />
+            <input aria-label="Age on Date" type="date" x-model="targetDate" @change="calculate()" class="input input-bordered rounded-xl w-full text-base" />
         </div>
     </div>
 

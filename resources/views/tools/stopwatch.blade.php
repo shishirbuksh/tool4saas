@@ -46,7 +46,7 @@
     copyLaps() {
         if (!this.laps.length) return;
         const text = this.laps.map(l => `Lap ${l.id}: ${l.time}`).join('\n');
-        navigator.clipboard.writeText(text);
+        window.copyTextSafe(text);
     }
 }">
     <div class="space-y-6">
@@ -126,14 +126,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">performance.now()</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">performance.now()</td>
                             <td class="font-mono font-bold text-success">Microsecond (5 μs to 20 μs)</td>
                             <td class="text-success font-bold">Yes (Never steps backwards)</td>
                             <td>Clamped to 5–20 μs to mitigate side-channel timing leaks</td>
                             <td>High-precision stopwatches, animation loops, performance profiling</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">requestAnimationFrame (rAF)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">requestAnimationFrame (rAF)</td>
                             <td class="font-mono">Syncs to display refresh (16.6ms at 60Hz / 8.3ms at 120Hz)</td>
                             <td class="text-success font-semibold">Yes (Tied to VSync)</td>
                             <td>None (Paused automatically in background tabs to save CPU)</td>

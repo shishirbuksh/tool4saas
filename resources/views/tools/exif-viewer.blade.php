@@ -28,7 +28,7 @@
 }">
     <div class="space-y-6">
         <div class="border-2 border-dashed border-base-300 rounded-[20px] p-8 text-center bg-base-200/30 hover:border-primary transition-colors">
-            <input type="file" accept="image/*" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
+            <input aria-label="Upload file for Exif Viewer" type="file" accept="image/*" @change="onFile($event)" class="file-input file-input-bordered file-input-primary w-full max-w-xs rounded-[12px]" />
             <p class="text-xs text-base-content/60 mt-3">Upload any photo or image to inspect metadata, resolution, MIME type, and dimensions.</p>
         </div>
 
@@ -36,7 +36,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="p-4 rounded-[14px] bg-base-200/50 border border-base-300">
                     <span class="text-xs uppercase font-bold text-base-content/60">Image Dimensions</span>
-                    <p class="font-mono text-lg font-bold mt-1 text-primary" x-text="info.width + ' × ' + info.height"></p>
+                    <p class="font-mono text-lg font-bold mt-1 text-[#163300] dark:text-[#9fe870]" x-text="info.width + ' × ' + info.height"></p>
                 </div>
 
                 <div class="p-4 rounded-[14px] bg-base-200/50 border border-base-300">
@@ -79,21 +79,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">0x829A</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">0x829A</td>
                             <td class="font-mono">ExposureTime</td>
                             <td class="font-mono">Rational</td>
                             <td class="font-mono">1/250 sec (0.004s)</td>
                             <td>Shutter duration controlling motion blur</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">0x829D</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">0x829D</td>
                             <td class="font-mono">FNumber</td>
                             <td class="font-mono">Rational</td>
                             <td class="font-mono">f/2.8 or f/1.8</td>
                             <td>Lens aperture ratio determining depth of field</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">0x8827</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">0x8827</td>
                             <td class="font-mono">PhotographicSensitivity (ISO)</td>
                             <td class="font-mono">Short (Integer)</td>
                             <td class="font-mono">ISO 100, 400, 1600</td>

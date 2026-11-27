@@ -58,23 +58,23 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Current Monthly Rent ($)</label>
-                <input type="number" min="0" step="50" x-model="monthlyRent" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Current Monthly Rent ($)" type="number" min="0" step="50" x-model="monthlyRent" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Target Home Purchase Price ($)</label>
-                <input type="number" min="50000" step="10000" x-model="homePrice" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Target Home Purchase Price ($)" type="number" min="50000" step="10000" x-model="homePrice" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Down Payment (%)</label>
-                <input type="number" min="3" max="100" x-model="downPaymentPercent" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Down Payment (%)" type="number" min="3" max="100" x-model="downPaymentPercent" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Mortgage Interest Rate (%)</label>
-                <input type="number" min="1" max="15" step="0.1" x-model="interestRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Mortgage Interest Rate (%)" type="number" min="1" max="15" step="0.1" x-model="interestRate" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Mortgage Tenure (Years)</label>
-                <input type="number" min="10" max="30" step="5" x-model="tenureYears" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Mortgage Tenure (Years)" type="number" min="10" max="30" step="5" x-model="tenureYears" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
             </div>
         </div>
 

@@ -340,13 +340,23 @@ final class BlogService
      */
     public function getBlogIndexSections(): array
     {
+        /** @var array<string, BlogPostDTO> $pillarPosts */
+        $pillarPosts = [];
+        /** @var array<string, list<BlogPostDTO>> $clustersByPillar */
+        $clustersByPillar = [];
+
+        foreach ($this->getAllPosts() as $post) {
+            if ($post->kind === 'pillar') {
+                $pillarPosts[$post->pillar] = $post;
+            } elseif ($post->kind === 'cluster' && ! $post->isNoindex) {
+                $clustersByPillar[$post->pillar][] = $post;
+            }
+        }
+
         $sections = [];
         foreach ($this->getAllPillars() as $pillar) {
-            $pillarPost = $this->getPillarPost($pillar->pillar);
-            $clusters = array_values(array_filter(
-                $this->getClustersForPillar($pillar->pillar),
-                fn (BlogPostDTO $c): bool => ! $c->isNoindex
-            ));
+            $pillarPost = $pillarPosts[$pillar->pillar] ?? null;
+            $clusters = $clustersByPillar[$pillar->pillar] ?? [];
             $words = $pillarPost !== null ? $pillarPost->wordCount() : 0;
 
             $sections[] = [

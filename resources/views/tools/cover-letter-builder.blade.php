@@ -13,7 +13,7 @@
                    'Sincerely,\n' + (this.name || 'Your Name');
         },
         copy() {
-            navigator.clipboard.writeText(this.letter);
+            window.copyTextSafe(this.letter);
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         }
@@ -21,19 +21,19 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Your Full Name</label>
-                <input type="text" x-model="name" class="input input-bordered w-full rounded-[12px] text-sm" />
+                <input aria-label="Your Full Name" type="text" x-model="name" class="input input-bordered w-full rounded-[12px] text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Target Role Title</label>
-                <input type="text" x-model="role" class="input input-bordered w-full rounded-[12px] text-sm" />
+                <input aria-label="Target Role Title" type="text" x-model="role" class="input input-bordered w-full rounded-[12px] text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Target Company Name</label>
-                <input type="text" x-model="company" class="input input-bordered w-full rounded-[12px] text-sm" />
+                <input aria-label="Target Company Name" type="text" x-model="company" class="input input-bordered w-full rounded-[12px] text-sm" />
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Core Skills & Specialties</label>
-                <input type="text" x-model="skills" class="input input-bordered w-full rounded-[12px] text-sm" />
+                <input aria-label="Core Skills &amp; Specialties" type="text" x-model="skills" class="input input-bordered w-full rounded-[12px] text-sm" />
             </div>
         </div>
 
@@ -45,7 +45,7 @@
                     <span x-show="copied" x-cloak>✓ Copied!</span>
                 </button>
             </div>
-            <textarea readonly :value="letter" rows="10" class="textarea textarea-bordered w-full rounded-[16px] text-sm leading-relaxed bg-base-100 dark:bg-base-200"></textarea>
+            <textarea aria-label="Generated Cover Letter" readonly :value="letter" rows="10" class="textarea textarea-bordered w-full rounded-[16px] text-sm leading-relaxed bg-base-100 dark:bg-base-200"></textarea>
         </div>
 
         {{-- Technical Comparison: Professional Cover Letter Structures Matrix --}}
@@ -66,14 +66,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Modern Tech / SaaS</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Modern Tech / SaaS</td>
                             <td>Direct, energetic, metrics-driven</td>
                             <td class="font-mono font-bold">200 – 300 words</td>
                             <td>Shipped products, revenue impact, technical stack proficiency</td>
                             <td>Software engineering, product management, DevOps, startups</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Traditional Corporate</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Traditional Corporate</td>
                             <td>Formal, respectful, structured</td>
                             <td class="font-mono">300 – 400 words</td>
                             <td>Institutional tenure, compliance, established pedigree</td>
@@ -87,7 +87,7 @@
                             <td>UI/UX design, marketing agencies, copywriting, media</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Executive Leadership</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Executive Leadership</td>
                             <td>Visionary, strategic, P&amp;L focused</td>
                             <td class="font-mono">300 – 450 words</td>
                             <td>EBITDA growth, cross-functional leadership, enterprise transformation</td>

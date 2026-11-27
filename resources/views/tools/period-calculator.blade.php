@@ -57,12 +57,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Start Date of Last Period</label>
-                <input type="date" x-model="lastDate" class="input input-bordered w-full rounded-[12px] font-mono text-sm" />
+                <input aria-label="Start Date of Last Period" type="date" x-model="lastDate" class="input input-bordered w-full rounded-[12px] font-mono text-sm" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Average Cycle Length (Days)</label>
-                <input type="number" min="21" max="45" x-model="cycleDays" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
+                <input aria-label="Average Cycle Length (Days)" type="number" min="21" max="45" x-model="cycleDays" class="input input-bordered w-full rounded-[12px] font-bold text-sm" />
                 <span class="text-xs text-base-content/50 mt-1 block">Usually 28 days (ranging from 21 to 35)</span>
             </div>
         </div>
@@ -76,7 +76,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="p-5 rounded-[16px] bg-base-200/50 border border-base-300">
                 <span class="text-xs uppercase font-bold text-base-content/60">Estimated Ovulation Date</span>
-                <p class="font-mono text-xl font-bold mt-1 text-primary" x-text="ovulationDate"></p>
+                <p class="font-mono text-xl font-bold mt-1 text-[#163300] dark:text-[#9fe870]" x-text="ovulationDate"></p>
                 <span class="text-xs text-base-content/50">Approx. 14 days before cycle conclusion</span>
             </div>
 
@@ -105,14 +105,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Menstrual Phase</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Menstrual Phase</td>
                             <td class="font-mono">Days 1 – 5</td>
                             <td class="font-mono">Low Estrogen &amp; Progesterone</td>
                             <td>Uterine lining shed (menses)</td>
                             <td class="font-mono text-error font-semibold">Extremely Low (~0% to 1%)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Follicular Phase</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Follicular Phase</td>
                             <td class="font-mono">Days 6 – 13</td>
                             <td class="font-mono">FSH &amp; Rising Estrogen</td>
                             <td>Ovarian follicles mature; uterine lining thickens</td>

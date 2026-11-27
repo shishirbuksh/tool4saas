@@ -36,7 +36,7 @@
         <div class="mb-8">
             <label class="block text-sm font-bold text-base-content font-display mb-2">Website Hostname or Domain URL</label>
             <div class="flex flex-col sm:flex-row gap-3">
-                <input
+                <input aria-label="Website Hostname or Domain URL"
                     type="text"
                     x-model="domain"
                     @keydown.enter="checkSsl()"

@@ -90,12 +90,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Gross Annual Income</label>
-                <input type="number" min="0" step="1000" x-model="income" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Gross Annual Income" type="number" min="0" step="1000" x-model="income" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Jurisdiction & Filing Status</label>
-                <select x-model="regime" class="select select-bordered w-full rounded-[12px] font-semibold text-sm">
+                <select aria-label="Jurisdiction &amp; Filing Status" x-model="regime" class="select select-bordered w-full rounded-[12px] font-semibold text-sm">
                     <option value="us_single">United States (Federal Single Filer)</option>
                     <option value="uk_standard">United Kingdom (HMRC Standard Rate)</option>
                 </select>
@@ -140,21 +140,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">10% Bracket</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">10% Bracket</td>
                             <td class="font-mono">$0 to $11,600</td>
                             <td class="font-mono">$0 to $23,200</td>
                             <td class="font-mono">$0 to $16,550</td>
                             <td>Baseline standard deduction absorbs first tier</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">12% Bracket</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">12% Bracket</td>
                             <td class="font-mono">$11,601 to $47,150</td>
                             <td class="font-mono">$23,201 to $94,300</td>
                             <td class="font-mono">$16,551 to $63,100</td>
                             <td>Optimal bracket for Roth IRA / 401(k) conversions</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">22% Bracket</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">22% Bracket</td>
                             <td class="font-mono">$47,151 to $100,525</td>
                             <td class="font-mono">$94,301 to $201,050</td>
                             <td class="font-mono">$63,101 to $100,500</td>

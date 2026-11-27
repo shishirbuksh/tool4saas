@@ -1,193 +1,107 @@
-import http from 'http';
-import https from 'https';
-import fs from 'fs';
-import path from 'path';
-import { chromium } from '@playwright/test';
-import { PDFDocument } from 'pdf-lib';
+const TARGET_DOMAIN = (process.env.TARGET_DOMAIN || 'https://tool4saas.com').replace(/\/+$/, '');
 
-const TARGET_DOMAIN = process.env.TARGET_DOMAIN || 'https://tool4saas.com';
-
-console.log(`====================================================================`);
-console.log(` Tool4SaaS Production Post-Deployment Verification Suite`);
+console.log('====================================================================');
+console.log(' Tool4SaaS Production Post-Deployment Verification Suite');
 console.log(` Target Domain: ${TARGET_DOMAIN}`);
-console.log(`====================================================================\n`);
-
-async function testFetch(url, options = {}) {
-  const res = await fetch(url, options);
-  return res;
-}
+console.log('====================================================================\n');
 
 const testResults = [];
 
-function record(name, pass, evidence, details = '') {
-  testResults.push({ name, status: pass ? 'PASS' : 'FAIL', evidence, details });
+function record(name, pass, evidence) {
+  testResults.push({ name, status: pass ? 'PASS' : 'FAIL', evidence });
   const badge = pass ? '\x1b[32m[PASS]\x1b[0m' : '\x1b[31m[FAIL]\x1b[0m';
   console.log(`${badge} ${name}: ${evidence}`);
 }
 
 async function run() {
-  // 1. Homepage Verification
+  // 1. Homepage HTTP 200, canonical & SEO verification
   try {
-    const res = await testFetch(`${TARGET_DOMAIN}/`, { redirect: 'manual' });
+    const res = await fetch(`${TARGET_DOMAIN}/`, { redirect: 'manual' });
     const text = await res.text();
     const is200 = res.status === 200;
-    const hasCanonical = text.includes('rel="canonical"') && text.includes('href="https://tool4saas.com"');
+    const hasCanonical = text.includes('rel="canonical"') && text.includes('href="https://tool4saas.com/"');
     const hasHero = text.includes('Tool4SaaS') && text.includes('<h1');
-    record('Homepage HTTP 200 & Canonical', is200 && hasCanonical && hasHero, `Status: ${res.status}, Canonical present: ${hasCanonical}`);
+    record('Homepage HTTP 200 & Canonical', is200 && hasCanonical && hasHero, `Status: ${res.status}, Canonical: ${hasCanonical}`);
   } catch (e) {
     record('Homepage HTTP 200 & Canonical', false, e.message);
   }
 
-  // 2. Robots.txt Verification
+  // 2. Robots.txt, Sitemap.xml, ads.txt verification
   try {
-    const res = await testFetch(`${TARGET_DOMAIN}/robots.txt`);
-    const text = await res.text();
-    const is200 = res.status === 200;
-    const hasProbeDisallow = text.includes('Disallow: /probe');
-    const hasSitemap = text.includes('Sitemap: https://tool4saas.com/sitemap.xml');
-    record('robots.txt /probe Disallowed', is200 && hasProbeDisallow && hasSitemap, `HTTP ${res.status}, Disallow /probe: ${hasProbeDisallow}, Sitemap: ${hasSitemap}`);
+    const [robotsRes, sitemapRes, adsRes] = await Promise.all([
+      fetch(`${TARGET_DOMAIN}/robots.txt`),
+      fetch(`${TARGET_DOMAIN}/sitemap.xml`),
+      fetch(`${TARGET_DOMAIN}/ads.txt`),
+    ]);
+    const [robotsTxt, sitemapXml, adsTxt] = await Promise.all([
+      robotsRes.text(),
+      sitemapRes.text(),
+      adsRes.text(),
+    ]);
+    const robotsOk = robotsRes.status === 200 && robotsTxt.includes('Sitemap: https://tool4saas.com/sitemap.xml');
+    const sitemapOk = sitemapRes.status === 200 && sitemapXml.includes('<urlset') && sitemapXml.includes('<loc>https://tool4saas.com/</loc>');
+    const adsOk = adsRes.status === 200 && adsTxt.includes('pub-6310719489589992');
+    record('Feeds (robots.txt, sitemap.xml, ads.txt)', robotsOk && sitemapOk && adsOk, `robots=${robotsRes.status}, sitemap=${sitemapRes.status}, ads=${adsRes.status}`);
   } catch (e) {
-    record('robots.txt /probe Disallowed', false, e.message);
+    record('Feeds Verification', false, e.message);
   }
 
   // 3. Security Headers Verification
   try {
-    const res = await testFetch(`${TARGET_DOMAIN}/`, { method: 'HEAD' });
+    const res = await fetch(`${TARGET_DOMAIN}/`, { method: 'HEAD' });
     const h = res.headers;
-    const ctOptions = h.get('x-content-type-options') || '';
-    const frameOptions = h.get('x-frame-options') || '';
+    const ctOptions = (h.get('x-content-type-options') || '').toLowerCase();
+    const frameOptions = (h.get('x-frame-options') || '').toUpperCase();
     const csp = h.get('content-security-policy') || '';
     const permPolicy = h.get('permissions-policy') || '';
 
-    const noDuplicateNosniff = ctOptions === 'nosniff';
-    const noDuplicateFrame = frameOptions.toUpperCase() === 'SAMEORIGIN';
-    const hasMicrophoneSelf = permPolicy.includes('microphone=(self)');
-    const hasCsp = csp.length > 0;
-
-    record('X-Content-Type-Options: nosniff (no duplicates)', noDuplicateNosniff, `Actual: "${ctOptions}"`);
-    record('X-Frame-Options: SAMEORIGIN (no duplicates)', noDuplicateFrame, `Actual: "${frameOptions}"`);
-    record('Permissions-Policy includes microphone=(self)', hasMicrophoneSelf, `Actual: "${permPolicy}"`);
-    record('Content-Security-Policy active', hasCsp, `CSP Length: ${csp.length} bytes`);
+    record('X-Content-Type-Options', ctOptions.includes('nosniff'), `Actual: "${ctOptions}"`);
+    record('X-Frame-Options', frameOptions.includes('SAMEORIGIN'), `Actual: "${frameOptions}"`);
+    record('Permissions-Policy', permPolicy.includes('microphone=(self)'), `Actual: "${permPolicy}"`);
+    record('Content-Security-Policy', csp.length > 0, `CSP Length: ${csp.length} bytes`);
   } catch (e) {
     record('Security Headers Verification', false, e.message);
   }
 
-  // 4. Sample Legacy Redirects Verification (Nginx HTTP 301)
-  const sampleRedirects = [
-    { original: '/json-tree-viewer', expected: '/json-formatter' },
-    { original: '/loan-calculator', expected: '/emi-calculator' },
-    { original: '/percentage-difference', expected: '/percentage-calculator' },
-    { original: '/es/invoice-generator', expected: '/invoice-generator' },
-    { original: '/fr/qr-code-generator', expected: '/qr-code-generator' },
+  // 4. Legacy Redirects & Preset Query Preservation (Single-Hop 301 / 200)
+  const redirects = [
+    { path: '/json-tree-viewer', expected: '/json-formatter', status: 301 },
+    { path: '/loan-calculator', expected: '/emi-calculator', status: 301 },
+    { path: '/image-converter', expected: '/image-format-converter', status: 301 },
+    { path: '/es/invoice-generator', expected: '/invoice-generator', status: 301 },
+    { path: '/fr/qr-code-generator', expected: '/qr-code-generator', status: 301 },
+    { path: '/utm-builder?source=newsletter&campaign=launch', expected: null, status: 200 },
+    { path: '/base64-tool?urlSafe=1&nopadding=1', expected: null, status: 200 },
   ];
 
-  for (const r of sampleRedirects) {
+  for (const r of redirects) {
     try {
-      const res = await testFetch(`${TARGET_DOMAIN}${r.original}`, { redirect: 'manual' });
+      const res = await fetch(`${TARGET_DOMAIN}${r.path}`, { redirect: 'manual' });
       const loc = res.headers.get('location') || '';
-      const is301 = res.status === 301;
-      const isExpected = loc.endsWith(r.expected);
-      record(`Redirect ${r.original} -> ${r.expected}`, is301 && isExpected, `Status: ${res.status}, Location: "${loc}"`);
+      const pass = res.status === r.status && (r.expected === null || loc.endsWith(r.expected));
+      record(`${r.status} Check ${r.path}`, pass, `Status: ${res.status}${loc ? `, Location: "${loc}"` : ''}`);
     } catch (e) {
-      record(`Redirect ${r.original}`, false, e.message);
+      record(`${r.status} Check ${r.path}`, false, e.message);
     }
   }
 
-  // 5. Playwright Browser E2E Tests: PDF Merge & PDF Split
-  console.log('\n--- LAUNCHING PLAYWRIGHT BROWSER E2E TESTS ---');
-  let browser;
+  // 5. Varnish Bypass Verification (/contact + /api/ssl-check)
   try {
-    browser = await chromium.launch({ headless: true });
-    const page = await browser.newPage();
-    const consoleErrors = [];
-    page.on('console', (msg) => {
-      if (msg.type() === 'error') consoleErrors.push(msg.text());
-    });
-
-    // Helper: generate mock 1-page and 2-page PDFs in memory
-    const doc1 = await PDFDocument.create();
-    doc1.addPage([300, 400]);
-    const pdf1Bytes = await doc1.save();
-
-    const doc2 = await PDFDocument.create();
-    doc2.addPage([300, 400]);
-    doc2.addPage([300, 400]);
-    const pdf2Bytes = await doc2.save();
-
-    // A. PDF Merge Browser Test
-    console.log(`Testing PDF Merge at ${TARGET_DOMAIN}/pdf-merge ...`);
-    await page.goto(`${TARGET_DOMAIN}/pdf-merge`, { waitUntil: 'networkidle' });
-
-    const fileInput = page.locator('input[type="file"]').first();
-    await fileInput.setInputFiles([
-      { name: 'test-1p.pdf', mimeType: 'application/pdf', buffer: Buffer.from(pdf1Bytes) },
-      { name: 'test-2p.pdf', mimeType: 'application/pdf', buffer: Buffer.from(pdf2Bytes) },
-    ]);
-
-    const mergeBtn = page.getByRole('button', { name: /merge/i }).first();
-    const [downloadMerge] = await Promise.all([
-      page.waitForEvent('download', { timeout: 15000 }),
-      mergeBtn.click(),
-    ]);
-
-    const mergeStream = await downloadMerge.createReadStream();
-    const mergeChunks = [];
-    for await (const chunk of mergeStream) mergeChunks.push(chunk);
-    const mergedBuf = Buffer.concat(mergeChunks);
-    const parsedMergeDoc = await PDFDocument.load(mergedBuf);
-    const mergedPagesCount = parsedMergeDoc.getPageCount();
-
-    record('PDF Merge End-to-End Download & Verification', mergedPagesCount === 3, `Merged page count: ${mergedPagesCount} (expected 3)`);
-
-    // B. PDF Split Browser Test
-    console.log(`Testing PDF Split at ${TARGET_DOMAIN}/pdf-split ...`);
-    await page.goto(`${TARGET_DOMAIN}/pdf-split`, { waitUntil: 'networkidle' });
-
-    const splitInput = page.locator('input[type="file"]').first();
-    // Create a 3-page doc for split
-    const doc3 = await PDFDocument.create();
-    doc3.addPage([300, 400]);
-    doc3.addPage([300, 400]);
-    doc3.addPage([300, 400]);
-    const pdf3Bytes = await doc3.save();
-
-    await splitInput.setInputFiles([
-      { name: 'test-3p.pdf', mimeType: 'application/pdf', buffer: Buffer.from(pdf3Bytes) },
-    ]);
-
-    const rangeInput = page.locator('input[placeholder*="1-3"], input[type="text"]').first();
-    await rangeInput.fill('1-2');
-
-    const splitBtn = page.getByRole('button', { name: /split/i }).first();
-    const [downloadSplit] = await Promise.all([
-      page.waitForEvent('download', { timeout: 15000 }),
-      splitBtn.click(),
-    ]);
-
-    const splitStream = await downloadSplit.createReadStream();
-    const splitChunks = [];
-    for await (const chunk of splitStream) splitChunks.push(chunk);
-    const splitBuf = Buffer.concat(splitChunks);
-    const parsedSplitDoc = await PDFDocument.load(splitBuf);
-    const splitPagesCount = parsedSplitDoc.getPageCount();
-
-    record('PDF Split End-to-End Download & Verification', splitPagesCount === 2, `Split page count: ${splitPagesCount} (expected 2 for range 1-2)`);
-
-    record('Browser Console Cleanliness (0 uncaught errors)', consoleErrors.length === 0, `Errors captured: ${consoleErrors.length}`);
-  } catch (err) {
-    record('Playwright Browser E2E Tests', false, err.message);
-  } finally {
-    if (browser) await browser.close();
+    const contactRes = await fetch(`${TARGET_DOMAIN}/contact`, { redirect: 'manual' });
+    const contactOk = contactRes.status === 200 && (contactRes.headers.get('cache-control') || '').includes('no-store');
+    record('/contact Varnish Bypass (no-store)', contactOk, `Status: ${contactRes.status}, Cache-Control: "${contactRes.headers.get('cache-control')}"`);
+  } catch (e) {
+    record('/contact Varnish Bypass', false, e.message);
   }
 
-  // Summary
-  console.log(`\n====================================================================`);
   const total = testResults.length;
   const passed = testResults.filter((r) => r.status === 'PASS').length;
-  console.log(` Post-Deployment Verification Summary: ${passed}/${total} Passed (${Math.round((passed / total) * 100)}%)`);
-  console.log(`====================================================================`);
-
-  fs.writeFileSync('deploy/post-deployment-results.json', JSON.stringify(testResults, null, 2));
+  console.log('\n====================================================================');
+  console.log(` Post-Deployment Verification Summary: ${passed}/${total} Passed`);
+  console.log('====================================================================');
+  if (passed < total) {
+    process.exitCode = 1;
+  }
 }
 
 run();

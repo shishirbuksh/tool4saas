@@ -112,10 +112,10 @@
                 <template x-for="c in courses" :key="c.id">
                     <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center p-3 rounded-2xl bg-base-200/50 border border-base-300">
                         <div class="sm:col-span-5">
-                            <input type="text" x-model="c.name" placeholder="Course Name" class="input input-bordered rounded-xl w-full text-xs" />
+                            <input aria-label="Course Name" type="text" x-model="c.name" placeholder="Course Name" class="input input-bordered rounded-xl w-full text-xs" />
                         </div>
                         <div class="sm:col-span-3">
-                            <select x-model.number="c.grade" class="select select-bordered rounded-xl w-full text-xs">
+                            <select aria-label="Grade" x-model.number="c.grade" class="select select-bordered rounded-xl w-full text-xs">
                                 <option value="4.0">A (4.0)</option>
                                 <option value="3.7">A- (3.7)</option>
                                 <option value="3.3">B+ (3.3)</option>
@@ -129,7 +129,7 @@
                             </select>
                         </div>
                         <div class="sm:col-span-3">
-                            <input type="number" x-model.number="c.credits" min="0.5" max="20" step="0.5" placeholder="Credits" class="input input-bordered rounded-xl w-full text-xs font-mono" />
+                            <input aria-label="Credits" type="number" x-model.number="c.credits" min="0.5" max="20" step="0.5" placeholder="Credits" class="input input-bordered rounded-xl w-full text-xs font-mono" />
                         </div>
                         <div class="sm:col-span-1 text-right">
                             <button
@@ -155,7 +155,7 @@
             </div>
             <div class="p-5 rounded-2xl bg-base-200/70 border border-base-300">
                 <span class="text-[11px] font-bold text-base-content/60 uppercase tracking-wider font-mono">Total Grade Points (Quality Points)</span>
-                <div class="text-2xl font-black text-primary mt-1 font-display tabular-nums" x-text="totalPoints.toFixed(1)"></div>
+                <div class="text-2xl font-black text-[#163300] dark:text-[#9fe870] mt-1 font-display tabular-nums" x-text="totalPoints.toFixed(1)"></div>
             </div>
         </div>
 
@@ -177,7 +177,7 @@
                     <tbody>
                         <tr>
                             <td class="font-bold font-mono text-[#2ead4b]">A+ / A</td>
-                            <td class="font-mono font-bold text-primary">4.0 Points</td>
+                            <td class="font-mono font-bold text-[#163300] dark:text-[#9fe870]">4.0 Points</td>
                             <td class="font-mono">93% – 100%</td>
                             <td>Highest Honors / Excellent</td>
                         </tr>
@@ -188,13 +188,13 @@
                             <td>Superior Performance</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">B+</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">B+</td>
                             <td class="font-mono">3.3 Points</td>
                             <td class="font-mono">87% – 89%</td>
                             <td>Above Average</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">B</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">B</td>
                             <td class="font-mono">3.0 Points</td>
                             <td class="font-mono">83% – 86%</td>
                             <td>Good (Standard Graduate Minimum)</td>

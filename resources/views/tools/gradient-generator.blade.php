@@ -10,7 +10,7 @@
             : 'radial-gradient(circle, ' + this.c1 + ', ' + this.c2 + ')';
     },
     copyCss() {
-        navigator.clipboard.writeText('background: ' + this.gradientCss + ';');
+        window.copyTextSafe('background: ' + this.gradientCss + ';');
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -22,16 +22,16 @@
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Color 1</label>
                 <div class="flex items-center gap-2">
-                    <input type="color" x-model="c1" class="w-10 h-10 rounded-[10px] cursor-pointer border-0 bg-transparent" />
-                    <input type="text" x-model="c1" class="input input-sm input-bordered rounded-[8px] font-mono w-28 uppercase" />
+                    <input aria-label="C1 color picker" type="color" x-model="c1" class="w-10 h-10 rounded-[10px] cursor-pointer border-0 bg-transparent" />
+                    <input aria-label="Color 1" type="text" x-model="c1" class="input input-sm input-bordered rounded-[8px] font-mono w-28 uppercase" />
                 </div>
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Color 2</label>
                 <div class="flex items-center gap-2">
-                    <input type="color" x-model="c2" class="w-10 h-10 rounded-[10px] cursor-pointer border-0 bg-transparent" />
-                    <input type="text" x-model="c2" class="input input-sm input-bordered rounded-[8px] font-mono w-28 uppercase" />
+                    <input aria-label="C2 color picker" type="color" x-model="c2" class="w-10 h-10 rounded-[10px] cursor-pointer border-0 bg-transparent" />
+                    <input aria-label="Color 2" type="text" x-model="c2" class="input input-sm input-bordered rounded-[8px] font-mono w-28 uppercase" />
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
                     <label class="text-xs font-bold uppercase tracking-wider text-base-content/70">Angle</label>
                     <span class="text-xs font-mono font-bold" x-text="angle + '°'"></span>
                 </div>
-                <input type="range" min="0" max="360" step="5" x-model="angle" class="range range-primary range-sm" />
+                <input aria-label="Angle" type="range" min="0" max="360" step="5" x-model="angle" class="range range-primary range-sm" />
             </div>
         </div>
 
@@ -60,7 +60,7 @@
                     <span x-show="copied" x-cloak>✓ Copied!</span>
                 </button>
             </div>
-            <code class="block font-mono text-sm bg-base-100 p-3 rounded-[10px] text-primary break-all" x-text="'background: ' + gradientCss + ';'"></code>
+            <code class="block font-mono text-sm bg-base-100 p-3 rounded-[10px] text-[#163300] dark:text-[#9fe870] break-all" x-text="'background: ' + gradientCss + ';'"></code>
         </div>
 
         {{-- Technical Comparison: CSS Gradient Types & Syntax Standards Matrix --}}
@@ -81,21 +81,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">linear-gradient()</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">linear-gradient()</td>
                             <td>Straight angle line (0° to 360° or side/corner)</td>
                             <td class="font-mono text-xs">linear-gradient(135deg, #f06, #4a9)</td>
                             <td class="font-mono">sRGB, OKLCH, Display P3</td>
                             <td class="text-success font-semibold">100% all modern &amp; legacy browsers</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">radial-gradient()</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">radial-gradient()</td>
                             <td>Elliptical or circular radiating from center</td>
                             <td class="font-mono text-xs">radial-gradient(circle at center, #fff, #000)</td>
                             <td class="font-mono">sRGB, OKLCH, Display P3</td>
                             <td class="text-success font-semibold">100% all modern browsers</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">conic-gradient()</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">conic-gradient()</td>
                             <td>Rotational sweep around a central pivot (color wheel)</td>
                             <td class="font-mono text-xs">conic-gradient(from 45deg, #f00, #ff0, #0f0)</td>
                             <td class="font-mono">sRGB, OKLCH</td>
@@ -109,7 +109,7 @@
                             <td class="text-success font-semibold">100% modern browsers</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">in oklch (CSS 4)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">in oklch (CSS 4)</td>
                             <td>Perceptually uniform color interpolation (no gray dead zones)</td>
                             <td class="font-mono text-xs">linear-gradient(in oklch to right, blue, red)</td>
                             <td class="font-mono font-bold text-success">OKLCH / CIELAB</td>

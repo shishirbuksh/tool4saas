@@ -66,7 +66,7 @@
             <x-numeric-field label="Current PPF Rate (% p.a.)" model="rate" suffix="%" step="0.1" placeholder="7.1" />
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Tenure (Years)</span></label>
-                <select x-model.number="years" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Tenure (Years)" x-model.number="years" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="15">15 Years (Standard Lock-in)</option>
                     <option value="20">20 Years (1 Block Extension)</option>
                     <option value="25">25 Years (2 Block Extensions)</option>

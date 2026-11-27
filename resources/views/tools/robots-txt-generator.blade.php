@@ -28,7 +28,7 @@
         return lines.join('\n');
     },
     copy() {
-        navigator.clipboard.writeText(this.robotsContent);
+        window.copyTextSafe(this.robotsContent);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     },
@@ -46,7 +46,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Crawler Target</span></label>
-                <select x-model="bot" class="select select-bordered rounded-xl w-full text-sm font-mono">
+                <select aria-label="Crawler Target" x-model="bot" class="select select-bordered rounded-xl w-full text-sm font-mono">
                     <option value="*">All Bots (*)</option>
                     <option value="Googlebot">Googlebot</option>
                     <option value="Bingbot">Bingbot</option>
@@ -57,18 +57,18 @@
             </div>
             <div class="sm:col-span-2">
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">XML Sitemap URL</label>
-                <input type="url" x-model="sitemap" placeholder="https://yourwebsite.com/sitemap.xml" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                <input aria-label="XML Sitemap URL" type="url" x-model="sitemap" placeholder="https://yourwebsite.com/sitemap.xml" class="input input-bordered rounded-xl w-full text-sm font-mono" />
             </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Allowed Directives (1 per line)</label>
-                <textarea x-model="allow" rows="4" class="textarea textarea-bordered rounded-xl w-full text-sm font-mono"></textarea>
+                <textarea aria-label="Allowed Directives (1 per line)" x-model="allow" rows="4" class="textarea textarea-bordered rounded-xl w-full text-sm font-mono"></textarea>
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-1">Disallowed Paths (1 per line)</label>
-                <textarea x-model="disallow" rows="4" class="textarea textarea-bordered rounded-xl w-full text-sm font-mono"></textarea>
+                <textarea aria-label="Disallowed Paths (1 per line)" x-model="disallow" rows="4" class="textarea textarea-bordered rounded-xl w-full text-sm font-mono"></textarea>
             </div>
         </div>
 
@@ -93,7 +93,7 @@
                     </button>
                 </div>
             </div>
-            <textarea x-model="robotsContent" readonly rows="7" class="textarea textarea-bordered rounded-2xl w-full text-xs font-mono bg-black/60 text-primary border-[#242a20] p-4"></textarea>
+            <textarea aria-label="Robots content" x-model="robotsContent" readonly rows="7" class="textarea textarea-bordered rounded-2xl w-full text-xs font-mono bg-black/60 text-primary border-[#242a20] p-4"></textarea>
         </div>
 
         {{-- Technical Comparison: Crawler Robots.txt Support Matrix --}}
@@ -114,35 +114,35 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Googlebot (Google Search)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Googlebot (Google Search)</td>
                             <td class="font-mono">Googlebot</td>
                             <td class="text-[#2ead4b]">100% Standard Support</td>
                             <td class="text-error">Ignored (Use Search Console)</td>
                             <td>Strict compliance with RFC 9309</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Mediapartners-Google (AdSense)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Mediapartners-Google (AdSense)</td>
                             <td class="font-mono">Mediapartners-Google</td>
                             <td class="text-[#2ead4b]">100% Standard Support</td>
                             <td class="text-error">Ignored</td>
                             <td>Must be allowed for ad contextual review</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Bingbot (Microsoft Bing)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Bingbot (Microsoft Bing)</td>
                             <td class="font-mono">Bingbot</td>
                             <td class="text-[#2ead4b]">100% Standard Support</td>
                             <td class="text-[#2ead4b]">Supported (Seconds)</td>
                             <td>Strict compliance with RFC 9309</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">GPTBot (OpenAI)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">GPTBot (OpenAI)</td>
                             <td class="font-mono">GPTBot</td>
                             <td class="text-[#2ead4b]">100% Standard Support</td>
                             <td class="text-[#2ead4b]">Supported</td>
                             <td>Obeys directives for AI training data</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">ClaudeBot (Anthropic)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">ClaudeBot (Anthropic)</td>
                             <td class="font-mono">ClaudeBot</td>
                             <td class="text-[#2ead4b]">100% Standard Support</td>
                             <td class="text-[#2ead4b]">Supported</td>

@@ -36,7 +36,7 @@
                     <button type="button" @click="text = ''" class="btn btn-xs btn-ghost rounded-[8px]">Clear</button>
                 </div>
             </div>
-            <textarea
+            <textarea aria-label="Text to check for grammar and style"
                 x-model="text"
                 rows="8"
                 placeholder="Type or paste essays, emails, or articles to audit for double spaces, duplicate words, capitalization errors, and common typos..."
@@ -83,13 +83,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Subject-Verb Agreement</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Subject-Verb Agreement</td>
                             <td class="font-mono text-error">The list of items are long.</td>
                             <td class="font-mono text-success font-semibold">The list of items is long.</td>
                             <td>Verb must agree with singular head noun &ldquo;list&rdquo;, not prepositional object</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Comma Splice</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Comma Splice</td>
                             <td class="font-mono text-error">It rained, we stayed inside.</td>
                             <td class="font-mono text-success font-semibold">It rained; we stayed inside.</td>
                             <td>Independent clauses cannot be joined by a comma alone without a coordinating conjunction</td>

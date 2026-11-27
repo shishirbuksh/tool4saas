@@ -54,7 +54,7 @@
     },
     copy() {
         if (!this.optimizedSvg) return;
-        navigator.clipboard.writeText(this.optimizedSvg);
+        window.copyTextSafe(this.optimizedSvg);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     },
@@ -72,7 +72,7 @@
     <div class="space-y-6">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Raw SVG Code</label>
-            <textarea
+            <textarea aria-label="Raw SVG Code"
                 x-model="svgInput"
                 @input="optimize()"
                 rows="6"
@@ -123,21 +123,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Metadata &amp; Comment Stripping</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Metadata &amp; Comment Stripping</td>
                             <td class="font-mono">&lt;!-- --&gt;, &lt;metadata&gt;, &lt;desc&gt;, &lt;title&gt;</td>
                             <td class="font-bold text-success font-mono">10% – 25% savings</td>
                             <td class="text-success font-bold">100% Zero visual change</td>
                             <td class="text-success font-bold">Completely safe (Removes Illustrator/Figma junk)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Coordinate Precision Rounding</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Coordinate Precision Rounding</td>
                             <td class="font-mono">d="M10.123456 20.987654..." → d="M10.1 21..."</td>
                             <td class="font-bold text-success font-mono">20% – 40% savings</td>
                             <td>Imperceptible at 2 decimal places</td>
                             <td>Safe for UI icons; keep 3 decimals for detailed maps</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Whitespace &amp; Linebreak Collapse</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Whitespace &amp; Linebreak Collapse</td>
                             <td class="font-mono">CRLF, tabs, multi-spaces between tags</td>
                             <td class="font-mono">10% – 15% savings</td>
                             <td class="text-success font-bold">Zero visual change</td>

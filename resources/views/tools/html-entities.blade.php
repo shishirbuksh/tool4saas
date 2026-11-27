@@ -23,7 +23,7 @@
     },
     copy() {
         if (!this.output) return;
-        navigator.clipboard.writeText(this.output);
+        window.copyTextSafe(this.output);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -51,7 +51,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2" x-text="mode === 'encode' ? 'Plain HTML / Text Input' : 'HTML Entities Input'"></label>
-                <textarea
+                <textarea aria-label="Enter characters to process"
                     x-model="input"
                     @input="process()"
                     rows="10"
@@ -72,7 +72,7 @@
                         <span x-text="copied ? 'Copied!' : 'Copy Result'"></span>
                     </button>
                 </div>
-                <textarea
+                <textarea aria-label="Converted result will appear here"
                     x-model="output"
                     readonly
                     rows="10"
@@ -100,42 +100,42 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">&amp;</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">&amp;</td>
                             <td>Ampersand Symbol</td>
                             <td class="font-mono text-[#2ead4b] font-bold">&amp;amp;</td>
                             <td class="font-mono">&amp;#38;</td>
                             <td class="font-mono">&amp;#x26;</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">&lt;</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">&lt;</td>
                             <td>Less-Than (Tag Open)</td>
                             <td class="font-mono text-[#2ead4b] font-bold">&amp;lt;</td>
                             <td class="font-mono">&amp;#60;</td>
                             <td class="font-mono">&amp;#x3C;</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">&gt;</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">&gt;</td>
                             <td>Greater-Than (Tag Close)</td>
                             <td class="font-mono text-[#2ead4b] font-bold">&amp;gt;</td>
                             <td class="font-mono">&amp;#62;</td>
                             <td class="font-mono">&amp;#x3E;</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">&quot;</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">&quot;</td>
                             <td>Double Quotation Mark</td>
                             <td class="font-mono text-[#2ead4b] font-bold">&amp;quot;</td>
                             <td class="font-mono">&amp;#34;</td>
                             <td class="font-mono">&amp;#x22;</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">&#39;</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">&#39;</td>
                             <td>Single Quote / Apostrophe</td>
                             <td class="font-mono text-[#2ead4b] font-bold">&amp;apos;</td>
                             <td class="font-mono">&amp;#39;</td>
                             <td class="font-mono">&amp;#x27;</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary text-base">␣</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870] text-base">␣</td>
                             <td>Non-Breaking Space</td>
                             <td class="font-mono text-[#2ead4b] font-bold">&amp;nbsp;</td>
                             <td class="font-mono">&amp;#160;</td>

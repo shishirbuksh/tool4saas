@@ -71,7 +71,7 @@
         <x-numeric-field label="Interest Rate (%)" model="interestRate" suffix="%" step="0.01" placeholder="6.5" />
         <div class="form-control">
             <label class="label py-1"><span class="label-text font-semibold text-sm">Loan Term</span></label>
-            <select x-model.number="loanYears" class="select select-bordered rounded-xl w-full text-sm">
+            <select aria-label="Loan Term" x-model.number="loanYears" class="select select-bordered rounded-xl w-full text-sm">
                 <option value="30">30 Years Fixed</option>
                 <option value="20">20 Years Fixed</option>
                 <option value="15">15 Years Fixed</option>

@@ -201,7 +201,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="bg-base-200/50 p-5 rounded-2xl border border-base-300">
                     <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Cumulative Grade Point Average (CGPA)</label>
-                    <input
+                    <input aria-label="Cumulative Grade Point Average (CGPA)"
                         type="number"
                         min="0"
                         max="10"
@@ -269,10 +269,10 @@
                             <span class="font-bold text-xs text-base-content font-mono block" x-text="s.sem"></span>
                         </div>
                         <div class="col-span-3 sm:col-span-3">
-                            <input type="number" min="0" max="10" step="0.01" x-model.number="s.sgpa" class="input input-sm input-bordered w-full rounded-xl font-mono text-xs" placeholder="SGPA" />
+                            <input aria-label="SGPA" type="number" min="0" max="10" step="0.01" x-model.number="s.sgpa" class="input input-sm input-bordered w-full rounded-xl font-mono text-xs" placeholder="SGPA" />
                         </div>
                         <div class="col-span-3 sm:col-span-4">
-                            <input type="number" min="1" max="40" step="1" x-model.number="s.credits" class="input input-sm input-bordered w-full rounded-xl font-mono text-xs" placeholder="Credits" />
+                            <input aria-label="Credits" type="number" min="1" max="40" step="1" x-model.number="s.credits" class="input input-sm input-bordered w-full rounded-xl font-mono text-xs" placeholder="Credits" />
                         </div>
                         <div class="col-span-1 text-right">
                             <button type="button" @click="removeSemester(s.id)" :disabled="sgpaList.length <= 1" class="btn btn-ghost btn-circle btn-xs text-error">✕</button>
@@ -300,7 +300,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="bg-base-200/50 p-5 rounded-2xl border border-base-300">
                     <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Marks Obtained</label>
-                    <input
+                    <input aria-label="Marks Obtained"
                         type="number"
                         min="0"
                         step="1"
@@ -313,7 +313,7 @@
 
                 <div class="bg-base-200/50 p-5 rounded-2xl border border-base-300">
                     <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Total Maximum Marks</label>
-                    <input
+                    <input aria-label="Total Maximum Marks"
                         type="number"
                         min="1"
                         step="1"

@@ -84,11 +84,11 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono" x-text="mode === 'wake' ? 'Target Wake-Up Time' : 'Bedtime'"></span></label>
-                <input type="time" x-model="timeInput" class="input input-bordered rounded-xl w-full text-base font-mono" />
+                <input aria-label="Time input" type="time" x-model="timeInput" class="input input-bordered rounded-xl w-full text-base font-mono" />
             </div>
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Time to Fall Asleep (Minutes)</span></label>
-                <select x-model.number="fallAsleepMin" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Time to Fall Asleep (Minutes)" x-model.number="fallAsleepMin" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="10">10 minutes (Quick)</option>
                     <option value="15">15 minutes (Average)</option>
                     <option value="25">25 minutes (Slow)</option>
@@ -113,7 +113,7 @@
             <template x-for="r in results" :key="r.cycles">
                 <div class="p-5 rounded-2xl border transition-all" :class="r.recommended ? 'bg-primary/10 border-primary shadow-xs' : 'bg-base-200/60 border-base-300'">
                     <div class="flex items-center justify-between mb-1">
-                        <span class="text-[10px] font-bold uppercase font-mono tracking-wider" :class="r.recommended ? 'text-primary' : 'text-base-content/60'" x-text="r.cycles + ' Cycles (' + r.hours + ' hrs)'"></span>
+                        <span class="text-[10px] font-bold uppercase font-mono tracking-wider" :class="r.recommended ? 'text-[#163300] dark:text-[#9fe870]' : 'text-base-content/60'" x-text="r.cycles + ' Cycles (' + r.hours + ' hrs)'"></span>
                         <template x-if="r.recommended">
                             <span class="badge badge-primary badge-xs font-bold">Recommended</span>
                         </template>
@@ -152,14 +152,14 @@
                             <td>Functional; acceptable for occasional short nights</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">5 Sleep Cycles (Ideal)</td>
-                            <td class="font-mono text-primary font-bold">7 Hours 30 Mins</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">5 Sleep Cycles (Ideal)</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">7 Hours 30 Mins</td>
                             <td>Complete N3 physical repair + full REM memory indexing</td>
                             <td class="text-[#2ead4b] font-bold">Peak Alertness; optimal human standard</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">6 Sleep Cycles</td>
-                            <td class="font-mono text-primary font-bold">9 Hours 00 Mins</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">6 Sleep Cycles</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">9 Hours 00 Mins</td>
                             <td>Maximum restorative REM dreaming &amp; cellular growth</td>
                             <td class="text-[#2ead4b]">Full Recovery; recommended for athletes</td>
                         </tr>

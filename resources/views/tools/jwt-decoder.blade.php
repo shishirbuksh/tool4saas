@@ -96,7 +96,7 @@
                     <button type="button" @click="loadSample('clear')" class="px-3 py-1 rounded-full bg-base-200 border border-base-300 text-[11px] font-semibold hover:text-error transition-all">Clear</button>
                 </div>
             </div>
-            <textarea
+            <textarea aria-label="Paste JWT token (e.g. eyJhbGciOiJIUzI1Ni...)"
                 x-model="token"
                 @input="decodeJwt()"
                 rows="4"
@@ -124,7 +124,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {{-- Header --}}
             <div class="p-6 rounded-3xl bg-base-100 border border-base-300 shadow-xs">
-                <span class="text-xs font-bold uppercase tracking-wider text-primary font-mono block mb-2">Header (Algorithm &amp; Token Type)</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-[#163300] dark:text-[#9fe870] font-mono block mb-2">Header (Algorithm &amp; Token Type)</span>
                 <pre class="bg-base-200/60 p-4 rounded-2xl font-mono text-xs text-base-content overflow-x-auto min-h-[160px]"><code x-text="headerStr || 'Header will appear here...'"></code></pre>
             </div>
 
@@ -153,21 +153,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">HS256</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">HS256</td>
                             <td>Symmetric (Shared Secret)</td>
                             <td class="text-warning">High (Client holds secret)</td>
                             <td class="text-[#2ead4b]">Ultra-Fast (HMAC)</td>
                             <td>Internal backend microservices</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">RS256</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">RS256</td>
                             <td>Asymmetric (Private / Public)</td>
                             <td class="text-[#2ead4b]">Zero (JWKS Public Key)</td>
                             <td>Moderate (RSA math)</td>
                             <td>OAuth 2.0, Auth0, Google Identity, Okta</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">ES256</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">ES256</td>
                             <td>Asymmetric (Elliptic Curve)</td>
                             <td class="text-[#2ead4b]">Zero (JWKS Public Key)</td>
                             <td class="text-[#2ead4b]">High (Shorter Keys)</td>

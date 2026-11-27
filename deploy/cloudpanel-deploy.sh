@@ -34,13 +34,11 @@ sed -i 's/^APP_DEBUG=.*/APP_DEBUG=false/' .env
 if ! grep -q "CACHE_STORE=" .env; then
     echo "CACHE_STORE=file" >> .env
 fi
-mkdir -p database
-touch database/database.sqlite
 
 # 2. Composer dependencies (MUST run before any artisan commands)
 echo "📦 [3/7] Installing Composer production dependencies..."
 if command -v composer &> /dev/null; then
-    composer install --no-dev --optimize-autoloader --no-interaction
+    COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader --no-interaction
 else
     echo "❌ Composer not found in PATH."
     exit 1
@@ -76,8 +74,19 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-# 5. IndexNow Instant Search Engine Notification
-echo "📡 [6/7] Submitting 319 URLs to IndexNow (Bing, Yandex, Seznam)..."
+# 4.5. Ensure static Open Graph PNGs are up to date
+if [ ! -f "public/og/home.png" ]; then
+    echo "🖼️  Generating missing static Open Graph images..."
+    php artisan og:generate --force || true
+fi
+
+# 5. Purge Varnish cache (if active) so updated pages & assets serve immediately
+if command -v varnishadm &> /dev/null; then
+    varnishadm "ban req.url ~ ^/" 2>/dev/null && echo "🧹 Varnish cache purged." || true
+fi
+
+# 6. IndexNow Instant Search Engine Notification
+echo "📡 [6/7] Submitting indexable sitemap URLs to IndexNow..."
 php artisan seo:indexnow || echo "⚠️  IndexNow ping skipped (non-critical network timeout)."
 
 # 6. Reload PHP-FPM

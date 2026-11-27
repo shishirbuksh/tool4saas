@@ -84,11 +84,11 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="form-control">
                         <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Start Date</span></label>
-                        <input type="date" x-model="startDate" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                        <input aria-label="Start Date" type="date" x-model="startDate" class="input input-bordered rounded-xl w-full text-sm font-mono" />
                     </div>
                     <div class="form-control">
                         <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">End Date</span></label>
-                        <input type="date" x-model="endDate" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                        <input aria-label="End Date" type="date" x-model="endDate" class="input input-bordered rounded-xl w-full text-sm font-mono" />
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@
                     </div>
                     <div class="p-5 rounded-2xl bg-base-200/70 border border-base-300">
                         <span class="text-[11px] font-bold text-base-content/60 uppercase tracking-wider font-mono">Total Hours</span>
-                        <div class="text-2xl font-black text-primary mt-1 font-display tabular-nums">
+                        <div class="text-2xl font-black text-[#163300] dark:text-[#9fe870] mt-1 font-display tabular-nums">
                             <span x-text="(Math.abs(diffDays) * 24).toLocaleString()"></span> hrs
                         </div>
                     </div>
@@ -131,11 +131,11 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div class="form-control">
                         <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Base Date</span></label>
-                        <input type="date" x-model="startDate" class="input input-bordered rounded-xl w-full text-sm font-mono" />
+                        <input aria-label="Base Date" type="date" x-model="startDate" class="input input-bordered rounded-xl w-full text-sm font-mono" />
                     </div>
                     <div class="form-control">
                         <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Operation</span></label>
-                        <select x-model="shiftOp" class="select select-bordered rounded-xl w-full text-sm">
+                        <select aria-label="Operation" x-model="shiftOp" class="select select-bordered rounded-xl w-full text-sm">
                             <option value="add">Add (+)</option>
                             <option value="sub">Subtract (−)</option>
                         </select>
@@ -172,13 +172,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Calendar Days (Actual/Actual)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Calendar Days (Actual/Actual)</td>
                             <td>Includes all 7 days of the week</td>
                             <td class="font-mono">365 or 366 Days</td>
                             <td>Civil contracts, age, SaaS subscription cycles</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Business Days (Working Days)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Business Days (Working Days)</td>
                             <td>Excludes Saturdays, Sundays &amp; federal holidays</td>
                             <td class="font-mono">~250–252 Days</td>
                             <td>Shipping ETAs, legal court filings, banking clearing</td>

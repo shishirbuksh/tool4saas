@@ -59,12 +59,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Purchase Subtotal ($)</label>
-                <input type="number" min="0" step="10" x-model="subtotal" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Purchase Subtotal ($)" type="number" min="0" step="10" x-model="subtotal" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Select US State</label>
-                <select x-model="state" @change="updateState()" class="select select-bordered w-full rounded-[12px] text-sm font-semibold">
+                <select aria-label="Select US State" x-model="state" @change="updateState()" class="select select-bordered w-full rounded-[12px] text-sm font-semibold">
                     <template x-for="(r, s) in rates" :key="s">
                         <option :value="s" x-text="s + ' (' + r + '%)'"></option>
                     </template>
@@ -73,7 +73,7 @@
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Custom Tax Rate (%)</label>
-                <input type="number" min="0" max="25" step="0.25" x-model="rate" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Custom Tax Rate (%)" type="number" min="0" max="25" step="0.25" x-model="rate" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
         </div>
 
@@ -109,21 +109,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">California (CA)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">California (CA)</td>
                             <td class="font-mono font-bold">7.25% (Highest base)</td>
                             <td class="font-mono">+3.00%</td>
                             <td class="font-mono font-bold text-error">8.85% (Up to 10.75% in LA/SF)</td>
                             <td>$500,000 annual gross sales</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Texas (TX)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Texas (TX)</td>
                             <td class="font-mono">6.25%</td>
                             <td class="font-mono">+2.00%</td>
                             <td class="font-mono font-bold">8.20% (Common 8.25% cap)</td>
                             <td>$500,000 annual sales</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">New York (NY)</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">New York (NY)</td>
                             <td class="font-mono">4.00%</td>
                             <td class="font-mono">+4.875% (NYC)</td>
                             <td class="font-mono font-bold text-error">8.52% (8.875% in NYC)</td>

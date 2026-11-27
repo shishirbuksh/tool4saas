@@ -29,7 +29,7 @@
                     <span x-text="chars"></span> chars · <span x-text="words"></span> words
                 </span>
             </div>
-            <textarea
+            <textarea aria-label="Prompt / Document Input"
                 x-model="text"
                 rows="8"
                 placeholder="Paste prompt, code, or article text here..."
@@ -58,7 +58,7 @@
                             <span class="text-xs font-bold font-mono text-base-content" x-text="m.name"></span>
                             <span class="text-[10px] text-base-content/50 font-mono" x-text="'$' + m.price + '/M'"></span>
                         </div>
-                        <div class="text-xl font-black text-primary font-mono tabular-nums">
+                        <div class="text-xl font-black text-[#163300] dark:text-[#9fe870] font-mono tabular-nums">
                             $<span x-text="calcCost(m.price)"></span>
                         </div>
                     </div>
@@ -84,14 +84,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">OpenAI GPT-4o / mini</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">OpenAI GPT-4o / mini</td>
                             <td class="font-mono">o200k_base (BPE)</td>
                             <td class="font-mono font-bold">~200,000 tokens</td>
                             <td class="font-mono">~1,250 – 1,300</td>
                             <td class="font-mono">128,000 tokens</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">OpenAI GPT-4 / 3.5</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">OpenAI GPT-4 / 3.5</td>
                             <td class="font-mono">cl100k_base (BPE)</td>
                             <td class="font-mono">100,277 tokens</td>
                             <td class="font-mono">~1,330 – 1,380</td>

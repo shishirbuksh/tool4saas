@@ -570,27 +570,48 @@ final class SeoService
             return '';
         }
 
-        // 1. Convert markdown links: [label](url)
+        // Escape raw HTML upfront so literal code tags (e.g. <h1>, <script>, &amp;) never break DOM or inject HTML
+        $escaped = htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+
+        // 1. Protect backtick code spans first so brackets/asterisks inside code are left verbatim
+        $codeBlocks = [];
+        $rendered = (string) preg_replace_callback(
+            '/`([^`]+)`/',
+            function (array $matches) use (&$codeBlocks): string {
+                $token = '__INLINE_CODE_'.count($codeBlocks).'__';
+                $codeBlocks[$token] = '<code class="px-1.5 py-0.5 rounded-md bg-base-200 text-xs font-mono">'.$matches[1].'</code>';
+
+                return $token;
+            },
+            $escaped
+        );
+
+        // 2. Convert markdown links: [label](url) with safe scheme enforcement and AAA light-mode contrast
         $rendered = (string) preg_replace_callback(
             '/\[([^\]]+)\]\(([^)]+)\)/',
             function (array $matches): string {
-                $label = htmlspecialchars($matches[1], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-                $url = trim($matches[2]);
-                $isExternal = preg_match('#^https?://#i', $url) && ! str_contains($url, 'tool4saas.com');
-                $escapedUrl = htmlspecialchars($url, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+                $label = $matches[1];
+                $rawUrl = trim(html_entity_decode($matches[2], ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+                if (! preg_match('#^(?:/(?!\/)|\#|https?://)#i', $rawUrl)) {
+                    return $label;
+                }
 
+                $isExternal = preg_match('#^https?://#i', $rawUrl) && ! str_contains($rawUrl, 'tool4saas.com');
+                $escapedUrl = htmlspecialchars($rawUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
                 $attr = $isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
 
-                return "<a href=\"{$escapedUrl}\" class=\"font-semibold text-primary hover:underline\"{$attr}>{$label}</a>";
+                return "<a href=\"{$escapedUrl}\" class=\"font-semibold text-[#163300] dark:text-[#9fe870] hover:underline\"{$attr}>{$label}</a>";
             },
-            $text
+            $rendered
         );
 
-        // 2. Convert bold: **text**
+        // 3. Convert bold: **text**
         $rendered = (string) preg_replace('/\*\*([^*]+)\*\*/', '<strong>$1</strong>', $rendered);
 
-        // 3. Convert inline code: `code`
-        $rendered = (string) preg_replace('/`([^`]+)`/', '<code class="px-1.5 py-0.5 rounded-md bg-base-200 text-xs font-mono">$1</code>', $rendered);
+        // 4. Restore protected inline code spans
+        if (! empty($codeBlocks)) {
+            $rendered = strtr($rendered, $codeBlocks);
+        }
 
         return $rendered;
     }

@@ -18,7 +18,7 @@
                 <label class="text-xs font-bold uppercase tracking-wider text-base-content/70">Page Meta Title</label>
                 <span class="text-xs font-mono" :class="titleLen >= 50 && titleLen <= 60 ? 'text-success font-bold' : 'text-warning'" x-text="titleLen + ' / 60 chars'"></span>
             </div>
-            <input type="text" x-model="title" class="input input-bordered w-full rounded-[12px] text-sm" />
+            <input aria-label="Page Meta Title" type="text" x-model="title" class="input input-bordered w-full rounded-[12px] text-sm" />
         </div>
 
         <div>
@@ -26,12 +26,12 @@
                 <label class="text-xs font-bold uppercase tracking-wider text-base-content/70">Meta Description</label>
                 <span class="text-xs font-mono" :class="descLen >= 140 && descLen <= 160 ? 'text-success font-bold' : 'text-warning'" x-text="descLen + ' / 160 chars'"></span>
             </div>
-            <textarea x-model="desc" rows="3" class="textarea textarea-bordered w-full rounded-[14px] text-sm leading-relaxed"></textarea>
+            <textarea aria-label="Meta Description" x-model="desc" rows="3" class="textarea textarea-bordered w-full rounded-[14px] text-sm leading-relaxed"></textarea>
         </div>
 
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-base-content/70">Primary H1 Heading</label>
-            <input type="text" x-model="h1" class="input input-bordered w-full rounded-[12px] text-sm" />
+            <input aria-label="Primary H1 Heading" type="text" x-model="h1" class="input input-bordered w-full rounded-[12px] text-sm" />
         </div>
 
         <div class="p-6 rounded-[20px] bg-[#163300] text-white flex items-center justify-between">
@@ -61,21 +61,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">LCP</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">LCP</td>
                             <td>Largest Contentful Paint (Main element load)</td>
                             <td class="font-bold text-success font-mono">≤ 2.5 seconds</td>
                             <td class="font-mono text-error">&gt; 4.0 seconds</td>
                             <td>Preload hero image, optimize TTFB, enable Edge CDN caching</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">INP</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">INP</td>
                             <td>Interaction to Next Paint (Responsiveness)</td>
                             <td class="font-bold text-success font-mono">≤ 200 ms</td>
                             <td class="font-mono text-error">&gt; 500 ms</td>
                             <td>Break up long JS tasks (&gt;50ms), debounce input handlers</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">CLS</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">CLS</td>
                             <td>Cumulative Layout Shift (Visual stability)</td>
                             <td class="font-bold text-success font-mono">≤ 0.10</td>
                             <td class="font-mono text-error">&gt; 0.25</td>

@@ -57,7 +57,7 @@
             <x-numeric-field label="Tenure (Years)" model="years" suffix="Yrs" min="1" max="25" placeholder="5" />
             <div class="form-control">
                 <label class="label py-1"><span class="label-text font-bold text-xs uppercase tracking-wider text-base-content/60 font-mono">Currency</span></label>
-                <select x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
+                <select aria-label="Currency" x-model="currencySymbol" class="select select-bordered rounded-xl w-full text-sm">
                     <option value="₹">INR (₹)</option>
                     <option value="$">USD / CAD / AUD ($)</option>
                     <option value="€">EUR (€)</option>
@@ -92,7 +92,7 @@
             </div>
             <div class="p-5 rounded-2xl bg-base-200/70 border border-base-300">
                 <span class="text-[11px] font-bold text-base-content/60 uppercase tracking-wider font-mono">Effective Annual Yield (APY)</span>
-                <div class="text-2xl font-black text-primary mt-1 font-display tabular-nums">
+                <div class="text-2xl font-black text-[#163300] dark:text-[#9fe870] mt-1 font-display tabular-nums">
                     <span x-text="effectiveYield"></span>% p.a.
                 </div>
             </div>
@@ -116,14 +116,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Quarterly Compounding</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Quarterly Compounding</td>
                             <td class="font-mono font-bold">n = 4</td>
                             <td class="font-mono font-bold text-success">7.186% APY</td>
                             <td class="font-mono font-bold text-success">8.243% APY</td>
                             <td>Indian Banking Standard (SBI, HDFC, ICICI, PNB)</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Monthly Compounding</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Monthly Compounding</td>
                             <td class="font-mono font-bold">n = 12</td>
                             <td class="font-mono font-bold text-success">7.229% APY</td>
                             <td class="font-mono font-bold text-success">8.300% APY</td>

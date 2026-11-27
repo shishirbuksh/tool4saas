@@ -49,17 +49,17 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Total Debt Balance ($)</label>
-                <input type="number" min="100" step="500" x-model="balance" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Total Debt Balance ($)" type="number" min="100" step="500" x-model="balance" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Interest Rate APR (%)</label>
-                <input type="number" min="0" max="40" step="0.5" x-model="rate" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Interest Rate APR (%)" type="number" min="0" max="40" step="0.5" x-model="rate" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Monthly Budget ($)</label>
-                <input type="number" min="10" step="50" x-model="monthlyPayment" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
+                <input aria-label="Monthly Budget ($)" type="number" min="10" step="50" x-model="monthlyPayment" class="input input-bordered w-full rounded-[12px] font-bold text-base" />
             </div>
         </div>
 
@@ -115,14 +115,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Debt Avalanche</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Debt Avalanche</td>
                             <td>Highest APR interest rate first</td>
                             <td class="font-bold text-success font-mono">Maximum (Mathematically optimal)</td>
                             <td>Moderate (Requires sustained discipline)</td>
                             <td>Analytical borrowers with high-APR credit cards</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Debt Snowball</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Debt Snowball</td>
                             <td>Smallest principal balance first</td>
                             <td class="font-mono">Moderate (Pays more total interest)</td>
                             <td class="font-bold text-success">Highest (Fast early quick wins)</td>

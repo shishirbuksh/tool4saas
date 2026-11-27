@@ -21,7 +21,7 @@
         },
         copy() {
             if (!this.output) return;
-            navigator.clipboard.writeText(this.output);
+            window.copyTextSafe(this.output);
             this.copied = true;
             setTimeout(() => this.copied = false, 2000);
         }
@@ -49,7 +49,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label class="block text-sm font-semibold mb-2" x-text="mode === 'encode' ? 'Raw URL or Query String Input' : 'Encoded URL Input'"></label>
-                <textarea
+                <textarea aria-label="URL or text to encode or decode"
                     x-model="input"
                     @input="transform()"
                     rows="9"
@@ -70,7 +70,7 @@
                         <span x-text="copied ? 'Copied!' : 'Copy Result'"></span>
                     </button>
                 </div>
-                <textarea
+                <textarea aria-label="Result will appear here"
                     x-model="output"
                     readonly
                     rows="9"
@@ -105,19 +105,19 @@
                         <tr>
                             <td class="font-bold font-mono text-warning">Space Character</td>
                             <td class="font-mono">Space (" ")</td>
-                            <td class="font-mono text-primary font-bold">%20 (or + in queries)</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870] font-bold">%20 (or + in queries)</td>
                             <td>Must always be encoded in valid web URLs</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Query Sub-Delimiters</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Query Sub-Delimiters</td>
                             <td class="font-mono">&amp;, =, +, $, ,</td>
-                            <td class="font-mono text-primary">%26, %3D, %2B, %24, %2C</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">%26, %3D, %2B, %24, %2C</td>
                             <td>Must be encoded when part of parameter values</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Path Generic Delimiters</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Path Generic Delimiters</td>
                             <td class="font-mono">/, ?, #, :, @</td>
-                            <td class="font-mono text-primary">%2F, %3F, %23, %3A, %40</td>
+                            <td class="font-mono text-[#163300] dark:text-[#9fe870]">%2F, %3F, %23, %3A, %40</td>
                             <td>Must be encoded to avoid parsing as path separators</td>
                         </tr>
                     </tbody>

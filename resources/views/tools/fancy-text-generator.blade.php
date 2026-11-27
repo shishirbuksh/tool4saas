@@ -28,7 +28,7 @@
         });
     },
     copy(val, key) {
-        navigator.clipboard.writeText(val);
+        window.copyTextSafe(val);
         this.copied = key;
         setTimeout(() => this.copied = '', 2000);
     }
@@ -36,7 +36,7 @@
     <div class="space-y-6">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-base-content/70">Enter Normal Text</label>
-            <input type="text" x-model="input" class="input input-bordered w-full rounded-[14px] text-lg font-bold" />
+            <input aria-label="Enter Normal Text" type="text" x-model="input" class="input input-bordered w-full rounded-[14px] text-lg font-bold" />
         </div>
 
         <div class="space-y-3">
@@ -103,21 +103,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Mathematical Bold</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Mathematical Bold</td>
                             <td class="font-mono">U+1D400 – U+1D433</td>
                             <td class="font-mono font-bold">𝐓𝐨𝐨𝐥𝟒𝐒𝐚𝐚𝐒</td>
                             <td class="text-error font-semibold">Reads: &ldquo;Mathematical Bold Capital T, Bold O...&rdquo;</td>
                             <td class="text-warning font-semibold">Dilutes keyword match; avoid in SEO H1s &amp; meta</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Mathematical Italic</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Mathematical Italic</td>
                             <td class="font-mono">U+1D434 – U+1D467</td>
                             <td class="font-mono italic font-bold">𝑇𝑜𝑜𝑙4𝑆𝑎𝑎𝑆</td>
                             <td class="text-error font-semibold">Reads: &ldquo;Mathematical Italic T...&rdquo;</td>
                             <td>Use for social bios (Twitter/X, Instagram, LinkedIn) only</td>
                         </tr>
                         <tr>
-                            <td class="font-bold font-mono text-primary">Mathematical Monospace</td>
+                            <td class="font-bold font-mono text-[#163300] dark:text-[#9fe870]">Mathematical Monospace</td>
                             <td class="font-mono">U+1D670 – U+1D6A3</td>
                             <td class="font-mono font-bold">𝚃𝚘𝚘𝚕𝟺𝚂𝚊𝚊𝚂</td>
                             <td class="text-error font-semibold">Reads as individual isolated symbol tokens</td>

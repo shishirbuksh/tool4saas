@@ -48,7 +48,7 @@
     },
     copy() {
         if (!this.convertedWords) return;
-        navigator.clipboard.writeText(this.convertedWords);
+        window.copyTextSafe(this.convertedWords);
         this.copied = true;
         setTimeout(() => this.copied = false, 2000);
     }
@@ -75,7 +75,7 @@
 
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-base-content/60 font-mono mb-2">Numeric Value</label>
-            <input
+            <input aria-label="Numeric Value"
                 type="number"
                 x-model="numberInput"
                 placeholder="e.g. 1250000"
@@ -128,13 +128,13 @@
                             <td class="font-bold font-mono">100,000</td>
                             <td class="font-mono">10⁵</td>
                             <td>One Hundred Thousand</td>
-                            <td class="font-bold text-primary">One Lakh (1 Lac)</td>
+                            <td class="font-bold text-[#163300] dark:text-[#9fe870]">One Lakh (1 Lac)</td>
                             <td class="font-mono">1,00,000</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">1,000,000</td>
                             <td class="font-mono">10⁶</td>
-                            <td class="font-bold text-primary">One Million</td>
+                            <td class="font-bold text-[#163300] dark:text-[#9fe870]">One Million</td>
                             <td>Ten Lakh (10 Lacs)</td>
                             <td class="font-mono">10,00,000</td>
                         </tr>
@@ -142,13 +142,13 @@
                             <td class="font-bold font-mono">10,000,000</td>
                             <td class="font-mono">10⁷</td>
                             <td>Ten Million</td>
-                            <td class="font-bold text-primary">One Crore (1 Cr)</td>
+                            <td class="font-bold text-[#163300] dark:text-[#9fe870]">One Crore (1 Cr)</td>
                             <td class="font-mono">1,00,00,000</td>
                         </tr>
                         <tr>
                             <td class="font-bold font-mono">1,000,000,000</td>
                             <td class="font-mono">10⁹</td>
-                            <td class="font-bold text-primary">One Billion</td>
+                            <td class="font-bold text-[#163300] dark:text-[#9fe870]">One Billion</td>
                             <td>One Hundred Crore (1 Arab)</td>
                             <td class="font-mono">1,00,00,00,000</td>
                         </tr>

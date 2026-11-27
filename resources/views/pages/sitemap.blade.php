@@ -121,10 +121,10 @@
                             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                                 <a
                                     href="{{ url('/blog/' . $pillar->pillar) }}"
-                                    class="text-base font-bold text-base-content hover:text-primary font-display flex items-center gap-2"
+                                    class="text-base font-bold text-base-content hover:text-[#163300] dark:hover:text-[#9fe870] font-display flex items-center gap-2"
                                 >
                                     <span>{{ $pillar->title }}</span>
-                                    <span class="text-xs text-primary font-mono">→</span>
+                                    <span class="text-xs text-[#163300] dark:text-[#9fe870] font-mono">→</span>
                                 </a>
                                 <span class="text-xs text-base-content/50 font-mono">{{ count($clusters) }} tutorials</span>
                             </div>
