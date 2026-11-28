@@ -63,9 +63,6 @@
         else if (this.length < 12) this.strength = 'Fair';
         else if (this.length < 16) this.strength = 'Good';
         else this.strength = 'Very Strong';
-    },
-    init() {
-        this.generate();
     }
 }">
     {{-- Password Output Box (Wise Polarity-Flipped Dark Surface) --}}

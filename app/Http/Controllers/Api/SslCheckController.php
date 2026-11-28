@@ -133,8 +133,10 @@ final class SslCheckController extends Controller
         $dateValid = ($now >= $validFrom && $now <= $validTo);
         $daysRemaining = max(0, (int) floor(($validTo - $now) / 86400));
 
-        $issuer = $certInfo['issuer']['O'] ?? $certInfo['issuer']['CN'] ?? 'Unknown Issuer';
-        $subject = $certInfo['subject']['CN'] ?? $host;
+        $rawIssuer = $certInfo['issuer']['O'] ?? $certInfo['issuer']['CN'] ?? 'Unknown Issuer';
+        $issuer = is_array($rawIssuer) ? (string) ($rawIssuer[0] ?? 'Unknown Issuer') : (string) $rawIssuer;
+        $rawSubject = $certInfo['subject']['CN'] ?? $host;
+        $subject = is_array($rawSubject) ? (string) ($rawSubject[0] ?? $host) : (string) $rawSubject;
 
         $sanString = $certInfo['extensions']['subjectAltName'] ?? '';
         $sans = [];

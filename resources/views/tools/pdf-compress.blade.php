@@ -79,7 +79,6 @@
             <a :href="compressedUrl" download="compressed.pdf" x-show="compressedUrl" class="btn btn-outline rounded-[12px] font-bold">
                 Download Optimized PDF
             </a>
-        </div>
 
         {{-- Technical Comparison: PDF DPI Compression Standards --}}
         <div class="mt-8 pt-6 border-t border-base-300">

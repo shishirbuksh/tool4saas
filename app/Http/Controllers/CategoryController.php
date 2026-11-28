@@ -41,8 +41,8 @@ final class CategoryController
             : null;
 
         $baseUrl = rtrim((string) config('app.url', 'https://tool4saas.com'), '/');
-        $titleBase = str_ends_with($category->label, 'Tools') ? $category->label : "{$category->label} Tools";
-        $metaTitle = $this->seo->fitMetaTitle("{$titleBase} — {$count} Free Browser Utilities");
+        $titleBase = str_ends_with($category->label, 'Tools') ? $category->label : "Online {$category->label}";
+        $metaTitle = $this->seo->formatTitle("{$titleBase} — {$count} Free Browser Tools");
         $metaDescription = $this->seo->fitMetaDescription($category->description);
         $jsonLd = $this->seo->buildCategoryJsonLd($category, $tools, $baseUrl);
 

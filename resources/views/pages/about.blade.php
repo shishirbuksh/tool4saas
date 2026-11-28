@@ -42,7 +42,7 @@
 
                 <h2 class="text-2xl font-black text-base-content pt-6 border-t border-base-200 font-display">Quality &amp; Testing Methodology</h2>
                 <p>
-                    Every calculator, generator, and converter is built and verified in-house against standard mathematical test fixtures and regulatory benchmarks (such as WHO BMI brackets, CFPB lending formulas, and standard UTC calendar algorithms). Our team maintains automated test suites with over 8,000 assertions across all endpoints.
+                    Every calculator, generator, and converter is built and verified in-house against standard mathematical fixtures and institutional reference formulas (such as WHO BMI brackets, CFPB lending equations, and standard UTC calendar rules). Each utility is checked across modern desktop and mobile browsers to verify calculation accuracy, accessibility, and zero server data transmission.
                 </p>
 
                 <h2 class="text-2xl font-black text-base-content pt-6 border-t border-base-200 font-display">Sustainability</h2>

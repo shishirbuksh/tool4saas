@@ -25,7 +25,7 @@ final class SecurityHeaders
 
         $isEmbed = str_starts_with($request->path(), 'embed/');
 
-        $frameAncestors = $isEmbed ? "'self' *" : "'none'";
+        $frameAncestors = $isEmbed ? "'self' *" : "'self'";
 
         // AdSense, GA, Funding Choices CSP definition
         $csp = implode('; ', [
@@ -35,10 +35,10 @@ final class SecurityHeaders
             "font-src 'self' https://fonts.gstatic.com data:",
             "img-src 'self' data: blob: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google-analytics.com https://i.ytimg.com https://img.youtube.com https://ep1.adtrafficquality.google https://*.adtrafficquality.google https://*.adtrafficquality.google.com https://www.google.com https://*.google.com",
             "media-src 'self' blob:",
-            "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google.com https://*.adtrafficquality.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://fundingchoicesmessages.google.com https://api.exchangerate-api.com",
+            "connect-src 'self' data: blob: https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google.com https://*.adtrafficquality.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://fundingchoicesmessages.google.com https://api.exchangerate-api.com",
             "frame-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://pagead2.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google.com https://*.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://*.adtrafficquality.google.com",
             "worker-src 'self' blob:",
-            "frame-ancestors 'self'",
+            "frame-ancestors {$frameAncestors}",
             "base-uri 'self'",
             "form-action 'self'",
         ]);

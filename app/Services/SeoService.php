@@ -189,11 +189,32 @@ final class SeoService
         return $this->fitMetaTitle($preferred);
     }
 
-    public function formatTitle(string $title, ?string $seoTitle = null): string
+    public function formatTitle(string $title, ?string $seoTitle = null, int $maxWithSuffix = 72): string
     {
         $preferred = $this->normalize($seoTitle ?? $title);
+        $stripped = $this->stripBrandSuffix($preferred);
+        if ($stripped === '') {
+            return trim(self::BRAND_SUFFIX);
+        }
 
-        return $this->fitMetaTitle($preferred);
+        // Preserve complete editorial & category headlines without tool padding or mid-phrase truncation
+        if (mb_strlen($stripped.self::BRAND_SUFFIX) <= $maxWithSuffix) {
+            return $stripped.self::BRAND_SUFFIX;
+        }
+
+        if (mb_strlen($stripped) <= 68) {
+            return $stripped;
+        }
+
+        $budget = max(30, $maxWithSuffix - mb_strlen(self::BRAND_SUFFIX));
+        $sliced = mb_substr($stripped, 0, $budget);
+        $lastSpace = mb_strrpos($sliced, ' ');
+        if ($lastSpace !== false && $lastSpace >= 25) {
+            $sliced = mb_substr($sliced, 0, $lastSpace);
+        }
+        $clean = $this->trimTrailingDangling($sliced);
+
+        return ($clean !== '' ? $clean : $stripped).self::BRAND_SUFFIX;
     }
 
     public function formatDescription(string $description): string
@@ -527,7 +548,7 @@ final class SeoService
                     '@type' => 'CollectionPage',
                     '@id' => "{$canonical}#collection",
                     'url' => $canonical,
-                    'name' => str_ends_with($category->label, 'Tools') ? $category->label : "{$category->label} Tools",
+                    'name' => in_array($category->id, ['calculators', 'converters', 'generators'], true) || str_ends_with($category->label, 'Tools') ? $category->label : "{$category->label} Tools",
                     'description' => $category->description,
                     'inLanguage' => 'en',
                     'isPartOf' => [

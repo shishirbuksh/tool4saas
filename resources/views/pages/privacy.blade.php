@@ -46,9 +46,9 @@
                 Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our sites and/or other sites on the Internet. Users may opt out of personalized advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="text-[#163300] dark:text-[#9fe870] hover:underline font-semibold">Google Ads Settings</a> or through the Network Advertising Initiative opt-out portal at <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" class="text-[#163300] dark:text-[#9fe870] hover:underline font-semibold">www.aboutads.info</a>. For more information on how Google uses data when you use our partners' sites or apps, please review <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" class="text-[#163300] dark:text-[#9fe870] hover:underline font-semibold">Google's Partner Data Policy</a>.
             </p>
 
-            <h2 class="text-2xl font-bold text-base-content pt-6 border-t border-base-200">3. Analytics</h2>
+            <h2 class="text-2xl font-bold text-base-content pt-6 border-t border-base-200">3. Diagnostics &amp; Server Logs</h2>
             <p>
-                We use privacy-configured Google Analytics 4 (GA4) with IP anonymization to monitor aggregated traffic patterns, such as which tools are most frequently accessed. We never transmit personally identifiable information (PII) to analytics services.
+                Tool4SaaS operates on a local-first architecture without intrusive behavioral tracking scripts inside our tools. Standard web server error logs and aggregated search console metrics may be reviewed strictly to monitor uptime, resolve broken links, and maintain service reliability. We never sell or transmit personally identifiable information (PII).
             </p>
         </div>
     </div>

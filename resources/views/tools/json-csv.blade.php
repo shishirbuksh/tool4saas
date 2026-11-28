@@ -27,7 +27,12 @@
                 const q = String.fromCharCode(34);
                 const d = this.delimiter || ',';
                 if (this.mode === 'json2csv') {
-                    const data = JSON.parse(this.input.replace(/'/g, q));
+                    let data;
+                    try {
+                        data = JSON.parse(this.input);
+                    } catch {
+                        data = JSON.parse(this.input.replace(/'/g, q));
+                    }
                     if (!Array.isArray(data)) {
                         this.error = 'Input JSON must be an array of objects.';
                         this.output = '';

@@ -112,8 +112,6 @@
                 <span class="font-bold font-mono" :class="expStatus.color" x-text="expStatus.text"></span>
             </div>
         </template>
-            ></textarea>
-        </div>
 
         {{-- Error Banner --}}
         <div x-show="error" style="display: none;" class="alert alert-error text-xs rounded-2xl py-3 px-4">

@@ -25,7 +25,7 @@
                 <span>{{ count($tools) }} Online Utilities</span>
             </div>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-base-content tracking-tight mb-4 font-display">
-                {{ str_ends_with($category->label, 'Tools') ? $category->label : "{$category->label} Tools" }}
+                {{ in_array($category->id, ['calculators', 'converters', 'generators'], true) || str_ends_with($category->label, 'Tools') ? $category->label : "{$category->label} Tools" }}
             </h1>
             <p class="text-lg sm:text-xl text-base-content/75 leading-relaxed font-normal">
                 {{ $category->description }}

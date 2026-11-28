@@ -159,9 +159,9 @@ final class FeedController extends Controller
             'Bytespider',
         ];
 
-        $body = "User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /probe\nDisallow: /*?target=*\n\n";
+        $body = "User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /probe\n\n";
         foreach ($aiBots as $bot) {
-            $body .= "User-agent: {$bot}\nAllow: /\nDisallow: /api/\nDisallow: /probe\nDisallow: /*?target=*\n\n";
+            $body .= "User-agent: {$bot}\nAllow: /\nDisallow: /api/\nDisallow: /probe\n\n";
         }
         $body .= "Sitemap: {$base}/sitemap.xml\n";
 

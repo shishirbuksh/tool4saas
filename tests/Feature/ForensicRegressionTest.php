@@ -161,3 +161,50 @@ test('sitemap root canonical matches homepage and text feeds include cache heade
     $llmsFullResp->assertStatus(200);
     expect((string) $llmsFullResp->headers->get('Cache-Control'))->toContain('public');
 });
+
+test('csp allows data URIs in connect-src, robots omits ?target=* block, and feed query params strip', function (): void {
+    $imgToPdf = $this->get('/image-to-pdf');
+    $imgToPdf->assertStatus(200);
+    $csp = (string) $imgToPdf->headers->get('Content-Security-Policy');
+    expect($csp)->toContain('connect-src')
+        ->toContain('data:');
+
+    $robotsTxt = (string) $this->get('/robots.txt')->getContent();
+    expect($robotsTxt)->not->toContain('Disallow: /*?target=*');
+
+    $middleware = new HandleLegacyRedirects;
+    $feedResp = $middleware->handle(Request::create('/sitemap.xml?rate=1', 'GET'), fn () => response('ok'));
+    expect($feedResp->getStatusCode())->toBe(301)
+        ->and($feedResp->headers->get('Location'))->toBe(url('/sitemap.xml'));
+});
+
+test('runtime tool fixes and editorial category titles remain clean', function (): void {
+    $pwdContent = (string) file_get_contents(resource_path('views/tools/password-generator.blade.php'));
+    expect(substr_count($pwdContent, 'init()'))->toBe(1);
+
+    $jwtRaw = (string) file_get_contents(resource_path('views/tools/jwt-decoder.blade.php'));
+    expect(substr_count($jwtRaw, '<div'))->toBe(substr_count($jwtRaw, '</div>'))
+        ->and($jwtRaw)->not->toMatch('/<\/template>\s*><\/textarea>/');
+
+    $jwtResp = (string) $this->get('/jwt-decoder')->getContent();
+    expect($jwtResp)->not->toMatch('/<\/template>\s*><\/textarea>/');
+
+    $pdfCompress = (string) file_get_contents(resource_path('views/tools/pdf-compress.blade.php'));
+    expect(substr_count($pdfCompress, '<div'))->toBe(substr_count($pdfCompress, '</div>'));
+
+    $colorExtractor = (string) file_get_contents(resource_path('views/tools/image-color-extractor.blade.php'));
+    expect($colorExtractor)->toContain('Math.min(255,');
+
+    $seoAnalyzer = (string) file_get_contents(resource_path('views/tools/seo-analyzer.blade.php'));
+    expect($seoAnalyzer)->not->toContain('127 Free Online');
+
+    $blogCluster = (string) $this->get('/blog/mortgage-calculator-guide/15-vs-30-year-mortgage')->getContent();
+    expect($blogCluster)->not->toContain('- Free Tool')
+        ->not->toContain('&amp; When | Tool4SaaS');
+
+    $catPdf = (string) $this->get('/category/pdf')->getContent();
+    expect($catPdf)->not->toContain('- Free Tool');
+
+    $catCalc = (string) $this->get('/category/calculators')->getContent();
+    expect($catCalc)->not->toContain('Calculators Tools');
+});

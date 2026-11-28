@@ -63,7 +63,7 @@
                 <h2 class="font-bold text-lg text-base-content">Quality &amp; Verification</h2>
                 <p class="text-xs text-[#163300] dark:text-[#9fe870] font-semibold mt-0.5 mb-3">Automated &amp; Cross-Browser Testing</p>
                 <p class="text-xs text-base-content/70 leading-relaxed">
-                    Executes automated PHPStan Level 8 checks and 8,000+ Feature test assertions across routes, security headers, and UI breakpoints.
+                    Tests interactive browser utilities across desktop and mobile viewports, verifying formula edge cases, accessibility compliance, and zero external data leakage.
                 </p>
             </x-tool-paper>
         </div>

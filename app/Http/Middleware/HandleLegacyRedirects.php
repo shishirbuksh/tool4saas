@@ -137,8 +137,17 @@ final class HandleLegacyRedirects
         /** @var array<string, mixed> $keptParams */
         $keptParams = [];
 
-        // Check if route allows query parameters
-        $isToolRoute = ($workingPath !== '/' && ! in_array($workingPath, ['/about', '/contact', '/privacy', '/terms', '/methodology', '/author', '/sitemap', '/blog', '/student-tools', '/developer-tools'], true) && ! str_starts_with($workingPath, '/category/') && ! str_starts_with($workingPath, '/blog/'));
+        // Check if route allows query parameters (exclude feeds, static hubs, categories, and blog pages)
+        $nonParamRoutes = [
+            '/', '/about', '/contact', '/privacy', '/terms', '/methodology', '/author',
+            '/sitemap', '/blog', '/student-tools', '/developer-tools',
+            '/sitemap.xml', '/robots.txt', '/rss.xml', '/llms.txt', '/llms-full.txt',
+            '/manifest.webmanifest', '/ads.txt',
+        ];
+        $isToolRoute = ! in_array($workingPath, $nonParamRoutes, true)
+            && ! str_starts_with($workingPath, '/category/')
+            && ! str_starts_with($workingPath, '/blog/')
+            && ! str_ends_with($workingPath, '.txt');
 
         // Route-specific override: /utm-builder accepts ?source= and ?campaign= as functional builder presets
         $isUtmBuilder = $workingPath === '/utm-builder';

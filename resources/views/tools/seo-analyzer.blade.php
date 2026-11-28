@@ -1,7 +1,10 @@
+@php
+    $toolCount = count(app(\App\Services\ToolRegistryService::class)->all());
+@endphp
 <x-card class="p-6 md:p-8" x-data="{
-    title: 'Tool4SaaS — 127 Free Online Developer & Productivity Tools',
-    desc: 'Run 127 free online tools directly in your browser with zero data storage. Calculate finances, format code, compress images, and generate assets securely.',
-    h1: '127 Free Online Tools with Maximum Privacy',
+    title: 'Tool4SaaS — {{ $toolCount }} Free Online Developer & Productivity Tools',
+    desc: 'Run {{ $toolCount }} free online tools directly in your browser with zero data storage. Calculate finances, format code, compress images, and generate assets securely.',
+    h1: '{{ $toolCount }} Free Online Tools with Maximum Privacy',
     get titleLen() { return this.title.length; },
     get descLen() { return this.desc.length; },
     get score() {

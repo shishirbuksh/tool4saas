@@ -18,9 +18,9 @@
                 const data = ctx.getImageData(0, 0, 100, 100).data;
                 const colors = {};
                 for (let i = 0; i < data.length; i += 16) {
-                    const r = Math.round(data[i] / 32) * 32;
-                    const g = Math.round(data[i+1] / 32) * 32;
-                    const b = Math.round(data[i+2] / 32) * 32;
+                    const r = Math.min(255, Math.round(data[i] / 32) * 32);
+                    const g = Math.min(255, Math.round(data[i+1] / 32) * 32);
+                    const b = Math.min(255, Math.round(data[i+2] / 32) * 32);
                     const hex = '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
                     colors[hex] = (colors[hex] || 0) + 1;
                 }
